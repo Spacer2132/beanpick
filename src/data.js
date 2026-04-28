@@ -1,0 +1,56 @@
+export const listings = [
+  {
+    id: 'used-ethiopia-worka',
+    title: '프릳츠 Ethiopia Worka Sakaro 200g 미개봉',
+    platform: '중고나라',
+    roastery: '프릳츠 커피 컴퍼니',
+    price: 21000,
+    originalPrice: 28000,
+    weight: 200,
+    condition: '미개봉',
+    location: '서울 마포',
+    listedAt: '7분 전',
+    score: 92,
+    status: '관심',
+    notes: ['Blueberry', 'Floral', 'Honey'],
+  },
+  {
+    id: 'used-colombia-pink',
+    title: '커피 리브레 Colombia Pink Bourbon 소분 판매',
+    platform: '번개장터',
+    roastery: '커피 리브레',
+    price: 17000,
+    originalPrice: 32000,
+    weight: 100,
+    condition: '소분',
+    location: '서울 성동',
+    listedAt: '14분 전',
+    score: 88,
+    status: '검토',
+    notes: ['Tropical', 'Lychee', 'Wine'],
+  },
+  {
+    id: 'used-panama-geisha',
+    title: 'Panama Janson Geisha 100g 선물용 미개봉',
+    platform: '당근',
+    roastery: '모모스 커피',
+    price: 48000,
+    originalPrice: 64000,
+    weight: 100,
+    condition: '미개봉',
+    location: '부산 영도',
+    listedAt: '22분 전',
+    score: 96,
+    status: '최우선',
+    notes: ['Jasmine', 'Bergamot', 'Peach'],
+  },
+];
+
+export const dashboardStats = [
+  { label: '오늘 발견', value: '47', delta: '+12' },
+  { label: '관심 매물', value: '14/47', delta: '+4' },
+  { label: '평균 적합도', value: '81.3', delta: '+2.4' },
+  { label: '검토 대기', value: '7', delta: '-3' },
+];
+
+export const priceTrend = [62, 58, 71, 64, 78, 73, 81, 76, 84, 79, 88, 82, 91, 87];
