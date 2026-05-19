@@ -1,10 +1,13 @@
 import type { BeanProduct } from '../../data/mockBeans';
 import type { FetchProductsResult, RoasteryAdapter } from './types';
+import { normalizeTastingNotes } from '../tastingNotes.js';
+import { isSoldOutFromHtml } from './stockStatus.js';
 
 export const MOMOS_SOURCE_ID = 'momos';
 export const MOMOS_SOURCE_URL = 'https://momos.co.kr/category/%EC%9B%90%EB%91%90/42/';
 
 const MOMOS_ORIGIN = 'https://momos.co.kr';
+const MOMOS_CATEGORY_NO = '42';
 
 type MomosHtmlPage = {
   url: string;
@@ -72,12 +75,13 @@ const NOTE_LABELS: Array<[string, RegExp]> = [
   ['차', /백차|황차|실론티|tea/i],
 ];
 
-function isLikelyBeanProduct(productName: string) {
+function isLikelyBeanProduct(productName: string, allowCategoryProduct = false) {
   const name = productName.toLowerCase();
-  const blockedWords = ['드립백', '브루백', '캡슐', '콜드브루', 'rtd', '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana'];
+  const blockedWords = ['드립백', '브루백', '캡슐', '콜드브루', 'rtd', '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana', '쇼핑백'];
   const beanSignals = ['원두', 'coffee', 'blend', '블렌드', 'washed', 'natural', 'honey', '워시드', '내추럴', '게이샤', 'decaf', '디카페인'];
 
   if (blockedWords.some((word) => name.includes(word))) return false;
+  if (allowCategoryProduct) return true;
   return beanSignals.some((word) => name.includes(word)) || COUNTRY_LABELS.some(([, aliases]) => aliases.some((alias) => name.includes(alias.toLowerCase())));
 }
 
@@ -108,7 +112,7 @@ function inferScore(text: string, index: number) {
 
 function parseTastingNotes(text: string) {
   const mappedNotes = NOTE_LABELS.filter(([, pattern]) => pattern.test(text)).map(([note]) => note);
-  if (mappedNotes.length > 0) return [...new Set(mappedNotes)].slice(0, 4);
+  if (mappedNotes.length > 0) return normalizeTastingNotes(mappedNotes, { limit: 4 });
 
   const plainNotes = text
     .split(/[,/·]/)
@@ -117,11 +121,36 @@ function parseTastingNotes(text: string) {
     .filter((note) => !/커피|원두|매력|조화|즐길|연상/i.test(note))
     .slice(0, 4);
 
-  return plainNotes.length > 0 ? [...new Set(plainNotes)] : ['확인 필요'];
+  return normalizeTastingNotes(plainNotes, { limit: 4 });
 }
 
 function extractProductBlocks(html: string) {
   return [...html.matchAll(/<li id=["']anchorBoxId_([^"']+)["'][\s\S]*?(?=<li id=["']anchorBoxId_|<\/ul>\s*<\/div>)/gi)];
+}
+
+function findCategoryProductUrl(block: string) {
+  const productUrls = [...block.matchAll(/<a[^>]+href=["']([^"']*\/product\/[^"']+)["']/gi)].map((match) => match[1]);
+  return productUrls.find((url) => url.includes(`/category/${MOMOS_CATEGORY_NO}/`) || url.includes(`category/${MOMOS_CATEGORY_NO}`)) || '';
+}
+
+function parsePriceNumber(value: string | undefined) {
+  const parsed = Number(String(value || '').replace(/[^\d]/g, ''));
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function extractOriginalPrice(block: string, salePrice: number) {
+  const candidates = [
+    parsePriceNumber(block.match(/ec-data-custom=["']([^"']+)["']/i)?.[1]),
+    parsePriceNumber(block.match(/data-custom=["']([^"']+)["']/i)?.[1]),
+    ...[...block.matchAll(/(?:소비자가|Retail Price|정가|List Price)[\s\S]{0,140}?(\d{1,3}(?:,\d{3})+|\d{4,})/gi)]
+      .map((match) => parsePriceNumber(match[1])),
+    ...[...block.matchAll(/<(?:s|strike|del)\b[^>]*>([\s\S]*?)<\/(?:s|strike|del)>/gi)]
+      .map((match) => parsePriceNumber(stripHtml(match[1]))),
+    ...[...block.matchAll(/<[^>]+style=["'][^"']*line-through[^"']*["'][^>]*>([\s\S]*?)<\/[^>]+>/gi)]
+      .map((match) => parsePriceNumber(stripHtml(match[1]))),
+  ].filter((price) => price > salePrice);
+
+  return candidates.length > 0 ? Math.max(...candidates) : undefined;
 }
 
 export function parseMomosHtmlProducts(html: string): BeanProduct[] {
@@ -129,7 +158,8 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
     .map((match, index) => {
       const productNo = match[1];
       const block = match[0];
-      const productUrl = toAbsoluteUrl(block.match(/<a[^>]+href=["']([^"']*\/product\/[^"']+)["']/i)?.[1] || MOMOS_SOURCE_URL);
+      const categoryProductUrl = findCategoryProductUrl(block);
+      const productUrl = toAbsoluteUrl(categoryProductUrl);
       const imageUrl = toAbsoluteUrl(block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || '');
       const nameHtml = block.match(/<div class=["']name["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
       const productName = stripHtml(nameHtml).replace(/^상품명\s*:\s*/, '').trim();
@@ -137,6 +167,7 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
       const description = stripHtml(descriptionHtml);
       const combinedText = `${productName} ${description}`;
       const price = Number((block.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, '')) || 0;
+      const originalPrice = extractOriginalPrice(block, price);
 
       return {
         id: createProductId(productNo, productName, index),
@@ -146,19 +177,21 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
         process: inferProcess(combinedText),
         roastLevel: '확인 필요',
         price,
+        originalPrice,
         weight: inferWeight(combinedText),
         score: inferScore(combinedText, index),
         tastingNotes: parseTastingNotes(description),
         productUrl,
         imageUrl,
-        isSoldOut: /alt=["']품절["']|sold\s*out/i.test(block),
+        isSoldOut: isSoldOutFromHtml(block),
         isNew: /alt=["']New["']|alt=["']신상품["']/i.test(block),
         lastCheckedAt: '방금 전',
         checkedMinutesAgo: 0,
       };
     })
+    .filter((product) => product.productUrl.length > 0)
     .filter((product) => product.productName.length > 0)
-    .filter((product) => isLikelyBeanProduct(product.productName));
+    .filter((product) => isLikelyBeanProduct(product.productName, true));
 }
 
 export function normalizeMomosPages(pages: MomosHtmlPage[] = []) {

@@ -8,7 +8,13 @@
     "dev": "node scripts/dev.cjs",
     "web": "vite --host 127.0.0.1",
     "electron": "electron .",
-    "build": "vite build"
+    "build": "vite build",
+    "package:portable": "node scripts/package-portable.cjs",
+    "officialmall:test": "node scripts/test-official-mall.cjs",
+    "tasting-notes:test": "node scripts/test-tasting-notes.cjs",
+    "smartstore:test": "node scripts/test-smartstore-search.cjs",
+    "core-features:test": "node scripts/test-core-features.cjs",
+    "verify": "npm.cmd run tasting-notes:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run build && npm.cmd run package:portable"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",

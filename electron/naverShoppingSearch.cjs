@@ -1,0 +1,617 @@
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const { execFile } = require('node:child_process');
+const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
+
+const NAVER_SHOPPING_SEARCH_URL = 'https://openapi.naver.com/v1/search/shop.json';
+const OCR_CACHE_DIR = path.join(os.tmpdir(), 'beanpick-ocr-cache');
+const TESSERACT_PATHS = [
+  'C:\\Program Files\\Tesseract-OCR\\tesseract.exe',
+  'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe',
+  'tesseract',
+];
+const OCR_USER_WORDS = [
+  'CUPPING',
+  'NOTE',
+  'Taste',
+  'Note',
+  '다크초콜릿',
+  '밀크초콜릿',
+  '초코무스',
+  '초콜릿',
+  '캐러멜',
+  '구운빵',
+  '참깨',
+  '볶은아몬드',
+  '헤이즐넛',
+  '마카다미아',
+  '베르가못',
+  '열대과일',
+  '와이니',
+  '블루베리',
+];
+
+const SMARTSTORE_SOURCES = {
+  roasterick: {
+    sourceId: 'roasterick',
+    roasterName: '로스터릭',
+    query: '로스터릭 원두',
+    mallNames: ['로스터릭'],
+  },
+  lubia: {
+    sourceId: 'lubia',
+    roasterName: '루비아 커피',
+    query: '루비아 원두',
+    mallNames: ['루비아 커피', '루비아'],
+  },
+  hitte: {
+    sourceId: 'hitte',
+    roasterName: '히떼 로스터리',
+    query: '히떼 원두',
+    mallNames: ['히떼 로스터리'],
+  },
+  identity: {
+    sourceId: 'identity',
+    roasterName: '아이덴티티 커피랩',
+    query: '아이덴티티 커피랩 원두',
+    mallNames: ['아이덴티티커피랩', '아이덴티티 커피랩', 'identity_coffeelab'],
+  },
+  toch: {
+    sourceId: 'toch',
+    roasterName: '토치 커피',
+    query: '토치 커피 원두',
+    mallNames: ['토치 커피', '토치커피', 'toch'],
+  },
+  cafedoan: {
+    sourceId: 'cafedoan',
+    roasterName: '카페도안',
+    query: '도안셀렉트샵 원두',
+    categoryUrl: 'https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1',
+    mallNames: ['도안 셀렉트 샵', '도안셀렉트샵', 'doanselectshop'],
+  },
+};
+
+function loadLocalEnv(rootDir = path.resolve(__dirname, '..')) {
+  const localEnv = {};
+  const envDirs = [
+    rootDir,
+    process.resourcesPath,
+    process.execPath ? path.dirname(process.execPath) : '',
+  ].filter(Boolean);
+
+  envDirs.forEach((envDir) => {
+    ['.env', '.env.local'].forEach((fileName) => {
+      const envPath = path.join(envDir, fileName);
+      if (!fs.existsSync(envPath)) return;
+
+      fs.readFileSync(envPath, 'utf8').split(/\r?\n/).forEach((line) => {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) return;
+
+        const separatorIndex = trimmed.indexOf('=');
+        if (separatorIndex < 1) return;
+
+        const key = trimmed.slice(0, separatorIndex).trim();
+        const rawValue = trimmed.slice(separatorIndex + 1).trim();
+        localEnv[key] = rawValue.replace(/^["']|["']$/g, '');
+      });
+    });
+  });
+
+  Object.entries(localEnv).forEach(([key, value]) => {
+    if (process.env[key] == null) {
+      process.env[key] = value;
+    }
+  });
+}
+
+function readNaverSearchConfig(env = process.env) {
+  return {
+    clientId: (env.NAVER_SHOPPING_CLIENT_ID || env.NAVER_COMMERCE_CLIENT_ID || '').trim(),
+    clientSecret: (env.NAVER_SHOPPING_CLIENT_SECRET || env.NAVER_COMMERCE_CLIENT_SECRET || '').trim(),
+  };
+}
+
+function requireNaverSearchConfig() {
+  const config = readNaverSearchConfig();
+
+  if (!config.clientId || !config.clientSecret) {
+    throw new Error('네이버 검색 API Client ID와 Secret을 .env에 넣어주세요.');
+  }
+
+  return config;
+}
+
+function stripHtml(value) {
+  return String(value || '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function createProductId(sourceId, item) {
+  const rawId = item.productId || item.link || item.title;
+  return `${sourceId}-${String(rawId).replace(/[^a-z0-9가-힣]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase()}`;
+}
+
+// 네이버 쇼핑 광고형 긴 제목을 다른 카드 톤에 맞춰 정리한다.
+function cleanShoppingTitle(rawTitle, roasterName = '') {
+  let next = String(rawTitle || '');
+  // 1) 별/꾸미기 토큰 제거
+  next = next.replace(/★[^★]*★/g, ' ');
+  // 2) 선두의 형용사 수식 제거: 최소 2음절, 형용사 어미("한/운/고/진/소") + 공백
+  //    예: "달콤하고 부드러운". "달고나"는 뒤에 "나"가 붙어 lookahead로 차단됨.
+  next = next.replace(/^(?:[가-힣]+(?:한|운|고|진|소)(?=\s)\s*){1,4}/, '');
+  // 3) 용량/개수 표기 제거
+  next = next.replace(/[,，]?\s*\d+(?:\.\d+)?\s*(kg|g)\b/gi, ' ');
+  next = next.replace(/[,，]?\s*\d+\s*개(?![가-힣A-Za-z])/g, ' ');
+  // 4) 포장/형태 후행어 제거
+  next = next.replace(/(홀빈|분쇄커피|분쇄|프렌치프레스|에스프레소|드립용|핸드드립)/g, ' ');
+  // 5) 로스터 브랜드명 중복 제거 (메타에 이미 표시됨). JS \b가 한글에 안 먹어서 공백/처음/끝 패딩으로 잡는다.
+  if (roasterName) {
+    const brand = roasterName.replace(/\s*커피$/, '').trim();
+    if (brand) {
+      next = next.replace(new RegExp(`(^|\\s)${brand}(?=\\s|$)`, 'g'), '$1');
+    }
+  }
+  // 6) 빈 괄호/잔여 공백/쉼표 정리
+  next = next.replace(/\(\s*\)|\[\s*\]/g, ' ');
+  return next.replace(/[,，]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function parseWeight(title) {
+  const kgMatch = title.match(/(\d+(?:\.\d+)?)\s*kg/i);
+  if (kgMatch) return Math.round(Number(kgMatch[1]) * 1000);
+
+  const gramMatch = title.match(/(\d+(?:\.\d+)?)\s*g/i);
+  if (gramMatch) return Math.round(Number(gramMatch[1]));
+
+  return 200;
+}
+
+function getTasteNotes(title) {
+  return [];
+}
+
+function getTessdataPrefix() {
+  return process.env.TESSDATA_PREFIX || path.join(process.env.LOCALAPPDATA || '', 'Tesseract-OCR', 'tessdata');
+}
+
+function findTesseractPath() {
+  return TESSERACT_PATHS.find((candidate) => candidate === 'tesseract' || fs.existsSync(candidate)) || '';
+}
+
+function createOcrUserWordsPath() {
+  try {
+    fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
+    const userWordsPath = path.join(OCR_CACHE_DIR, 'beanpick-user-words.txt');
+    fs.writeFileSync(userWordsPath, OCR_USER_WORDS.join('\n'), 'utf8');
+    return userWordsPath;
+  } catch {
+    return '';
+  }
+}
+
+function runTesseract(imagePath) {
+  const tesseractPath = findTesseractPath();
+  if (!tesseractPath) return Promise.resolve('');
+
+  const tessdataPrefix = getTessdataPrefix();
+  const userWordsPath = createOcrUserWordsPath();
+  const args = [imagePath, 'stdout', '-l', 'kor+eng', '--psm', '6', '-c', 'preserve_interword_spaces=1'];
+  if (tessdataPrefix) {
+    args.push('--tessdata-dir', tessdataPrefix);
+  }
+  if (userWordsPath) {
+    args.push('--user-words', userWordsPath);
+  }
+
+  return new Promise((resolve) => {
+    execFile(tesseractPath, args, {
+      timeout: 12000,
+      windowsHide: true,
+      env: {
+        ...process.env,
+        TESSDATA_PREFIX: tessdataPrefix,
+      },
+    }, (error, stdout) => {
+      resolve(error ? '' : String(stdout || ''));
+    });
+  });
+}
+
+function ocrTextCachePathForImageUrl(imageUrl, options = {}) {
+  const fingerprint = `${imageUrl}|${options.lang || 'kor+eng'}|${options.psm || '6'}`;
+  const hash = crypto.createHash('sha1').update(fingerprint).digest('hex');
+  return path.join(OCR_CACHE_DIR, `${hash}.txt`);
+}
+
+function cachePathForImageUrl(imageUrl) {
+  const urlPath = new URL(imageUrl).pathname;
+  const extension = path.extname(urlPath).slice(0, 8) || '.jpg';
+  const hash = crypto.createHash('sha1').update(imageUrl).digest('hex');
+  return path.join(OCR_CACHE_DIR, `${hash}${extension}`);
+}
+
+async function downloadImageToCache(imageUrl) {
+  if (!imageUrl) return '';
+
+  try {
+    fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
+    const imagePath = cachePathForImageUrl(imageUrl);
+    if (fs.existsSync(imagePath)) return imagePath;
+
+    const response = await fetch(imageUrl);
+    if (!response.ok) return '';
+
+    const buffer = Buffer.from(await response.arrayBuffer());
+    fs.writeFileSync(imagePath, buffer);
+    return imagePath;
+  } catch {
+    return '';
+  }
+}
+
+async function readOcrTextFromImageUrl(imageUrl, options = {}) {
+  const imagePath = await downloadImageToCache(imageUrl);
+  if (!imagePath) return '';
+
+  try {
+    fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
+    const textPath = ocrTextCachePathForImageUrl(imageUrl, options);
+    if (fs.existsSync(textPath)) return fs.readFileSync(textPath, 'utf8');
+
+    const tesseractPath = findTesseractPath();
+    if (!tesseractPath) return '';
+
+    const tessdataPrefix = getTessdataPrefix();
+    const userWordsPath = createOcrUserWordsPath();
+    const args = [
+      imagePath,
+      'stdout',
+      '-l',
+      options.lang || 'kor+eng',
+      '--psm',
+      String(options.psm || 6),
+      '-c',
+      'preserve_interword_spaces=1',
+    ];
+
+    if (tessdataPrefix) {
+      args.push('--tessdata-dir', tessdataPrefix);
+    }
+    if (userWordsPath) {
+      args.push('--user-words', userWordsPath);
+    }
+
+    const text = await new Promise((resolve) => {
+      execFile(tesseractPath, args, {
+        timeout: options.timeout || 20000,
+        windowsHide: true,
+        env: {
+          ...process.env,
+          TESSDATA_PREFIX: tessdataPrefix,
+        },
+      }, (error, stdout) => {
+        resolve(error ? '' : String(stdout || ''));
+      });
+    });
+
+    fs.writeFileSync(textPath, text, 'utf8');
+    return text;
+  } catch {
+    return '';
+  }
+}
+
+function cleanOcrText(text) {
+  return String(text || '')
+    .replace(/\s+/g, ' ')
+    .replace(/([가-힣])\s+(?=[가-힣])/g, '$1')
+    .trim();
+}
+
+const NON_TASTING_NOTES = new Set([
+  '원두',
+  '디카페인',
+  '블렌드',
+  '블랜드',
+  '다크',
+  '홀빈',
+  '분쇄',
+  '커피',
+  '확인 필요',
+]);
+
+const TASTING_NOTE_PATTERNS = [
+  ['다크초콜릿', /다크초콜릿|다크쵸콜릿|darkchoco(?:late)?/i],
+  ['밀크초콜릿', /밀크초콜릿|밀크쵸콜릿|milkchoco(?:late)?/i],
+  ['초코무스', /초코무스|chocomousse/i],
+  ['초콜릿', /초콜릿|쵸콜릿|choco(?:late)?|cacao|카카오|코코아/i],
+  ['열대과일', /열대과일|업대과일|tropical/i],
+  ['와이니', /와이니|winey|winy|wine/i],
+  ['블루베리', /블루베리|blueberry/i],
+  ['딸기', /딸기|strawberry/i],
+  ['체리', /체리|cherry/i],
+  ['자두', /자두|plum/i],
+  ['청포도', /청포도|greengrape/i],
+  ['적포도', /적포도|redgrape/i],
+  ['포도', /포도|grape/i],
+  ['사과', /사과|apple/i],
+  ['복숭아', /복숭아|복승아|peach/i],
+  ['자몽', /자몽|grapefruit/i],
+  ['오렌지', /오렌지|orange/i],
+  ['레몬', /레몬|lemon/i],
+  ['라임', /라임|lime/i],
+  ['시트러스', /시트러스|citrus/i],
+  ['자스민', /자스민|jasmine/i],
+  ['플로럴', /플로럴|floral/i],
+  ['베르가못', /베르가못|베르가뭇|bergamot/i],
+  ['홍차', /홍차|blacktea/i],
+  ['녹차', /녹차|greentea/i],
+  ['참깨', /참깨|참께|sesame/i],
+  ['구운빵', /구운빵|토스트|toast/i],
+  ['볶은아몬드', /볶은아몬드|roastedalmond/i],
+  ['마카다미아', /마카다미아|macadamia/i],
+  ['헤이즐넛', /헤이즐넛|hazelnut/i],
+  ['아몬드', /아몬드|almond/i],
+  ['땅콩', /땅콩|peanut/i],
+  ['견과류', /견과류|건과류|nutty|nuts?/i],
+  ['당밀', /당밀|molasses/i],
+  ['시러피', /시러피|syrupy/i],
+  ['호박', /호박|pumpkin/i],
+  ['바닐라', /바닐라|vanilla/i],
+  ['달고나', /달고나/i],
+  ['캐러멜', /캐러멜|카라멜|caramel/i],
+  ['브라운슈가', /브라운슈가|황설탕|brownsugar/i],
+  ['조청', /조청/i],
+  ['꿀', /꿀|honey/i],
+  ['크리미', /크리미|creamy/i],
+];
+
+function sanitizeTastingNotes(notes) {
+  return normalizeTastingNotes(
+    notes
+      .map((note) => String(note || '').trim())
+      .filter((note) => note && !NON_TASTING_NOTES.has(note)),
+  );
+}
+
+function addNote(notes, note) {
+  const cleanNote = String(note || '').trim();
+  if (cleanNote && !NON_TASTING_NOTES.has(cleanNote) && !notes.includes(cleanNote)) {
+    notes.push(cleanNote);
+  }
+}
+
+function normalizeNoteText(text) {
+  return String(text || '').replace(/\s+/g, '').toLowerCase();
+}
+
+function addNotesFromText(notes, text) {
+  const compact = normalizeNoteText(text);
+
+  TASTING_NOTE_PATTERNS.forEach(([note, pattern]) => {
+    if (pattern.test(compact)) addNote(notes, note);
+  });
+}
+
+function extractHashtagNoteTexts(text) {
+  const notes = [];
+
+  for (const match of text.matchAll(/#\s*([^#\s]+)/g)) {
+    addNotesFromText(notes, match[1]);
+  }
+
+  return notes;
+}
+
+function extractNoteSection(text) {
+  const noteMatch = text.match(/(?:cupping\s*note|tasting\s*note|taste\s*note|cup\s*note|\bnotes?\b|커핑\s*노트|향미|노트)\s*[:：]?\s*([^|]{0,240})/i);
+  if (!noteMatch) return '';
+
+  return noteMatch[1]
+    .split(/\b(?:origin|composition|blend|altitude|variety|process|roasting\s*point|taste\s*scale)\b|원산지|구성|블렌드|고도|품종|가공/i)[0]
+    .replace(/[|/]+/g, ' ')
+    .trim();
+}
+
+function extractOcrTasteNotes(text) {
+  const spacedText = String(text || '').replace(/\s+/g, ' ').trim();
+  const normalized = cleanOcrText(text);
+  const hashtagNotes = extractHashtagNoteTexts(spacedText);
+  if (hashtagNotes.length > 0) return sanitizeTastingNotes(hashtagNotes);
+
+  const noteText = extractNoteSection(normalized);
+
+  const sectionNotes = [];
+  addNotesFromText(sectionNotes, noteText);
+
+  // 명확한 노트 영역만 사용해서 설명문 전체의 단맛/산미 추측을 막는다.
+  const merged = [];
+  for (const list of [sanitizeTastingNotes(sectionNotes), sanitizeTastingNotes(hashtagNotes)]) {
+    for (const note of list) {
+      if (!merged.includes(note)) merged.push(note);
+      if (merged.length >= 5) break;
+    }
+    if (merged.length >= 5) break;
+  }
+  return merged.slice(0, 5);
+}
+
+async function getOcrTasteNotes(imageUrl) {
+  const ocrText = await readOcrTextFromImageUrl(imageUrl, { lang: 'kor+eng', psm: 6, timeout: 12000 });
+  return extractOcrTasteNotes(ocrText);
+}
+
+async function mapWithConcurrency(items, limit, mapper) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      const currentIndex = nextIndex;
+      nextIndex += 1;
+      results[currentIndex] = await mapper(items[currentIndex], currentIndex);
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+  return results;
+}
+
+async function normalizeShoppingItem(item, source, index) {
+  const rawTitle = stripHtml(item.title);
+  const title = cleanShoppingTitle(rawTitle, source.roasterName) || rawTitle;
+  const price = Number(item.lprice || 0);
+  const titleNotes = getTasteNotes(rawTitle);
+  const ocrNotes = await getOcrTasteNotes(item.image || '');
+  const tastingNotes = sanitizeTastingNotes(ocrNotes.length > 0 ? [...ocrNotes, ...titleNotes] : titleNotes);
+
+  return {
+    id: createProductId(source.sourceId, item),
+    roasterName: source.roasterName,
+    productName: title,
+    origin: stripHtml(item.mallName || ''),
+    process: '',
+    roastLevel: '확인 필요',
+    price,
+    weight: parseWeight(rawTitle),
+    score: Math.max(60, 88 - index),
+    tastingNotes,
+    productUrl: item.link || '',
+    imageUrl: item.image || '',
+    isSoldOut: false,
+    isNew: index < 2,
+    lastCheckedAt: '방금',
+    checkedMinutesAgo: index,
+  };
+}
+
+function normalizeSmartStoreCategoryItem(item, source, index) {
+  const rawTitle = stripHtml(item.title);
+  const title = cleanShoppingTitle(rawTitle, source.roasterName) || rawTitle;
+  const price = Number(item.price || 0);
+  const titleNotes = getTasteNotes(rawTitle);
+
+  return {
+    id: `${source.sourceId}-${String(item.id || item.productUrl || rawTitle).replace(/[^a-z0-9가-힣]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase()}`,
+    roasterName: source.roasterName,
+    productName: title,
+    origin: source.roasterName,
+    process: '',
+    roastLevel: '확인 필요',
+    price,
+    weight: parseWeight(rawTitle),
+    score: Math.max(60, 88 - index),
+    tastingNotes: sanitizeTastingNotes(titleNotes),
+    productUrl: item.productUrl || '',
+    imageUrl: item.imageUrl || '',
+    isSoldOut: Boolean(item.isSoldOut),
+    isNew: index < 2,
+    lastCheckedAt: '방금',
+    checkedMinutesAgo: index,
+  };
+}
+
+function normalizeSmartStoreCategoryItems(sourceId, items) {
+  const source = SMARTSTORE_SOURCES[sourceId];
+  if (!source) {
+    throw new Error(`지원하지 않는 스마트스토어입니다: ${sourceId}`);
+  }
+
+  return items.map((item, index) => normalizeSmartStoreCategoryItem(item, source, index));
+}
+
+function isSourceItem(item, source) {
+  const mallName = stripHtml(item.mallName).toLowerCase();
+  return source.mallNames.some((name) => mallName === name.toLowerCase() || mallName.includes(name.toLowerCase()));
+}
+
+async function searchNaverShopping(sourceId) {
+  const source = SMARTSTORE_SOURCES[sourceId];
+  if (!source) {
+    throw new Error(`지원하지 않는 스마트스토어입니다: ${sourceId}`);
+  }
+
+  const config = requireNaverSearchConfig();
+  const url = new URL(NAVER_SHOPPING_SEARCH_URL);
+  url.searchParams.set('query', source.query);
+  url.searchParams.set('display', '30');
+  url.searchParams.set('start', '1');
+  url.searchParams.set('sort', 'sim');
+
+  const response = await fetch(url, {
+    headers: {
+      Accept: 'application/json',
+      'X-Naver-Client-Id': config.clientId,
+      'X-Naver-Client-Secret': config.clientSecret,
+    },
+  });
+  const body = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    const message = body.errorMessage || body.message || body.errorCode || '';
+    throw new Error(`네이버 쇼핑 검색 실패 (${response.status})${message ? `: ${message}` : ''}`);
+  }
+
+  const items = Array.isArray(body.items) ? body.items : [];
+  const sourceItems = items.filter((item) => isSourceItem(item, source));
+
+  return {
+    ok: true,
+    sourceId,
+    sourceUrl: 'https://shopping.naver.com',
+    query: source.query,
+    total: Number(body.total || 0),
+    fetchedAt: new Date().toISOString(),
+    products: await mapWithConcurrency(sourceItems, 3, (item, index) => normalizeShoppingItem(item, source, index)),
+    warning: sourceItems.length === 0 ? `${source.roasterName} 상품을 네이버 쇼핑 검색 결과에서 찾지 못했습니다.` : '',
+  };
+}
+
+async function testSmartStoreSearch() {
+  const sourceIds = Object.keys(SMARTSTORE_SOURCES);
+  const results = await Promise.all(sourceIds.map((sourceId) => searchNaverShopping(sourceId)));
+  const productCount = results.reduce((sum, result) => sum + result.products.length, 0);
+
+  return {
+    ok: true,
+    productCount,
+    sources: results.map((result) => ({
+      sourceId: result.sourceId,
+      query: result.query,
+      total: result.total,
+      productCount: result.products.length,
+      products: result.products.slice(0, 5).map((product) => ({
+        productName: product.productName,
+        tastingNotes: product.tastingNotes,
+      })),
+      warning: result.warning,
+    })),
+    message: `네이버 쇼핑에서 스마트스토어 원두 ${productCount}개를 찾았습니다.`,
+  };
+}
+
+module.exports = {
+  SMARTSTORE_SOURCES,
+  _test: {
+    cleanShoppingTitle,
+    extractOcrTasteNotes,
+    getTasteNotes,
+    normalizeSmartStoreCategoryItems,
+    parseWeight,
+    normalizeTastingNotes,
+  },
+  loadLocalEnv,
+  readOcrTextFromImageUrl,
+  normalizeSmartStoreCategoryItems,
+  searchNaverShopping,
+  testSmartStoreSearch,
+};

@@ -1,4 +1,4 @@
-export type SortMode = 'score' | 'latest' | 'price';
+export type SortMode = 'score' | 'latest' | 'price' | 'unitPriceAsc' | 'unitPriceDesc';
 
 export type BeanProduct = {
   id: string;
@@ -8,6 +8,8 @@ export type BeanProduct = {
   process: string;
   roastLevel: string;
   price: number;
+  originalPrice?: number;
+  discountRate?: number;
   weight: number;
   score: number;
   tastingNotes: string[];
@@ -17,6 +19,9 @@ export type BeanProduct = {
   isNew: boolean;
   lastCheckedAt: string;
   checkedMinutesAgo: number;
+  variety?: string;
+  farm?: string;
+  blendComposition?: Array<{ country: string; percent: number }>;
 };
 
 export const mockBeans: BeanProduct[] = [
@@ -28,6 +33,7 @@ export const mockBeans: BeanProduct[] = [
     process: 'Natural',
     roastLevel: 'Light',
     price: 28000,
+    originalPrice: 40000,
     weight: 200,
     score: 92,
     tastingNotes: ['Blueberry', 'Floral', 'Honey'],
@@ -40,7 +46,7 @@ export const mockBeans: BeanProduct[] = [
   },
   {
     id: 'libre-pink-bourbon',
-    roasterName: '커피 리브레',
+    roasterName: '커피리브레',
     productName: 'Colombia La Pradera Pink Bourbon',
     origin: 'Colombia · Huila',
     process: 'Anaerobic Washed',
@@ -58,7 +64,7 @@ export const mockBeans: BeanProduct[] = [
   },
   {
     id: 'momos-janson-geisha',
-    roasterName: '모모스 커피',
+    roasterName: '모모스커피',
     productName: 'Panama Janson Esmeralda Geisha',
     origin: 'Panama · Boquete',
     process: 'Washed',
@@ -73,24 +79,6 @@ export const mockBeans: BeanProduct[] = [
     isNew: true,
     lastCheckedAt: '12분 전',
     checkedMinutesAgo: 12,
-  },
-  {
-    id: 'felt-kenya-kiambu',
-    roasterName: '펠트 커피',
-    productName: 'Kenya Kiambu AA',
-    origin: 'Kenya · Kiambu',
-    process: 'Washed',
-    roastLevel: 'Light',
-    price: 30000,
-    weight: 200,
-    score: 84,
-    tastingNotes: ['Blackcurrant', 'Citrus', 'Juicy'],
-    productUrl: 'https://beanpick.local/mock/felt-kenya-kiambu',
-    imageUrl: '/images/bean-kenya.jpg',
-    isSoldOut: false,
-    isNew: false,
-    lastCheckedAt: '21분 전',
-    checkedMinutesAgo: 21,
   },
   {
     id: 'namusairo-brazil-cerrado',
@@ -109,24 +97,6 @@ export const mockBeans: BeanProduct[] = [
     isNew: false,
     lastCheckedAt: '28분 전',
     checkedMinutesAgo: 28,
-  },
-  {
-    id: 'lowkey-costa-rica-honey',
-    roasterName: '로우키 커피',
-    productName: 'Costa Rica Black Honey',
-    origin: 'Costa Rica · Tarrazu',
-    process: 'Black Honey',
-    roastLevel: 'Light-Medium',
-    price: 35000,
-    weight: 200,
-    score: 90,
-    tastingNotes: ['Honey', 'Stone Fruit', 'Sweet'],
-    productUrl: 'https://beanpick.local/mock/lowkey-costa-rica-honey',
-    imageUrl: '/images/bean-costa-rica.jpg',
-    isSoldOut: false,
-    isNew: false,
-    lastCheckedAt: '36분 전',
-    checkedMinutesAgo: 36,
   },
   {
     id: 'anthracite-guatemala',
@@ -167,8 +137,8 @@ export const mockBeans: BeanProduct[] = [
 ];
 
 export const dashboardStats = [
-  { label: '모니터링 상품', value: String(mockBeans.length), delta: '+8' },
-  { label: '신상품', value: String(mockBeans.filter((bean) => bean.isNew).length), delta: '+3' },
+  { label: '추천 원두', value: String(mockBeans.length), delta: '+8' },
+  { label: '새 상품', value: String(mockBeans.filter((bean) => bean.isNew).length), delta: '+3' },
   { label: '판매 중', value: String(mockBeans.filter((bean) => !bean.isSoldOut).length), delta: '+5' },
   { label: '품절', value: String(mockBeans.filter((bean) => bean.isSoldOut).length), delta: '-1' },
 ];

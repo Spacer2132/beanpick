@@ -28,12 +28,13 @@ export type MonitorSummary = {
   hasSavedBaseline: boolean;
 };
 
-const STORAGE_KEY = 'beanpick.productSnapshot.v1';
+const SNAPSHOT_STORAGE_KEY = 'beanpick.productSnapshot.v1';
+export const FAVORITE_STORAGE_KEY = 'beanpick.favoriteProducts.v1';
 
 const fallbackPreviousSnapshot: ProductSnapshotItem[] = [
   {
     id: 'libre-pink-bourbon',
-    roasterName: '커피 리브레',
+    roasterName: '커피리브레',
     productName: 'Colombia La Pradera Pink Bourbon',
     price: 34000,
     isSoldOut: false,
@@ -47,15 +48,23 @@ const fallbackPreviousSnapshot: ProductSnapshotItem[] = [
     isSoldOut: false,
     score: 78,
   },
-  {
-    id: 'lowkey-costa-rica-honey',
-    roasterName: '로우키 커피',
-    productName: 'Costa Rica Black Honey',
-    price: 35000,
-    isSoldOut: true,
-    score: 89,
-  },
 ];
+
+function safeReadJson<T>(key: string, fallback: T): T {
+  if (typeof window === 'undefined') return fallback;
+
+  try {
+    const saved = window.localStorage.getItem(key);
+    return saved ? JSON.parse(saved) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function safeWriteJson(key: string, value: unknown) {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(key, JSON.stringify(value));
+}
 
 export function buildProductSnapshot(products: BeanProduct[]): ProductSnapshotItem[] {
   return products.map((product) => ({
@@ -69,19 +78,19 @@ export function buildProductSnapshot(products: BeanProduct[]): ProductSnapshotIt
 }
 
 export function loadSavedSnapshot(): ProductSnapshotItem[] | null {
-  if (typeof window === 'undefined') return null;
-
-  try {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : null;
-  } catch {
-    return null;
-  }
+  return safeReadJson<ProductSnapshotItem[] | null>(SNAPSHOT_STORAGE_KEY, null);
 }
 
 export function saveProductSnapshot(products: BeanProduct[]) {
-  if (typeof window === 'undefined') return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(buildProductSnapshot(products)));
+  safeWriteJson(SNAPSHOT_STORAGE_KEY, buildProductSnapshot(products));
+}
+
+export function loadFavoriteProductIds(): string[] {
+  return safeReadJson<string[]>(FAVORITE_STORAGE_KEY, []);
+}
+
+export function saveFavoriteProductIds(ids: string[]) {
+  safeWriteJson(FAVORITE_STORAGE_KEY, [...new Set(ids)]);
 }
 
 export function diffProductSnapshots(current: ProductSnapshotItem[], previous: ProductSnapshotItem[]): ProductChange[] {
@@ -95,7 +104,7 @@ export function diffProductSnapshots(current: ProductSnapshotItem[], previous: P
       changes.push({
         id: item.id,
         type: 'newProduct',
-        label: '신상품',
+        label: '새 상품',
         detail: `${item.roasterName} · ${item.productName}`,
       });
       return;
@@ -106,7 +115,7 @@ export function diffProductSnapshots(current: ProductSnapshotItem[], previous: P
         id: item.id,
         type: 'priceChanged',
         label: '가격 변경',
-        detail: `${item.productName} · ${before.price.toLocaleString('ko-KR')}원 -> ${item.price.toLocaleString('ko-KR')}원`,
+        detail: `${item.productName} · ${before.price.toLocaleString('ko-KR')}원 → ${item.price.toLocaleString('ko-KR')}원`,
       });
     }
 

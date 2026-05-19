@@ -1,5 +1,6 @@
 import type { BeanProduct } from '../../data/mockBeans';
 import type { FetchProductsResult, RoasteryAdapter } from './types';
+import { normalizeTastingNotes } from '../tastingNotes.js';
 
 export const TERAROSA_SOURCE_ID = 'terarosa';
 export const TERAROSA_SOURCE_URL = 'https://www.terarosa.com/market/product/list?categoryId=482';
@@ -10,6 +11,7 @@ type TerarosaRow = Record<string, unknown>;
 type TerarosaDetailPage = {
   url: string;
   html: string;
+  ocrText?: string;
 };
 
 function textValue(row: TerarosaRow, keys: string[]) {
@@ -100,6 +102,30 @@ const KOREAN_REGION_LABELS: Array<[RegExp, string]> = [
   [/함벨라/i, 'Hambela'],
 ];
 
+const EXPLICIT_TASTING_NOTE_LABELS: Array<[string, RegExp]> = [
+  ['Pecan', /pecan|피칸/i],
+  ['Baked Apple', /baked\s*apple|구운\s*사과/i],
+  ['Butterscotch', /butterscotch|버터스카치/i],
+  ['Prune', /prunes?|dried\s*plums?|말린\s*자두/i],
+  ['Cashew Nut', /cashew\s*(?:nut)?s?|캐슈\s*넛|캐슈\s*너트/i],
+  ['White Chocolate', /white\s*chocolate|화이트\s*초콜릿/i],
+  ['Dried Fruits', /dried\s*fruits?/i],
+  ['Sweet Acidity', /sweet\s*acidity/i],
+  ['Soft', /\bsoft\b/i],
+  ['Long Aftertaste', /long\s*aftertaste/i],
+  ['Tropical Fruit', /tropical\s*(?:fruit|fri)|topical\s*fri/i],
+  ['Sparkling', /sparkling|sparking/i],
+  ['Nectarine', /nectarine/i],
+  ['Soda', /\bsod[ao]\b|\bsat[ao]\b|\bsad[ao]\b/i],
+  ['Orange', /orange|오렌지/i],
+  ['Raspberry', /raspberry|라즈베리/i],
+  ['Melon', /melon|멜론/i],
+  ['Date', /date|대추야자/i],
+  ['Jasmine', /jasmine|재스민/i],
+  ['Chocolate', /chocolate|초콜릿/i],
+  ['Honey', /honey|허니|꿀/i],
+];
+
 function isLikelyBeanProduct(productName: string) {
   const name = productName.toLowerCase();
   const blockedWords = [
@@ -174,6 +200,10 @@ function stripHtml(html: string) {
     .trim();
 }
 
+function stripHtmlComments(html: string) {
+  return html.replace(/<!--[\s\S]*?-->/g, '');
+}
+
 function extractInputValue(html: string, id: string) {
   return html.match(new RegExp(`<input[^>]+id=["']${id}["'][^>]+value=["']([^"']*)["']`, 'i'))?.[1]?.trim() || '';
 }
@@ -188,6 +218,20 @@ function parsePriceFromDetail(html: string) {
 
   const visiblePrice = Number((html.match(/product_view_text_price[\s\S]*?<span class=["']comma["']>([\d,]+)/i)?.[1] || '').replace(/[^\d]/g, ''));
   return Number.isFinite(visiblePrice) ? visiblePrice : 0;
+}
+
+function parseOriginalPriceFromDetail(html: string, salePrice: number) {
+  const candidates = [
+    Number(extractInputValue(html, 'ItemStdPrice').replace(/[^\d]/g, '')),
+    Number(extractInputValue(html, 'StdPrice').replace(/[^\d]/g, '')),
+    Number(extractInputValue(html, 'ItemConsumerPrice').replace(/[^\d]/g, '')),
+    ...[...html.matchAll(/<(?:s|strike|del)\b[^>]*>([\s\S]*?)<\/(?:s|strike|del)>/gi)]
+      .map((match) => Number(stripHtml(match[1]).replace(/[^\d]/g, ''))),
+    ...[...html.matchAll(/<[^>]+style=["'][^"']*line-through[^"']*["'][^>]*>([\s\S]*?)<\/[^>]+>/gi)]
+      .map((match) => Number(stripHtml(match[1]).replace(/[^\d]/g, ''))),
+  ].filter((price) => Number.isFinite(price) && price > salePrice);
+
+  return candidates.length > 0 ? Math.max(...candidates) : undefined;
 }
 
 function inferCountry(text: string) {
@@ -229,50 +273,50 @@ function inferProcessFromText(text: string) {
   return PROCESS_LABELS.find(([, pattern]) => pattern.test(text))?.[0] || '확인 필요';
 }
 
-function parseTastingNotes(infoHtml: string) {
-  const text = stripHtml(infoHtml);
-  const mappedNotes = [
-    ['Jasmine', /재스민|jasmine/i],
-    ['Melon', /멜론|melon/i],
-    ['Orange', /오렌지|orange/i],
-    ['Date', /대추야자|date/i],
-    ['Sweet', /단맛|sweet/i],
-    ['Berry', /베리|berry/i],
-    ['Floral', /꽃|플로럴|floral|blossom/i],
-    ['Citrus', /시트러스|citrus/i],
-    ['Chocolate', /초콜릿|chocolate/i],
-    ['Nutty', /견과|nutty|nuts/i],
-    ['Honey', /꿀|허니|honey/i],
-  ]
-    .filter(([, pattern]) => pattern.test(text))
-    .map(([note]) => note);
+function extractExplicitTastingNoteSection(text: string) {
+  const noteMatch = text.match(/(?:tasting\s*note|cup\s*note|flavo[u]?r\s*&\s*aroma)\s*[:\-]?\s*([\s\S]{0,420})/i);
+  if (!noteMatch) return '';
 
-  if (mappedNotes.length > 0) return [...new Set(mappedNotes)].slice(0, 4);
-
-  const notes = text
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .flatMap((line) => line.split(/[,/·]|(?:\s*그리고\s*)/))
-    .map((note) => note.replace(/하우스 블렌드|커피$/g, '').trim())
-    .filter((note) => !/\d{2,4}\s*g|정상가|할인|[0-9,]+\s*원|^\d+원?$/i.test(note))
-    .filter((note) => !note.includes('원'))
-    .filter((note) => note.length >= 2)
-    .slice(0, 4);
-
-  return notes.length > 0 ? [...new Set(notes)] : ['확인 필요'];
+  return noteMatch[1]
+    .split(/\n\s*(?:원산지|details?|country|net\s*wt|growing\s*details|process|variety|acidity|roasting\s*point)\b|(?:원산지|성분|커피원두|산미)\b/i)[0]
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-export function parseTerarosaDetailProduct(html: string, url: string) {
-  const detailStart = html.indexOf('<div class="product_view_text_wrap">');
-  const detailHtml = detailStart >= 0 ? html.slice(detailStart) : html;
-  const productName = extractInputValue(html, 'ItemName') || stripHtml(extractClassHtml(detailHtml, 'product_view_text_title'));
-  const englishName = extractInputValue(html, 'ItemNameEng') || stripHtml(extractClassHtml(detailHtml, 'cont_title_en'));
+export function parseExplicitTastingNotes(text: string) {
+  const section = extractExplicitTastingNoteSection(stripHtml(text));
+  if (!section) return [];
+
+  const mappedNotes = EXPLICIT_TASTING_NOTE_LABELS
+    .filter(([, pattern]) => pattern.test(section))
+    .map(([note]) => note);
+  if (mappedNotes.length > 0) return normalizeTastingNotes(mappedNotes, { limit: 5 });
+
+  return normalizeTastingNotes(section
+    .split(/[,/·]|\n/)
+    .map((note) => note.replace(/[.:;]+$/g, '').trim())
+    .filter((note) => note.length >= 2)
+    .filter((note) => !/\d{2,4}\s*g|원산지|성분|coffee\s*beans?|terarosa|테라로사/i.test(note))
+    .slice(0, 5), { limit: 5 });
+}
+
+function parseTastingNotes(infoHtml: string, ocrText = '') {
+  // Tasting Note / Flavor & Aroma 라벨이 있을 때만 컵노트를 믿는다.
+  return parseExplicitTastingNotes(`${ocrText}\n${infoHtml}`);
+}
+
+export function parseTerarosaDetailProduct(html: string, url: string, ocrText = '') {
+  const visibleHtml = stripHtmlComments(html);
+  const detailStart = visibleHtml.indexOf('<div class="product_view_text_wrap">');
+  const detailHtml = detailStart >= 0 ? visibleHtml.slice(detailStart) : visibleHtml;
+  const productName = extractInputValue(visibleHtml, 'ItemName') || stripHtml(extractClassHtml(detailHtml, 'product_view_text_title'));
+  const englishName = extractInputValue(visibleHtml, 'ItemNameEng') || stripHtml(extractClassHtml(detailHtml, 'cont_title_en'));
   const infoHtml = extractClassHtml(detailHtml, 'cont_title_info');
   const infoText = stripHtml(infoHtml);
   const combinedText = `${productName} ${englishName} ${infoText}`;
   const weightMatch = combinedText.match(/(\d{2,4})\s*g/i);
-  const imageUrl = toAbsoluteUrl(html.match(/products_swiper_main[\s\S]*?<source[^>]+srcset=["']([^"']+)/i)?.[1] || '');
+  const imageUrl = toAbsoluteUrl(visibleHtml.match(/products_swiper_main[\s\S]*?<source[^>]+srcset=["']([^"']+)/i)?.[1] || '');
+  const price = parsePriceFromDetail(html);
 
   return {
     productUrl: url,
@@ -280,18 +324,19 @@ export function parseTerarosaDetailProduct(html: string, url: string) {
     origin: inferOriginFromText(combinedText),
     process: inferProcessFromText(combinedText),
     roastLevel: '확인 필요',
-    price: parsePriceFromDetail(html),
+    price,
+    originalPrice: parseOriginalPriceFromDetail(html, price),
     weight: weightMatch ? Number(weightMatch[1]) : inferWeight(combinedText),
-    tastingNotes: parseTastingNotes(infoHtml),
+    tastingNotes: parseTastingNotes(infoHtml, ocrText),
     imageUrl,
     isNew: /NEW|신상|신상품|\[\d+월/i.test(productName),
-    isSoldOut: /value=["']현재 품절된 상품입니다["'][^>]*disabled/i.test(html),
+    isSoldOut: /value=["']현재 품절된 상품입니다["'][^>]*disabled/i.test(visibleHtml),
   };
 }
 
 export function enrichTerarosaProducts(products: BeanProduct[], detailPages: TerarosaDetailPage[] = []) {
   const detailByItemCode = new Map(
-    detailPages.map((page) => [page.url.match(/ItemCode=([^&]+)/i)?.[1] || page.url, parseTerarosaDetailProduct(page.html, page.url)]),
+    detailPages.map((page) => [page.url.match(/ItemCode=([^&]+)/i)?.[1] || page.url, parseTerarosaDetailProduct(page.html, page.url, page.ocrText || '')]),
   );
 
   return products.map((product) => {
@@ -306,6 +351,7 @@ export function enrichTerarosaProducts(products: BeanProduct[], detailPages: Ter
       process: detail.process,
       roastLevel: detail.roastLevel,
       price: detail.price || product.price,
+      originalPrice: detail.originalPrice || product.originalPrice,
       weight: detail.weight || product.weight,
       tastingNotes: detail.tastingNotes,
       imageUrl: detail.imageUrl || product.imageUrl,
@@ -317,8 +363,12 @@ export function enrichTerarosaProducts(products: BeanProduct[], detailPages: Ter
 
 function isSoldOutRow(row: TerarosaRow) {
   const status = textValue(row, ['soldout', 'soldOut', 'soldoutYn', 'soldOutYn', 'status', 'stockStatus']);
-  const stock = numberValue(row, ['stock', 'stockQty', 'quantity']);
-  return /품절|sold\s*out|soldout|^y$/i.test(status) || stock === 0;
+  const stockText = textValue(row, ['stock', 'stockQty', 'quantity']);
+  const stock = Number(stockText.replace(/[^\d]/g, ''));
+  const saleStat = textValue(row, ['salestat', 'saleStat']);
+  return /품절|sold\s*out|soldout|^y$/i.test(status)
+    || saleStat === '2'
+    || (stockText.length > 0 && Number.isFinite(stock) && stock === 0);
 }
 
 function isNewRow(row: TerarosaRow) {
@@ -332,7 +382,12 @@ export function normalizeTerarosaApiRows(rows: unknown[]): BeanProduct[] {
     .map((row, index) => {
       const itemKey = textValue(row, ['itemkey', 'itemKey', 'ItemCode', 'itemCode', 'id']);
       const productName = textValue(row, ['itemname', 'itemName', 'productName', 'name', 'title']) || `테라로사 원두 ${index + 1}`;
-      const price = numberValue(row, ['saleprice', 'salePrice', 'price', 'stdprice', 'stdPrice']);
+      const englishName = textValue(row, ['itemnameeng', 'itemNameEng', 'englishName']);
+      const itemExplain = textValue(row, ['itemexplain', 'itemExplain', 'description', 'desc']);
+      const combinedText = `${productName} ${englishName} ${stripHtml(itemExplain)}`;
+      const salePrice = numberValue(row, ['saleprice', 'salePrice', 'price']);
+      const originalPrice = numberValue(row, ['stdprice', 'stdPrice', 'consumerPrice', 'consumerprice', 'normalPrice', 'normalprice']);
+      const price = salePrice || originalPrice;
       const imageUrl = toAbsoluteUrl(textValue(row, ['img_list', 'imgList', 'imageUrl', 'image', 'thumbnail', 'thumb']));
       const productUrl = itemKey
         ? `${TERAROSA_ORIGIN}/product/detail/?ItemCode=${encodeURIComponent(itemKey)}`
@@ -342,13 +397,14 @@ export function normalizeTerarosaApiRows(rows: unknown[]): BeanProduct[] {
         id: createProductId(itemKey || productName, index),
         roasterName: '테라로사',
         productName,
-        origin: inferOriginFromText(productName),
-        process: inferProcessFromText(productName),
+        origin: inferOriginFromText(combinedText),
+        process: inferProcessFromText(combinedText),
         roastLevel: '확인 필요',
         price,
-        weight: inferWeight(productName),
+        originalPrice: originalPrice > price ? originalPrice : undefined,
+        weight: inferWeight(combinedText),
         score: inferScore(productName, index),
-        tastingNotes: ['확인 필요'],
+        tastingNotes: parseTastingNotes(itemExplain),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutRow(row),
@@ -362,8 +418,9 @@ export function normalizeTerarosaApiRows(rows: unknown[]): BeanProduct[] {
 }
 
 export function parseTerarosaHtmlProducts(html: string): BeanProduct[] {
-  const listWrapMatches = [...html.matchAll(/<div class=["']listWrap["']>([\s\S]*?)<\/div>\s*<\/div>\s*<\/a>\s*<\/div>/gi)];
-  const legacyMatches = [...html.matchAll(/GoDetail\(['"]?([^'")]+)['"]?\)[\s\S]{0,900}?class=["'][^"']*itemname[^"']*["'][^>]*>([\s\S]*?)<\//gi)];
+  const visibleHtml = stripHtmlComments(html);
+  const listWrapMatches = [...visibleHtml.matchAll(/<div class=["']listWrap["']>([\s\S]*?)<\/div>\s*<\/div>\s*<\/a>\s*<\/div>/gi)];
+  const legacyMatches = [...visibleHtml.matchAll(/GoDetail\(['"]?([^'")]+)['"]?\)[\s\S]{0,900}?class=["'][^"']*itemname[^"']*["'][^>]*>([\s\S]*?)<\//gi)];
   const seen = new Set<string>();
 
   const products = listWrapMatches.map((match, index) => {
@@ -388,7 +445,7 @@ export function parseTerarosaHtmlProducts(html: string): BeanProduct[] {
       price,
       weight: inferWeight(productName),
       score: inferScore(productName, index),
-      tastingNotes: ['확인 필요'],
+      tastingNotes: [],
       productUrl: itemKey ? `${TERAROSA_ORIGIN}/product/detail/?ItemCode=${encodeURIComponent(itemKey)}` : TERAROSA_SOURCE_URL,
       imageUrl,
       isSoldOut: false,
@@ -412,7 +469,7 @@ export function parseTerarosaHtmlProducts(html: string): BeanProduct[] {
       price: 0,
       weight: inferWeight(productName),
       score: inferScore(productName, index),
-      tastingNotes: ['확인 필요'],
+      tastingNotes: [],
       productUrl: itemKey ? `${TERAROSA_ORIGIN}/product/detail/?ItemCode=${encodeURIComponent(itemKey)}` : TERAROSA_SOURCE_URL,
       imageUrl: '',
       isSoldOut: false,

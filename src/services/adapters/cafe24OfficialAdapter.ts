@@ -1,4 +1,6 @@
 import type { BeanProduct } from '../../data/mockBeans';
+import { normalizeTastingNotes } from '../tastingNotes.js';
+import { isSoldOutFromHtml, stripHiddenStockMarkup } from './stockStatus.js';
 
 type Cafe24HtmlPage = {
   url: string;
@@ -13,6 +15,11 @@ export type Cafe24SourceConfig = {
   defaultWeight?: number;
   priceMultiplier?: number;
   blockedWords?: string[];
+  categoryNo?: string;
+  trustCategoryAsBean?: boolean;
+  beanWords?: string[];
+  parser?: 'cafe24' | 'imweb';
+  verifyStockFromDetail?: boolean;
 };
 
 const COUNTRY_LABELS: Array<[string, string[]]> = [
@@ -57,6 +64,8 @@ const NOTE_LABELS: Array<[string, RegExp]> = [
 function stripHtml(html: string) {
   return html
     .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
     .replace(/&#36;/g, '$')
@@ -65,6 +74,14 @@ function stripHtml(html: string) {
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function decodeHtmlEntities(value: string) {
+  return String(value || '')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&amp;/gi, '&')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)));
 }
 
 function toAbsoluteUrl(url: string, origin: string) {
@@ -82,6 +99,11 @@ function extractProductBlocks(html: string) {
   return [...html.matchAll(/<li id=["']anchorBoxId_([^"']+)["'][\s\S]*?(?=<li id=["']anchorBoxId_|<\/ul>)/gi)];
 }
 
+function isCategoryProduct(productUrl: string, config: Cafe24SourceConfig) {
+  if (!config.categoryNo) return true;
+  return productUrl.includes(`/category/${config.categoryNo}/`) || productUrl.includes(`category/${config.categoryNo}`) || productUrl.includes(`cate_no=${config.categoryNo}`);
+}
+
 function extractImageUrl(block: string, origin: string) {
   const imageUrl = block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1]
     || block.match(/background-image\s*:\s*url\(['"]?([^'")]+)['"]?\)/i)?.[1]
@@ -89,28 +111,68 @@ function extractImageUrl(block: string, origin: string) {
   return toAbsoluteUrl(imageUrl, origin);
 }
 
-function extractProductName(block: string) {
-  const nameHtml = block.match(/<(?:strong|h4|div|p)[^>]+class=["'][^"']*name[^"']*["'][^>]*>([\s\S]*?)<\/(?:strong|h4|div|p)>/i)?.[1] || '';
-  const name = stripHtml(nameHtml)
-    .replace(/^(상품명|Product Name)\s*:\s*/i, '')
-    .trim();
+function hasPlaceholderImage(imageUrl: string) {
+  return /img_product_(?:big|medium|small)\.gif|no_image\.gif/i.test(imageUrl);
+}
 
-  if (name) return name;
+function extractProductName(block: string) {
+  const candidates = [
+    block.match(/<p[^>]+class=["'][^"']*\bname\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/i)?.[1],
+    block.match(/<strong[^>]+class=["'][^"']*\bname\b[^"']*["'][^>]*>([\s\S]*?)<\/strong>/i)?.[1],
+    block.match(/<h4[^>]+class=["'][^"']*\bname\b[^"']*["'][^>]*>([\s\S]*?)<\/h4>/i)?.[1],
+    block.match(/<div[^>]+class=["'][^"']*\bname\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i)?.[1],
+  ].filter((value): value is string => Boolean(value));
+
+  for (const raw of candidates) {
+    const visibleHtml = stripHiddenStockMarkup(raw);
+    const name = stripHtml(visibleHtml)
+      .replace(/^(상품명|Product Name)\s*:\s*/i, '')
+      .replace(/^[:：\s\-]+/, '')
+      .trim();
+    if (name) return name;
+  }
 
   return stripHtml(block.match(/<img[^>]+alt=["']([^"']+)["']/i)?.[1] || '').trim();
 }
 
+function stripBeanpickInjectedMarkers(block: string) {
+  return String(block || '').replace(/<span\b[^>]*data-beanpick-(?:detail|ocr)=["'][\s\S]*?<\/span>/gi, ' ');
+}
+
 function extractPrice(block: string, config: Cafe24SourceConfig) {
-  const dataPrice = Number((block.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, ''));
+  const visibleBlock = stripHiddenStockMarkup(stripBeanpickInjectedMarkers(block));
+  block = visibleBlock;
+  const dataPrice = Number((visibleBlock.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, ''));
   if (dataPrice > 0) return dataPrice;
 
   const wonText = block.match(/(?:₩|&#8361;)?\s*(\d{1,3}(?:,\d{3})+)\s*원?/i)?.[1] || '';
   if (wonText) return Number(wonText.replace(/[^\d]/g, ''));
 
-  const dollarText = block.match(/(?:\$|&#36;)\s*(\d+(?:\.\d+)?)/i)?.[1] || '';
+  const dollarText = visibleBlock.match(/(?:\$|&#36;)\s*(\d+(?:\.\d+)?)/i)?.[1] || '';
   if (dollarText) return Math.round(Number(dollarText) * (config.priceMultiplier || 1350));
 
   return 0;
+}
+
+function parsePriceNumber(value: string | undefined) {
+  const parsed = Number(String(value || '').replace(/[^\d]/g, ''));
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function extractOriginalPrice(block: string, salePrice: number) {
+  const visibleBlock = stripHiddenStockMarkup(stripBeanpickInjectedMarkers(block));
+  const candidates = [
+    parsePriceNumber(visibleBlock.match(/ec-data-custom=["']([^"']+)["']/i)?.[1]),
+    parsePriceNumber(visibleBlock.match(/data-custom=["']([^"']+)["']/i)?.[1]),
+    ...[...visibleBlock.matchAll(/(?:소비자가|Retail Price|정가|List Price)[\s\S]{0,140}?(\d{1,3}(?:,\d{3})+|\d{4,})/gi)]
+      .map((match) => parsePriceNumber(match[1])),
+    ...[...visibleBlock.matchAll(/<(?:s|strike|del)\b[^>]*>([\s\S]*?)<\/(?:s|strike|del)>/gi)]
+      .map((match) => parsePriceNumber(stripHtml(match[1]))),
+    ...[...visibleBlock.matchAll(/<[^>]+style=["'][^"']*line-through[^"']*["'][^>]*>([\s\S]*?)<\/[^>]+>/gi)]
+      .map((match) => parsePriceNumber(stripHtml(match[1]))),
+  ].filter((price) => price > salePrice);
+
+  return candidates.length > 0 ? Math.max(...candidates) : undefined;
 }
 
 function extractDescription(block: string) {
@@ -157,7 +219,7 @@ function inferScore(text: string, index: number) {
 
 function parseTastingNotes(text: string) {
   const mappedNotes = NOTE_LABELS.filter(([, pattern]) => pattern.test(text)).map(([note]) => note);
-  if (mappedNotes.length > 0) return [...new Set(mappedNotes)].slice(0, 4);
+  if (mappedNotes.length > 0) return normalizeTastingNotes(mappedNotes, { limit: 4 });
 
   const plainNotes = text
     .split(/[,/·]/)
@@ -168,7 +230,44 @@ function parseTastingNotes(text: string) {
     .filter((note) => !/상품|판매|가격|원두|커피|제조일|displaynone|xans|href|img/i.test(note))
     .slice(0, 4);
 
-  return plainNotes.length > 0 ? [...new Set(plainNotes)] : ['확인 필요'];
+  return normalizeTastingNotes(plainNotes, { limit: 4 });
+}
+
+function extractBeanpickOcrText(block: string) {
+  const ocrText = block.match(/data-beanpick-ocr=(["'])([\s\S]*?)\1/i)?.[2] || '';
+  return stripHtml(decodeHtmlEntities(ocrText));
+}
+
+type Cafe24DetailInfo = {
+  origin?: string;
+  variety?: string;
+  process?: string;
+  tastingNotes?: string;
+  region?: string;
+  farm?: string;
+  weight?: number;
+  description?: string;
+  ocrText?: string;
+  blendComposition?: Array<{ country: string; percent: number }>;
+};
+
+function extractBeanpickDetailInfo(block: string): Cafe24DetailInfo | null {
+  const raw = block.match(/data-beanpick-detail=(["'])([\s\S]*?)\1/i)?.[2] || '';
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(decodeHtmlEntities(raw));
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function parseImwebTastingNotes(block: string, productName: string) {
+  const ocrNotes = normalizeTastingNotes(extractBeanpickOcrText(block), { limit: Infinity })
+    .filter((note) => !(note === '꿀' && /honey|허니/i.test(productName)));
+  if (ocrNotes.length > 0) return ocrNotes.slice(0, 4);
+
+  return parseTastingNotes(extractDescription(block));
 }
 
 function isLikelyBeanProduct(productName: string, config: Cafe24SourceConfig) {
@@ -185,14 +284,45 @@ function isLikelyBeanProduct(productName: string, config: Cafe24SourceConfig) {
     '티셔츠',
     '에코백',
     '인스턴트',
+    '도매전용',
+    '도매',
     'liquid',
     'stick',
     'teabag',
+    'tea bag',
+    'capsule',
+    'powder',
+    'shot glass',
+    'glass',
+    '쇼핑백',
+    '구독',
+    '정기배송',
+    'subscription',
+    '가방',
+    '모자',
+    '마스킹',
+    '테이프',
+    '스티커',
+    '엽서',
+    '포스터',
+    '그라인더',
+    '머신',
+    '필터',
+    '드리퍼',
+    '서버',
+    '계량',
+    '청소',
+    '브러쉬',
     ...(config.blockedWords || []),
   ];
+  // 구독/정기배송 패턴(예: "커피홀릭 3개월 200g")
+  if (/\d+\s*개월/.test(name) || /홀릭|홈바리스타/.test(name)) return false;
   const beanSignals = ['원두', 'coffee', 'blend', '블렌드', 'washed', 'natural', 'honey', '워시드', '내추럴', '게이샤', 'decaf', '디카페인'];
+  const sourceBeanWords = config.beanWords || [];
 
   if (blockedWords.some((word) => name.includes(word))) return false;
+  if (config.trustCategoryAsBean) return true;
+  if (sourceBeanWords.some((word) => name.includes(word.toLowerCase()))) return true;
   return beanSignals.some((word) => name.includes(word)) || COUNTRY_LABELS.some(([, aliases]) => aliases.some((alias) => name.includes(alias.toLowerCase())));
 }
 
@@ -205,10 +335,107 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
       const productUrl = toAbsoluteUrl(block.match(/<a[^>]+href=["']([^"']*\/product\/[^"']+)["']/i)?.[1] || config.sourceUrl, config.origin);
       const imageUrl = extractImageUrl(block, config.origin);
       const description = extractDescription(block);
-      const combinedText = `${productName} ${description}`;
+      const detail = extractBeanpickDetailInfo(block);
+      const detailText = detail
+        ? [detail.origin, detail.variety, detail.process, detail.region, detail.farm, detail.tastingNotes, detail.description, detail.ocrText].filter(Boolean).join(' ')
+        : '';
+      const combinedText = `${productName} ${description} ${detailText}`.trim();
+      // 노트 소스: 구조화 > 메타 description > OCR > 휴리스틱 파서. 최소 2개 확보 목표로 머지.
+      const structuredNotes = detail?.tastingNotes
+        ? normalizeTastingNotes(detail.tastingNotes, { limit: 5 })
+        : [];
+      const descriptionNotes = detail?.description
+        ? normalizeTastingNotes(detail.description, { limit: 5 })
+        : [];
+      const ocrNotes = detail?.ocrText
+        ? normalizeTastingNotes(detail.ocrText, { limit: 5 })
+        : [];
+      const heuristicNotes = parseTastingNotes(`${description} ${detailText}`.trim());
+      const mergedNotes: string[] = [];
+      for (const list of [structuredNotes, descriptionNotes, ocrNotes, heuristicNotes]) {
+        for (const note of list) {
+          if (!mergedNotes.includes(note)) mergedNotes.push(note);
+          if (mergedNotes.length >= 5) break;
+        }
+        if (mergedNotes.length >= 5) break;
+      }
+      const tastingNotes = mergedNotes;
+      const price = extractPrice(block, config);
+      const originalPrice = extractOriginalPrice(block, price);
 
       return {
         id: createProductId(config, productNo, productName, index),
+        roasterName: config.roasterName,
+        productName,
+        origin: detail?.origin || inferOrigin(combinedText),
+        process: detail?.process || inferProcess(combinedText),
+        roastLevel: /약배전|light/i.test(combinedText)
+          ? 'Light'
+          : /강배전|dark/i.test(combinedText)
+            ? 'Dark'
+            : /중배전|medium/i.test(combinedText)
+              ? 'Medium'
+              : '확인 필요',
+        price,
+        originalPrice,
+        weight: detail?.weight || inferWeight(`${productName} ${description}`.trim(), config.defaultWeight),
+        score: inferScore(combinedText, index),
+        tastingNotes,
+        productUrl,
+        imageUrl,
+        isSoldOut: isSoldOutFromHtml(block),
+        isNew: /alt=["']New["']|alt=["']신상품["']|신상품/i.test(block),
+        lastCheckedAt: '방금 전',
+        checkedMinutesAgo: 0,
+        variety: detail?.variety || '',
+        farm: detail?.farm || '',
+        blendComposition: detail?.blendComposition || [],
+      };
+    })
+    .filter((product) => isCategoryProduct(product.productUrl, config))
+    .filter((product) => product.productName.length > 0)
+    .filter((product) => isLikelyBeanProduct(product.productName, config))
+    .filter((product) => !hasPlaceholderImage(product.imageUrl));
+}
+
+function extractImwebProductBlocks(html: string) {
+  return [...html.matchAll(/<div\b[^>]*class=["'][^"']*\b_shop_item\b[^"']*["'][^>]*data-product-properties=["'][\s\S]*?(?=<div\b[^>]*class=["'][^"']*\b_shop_item\b|<div\b[^>]*class=["'][^"']*_more_btn_wrap\b|<\/section>|$)/gi)]
+    .map((match) => match[0]);
+}
+
+function readImwebProductProperties(block: string) {
+  const rawProperties = block.match(/data-product-properties=(["'])([\s\S]*?)\1/i)?.[2] || '';
+  if (!rawProperties) return null;
+
+  try {
+    return JSON.parse(decodeHtmlEntities(rawProperties)) as {
+      idx?: number | string;
+      code?: string;
+      name?: string;
+      price?: number;
+      original_price?: number;
+      image_url?: string;
+    };
+  } catch {
+    return null;
+  }
+}
+
+export function parseImwebProducts(html: string, config: Cafe24SourceConfig): BeanProduct[] {
+  return extractImwebProductBlocks(html)
+    .map((block, index) => {
+      const properties = readImwebProductProperties(block);
+      if (!properties) return null;
+
+      const productName = String(properties.name || '').trim();
+      const productUrl = toAbsoluteUrl(block.match(/<a[^>]+href=["']([^"']*(?:\?idx=|shop_view)[^"']*)["']/i)?.[1] || config.sourceUrl, config.origin);
+      const imageUrl = toAbsoluteUrl(String(properties.image_url || block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || ''), config.origin);
+      const combinedText = `${productName} ${stripHtml(block)}`;
+      const price = Number(properties.price || properties.original_price || 0);
+      const originalPrice = Number(properties.original_price || 0);
+
+      return {
+        id: createProductId(config, String(properties.idx || properties.code || ''), productName, index),
         roasterName: config.roasterName,
         productName,
         origin: inferOrigin(combinedText),
@@ -220,25 +447,28 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
             : /중배전|medium/i.test(combinedText)
               ? 'Medium'
               : '확인 필요',
-        price: extractPrice(block, config),
+        price,
+        originalPrice: originalPrice > price ? originalPrice : undefined,
         weight: inferWeight(combinedText, config.defaultWeight),
         score: inferScore(combinedText, index),
-        tastingNotes: parseTastingNotes(description),
+        tastingNotes: parseImwebTastingNotes(block, productName),
         productUrl,
         imageUrl,
-        isSoldOut: /sold\s*out|품절|SOLDOUT/i.test(block),
-        isNew: /alt=["']New["']|alt=["']신상품["']|신상품/i.test(block),
+        isSoldOut: isSoldOutFromHtml(block),
+        isNew: /new|신상품/i.test(block),
         lastCheckedAt: '방금 전',
         checkedMinutesAgo: 0,
       };
     })
+    .filter((product): product is BeanProduct => Boolean(product))
     .filter((product) => product.productName.length > 0)
     .filter((product) => isLikelyBeanProduct(product.productName, config));
 }
 
 export function normalizeCafe24Pages(pages: Cafe24HtmlPage[] = [], config: Cafe24SourceConfig) {
   const seen = new Set<string>();
-  return pages.flatMap((page) => parseCafe24Products(page.html, config)).filter((product) => {
+  const parser = config.parser === 'imweb' ? parseImwebProducts : parseCafe24Products;
+  return pages.flatMap((page) => parser(page.html, config)).filter((product) => {
     if (seen.has(product.id)) return false;
     seen.add(product.id);
     return true;
