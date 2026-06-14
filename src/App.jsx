@@ -391,6 +391,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
     displayInfo.farm,
   ].filter(Boolean);
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
+  const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
   const imageContent = hasImage
     ? <img src={product.imageUrl} alt="" loading="lazy" />
     : <span className="bean-image-placeholder">{product.roasterName.slice(0, 2)}</span>;
@@ -398,9 +399,21 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
   return (
     <article className={`bean-card ${product.isSoldOut ? 'is-soldout' : ''}`}>
       <div className="bean-image">
-        <button className="bean-image-link" type="button" aria-label={detailLabel} onClick={() => onSelect(product)}>
-          {imageContent}
-        </button>
+        {productLink ? (
+          <a
+            className="bean-image-link"
+            href={productLink}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${product.roasterName} ${product.productName} 공식몰에서 열기`}
+          >
+            {imageContent}
+          </a>
+        ) : (
+          <button className="bean-image-link" type="button" aria-label={detailLabel} onClick={() => onSelect(product)}>
+            {imageContent}
+          </button>
+        )}
         {product.isNew && <b>NEW</b>}
         {product.isSoldOut && <span className="soldout-ribbon">품절</span>}
         <button

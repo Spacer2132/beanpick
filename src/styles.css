@@ -1925,11 +1925,13 @@ a {
 
   .sort-actions {
     width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
   .sort-actions button {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .stock-tabs {
@@ -2003,5 +2005,78 @@ a {
 
   .modal-image {
     height: 180px;
+  }
+}
+
+/* 폰 폭에서는 원두 카드를 2열로 작게 보여줘 한 화면에 약 4개가 들어오게 한다. */
+@media (max-width: 520px) {
+  .bean-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .bean-image {
+    height: 116px;
+  }
+
+  .image-favorite-btn {
+    right: 8px;
+    bottom: 8px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .bean-content {
+    padding: 11px 11px 8px;
+  }
+
+  .bean-meta {
+    font-size: 11px;
+  }
+
+  .bean-content h3 {
+    margin: 5px 0 4px;
+    font-size: 15px;
+  }
+
+  .bean-info-lines {
+    font-size: 12px;
+  }
+
+  /* 좁은 카드에서는 맛 노트를 한 줄만 보여주고 나머지는 숨긴다(상세창에서 전부 확인 가능). */
+  .notes {
+    max-height: 30px;
+    gap: 6px;
+    overflow: hidden;
+  }
+
+  .note-tag {
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .bean-footer {
+    gap: 8px;
+    padding: 10px 11px 12px;
+  }
+
+  .bean-price-options {
+    grid-template-columns: 1fr;
+  }
+
+  .bean-price-option {
+    min-height: 0;
+    padding: 8px 9px;
+  }
+
+  .bean-price-option strong {
+    font-size: 15px;
+  }
+
+  /* 100g당 단가는 보조 정보라 폰 카드에서는 숨겨 높이를 줄인다. */
+  .bean-price-option em {
+    display: none;
   }
 }

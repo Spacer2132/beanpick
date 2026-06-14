@@ -145,13 +145,14 @@ const discountCandidates = [
   { id: 'discount-30', price: 28000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
   { id: 'discount-20', price: 32000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
   { id: 'discount-15', price: 34000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
-  { id: 'discount-5', price: 38000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
+  { id: 'discount-10', price: 36000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
+  { id: 'discount-9', price: 36400, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
   { id: 'no-original-price', price: 22000, tastingNotes: [], isSoldOut: false },
 ];
 const discountOnly = core.filterDiscountProducts(core.normalizeProducts(discountCandidates));
-expect(JSON.stringify([...ids(discountOnly)].sort()) === JSON.stringify(['discount-15', 'discount-20', 'discount-30', 'discount-5']), '5% 이상 할인상품은 모두 할인 탭에 포함되어야 합니다', ids(discountOnly).join(', '));
+expect(JSON.stringify([...ids(discountOnly)].sort()) === JSON.stringify(['discount-10', 'discount-15', 'discount-20', 'discount-30']), '10% 이상 할인상품은 모두 할인 탭에 포함되어야 합니다', ids(discountOnly).join(', '));
 expect(core.calculateDiscountRate(28000, 40000) === 0.3, '할인율은 원래가 대비 판매가로 계산되어야 합니다');
-expect(core.isDiscountedProduct({ price: 39000, originalPrice: 40000, tastingNotes: [] }) === false, '5% 미만 할인은 표기 오차로 보고 제외되어야 합니다');
+expect(core.isDiscountedProduct({ price: 36400, originalPrice: 40000, tastingNotes: [] }) === false, '10% 미만 할인은 소폭 할인으로 보고 제외되어야 합니다');
 expect(core.isDiscountedProduct({ price: 22000, tastingNotes: [] }) === false, '원래가가 없으면 할인상품으로 추측하면 안 됩니다');
 
 const groupedDiscount = core.groupProductsByNameAndWeight([

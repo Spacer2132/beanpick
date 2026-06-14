@@ -1,7 +1,7 @@
 import { normalizeTastingNotes, sortTastingNotes } from './tastingNotes.js';
 
-// 5% 이상 싸게 팔면 할인 상품으로 본다. (1~4%는 표기 오차 수준이라 제외)
-const DISCOUNT_THRESHOLD = 0.05;
+// 10% 이상 싸게 팔면 할인 상품으로 본다. (1~9%는 표기 오차/소폭 할인이라 제외)
+const DISCOUNT_THRESHOLD = 0.10;
 const FEATURED_VARIETY_RULES = [
   { label: '게이샤', aliases: ['geisha', 'gesha', '게이샤', '게샤'] },
   { label: '파카마라', aliases: ['pacamara', '파카마라'] },
