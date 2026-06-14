@@ -1083,7 +1083,10 @@ export default function App() {
     <div className="app-shell">
       <aside className="sidebar">
         <button className="brand" type="button" onClick={() => setScreen('products')}>
-          <span className="brand-mark">BeanPick</span>
+          <span className="brand-head">
+            <span className="brand-mark">BeanPick</span>
+            {lastLoadedAt && <span className="brand-updated">{formatDateTime(lastLoadedAt)} 기준</span>}
+          </span>
           <span>오늘 마실 원두를 쉽게 고르기</span>
         </button>
 

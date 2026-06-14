@@ -99,11 +99,24 @@ a {
   text-align: left;
 }
 
+.brand-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .brand-mark {
   font-family: var(--serif);
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 0;
+}
+
+.brand-updated {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .brand span:last-child {
@@ -1851,28 +1864,18 @@ a {
     font-size: 11px;
   }
 
+  /* 폰에서는 화면 전환 탭을 숨겨 원두 둘러보기 화면만 깔끔하게 보여준다. */
   .nav-section {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-
-  .nav-label {
     display: none;
   }
 
-  .nav-item {
-    width: auto;
-    min-height: 30px;
-    padding: 5px 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.64);
-    font-size: 12px;
+  .sidebar-note {
+    display: none;
   }
 
-  .sidebar-note {
+  /* 폰에서는 안내 배너와 통계 줄을 숨겨 첫 화면을 더 깔끔하게 한다. */
+  .load-banner,
+  .browse-summary {
     display: none;
   }
 
