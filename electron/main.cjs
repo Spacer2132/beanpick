@@ -1,7 +1,10 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const {
   SMARTSTORE_SOURCES,
+  enrichProductsWithThumbnailOcr,
+  extractNotesFromDetail,
+  mergeNotesFromSearchResults,
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
   readOcrTextFromImageUrl,
@@ -19,6 +22,7 @@ const {
   extractDetailContentImageUrls,
   extractBlendComposition,
 } = require('../src/services/adapters/cafe24DetailParser.cjs');
+const { publishProductsToGitHub } = require('./githubPublisher.cjs');
 
 const rootDir = path.resolve(__dirname, '..');
 loadLocalEnv(rootDir);
@@ -78,6 +82,12 @@ const OFFICIAL_MALL_PAGE_CONFIGS = {
       return `https://www.centercoffee.co.kr/ajax/get_shop_list_view.cm?page=${pageNumber}&pagesize=12&category=s20190728fa16756cae2c6&sort=recent&menu_url=%2F67%2F`;
     },
   },
+  coffee502: {
+    sourceUrl: 'https://502coffee.com/category/%EC%9B%90%EB%91%90/24/',
+    categoryNo: '24',
+    verifyStockFromDetail: true,
+    detailOrigin: 'https://502coffee.com',
+  },
 };
 
 function createWindow() {
@@ -93,6 +103,20 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
     },
+  });
+
+  // 상품 링크는 앱 안의 새 창이 아니라 PC 기본 브라우저로 연다.
+  // (앱 내부 창은 네이버가 자동화 프로그램으로 보고 로그인 화면으로 돌려보낸다)
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (/^https?:\/\//i.test(url)) shell.openExternal(url);
+    return { action: 'deny' };
+  });
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.type === 'keyDown' && input.key === 'F5') {
+      event.preventDefault();
+      mainWindow.webContents.reloadIgnoringCache();
+    }
   });
 
   if (isDev) {
@@ -140,10 +164,34 @@ function extractSmartStoreCategoryItemsScript() {
           details = JSON.parse(node.getAttribute('data-shp-contents-dtl') || '[]');
         } catch {}
         const detail = Object.fromEntries(details.map((item) => [item.key, item.value]));
+        // 본문 금액 목록 (배송비·100g당 단가는 제외)
+        const wonAmounts = [...text.matchAll(/(배송비\\s*|당\\s*)?([0-9,]+)\\s*원/g)]
+          .filter((match) => !match[1])
+          .map((match) => Number(match[2].replace(/,/g, '')) || 0)
+          .filter((value) => value > 0);
+        // 취소선/정가 표기처럼 명시된 노드만 할인 기준으로 믿는다.
+        const strikeNodes = [...li.querySelectorAll('del, s, strike, [class*="origin" i], [class*="strike" i]')];
+        const strikePrices = strikeNodes
+          .map((node) => Number(String(((node.innerText || '').match(/([0-9,]+)\\s*원/) || [])[1] || '').replace(/,/g, '')) || 0)
+          .filter((value) => value > 0);
+        const strikeMax = strikePrices.length > 0 ? Math.max(...strikePrices) : 0;
+        // 주의: 데이터 속성의 price는 할인 전 정가가 들어온다.
+        // 취소선 정가가 보이면, 본문에서 그보다 낮은 첫 금액이 실제 판매가다.
+        const dataPrice = Number(detail.price || 0);
+        let price;
+        let originalPrice;
+        if (strikeMax > 0) {
+          price = wonAmounts.find((value) => value < strikeMax) || dataPrice || 0;
+          originalPrice = strikeMax > price ? strikeMax : 0;
+        } else {
+          price = dataPrice || wonAmounts[0] || 0;
+          originalPrice = 0;
+        }
         byId.set(id, {
           id,
           title: detail.chnl_prod_nm || (img ? img.alt : ''),
-          price: Number(detail.price || String((text.match(/([0-9,]+)\\s*원/) || [])[1] || '').replace(/,/g, '')) || 0,
+          price,
+          originalPrice,
           productUrl: link ? link.href : '',
           imageUrl: img ? (img.currentSrc || img.src || '') : '',
           isSoldOut: /(^|\\n)품절(\\n|$)/.test(text),
@@ -188,10 +236,29 @@ async function clickSmartStorePage(window, pageNumber) {
   `, true);
 }
 
-async function fetchSmartStoreCategoryProducts(sourceId) {
-  const source = SMARTSTORE_SOURCES[sourceId];
-  if (!source?.categoryUrl) return null;
+// 홈 화면에서 카테고리 링크를 눌러 SPA 방식으로 이동한다. 링크가 늦게 그려질 수 있어 잠시 기다리며 재시도한다.
+async function clickSmartStoreCategoryLink(window, categoryId) {
+  const startedAt = Date.now();
 
+  while (Date.now() - startedAt < 10000) {
+    const clicked = await window.webContents.executeJavaScript(`
+      (() => {
+        const link = document.querySelector('a[href*="/category/${categoryId}"]');
+        if (!link) return false;
+        const event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, true, window, 1);
+        link.dispatchEvent(event);
+        return true;
+      })()
+    `, true).catch(() => false);
+    if (clicked) return true;
+    await delay(300);
+  }
+
+  return false;
+}
+
+async function crawlSmartStoreCategory(categoryUrl) {
   const hiddenWindow = new BrowserWindow({
     width: 1280,
     height: 720,
@@ -203,7 +270,16 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
   });
 
   try {
-    await hiddenWindow.loadURL(source.categoryUrl);
+    // 카테고리 주소로 바로 들어가면 네이버가 로그인 화면으로 돌려보낸다.
+    // 스토어 홈을 먼저 연 뒤 카테고리 링크를 클릭해 실제 사용자처럼 이동한다.
+    const urlParts = categoryUrl.match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)\/category\/([a-z0-9]+)/i);
+    if (urlParts) {
+      await hiddenWindow.loadURL(urlParts[1]);
+      const clicked = await clickSmartStoreCategoryLink(hiddenWindow, urlParts[2]);
+      if (!clicked) await hiddenWindow.loadURL(categoryUrl);
+    } else {
+      await hiddenWindow.loadURL(categoryUrl);
+    }
     const firstPage = await waitForSmartStoreProducts(hiddenWindow);
     const productMap = new Map(firstPage.products.map((product) => [product.id, product]));
     const pageCount = Math.max(1, Math.ceil((firstPage.total || firstPage.products.length) / 40));
@@ -221,21 +297,150 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
       previousFirstId = page.products[0]?.id || previousFirstId;
     }
 
-    const products = normalizeSmartStoreCategoryItems(sourceId, [...productMap.values()]);
-
-    return {
-      ok: true,
-      sourceId,
-      sourceUrl: source.categoryUrl,
-      query: '스마트스토어 카테고리',
-      total: firstPage.total || productMap.size,
-      fetchedAt: new Date().toISOString(),
-      products,
-      warning: products.length === 0 ? `${source.roasterName} 카테고리에서 상품을 찾지 못했습니다.` : '',
-    };
+    return [...productMap.values()];
   } finally {
     hiddenWindow.close();
   }
+}
+
+function getSmartStoreCategoryUrls(source) {
+  return [source?.categoryUrl, ...(source?.categoryUrls || [])].filter(Boolean);
+}
+
+// 스마트스토어 내부 상품 API로 상세 본문(HTML)을 모아온다.
+// 스토어 홈을 연 페이지 안에서 fetch해야 네이버가 봇으로 막지 않는다.
+async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCount = 15, timeBudgetMs = 45000 } = {}) {
+  const contents = new Map();
+  if (productNos.length === 0) return contents;
+
+  const hiddenWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    show: false,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+    },
+  });
+
+  try {
+    await hiddenWindow.loadURL(storeHomeUrl);
+    const channelUid = await hiddenWindow.webContents.executeJavaScript(
+      '(JSON.stringify(window.__PRELOADED_STATE__ || {}).match(/"channelUid"\\s*:\\s*"([^"]+)"/) || [])[1] || \'\'',
+      true,
+    ).catch(() => '');
+    if (!channelUid) return contents;
+
+    const startedAt = Date.now();
+    let consecutiveFailures = 0;
+
+    // 직렬 호출: 동시에 부르면 네이버 차단(429·캡차)만 빨라진다.
+    for (const productNo of productNos.slice(0, maxCount)) {
+      if (Date.now() - startedAt > timeBudgetMs || consecutiveFailures >= 2) break;
+
+      const detailHtml = await hiddenWindow.webContents.executeJavaScript(`
+        fetch('/i/v2/channels/${channelUid}/products/${productNo}?withWindow=false', {
+          headers: { accept: 'application/json' },
+          credentials: 'include',
+        }).then((res) => (res.ok ? res.json() : null))
+          .then((json) => {
+            if (!json) return '';
+            // 필드 이름이 바뀌어도 동작하도록, HTML로 보이는 가장 긴 문자열을 본문으로 삼는다.
+            let best = '';
+            const visit = (value) => {
+              if (typeof value === 'string') {
+                if (value.length > best.length && /<(img|p|div|table|span)/i.test(value)) best = value;
+              } else if (value && typeof value === 'object') {
+                Object.values(value).forEach(visit);
+              }
+            };
+            visit(json);
+            return best;
+          })
+          .catch(() => '')
+      `, true).catch(() => '');
+
+      if (detailHtml) {
+        contents.set(String(productNo), String(detailHtml));
+        consecutiveFailures = 0;
+      } else {
+        consecutiveFailures += 1;
+      }
+      await delay(400);
+    }
+
+    return contents;
+  } finally {
+    hiddenWindow.close();
+  }
+}
+
+async function fetchSmartStoreCategoryProducts(sourceId) {
+  const source = SMARTSTORE_SOURCES[sourceId];
+  const categoryUrls = getSmartStoreCategoryUrls(source);
+  if (categoryUrls.length === 0) return null;
+
+  const productMap = new Map();
+  for (const categoryUrl of categoryUrls) {
+    try {
+      const items = await crawlSmartStoreCategory(categoryUrl);
+      items.forEach((item) => productMap.set(item.id, item));
+    } catch {
+      // 한 카테고리가 실패해도 나머지 카테고리는 계속 확인한다.
+    }
+  }
+
+  let products = normalizeSmartStoreCategoryItems(sourceId, [...productMap.values()]);
+
+  // 컵노트 보강 1단계: 노트 없는 상품만 썸네일 OCR
+  products = await enrichProductsWithThumbnailOcr(products);
+
+  // 컵노트 보강 1.5단계: 공식 검색 API 결과의 노트를 같은 상품(제목 일치)에 이식
+  // (상세 페이지가 막혀 있어도 동작하는 안전한 통로)
+  if (products.some((product) => product.tastingNotes.length === 0)) {
+    try {
+      const searchResult = await searchNaverShopping(sourceId);
+      products = mergeNotesFromSearchResults(products, searchResult?.products || []);
+    } catch {
+      // 검색 API 실패(키 없음 등)는 무시
+    }
+  }
+
+  // 컵노트 보강 2단계: 그래도 없으면 상품 상세 본문에서 추출 (실패해도 조용히 넘어감)
+  const getProductNo = (product) => (String(product.productUrl).match(/\/products\/(\d+)/) || [])[1] || '';
+  const missingNoteNos = products
+    .filter((product) => product.tastingNotes.length === 0)
+    .map(getProductNo)
+    .filter(Boolean);
+  const storeHomeUrl = (categoryUrls[0].match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)/i) || [])[1] || '';
+
+  if (missingNoteNos.length > 0 && storeHomeUrl) {
+    try {
+      const detailContents = await fetchSmartStoreDetailContents(storeHomeUrl, missingNoteNos);
+      products = await mapWithConcurrency(products, 2, async (product) => {
+        if (product.tastingNotes.length > 0) return product;
+
+        const detailHtml = detailContents.get(getProductNo(product));
+        if (!detailHtml) return product;
+
+        const notes = await extractNotesFromDetail(detailHtml);
+        return notes.length > 0 ? { ...product, tastingNotes: notes } : product;
+      });
+    } catch {
+      // 상세 보강 실패는 무시하고 0·1단계 결과를 그대로 쓴다.
+    }
+  }
+
+  return {
+    ok: true,
+    sourceId,
+    sourceUrl: categoryUrls[0],
+    query: '스마트스토어 카테고리',
+    total: products.length,
+    fetchedAt: new Date().toISOString(),
+    products,
+    warning: products.length === 0 ? `${source.roasterName} 카테고리에서 상품을 찾지 못했습니다.` : '',
+  };
 }
 
 function extractDetailUrls(html) {
@@ -820,7 +1025,8 @@ ipcMain.handle('beanpick:test-smartstore-search', async () => {
 
 ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) => {
   try {
-    if (sourceId === 'cafedoan') {
+    const source = SMARTSTORE_SOURCES[sourceId];
+    if (getSmartStoreCategoryUrls(source).length > 0) {
       const categoryResult = await fetchSmartStoreCategoryProducts(sourceId);
       if (categoryResult?.products?.length) return categoryResult;
     }
@@ -867,9 +1073,16 @@ ipcMain.handle('beanpick:fetch-official-mall-products', async (_event, sourceId)
   }
 });
 
+ipcMain.handle('beanpick:publish-iphone', async (_event, payload) => {
+  const products = Array.isArray(payload?.products) ? payload.products : [];
+  return await publishProductsToGitHub({ products });
+});
+
 
 
 app.whenReady().then(() => {
+  // Windows 토스트 알림에 필요한 앱 식별자
+  app.setAppUserModelId('com.beanpick.app');
   createWindow();
 
   app.on('activate', () => {

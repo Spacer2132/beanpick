@@ -3,7 +3,8 @@ const path = require('node:path');
 
 const rootDir = path.resolve(__dirname, '..');
 const electronDistDir = path.join(rootDir, 'node_modules', 'electron', 'dist');
-const baseOutputDir = path.resolve(rootDir, '..', 'output', 'BeanPick-win32-x64');
+// 실행 파일은 프로젝트 안 app 폴더에 바로 만든다. (더블클릭하는 그 위치)
+const baseOutputDir = path.resolve(rootDir, 'app');
 let outputDir = baseOutputDir;
 let appDir = path.join(outputDir, 'resources', 'app');
 

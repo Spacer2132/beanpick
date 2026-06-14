@@ -118,6 +118,7 @@ const NOTE_RULES = [
   { label: '적포도', group: 'fruit', aliases: ['red grape', 'redgrape', '적포도'] },
   { label: '샤인머스캣', group: 'fruit', aliases: ['shine muscat', 'shinemuscat', '샤인머스캣', '샤인 머스캣'] },
   { label: '건과일', group: 'fruit', aliases: ['dried fruit', 'dried fruits', '건과일', '말린 과일'] },
+  { label: '건포도', group: 'fruit', aliases: ['raisin', 'raisins', '건포도'] },
   { label: '말린자두', group: 'fruit', aliases: ['prune', 'prunes', 'dried plum', 'dried plums', '말린자두', '말린 자두'] },
   { label: '대추야자', group: 'fruit', aliases: ['date', 'dates', '대추야자'] },
   { label: '리치', group: 'fruit', aliases: ['lychee', '리치'] },
@@ -133,6 +134,7 @@ const NOTE_RULES = [
   { label: '녹차', group: 'floral', aliases: ['green tea', 'greentea', '녹차'] },
   { label: '차', group: 'floral', aliases: ['tea', 'tea-like', 'tea like', '차'] },
   { label: '다즐링티', group: 'floral', aliases: ['darjeeling', 'darjeeling tea', '다즐링티', '다즐링 티'] },
+  { label: '민트', group: 'floral', aliases: ['mint', 'peppermint', '민트', '페퍼민트'] },
 
   { label: '다크초콜릿', group: 'sweet', aliases: ['dark chocolate', 'darkchocolate', 'dark choco', '다크초콜릿', '다크 초콜릿', '다크쵸콜릿'] },
   { label: '밀크초콜릿', group: 'sweet', aliases: ['milk chocolate', 'milkchocolate', 'milk choco', '밀크초콜릿', '밀크 초콜릿', '밀크쵸콜릿'] },

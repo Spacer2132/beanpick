@@ -72,6 +72,13 @@ const SOURCES = {
       return `https://www.centercoffee.co.kr/ajax/get_shop_list_view.cm?page=${pageNumber}&pagesize=12&category=s20190728fa16756cae2c6&sort=recent&menu_url=%2F67%2F`;
     },
   },
+  coffee502: {
+    label: '502커피로스터스',
+    sourceUrl: 'https://502coffee.com/category/%EC%9B%90%EB%91%90/24/',
+    categoryNo: '24',
+    verifyStockFromDetail: true,
+    detailOrigin: 'https://502coffee.com',
+  },
 };
 
 const GENERIC_BLOCKED_WORDS = [
@@ -156,6 +163,22 @@ function assertCenterCoffeeOcrSample(cafe24Adapter, centerConfig) {
 
   if (missing.length > 0 || notes.includes('꿀')) {
     throw new Error(`센터커피 OCR 노트 파싱 실패: ${notes.join(', ') || '(없음)'}`);
+  }
+}
+
+function assertTerarosaPromoNoteSample(terarosaAdapter) {
+  // 테라로사 본문 이미지 OCR에는 Tasting Note 라벨 없이 원두명 뒤에 영어 노트 목록이 온다.
+  const ocrText = [
+    '브라질 산투안토니우 엔리케',
+    'Hes 펄프드 내추럴',
+    '밀크초콜릿의 부드러운 단맛과 sojeol',
+    'Milk Chocolate, Hazelnut, Nougat, Clean Finish',
+    '원산지 브라질 X14 Santo Antonio',
+  ].join('\n');
+  const notes = terarosaAdapter.parseNotesNearProductName('[커피 페스타 1+1] 6월 KING콩 브라질 산투안토니우 엔리케+싱글오리진', ocrText);
+
+  if (!notes.includes('밀크초콜릿') || !notes.includes('헤이즐넛')) {
+    throw new Error(`테라로사 상품명 근처 노트 파싱 실패: ${notes.join(', ') || '(없음)'}`);
   }
 }
 
@@ -501,6 +524,7 @@ async function main() {
   let failed = false;
 
   assertCenterCoffeeOcrSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS.centercoffee);
+  assertTerarosaPromoNoteSample(terarosaAdapter);
   assertOriginalPriceSamples(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24DetailWeightSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
@@ -540,13 +564,13 @@ async function main() {
     const discountCount = products.filter((product) => {
       const originalPrice = Number(product.originalPrice || 0);
       const price = Number(product.price || 0);
-      return originalPrice > price && price > 0 && ((originalPrice - price) / originalPrice) >= 0.3;
+      return originalPrice > price && price > 0 && ((originalPrice - price) / originalPrice) >= 0.2;
     }).length;
 
     if (rawRows.length > 0 && products.length === 0) failed = true;
 
     console.log(`\n[${source.label}]`);
-    console.log(`pages ${pageCount} / found ${rawRows.length} / beanpick ${products.length} / available ${availableCount} / soldout ${soldOutCount} / discount30 ${discountCount} / excluded ${excludedRows.length}`);
+    console.log(`pages ${pageCount} / found ${rawRows.length} / beanpick ${products.length} / available ${availableCount} / soldout ${soldOutCount} / discount20 ${discountCount} / excluded ${excludedRows.length}`);
 
     if (excludedRows.length > 0) {
       excludedRows.slice(0, 12).forEach((row) => {

@@ -38,31 +38,71 @@ const SMARTSTORE_SOURCES = {
     sourceId: 'roasterick',
     roasterName: '로스터릭',
     query: '로스터릭 원두',
+    // 원두 카테고리만 직접 크롤링한다. (드립백·더치원액 카테고리는 제외)
+    categoryUrls: [
+      'https://smartstore.naver.com/rick/category/c3b6f6dec003425fbf8dc61f9246c9e7?cp=1', // BLEND
+      'https://smartstore.naver.com/rick/category/d273d60785d2431a8ab7bab4bd38bb99?cp=1', // 아프리카
+      'https://smartstore.naver.com/rick/category/1c0312955b5949ae8c6060b70e9d666d?cp=1', // 중남미 외
+      'https://smartstore.naver.com/rick/category/101fb10f7ece49d6a4c0ed870e2a9ffd?cp=1', // 조금 특별한
+      'https://smartstore.naver.com/rick/category/10f4b014e5514216a1b089feb7aa12cc?cp=1', // Limited edition
+      'https://smartstore.naver.com/rick/category/16163c66dcde43d68ce7256b4b8e0500?cp=1', // 디카페인
+      'https://smartstore.naver.com/rick/category/50f80eff19174d7d87f137987dad2a03?cp=1', // 중강배전
+    ],
     mallNames: ['로스터릭'],
   },
   lubia: {
     sourceId: 'lubia',
     roasterName: '루비아 커피',
     query: '루비아 원두',
+    // 원두 카테고리만 직접 크롤링한다. (캡슐·티백·용품 카테고리는 제외)
+    categoryUrls: [
+      'https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1', // 시그니처
+      'https://smartstore.naver.com/rubiacoffee/category/8d2da31680b647b281c1b2eabc3981e1?cp=1', // 싱글 오리진
+      'https://smartstore.naver.com/rubiacoffee/category/531d18d126bc49da88ad965ba9551ed5?cp=1', // 가향커피
+      'https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1', // 디카페인
+      'https://smartstore.naver.com/rubiacoffee/category/5933bc678b094b20a8c9e4c743db59c3?cp=1', // 그란데(대용량)
+    ],
     mallNames: ['루비아 커피', '루비아'],
   },
   hitte: {
     sourceId: 'hitte',
     roasterName: '히떼 로스터리',
     query: '히떼 원두',
+    // 원두 카테고리만 직접 크롤링한다. (EASY COFFEE·GOODS 카테고리는 제외)
+    categoryUrls: [
+      'https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1', // ESPRESSO
+      'https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1', // FILTER
+    ],
     mallNames: ['히떼 로스터리'],
   },
   identity: {
     sourceId: 'identity',
     roasterName: '아이덴티티 커피랩',
     query: '아이덴티티 커피랩 원두',
+    categoryUrl: 'https://smartstore.naver.com/identity_coffeelab/category/0b4e173f072040e4b682a7ca248ac875?cp=1',
     mallNames: ['아이덴티티커피랩', '아이덴티티 커피랩', 'identity_coffeelab'],
   },
   toch: {
     sourceId: 'toch',
     roasterName: '토치 커피',
     query: '토치 커피 원두',
+    // 원두 카테고리만 직접 크롤링한다. (이지커피 카테고리는 제외)
+    categoryUrls: [
+      'https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1', // 블렌드 3종
+      'https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1', // 싱글오리진
+      'https://smartstore.naver.com/toch/category/9ff908ee7a0341fc9e1789b13b68e6d1?cp=1', // 디카페인
+    ],
     mallNames: ['토치 커피', '토치커피', 'toch'],
+  },
+  fillout: {
+    sourceId: 'fillout',
+    roasterName: '필아웃커피',
+    query: '필아웃커피 원두',
+    // 커피 원두 카테고리만 직접 크롤링한다. (파우더 커피·굿즈 카테고리는 제외)
+    categoryUrls: [
+      'https://smartstore.naver.com/filloutcoffee/category/00f832f1c2da4600b90ddda5d6ae6853?cp=1', // 커피 원두
+    ],
+    mallNames: ['필아웃커피', '필아웃 커피', 'fillout'],
   },
   cafedoan: {
     sourceId: 'cafedoan',
@@ -175,8 +215,11 @@ function parseWeight(title) {
   return 200;
 }
 
+// 상품명에서 사전에 있는 맛 단어만 뽑는다. ("달고나 블랜드" → 달고나)
 function getTasteNotes(title) {
-  return [];
+  const notes = [];
+  addNotesFromText(notes, title);
+  return sanitizeTastingNotes(notes);
 }
 
 function getTessdataPrefix() {
@@ -450,6 +493,75 @@ async function getOcrTasteNotes(imageUrl) {
   return extractOcrTasteNotes(ocrText);
 }
 
+// 노트가 빈 상품만 썸네일 OCR로 보강한다. (OCR 결과는 파일 캐시되어 두 번째부터는 빠름)
+async function enrichProductsWithThumbnailOcr(products, { concurrency = 3 } = {}) {
+  return mapWithConcurrency(products, concurrency, async (product) => {
+    if (product.tastingNotes?.length > 0 || !product.imageUrl) return product;
+
+    try {
+      const ocrNotes = await getOcrTasteNotes(product.imageUrl);
+      if (ocrNotes.length === 0) return product;
+      return { ...product, tastingNotes: ocrNotes };
+    } catch {
+      return product;
+    }
+  });
+}
+
+function compactTitleKey(title) {
+  return String(title || '').toLowerCase().replace(/[^a-z0-9가-힣]+/g, '');
+}
+
+// 검색 API 결과에서 얻은 노트를 제목이 같은(또는 포함 관계인) 상품에 옮겨 붙인다.
+function mergeNotesFromSearchResults(products, searchProducts) {
+  const notesByKey = new Map();
+  for (const item of searchProducts || []) {
+    if (item.tastingNotes?.length > 0) notesByKey.set(compactTitleKey(item.productName), item.tastingNotes);
+  }
+  if (notesByKey.size === 0) return products;
+
+  return products.map((product) => {
+    if (product.tastingNotes.length > 0) return product;
+
+    const key = compactTitleKey(product.productName);
+    let notes = notesByKey.get(key);
+    if (!notes && key.length >= 6) {
+      for (const [candidateKey, candidateNotes] of notesByKey) {
+        if (candidateKey.length >= 6 && (candidateKey.includes(key) || key.includes(candidateKey))) {
+          notes = candidateNotes;
+          break;
+        }
+      }
+    }
+    return notes ? { ...product, tastingNotes: notes } : product;
+  });
+}
+
+function extractSmartStoreDetailImageUrls(html) {
+  return [...new Set(
+    [...String(html || '').matchAll(/<img[^>]+(?:data-src|src)=["']([^"']+)["']/gi)]
+      .map((match) => match[1])
+      .filter((url) => /^https?:\/\//i.test(url))
+      .filter((url) => !/blank\.gif|\.svg|sprite/i.test(url)),
+  )];
+}
+
+// 스마트스토어 상세 본문에서 노트 추출: 글자(무료)를 먼저 보고, 없으면 본문 이미지 OCR
+async function extractNotesFromDetail(detailHtml, { maxImages = 4 } = {}) {
+  const text = String(detailHtml || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ');
+  const textNotes = extractOcrTasteNotes(text);
+  if (textNotes.length > 0) return textNotes;
+
+  for (const imageUrl of extractSmartStoreDetailImageUrls(detailHtml).slice(0, maxImages)) {
+    const notes = await getOcrTasteNotes(imageUrl);
+    if (notes.length > 0) return notes;
+  }
+
+  return [];
+}
+
 async function mapWithConcurrency(items, limit, mapper) {
   const results = new Array(items.length);
   let nextIndex = 0;
@@ -498,6 +610,8 @@ function normalizeSmartStoreCategoryItem(item, source, index) {
   const rawTitle = stripHtml(item.title);
   const title = cleanShoppingTitle(rawTitle, source.roasterName) || rawTitle;
   const price = Number(item.price || 0);
+  const rawOriginal = Number(item.originalPrice || 0);
+  const originalPrice = rawOriginal > price ? rawOriginal : undefined;
   const titleNotes = getTasteNotes(rawTitle);
 
   return {
@@ -508,6 +622,7 @@ function normalizeSmartStoreCategoryItem(item, source, index) {
     process: '',
     roastLevel: '확인 필요',
     price,
+    originalPrice,
     weight: parseWeight(rawTitle),
     score: Math.max(60, 88 - index),
     tastingNotes: sanitizeTastingNotes(titleNotes),
@@ -608,7 +723,13 @@ module.exports = {
     normalizeSmartStoreCategoryItems,
     parseWeight,
     normalizeTastingNotes,
+    extractNotesFromDetail,
+    extractSmartStoreDetailImageUrls,
+    mergeNotesFromSearchResults,
   },
+  enrichProductsWithThumbnailOcr,
+  extractNotesFromDetail,
+  mergeNotesFromSearchResults,
   loadLocalEnv,
   readOcrTextFromImageUrl,
   normalizeSmartStoreCategoryItems,

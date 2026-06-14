@@ -300,9 +300,51 @@ export function parseExplicitTastingNotes(text: string) {
     .slice(0, 5), { limit: 5 });
 }
 
-function parseTastingNotes(infoHtml: string, ocrText = '') {
+// 상품명에서 원두를 특정할 수 있는 한글 토큰만 남긴다. (행사·묶음 문구는 제외)
+const PRODUCT_NAME_STOP_WORDS = new Set([
+  '커피', '페스타', '원두', '블렌드', '싱글오리진', '디카페인', '스페셜', '온라인', '한정',
+]);
+
+function productNameTokens(productName: string) {
+  return (productName.match(/[가-힣]{2,}/g) || [])
+    .filter((token) => !PRODUCT_NAME_STOP_WORDS.has(token))
+    .sort((a, b) => b.length - a.length);
+}
+
+// OCR 본문에서 "원두 이름 → 곧이어 나오는 영어 쉼표 노트 목록" 패턴을 찾는다.
+// 예) "브라질 산투안토니우 엔리케 ... Milk Chocolate, Hazelnut, Nougat, Clean Finish"
+export function parseNotesNearProductName(productName: string, text: string) {
+  if (!productName || !text) return [];
+
+  const noteListPattern = /[A-Z][A-Za-z'’&\- ]{1,24}(?:,\s*[A-Z][A-Za-z'’&\- ]{1,24}){2,}/g;
+
+  for (const token of productNameTokens(productName)) {
+    let searchFrom = 0;
+    while (true) {
+      const tokenIndex = text.indexOf(token, searchFrom);
+      if (tokenIndex < 0) break;
+
+      const window = text.slice(tokenIndex, tokenIndex + 600);
+      const noteList = window.match(noteListPattern)?.[0];
+      if (noteList) {
+        const notes = normalizeTastingNotes(noteList.split(',').map((note) => note.trim()), { limit: 5 });
+        if (notes.length >= 2) return notes;
+      }
+
+      searchFrom = tokenIndex + token.length;
+    }
+  }
+
+  return [];
+}
+
+function parseTastingNotes(infoHtml: string, ocrText = '', productName = '') {
   // Tasting Note / Flavor & Aroma 라벨이 있을 때만 컵노트를 믿는다.
-  return parseExplicitTastingNotes(`${ocrText}\n${infoHtml}`);
+  const explicitNotes = parseExplicitTastingNotes(`${ocrText}\n${infoHtml}`);
+  if (explicitNotes.length > 0) return explicitNotes;
+
+  // 라벨이 없으면 OCR 본문에서 상품명 근처의 영어 노트 목록을 찾는다.
+  return parseNotesNearProductName(productName, ocrText);
 }
 
 export function parseTerarosaDetailProduct(html: string, url: string, ocrText = '') {
@@ -327,7 +369,7 @@ export function parseTerarosaDetailProduct(html: string, url: string, ocrText = 
     price,
     originalPrice: parseOriginalPriceFromDetail(html, price),
     weight: weightMatch ? Number(weightMatch[1]) : inferWeight(combinedText),
-    tastingNotes: parseTastingNotes(infoHtml, ocrText),
+    tastingNotes: parseTastingNotes(infoHtml, ocrText, productName),
     imageUrl,
     isNew: /NEW|신상|신상품|\[\d+월/i.test(productName),
     isSoldOut: /value=["']현재 품절된 상품입니다["'][^>]*disabled/i.test(visibleHtml),
@@ -404,7 +446,7 @@ export function normalizeTerarosaApiRows(rows: unknown[]): BeanProduct[] {
         originalPrice: originalPrice > price ? originalPrice : undefined,
         weight: inferWeight(combinedText),
         score: inferScore(productName, index),
-        tastingNotes: parseTastingNotes(itemExplain),
+        tastingNotes: parseTastingNotes(itemExplain, '', productName),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutRow(row),

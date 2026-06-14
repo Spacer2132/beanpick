@@ -76,4 +76,15 @@ export const OFFICIAL_MALL_CONFIGS: Record<string, Cafe24SourceConfig> = {
     beanWords: ['블렌드', 'blend', 'geisha'],
     blockedWords: ['콜드브루', '드립백', '인스턴트', '캡슐', '스틱', '액상', '선물세트', '머그', '컵', '텀블러'],
   },
+  coffee502: {
+    sourceId: 'coffee502',
+    roasterName: '502커피로스터스',
+    sourceUrl: 'https://502coffee.com/category/%EC%9B%90%EB%91%90/24/',
+    origin: 'https://502coffee.com',
+    defaultWeight: 200,
+    categoryNo: '24',
+    trustCategoryAsBean: true,
+    verifyStockFromDetail: true,
+    blockedWords: ['드립백', '브루백', '캡슐', '콜드브루', '선물', '굿즈', '머그', '컵', '텀블러', '쇼핑백'],
+  },
 };

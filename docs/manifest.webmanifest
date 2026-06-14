@@ -1,0 +1,17 @@
+{
+  "name": "BeanPick",
+  "short_name": "BeanPick",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f2ea",
+  "theme_color": "#4f3b2b",
+  "icons": [
+    {
+      "src": "./beanpick-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

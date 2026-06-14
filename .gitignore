@@ -11,6 +11,8 @@ build/
 .cache/
 graphify-out/
 output/
+app/
+app-*/
 
 # env
 .env

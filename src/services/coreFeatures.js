@@ -1,6 +1,12 @@
 import { normalizeTastingNotes, sortTastingNotes } from './tastingNotes.js';
 
-const DISCOUNT_THRESHOLD = 0.3;
+// 5% 이상 싸게 팔면 할인 상품으로 본다. (1~4%는 표기 오차 수준이라 제외)
+const DISCOUNT_THRESHOLD = 0.05;
+const FEATURED_VARIETY_RULES = [
+  { label: '게이샤', aliases: ['geisha', 'gesha', '게이샤', '게샤'] },
+  { label: '파카마라', aliases: ['pacamara', '파카마라'] },
+  { label: '시드라', aliases: ['sidra', '시드라'] },
+];
 
 const TASTE_NOTE_GROUPS = {
   light: new Set([
@@ -159,12 +165,58 @@ function unitPrice(product) {
   return product.price / product.weight; // 1g당 가격
 }
 
+function featuredVarietyLabel(product) {
+  const text = [
+    product.productName,
+    product.variety,
+    product.origin,
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  return FEATURED_VARIETY_RULES.find((rule) => (
+    rule.aliases.some((alias) => text.includes(alias.toLowerCase()))
+  ))?.label || '';
+}
+
+function isBlendProduct(product) {
+  const text = [
+    product.productName,
+    product.variety,
+    product.origin,
+    product.process,
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  return /\bblend\b|블렌드/.test(text);
+}
+
+function pickFeaturedProducts(products, limit = 8) {
+  const selected = [];
+  const selectedIds = new Set();
+
+  function addProduct(product, ignoreLimit = false) {
+    if (!product || selectedIds.has(product.id)) return;
+    if (!ignoreLimit && selected.length >= limit) return;
+    selected.push(product);
+    selectedIds.add(product.id);
+  }
+
+  // 특수 품종(게이샤·파카마라·시드라)은 개수 제한 없이 전부 추천에 넣는다.
+  FEATURED_VARIETY_RULES.forEach((rule) => {
+    products
+      .filter((product) => featuredVarietyLabel(product) === rule.label)
+      .forEach((product) => addProduct(product, true));
+  });
+  products.filter((product) => !isBlendProduct(product)).forEach((product) => addProduct(product));
+
+  return selected;
+}
+
 function sortProducts(products, sortMode) {
   return [...products].sort((a, b) => {
     if (sortMode === 'latest') return a.checkedMinutesAgo - b.checkedMinutesAgo;
     if (sortMode === 'price') return (a.price || Number.POSITIVE_INFINITY) - (b.price || Number.POSITIVE_INFINITY);
     if (sortMode === 'unitPriceAsc') return unitPrice(a) - unitPrice(b);
     if (sortMode === 'unitPriceDesc') return unitPrice(b) - unitPrice(a);
+    if (sortMode === 'discount') return calculateDiscountRate(b.price, b.originalPrice) - calculateDiscountRate(a.price, a.originalPrice);
     return b.score - a.score;
   });
 }
@@ -235,9 +287,8 @@ const PROCESS_DISPLAY_RULES = [
 ];
 
 const VARIETY_DISPLAY_RULES = [
-  { label: '게이샤', aliases: ['geisha', 'gesha', '게이샤', '게샤'] },
+  ...FEATURED_VARIETY_RULES,
   { label: '파카스', aliases: ['pacas', '파카스'] },
-  { label: '파카마라', aliases: ['pacamara', '파카마라'] },
   { label: '핑크 버번', aliases: ['pink bourbon', '핑크 버번', '핑크버번'] },
   { label: '버번', aliases: ['bourbon', '버번'] },
   { label: '카투라', aliases: ['caturra', '카투라'] },
@@ -338,6 +389,19 @@ function inferFarmName(productName, countryRule, processRule, varietyLabels) {
   return compactDisplayText(farmName);
 }
 
+function getProductCountryLabel(product) {
+  return findCountryDisplay(product)?.label || '';
+}
+
+function getProductProcessLabel(product) {
+  return findProcessDisplay(product)?.label || '';
+}
+
+function isDecafProduct(product) {
+  const text = [product.productName, product.origin, product.process].filter(Boolean).join(' ');
+  return /디카페인|decaf/i.test(text);
+}
+
 function preferKoreanText(value) {
   const trimmed = String(value || '').trim();
   if (!trimmed) return '';
@@ -386,6 +450,9 @@ function formatProductDisplayInfo(product) {
 function normalizeProductNameForGroup(productName) {
   return String(productName || '')
     .replace(/[★☆]/g, ' ')
+    // "[그란데]"(대용량), "[6월 먼슬리]"(행사), "(요청불가)" 같은 수식어 때문에
+    // 같은 원두가 따로 표시되는 것을 막는다. 단 [생두]·[디카페인]처럼 상품이 달라지는 표기는 남긴다.
+    .replace(/[[(]\s*(?:그란데|대용량|벌크|점보|뉴크롭|new\s*crop|(?:\d+월\s*)?먼슬리|(?:분쇄\s*)?요청불가)\s*[\])]/gi, ' ')
     .replace(/\b\d+(?:\.\d+)?\s*(?:kg|g)\b/gi, ' ')
     .replace(/\b\d+\s*개\b/g, ' ')
     .replace(/\s*,\s*/g, ' ')
@@ -394,10 +461,11 @@ function normalizeProductNameForGroup(productName) {
 }
 
 function createProductGroupKey(product) {
+  // 비교용 키에서는 띄어쓰기를 모두 없앤다. ("풀리 워시드"와 "풀리워시드"를 같게 본다)
   return [
     product.roasterName,
     normalizeProductNameForGroup(product.productName),
-  ].join('::').toLowerCase();
+  ].join('::').toLowerCase().replace(/\s+/g, '');
 }
 
 function uniqueValues(values) {
@@ -481,6 +549,42 @@ function getNoteOptions(products) {
   return sortTastingNotes(products.flatMap((product) => product.tastingNotes));
 }
 
+// 한글 음절에서 초성만 뽑아낸다. (예: "에티오피아" → "ㅇㅌㅇㅍㅇ")
+const CHOSEONG_LIST = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+
+function getChoseong(text) {
+  return [...String(text)].map((char) => {
+    const code = char.charCodeAt(0) - 0xac00;
+    if (code < 0 || code > 11171) return char;
+    return CHOSEONG_LIST[Math.floor(code / 588)];
+  }).join('');
+}
+
+// 띄어쓰기 무시 + 초성(ㅇㅌㅇㅍㅇ) 검색을 지원하는 매칭.
+// 여러 단어를 입력하면 모든 단어가 들어 있어야 한다.
+function matchesSmartSearch(text, query) {
+  const tokens = String(query).trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if (tokens.length === 0) return true;
+
+  const compactText = String(text).toLowerCase().replace(/\s+/g, '');
+  const choseongText = getChoseong(compactText);
+
+  return tokens.every((token) => (
+    compactText.includes(token)
+    || (/^[ㄱ-ㅎ]+$/.test(token) && choseongText.includes(token))
+  ));
+}
+
+// 노트 상세검색: 포함 단어는 노트에 모두 들어 있어야 하고, 제외 단어는 하나도 없어야 한다.
+function matchesNoteQuery(product, includeQuery = '', excludeQuery = '') {
+  const noteText = (product.tastingNotes || []).join(' ');
+
+  if (!matchesSmartSearch(noteText, String(includeQuery).replace(/,/g, ' '))) return false;
+
+  const excludeTokens = String(excludeQuery).trim().split(/[\s,]+/).filter(Boolean);
+  return !excludeTokens.some((token) => matchesSmartSearch(noteText, token));
+}
+
 function filterProductsBySearchAndNotes(products, searchQuery = '', activeNotes = []) {
   const query = searchQuery.trim().toLowerCase();
 
@@ -532,16 +636,23 @@ export {
   formatPrice,
   formatProductDisplayInfo,
   formatWeight,
+  getChoseong,
   getFilteredProducts,
   getNoteOptions,
   getPricePer100g,
+  getProductCountryLabel,
+  getProductProcessLabel,
   getStockCounts,
   getTasteNoteGroup,
   groupProductsByNameAndWeight,
+  isDecafProduct,
   isDiscountedProduct,
   isRealProductUrl,
+  matchesNoteQuery,
+  matchesSmartSearch,
   normalizeProductNameForGroup,
   normalizeProducts,
+  pickFeaturedProducts,
   productInfoItems,
   sortProducts,
   uniqueProductMeta,
