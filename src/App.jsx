@@ -1152,7 +1152,7 @@ export default function App() {
               <span>검색</span>
               <input
                 value={searchQuery}
-                placeholder="초성(ㅇㄱㅊㅍ)도 검색돼요 · 로스터리, 원두명, 노트"
+                placeholder="원두·로스터리·노트 검색 (초성 가능)"
                 onChange={(event) => setSearchQuery(event.target.value)}
                 onFocus={() => setSearchFocused(true)}
                 onBlur={() => setSearchFocused(false)}
