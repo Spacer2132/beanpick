@@ -395,7 +395,6 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
     displayInfo.farm,
   ].filter(Boolean);
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
-  const titleUnitPriceLabel = getBestUnitPriceLabel(product, priceOptions);
   const representativePrice = getRepresentativePriceOption(product);
   const cardPriceOptions = representativePrice.option ? [representativePrice.option] : priceOptions.slice(0, 1);
   const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
@@ -439,7 +438,6 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
         <h3>
           <button className="bean-title-link" type="button" onClick={() => onSelect(product)}>
             {displayInfo.primary}
-            {titleUnitPriceLabel && <span className="bean-title-unit-price">({titleUnitPriceLabel})</span>}
           </button>
         </h3>
         {infoItems.length > 0 && (
@@ -478,10 +476,12 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
                 rel={hasOptionLink ? 'noreferrer' : undefined}
                 aria-label={hasOptionLink ? `${product.productName} ${option.weightLabel} 상품 열기` : undefined}
               >
-                {option.originalPriceLabel && <del>{option.originalPriceLabel}</del>}
-                <strong>{option.priceLabel}</strong>
-                {option.discountLabel && <small>{option.discountLabel}</small>}
-                <span>{option.weightLabel}</span>
+                <div className="bean-price-main">
+                  {option.originalPriceLabel && <del>{option.originalPriceLabel}</del>}
+                  <strong>{option.priceLabel}</strong>
+                  {option.discountLabel && <small>{option.discountLabel}</small>}
+                  <span>{option.weightLabel}</span>
+                </div>
                 {option.unitPriceLabel && <em>{option.unitPriceLabel}</em>}
               </PriceOptionTag>
             );
