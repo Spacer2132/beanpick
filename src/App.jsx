@@ -1173,15 +1173,17 @@ export default function App() {
                 </div>
               )}
             </label>
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={handleLoadProducts}
-              disabled={loadState.status === 'loading'}
-            >
-              {loadState.status === 'loading' && <LoadingSpinner compact />}
-              {loadState.status === 'loading' ? '불러오는 중' : '오늘의 원두 불러오기'}
-            </button>
+            {canLoadLiveProducts() && (
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={handleLoadProducts}
+                disabled={loadState.status === 'loading'}
+              >
+                {loadState.status === 'loading' && <LoadingSpinner compact />}
+                {loadState.status === 'loading' ? '불러오는 중' : '오늘의 원두 불러오기'}
+              </button>
+            )}
             {canLoadLiveProducts() && (
               <button
                 className="btn"
