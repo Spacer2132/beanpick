@@ -13,14 +13,12 @@ import {
   getNoteOptions,
   getProductCountryLabel,
   getProductProcessLabel,
-  getStockCounts,
   groupProductsByNameAndWeight,
   isDecafProduct,
   isRealProductUrl,
   matchesNoteQuery,
   matchesSmartSearch,
   normalizeProducts,
-  pickFeaturedProducts,
   sortProducts,
 } from './services/coreFeatures.js';
 import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, saveProductSnapshot } from './services/monitoring.ts';
@@ -32,12 +30,6 @@ const NAV = [
   { id: 'alerts', label: '관심·알림', group: '둘러보기', badge: 0 },
   { id: 'sources', label: '로스터리', group: '데이터', badge: roasterySources.length },
   { id: 'server', label: '앱 상태', group: '데이터' },
-];
-
-const STOCK_FILTERS = [
-  { id: 'all', label: '전체' },
-  { id: 'available', label: '판매 중' },
-  { id: 'soldout', label: '품절' },
 ];
 
 function productSearchText(product) {
@@ -82,12 +74,6 @@ function matchesBudgetFilter(product, budget) {
 
   if (budget === 'under30000') return lowestPrice > 0 && lowestPrice <= 30000;
   if (budget === 'under50000') return lowestPrice > 0 && lowestPrice <= 50000;
-  return true;
-}
-
-function matchesStockFilter(product, stockFilter) {
-  if (stockFilter === 'available') return !product.isSoldOut;
-  if (stockFilter === 'soldout') return product.isSoldOut;
   return true;
 }
 
@@ -382,7 +368,6 @@ function NoteTag({ note, active, onClick }) {
 
 function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onNoteClick, onSelect, onToggleFavorite }) {
   const hasImage = Boolean(product.imageUrl);
-  const isAvailable = !product.isSoldOut;
   const detailLabel = `${product.roasterName} ${product.productName} 상세 보기`;
   const metaItems = [product.roasterName].filter(Boolean);
   const displayInfo = formatProductDisplayInfo(product);
@@ -479,12 +464,11 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
             );
           })}
         </div>
-        <div className="bean-actions">
-          {priceDelta !== 0 && (
+        {priceDelta !== 0 && (
+          <div className="bean-actions">
             <span className={`price-delta ${priceDelta < 0 ? 'down' : 'up'}`}>{formatPriceDelta(priceDelta)}</span>
-          )}
-          <span className={`stock-pill ${isAvailable ? 'available' : 'soldout'}`}>{isAvailable ? '판매 중' : '품절'}</span>
-        </div>
+          </div>
+        )}
       </div>
     </article>
   );
@@ -746,7 +730,6 @@ export default function App() {
   // 노트 상세검색: 꼭 포함할 단어 / 제외할 단어
   const [noteIncludeQuery, setNoteIncludeQuery] = React.useState('');
   const [noteExcludeQuery, setNoteExcludeQuery] = React.useState('');
-  const [stockFilter, setStockFilter] = React.useState('all');
   const [budget, setBudget] = React.useState('all');
   const [originFilter, setOriginFilter] = React.useState('all');
   const [processFilter, setProcessFilter] = React.useState('all');
@@ -806,10 +789,11 @@ export default function App() {
     return deltas;
   }, [priceHistory, products]);
 
-  // 재고 탭을 제외한 모든 조건(검색·노트·할인·디카페인·원산지·가공·가격)을 먼저 적용한다.
-  const preStockProducts = React.useMemo(() => (
+  // 검색·노트·할인·디카페인·원산지·가공·가격 조건을 적용하고, 품절 원두는 목록에서 제외한다.
+  const visibleProducts = React.useMemo(() => (
     products.filter((product) => (
-      matchesDetailQuery(product, searchQuery)
+      !product.isSoldOut
+      && matchesDetailQuery(product, searchQuery)
       && (activeNotes.length === 0 || activeNotes.some((note) => product.tastingNotes.includes(note)))
       && matchesNoteQuery(product, noteIncludeQuery, noteExcludeQuery)
       && (!discountOnly || discountProducts.includes(product))
@@ -820,19 +804,13 @@ export default function App() {
     ))
   ), [activeNotes, budget, decafOnly, discountOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
 
-  const stockCounts = React.useMemo(() => getStockCounts(preStockProducts), [preStockProducts]);
-
   const filteredProducts = React.useMemo(() => (
-    sortProducts(preStockProducts.filter((product) => matchesStockFilter(product, stockFilter)), sortMode)
-  ), [preStockProducts, sortMode, stockFilter]);
+    sortProducts(visibleProducts, sortMode)
+  ), [visibleProducts, sortMode]);
 
-  const hasActiveFilters = Boolean(searchQuery.trim()) || activeNotes.length > 0 || stockFilter !== 'all'
+  const hasActiveFilters = Boolean(searchQuery.trim()) || activeNotes.length > 0
     || budget !== 'all' || originFilter !== 'all' || processFilter !== 'all' || discountOnly || decafOnly
     || Boolean(noteIncludeQuery.trim()) || Boolean(noteExcludeQuery.trim());
-
-  const featuredProducts = React.useMemo(() => (
-    hasActiveFilters ? [] : pickFeaturedProducts(products, 4)
-  ), [hasActiveFilters, products]);
 
   const detailProduct = React.useMemo(() => (
     detailProductId ? products.find((product) => product.id === detailProductId) ?? null : null
@@ -861,7 +839,6 @@ export default function App() {
     setActiveNotes([]);
     setNoteIncludeQuery('');
     setNoteExcludeQuery('');
-    setStockFilter('all');
     setBudget('all');
     setOriginFilter('all');
     setProcessFilter('all');
@@ -1035,7 +1012,6 @@ export default function App() {
       setBaseProducts(groupedProducts);
       setDataMode('live');
       setActiveNotes([]);
-      setStockFilter('all');
       setLastLoadedAt(loadedAt);
       // 변화 비교는 이전 저장본 기준으로 먼저 계산한 뒤, 다음 비교를 위해 자동 저장한다.
       const summary = createMonitorSummary(groupedProducts, roasterySources);
@@ -1056,7 +1032,6 @@ export default function App() {
 
       setDataMode(cache ? 'cached' : 'mock');
       setBaseProducts(fallbackProducts);
-      setStockFilter('all');
       setMonitorSummary(createMonitorSummary(fallbackProducts, roasterySources));
       setLoadState({
         status: 'error',
@@ -1204,10 +1179,9 @@ export default function App() {
             budget={budget}
             dataMode={dataMode}
             decafOnly={decafOnly}
-            discountCount={discountProducts.length}
+            discountCount={discountProducts.filter((product) => !product.isSoldOut).length}
             discountOnly={discountOnly}
             favoriteIds={favoriteIds}
-            featuredProducts={featuredProducts}
             hasActiveFilters={hasActiveFilters}
             lastLoadedAt={lastLoadedAt}
             loadState={loadState}
@@ -1233,10 +1207,7 @@ export default function App() {
             setOriginFilter={setOriginFilter}
             setProcessFilter={setProcessFilter}
             setSortMode={setSortMode}
-            setStockFilter={setStockFilter}
             sortMode={sortMode}
-            stockCounts={stockCounts}
-            stockFilter={stockFilter}
             summaryProducts={products}
           />
         ) : screen === 'sources' ? (
@@ -1278,7 +1249,7 @@ export default function App() {
   );
 }
 
-function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, discountOnly, favoriteIds, featuredProducts, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, priceDeltas, processFilter, processOptions, publishState, products, setBudget, setDecafOnly, setDiscountOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, setStockFilter, sortMode, stockCounts, stockFilter, summaryProducts }) {
+function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, discountOnly, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, priceDeltas, processFilter, processOptions, publishState, products, setBudget, setDecafOnly, setDiscountOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts }) {
   const PAGE_SIZE = 24;
   const NOTE_PREVIEW_COUNT = 12;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
@@ -1311,14 +1282,10 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
     : sortMode === 'discount' ? '할인율 높은순'
     : '추천순';
   const summary = {
-    total: summaryProducts.length,
-    available: summaryProducts.filter((product) => !product.isSoldOut).length,
-    soldOut: summaryProducts.filter((product) => product.isSoldOut).length,
-    fresh: summaryProducts.filter((product) => product.isNew).length,
+    total: summaryProducts.filter((product) => !product.isSoldOut).length,
+    discount: discountCount,
   };
-  const emptyMessage = stockFilter === 'all'
-    ? '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.'
-    : '선택한 판매 상태에 맞는 원두가 없습니다. 다른 탭을 눌러보세요.';
+  const emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.';
 
   return (
     <div className="page-stack">
@@ -1339,33 +1306,27 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
       )}
 
       <div className="browse-summary">
-        <span><strong>{summary.total}</strong> 전체</span>
-        <span><strong>{summary.available}</strong> 판매 중</span>
-        <span><strong>{summary.soldOut}</strong> 품절</span>
-        <span><strong>{summary.fresh}</strong> 새 상품</span>
+        <span>전체 <strong>{summary.total}</strong>개</span>
+        <span>할인 중 <strong>{summary.discount}</strong>개</span>
         <em>{dataModeSourceLabel(dataMode)} · 마지막 확인 {formatDateTime(lastLoadedAt)}</em>
       </div>
 
-      {featuredProducts.length > 0 && (
-        <section className="panel">
-          <div className="section-title">
-            <div>
-              <span className="eyebrow">Today&apos;s pick</span>
-              <h2>오늘의 픽</h2>
-            </div>
-            <span>게이샤 · 파카마라 · 시드라 우선</span>
+      <div className="results-toolbar">
+        <div className="section-title">
+          <div>
+            <span className="eyebrow">{sortLabel}</span>
+            <h2>원두 <em>{products.length}개</em></h2>
           </div>
-          <ProductGrid
-            activeNotes={activeNotes}
-            favoriteIds={favoriteIds}
-            priceDeltas={priceDeltas}
-            products={featuredProducts}
-            onNoteClick={onNoteClick}
-            onSelect={onSelectProduct}
-            onToggleFavorite={onToggleFavorite}
-          />
-        </section>
-      )}
+          <div className="sort-actions" aria-label="원두 정렬">
+            <button className={sortMode === 'score' ? 'active' : ''} type="button" onClick={() => setSortMode('score')}>추천순</button>
+            <button className={sortMode === 'latest' ? 'active' : ''} type="button" onClick={() => setSortMode('latest')}>최근순</button>
+            <button className={sortMode === 'price' ? 'active' : ''} type="button" onClick={() => setSortMode('price')}>가격순</button>
+            <button className={sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceAsc')}>100g당 낮은가격</button>
+            <button className={sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceDesc')}>100g당 높은가격</button>
+            <button className={sortMode === 'discount' ? 'active' : ''} type="button" onClick={() => setSortMode('discount')}>할인율 높은순</button>
+          </div>
+        </div>
+      </div>
 
       <section className="panel filter-panel">
         <div className="section-title">
@@ -1445,39 +1406,6 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
       </section>
 
       <section className="panel">
-        <div className="results-toolbar">
-          <div className="section-title">
-            <div>
-              <span className="eyebrow">{sortLabel}</span>
-              <h2>원두 <em>{products.length}개</em></h2>
-            </div>
-            <div className="sort-actions" aria-label="원두 정렬">
-              <button className={sortMode === 'score' ? 'active' : ''} type="button" onClick={() => setSortMode('score')}>추천순</button>
-              <button className={sortMode === 'latest' ? 'active' : ''} type="button" onClick={() => setSortMode('latest')}>최근순</button>
-              <button className={sortMode === 'price' ? 'active' : ''} type="button" onClick={() => setSortMode('price')}>가격순</button>
-              <button className={sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceAsc')}>100g당 낮은가격</button>
-              <button className={sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceDesc')}>100g당 높은가격</button>
-              <button className={sortMode === 'discount' ? 'active' : ''} type="button" onClick={() => setSortMode('discount')}>할인율 높은순</button>
-            </div>
-          </div>
-
-          <div className="stock-tabs" role="tablist" aria-label="판매 상태 필터">
-            {STOCK_FILTERS.map((filter) => (
-              <button
-                key={filter.id}
-                className={stockFilter === filter.id ? 'active' : ''}
-                type="button"
-                role="tab"
-                aria-selected={stockFilter === filter.id}
-                onClick={() => setStockFilter(filter.id)}
-              >
-                <span>{filter.label}</span>
-                <em>{stockCounts[filter.id] ?? 0}</em>
-              </button>
-            ))}
-          </div>
-        </div>
-
         {showSkeleton ? (
           <div className="bean-grid" aria-hidden="true">
             {Array.from({ length: 8 }, (_, index) => (

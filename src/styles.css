@@ -1832,18 +1832,23 @@ a {
   .sidebar {
     position: static;
     height: auto;
-    padding: 14px;
+    padding: 10px 12px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
-    gap: 12px;
+    gap: 6px;
   }
 
   .brand {
-    padding: 4px;
+    padding: 2px 4px;
+    gap: 2px;
   }
 
   .brand-mark {
-    font-size: 25px;
+    font-size: 20px;
+  }
+
+  .brand span:last-child {
+    font-size: 11px;
   }
 
   .nav-section {
@@ -1860,11 +1865,11 @@ a {
 
   .nav-item {
     width: auto;
-    min-height: 38px;
-    padding: 8px 11px;
+    min-height: 30px;
+    padding: 5px 10px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.64);
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .sidebar-note {
@@ -1925,13 +1930,15 @@ a {
 
   .sort-actions {
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
   }
 
   .sort-actions button {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     min-width: 0;
+    white-space: nowrap;
   }
 
   .stock-tabs {
