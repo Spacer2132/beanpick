@@ -1257,6 +1257,7 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
   const NOTE_PREVIEW_COUNT = 12;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
   const [notesExpanded, setNotesExpanded] = React.useState(false);
+  const [filtersExpanded, setFiltersExpanded] = React.useState(false);
   const [showBackToTop, setShowBackToTop] = React.useState(false);
 
   // 필터나 데이터가 바뀌면 다시 첫 페이지부터 보여준다.
@@ -1331,79 +1332,93 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
         </div>
       </div>
 
-      <section className="panel filter-panel">
-        <div className="section-title">
-          <div>
+      <section className={`panel filter-panel ${filtersExpanded ? 'is-open' : 'is-collapsed'}`}>
+        <div className="section-title filter-panel-head">
+          <button
+            className="filter-toggle"
+            type="button"
+            aria-expanded={filtersExpanded}
+            aria-controls="bean-filters-body"
+            onClick={() => setFiltersExpanded((expanded) => !expanded)}
+          >
             <span className="eyebrow">Filters</span>
-            <h2>조건으로 고르기</h2>
+            <span className="filter-toggle-title">조건으로 고르기</span>
+            <span className="filter-toggle-icon">{filtersExpanded ? '접기' : '펼치기'}</span>
+          </button>
+          <div className="filter-panel-actions">
+            {hasActiveFilters && <span className="filter-active-label">필터 적용 중</span>}
+            {hasActiveFilters && <button className="btn btn-small" type="button" onClick={onClearFilters}>필터 초기화</button>}
           </div>
-          {hasActiveFilters && <button className="btn btn-small" type="button" onClick={onClearFilters}>필터 초기화</button>}
         </div>
-        <div className="filter-chip-row">
-          <button className={`note-tag ${discountOnly ? 'active' : ''}`} type="button" onClick={() => setDiscountOnly(!discountOnly)}>
-            할인 중 {discountCount > 0 ? discountCount : ''}
-          </button>
-          <button className={`note-tag ${decafOnly ? 'active' : ''}`} type="button" onClick={() => setDecafOnly(!decafOnly)}>
-            디카페인
-          </button>
-        </div>
-        <div className="detail-filter-row">
-          <label>
-            <span>원산지</span>
-            <select value={originFilter} onChange={(event) => setOriginFilter(event.target.value)}>
-              <option value="all">전체</option>
-              {originOptions.map((label) => <option key={label} value={label}>{label}</option>)}
-            </select>
-          </label>
-          <label>
-            <span>가공방식</span>
-            <select value={processFilter} onChange={(event) => setProcessFilter(event.target.value)}>
-              <option value="all">전체</option>
-              {processOptions.map((label) => <option key={label} value={label}>{label}</option>)}
-            </select>
-          </label>
-          <label>
-            <span>가격</span>
-            <select value={budget} onChange={(event) => setBudget(event.target.value)}>
-              <option value="all">가격 전체</option>
-              <option value="under30000">3만원 이하</option>
-              <option value="under50000">5만원 이하</option>
-            </select>
-          </label>
-        </div>
-        {noteOptions.length > 0 && (
-          <div className="detail-note-cloud">
-            <span>테이스팅 노트</span>
-            <div className="notes">
-              {visibleNotes.map((note) => (
-                <NoteTag key={note} note={note} active={activeNotes.includes(note)} onClick={onNoteClick} />
-              ))}
-              {hiddenNoteCount > 0 && (
-                <button className="note-tag note-more" type="button" onClick={() => setNotesExpanded(!notesExpanded)}>
-                  {notesExpanded ? '접기' : `+${hiddenNoteCount}개 더`}
-                </button>
-              )}
+        {filtersExpanded && (
+          <div className="filter-panel-body" id="bean-filters-body">
+            <div className="filter-chip-row">
+              <button className={`note-tag ${discountOnly ? 'active' : ''}`} type="button" onClick={() => setDiscountOnly(!discountOnly)}>
+                할인 중 {discountCount > 0 ? discountCount : ''}
+              </button>
+              <button className={`note-tag ${decafOnly ? 'active' : ''}`} type="button" onClick={() => setDecafOnly(!decafOnly)}>
+                디카페인
+              </button>
             </div>
-            <div className="note-query-row">
+            <div className="detail-filter-row">
               <label>
-                꼭 포함
-                <input
-                  type="text"
-                  value={noteIncludeQuery}
-                  placeholder="예: 초콜릿 견과류"
-                  onChange={(event) => setNoteIncludeQuery(event.target.value)}
-                />
+                <span>원산지</span>
+                <select value={originFilter} onChange={(event) => setOriginFilter(event.target.value)}>
+                  <option value="all">전체</option>
+                  {originOptions.map((label) => <option key={label} value={label}>{label}</option>)}
+                </select>
               </label>
               <label>
-                제외
-                <input
-                  type="text"
-                  value={noteExcludeQuery}
-                  placeholder="예: 산미, 플로럴"
-                  onChange={(event) => setNoteExcludeQuery(event.target.value)}
-                />
+                <span>가공방식</span>
+                <select value={processFilter} onChange={(event) => setProcessFilter(event.target.value)}>
+                  <option value="all">전체</option>
+                  {processOptions.map((label) => <option key={label} value={label}>{label}</option>)}
+                </select>
+              </label>
+              <label>
+                <span>가격</span>
+                <select value={budget} onChange={(event) => setBudget(event.target.value)}>
+                  <option value="all">가격 전체</option>
+                  <option value="under30000">3만원 이하</option>
+                  <option value="under50000">5만원 이하</option>
+                </select>
               </label>
             </div>
+            {noteOptions.length > 0 && (
+              <div className="detail-note-cloud">
+                <span>테이스팅 노트</span>
+                <div className="notes">
+                  {visibleNotes.map((note) => (
+                    <NoteTag key={note} note={note} active={activeNotes.includes(note)} onClick={onNoteClick} />
+                  ))}
+                  {hiddenNoteCount > 0 && (
+                    <button className="note-tag note-more" type="button" onClick={() => setNotesExpanded(!notesExpanded)}>
+                      {notesExpanded ? '접기' : `+${hiddenNoteCount}개 더`}
+                    </button>
+                  )}
+                </div>
+                <div className="note-query-row">
+                  <label>
+                    꼭 포함
+                    <input
+                      type="text"
+                      value={noteIncludeQuery}
+                      placeholder="예: 초콜릿 견과류"
+                      onChange={(event) => setNoteIncludeQuery(event.target.value)}
+                    />
+                  </label>
+                  <label>
+                    제외
+                    <input
+                      type="text"
+                      value={noteExcludeQuery}
+                      placeholder="예: 산미, 플로럴"
+                      onChange={(event) => setNoteExcludeQuery(event.target.value)}
+                    />
+                  </label>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </section>
