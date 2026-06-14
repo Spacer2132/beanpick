@@ -119,15 +119,26 @@ function getLowestUnitPriceCandidate(product) {
     : [product];
 
   return options
-    .map((option) => {
+    .map((option, index) => {
       const price = getReliableSalePrice(option.price, option.originalPrice);
       const weight = Number(option.weight || 0);
       const priceWasAdjusted = price !== Number(option.price || 0);
       const label = priceWasAdjusted ? formatPricePer100g(price, weight) : (option.unitPriceLabel || formatPricePer100g(price, weight));
-      return price > 0 && weight > 0 && label ? { label, value: price / weight } : null;
+      return price > 0 && weight > 0 && label ? { index, label, value: price / weight } : null;
     })
     .filter(Boolean)
     .sort((a, b) => a.value - b.value)[0];
+}
+
+function getRepresentativePriceOption(product) {
+  const options = Array.isArray(product.priceOptions) && product.priceOptions.length > 0
+    ? product.priceOptions
+    : createPriceOptions([product]);
+  const candidate = getLowestUnitPriceCandidate({ ...product, priceOptions: options });
+  return {
+    option: options[candidate?.index ?? 0],
+    extraCount: Math.max(0, options.length - 1),
+  };
 }
 
 function calculateDiscountRate(price, originalPrice) {
@@ -691,6 +702,7 @@ export {
   getPricePer100g,
   getProductCountryLabel,
   getProductProcessLabel,
+  getRepresentativePriceOption,
   getStockCounts,
   getTasteNoteGroup,
   groupProductsByNameAndWeight,

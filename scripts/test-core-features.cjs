@@ -154,6 +154,9 @@ expect(
   core.sortProducts([grouped[0], lowerUnitPriceProduct], 'unitPriceAsc')[0]?.id === 'unit-compare',
   '묶인 카드는 최저 가격과 대표 용량을 섞지 말고 실제 가격 옵션의 100g당 단가로 정렬해야 합니다',
 );
+const representativePrice = core.getRepresentativePriceOption(grouped[0]);
+expect(representativePrice.option?.weightLabel === '1kg', '목록 카드는 100g당 가장 싼 대표 용량 하나를 골라야 합니다', representativePrice.option?.weightLabel);
+expect(representativePrice.extraCount === 2, '목록 카드는 숨겨진 다른 용량 개수를 알려줘야 합니다', String(representativePrice.extraCount));
 
 const discountCandidates = [
   { id: 'discount-30', price: 28000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },

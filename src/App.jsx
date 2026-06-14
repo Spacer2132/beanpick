@@ -14,6 +14,7 @@ import {
   getPricePer100g,
   getProductCountryLabel,
   getProductProcessLabel,
+  getRepresentativePriceOption,
   groupProductsByNameAndWeight,
   isDecafProduct,
   isRealProductUrl,
@@ -395,6 +396,8 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
   ].filter(Boolean);
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
   const titleUnitPriceLabel = getBestUnitPriceLabel(product, priceOptions);
+  const representativePrice = getRepresentativePriceOption(product);
+  const cardPriceOptions = representativePrice.option ? [representativePrice.option] : priceOptions.slice(0, 1);
   const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
   const imageContent = hasImage
     ? <img src={product.imageUrl} alt="" loading="lazy" />
@@ -462,7 +465,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
       </div>
       <div className="bean-footer">
         <div className="bean-price-options">
-          {priceOptions.map((option) => {
+          {cardPriceOptions.map((option) => {
             const hasOptionLink = isRealProductUrl(option.productUrl);
             const PriceOptionTag = hasOptionLink ? 'a' : 'div';
 
@@ -483,6 +486,9 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
               </PriceOptionTag>
             );
           })}
+          {representativePrice.extraCount > 0 && (
+            <span className="bean-price-more-pill">+{representativePrice.extraCount} 용량</span>
+          )}
         </div>
         {priceDelta !== 0 && (
           <div className="bean-actions">
