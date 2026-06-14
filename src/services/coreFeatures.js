@@ -7,6 +7,8 @@ const FEATURED_VARIETY_RULES = [
   { label: '파카마라', aliases: ['pacamara', '파카마라'] },
   { label: '시드라', aliases: ['sidra', '시드라'] },
 ];
+const OPTION_ONLY_PRICE_MAX = 1000;
+const OPTION_ONLY_ORIGINAL_MIN = 10000;
 
 const TASTE_NOTE_GROUPS = {
   light: new Set([
@@ -85,14 +87,51 @@ function formatWeight(value) {
   return `${value}g`;
 }
 
+function formatPricePer100g(price, weight) {
+  if (!price || !weight) return '';
+  return `${new Intl.NumberFormat('ko-KR').format(Math.round((price / weight) * 100))}원/100g`;
+}
+
 function getPricePer100g(product) {
   if (product.unitPriceLabel) return product.unitPriceLabel;
-  if (!product.price || !product.weight) return '';
-  return `${new Intl.NumberFormat('ko-KR').format(Math.round((product.price / product.weight) * 100))}원/100g`;
+  return getLowestUnitPriceCandidate(product)?.label || '';
+}
+
+function isSuspiciousOptionOnlyPrice(price, originalPrice) {
+  const salePrice = Number(price || 0);
+  const basePrice = Number(originalPrice || 0);
+  return salePrice > 0
+    && salePrice <= OPTION_ONLY_PRICE_MAX
+    && basePrice >= OPTION_ONLY_ORIGINAL_MIN
+    && basePrice / salePrice >= 10;
+}
+
+function getReliableSalePrice(price, originalPrice) {
+  const salePrice = Number(price || 0);
+  const basePrice = Number(originalPrice || 0);
+  if (isSuspiciousOptionOnlyPrice(salePrice, basePrice)) return basePrice;
+  return salePrice;
+}
+
+function getLowestUnitPriceCandidate(product) {
+  const options = Array.isArray(product.priceOptions) && product.priceOptions.length > 0
+    ? product.priceOptions
+    : [product];
+
+  return options
+    .map((option) => {
+      const price = getReliableSalePrice(option.price, option.originalPrice);
+      const weight = Number(option.weight || 0);
+      const priceWasAdjusted = price !== Number(option.price || 0);
+      const label = priceWasAdjusted ? formatPricePer100g(price, weight) : (option.unitPriceLabel || formatPricePer100g(price, weight));
+      return price > 0 && weight > 0 && label ? { label, value: price / weight } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.value - b.value)[0];
 }
 
 function calculateDiscountRate(price, originalPrice) {
-  const salePrice = Number(price || 0);
+  const salePrice = getReliableSalePrice(price, originalPrice);
   const basePrice = Number(originalPrice || 0);
   if (!Number.isFinite(salePrice) || !Number.isFinite(basePrice)) return 0;
   if (salePrice <= 0 || basePrice <= salePrice) return 0;
@@ -105,23 +144,31 @@ function formatDiscountRate(rate) {
 }
 
 function normalizePriceOptionDiscount(option) {
-  const discountRate = calculateDiscountRate(option.price, option.originalPrice);
+  const price = getReliableSalePrice(option.price, option.originalPrice);
+  const priceWasAdjusted = price !== Number(option.price || 0);
+  const discountRate = calculateDiscountRate(price, option.originalPrice);
   const originalPrice = discountRate > 0 ? Number(option.originalPrice) : undefined;
 
   return {
     ...option,
+    price,
+    priceLabel: priceWasAdjusted ? formatPrice(price) : (option.priceLabel || formatPrice(price)),
     originalPrice,
     originalPriceLabel: originalPrice ? formatPrice(originalPrice) : '',
     discountRate,
     discountLabel: formatDiscountRate(discountRate),
+    unitPriceLabel: priceWasAdjusted ? formatPricePer100g(price, option.weight) : option.unitPriceLabel,
   };
 }
 
 function normalizeDiscountProduct(product) {
-  const priceDiscountRate = calculateDiscountRate(product.price, product.originalPrice);
+  const price = getReliableSalePrice(product.price, product.originalPrice);
+  const priceWasAdjusted = price !== Number(product.price || 0);
+  const priceDiscountRate = calculateDiscountRate(price, product.originalPrice);
   const priceOptions = Array.isArray(product.priceOptions)
     ? product.priceOptions.map(normalizePriceOptionDiscount)
     : product.priceOptions;
+  const hasPriceOptions = Array.isArray(priceOptions) && priceOptions.length > 0;
   const optionDiscountRate = Array.isArray(priceOptions)
     ? Math.max(0, ...priceOptions.map((option) => Number(option.discountRate || 0)))
     : 0;
@@ -129,6 +176,9 @@ function normalizeDiscountProduct(product) {
 
   return {
     ...product,
+    price,
+    priceLabel: priceWasAdjusted ? formatPrice(price) : product.priceLabel,
+    unitPriceLabel: hasPriceOptions ? '' : (priceWasAdjusted ? formatPricePer100g(price, product.weight) : product.unitPriceLabel),
     originalPrice: priceDiscountRate > 0 ? Number(product.originalPrice) : undefined,
     discountRate: discountRate > 0 ? discountRate : undefined,
     priceOptions,
@@ -161,8 +211,7 @@ function createPriceOption(product, weightLabel = '') {
 }
 
 function unitPrice(product) {
-  if (!product.price || !product.weight) return Number.POSITIVE_INFINITY;
-  return product.price / product.weight; // 1g당 가격
+  return getLowestUnitPriceCandidate(product)?.value || Number.POSITIVE_INFINITY; // 1g당 가격
 }
 
 function featuredVarietyLabel(product) {

@@ -104,6 +104,21 @@ if (identityFixture[0].price !== 48000 || identityFixture[0].originalPrice !== 6
   throw new Error('아이덴티티커피랩 할인 정상가 66,000원과 할인가 48,000원이 함께 보존되어야 합니다.');
 }
 
+const lubiaOptionPriceFixture = _test.normalizeSmartStoreCategoryItems('lubia', [
+  {
+    id: '12601437842',
+    title: '[그란데] 에티오피아 예가체프 코케 G2 워시드 미디엄 로스트 1kg',
+    price: 1000,
+    originalPrice: 46000,
+    productUrl: 'https://smartstore.naver.com/rubiacoffee/products/12601437842',
+    imageUrl: 'https://example.com/lubia.png',
+    isSoldOut: false,
+  },
+]);
+if (lubiaOptionPriceFixture[0].price !== 46000 || lubiaOptionPriceFixture[0].originalPrice) {
+  throw new Error('루비아 옵션 추가금 1,000원은 판매가로 쓰지 않고 원래가로 보정해야 합니다.');
+}
+
 testSmartStoreSearch()
   .then((result) => {
     console.log(result.message);

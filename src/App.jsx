@@ -11,6 +11,7 @@ import {
   formatPrice,
   formatProductDisplayInfo,
   getNoteOptions,
+  getPricePer100g,
   getProductCountryLabel,
   getProductProcessLabel,
   groupProductsByNameAndWeight,
@@ -261,6 +262,7 @@ function ProductDetailModal({ isFavorite, priceDelta, priceHistory, product, onC
   const displayInfo = formatProductDisplayInfo(product);
   const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
+  const titleUnitPriceLabel = getBestUnitPriceLabel(product, priceOptions);
   const infoRows = [
     ['로스터리', product.roasterName],
     ['원산지', getProductCountryLabel(product) || product.origin],
@@ -284,7 +286,10 @@ function ProductDetailModal({ isFavorite, priceDelta, priceHistory, product, onC
           </div>
           <div className="modal-info">
             <span className="modal-roaster">{product.roasterName}</span>
-            <h2>{displayInfo.primary}</h2>
+            <h2>
+              {displayInfo.primary}
+              {titleUnitPriceLabel && <span className="bean-title-unit-price">({titleUnitPriceLabel})</span>}
+            </h2>
             <p className="modal-original-name">{product.productName}</p>
             <dl className="modal-spec">
               {infoRows.map(([label, value]) => (
@@ -366,6 +371,19 @@ function NoteTag({ note, active, onClick }) {
   );
 }
 
+function getBestUnitPriceLabel(product, priceOptions) {
+  const candidates = ((priceOptions || []).length > 0 ? priceOptions : [product])
+    .filter((item) => Number(item?.price || 0) > 0 && Number(item?.weight || 0) > 0)
+    .map((item) => ({
+      label: getPricePer100g(item),
+      value: Number(item.price) / Number(item.weight),
+    }))
+    .filter((item) => item.label)
+    .sort((a, b) => a.value - b.value);
+
+  return candidates[0]?.label || '';
+}
+
 function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onNoteClick, onSelect, onToggleFavorite }) {
   const hasImage = Boolean(product.imageUrl);
   const detailLabel = `${product.roasterName} ${product.productName} 상세 보기`;
@@ -376,6 +394,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
     displayInfo.farm,
   ].filter(Boolean);
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
+  const titleUnitPriceLabel = getBestUnitPriceLabel(product, priceOptions);
   const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
   const imageContent = hasImage
     ? <img src={product.imageUrl} alt="" loading="lazy" />
@@ -417,6 +436,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
         <h3>
           <button className="bean-title-link" type="button" onClick={() => onSelect(product)}>
             {displayInfo.primary}
+            {titleUnitPriceLabel && <span className="bean-title-unit-price">({titleUnitPriceLabel})</span>}
           </button>
         </h3>
         {infoItems.length > 0 && (

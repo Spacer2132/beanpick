@@ -7,6 +7,8 @@ const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
 
 const NAVER_SHOPPING_SEARCH_URL = 'https://openapi.naver.com/v1/search/shop.json';
 const OCR_CACHE_DIR = path.join(os.tmpdir(), 'beanpick-ocr-cache');
+const OPTION_ONLY_PRICE_MAX = 1000;
+const OPTION_ONLY_ORIGINAL_MIN = 10000;
 const TESSERACT_PATHS = [
   'C:\\Program Files\\Tesseract-OCR\\tesseract.exe',
   'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe',
@@ -437,6 +439,19 @@ function normalizeNoteText(text) {
   return String(text || '').replace(/\s+/g, '').toLowerCase();
 }
 
+function isSuspiciousOptionOnlyPrice(price, originalPrice) {
+  const salePrice = Number(price || 0);
+  const basePrice = Number(originalPrice || 0);
+  return salePrice > 0
+    && salePrice <= OPTION_ONLY_PRICE_MAX
+    && basePrice >= OPTION_ONLY_ORIGINAL_MIN
+    && basePrice / salePrice >= 10;
+}
+
+function normalizeSmartStorePrice(price, originalPrice) {
+  return isSuspiciousOptionOnlyPrice(price, originalPrice) ? Number(originalPrice) : Number(price || 0);
+}
+
 function addNotesFromText(notes, text) {
   const compact = normalizeNoteText(text);
 
@@ -609,8 +624,8 @@ async function normalizeShoppingItem(item, source, index) {
 function normalizeSmartStoreCategoryItem(item, source, index) {
   const rawTitle = stripHtml(item.title);
   const title = cleanShoppingTitle(rawTitle, source.roasterName) || rawTitle;
-  const price = Number(item.price || 0);
   const rawOriginal = Number(item.originalPrice || 0);
+  const price = normalizeSmartStorePrice(item.price, rawOriginal);
   const originalPrice = rawOriginal > price ? rawOriginal : undefined;
   const titleNotes = getTasteNotes(rawTitle);
 
@@ -720,7 +735,9 @@ module.exports = {
     cleanShoppingTitle,
     extractOcrTasteNotes,
     getTasteNotes,
+    isSuspiciousOptionOnlyPrice,
     normalizeSmartStoreCategoryItems,
+    normalizeSmartStorePrice,
     parseWeight,
     normalizeTastingNotes,
     extractNotesFromDetail,

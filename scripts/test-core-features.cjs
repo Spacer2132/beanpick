@@ -141,6 +141,20 @@ expect(grouped[0]?.priceOptions[0]?.unitPriceLabel === '7,500원/100g', '100g당
 expect(grouped[0]?.tastingNotes.includes('초콜릿') && grouped[0]?.tastingNotes.includes('오렌지') && grouped[0]?.tastingNotes.includes('청사과'), '묶인 카드의 테이스팅노트는 한글 대표 태그로 합쳐져야 합니다', grouped[0]?.tastingNotes.join(', '));
 expect(!grouped[0]?.tastingNotes.includes('Brazil') && !grouped[0]?.tastingNotes.includes('Washed'), '나라명과 가공방식은 테이스팅노트로 남으면 안 됩니다', grouped[0]?.tastingNotes.join(', '));
 
+const lowerUnitPriceProduct = {
+  id: 'unit-compare',
+  productName: '단가 비교 원두',
+  price: 5000,
+  weight: 100,
+  score: 70,
+  tastingNotes: [],
+  isSoldOut: false,
+};
+expect(
+  core.sortProducts([grouped[0], lowerUnitPriceProduct], 'unitPriceAsc')[0]?.id === 'unit-compare',
+  '묶인 카드는 최저 가격과 대표 용량을 섞지 말고 실제 가격 옵션의 100g당 단가로 정렬해야 합니다',
+);
+
 const discountCandidates = [
   { id: 'discount-30', price: 28000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
   { id: 'discount-20', price: 32000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
@@ -154,6 +168,21 @@ expect(JSON.stringify([...ids(discountOnly)].sort()) === JSON.stringify(['discou
 expect(core.calculateDiscountRate(28000, 40000) === 0.3, '할인율은 원래가 대비 판매가로 계산되어야 합니다');
 expect(core.isDiscountedProduct({ price: 36400, originalPrice: 40000, tastingNotes: [] }) === false, '10% 미만 할인은 소폭 할인으로 보고 제외되어야 합니다');
 expect(core.isDiscountedProduct({ price: 22000, tastingNotes: [] }) === false, '원래가가 없으면 할인상품으로 추측하면 안 됩니다');
+expect(core.calculateDiscountRate(1000, 19800) === 0, '옵션 추가금처럼 보이는 1,000원 가격은 할인율 계산에서 제외해야 합니다');
+
+const suspiciousPriceProduct = core.normalizeProducts([{
+  id: 'lubia-option-price',
+  roasterName: '루비아 커피',
+  productName: '에티오피아 구지 벤티 넨카 디카페인 200g',
+  price: 1000,
+  originalPrice: 19800,
+  weight: 200,
+  tastingNotes: [],
+  isSoldOut: false,
+}])[0];
+expect(suspiciousPriceProduct.price === 19800, '옵션 추가금처럼 보이는 1,000원은 원래가로 보정되어야 합니다', String(suspiciousPriceProduct.price));
+expect(!suspiciousPriceProduct.originalPrice && !suspiciousPriceProduct.discountRate, '보정된 가격은 할인 상품으로 표시하면 안 됩니다');
+expect(suspiciousPriceProduct.unitPriceLabel === '9,900원/100g', '보정된 가격 기준 100g당 가격을 다시 계산해야 합니다', suspiciousPriceProduct.unitPriceLabel);
 
 const groupedDiscount = core.groupProductsByNameAndWeight([
   {

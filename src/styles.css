@@ -793,6 +793,16 @@ a {
   text-underline-offset: 3px;
 }
 
+.bean-title-unit-price {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
 .bean-content p {
   margin: 0;
   color: var(--muted);
@@ -2155,12 +2165,24 @@ a {
   }
 
   .bean-price-options {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 8px;
+    margin-right: -8px;
+    padding-right: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .bean-price-options::-webkit-scrollbar {
+    display: none;
   }
 
   .bean-price-option {
+    flex: 0 0 132px;
     min-height: 0;
     padding: 8px 9px;
+    scroll-snap-align: start;
   }
 
   .bean-price-option strong {
