@@ -221,6 +221,18 @@ export const roasterySources: RoasterySource[] = [
     memo: '네이버 쇼핑 검색 API로 커피정경 로스터리 스마트스토어 원두를 가져옵니다.',
   },
   {
+    id: 'malik',
+    roasterName: '말릭커피',
+    channelType: 'smartStore',
+    sourceUrl: 'https://smartstore.naver.com/undercrema/category/be5659b19f7e4ce0b7cb3f5829607bbc?cp=1',
+    adapterKey: 'naverShoppingSearchAdapter',
+    enabled: true,
+    status: 'ready',
+    productCount: 0,
+    lastCheckedAt: '수동 확인 전',
+    memo: '네이버 쇼핑 검색 API로 말릭커피 스마트스토어 원두를 가져옵니다.',
+  },
+  {
     id: 'werk',
     roasterName: '베르크커피',
     channelType: 'officialMall',

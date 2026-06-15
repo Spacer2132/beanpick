@@ -163,6 +163,13 @@ const SMARTSTORE_SOURCES = {
     // 원두 카테고리 주소가 없어 네이버 쇼핑 검색 API로만 수집한다.
     mallNames: ['커피정경'],
   },
+  malik: {
+    sourceId: 'malik',
+    roasterName: '말릭커피',
+    query: '말릭커피 원두',
+    categoryUrl: 'https://smartstore.naver.com/undercrema/category/be5659b19f7e4ce0b7cb3f5829607bbc?cp=1',
+    mallNames: ['말릭커피'],
+  },
 };
 
 function getSmartStoreListUrl(source, item = {}) {
