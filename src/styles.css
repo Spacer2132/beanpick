@@ -907,6 +907,7 @@ a {
   min-width: 44px;
   flex-direction: column;
   align-items: flex-end;
+  color: var(--muted);
   gap: 1px;
   line-height: 1.08;
   white-space: nowrap;
@@ -919,7 +920,6 @@ a {
 .bean-price-unit-suffix {
   display: block;
   font-size: 11px;
-  color: var(--muted);
 }
 
 .bean-price-option.is-link {
