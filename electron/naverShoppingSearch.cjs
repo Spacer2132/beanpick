@@ -156,6 +156,13 @@ const SMARTSTORE_SOURCES = {
     categoryUrl: 'https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1',
     mallNames: ['도안 셀렉트 샵', '도안셀렉트샵', 'doanselectshop'],
   },
+  coffeejg: {
+    sourceId: 'coffeejg',
+    roasterName: '커피정경 로스터리',
+    query: '커피정경 원두',
+    // 원두 카테고리 주소가 없어 네이버 쇼핑 검색 API로만 수집한다.
+    mallNames: ['커피정경'],
+  },
 };
 
 function getSmartStoreListUrl(source, item = {}) {
