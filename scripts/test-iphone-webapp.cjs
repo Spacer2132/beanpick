@@ -20,8 +20,8 @@ function expect(condition, message, details = '') {
 
 async function main() {
   const products = [
-    { id: 'bean-a', productName: '에티오피아 구지 워시드', price: 22000, tastingNotes: ['자스민'] },
-    { id: 'bean-b', productName: '콜롬비아 시드라', price: 32000, tastingNotes: ['복숭아'] },
+    { id: 'bean-a', productName: '에티오피아 구지 워시드', price: 22000, weight: 200, tastingNotes: ['자스민'] },
+    { id: 'bean-b', productName: '콜롬비아 시드라', price: 32000, weight: 200, tastingNotes: ['복숭아'] },
   ];
 
   const loaded = await publishedSnapshot.loadPublishedSnapshot(async (url) => ({

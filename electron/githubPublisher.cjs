@@ -1,3 +1,5 @@
+const { validateProducts } = require('./dataQuality.cjs');
+
 const DEFAULT_OWNER = 'Spacer2132';
 const DEFAULT_REPO = 'beanpick';
 const DEFAULT_BRANCH = 'main';
@@ -5,11 +7,13 @@ const DEFAULT_PATH = 'docs/products.json';
 
 function buildGithubSnapshot(products, publishedAt = new Date().toISOString()) {
   const safeProducts = Array.isArray(products) ? products : [];
+  const { clean, excluded, flagged, report } = validateProducts(safeProducts);
 
   return {
     publishedAt,
-    count: safeProducts.length,
-    products: safeProducts,
+    count: clean.length,
+    products: clean,
+    quality: { ...report, excluded, flagged },
   };
 }
 
@@ -87,6 +91,8 @@ async function publishProductsToGitHub({
       publishedAt: snapshot.publishedAt,
       path: json?.content?.path || path,
       commitSha: json?.commit?.sha || '',
+      excludedCount: snapshot.quality.excludedCount,
+      flaggedCount: snapshot.quality.flaggedCount,
     };
   } catch (error) {
     return {
