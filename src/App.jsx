@@ -466,6 +466,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
           {cardPriceOptions.map((option) => {
             const hasOptionLink = isRealProductUrl(option.productUrl);
             const PriceOptionTag = hasOptionLink ? 'a' : 'div';
+            const [unitPriceValue, unitPriceSuffix] = option.unitPriceLabel ? option.unitPriceLabel.split('/') : [];
 
             return (
               <PriceOptionTag
@@ -482,7 +483,12 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
                   {option.discountLabel && <small>{option.discountLabel}</small>}
                   <span>{option.weightLabel}</span>
                 </div>
-                {option.unitPriceLabel && <em>{option.unitPriceLabel}</em>}
+                {option.unitPriceLabel && (
+                  <em className="bean-price-unit">
+                    <span className="bean-price-unit-value">{unitPriceValue}</span>
+                    {unitPriceSuffix && <span className="bean-price-unit-suffix">{unitPriceSuffix}</span>}
+                  </em>
+                )}
               </PriceOptionTag>
             );
           })}

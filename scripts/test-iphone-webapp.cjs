@@ -87,6 +87,12 @@ async function main() {
   });
   expect(noToken.ok === false && /GITHUB_TOKEN=/.test(noToken.error), '토큰이 없으면 GitHub를 호출하지 않고 안내해야 합니다', JSON.stringify(noToken));
 
+  const appSource = fs.readFileSync('src/App.jsx', 'utf8');
+  expect(
+    /bean-price-unit-value/.test(appSource) && /bean-price-unit-suffix/.test(appSource),
+    '카드 단가는 가격과 100g 단위를 나눠서 렌더링해야 합니다',
+  );
+
   if (failures.length > 0) {
     console.error('[iphone-webapp:test] 실패');
     failures.forEach((failure) => console.error(` - ${failure}`));

@@ -902,6 +902,26 @@ a {
   text-align: right;
 }
 
+.bean-footer .bean-price-unit {
+  display: flex;
+  min-width: 44px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+.bean-price-unit-value {
+  display: block;
+}
+
+.bean-price-unit-suffix {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+
 .bean-price-option.is-link {
   cursor: pointer;
   text-decoration: none;
