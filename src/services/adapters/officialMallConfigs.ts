@@ -64,7 +64,7 @@ export const OFFICIAL_MALL_CONFIGS: Record<string, Cafe24SourceConfig> = {
     categoryNo: '1',
     trustCategoryAsBean: true,
     verifyStockFromDetail: true,
-    blockedWords: ['드립백', '콜드브루', '캡슐', '원액', '머그', '잔', '컵', '티셔츠', '굿즈'],
+    blockedWords: ['드립백', '콜드브루', '캡슐', '원액', '선물', '세트', '머그', '잔', '컵', '티셔츠', '굿즈'],
   },
   centercoffee: {
     sourceId: 'centercoffee',

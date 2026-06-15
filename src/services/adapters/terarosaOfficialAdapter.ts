@@ -130,12 +130,35 @@ function isLikelyBeanProduct(productName: string) {
   const name = productName.toLowerCase();
   const blockedWords = [
     '드립백',
+    '드립커피',
+    '브루백',
+    '커피백',
+    '티백',
     '선물세트',
     '선물대전',
     '쿨러백',
     'rtd',
     '캡슐',
     '콜드브루',
+    '더치커피',
+    '인스턴트',
+    '스틱커피',
+    '커피믹스',
+    '믹스커피',
+    '파우더커피',
+    '액상커피',
+    '원액',
+    'drip bag',
+    'drip coffee',
+    'coffee bag',
+    'instant',
+    'coffee mix',
+    'powder coffee',
+    'capsule',
+    'cold brew',
+    'dutch coffee',
+    'concentrate',
+    'liquid coffee',
     '텀블러',
     '머그',
     'cup',
@@ -400,7 +423,7 @@ export function enrichTerarosaProducts(products: BeanProduct[], detailPages: Ter
       isNew: detail.isNew,
       isSoldOut: detail.isSoldOut,
     };
-  }).filter((product) => isLikelyBeanProduct(product.productName));
+  }).filter((product) => isLikelyBeanProduct(product.productName) && Number(product.weight || 0) <= 1000);
 }
 
 function isSoldOutRow(row: TerarosaRow) {
@@ -456,6 +479,7 @@ export function normalizeTerarosaApiRows(rows: unknown[]): BeanProduct[] {
       };
     })
     .filter((product) => isLikelyBeanProduct(product.productName))
+    .filter((product) => Number(product.weight || 0) <= 1000)
     .filter((product) => product.productName.trim().length > 0);
 }
 
@@ -495,7 +519,7 @@ export function parseTerarosaHtmlProducts(html: string): BeanProduct[] {
       lastCheckedAt: '방금 전',
       checkedMinutesAgo: 0,
     };
-  }).filter((product) => product.productName.trim().length > 0 && isLikelyBeanProduct(product.productName));
+  }).filter((product) => product.productName.trim().length > 0 && isLikelyBeanProduct(product.productName) && Number(product.weight || 0) <= 1000);
 
   const legacyProducts = legacyMatches.map((match, index) => {
     const itemKey = match[1].trim();
@@ -519,7 +543,7 @@ export function parseTerarosaHtmlProducts(html: string): BeanProduct[] {
       lastCheckedAt: '방금 전',
       checkedMinutesAgo: 0,
     };
-  }).filter((product) => !seen.has(product.productName) && product.productName.trim().length > 0 && isLikelyBeanProduct(product.productName));
+  }).filter((product) => !seen.has(product.productName) && product.productName.trim().length > 0 && isLikelyBeanProduct(product.productName) && Number(product.weight || 0) <= 1000);
 
   return [...products, ...legacyProducts];
 }

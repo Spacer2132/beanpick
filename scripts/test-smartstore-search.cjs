@@ -58,6 +58,59 @@ if (filloutBulkFixture.length !== 0) {
   throw new Error('용량 없는 스마트스토어 대용량 옵션 상품은 200g으로 단정하지 말고 제외해야 합니다.');
 }
 
+const nonBeanCoffeeFixture = _test.normalizeSmartStoreCategoryItems('hitte', [
+  {
+    id: 'easy-dripbag',
+    title: 'EASY COFFEE 드립백 10개입',
+    price: 12000,
+    productUrl: 'https://smartstore.naver.com/hytteroastery/products/easy-dripbag',
+    imageUrl: 'https://example.com/dripbag.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'instant-stick',
+    title: '히떼 인스턴트커피 스틱 20개입',
+    price: 15000,
+    productUrl: 'https://smartstore.naver.com/hytteroastery/products/instant-stick',
+    imageUrl: 'https://example.com/instant.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'bulk-1200',
+    title: '리볼브 1.2kg',
+    price: 82000,
+    productUrl: 'https://smartstore.naver.com/hytteroastery/products/bulk-1200',
+    imageUrl: 'https://example.com/bulk.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'exact-1000',
+    title: '리볼브 1kg',
+    price: 68000,
+    productUrl: 'https://smartstore.naver.com/hytteroastery/products/exact-1000',
+    imageUrl: 'https://example.com/onekg.png',
+    isSoldOut: false,
+  },
+]);
+if (nonBeanCoffeeFixture.length !== 1 || nonBeanCoffeeFixture[0].weight !== 1000) {
+  throw new Error(`스마트스토어 수집은 원두 외 커피류와 1kg 초과 상품을 제외하고 1kg 원두만 남겨야 합니다: ${nonBeanCoffeeFixture.map((product) => product.productName).join(', ') || '(없음)'}`);
+}
+
+const hitteCategoryFixture = _test.normalizeSmartStoreCategoryItems('hitte', [
+  {
+    id: '10658396965',
+    title: '리볼브 200g',
+    price: 14000,
+    productUrl: 'https://smartstore.naver.com/hytteroastery/products/10658396965',
+    categoryUrl: SMARTSTORE_SOURCES.hitte.categoryUrls[0],
+    imageUrl: 'https://example.com/hitte.png',
+    isSoldOut: false,
+  },
+]);
+if (hitteCategoryFixture[0].storeUrl !== SMARTSTORE_SOURCES.hitte.categoryUrls[0]) {
+  throw new Error(`히떼 상품에는 원두 카테고리 링크가 보존되어야 합니다: ${hitteCategoryFixture[0].storeUrl || '(없음)'}`);
+}
+
 // 제목 사전 매칭: 맛 단어만 잡고, 산지·가공방식으로 추측하면 안 된다.
 const dalgonaNotes = _test.getTasteNotes('달고나 블랜드 500g');
 if (!dalgonaNotes.includes('달고나')) {

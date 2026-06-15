@@ -1,6 +1,6 @@
 {
   "publishedAt": "2026-06-15T05:52:34.259Z",
-  "count": 367,
+  "count": 366,
   "products": [
     {
       "id": "terarosa-100464",
@@ -2315,27 +2315,6 @@
       "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
       "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
       "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": []
-    },
-    {
-      "id": "hellcafe-56",
-      "roasterName": "헬카페",
-      "productName": "원두 200g 선물 세트",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 200,
-      "score": 85,
-      "tastingNotes": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=56&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/98ee9c975b0429f51b0b425619a0edd9.png",
-      "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
@@ -5948,7 +5927,8 @@
         }
       ],
       "weightLabel": "200g / 500g / 1kg",
-      "groupedProductCount": 3
+      "groupedProductCount": 3,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1"
     },
     {
       "id": "히떼로스터리-리볼브",
@@ -6013,7 +5993,8 @@
         }
       ],
       "weightLabel": "200g / 500g / 1kg",
-      "groupedProductCount": 3
+      "groupedProductCount": 3,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1"
     },
     {
       "id": "히떼로스터리-낙성대",
@@ -6075,7 +6056,8 @@
         }
       ],
       "weightLabel": "200g / 500g / 1kg",
-      "groupedProductCount": 3
+      "groupedProductCount": 3,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1"
     },
     {
       "id": "히떼로스터리-굿데이다크",
@@ -6138,7 +6120,8 @@
         }
       ],
       "weightLabel": "200g / 500g / 1kg",
-      "groupedProductCount": 3
+      "groupedProductCount": 3,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1"
     },
     {
       "id": "히떼로스터리-굿데이",
@@ -6201,7 +6184,8 @@
         }
       ],
       "weightLabel": "200g / 500g / 1kg",
-      "groupedProductCount": 3
+      "groupedProductCount": 3,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1"
     },
     {
       "id": "히떼로스터리-포스트업",
@@ -6263,7 +6247,8 @@
         }
       ],
       "weightLabel": "200g / 500g / 1kg",
-      "groupedProductCount": 3
+      "groupedProductCount": 3,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1"
     },
     {
       "id": "히떼로스터리-에티오피아니구세시다마벤사두완초내추럴",
@@ -6335,7 +6320,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "히떼로스터리-브라질파젠다카삼부아라라허니",
@@ -6407,7 +6393,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "히떼로스터리-콜롬비아후일라루시타니아-2by구스타보피게로아워시드",
@@ -6479,7 +6466,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "히떼로스터리-케냐무티투aa워시드",
@@ -6551,7 +6539,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "히떼로스터리-코스타리카푸엔테산안토니아게이샤풀리워시드",
@@ -6623,7 +6612,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "히떼로스터리-콜롬비아엘디비소게이샤내추럴",
@@ -6695,7 +6685,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "히떼로스터리-에티오피안플라워블렌드",
@@ -6767,7 +6758,8 @@
         }
       ],
       "weightLabel": "100g / 200g / 500g / 1kg",
-      "groupedProductCount": 4
+      "groupedProductCount": 4,
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1"
     },
     {
       "id": "toch-6650495962",
@@ -10732,8 +10724,8 @@
     }
   ],
   "quality": {
-    "total": 369,
-    "cleanCount": 367,
+    "total": 368,
+    "cleanCount": 366,
     "excludedCount": 2,
     "flaggedCount": 1,
     "excluded": [

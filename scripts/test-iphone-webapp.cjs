@@ -93,6 +93,26 @@ async function main() {
     '카드 단가는 가격과 100g 단위를 나눠서 렌더링해야 합니다',
   );
   expect(
+    /<button className="bean-image-link"[\s\S]*onClick=\{\(\) => onSelect\(product\)\}/.test(appSource),
+    '아이폰에서 카드 이미지를 누르면 외부몰이 아니라 앱 상세창을 열어야 합니다',
+  );
+  expect(
+    /storeLink/.test(appSource) && /원두 목록 보기/.test(appSource) && /상품 페이지 열기/.test(appSource),
+    '스마트스토어 상세창에는 원두 목록 링크와 상품 페이지 링크가 구분되어야 합니다',
+  );
+  expect(
+    /🔎 상세검색/.test(appSource) && !/>Filters</.test(appSource),
+    '필터 접기 버튼의 표시 문구는 🔎 상세검색이어야 합니다',
+  );
+  expect(
+    !/조건으로 찾기|조건으로 고르기|펼치기/.test(appSource),
+    '상세검색 접기 버튼에는 조건으로 찾기/고르기 또는 펼치기 문구가 보이면 안 됩니다',
+  );
+  expect(
+    /capacityFilter/.test(appSource) && /100g ↓/.test(appSource) && /200g 이상/.test(appSource) && /500g 이상/.test(appSource) && /1kg/.test(appSource),
+    '상세검색에는 용량별로 찾는 조건이 있어야 합니다',
+  );
+  expect(
     !/>가격순</.test(appSource) && !/sortMode === 'price'/.test(appSource) && !/setSortMode\('price'\)/.test(appSource),
     '가격순 정렬은 100g당 정렬과 겹치므로 화면에서 제거해야 합니다',
   );

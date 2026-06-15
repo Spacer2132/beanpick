@@ -77,7 +77,13 @@ const NOTE_LABELS: Array<[string, RegExp]> = [
 
 function isLikelyBeanProduct(productName: string, allowCategoryProduct = false) {
   const name = productName.toLowerCase();
-  const blockedWords = ['드립백', '브루백', '캡슐', '콜드브루', 'rtd', '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana', '쇼핑백'];
+  const blockedWords = [
+    '드립백', '드립커피', '브루백', '커피백', '티백', '캡슐', '콜드브루', '더치커피',
+    '인스턴트', '스틱커피', '커피믹스', '믹스커피', '파우더커피', '액상커피', '원액',
+    'rtd', 'drip bag', 'drip coffee', 'coffee bag', 'instant', 'coffee mix', 'powder coffee',
+    'capsule', 'cold brew', 'dutch coffee', 'concentrate', 'liquid coffee',
+    '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana', '쇼핑백',
+  ];
   const beanSignals = ['원두', 'coffee', 'blend', '블렌드', 'washed', 'natural', 'honey', '워시드', '내추럴', '게이샤', 'decaf', '디카페인'];
 
   if (blockedWords.some((word) => name.includes(word))) return false;
@@ -197,6 +203,7 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
 export function normalizeMomosPages(pages: MomosHtmlPage[] = []) {
   const seen = new Set<string>();
   return pages.flatMap((page) => parseMomosHtmlProducts(page.html)).filter((product) => {
+    if (Number(product.weight || 0) > 1000) return false;
     if (seen.has(product.id)) return false;
     seen.add(product.id);
     return true;

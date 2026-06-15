@@ -14,6 +14,7 @@ export type BeanProduct = {
   score: number;
   tastingNotes: string[];
   productUrl: string;
+  storeUrl?: string;
   imageUrl: string;
   isSoldOut: boolean;
   isNew: boolean;

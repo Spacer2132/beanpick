@@ -157,6 +157,16 @@ expect(
 const representativePrice = core.getRepresentativePriceOption(grouped[0]);
 expect(representativePrice.option?.weightLabel === '1kg', '목록 카드는 100g당 가장 싼 대표 용량 하나를 골라야 합니다', representativePrice.option?.weightLabel);
 expect(representativePrice.extraCount === 2, '목록 카드는 숨겨진 다른 용량 개수를 알려줘야 합니다', String(representativePrice.extraCount));
+expect(core.matchesCapacityFilter({ weight: 100 }, 'under100') === true, '100g ↓ 조건은 100g 상품을 포함해야 합니다');
+expect(core.matchesCapacityFilter({ weight: 200 }, 'under100') === false, '100g ↓ 조건은 200g 상품을 제외해야 합니다');
+expect(core.matchesCapacityFilter({ weight: 200 }, 'over200') === true, '200g 이상 조건은 200g 상품을 포함해야 합니다');
+expect(core.matchesCapacityFilter({ weight: 500 }, 'over500') === true, '500g 이상 조건은 500g 상품을 포함해야 합니다');
+expect(core.matchesCapacityFilter({ weight: 1000 }, 'exact1000') === true, '1kg 조건은 1000g 상품을 포함해야 합니다');
+expect(core.matchesCapacityFilter({ weight: 1200 }, 'exact1000') === false, '1kg 조건은 1kg 초과 상품을 제외해야 합니다');
+expect(
+  core.matchesCapacityFilter({ weight: 200, priceOptions: [{ weight: 1000 }] }, 'exact1000') === true,
+  '묶인 카드의 용량 필터는 숨겨진 가격 옵션 용량까지 봐야 합니다',
+);
 
 const discountCandidates = [
   { id: 'discount-30', price: 28000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },

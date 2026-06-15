@@ -461,6 +461,27 @@ function isDecafProduct(product) {
   return /디카페인|decaf/i.test(text);
 }
 
+function productWeights(product) {
+  return [
+    product.weight,
+    ...(Array.isArray(product.priceOptions) ? product.priceOptions.map((option) => option.weight) : []),
+  ]
+    .map((weight) => Number(weight || 0))
+    .filter((weight) => Number.isFinite(weight) && weight > 0);
+}
+
+function matchesCapacityFilter(product, capacityFilter = 'all') {
+  if (capacityFilter === 'all') return true;
+
+  const weights = productWeights(product);
+  if (weights.length === 0) return false;
+  if (capacityFilter === 'under100') return weights.some((weight) => weight <= 100);
+  if (capacityFilter === 'over200') return weights.some((weight) => weight >= 200);
+  if (capacityFilter === 'over500') return weights.some((weight) => weight >= 500);
+  if (capacityFilter === 'exact1000') return weights.some((weight) => weight === 1000);
+  return true;
+}
+
 function preferKoreanText(value) {
   const trimmed = String(value || '').trim();
   if (!trimmed) return '';
@@ -708,6 +729,7 @@ export {
   isDecafProduct,
   isDiscountedProduct,
   isRealProductUrl,
+  matchesCapacityFilter,
   matchesNoteQuery,
   matchesSmartSearch,
   normalizeProductNameForGroup,

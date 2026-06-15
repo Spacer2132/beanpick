@@ -280,6 +280,15 @@ function isLikelyBeanProduct(productName: string, config: Cafe24SourceConfig) {
     '브루백',
     '캡슐',
     '콜드브루',
+    '드립커피',
+    '인스턴트커피',
+    '스틱커피',
+    '커피믹스',
+    '믹스커피',
+    '파우더커피',
+    '액상커피',
+    '더치커피',
+    '더치원액',
     'rtd',
     '굿즈',
     '텀블러',
@@ -291,6 +300,13 @@ function isLikelyBeanProduct(productName: string, config: Cafe24SourceConfig) {
     '도매',
     'liquid',
     'stick',
+    'coffee mix',
+    'drip bag',
+    'drip coffee',
+    'coffee bag',
+    'cold brew',
+    'dutch coffee',
+    'concentrate',
     'teabag',
     'tea bag',
     'capsule',
@@ -472,6 +488,7 @@ export function normalizeCafe24Pages(pages: Cafe24HtmlPage[] = [], config: Cafe2
   const seen = new Set<string>();
   const parser = config.parser === 'imweb' ? parseImwebProducts : parseCafe24Products;
   return pages.flatMap((page) => parser(page.html, config)).filter((product) => {
+    if (Number(product.weight || 0) > 1000) return false;
     if (seen.has(product.id)) return false;
     seen.add(product.id);
     return true;

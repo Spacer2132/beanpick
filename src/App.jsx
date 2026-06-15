@@ -18,6 +18,7 @@ import {
   groupProductsByNameAndWeight,
   isDecafProduct,
   isRealProductUrl,
+  matchesCapacityFilter,
   matchesNoteQuery,
   matchesSmartSearch,
   normalizeProducts,
@@ -262,6 +263,7 @@ function ProductDetailModal({ isFavorite, priceDelta, priceHistory, product, onC
 
   const displayInfo = formatProductDisplayInfo(product);
   const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
+  const storeLink = isRealProductUrl(product.storeUrl) && product.storeUrl !== productLink ? product.storeUrl : '';
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
   const titleUnitPriceLabel = getBestUnitPriceLabel(product, priceOptions);
   const infoRows = [
@@ -355,8 +357,11 @@ function ProductDetailModal({ isFavorite, priceDelta, priceHistory, product, onC
           <button className="btn" type="button" onClick={() => onToggleFavorite(product.id)}>
             {isFavorite ? '♥ 관심 해제' : '♡ 관심 저장'}
           </button>
+          {storeLink && (
+            <a className="btn" href={storeLink} target="_blank" rel="noreferrer">원두 목록 보기</a>
+          )}
           {productLink && (
-            <a className="btn btn-primary" href={productLink} target="_blank" rel="noreferrer">공식몰에서 보기</a>
+            <a className="btn btn-primary" href={productLink} target="_blank" rel="noreferrer">상품 페이지 열기</a>
           )}
         </div>
       </div>
@@ -397,7 +402,6 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
   const representativePrice = getRepresentativePriceOption(product);
   const cardPriceOptions = representativePrice.option ? [representativePrice.option] : priceOptions.slice(0, 1);
-  const productLink = isRealProductUrl(product.productUrl) ? product.productUrl : '';
   const imageContent = hasImage
     ? <img src={product.imageUrl} alt="" loading="lazy" />
     : <span className="bean-image-placeholder">{product.roasterName.slice(0, 2)}</span>;
@@ -405,21 +409,9 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
   return (
     <article className={`bean-card ${product.isSoldOut ? 'is-soldout' : ''}`}>
       <div className="bean-image">
-        {productLink ? (
-          <a
-            className="bean-image-link"
-            href={productLink}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${product.roasterName} ${product.productName} 공식몰에서 열기`}
-          >
-            {imageContent}
-          </a>
-        ) : (
-          <button className="bean-image-link" type="button" aria-label={detailLabel} onClick={() => onSelect(product)}>
-            {imageContent}
-          </button>
-        )}
+        <button className="bean-image-link" type="button" aria-label={detailLabel} onClick={() => onSelect(product)}>
+          {imageContent}
+        </button>
         {product.isNew && <b>NEW</b>}
         {product.isSoldOut && <span className="soldout-ribbon">품절</span>}
         <button
@@ -763,6 +755,7 @@ export default function App() {
   const [noteIncludeQuery, setNoteIncludeQuery] = React.useState('');
   const [noteExcludeQuery, setNoteExcludeQuery] = React.useState('');
   const [budget, setBudget] = React.useState('all');
+  const [capacityFilter, setCapacityFilter] = React.useState('all');
   const [originFilter, setOriginFilter] = React.useState('all');
   const [processFilter, setProcessFilter] = React.useState('all');
   const [discountOnly, setDiscountOnly] = React.useState(false);
@@ -833,15 +826,16 @@ export default function App() {
       && (originFilter === 'all' || getProductCountryLabel(product) === originFilter)
       && (processFilter === 'all' || getProductProcessLabel(product) === processFilter)
       && matchesBudgetFilter(product, budget)
+      && matchesCapacityFilter(product, capacityFilter)
     ))
-  ), [activeNotes, budget, decafOnly, discountOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
+  ), [activeNotes, budget, capacityFilter, decafOnly, discountOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
 
   const filteredProducts = React.useMemo(() => (
     sortProducts(visibleProducts, sortMode)
   ), [visibleProducts, sortMode]);
 
   const hasActiveFilters = Boolean(searchQuery.trim()) || activeNotes.length > 0
-    || budget !== 'all' || originFilter !== 'all' || processFilter !== 'all' || discountOnly || decafOnly
+    || budget !== 'all' || capacityFilter !== 'all' || originFilter !== 'all' || processFilter !== 'all' || discountOnly || decafOnly
     || Boolean(noteIncludeQuery.trim()) || Boolean(noteExcludeQuery.trim());
 
   const detailProduct = React.useMemo(() => (
@@ -872,6 +866,7 @@ export default function App() {
     setNoteIncludeQuery('');
     setNoteExcludeQuery('');
     setBudget('all');
+    setCapacityFilter('all');
     setOriginFilter('all');
     setProcessFilter('all');
     setDiscountOnly(false);
@@ -1212,6 +1207,7 @@ export default function App() {
           <BrowsePage
             activeNotes={activeNotes}
             budget={budget}
+            capacityFilter={capacityFilter}
             dataMode={dataMode}
             decafOnly={decafOnly}
             discountCount={discountProducts.filter((product) => !product.isSoldOut).length}
@@ -1235,6 +1231,7 @@ export default function App() {
             publishState={publishState}
             products={filteredProducts}
             setBudget={setBudget}
+            setCapacityFilter={setCapacityFilter}
             setDecafOnly={setDecafOnly}
             setDiscountOnly={setDiscountOnly}
             setNoteExcludeQuery={setNoteExcludeQuery}
@@ -1284,7 +1281,7 @@ export default function App() {
   );
 }
 
-function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, discountOnly, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, priceDeltas, processFilter, processOptions, publishState, products, setBudget, setDecafOnly, setDiscountOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts }) {
+function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, discountCount, discountOnly, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, priceDeltas, processFilter, processOptions, publishState, products, setBudget, setCapacityFilter, setDecafOnly, setDiscountOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts }) {
   const PAGE_SIZE = 24;
   const NOTE_PREVIEW_COUNT = 12;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
@@ -1371,9 +1368,8 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
             aria-controls="bean-filters-body"
             onClick={() => setFiltersExpanded((expanded) => !expanded)}
           >
-            <span className="eyebrow">Filters</span>
-            <span className="filter-toggle-title">조건으로 고르기</span>
-            <span className="filter-toggle-icon">{filtersExpanded ? '접기' : '펼치기'}</span>
+            <span className="filter-toggle-title">🔎 상세검색</span>
+            <span className="filter-toggle-icon" aria-hidden="true">{filtersExpanded ? '⌃' : '⌄'}</span>
           </button>
           <div className="filter-panel-actions">
             {hasActiveFilters && <span className="filter-active-label">필터 적용 중</span>}
@@ -1411,6 +1407,16 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
                   <option value="all">가격 전체</option>
                   <option value="under30000">3만원 이하</option>
                   <option value="under50000">5만원 이하</option>
+                </select>
+              </label>
+              <label>
+                <span>용량</span>
+                <select value={capacityFilter} onChange={(event) => setCapacityFilter(event.target.value)}>
+                  <option value="all">용량 전체</option>
+                  <option value="under100">100g ↓</option>
+                  <option value="over200">200g 이상</option>
+                  <option value="over500">500g 이상</option>
+                  <option value="exact1000">1kg</option>
                 </select>
               </label>
             </div>

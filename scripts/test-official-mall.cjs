@@ -273,6 +273,22 @@ function assertCafe24KgWeightSample(cafe24Adapter, configs) {
   }
 }
 
+function assertHellcafeGiftSetExcluded(cafe24Adapter, configs) {
+  const html = `
+    <ul>
+      <li id="anchorBoxId_56">
+        <a href="/product/detail.html?product_no=56&cate_no=1&display_group=2"><img src="https://example.com/gift.jpg" alt="원두 200g 선물 세트" /></a>
+        <p class="name"><a>원두 200g 선물 세트</a></p>
+        <span class="price">14,000원</span>
+      </li>
+    </ul>
+  `;
+  const products = cafe24Adapter.parseCafe24Products(html, configs.hellcafe);
+  if (products.length !== 0) {
+    throw new Error(`헬카페 선물세트가 원두 목록에 포함됐습니다: ${products[0]?.productName || '(이름 없음)'}`);
+  }
+}
+
 function stripHtml(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, ' ')
@@ -545,6 +561,7 @@ async function main() {
   assertCafe24DetailWeightSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
+  assertHellcafeGiftSetExcluded(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
 
   for (const [sourceId, source] of Object.entries(SOURCES)) {
     source.sourceId = sourceId;

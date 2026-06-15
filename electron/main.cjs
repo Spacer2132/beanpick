@@ -384,7 +384,7 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
   for (const categoryUrl of categoryUrls) {
     try {
       const items = await crawlSmartStoreCategory(categoryUrl);
-      items.forEach((item) => productMap.set(item.id, item));
+      items.forEach((item) => productMap.set(item.id, { ...item, categoryUrl }));
     } catch {
       // 한 카테고리가 실패해도 나머지 카테고리는 계속 확인한다.
     }

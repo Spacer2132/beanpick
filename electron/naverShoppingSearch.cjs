@@ -9,6 +9,49 @@ const NAVER_SHOPPING_SEARCH_URL = 'https://openapi.naver.com/v1/search/shop.json
 const OCR_CACHE_DIR = path.join(os.tmpdir(), 'beanpick-ocr-cache');
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
+const NON_BEAN_COFFEE_WORDS = [
+  '드립백',
+  '드립 백',
+  '드립커피',
+  '드립 커피',
+  '브루백',
+  '커피백',
+  '티백',
+  '캡슐',
+  '콜드브루',
+  '더치커피',
+  '더치 원액',
+  '더치원액',
+  '인스턴트커피',
+  '인스턴트 커피',
+  '인스턴트',
+  '스틱커피',
+  '스틱 커피',
+  '커피믹스',
+  '믹스커피',
+  '파우더커피',
+  '파우더 커피',
+  '액상커피',
+  '액상 커피',
+  '원액',
+  'rtd',
+  'drip bag',
+  'dripbag',
+  'drip coffee',
+  'coffee bag',
+  'instant',
+  'stick coffee',
+  'coffee mix',
+  'powder coffee',
+  'capsule',
+  'cold brew',
+  'coldbrew',
+  'dutch coffee',
+  'concentrate',
+  'liquid coffee',
+  'tea bag',
+  'teabag',
+];
 const TESSERACT_PATHS = [
   'C:\\Program Files\\Tesseract-OCR\\tesseract.exe',
   'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe',
@@ -114,6 +157,13 @@ const SMARTSTORE_SOURCES = {
     mallNames: ['도안 셀렉트 샵', '도안셀렉트샵', 'doanselectshop'],
   },
 };
+
+function getSmartStoreListUrl(source, item = {}) {
+  return item.categoryUrl
+    || source.categoryUrl
+    || source.categoryUrls?.[0]
+    || '';
+}
 
 function loadLocalEnv(rootDir = path.resolve(__dirname, '..')) {
   const localEnv = {};
@@ -224,6 +274,17 @@ function hasExplicitWeight(title) {
 function isAmbiguousBulkOptionProduct(product) {
   const title = String(product?.productName || product?.title || '');
   return /대용량/i.test(title) && !hasExplicitWeight(title);
+}
+
+function isNonBeanCoffeeTitle(title) {
+  const text = String(title || '').toLowerCase();
+  return NON_BEAN_COFFEE_WORDS.some((word) => text.includes(word));
+}
+
+function isCollectableSmartStoreTitle(title) {
+  if (isNonBeanCoffeeTitle(title)) return false;
+  if (hasExplicitWeight(title) && parseWeight(title) > 1000) return false;
+  return true;
 }
 
 // 상품명에서 사전에 있는 맛 단어만 뽑는다. ("달고나 블랜드" → 달고나)
@@ -622,6 +683,7 @@ async function normalizeShoppingItem(item, source, index) {
     score: Math.max(60, 88 - index),
     tastingNotes,
     productUrl: item.link || '',
+    storeUrl: getSmartStoreListUrl(source, item),
     imageUrl: item.image || '',
     isSoldOut: false,
     isNew: index < 2,
@@ -651,6 +713,7 @@ function normalizeSmartStoreCategoryItem(item, source, index) {
     score: Math.max(60, 88 - index),
     tastingNotes: sanitizeTastingNotes(titleNotes),
     productUrl: item.productUrl || '',
+    storeUrl: getSmartStoreListUrl(source, item),
     imageUrl: item.imageUrl || '',
     isSoldOut: Boolean(item.isSoldOut),
     isNew: index < 2,
@@ -666,8 +729,10 @@ function normalizeSmartStoreCategoryItems(sourceId, items) {
   }
 
   return items
+    .filter((item) => isCollectableSmartStoreTitle(stripHtml(item.title)))
     .map((item, index) => normalizeSmartStoreCategoryItem(item, source, index))
-    .filter((product) => !isAmbiguousBulkOptionProduct(product));
+    .filter((product) => !isAmbiguousBulkOptionProduct(product))
+    .filter((product) => Number(product.weight || 0) <= 1000);
 }
 
 function isSourceItem(item, source) {
@@ -703,7 +768,9 @@ async function searchNaverShopping(sourceId) {
   }
 
   const items = Array.isArray(body.items) ? body.items : [];
-  const sourceItems = items.filter((item) => isSourceItem(item, source));
+  const sourceItems = items
+    .filter((item) => isSourceItem(item, source))
+    .filter((item) => isCollectableSmartStoreTitle(stripHtml(item.title)));
 
   return {
     ok: true,
@@ -749,6 +816,7 @@ module.exports = {
     getTasteNotes,
     isSuspiciousOptionOnlyPrice,
     isAmbiguousBulkOptionProduct,
+    isCollectableSmartStoreTitle,
     normalizeSmartStoreCategoryItems,
     normalizeSmartStorePrice,
     parseWeight,
