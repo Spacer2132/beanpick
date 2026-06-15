@@ -44,6 +44,20 @@ if (cafedoanFixture[0].isSoldOut || !cafedoanFixture[1].isSoldOut) {
   throw new Error('카페도안 카테고리의 판매 중/품절 상태가 보존되어야 합니다.');
 }
 
+const filloutBulkFixture = _test.normalizeSmartStoreCategoryItems('fillout', [
+  {
+    id: '6792791322',
+    title: '커피 대용량',
+    price: 29000,
+    productUrl: 'https://smartstore.naver.com/filloutcoffee/products/6792791322',
+    imageUrl: 'https://example.com/fillout-bulk.png',
+    isSoldOut: false,
+  },
+]);
+if (filloutBulkFixture.length !== 0) {
+  throw new Error('용량 없는 스마트스토어 대용량 옵션 상품은 200g으로 단정하지 말고 제외해야 합니다.');
+}
+
 // 제목 사전 매칭: 맛 단어만 잡고, 산지·가공방식으로 추측하면 안 된다.
 const dalgonaNotes = _test.getTasteNotes('달고나 블랜드 500g');
 if (!dalgonaNotes.includes('달고나')) {

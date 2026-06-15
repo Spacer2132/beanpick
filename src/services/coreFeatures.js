@@ -273,7 +273,6 @@ function pickFeaturedProducts(products, limit = 8) {
 function sortProducts(products, sortMode) {
   return [...products].sort((a, b) => {
     if (sortMode === 'latest') return a.checkedMinutesAgo - b.checkedMinutesAgo;
-    if (sortMode === 'price') return (a.price || Number.POSITIVE_INFINITY) - (b.price || Number.POSITIVE_INFINITY);
     if (sortMode === 'unitPriceAsc') return unitPrice(a) - unitPrice(b);
     if (sortMode === 'unitPriceDesc') return unitPrice(b) - unitPrice(a);
     if (sortMode === 'discount') return calculateDiscountRate(b.price, b.originalPrice) - calculateDiscountRate(a.price, a.originalPrice);

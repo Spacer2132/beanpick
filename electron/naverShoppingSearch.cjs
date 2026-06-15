@@ -217,6 +217,15 @@ function parseWeight(title) {
   return 200;
 }
 
+function hasExplicitWeight(title) {
+  return /(\d+(?:\.\d+)?)\s*(?:kg|g)\b/i.test(String(title || ''));
+}
+
+function isAmbiguousBulkOptionProduct(product) {
+  const title = String(product?.productName || product?.title || '');
+  return /대용량/i.test(title) && !hasExplicitWeight(title);
+}
+
 // 상품명에서 사전에 있는 맛 단어만 뽑는다. ("달고나 블랜드" → 달고나)
 function getTasteNotes(title) {
   const notes = [];
@@ -656,7 +665,9 @@ function normalizeSmartStoreCategoryItems(sourceId, items) {
     throw new Error(`지원하지 않는 스마트스토어입니다: ${sourceId}`);
   }
 
-  return items.map((item, index) => normalizeSmartStoreCategoryItem(item, source, index));
+  return items
+    .map((item, index) => normalizeSmartStoreCategoryItem(item, source, index))
+    .filter((product) => !isAmbiguousBulkOptionProduct(product));
 }
 
 function isSourceItem(item, source) {
@@ -701,7 +712,8 @@ async function searchNaverShopping(sourceId) {
     query: source.query,
     total: Number(body.total || 0),
     fetchedAt: new Date().toISOString(),
-    products: await mapWithConcurrency(sourceItems, 3, (item, index) => normalizeShoppingItem(item, source, index)),
+    products: (await mapWithConcurrency(sourceItems, 3, (item, index) => normalizeShoppingItem(item, source, index)))
+      .filter((product) => !isAmbiguousBulkOptionProduct(product)),
     warning: sourceItems.length === 0 ? `${source.roasterName} 상품을 네이버 쇼핑 검색 결과에서 찾지 못했습니다.` : '',
   };
 }
@@ -736,6 +748,7 @@ module.exports = {
     extractOcrTasteNotes,
     getTasteNotes,
     isSuspiciousOptionOnlyPrice,
+    isAmbiguousBulkOptionProduct,
     normalizeSmartStoreCategoryItems,
     normalizeSmartStorePrice,
     parseWeight,

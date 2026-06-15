@@ -1312,7 +1312,6 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
   const visibleNotes = notesExpanded ? noteOptions : noteOptions.slice(0, NOTE_PREVIEW_COUNT);
   const hiddenNoteCount = noteOptions.length - NOTE_PREVIEW_COUNT;
   const sortLabel = sortMode === 'latest' ? '최근 확인순'
-    : sortMode === 'price' ? '낮은 가격순'
     : sortMode === 'unitPriceAsc' ? '100g당 낮은가격순'
     : sortMode === 'unitPriceDesc' ? '100g당 높은가격순'
     : sortMode === 'discount' ? '할인율 높은순'
@@ -1356,7 +1355,6 @@ function BrowsePage({ activeNotes, budget, dataMode, decafOnly, discountCount, d
           <div className="sort-actions" aria-label="원두 정렬">
             <button className={sortMode === 'score' ? 'active' : ''} type="button" onClick={() => setSortMode('score')}>추천순</button>
             <button className={sortMode === 'latest' ? 'active' : ''} type="button" onClick={() => setSortMode('latest')}>최근순</button>
-            <button className={sortMode === 'price' ? 'active' : ''} type="button" onClick={() => setSortMode('price')}>가격순</button>
             <button className={sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceAsc')}>100g당 낮은가격</button>
             <button className={sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceDesc')}>100g당 높은가격</button>
             <button className={sortMode === 'discount' ? 'active' : ''} type="button" onClick={() => setSortMode('discount')}>할인율 높은순</button>

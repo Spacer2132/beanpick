@@ -257,6 +257,22 @@ function assertInjectedMarkerPriceSample(cafe24Adapter, configs) {
   }
 }
 
+function assertCafe24KgWeightSample(cafe24Adapter, configs) {
+  const html = `
+    <ul>
+      <li id="anchorBoxId_7328">
+        <a href="/product/detail.html?product_no=7328&cate_no=47"><img src="https://example.com/vertigo.jpg" alt="[대용량 원두] 버티고 1kg" /></a>
+        <p class="name"><a>[대용량 원두] 버티고 1kg</a></p>
+        <span class="price">45,000원</span>
+      </li>
+    </ul>
+  `;
+  const [product] = cafe24Adapter.parseCafe24Products(html, configs.coffeelibre);
+  if (product?.weight !== 1000) {
+    throw new Error(`Cafe24 1kg 상품 용량 수집 실패: ${product?.weight || '(없음)'}`);
+  }
+}
+
 function stripHtml(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, ' ')
@@ -528,6 +544,7 @@ async function main() {
   assertOriginalPriceSamples(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24DetailWeightSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
+  assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
 
   for (const [sourceId, source] of Object.entries(SOURCES)) {
     source.sourceId = sourceId;

@@ -188,8 +188,11 @@ function extractDescription(block: string) {
 }
 
 function inferWeight(text: string, defaultWeight = 200) {
-  const match = text.match(/(\d{2,4})\s*g/i);
-  return match ? Number(match[1]) : defaultWeight;
+  const kgMatch = text.match(/(\d+(?:\.\d+)?)\s*kg\b/i);
+  if (kgMatch) return Math.round(Number(kgMatch[1]) * 1000);
+
+  const gramMatch = text.match(/(\d{2,4})\s*g\b/i);
+  return gramMatch ? Number(gramMatch[1]) : defaultWeight;
 }
 
 function inferOrigin(text: string) {

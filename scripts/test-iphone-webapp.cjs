@@ -92,6 +92,10 @@ async function main() {
     /bean-price-unit-value/.test(appSource) && /bean-price-unit-suffix/.test(appSource),
     '카드 단가는 가격과 100g 단위를 나눠서 렌더링해야 합니다',
   );
+  expect(
+    !/>가격순</.test(appSource) && !/sortMode === 'price'/.test(appSource) && !/setSortMode\('price'\)/.test(appSource),
+    '가격순 정렬은 100g당 정렬과 겹치므로 화면에서 제거해야 합니다',
+  );
 
   if (failures.length > 0) {
     console.error('[iphone-webapp:test] 실패');
