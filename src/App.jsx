@@ -1413,9 +1413,9 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                 <span>용량</span>
                 <select value={capacityFilter} onChange={(event) => setCapacityFilter(event.target.value)}>
                   <option value="all">용량 전체</option>
-                  <option value="under100">100g ↓</option>
-                  <option value="over200">200g 이상</option>
-                  <option value="over500">500g 이상</option>
+                  <option value="under100">100g</option>
+                  <option value="over200">200g</option>
+                  <option value="over500">500g</option>
                   <option value="exact1000">1kg</option>
                 </select>
               </label>

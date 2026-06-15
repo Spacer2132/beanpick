@@ -109,7 +109,8 @@ async function main() {
     '상세검색 접기 버튼에는 조건으로 찾기/고르기 또는 펼치기 문구가 보이면 안 됩니다',
   );
   expect(
-    /capacityFilter/.test(appSource) && /100g ↓/.test(appSource) && /200g 이상/.test(appSource) && /500g 이상/.test(appSource) && /1kg/.test(appSource),
+    /capacityFilter/.test(appSource) && />100g</.test(appSource) && />200g</.test(appSource) && />500g</.test(appSource) && /1kg/.test(appSource)
+      && !/100g ↓|200g 이상|500g 이상/.test(appSource),
     '상세검색에는 용량별로 찾는 조건이 있어야 합니다',
   );
   expect(
