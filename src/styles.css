@@ -988,6 +988,11 @@ a {
   white-space: nowrap;
 }
 
+.bean-footer .bean-price-unit .bean-price-unit-value,
+.bean-footer .bean-price-unit .bean-price-unit-suffix {
+  color: var(--muted);
+}
+
 .bean-price-more-pill {
   display: inline-flex;
   width: fit-content;
