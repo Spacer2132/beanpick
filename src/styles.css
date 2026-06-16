@@ -722,6 +722,25 @@ a {
   letter-spacing: 0.08em;
 }
 
+.bean-image .event-ribbon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+/* NEW 뱃지가 같이 있으면 1+1 뱃지를 아래로 내려 겹치지 않게 한다. */
+.bean-image b + .event-ribbon {
+  top: 40px;
+}
+
 .image-favorite-btn {
   position: absolute;
   right: 12px;

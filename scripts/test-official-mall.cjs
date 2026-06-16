@@ -198,6 +198,29 @@ function assertOriginalPriceSamples(cafe24Adapter, configs) {
     throw new Error(`Cafe24 원래가 수집 실패: ${cafe24Product?.originalPrice || '(없음)'}`);
   }
 
+  // 신형 cafe24 스킨(나무사이로): 정상가가 취소선으로 판매가보다 '먼저' 나온다.
+  // 첫 금액(취소선 정상가)을 판매가로 오인하면 안 되고, 실제 판매가와 정상가를 따로 잡아야 한다.
+  const cafe24StruckHtml = `
+    <ul>
+      <li id="anchorBoxId_854">
+        <div class="description">
+          <strong class="name"><a href="/product/pick-블렌드/854/category/91/display/1/">PiCK! 블렌드</a></strong>
+          <ul class="xans-element- xans-product xans-product-listitem spec">
+            <li><strong class="title displaynone"><span style="font-size:14px;color:#000000;">판매가</span> :</strong><span style="font-size:14px;color:#000000;text-decoration:line-through;">&#8361;43,500</span><span id="span_product_tax_type_text" style="text-decoration:line-through;"> </span></li>
+            <li><strong class="title "><span style="font-size:14px;color:#a80505;"></span> :</strong><span style="font-size:14px;color:#a80505;">&#8361;39,150</span></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  `;
+  const [cafe24StruckProduct] = cafe24Adapter.parseCafe24Products(cafe24StruckHtml, configs.namusairo);
+  if (cafe24StruckProduct?.price !== 39150) {
+    throw new Error(`Cafe24 취소선 할인 판매가 수집 실패(정상가를 판매가로 오인): ${cafe24StruckProduct?.price}`);
+  }
+  if (cafe24StruckProduct?.originalPrice !== 43500) {
+    throw new Error(`Cafe24 취소선 정상가 수집 실패: ${cafe24StruckProduct?.originalPrice || '(없음)'}`);
+  }
+
   const imwebHtml = `
     <div class="_shop_item"
       data-product-properties='{&quot;idx&quot;:193,&quot;code&quot;:&quot;discount&quot;,&quot;name&quot;:&quot;Colombia Discount Geisha Honey&quot;,&quot;original_price&quot;:40000,&quot;price&quot;:28000,&quot;image_url&quot;:&quot;https://example.com/center-sale.png&quot;}'

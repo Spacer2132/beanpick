@@ -17,6 +17,7 @@ import {
   getRepresentativePriceOption,
   groupProductsByNameAndWeight,
   isDecafProduct,
+  isOnePlusOneProduct,
   isRealProductUrl,
   matchesCapacityFilter,
   matchesNoteQuery,
@@ -122,10 +123,12 @@ const SMARTSTORE_SOURCE_LABELS = {
   toch: '토치 커피',
   fillout: '필아웃커피',
   cafedoan: '카페도안',
+  coffeejg: '커피정경 로스터리',
+  malik: '말릭커피',
 };
 
 function getSmartStoreSourceIds() {
-  return ['roasterick', 'lubia', 'hitte', 'identity', 'toch', 'fillout', 'cafedoan'];
+  return ['roasterick', 'lubia', 'hitte', 'identity', 'toch', 'fillout', 'cafedoan', 'coffeejg', 'malik'];
 }
 
 function dataModeLabel(dataMode) {
@@ -413,6 +416,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
           {imageContent}
         </button>
         {product.isNew && <b>NEW</b>}
+        {isOnePlusOneProduct(product) && <span className="event-ribbon">1+1</span>}
         {product.isSoldOut && <span className="soldout-ribbon">품절</span>}
         <button
           className={`image-favorite-btn ${isFavorite ? 'active' : ''}`}
@@ -760,6 +764,7 @@ export default function App() {
   const [processFilter, setProcessFilter] = React.useState('all');
   const [discountOnly, setDiscountOnly] = React.useState(false);
   const [decafOnly, setDecafOnly] = React.useState(false);
+  const [eventOnly, setEventOnly] = React.useState(false);
   // 앱을 켜면 마지막으로 저장된 상품 목록을 먼저 보여준다.
   const [initialCache] = React.useState(() => loadProductCache());
   const [baseProducts, setBaseProducts] = React.useState(initialCache?.products ?? mockBeans);
@@ -823,19 +828,20 @@ export default function App() {
       && matchesNoteQuery(product, noteIncludeQuery, noteExcludeQuery)
       && (!discountOnly || discountProducts.includes(product))
       && (!decafOnly || isDecafProduct(product))
+      && (!eventOnly || isOnePlusOneProduct(product))
       && (originFilter === 'all' || getProductCountryLabel(product) === originFilter)
       && (processFilter === 'all' || getProductProcessLabel(product) === processFilter)
       && matchesBudgetFilter(product, budget)
       && matchesCapacityFilter(product, capacityFilter)
     ))
-  ), [activeNotes, budget, capacityFilter, decafOnly, discountOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
+  ), [activeNotes, budget, capacityFilter, decafOnly, discountOnly, discountProducts, eventOnly, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
 
   const filteredProducts = React.useMemo(() => (
     sortProducts(visibleProducts, sortMode)
   ), [visibleProducts, sortMode]);
 
   const hasActiveFilters = Boolean(searchQuery.trim()) || activeNotes.length > 0
-    || budget !== 'all' || capacityFilter !== 'all' || originFilter !== 'all' || processFilter !== 'all' || discountOnly || decafOnly
+    || budget !== 'all' || capacityFilter !== 'all' || originFilter !== 'all' || processFilter !== 'all' || discountOnly || decafOnly || eventOnly
     || Boolean(noteIncludeQuery.trim()) || Boolean(noteExcludeQuery.trim());
 
   const detailProduct = React.useMemo(() => (
@@ -871,6 +877,7 @@ export default function App() {
     setProcessFilter('all');
     setDiscountOnly(false);
     setDecafOnly(false);
+    setEventOnly(false);
   }
 
   function handleNoteClick(note) {
@@ -1210,6 +1217,7 @@ export default function App() {
             capacityFilter={capacityFilter}
             dataMode={dataMode}
             decafOnly={decafOnly}
+            eventOnly={eventOnly}
             discountCount={discountProducts.filter((product) => !product.isSoldOut).length}
             discountOnly={discountOnly}
             favoriteIds={favoriteIds}
@@ -1233,6 +1241,7 @@ export default function App() {
             setBudget={setBudget}
             setCapacityFilter={setCapacityFilter}
             setDecafOnly={setDecafOnly}
+            setEventOnly={setEventOnly}
             setDiscountOnly={setDiscountOnly}
             setNoteExcludeQuery={setNoteExcludeQuery}
             setNoteIncludeQuery={setNoteIncludeQuery}
@@ -1281,7 +1290,7 @@ export default function App() {
   );
 }
 
-function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, discountCount, discountOnly, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, priceDeltas, processFilter, processOptions, publishState, products, setBudget, setCapacityFilter, setDecafOnly, setDiscountOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts }) {
+function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, discountCount, discountOnly, eventOnly, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, priceDeltas, processFilter, processOptions, publishState, products, setBudget, setCapacityFilter, setDecafOnly, setEventOnly, setDiscountOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts }) {
   const PAGE_SIZE = 24;
   const NOTE_PREVIEW_COUNT = 12;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
@@ -1384,6 +1393,9 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               </button>
               <button className={`note-tag ${decafOnly ? 'active' : ''}`} type="button" onClick={() => setDecafOnly(!decafOnly)}>
                 디카페인
+              </button>
+              <button className={`note-tag ${eventOnly ? 'active' : ''}`} type="button" onClick={() => setEventOnly(!eventOnly)}>
+                1+1
               </button>
             </div>
             <div className="detail-filter-row">

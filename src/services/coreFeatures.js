@@ -461,6 +461,11 @@ function isDecafProduct(product) {
   return /디카페인|decaf/i.test(text);
 }
 
+// 1+1 같은 증정 이벤트는 정상가·판매가 두 가격이 아니라 상품명으로만 드러난다. (예: "[커피 페스타 1+1] ...")
+function isOnePlusOneProduct(product) {
+  return /1\s*[+＋]\s*1|원\s*플러스\s*원/i.test(String(product.productName || ''));
+}
+
 function productWeights(product) {
   return [
     product.weight,
@@ -728,6 +733,7 @@ export {
   groupProductsByNameAndWeight,
   isDecafProduct,
   isDiscountedProduct,
+  isOnePlusOneProduct,
   isRealProductUrl,
   matchesCapacityFilter,
   matchesNoteQuery,

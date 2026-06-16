@@ -139,16 +139,25 @@ function stripBeanpickInjectedMarkers(block: string) {
   return String(block || '').replace(/<span\b[^>]*data-beanpick-(?:detail|ocr)=["'][\s\S]*?<\/span>/gi, ' ');
 }
 
+// 취소선(정상가)으로 표시된 금액은 판매가가 아니므로 가격 인식에서 제외한다.
+// (일부 cafe24 스킨은 할인 상품에서 정상가-취소선을 판매가보다 먼저 출력한다.)
+function stripStruckThroughPrices(block: string) {
+  return block
+    .replace(/<(?:s|strike|del)\b[^>]*>[\s\S]*?<\/(?:s|strike|del)>/gi, ' ')
+    .replace(/<[^>]+style=["'][^"']*line-through[^"']*["'][^>]*>[\s\S]*?<\/[^>]+>/gi, ' ');
+}
+
 function extractPrice(block: string, config: Cafe24SourceConfig) {
   const visibleBlock = stripHiddenStockMarkup(stripBeanpickInjectedMarkers(block));
-  block = visibleBlock;
   const dataPrice = Number((visibleBlock.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, ''));
   if (dataPrice > 0) return dataPrice;
 
-  const wonText = block.match(/(?:₩|&#8361;)?\s*(\d{1,3}(?:,\d{3})+)\s*원?/i)?.[1] || '';
+  // 할인 상품은 정상가(취소선)가 판매가보다 먼저 나오므로, 취소선 금액을 빼고 실제 판매가를 읽는다.
+  const saleBlock = stripStruckThroughPrices(visibleBlock);
+  const wonText = saleBlock.match(/(?:₩|&#8361;)?\s*(\d{1,3}(?:,\d{3})+)\s*원?/i)?.[1] || '';
   if (wonText) return Number(wonText.replace(/[^\d]/g, ''));
 
-  const dollarText = visibleBlock.match(/(?:\$|&#36;)\s*(\d+(?:\.\d+)?)/i)?.[1] || '';
+  const dollarText = saleBlock.match(/(?:\$|&#36;)\s*(\d+(?:\.\d+)?)/i)?.[1] || '';
   if (dollarText) return Math.round(Number(dollarText) * (config.priceMultiplier || 1350));
 
   return 0;
