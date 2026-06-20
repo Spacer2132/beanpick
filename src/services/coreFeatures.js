@@ -484,7 +484,7 @@ function matchesCapacityFilter(product, capacityFilter = 'all') {
   if (capacityFilter === 'under100') return weights.some((weight) => weight < 200);
   if (capacityFilter === 'over200') return weights.some((weight) => weight >= 200 && weight < 500);
   if (capacityFilter === 'over500') return weights.some((weight) => weight >= 500 && weight < 1000);
-  if (capacityFilter === 'exact1000') return weights.some((weight) => weight >= 1000);
+  if (capacityFilter === 'exact1000') return weights.some((weight) => weight === 1000);
   return true;
 }
 

@@ -17,6 +17,8 @@
     "core-features:test": "node scripts/test-core-features.cjs",
     "history:test": "node scripts/test-history.cjs",
     "iphone-webapp:test": "node scripts/test-iphone-webapp.cjs",
+    "iphone:snapshot:publish": "electron . --publish-iphone-snapshot",
+    "iphone:snapshot:publish:dry-run": "electron . --publish-iphone-snapshot --dry-run",
     "dataquality:test": "node scripts/test-data-quality.cjs",
     "verify": "npm.cmd run tasting-notes:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run build && npm.cmd run package:portable"
   },

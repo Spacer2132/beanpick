@@ -28,6 +28,9 @@ const rootDir = path.resolve(__dirname, '..');
 loadLocalEnv(rootDir);
 
 const isDev = Boolean(process.env.VITE_DEV_SERVER_URL);
+const shouldPublishIphoneSnapshot = process.argv.includes('--publish-iphone-snapshot');
+const shouldDryRunIphoneSnapshot = process.argv.includes('--dry-run') || process.env.BEANPICK_AUTO_PUBLISH_DRY_RUN === '1';
+const AUTO_PUBLISH_TIMEOUT_MS = Number(process.env.BEANPICK_AUTO_PUBLISH_TIMEOUT_MS || 20 * 60 * 1000);
 const TERAROSA_SOURCE_URL = 'https://www.terarosa.com/market/product/list?categoryId=482';
 const TERAROSA_PRODUCT_LIST_URL = 'https://www.terarosa.com/product/list/?category=12';
 const TERAROSA_API_URL = 'https://www.terarosa.com/api/main/info/';
@@ -144,6 +147,139 @@ function delay(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
+}
+
+async function waitForRendererState(window, script, timeoutMs, label) {
+  const startedAt = Date.now();
+  let lastState = null;
+
+  while (Date.now() - startedAt < timeoutMs) {
+    if (window.isDestroyed()) {
+      throw new Error(`${label} 중 창이 닫혔습니다.`);
+    }
+
+    lastState = await window.webContents.executeJavaScript(script, true).catch((error) => ({
+      done: false,
+      message: error instanceof Error ? error.message : String(error),
+    }));
+
+    if (lastState?.done) {
+      if (lastState.ok) return lastState;
+      throw new Error(lastState.message || `${label} 실패`);
+    }
+
+    await delay(1000);
+  }
+
+  throw new Error(`${label} 시간이 초과됐습니다. 마지막 상태: ${lastState?.message || '확인 불가'}`);
+}
+
+async function runIphoneSnapshotPublish() {
+  const mainWindow = new BrowserWindow({
+    width: 1440,
+    height: 920,
+    show: false,
+    title: 'BeanPick 자동 게시',
+    backgroundColor: '#f7f2ea',
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.cjs'),
+      contextIsolation: true,
+      nodeIntegration: false,
+    },
+  });
+
+  mainWindow.webContents.on('console-message', (_event, level, message) => {
+    console.log(`[renderer:${level}] ${message}`);
+  });
+
+  try {
+    await mainWindow.loadFile(path.join(__dirname, '..', 'dist', 'index.html'));
+
+    const loadState = await waitForRendererState(mainWindow, `
+      (() => {
+        const text = document.body.innerText || '';
+        const successMatch = text.match(/원두\\s+(\\d+)개를\\s+불러와\\s+(\\d+)종으로\\s+묶었습니다/);
+        const loadError = [...document.querySelectorAll('.load-banner.load-error')]
+          .map((node) => node.innerText || '')
+          .find((value) => !value.includes('게시 실패'));
+        const cardCount = document.querySelectorAll('.bean-card:not(.skeleton-card)').length;
+
+        if (successMatch) {
+          return {
+            done: true,
+            ok: true,
+            message: successMatch[0],
+            loadedCount: Number(successMatch[1]),
+            groupedCount: Number(successMatch[2]),
+            cardCount,
+          };
+        }
+
+        if (loadError) {
+          return { done: true, ok: false, message: loadError, cardCount };
+        }
+
+        return {
+          done: false,
+          message: text.includes('로스터리 확인 중') ? '로스터리 확인 중' : text.slice(0, 160),
+          cardCount,
+        };
+      })()
+    `, AUTO_PUBLISH_TIMEOUT_MS, '원두 불러오기');
+
+    console.log(`[beanpick:auto-publish] ${loadState.message}`);
+
+    if (shouldDryRunIphoneSnapshot) {
+      console.log('[beanpick:auto-publish] dry-run이라 GitHub 게시를 건너뜁니다.');
+      return;
+    }
+
+    const clickState = await mainWindow.webContents.executeJavaScript(`
+      (() => {
+        const buttons = [...document.querySelectorAll('button')];
+        const button = buttons.find((item) => (item.innerText || '').trim() === '아이폰 게시');
+        if (!button) {
+          return { ok: false, message: '아이폰 게시 버튼을 찾지 못했습니다.' };
+        }
+        if (button.disabled) {
+          return { ok: false, message: '아이폰 게시 버튼이 비활성화되어 있습니다.' };
+        }
+        button.click();
+        return { ok: true };
+      })()
+    `, true);
+
+    if (!clickState?.ok) {
+      throw new Error(clickState?.message || '아이폰 게시 버튼 실행 실패');
+    }
+
+    const publishState = await waitForRendererState(mainWindow, `
+      (() => {
+        const text = document.body.innerText || '';
+        const successMatch = text.match(/원두\\s+(\\d+)종을\\s+게시했습니다/);
+        const publishError = [...document.querySelectorAll('.load-banner.load-error')]
+          .map((node) => node.innerText || '')
+          .find((value) => value.includes('게시 실패'));
+
+        if (successMatch) {
+          return { done: true, ok: true, message: successMatch[0], count: Number(successMatch[1]) };
+        }
+
+        if (publishError) {
+          return { done: true, ok: false, message: publishError };
+        }
+
+        return {
+          done: false,
+          message: text.includes('게시 중') ? '게시 중' : text.slice(0, 160),
+        };
+      })()
+    `, AUTO_PUBLISH_TIMEOUT_MS, '아이폰 게시');
+
+    console.log(`[beanpick:auto-publish] ${publishState.message}`);
+  } finally {
+    if (!mainWindow.isDestroyed()) mainWindow.close();
+  }
 }
 
 function extractSmartStoreCategoryItemsScript() {
@@ -1083,6 +1219,18 @@ ipcMain.handle('beanpick:publish-iphone', async (_event, payload) => {
 app.whenReady().then(() => {
   // Windows 토스트 알림에 필요한 앱 식별자
   app.setAppUserModelId('com.beanpick.app');
+  if (shouldPublishIphoneSnapshot) {
+    runIphoneSnapshotPublish()
+      .catch((error) => {
+        console.error(error instanceof Error ? error.message : error);
+        process.exitCode = 1;
+      })
+      .finally(() => {
+        app.quit();
+      });
+    return;
+  }
+
   createWindow();
 
   app.on('activate', () => {
