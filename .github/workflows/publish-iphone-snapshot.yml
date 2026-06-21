@@ -42,6 +42,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run safety tests
+        run: |
+          npm run tasting-notes:test
+          npm run core-features:test
+          npm run dataquality:test
+          npm run iphone-webapp:test
+          npm run history:test
+
       - name: Build app
         run: npm run build
 

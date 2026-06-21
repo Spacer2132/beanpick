@@ -216,7 +216,7 @@ function PriceChart({ points }) {
   const priced = points.filter((point) => point.price > 0);
 
   if (priced.length < 2) {
-    return <p className="chart-empty">가격 기록이 2회 이상 쌓이면 그래프가 표시됩니다. 원두를 불러올 때마다 자동으로 기록돼요.</p>;
+    return <p className="chart-empty">가격 기록이 2회 이상 쌓이면 그래프가 표시됩니다. PC 앱에서 원두를 직접 불러오면 자동으로 기록돼요. 게시된 웹 목록은 아직 가격 기록을 포함하지 않습니다.</p>;
   }
 
   const prices = priced.map((point) => point.price);

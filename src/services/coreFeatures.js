@@ -207,7 +207,19 @@ function filterDiscountProducts(products, threshold = DISCOUNT_THRESHOLD) {
 }
 
 function isRealProductUrl(url) {
-  return Boolean(url && !url.includes('beanpick.local') && !/smartstore\.naver\.com\/main\/products\//i.test(url));
+  const normalizedUrl = String(url || '').trim();
+  if (!normalizedUrl) return false;
+
+  let parsed;
+  try {
+    parsed = new URL(normalizedUrl);
+  } catch {
+    return false;
+  }
+
+  return (parsed.protocol === 'http:' || parsed.protocol === 'https:')
+    && !normalizedUrl.includes('beanpick.local')
+    && !/smartstore\.naver\.com\/main\/products\//i.test(normalizedUrl);
 }
 
 function createPriceOption(product, weightLabel = '') {
@@ -487,7 +499,7 @@ function matchesCapacityFilter(product, capacityFilter = 'all') {
   if (capacityFilter === 'under100') return weights.some((weight) => weight < 200);
   if (capacityFilter === 'over200') return weights.some((weight) => weight >= 200 && weight < 500);
   if (capacityFilter === 'over500') return weights.some((weight) => weight >= 500 && weight < 1000);
-  if (capacityFilter === 'exact1000') return weights.some((weight) => weight === 1000);
+  if (capacityFilter === 'exact1000') return weights.some((weight) => weight >= 1000 && weight <= 2000);
   return true;
 }
 
