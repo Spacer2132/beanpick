@@ -5,6 +5,12 @@ const rootDir = path.resolve(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
 const docsDir = path.join(rootDir, 'docs');
 const productsJsonPath = path.join(docsDir, 'products.json');
+const docsIndexPath = path.join(docsDir, 'index.html');
+const cloudflareAnalyticsSnippet = [
+  '    <!-- Cloudflare Web Analytics -->',
+  '    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "0c96780548534d8b96945c17c86e53af"}\'></script>',
+  '    <!-- End Cloudflare Web Analytics -->',
+].join('\n');
 
 function copyDir(sourceDir, targetDir) {
   fs.mkdirSync(targetDir, { recursive: true });
@@ -35,6 +41,11 @@ copyDir(distDir, docsDir);
 
 if (savedProductsJson) {
   fs.writeFileSync(productsJsonPath, savedProductsJson);
+}
+
+if (fs.existsSync(docsIndexPath)) {
+  const html = fs.readFileSync(docsIndexPath, 'utf8');
+  fs.writeFileSync(docsIndexPath, html.replace('  </head>', `${cloudflareAnalyticsSnippet}\n  </head>`));
 }
 
 console.log(`GitHub Pages 파일 준비 완료: ${docsDir}`);
