@@ -7,6 +7,10 @@ const DEFAULT_PATH = 'docs/products.json';
 const SMARTSTORE_DISCOUNT_GUARD_MIN_ROWS = 20;
 const SMARTSTORE_DISCOUNT_GUARD_MIN_RATIO = 0.5;
 const SMARTSTORE_DISCOUNT_GUARD_MIN_RATE = 0.10;
+// 한두 곳 수집이 통째로 실패하면 상품/로스터리 수가 확 줄어든다. 빈약한 목록으로 기존 게시본을 덮어쓰지 않도록 막는다.
+const COUNT_GUARD_MIN_PREVIOUS = 20;
+const COUNT_GUARD_MIN_RATIO = 0.5;
+const MAX_PUBLISH_ATTEMPTS = 3;
 const SMARTSTORE_SLUG_BY_ROASTER = {
   '커피정경 로스터리': 'coffeejg',
 };
@@ -121,6 +125,7 @@ function buildPreviousSmartStoreDiscountMap(previousSnapshot) {
       if (!current || originalPrice > current.originalPrice) {
         map.set(key, {
           originalPrice,
+          weight: Number(row.option.weight || row.product.weight || 0),
           productUrl: isDirectSmartStoreProductUrl(row.option.productUrl) ? row.option.productUrl : '',
           storeUrl: isSmartStoreUrl(row.product.storeUrl) ? row.product.storeUrl : '',
         });
@@ -145,9 +150,12 @@ function preserveOptionOriginalPrice(product, option, previousDiscounts) {
   const currentOriginal = Number(option?.originalPrice || 0);
   if (price <= 0 || currentOriginal > price || !isSmartStoreProduct(product, option)) return 0;
 
+  // 다른 용량의 정상가가 붙지 않도록, 복원할 정상가의 출처 용량이 이 옵션 용량과 같을 때만 인정한다.
+  const optionWeight = Number(option?.weight || 0);
   const match = getSmartStoreMatchKeys(product, option)
     .map((key) => previousDiscounts.get(key))
-    .find((item) => Number(item?.originalPrice || 0) > price);
+    .find((item) => Number(item?.originalPrice || 0) > price
+      && (!optionWeight || !item?.weight || Number(item.weight) === optionWeight));
 
   if (!match) return 0;
   option.originalPrice = Number(match.originalPrice);
@@ -170,9 +178,15 @@ function preservePreviousSmartStoreDiscounts(products, previousSnapshot) {
   }
 
   for (const product of cloned) {
-    preservedCount += preserveOptionOriginalPrice(product, product, previousDiscounts);
-    for (const option of Array.isArray(product?.priceOptions) ? product.priceOptions : []) {
-      preservedCount += preserveOptionOriginalPrice(product, option, previousDiscounts);
+    const options = Array.isArray(product?.priceOptions) ? product.priceOptions : [];
+    // 용량 옵션이 있으면 상단 price/weight는 서로 다른 옵션(예: 200g 판매가 + 1kg 대표용량)이 섞여 있어,
+    // 상단에 이전 정상가를 복원하면 엉뚱한 용량의 정상가가 붙는다. 옵션이 있으면 옵션별로만 복원한다.
+    if (options.length === 0) {
+      preservedCount += preserveOptionOriginalPrice(product, product, previousDiscounts);
+    } else {
+      for (const option of options) {
+        preservedCount += preserveOptionOriginalPrice(product, option, previousDiscounts);
+      }
     }
   }
 
@@ -202,9 +216,30 @@ function getSmartStoreDiscountStats(products) {
   };
 }
 
+function countDistinctRoasters(products) {
+  return new Set(
+    (Array.isArray(products) ? products : [])
+      .map((product) => normalizeText(product?.roasterName))
+      .filter(Boolean),
+  ).size;
+}
+
 function getPublishBlockReason(previousSnapshot, snapshot) {
   const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
   if (previousProducts.length === 0) return '';
+  const nextProducts = Array.isArray(snapshot?.products) ? snapshot.products : [];
+
+  // 전체 상품 수 또는 로스터리 수가 이전의 절반 밑으로 떨어지면 일부 로스터리 수집이 통째로 실패한 것으로 보고 막는다.
+  if (previousProducts.length >= COUNT_GUARD_MIN_PREVIOUS) {
+    if (nextProducts.length < Math.ceil(previousProducts.length * COUNT_GUARD_MIN_RATIO)) {
+      return `상품 수가 이전 ${previousProducts.length}개에서 현재 ${nextProducts.length}개로 절반 이하로 줄어 게시를 중단했습니다. 일부 로스터리 수집이 실패했을 수 있습니다.`;
+    }
+    const previousRoasters = countDistinctRoasters(previousProducts);
+    const nextRoasters = countDistinctRoasters(nextProducts);
+    if (previousRoasters >= 2 && nextRoasters < Math.ceil(previousRoasters * COUNT_GUARD_MIN_RATIO)) {
+      return `로스터리 수가 이전 ${previousRoasters}곳에서 현재 ${nextRoasters}곳으로 절반 이하로 줄어 게시를 중단했습니다. 일부 로스터리 수집이 실패했을 수 있습니다.`;
+    }
+  }
 
   const previousStats = getSmartStoreDiscountStats(previousProducts);
   const nextStats = getSmartStoreDiscountStats(snapshot.products);
@@ -279,6 +314,11 @@ async function readExistingFile({ fetchImpl, token, owner, repo, path, branch })
   throw new Error(message || `GitHub 파일 확인 실패 (${response.status})`);
 }
 
+function isRetryablePublishStatus(status) {
+  // sha 충돌(409/422), 혼잡/한도(429), 일시적 서버 오류(5xx)는 재시도 가치가 있다. 잘못된 토큰·없는 경로는 재시도해도 소용없다.
+  return status === 409 || status === 422 || status === 429 || status >= 500;
+}
+
 async function publishProductsToGitHub({
   products,
   token = process.env.GITHUB_TOKEN || '',
@@ -306,26 +346,40 @@ async function publishProductsToGitHub({
       };
     }
 
-    const body = {
-      message: `Update BeanPick iPhone snapshot (${snapshot.count} products)`,
-      content: Buffer.from(JSON.stringify(snapshot, null, 2), 'utf8').toString('base64'),
-      branch,
-    };
+    const contentBase64 = Buffer.from(JSON.stringify(snapshot, null, 2), 'utf8').toString('base64');
+    let sha = existing.sha;
+    let json = null;
 
-    if (existing.sha) body.sha = existing.sha;
+    // 게시 충돌(sha 불일치)이나 일시적 GitHub 오류로 비싼 수집 결과를 통째로 잃지 않도록 몇 번 재시도한다.
+    for (let attempt = 1; attempt <= MAX_PUBLISH_ATTEMPTS; attempt += 1) {
+      const body = {
+        message: `Update BeanPick iPhone snapshot (${snapshot.count} products)`,
+        content: contentBase64,
+        branch,
+      };
+      if (sha) body.sha = sha;
 
-    const response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
-      method: 'PUT',
-      headers: githubHeaders(token),
-      body: JSON.stringify(body),
-    });
+      const response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
+        method: 'PUT',
+        headers: githubHeaders(token),
+        body: JSON.stringify(body),
+      });
 
-    if (!response.ok) {
+      if (response.ok) {
+        json = await response.json();
+        break;
+      }
+
       const message = await response.text().catch(() => '');
-      throw new Error(message || `GitHub 게시 실패 (${response.status})`);
+      if (attempt >= MAX_PUBLISH_ATTEMPTS || !isRetryablePublishStatus(response.status)) {
+        throw new Error(message || `GitHub 게시 실패 (${response.status})`);
+      }
+      // sha 충돌(409/422)이면 최신 파일을 다시 읽어 sha를 갱신한 뒤 다시 시도한다.
+      if (response.status === 409 || response.status === 422) {
+        const refreshed = await readExistingFile({ fetchImpl, token, owner, repo, path, branch });
+        sha = refreshed.sha;
+      }
     }
-
-    const json = await response.json();
     return {
       ok: true,
       count: snapshot.count,

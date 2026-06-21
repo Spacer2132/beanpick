@@ -342,7 +342,7 @@ function ProductDetailModal({ isFavorite, priceDelta, priceHistory, product, onC
                   <strong>{option.priceLabel}</strong>
                   {option.discountLabel && <small>{option.discountLabel}</small>}
                   <span>{option.weightLabel}</span>
-                  {option.unitPriceLabel && <em>{option.unitPriceLabel}</em>}
+                  {option.unitPriceLabel && option.unitPriceLabel.split('/')[0]?.trim() !== option.priceLabel?.trim() && <em>{option.unitPriceLabel}</em>}
                 </PriceOptionTag>
               );
             })}
@@ -463,6 +463,8 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
             const hasOptionLink = isRealProductUrl(option.productUrl);
             const PriceOptionTag = hasOptionLink ? 'a' : 'div';
             const [unitPriceValue, unitPriceSuffix] = option.unitPriceLabel ? option.unitPriceLabel.split('/') : [];
+            // 100g 상품은 가격과 100g당 단가가 같은 숫자라 중복이므로 단가를 숨긴다.
+            const showUnitPrice = Boolean(option.unitPriceLabel) && unitPriceValue?.trim() !== option.priceLabel?.trim();
 
             return (
               <PriceOptionTag
@@ -479,7 +481,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, priceDelta = 0, onN
                   {option.discountLabel && <small>{option.discountLabel}</small>}
                   <span>{option.weightLabel}</span>
                 </div>
-                {option.unitPriceLabel && (
+                {showUnitPrice && (
                   <em className="bean-price-unit">
                     <span className="bean-price-unit-value">{unitPriceValue}</span>
                     {unitPriceSuffix && <span className="bean-price-unit-suffix">{unitPriceSuffix}</span>}
@@ -1090,7 +1092,12 @@ export default function App() {
 
     let cancelled = false;
     loadPublishedSnapshot(window.fetch?.bind(window)).then((snapshot) => {
-      if (cancelled || !snapshot) return;
+      if (cancelled) return;
+      // 스냅샷을 못 읽으면 조용히 샘플 화면에 머무르지 말고 실패를 분명히 알린다.
+      if (!snapshot) {
+        setLoadState({ status: 'error', message: '게시된 원두 데이터를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.' });
+        return;
+      }
       setBaseProducts(snapshot.products);
       setDataMode('published');
       setLastLoadedAt(snapshot.publishedAt ? new Date(snapshot.publishedAt) : null);

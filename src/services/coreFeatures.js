@@ -175,11 +175,13 @@ function normalizePriceOptionDiscount(option) {
 function normalizeDiscountProduct(product) {
   const price = getReliableSalePrice(product.price, product.originalPrice);
   const priceWasAdjusted = price !== Number(product.price || 0);
-  const priceDiscountRate = calculateDiscountRate(price, product.originalPrice);
   const priceOptions = Array.isArray(product.priceOptions)
     ? product.priceOptions.map(normalizePriceOptionDiscount)
     : product.priceOptions;
   const hasPriceOptions = Array.isArray(priceOptions) && priceOptions.length > 0;
+  // 용량 옵션이 있으면 상단 price/originalPrice는 서로 다른 옵션(예: 200g 판매가 + 1kg 정상가)에서 온
+  // 값일 수 있어 할인율이 부풀려진다. 이럴 땐 상단 쌍을 믿지 말고 옵션별 자기 정합 할인만 사용한다.
+  const priceDiscountRate = hasPriceOptions ? 0 : calculateDiscountRate(price, product.originalPrice);
   const optionDiscountRate = Array.isArray(priceOptions)
     ? Math.max(0, ...priceOptions.map((option) => Number(option.discountRate || 0)))
     : 0;
@@ -190,7 +192,7 @@ function normalizeDiscountProduct(product) {
     price,
     priceLabel: priceWasAdjusted ? formatPrice(price) : product.priceLabel,
     unitPriceLabel: hasPriceOptions ? '' : (priceWasAdjusted ? formatPricePer100g(price, product.weight) : product.unitPriceLabel),
-    originalPrice: priceDiscountRate > 0 ? Number(product.originalPrice) : undefined,
+    originalPrice: (!hasPriceOptions && priceDiscountRate > 0) ? Number(product.originalPrice) : undefined,
     discountRate: discountRate > 0 ? discountRate : undefined,
     priceOptions,
   };
@@ -275,7 +277,8 @@ function sortProducts(products, sortMode) {
     if (sortMode === 'latest') return a.checkedMinutesAgo - b.checkedMinutesAgo;
     if (sortMode === 'unitPriceAsc') return unitPrice(a) - unitPrice(b);
     if (sortMode === 'unitPriceDesc') return unitPrice(b) - unitPrice(a);
-    if (sortMode === 'discount') return calculateDiscountRate(b.price, b.originalPrice) - calculateDiscountRate(a.price, a.originalPrice);
+    // 할인율 정렬은 옵션까지 반영해 계산된 discountRate를 쓴다. (상단 price/originalPrice 직접 비교는 용량이 섞일 수 있음)
+    if (sortMode === 'discount') return Number(b.discountRate || 0) - Number(a.discountRate || 0);
     return b.score - a.score;
   });
 }

@@ -288,6 +288,31 @@ expect(groupNames(['칠린 블렌드', '칠린 블렌드 ( 요청불가)']).leng
 expect(groupNames(['에티오피아 첼베사 워시드', '[생두] 에티오피아 첼베사 워시드']).length === 2, '생두/원두처럼 실제로 다른 상품은 묶이면 안 됩니다');
 expect(groupedDiscount[0]?.priceOptions.some((option) => option.weightLabel === '500g' && option.originalPrice === 40000 && option.discountRate >= 0.3), '용량별 가격 옵션은 원래가와 할인율을 보존해야 합니다');
 
+// 용량이 섞인 오염 데이터: 상단 price(200g 판매가) + originalPrice(1kg 정상가)가 묶여 할인율이 부풀려지면 안 된다.
+// 옵션별 실제 할인(여기선 1kg 23.5%)만 반영되어야 한다.
+const crossWeightProduct = core.normalizeProducts([{
+  id: 'cross-weight-blend',
+  roasterName: '아이덴티티커피랩',
+  productName: '칠린 블렌드',
+  price: 11000,
+  originalPrice: 51000,
+  weight: 1000,
+  tastingNotes: [],
+  isSoldOut: false,
+  priceOptions: [
+    { id: '200g-11000', price: 11000, weight: 200 },
+    { id: '500g-23000', price: 23000, originalPrice: 26000, weight: 500 },
+    { id: '1kg-39000', price: 39000, originalPrice: 51000, weight: 1000 },
+  ],
+}])[0];
+expect(Math.round((crossWeightProduct.discountRate || 0) * 100) === 24, '용량이 섞인 상단 가격쌍이 아니라 옵션 기준(1kg 23.5%) 할인율을 써야 합니다', String(crossWeightProduct.discountRate));
+expect(crossWeightProduct.originalPrice === undefined, '용량 옵션이 있으면 상단 originalPrice(1kg 정상가)를 200g 판매가에 붙이면 안 됩니다', String(crossWeightProduct.originalPrice));
+expect(core.isDiscountedProduct(crossWeightProduct) === true, '실제 할인(23.5%) 상품은 할인 탭에 포함되어야 합니다');
+// 같은 오염 상품을 할인율 정렬에 넣어도 78%가 아니라 23.5%로 취급되어 진짜 큰 할인 뒤에 와야 한다
+const realBigDiscount = core.normalizeProducts([{ id: 'real-50', price: 20000, originalPrice: 40000, weight: 200, tastingNotes: [], isSoldOut: false }])[0];
+const sortedByDiscount = core.sortProducts([crossWeightProduct, realBigDiscount], 'discount');
+expect(sortedByDiscount[0]?.id === 'real-50', '할인율 정렬은 부풀려진 78%가 아니라 실제 23.5%로 비교해야 합니다', sortedByDiscount.map((p) => p.id).join(','));
+
 const featuredPicks = core.pickFeaturedProducts([
   { id: 'normal-high-score', productName: '평범한 블렌드 200g', origin: 'Blend', score: 99 },
   { id: 'geisha-low-score', productName: 'Panama Geisha Washed 100g', origin: 'Panama', score: 60 },
