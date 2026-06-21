@@ -377,6 +377,35 @@ const sidraDisplayInfo = core.formatProductDisplayInfo({
 });
 expect(sidraDisplayInfo.variety === '시드라', '시드라 품종도 카드 정보에 표시되어야 합니다', JSON.stringify(sidraDisplayInfo));
 
+const blendDisplayInfo = core.formatProductDisplayInfo({
+  productName: '칠린 블렌드 200g',
+  process: 'Blend',
+});
+expect(blendDisplayInfo.primary === '블렌드 - 칠린', '블렌드 원두는 이름 앞에 블렌드 접두어가 붙고 뒤쪽 블렌드는 중복 표시하면 안 됩니다', JSON.stringify(blendDisplayInfo));
+expect(blendDisplayInfo.process === '' && blendDisplayInfo.farm === '', '블렌드 원두는 부제 줄 대신 테이스팅 노트를 우선 보여줘야 합니다', JSON.stringify(blendDisplayInfo));
+
+const prefixedBlendDisplayInfo = core.formatProductDisplayInfo({
+  productName: '블렌드 원두 200g',
+  process: 'Blend',
+});
+expect(prefixedBlendDisplayInfo.primary === '블렌드 - 원두', '이미 블렌드로 시작하는 이름은 블렌드를 중복 표시하면 안 됩니다', JSON.stringify(prefixedBlendDisplayInfo));
+
+const englishBlendDisplayInfo = core.formatProductDisplayInfo({
+  productName: 'May Day Blend 200g',
+  process: 'Blend',
+});
+expect(englishBlendDisplayInfo.primary === '블렌드 - May Day', '영어 Blend로 끝나는 이름도 블렌드를 중복 표시하면 안 됩니다', JSON.stringify(englishBlendDisplayInfo));
+
+const specialtyBlendDisplayInfo = core.formatProductDisplayInfo({
+  productName: 'SPECIALTY BLEND 이내 여름 200g',
+});
+expect(specialtyBlendDisplayInfo.primary === '블렌드 - 이내 여름', '영어 Specialty Blend 접두어도 블렌드 접두어와 중복되면 안 됩니다', JSON.stringify(specialtyBlendDisplayInfo));
+
+const unknownDisplayInfo = core.formatProductDisplayInfo({
+  productName: '라 로마 게이샤 워시드 200g',
+});
+expect(!unknownDisplayInfo.primary.startsWith('블렌드 -'), '정보가 부족한 일반 원두를 블렌드로 잘못 표시하면 안 됩니다', JSON.stringify(unknownDisplayInfo));
+
 const sourceText = `${fs.readFileSync('src/data/roasterySources.ts', 'utf8')}\n${fs.readFileSync('src/data/mockBeans.ts', 'utf8')}`;
 expect(!/펠트|felt/i.test(sourceText), '펠트커피는 로스터리와 샘플 원두에서 제외되어 있어야 합니다');
 

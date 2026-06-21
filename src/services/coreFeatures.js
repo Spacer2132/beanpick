@@ -424,6 +424,19 @@ function compactDisplayText(value) {
     .trim();
 }
 
+function formatBlendDisplayName(cleanName) {
+  const name = String(cleanName || '').trim();
+  const blendName = name
+    .replace(/^블렌드(?:\s*[-–—:]\s*|\s+)/, '')
+    .replace(/^blend(?:\s*[-–—:]\s*|\s+)/i, '')
+    .replace(/\bspecialty\s+blend\b/i, '')
+    .replace(/\s+블렌드$/, '')
+    .replace(/\s+blend$/i, '')
+    .trim();
+  if (!blendName) return '블렌드';
+  return `블렌드 - ${blendName}`;
+}
+
 function findCountryDisplay(product) {
   const nameMatches = COUNTRY_DISPLAY_RULES
     .map((rule) => ({ rule, index: firstAliasIndex(product.productName, rule.aliases) }))
@@ -526,13 +539,13 @@ function formatProductDisplayInfo(product) {
   const koreanVarietyHint = /[가-힣]/.test(varietyHint) ? varietyHint : '';
   const primary = [countryRule?.label, varietyLabel || koreanVarietyHint].filter(Boolean).join(' - ') || cleanName;
 
-  const isBlend = (!countryRule && !processRule && varietyLabels.length === 0)
-    || processRule?.label === '블렌드';
+  const isExplicitBlend = isBlendProduct(product) || processRule?.label === '블렌드';
+  const shouldUseSimpleDisplay = isExplicitBlend || (!countryRule && !processRule && varietyLabels.length === 0);
 
-  if (isBlend) {
-    // 블렌드 상품은 부제 줄을 비워 둔다. 사용자가 보고 싶은 건 실제 테이스팅 노트.
+  if (shouldUseSimpleDisplay) {
+    // 블렌드나 정보가 부족한 상품은 부제 줄을 비워 두고 실제 테이스팅 노트를 우선 보여준다.
     return {
-      primary: cleanName,
+      primary: isExplicitBlend ? formatBlendDisplayName(cleanName) : cleanName,
       variety: '',
       process: '',
       farm: '',
