@@ -161,6 +161,7 @@ const SMARTSTORE_SOURCES = {
     roasterName: '커피정경 로스터리',
     query: '커피정경 원두',
     // 원두 카테고리 주소가 없어 네이버 쇼핑 검색 API로만 수집한다.
+    storeUrl: 'https://smartstore.naver.com/coffeejg',
     mallNames: ['커피정경'],
   },
   malik: {
@@ -176,7 +177,30 @@ function getSmartStoreListUrl(source, item = {}) {
   return item.categoryUrl
     || source.categoryUrl
     || source.categoryUrls?.[0]
+    || source.storeUrl
     || '';
+}
+
+function getSmartStoreIdFromUrl(url) {
+  const storeId = String(url || '').match(/smartstore\.naver\.com\/([^/?#]+)/i)?.[1] || '';
+  return storeId && storeId !== 'main' ? storeId : '';
+}
+
+function getSmartStoreId(source, item = {}) {
+  return getSmartStoreIdFromUrl(item.productUrl)
+    || getSmartStoreIdFromUrl(item.link)
+    || getSmartStoreIdFromUrl(item.categoryUrl)
+    || getSmartStoreIdFromUrl(source.storeUrl)
+    || getSmartStoreIdFromUrl(source.categoryUrl)
+    || getSmartStoreIdFromUrl(source.categoryUrls?.[0])
+    || '';
+}
+
+function normalizeSmartStoreProductUrl(url, source, item = {}) {
+  const rawUrl = String(url || '');
+  const productId = rawUrl.match(/smartstore\.naver\.com\/main\/products\/(\d+)/i)?.[1];
+  const storeId = productId ? getSmartStoreId(source, item) : '';
+  return productId && storeId ? `https://smartstore.naver.com/${storeId}/products/${productId}` : rawUrl;
 }
 
 function loadLocalEnv(rootDir = path.resolve(__dirname, '..')) {
@@ -696,7 +720,7 @@ async function normalizeShoppingItem(item, source, index) {
     weight: parseWeight(rawTitle),
     score: Math.max(60, 88 - index),
     tastingNotes,
-    productUrl: item.link || '',
+    productUrl: normalizeSmartStoreProductUrl(item.link, source, item),
     storeUrl: getSmartStoreListUrl(source, item),
     imageUrl: item.image || '',
     isSoldOut: false,
@@ -726,7 +750,7 @@ function normalizeSmartStoreCategoryItem(item, source, index) {
     weight: parseWeight(rawTitle),
     score: Math.max(60, 88 - index),
     tastingNotes: sanitizeTastingNotes(titleNotes),
-    productUrl: item.productUrl || '',
+    productUrl: normalizeSmartStoreProductUrl(item.productUrl, source, item),
     storeUrl: getSmartStoreListUrl(source, item),
     imageUrl: item.imageUrl || '',
     isSoldOut: Boolean(item.isSoldOut),
@@ -838,6 +862,7 @@ module.exports = {
     extractNotesFromDetail,
     extractSmartStoreDetailImageUrls,
     mergeNotesFromSearchResults,
+    normalizeSmartStoreProductUrl,
   },
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,

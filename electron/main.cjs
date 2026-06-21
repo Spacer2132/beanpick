@@ -517,16 +517,22 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
   if (categoryUrls.length === 0) return null;
 
   const productMap = new Map();
+  const failures = [];
   for (const categoryUrl of categoryUrls) {
     try {
       const items = await crawlSmartStoreCategory(categoryUrl);
+      console.log(`[beanpick:smartstore-category] ${sourceId} ${categoryUrl} raw ${items.length}개`);
       items.forEach((item) => productMap.set(item.id, { ...item, categoryUrl }));
-    } catch {
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error || '알 수 없는 오류');
+      failures.push(`${categoryUrl}: ${message}`);
+      console.warn(`[beanpick:smartstore-category] ${sourceId} ${categoryUrl} 실패: ${message}`);
       // 한 카테고리가 실패해도 나머지 카테고리는 계속 확인한다.
     }
   }
 
   let products = normalizeSmartStoreCategoryItems(sourceId, [...productMap.values()]);
+  console.log(`[beanpick:smartstore-category] ${sourceId} normalized ${products.length}개`);
 
   // 컵노트 보강 1단계: 노트 없는 상품만 썸네일 OCR
   products = await enrichProductsWithThumbnailOcr(products);
@@ -575,7 +581,9 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
     total: products.length,
     fetchedAt: new Date().toISOString(),
     products,
-    warning: products.length === 0 ? `${source.roasterName} 카테고리에서 상품을 찾지 못했습니다.` : '',
+    warning: products.length === 0
+      ? `${source.roasterName} 카테고리에서 상품을 찾지 못했습니다.${failures.length > 0 ? ` 실패: ${failures.join(' / ')}` : ''}`
+      : '',
   };
 }
 
@@ -1165,6 +1173,7 @@ ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) =>
     if (getSmartStoreCategoryUrls(source).length > 0) {
       const categoryResult = await fetchSmartStoreCategoryProducts(sourceId);
       if (categoryResult?.products?.length) return categoryResult;
+      console.warn(`[beanpick:smartstore-category] ${sourceId} 카테고리 결과가 없어 네이버 쇼핑 검색 API로 전환합니다. ${categoryResult?.warning || ''}`);
     }
 
     return await searchNaverShopping(sourceId);

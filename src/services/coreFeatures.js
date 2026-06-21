@@ -205,7 +205,7 @@ function filterDiscountProducts(products, threshold = DISCOUNT_THRESHOLD) {
 }
 
 function isRealProductUrl(url) {
-  return Boolean(url && !url.includes('beanpick.local'));
+  return Boolean(url && !url.includes('beanpick.local') && !/smartstore\.naver\.com\/main\/products\//i.test(url));
 }
 
 function createPriceOption(product, weightLabel = '') {

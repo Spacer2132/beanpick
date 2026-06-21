@@ -156,6 +156,22 @@ if (!SMARTSTORE_SOURCES.identity.categoryUrl) {
   throw new Error('아이덴티티커피랩은 할인 정상가 확인을 위해 스마트스토어 카테고리 주소가 필요합니다.');
 }
 
+const coffeejgDirectUrl = _test.normalizeSmartStoreProductUrl(
+  'https://smartstore.naver.com/main/products/13181681419',
+  SMARTSTORE_SOURCES.coffeejg,
+);
+if (coffeejgDirectUrl !== 'https://smartstore.naver.com/coffeejg/products/13181681419') {
+  throw new Error(`커피정경 검색 API 상품 링크가 직접 스마트스토어 링크로 바뀌어야 합니다: ${coffeejgDirectUrl}`);
+}
+
+const identityDirectUrl = _test.normalizeSmartStoreProductUrl(
+  'https://smartstore.naver.com/main/products/6684189550',
+  SMARTSTORE_SOURCES.identity,
+);
+if (identityDirectUrl !== 'https://smartstore.naver.com/identity_coffeelab/products/6684189550') {
+  throw new Error(`아이덴티티 검색 API 상품 링크가 직접 스마트스토어 링크로 바뀌어야 합니다: ${identityDirectUrl}`);
+}
+
 const identityFixture = _test.normalizeSmartStoreCategoryItems('identity', [
   {
     id: '6684189550',

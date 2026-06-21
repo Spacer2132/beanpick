@@ -329,6 +329,7 @@ expect(core.getTasteNoteGroup('다크초콜릿') === 'dark', '다크초콜릿은
 expect(core.getTasteNoteGroup('샤인머스캣') === 'light', '샤인머스캣은 라이트 그룹이어야 합니다');
 expect(core.isRealProductUrl('https://example.com/product') === true, '실제 상품 링크는 클릭 가능한 링크로 인정되어야 합니다');
 expect(core.isRealProductUrl('https://beanpick.local/mock/test') === false, '샘플 로컬 링크는 실제 상품 링크로 인정하면 안 됩니다');
+expect(core.isRealProductUrl('https://smartstore.naver.com/main/products/13181681419') === false, '네이버 main 상품 링크는 로그인 화면으로 갈 수 있어 직접 링크로 인정하면 안 됩니다');
 
 const displayInfo = core.formatProductDisplayInfo({
   productName: '원두 온드라스 COE 라 페냐 파카스 워시드 200g',
