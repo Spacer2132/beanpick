@@ -101,8 +101,8 @@ async function main() {
     '스마트스토어 상세창에는 원두 목록 링크와 상품 페이지 링크가 구분되어야 합니다',
   );
   expect(
-    /🔎 상세검색/.test(appSource) && !/>Filters</.test(appSource),
-    '필터 접기 버튼의 표시 문구는 🔎 상세검색이어야 합니다',
+    /🫘 상세검색/.test(appSource) && !/>Filters</.test(appSource),
+    '필터 접기 버튼의 표시 문구는 🫘 상세검색이어야 합니다',
   );
   expect(
     !/조건으로 찾기|조건으로 고르기|펼치기/.test(appSource),

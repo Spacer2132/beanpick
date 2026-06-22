@@ -1276,12 +1276,11 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
             aria-controls="bean-filters-body"
             onClick={() => setFiltersExpanded((expanded) => !expanded)}
           >
-            <span className="filter-toggle-title">🔎 상세검색</span>
+            <span className="filter-toggle-title">🫘 상세검색</span>
           </button>
-          <div className="filter-panel-actions">
-            {hasActiveFilters && <span className="filter-active-label">필터 적용 중</span>}
+          {filtersExpanded && <div className="filter-panel-actions">
             {hasActiveFilters && <button className="btn btn-small" type="button" onClick={onClearFilters}>필터 초기화</button>}
-          </div>
+          </div>}
         </div>
         {filtersExpanded && (
           <div className="filter-panel-body" id="bean-filters-body">
