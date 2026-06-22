@@ -1374,9 +1374,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           </div>
           <div className="sort-actions" aria-label="원두 정렬">
             <button className={sortMode === 'score' ? 'active' : ''} type="button" onClick={() => setSortMode('score')}>추천순</button>
-            <button className={sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceAsc')}>100g당 낮은가격</button>
-            <button className={sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceDesc')}>100g당 높은가격</button>
-            {/* On Sale은 필터이면서, 켜면 자동으로 할인율 높은순 정렬로 보여준다. */}
+            {/* On-Sale은 필터이면서, 켜면 자동으로 할인율 높은순 정렬로 보여준다. */}
             <button
               className={saleOnly ? 'active' : ''}
               type="button"
@@ -1387,9 +1385,11 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                 else if (sortMode === 'discount') setSortMode('score');
               }}
             >
-              On Sale
+              On-Sale
             </button>
             <button className={decafOnly ? 'active' : ''} type="button" onClick={() => setDecafOnly(!decafOnly)}>디카페인</button>
+            <button className={sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceAsc')}>100g당 낮은가격</button>
+            <button className={sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceDesc')}>100g당 높은가격</button>
           </div>
         </div>
       </div>
