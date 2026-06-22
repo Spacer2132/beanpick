@@ -463,6 +463,68 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
   }
 }
 
+const GEMINI_MODEL = 'gemini-3.1-flash-lite';
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const GEMINI_NOTE_PROMPT = '이 이미지는 커피 원두 상품 사진 또는 상세페이지 캡쳐입니다. 이미지에 적힌 커핑노트(테이스팅 노트, 향미 표현)만 한국어 단어로 뽑아주세요. 예: 초콜릿, 자몽, 자스민. 노트가 명확히 보이지 않으면 빈 배열을 반환하세요. 다른 설명 없이 JSON 배열 형식으로만 답하세요. 예: ["초콜릿", "자몽"]';
+
+function guessImageMimeType(imagePath) {
+  const extension = path.extname(imagePath).toLowerCase();
+  if (extension === '.png') return 'image/png';
+  if (extension === '.webp') return 'image/webp';
+  if (extension === '.gif') return 'image/gif';
+  return 'image/jpeg';
+}
+
+// Gemini 비전 응답에서 JSON 배열만 뽑아 노트 후보 목록으로 변환
+function parseGeminiNoteList(text) {
+  const match = String(text || '').match(/\[[\s\S]*\]/);
+  if (!match) return [];
+  try {
+    const parsed = JSON.parse(match[0]);
+    return Array.isArray(parsed) ? parsed.map((note) => String(note || '').trim()).filter(Boolean) : [];
+  } catch {
+    return [];
+  }
+}
+
+async function readGeminiTasteNotesFromImageUrl(imageUrl) {
+  const apiKey = process.env.GEMINI_API_KEY || '';
+  if (!apiKey) return '';
+
+  const imagePath = await downloadImageToCache(imageUrl);
+  if (!imagePath) return '';
+
+  try {
+    fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
+    const textPath = ocrTextCachePathForImageUrl(imageUrl, { lang: 'gemini', psm: GEMINI_MODEL });
+    if (fs.existsSync(textPath)) return fs.readFileSync(textPath, 'utf8');
+
+    const base64Image = fs.readFileSync(imagePath).toString('base64');
+    const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { text: GEMINI_NOTE_PROMPT },
+            { inlineData: { mimeType: guessImageMimeType(imagePath), data: base64Image } },
+          ],
+        }],
+        generationConfig: { temperature: 0 },
+      }),
+      signal: AbortSignal.timeout(15000),
+    });
+    if (!response.ok) return '';
+
+    const json = await response.json();
+    const text = json?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    fs.writeFileSync(textPath, text, 'utf8');
+    return text;
+  } catch {
+    return '';
+  }
+}
+
 function cleanOcrText(text) {
   return String(text || '')
     .replace(/\s+/g, ' ')
@@ -612,6 +674,13 @@ function extractOcrTasteNotes(text) {
 }
 
 async function getOcrTasteNotes(imageUrl) {
+  // CI(깃허브 액션)에는 Tesseract가 없어서 Gemini를 먼저 시도하고, 없거나 실패하면 기존 Tesseract로 전환
+  if (process.env.GEMINI_API_KEY) {
+    const geminiText = await readGeminiTasteNotesFromImageUrl(imageUrl);
+    const geminiNotes = sanitizeTastingNotes(parseGeminiNoteList(geminiText));
+    if (geminiNotes.length > 0) return geminiNotes;
+  }
+
   const ocrText = await readOcrTextFromImageUrl(imageUrl, { lang: 'kor+eng', psm: 6, timeout: 12000 });
   return extractOcrTasteNotes(ocrText);
 }
