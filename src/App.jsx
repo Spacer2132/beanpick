@@ -1131,6 +1131,17 @@ export default function App() {
           <span>오늘 마실 원두를 쉽게 고르기</span>
         </button>
 
+        {/* 폰에서는 화면 전환 탭이 숨겨지므로, 관심 원두 화면으로 가는 하트 버튼만 따로 노출한다. */}
+        <button
+          className="mobile-fav-btn"
+          type="button"
+          aria-label="관심 원두 보기"
+          onClick={() => setScreen(screen === 'alerts' ? 'products' : 'alerts')}
+        >
+          <span aria-hidden="true">{screen === 'alerts' ? '♥' : '♡'}</span>
+          {favoriteIds.length > 0 && <em>{favoriteIds.length}</em>}
+        </button>
+
         {Object.entries(groups).map(([group, items]) => (
           <nav key={group} className="nav-section" aria-label={group}>
             <span className="nav-label">{group}</span>
@@ -1384,8 +1395,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
             aria-controls="bean-filters-body"
             onClick={() => setFiltersExpanded((expanded) => !expanded)}
           >
-            <span className="filter-toggle-title">🔎 상세검색</span>
-            <span className="filter-toggle-icon" aria-hidden="true">{filtersExpanded ? '⌃' : '⌄'}</span>
+            <span className="filter-toggle-title">🫘 상세검색</span>
           </button>
           <div className="filter-panel-actions">
             {hasActiveFilters && <span className="filter-active-label">필터 적용 중</span>}
