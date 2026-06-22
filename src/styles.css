@@ -1342,12 +1342,6 @@ a {
   font-weight: 700;
 }
 
-.filter-chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
 
 .detail-filter-row + .detail-note-cloud {
   margin-top: 14px;
