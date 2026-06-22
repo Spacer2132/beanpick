@@ -114,8 +114,8 @@ async function main() {
     '상세검색에는 용량별로 찾는 조건이 있어야 합니다',
   );
   expect(
-    /게시된 웹 목록은 아직 가격 기록을 포함하지 않습니다/.test(appSource),
-    '웹앱 가격 기록 안내는 게시 스냅샷에 이력이 없다는 점을 알려야 합니다',
+    !/관심 변화|가격 기록|가격 변화 그래프|priceDelta/.test(appSource),
+    '관심 원두 화면과 상세창에는 가격 변화 추적 UI가 없어야 합니다',
   );
   expect(
     !/>가격순</.test(appSource) && !/sortMode === 'price'/.test(appSource) && !/setSortMode\('price'\)/.test(appSource),

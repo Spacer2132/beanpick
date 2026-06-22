@@ -1238,12 +1238,20 @@ a {
 }
 
 .sort-actions {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 6px;
   padding: 5px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: #f5eee6;
+}
+
+.sort-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
 }
 
 .sort-actions button {
@@ -1485,49 +1493,6 @@ a {
   color: #fff;
 }
 
-.price-delta {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding: 0 9px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.price-delta.down {
-  background: rgba(93, 139, 98, 0.13);
-  color: var(--green);
-}
-
-.price-delta.up {
-  background: rgba(187, 98, 88, 0.12);
-  color: var(--red);
-}
-
-.favorite-row .price-delta {
-  margin-top: 6px;
-}
-
-.favorite-side {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.sparkline {
-  width: 120px;
-  height: 32px;
-}
-
-.sparkline polyline {
-  stroke: var(--accent);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 /* 상세 보기 모달 */
 .modal-overlay {
   position: fixed;
@@ -1680,43 +1645,6 @@ a {
   gap: 10px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
-}
-
-.price-chart svg {
-  width: 100%;
-  height: auto;
-}
-
-.price-chart polyline {
-  stroke: var(--accent);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.price-chart circle {
-  fill: var(--surface-strong);
-  stroke: var(--accent);
-  stroke-width: 2;
-}
-
-.price-chart-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.chart-empty {
-  margin: 0;
-  padding: 14px;
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius-small);
-  color: var(--muted);
-  font-size: 13px;
 }
 
 .spark {
@@ -2105,13 +2033,20 @@ a {
   /* 폰에서는 정렬 버튼을 감싸던 큰 알약 배경을 없애고, 버튼마다 개별 칩으로 보여 2줄로 넘어가도 깔끔하게 한다. */
   .sort-actions {
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
     padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
+  }
+
+  .sort-row {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 8px;
   }
 
   .sort-actions button {
