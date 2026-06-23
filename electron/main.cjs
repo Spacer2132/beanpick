@@ -8,7 +8,6 @@ const {
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
   readOfficialMallImageText,
-  readOcrTextFromImageUrl,
   searchNaverShopping,
   testSmartStoreSearch,
 } = require('./naverShoppingSearch.cjs');
@@ -1031,7 +1030,7 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
               const abs = absolutizeImageUrl(src, detailUrl);
               if (!abs) continue;
               try {
-                const text = await readOcrTextFromImageUrl(abs, { lang: 'eng+kor', psm: 6, timeout: 15000 });
+                const text = await readOfficialMallImageText(abs, { lang: 'eng+kor', psm: 6, timeout: 15000 });
                 if (text) ocrChunks.push(text);
               } catch {
                 // OCR 실패 시 무시
