@@ -61,31 +61,16 @@ const NON_BEAN_COFFEE_WORDS = [
   'tea bag',
   'teabag',
 ];
-const TESSERACT_PATHS = [
-  'C:\\Program Files\\Tesseract-OCR\\tesseract.exe',
-  'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe',
-  'tesseract',
-];
-const OCR_USER_WORDS = [
-  'CUPPING',
-  'NOTE',
-  'Taste',
-  'Note',
-  '다크초콜릿',
-  '밀크초콜릿',
-  '초코무스',
-  '초콜릿',
-  '캐러멜',
-  '구운빵',
-  '참깨',
-  '볶은아몬드',
-  '헤이즐넛',
-  '마카다미아',
-  '베르가못',
-  '열대과일',
-  '와이니',
-  '블루베리',
-];
+function getPaddleOcrPythonPath(env = process.env) {
+  return env.BEANPICK_PADDLE_OCR_PYTHON || 'C:\\Program Files\\Python311\\python.exe';
+}
+
+function normalizePaddleOcrLang(lang) {
+  const value = String(lang || '').toLowerCase();
+  if (!value || value.includes('kor') || value.includes('korean')) return 'korean';
+  if (value === 'eng' || value === 'en' || value.includes('english')) return 'en';
+  return value;
+}
 
 const SMARTSTORE_SOURCES = {
   roasterick: {
@@ -341,55 +326,8 @@ function getTasteNotes(title) {
   return sanitizeTastingNotes(notes);
 }
 
-function getTessdataPrefix() {
-  return process.env.TESSDATA_PREFIX || path.join(process.env.LOCALAPPDATA || '', 'Tesseract-OCR', 'tessdata');
-}
-
-function findTesseractPath() {
-  return TESSERACT_PATHS.find((candidate) => candidate === 'tesseract' || fs.existsSync(candidate)) || '';
-}
-
-function createOcrUserWordsPath() {
-  try {
-    fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
-    const userWordsPath = path.join(OCR_CACHE_DIR, 'beanpick-user-words.txt');
-    fs.writeFileSync(userWordsPath, OCR_USER_WORDS.join('\n'), 'utf8');
-    return userWordsPath;
-  } catch {
-    return '';
-  }
-}
-
-function runTesseract(imagePath) {
-  const tesseractPath = findTesseractPath();
-  if (!tesseractPath) return Promise.resolve('');
-
-  const tessdataPrefix = getTessdataPrefix();
-  const userWordsPath = createOcrUserWordsPath();
-  const args = [imagePath, 'stdout', '-l', 'kor+eng', '--psm', '6', '-c', 'preserve_interword_spaces=1'];
-  if (tessdataPrefix) {
-    args.push('--tessdata-dir', tessdataPrefix);
-  }
-  if (userWordsPath) {
-    args.push('--user-words', userWordsPath);
-  }
-
-  return new Promise((resolve) => {
-    execFile(tesseractPath, args, {
-      timeout: 12000,
-      windowsHide: true,
-      env: {
-        ...process.env,
-        TESSDATA_PREFIX: tessdataPrefix,
-      },
-    }, (error, stdout) => {
-      resolve(error ? '' : String(stdout || ''));
-    });
-  });
-}
-
 function ocrTextCachePathForImageUrl(imageUrl, options = {}) {
-  const fingerprint = `${imageUrl}|${options.lang || 'kor+eng'}|${options.psm || '6'}`;
+  const fingerprint = `${imageUrl}|${options.engine || 'paddle'}|${options.lang || 'kor+eng'}|${options.psm || '6'}`;
   const hash = crypto.createHash('sha1').update(fingerprint).digest('hex');
   return path.join(OCR_CACHE_DIR, `${hash}.txt`);
 }
@@ -429,42 +367,28 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
     const textPath = ocrTextCachePathForImageUrl(imageUrl, options);
     if (fs.existsSync(textPath)) return fs.readFileSync(textPath, 'utf8');
 
-    const tesseractPath = findTesseractPath();
-    if (!tesseractPath) return '';
-
-    const tessdataPrefix = getTessdataPrefix();
-    const userWordsPath = createOcrUserWordsPath();
     const args = [
+      path.join(__dirname, '..', 'scripts', 'paddle_ocr.py'),
       imagePath,
-      'stdout',
-      '-l',
-      options.lang || 'kor+eng',
-      '--psm',
-      String(options.psm || 6),
-      '-c',
-      'preserve_interword_spaces=1',
+      '--lang',
+      normalizePaddleOcrLang(options.lang),
     ];
 
-    if (tessdataPrefix) {
-      args.push('--tessdata-dir', tessdataPrefix);
-    }
-    if (userWordsPath) {
-      args.push('--user-words', userWordsPath);
-    }
-
     const text = await new Promise((resolve) => {
-      execFile(tesseractPath, args, {
+      execFile(options.pythonPath || getPaddleOcrPythonPath(), args, {
         timeout: options.timeout || 20000,
         windowsHide: true,
         env: {
           ...process.env,
-          TESSDATA_PREFIX: tessdataPrefix,
+          PADDLE_PDX_ENABLE_MKLDNN_BYDEFAULT: '0',
+          PYTHONIOENCODING: 'utf-8',
         },
       }, (error, stdout) => {
-        resolve(error ? '' : String(stdout || ''));
+        resolve(error ? null : String(stdout || ''));
       });
     });
 
+    if (text == null) return '';
     fs.writeFileSync(textPath, text, 'utf8');
     return text;
   } catch {
@@ -505,7 +429,7 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
 
   try {
     fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
-    const textPath = ocrTextCachePathForImageUrl(imageUrl, { lang: 'gemini', psm: GEMINI_MODEL });
+    const textPath = ocrTextCachePathForImageUrl(imageUrl, { engine: 'gemini', lang: 'gemini', psm: GEMINI_MODEL });
     if (fs.existsSync(textPath)) return fs.readFileSync(textPath, 'utf8');
 
     const base64Image = fs.readFileSync(imagePath).toString('base64');
@@ -567,7 +491,7 @@ const TASTING_NOTE_PATTERNS = [
   ['청포도', /청포도|greengrape/i],
   ['적포도', /적포도|redgrape/i],
   ['포도', /포도|grape/i],
-  ['사과', /사과|apple/i],
+  ['사과', /사과|(?<!pine)apple/i],
   ['복숭아', /복숭아|복승아|peach/i],
   ['자몽', /자몽|grapefruit/i],
   ['오렌지', /오렌지|orange/i],
@@ -597,6 +521,14 @@ const TASTING_NOTE_PATTERNS = [
   ['조청', /조청/i],
   ['꿀', /꿀|honey/i],
   ['크리미', /크리미|creamy/i],
+  ['파인애플', /파인애플|pineapple/i],
+  ['라즈베리', /라즈베리|raspberry/i],
+  ['망고', /망고|mango/i],
+  ['살구', /살구|apricot/i],
+  ['멜론', /멜론|melon/i],
+  ['리치', /리치|lychee|litchi/i],
+  ['코코넛', /코코넛|coconut/i],
+  ['베리', /베리|berry/i],
 ];
 
 function sanitizeTastingNotes(notes) {
@@ -682,16 +614,27 @@ function extractOcrTasteNotes(text) {
   return merged.slice(0, 5);
 }
 
+// 썸네일 OCR 전용: "Tasting Note:" 라벨이 없어도 알려진 맛 단어를 전체 글자에서 직접 찾는다.
+// 상품 상세설명(HTML)에는 쓰지 않는다 — 긴 마케팅 문구에서 엉뚱한 단어를 줍는 것을 막기 위함이다.
+function extractFlavorNotesAnywhere(text) {
+  const notes = [];
+  addNotesFromText(notes, text);
+  return sanitizeTastingNotes(notes).slice(0, 5);
+}
+
 async function getOcrTasteNotes(imageUrl) {
-  // CI(깃허브 액션)에는 Tesseract가 없어서 Gemini를 먼저 시도하고, 없거나 실패하면 기존 Tesseract로 전환
+  // CI(깃허브 액션)에는 로컬 OCR이 없어서 Gemini를 먼저 시도하고, 없거나 실패하면 로컬 OCR로 전환
   if (process.env.GEMINI_API_KEY) {
     const geminiText = await readGeminiTasteNotesFromImageUrl(imageUrl);
     const geminiNotes = sanitizeTastingNotes(parseGeminiNoteList(geminiText));
     if (geminiNotes.length > 0) return geminiNotes;
   }
 
-  const ocrText = await readOcrTextFromImageUrl(imageUrl, { lang: 'kor+eng', psm: 6, timeout: 12000 });
-  return extractOcrTasteNotes(ocrText);
+  const ocrText = await readOcrTextFromImageUrl(imageUrl, { lang: 'korean', psm: 6, timeout: 25000 });
+  const anchoredNotes = extractOcrTasteNotes(ocrText);
+  if (anchoredNotes.length > 0) return anchoredNotes;
+  // 라벨이 없는 썸네일을 위해 전체 글자에서 한 번 더 찾는다.
+  return extractFlavorNotesAnywhere(ocrText);
 }
 
 async function readOfficialMallImageText(imageUrl, options = {}, deps = {}) {
@@ -962,6 +905,7 @@ module.exports = {
   _test: {
     cleanShoppingTitle,
     extractOcrTasteNotes,
+    extractFlavorNotesAnywhere,
     getTasteNotes,
     isSuspiciousOptionOnlyPrice,
     isAmbiguousBulkOptionProduct,
