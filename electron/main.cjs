@@ -911,10 +911,29 @@ async function mapWithConcurrency(items, limit, mapper) {
   return results;
 }
 
-async function attachTerarosaOcrText(detailPages) {
+// 행 목록에서 ItemCode → 목록 썸네일 주소 지도를 만든다. (노트가 박힌 이미지는 보통 이 썸네일)
+function buildTerarosaThumbnailMap(rows) {
+  const map = {};
+  for (const row of rows.filter(isLikelyTerarosaBeanRow)) {
+    const itemCode = String(row?.itemkey || row?.itemKey || row?.ItemCode || row?.itemCode || '');
+    const thumb = toTerarosaAbsoluteUrl(String(
+      row?.img_list || row?.imgList || row?.imageUrl || row?.image || row?.thumbnail || row?.thumb || '',
+    ));
+    if (itemCode && thumb && !map[itemCode]) map[itemCode] = thumb;
+  }
+  return map;
+}
+
+async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
   return mapWithConcurrency(detailPages, 2, async (page) => {
     const ocrTexts = [];
-    const imageUrls = extractTerarosaDetailImageUrls(page.html).slice(0, 8);
+    // 노트는 상세 이미지보다 목록 썸네일에 박혀 있는 경우가 많아 썸네일을 먼저 읽는다.
+    const itemCode = decodeURIComponent(page.url.match(/ItemCode=([^&]+)/i)?.[1] || '');
+    const thumbnailUrl = itemCode ? thumbnailByItemCode[itemCode] : '';
+    const imageUrls = [
+      ...(thumbnailUrl ? [thumbnailUrl] : []),
+      ...extractTerarosaDetailImageUrls(page.html).slice(0, 8),
+    ];
 
     for (const imageUrl of imageUrls) {
       const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
@@ -950,8 +969,9 @@ async function fetchTerarosaProducts() {
 
   try {
     const apiRows = await fetchTerarosaApiRows(cookie, csrfToken);
+    const thumbnailByItemCode = buildTerarosaThumbnailMap(apiRows);
     const detailUrls = buildTerarosaDetailUrlsFromRows(apiRows);
-    const detailPages = await attachTerarosaOcrText(await fetchDetailPages(detailUrls, cookie));
+    const detailPages = await attachTerarosaOcrText(await fetchDetailPages(detailUrls, cookie), thumbnailByItemCode);
 
     return {
       ok: true,
