@@ -6,19 +6,16 @@ on:
       force_gemini_notes:
         description: '스마트스토어 기존 노트 상품도 Gemini로 다시 읽기'
         required: false
-        default: 'true'
+        default: 'false'
         type: choice
         options:
           - 'true'
           - 'false'
   schedule:
-    # GitHub cron은 UTC 기준이다. 한국시간 07:30, 09:30, 10:30, 13:00, 14:30, 18:30에 실행된다.
-    - cron: '30 22 * * *'
-    - cron: '30 0 * * *'
-    - cron: '30 1 * * *'
-    - cron: '0 4 * * *'
-    - cron: '30 5 * * *'
-    - cron: '30 9 * * *'
+    # GitHub cron은 UTC 기준이다. 한국시간 09:00, 12:00, 14:00에 실행된다.
+    - cron: '0 0 * * *'
+    - cron: '0 3 * * *'
+    - cron: '0 5 * * *'
 
 permissions:
   contents: write
@@ -39,6 +36,8 @@ jobs:
       BEANPICK_FORCE_GEMINI_NOTES: ${{ github.event_name == 'workflow_dispatch' && inputs.force_gemini_notes == 'true' && '1' || '0' }}
       BEANPICK_AUTO_PUBLISH_TIMEOUT_MS: 1200000
       ELECTRON_DISABLE_SANDBOX: 1
+      # 게시 사이에 유지할 Gemini 노트 OCR 캐시 위치(아래 cache 스텝이 저장·복원한다)
+      BEANPICK_OCR_CACHE_DIR: ${{ github.workspace }}/.ocr-cache
 
     steps:
       - name: Check out repository
@@ -49,6 +48,16 @@ jobs:
         with:
           node-version: 20
           cache: npm
+
+      # 게시마다 새 가상머신이라 OCR 캐시가 날아가던 문제를 막는다.
+      # run_id로 매번 새 키를 만들어 항상 저장하고, restore-keys로 직전 캐시를 복원해 누적한다.
+      - name: Restore Gemini OCR cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.ocr-cache
+          key: beanpick-ocr-cache-${{ github.run_id }}
+          restore-keys: |
+            beanpick-ocr-cache-
 
       - name: Install dependencies
         run: npm ci
