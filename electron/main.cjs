@@ -972,6 +972,11 @@ async function fetchTerarosaProducts() {
     const thumbnailByItemCode = buildTerarosaThumbnailMap(apiRows);
     const detailUrls = buildTerarosaDetailUrlsFromRows(apiRows);
     const detailPages = await attachTerarosaOcrText(await fetchDetailPages(detailUrls, cookie), thumbnailByItemCode);
+    // 임시 진단 로그 (원인 파악 후 제거)
+    const terarosaWithOcr = detailPages.filter((p) => p.ocrText && p.ocrText.trim()).length;
+    const terarosaSampleThumb = Object.values(thumbnailByItemCode)[0] || '';
+    const terarosaSampleOcr = (detailPages.find((p) => p.ocrText && p.ocrText.trim())?.ocrText || '').slice(0, 120);
+    console.log(`[beanpick:terarosa-diag] apiRows=${apiRows.length} thumbs=${Object.keys(thumbnailByItemCode).length} detailPages=${detailPages.length} withOcr=${terarosaWithOcr} thumb0=${terarosaSampleThumb} ocr0=${JSON.stringify(terarosaSampleOcr)}`);
 
     return {
       ok: true,
