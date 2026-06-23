@@ -377,6 +377,26 @@ const sidraDisplayInfo = core.formatProductDisplayInfo({
 });
 expect(sidraDisplayInfo.variety === '시드라', '시드라 품종도 카드 정보에 표시되어야 합니다', JSON.stringify(sidraDisplayInfo));
 
+const boliviaDisplayInfo = core.formatProductDisplayInfo({
+  productName: '볼리비아 일리마니 자바 워시드 200g',
+  origin: '토치커피',
+  process: '',
+});
+expect(!boliviaDisplayInfo.primary.startsWith('블렌드 -'), '상품명에 나라 이름이 있으면 블렌드로 표시하면 안 됩니다', JSON.stringify(boliviaDisplayInfo));
+
+const typoEthiopiaDisplayInfo = core.formatProductDisplayInfo({
+  productName: '디카페인 에티오파이 시다마 벤사 MWP 200g',
+  origin: '커피정경',
+  process: '',
+});
+expect(!typoEthiopiaDisplayInfo.primary.startsWith('블렌드 -'), '에티오피아 오타형도 나라 이름으로 보고 블렌드 표시를 막아야 합니다', JSON.stringify(typoEthiopiaDisplayInfo));
+
+const processOnlyDisplayInfo = core.formatProductDisplayInfo({
+  productName: '라 로마 워시드 200g',
+  process: 'Washed',
+});
+expect(!processOnlyDisplayInfo.primary.startsWith('블렌드 -') && processOnlyDisplayInfo.process === '워시드', '가공법이 있는 단일 원두 후보는 블렌드로 추정하면 안 됩니다', JSON.stringify(processOnlyDisplayInfo));
+
 const blendDisplayInfo = core.formatProductDisplayInfo({
   productName: '칠린 블렌드 200g',
   process: 'Blend',
@@ -389,6 +409,58 @@ const prefixedBlendDisplayInfo = core.formatProductDisplayInfo({
   process: 'Blend',
 });
 expect(prefixedBlendDisplayInfo.primary === '블렌드 - 원두', '이미 블렌드로 시작하는 이름은 블렌드를 중복 표시하면 안 됩니다', JSON.stringify(prefixedBlendDisplayInfo));
+
+const momosBeanPrefixBlendDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '모모스커피',
+  productName: '원두 에스쇼콜라 200g',
+});
+expect(momosBeanPrefixBlendDisplayInfo.primary === '블렌드 - 에스쇼콜라', '모모스처럼 원두 접두어가 붙은 블렌드는 원두를 중복 표시하면 안 됩니다', JSON.stringify(momosBeanPrefixBlendDisplayInfo));
+
+const momosDashedBeanPrefixBlendDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '모모스커피',
+  productName: '원두 - 에스쇼콜라 200g',
+});
+expect(momosDashedBeanPrefixBlendDisplayInfo.primary === '블렌드 - 에스쇼콜라', '원두 - 이름 형식도 블렌드 이름만 남겨야 합니다', JSON.stringify(momosDashedBeanPrefixBlendDisplayInfo));
+
+const momosExplicitBlendPrefixDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '모모스커피',
+  productName: '원두 블렌드 에스쇼콜라 200g',
+});
+expect(momosExplicitBlendPrefixDisplayInfo.primary === '블렌드 - 에스쇼콜라', '원두 뒤에 블렌드가 있어도 블렌드를 중복 표시하면 안 됩니다', JSON.stringify(momosExplicitBlendPrefixDisplayInfo));
+
+const momosDashedExplicitBlendPrefixDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '모모스커피',
+  productName: '원두 - 블렌드 에스쇼콜라 200g',
+});
+expect(momosDashedExplicitBlendPrefixDisplayInfo.primary === '블렌드 - 에스쇼콜라', '원두 - 블렌드 형식도 블렌드를 중복 표시하면 안 됩니다', JSON.stringify(momosDashedExplicitBlendPrefixDisplayInfo));
+
+const momosUnknownOriginDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '모모스커피',
+  productName: '원두 탄자니아 킬리만자로 200g',
+});
+expect(!momosUnknownOriginDisplayInfo.primary.startsWith('블렌드 -'), '모모스 원두여도 확인 안 된 싱글오리진 후보를 블렌드로 추정하면 안 됩니다', JSON.stringify(momosUnknownOriginDisplayInfo));
+
+const typoBlendDisplayInfo = core.formatProductDisplayInfo({
+  productName: '프루티 블랜드 200g',
+});
+expect(typoBlendDisplayInfo.primary === '블렌드 - 프루티', '블랜드 오타도 블렌드 이름으로 정리해야 합니다', JSON.stringify(typoBlendDisplayInfo));
+expect(core.getProductProcessLabel({ productName: '프루티 블랜드 200g' }) === '블렌드', '블랜드 오타도 블렌드 필터에서 잡혀야 합니다');
+
+const blendingDisplayInfo = core.formatProductDisplayInfo({
+  productName: '프루티 블랜딩 200g',
+});
+expect(blendingDisplayInfo.primary === '블렌드 - 프루티', '블랜딩 표현도 블렌드 이름으로 정리해야 합니다', JSON.stringify(blendingDisplayInfo));
+expect(core.getProductProcessLabel({ productName: '프루티 블랜딩 200g' }) === '블렌드', '블랜딩 표현도 블렌드 필터에서 잡혀야 합니다');
+
+const prefixedBlendingDisplayInfo = core.formatProductDisplayInfo({
+  productName: '블랜딩 프루티 200g',
+});
+expect(prefixedBlendingDisplayInfo.primary === '블렌드 - 프루티', '앞에 붙은 블랜딩 표현도 블렌드 이름으로 정리해야 합니다', JSON.stringify(prefixedBlendingDisplayInfo));
+
+const countryTypoBlendDisplayInfo = core.formatProductDisplayInfo({
+  productName: '브라질 프루티 블랜드 200g',
+});
+expect(countryTypoBlendDisplayInfo.primary === '블렌드 - 브라질 프루티', '나라 이름이 있어도 블랜드 오타가 있으면 블렌드 이름으로 정리해야 합니다', JSON.stringify(countryTypoBlendDisplayInfo));
 
 const englishBlendDisplayInfo = core.formatProductDisplayInfo({
   productName: 'May Day Blend 200g',
@@ -405,6 +477,12 @@ const unknownDisplayInfo = core.formatProductDisplayInfo({
   productName: '라 로마 게이샤 워시드 200g',
 });
 expect(!unknownDisplayInfo.primary.startsWith('블렌드 -'), '정보가 부족한 일반 원두를 블렌드로 잘못 표시하면 안 됩니다', JSON.stringify(unknownDisplayInfo));
+
+const sparseNonMomosDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '프릳츠 커피 컴퍼니',
+  productName: '[프릳츠] 퀵커피 6개입',
+});
+expect(!sparseNonMomosDisplayInfo.primary.startsWith('블렌드 -'), '정보가 부족한 일반 상품을 블렌드로 잘못 표시하면 안 됩니다', JSON.stringify(sparseNonMomosDisplayInfo));
 
 const sourceText = `${fs.readFileSync('src/data/roasterySources.ts', 'utf8')}\n${fs.readFileSync('src/data/mockBeans.ts', 'utf8')}`;
 expect(!/펠트|felt/i.test(sourceText), '펠트커피는 로스터리와 샘플 원두에서 제외되어 있어야 합니다');

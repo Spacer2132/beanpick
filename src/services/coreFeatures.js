@@ -259,7 +259,7 @@ function isBlendProduct(product) {
     product.process,
   ].filter(Boolean).join(' ').toLowerCase();
 
-  return /\bblend\b|블렌드/.test(text);
+  return /\bblend\b|블[렌랜]드|블랜딩/.test(text);
 }
 
 function pickFeaturedProducts(products, limit = 8) {
@@ -339,8 +339,9 @@ const COUNTRY_DISPLAY_RULES = [
   { label: '과테말라', aliases: ['guatemala', '과테말라'] },
   { label: '콜롬비아', aliases: ['colombia', '콜롬비아'] },
   { label: '코스타리카', aliases: ['costa rica', 'costarica', '코스타리카'] },
-  { label: '에티오피아', aliases: ['ethiopia', 'ehiopia', '에티오피아'] },
+  { label: '에티오피아', aliases: ['ethiopia', 'ehiopia', '에티오피아', '에티오파이', '에팅오피아'] },
   { label: '브라질', aliases: ['brazil', '브라질'] },
+  { label: '볼리비아', aliases: ['bolivia', '볼리비아'] },
   { label: '르완다', aliases: ['rwanda', '르완다'] },
   { label: '니카라과', aliases: ['nicaragua', '니카라과'] },
   { label: '멕시코', aliases: ['mexico', '멕시코'] },
@@ -357,7 +358,7 @@ const PROCESS_DISPLAY_RULES = [
   { label: '워시드', aliases: ['washed', 'wash', '워시드', '워시'] },
   { label: '내추럴', aliases: ['natural', '내추럴', '네추럴'] },
   { label: '허니', aliases: ['honey', '허니'] },
-  { label: '블렌드', aliases: ['blend', '블렌드'] },
+  { label: '블렌드', aliases: ['blend', '블렌드', '블랜드', '블랜딩'] },
 ];
 
 const VARIETY_DISPLAY_RULES = [
@@ -390,6 +391,8 @@ const DISPLAY_STOP_WORDS = [
   '싱글오리진',
   'single origin',
 ];
+
+const MOMOS_IMPLICIT_BLEND_NAMES = ['에스쇼콜라', '프루티봉봉', '부산', '므쵸베리'];
 
 function hasAlias(text, aliases) {
   const lowerText = String(text || '').toLowerCase();
@@ -427,10 +430,13 @@ function compactDisplayText(value) {
 function formatBlendDisplayName(cleanName) {
   const name = String(cleanName || '').trim();
   const blendName = name
-    .replace(/^블렌드(?:\s*[-–—:]\s*|\s+)/, '')
+    .replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1')
+    .replace(/^블랜딩(?:\s*[-–—:]\s*|\s+)/, '')
+    .replace(/^블[렌랜]드(?:\s*[-–—:]\s*|\s+)/, '')
     .replace(/^blend(?:\s*[-–—:]\s*|\s+)/i, '')
     .replace(/\bspecialty\s+blend\b/i, '')
-    .replace(/\s+블렌드$/, '')
+    .replace(/\s+블[렌랜]드$/, '')
+    .replace(/\s+블랜딩$/, '')
     .replace(/\s+blend$/i, '')
     .trim();
   if (!blendName) return '블렌드';
@@ -539,13 +545,21 @@ function formatProductDisplayInfo(product) {
   const koreanVarietyHint = /[가-힣]/.test(varietyHint) ? varietyHint : '';
   const primary = [countryRule?.label, varietyLabel || koreanVarietyHint].filter(Boolean).join(' - ') || cleanName;
 
+  const hasCountry = Boolean(countryRule);
+  const hasVariety = varietyLabels.length > 0 || Boolean(koreanVarietyHint);
   const isExplicitBlend = isBlendProduct(product) || processRule?.label === '블렌드';
-  const shouldUseSimpleDisplay = isExplicitBlend || (!countryRule && !processRule && varietyLabels.length === 0);
+  const momosBeanName = compactDisplayText(cleanName.replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1'));
+  const isMomosBeanPrefixBlend = /모모스/.test(product.roasterName || '')
+    && /^원두(?:\s*[-–—:]\s*|\s+)/.test(cleanName)
+    && MOMOS_IMPLICIT_BLEND_NAMES.includes(momosBeanName);
+  // 모모스의 "원두 이름" 형식은 공식 표기에서 블렌드명으로 쓰인다.
+  const looksLikeBlend = isExplicitBlend || (isMomosBeanPrefixBlend && !hasCountry && !hasVariety && !processRule);
+  const shouldUseSimpleDisplay = looksLikeBlend || (!countryRule && !processRule && varietyLabels.length === 0);
 
   if (shouldUseSimpleDisplay) {
     // 블렌드나 정보가 부족한 상품은 부제 줄을 비워 두고 실제 테이스팅 노트를 우선 보여준다.
     return {
-      primary: isExplicitBlend ? formatBlendDisplayName(cleanName) : cleanName,
+      primary: looksLikeBlend ? formatBlendDisplayName(cleanName) : cleanName,
       variety: '',
       process: '',
       farm: '',
