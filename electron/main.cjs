@@ -7,6 +7,7 @@ const {
   mergeNotesFromSearchResults,
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
+  readOfficialMallImageText,
   readOcrTextFromImageUrl,
   searchNaverShopping,
   testSmartStoreSearch,
@@ -708,7 +709,7 @@ async function attachCenterCoffeeOcrText(page, config) {
     const ocrTexts = [];
 
     for (const imageUrl of uniqueImageUrls) {
-      const text = await readOcrTextFromImageUrl(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
+      const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
       if (!text) continue;
 
       ocrTexts.push(text);
@@ -916,7 +917,7 @@ async function attachTerarosaOcrText(detailPages) {
     const imageUrls = extractTerarosaDetailImageUrls(page.html).slice(0, 8);
 
     for (const imageUrl of imageUrls) {
-      const text = await readOcrTextFromImageUrl(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
+      const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
       if (!text) continue;
 
       ocrTexts.push(text);

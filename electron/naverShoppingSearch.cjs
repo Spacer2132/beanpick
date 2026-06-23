@@ -6,7 +6,16 @@ const { execFile } = require('node:child_process');
 const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
 
 const NAVER_SHOPPING_SEARCH_URL = 'https://openapi.naver.com/v1/search/shop.json';
-const OCR_CACHE_DIR = path.join(os.tmpdir(), 'beanpick-ocr-cache');
+function getOcrCacheDir(env = process.env, tempDir = os.tmpdir()) {
+  if (env.BEANPICK_OCR_CACHE_DIR) return env.BEANPICK_OCR_CACHE_DIR;
+
+  const baseDir = env.LOCALAPPDATA
+    || env.XDG_CACHE_HOME
+    || (env.HOME ? path.join(env.HOME, '.cache') : '');
+  return baseDir ? path.join(baseDir, 'BeanPick', 'ocr-cache') : path.join(tempDir, 'beanpick-ocr-cache');
+}
+
+const OCR_CACHE_DIR = getOcrCacheDir();
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
 const NON_BEAN_COFFEE_WORDS = [
@@ -685,6 +694,22 @@ async function getOcrTasteNotes(imageUrl) {
   return extractOcrTasteNotes(ocrText);
 }
 
+async function readOfficialMallImageText(imageUrl, options = {}, deps = {}) {
+  const env = deps.env || process.env;
+  const readGeminiText = deps.readGeminiText || readGeminiTasteNotesFromImageUrl;
+  const readOcrText = deps.readOcrText || readOcrTextFromImageUrl;
+
+  if (env.GEMINI_API_KEY) {
+    const geminiText = await readGeminiText(imageUrl);
+    const geminiNotes = sanitizeTastingNotes(parseGeminiNoteList(geminiText));
+    if (geminiNotes.length > 0) {
+      return `Tasting Note: ${geminiNotes.join(', ')}`;
+    }
+  }
+
+  return readOcrText(imageUrl, options);
+}
+
 function isForceGeminiNotesEnabled(env = process.env) {
   return env.BEANPICK_FORCE_GEMINI_NOTES === '1';
 }
@@ -945,7 +970,9 @@ module.exports = {
     normalizeSmartStorePrice,
     parseWeight,
     normalizeTastingNotes,
+    getOcrCacheDir,
     parseGeminiNoteList,
+    readOfficialMallImageText,
     shouldRunThumbnailOcr,
     mergeTastingNotes,
     extractNotesFromDetail,
@@ -957,6 +984,7 @@ module.exports = {
   extractNotesFromDetail,
   mergeNotesFromSearchResults,
   loadLocalEnv,
+  readOfficialMallImageText,
   readOcrTextFromImageUrl,
   normalizeSmartStoreCategoryItems,
   searchNaverShopping,

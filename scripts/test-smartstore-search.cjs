@@ -130,6 +130,33 @@ const invalidGeminiNotes = _test.parseGeminiNoteList('노트가 없습니다.');
 if (invalidGeminiNotes.length !== 0) {
   throw new Error(`JSON 배열이 없는 Gemini 응답은 빈 배열이어야 합니다: ${invalidGeminiNotes.join(', ')}`);
 }
+_test.readOfficialMallImageText('https://example.com/official.jpg', { lang: 'eng+kor' }, {
+  env: { GEMINI_API_KEY: 'test-key' },
+  readGeminiText: async () => '["샤인머스캣", "멜론"]',
+  readOcrText: async () => {
+    throw new Error('Gemini가 공식몰 노트를 찾으면 기존 OCR은 호출하지 않아야 합니다.');
+  },
+}).then((officialGeminiText) => {
+  if (officialGeminiText !== 'Tasting Note: 멜론, 샤인머스캣') {
+    throw new Error(`공식몰 Gemini 노트 텍스트 형식이 잘못되었습니다: ${officialGeminiText}`);
+  }
+});
+_test.readOfficialMallImageText('https://example.com/official-empty.jpg', { lang: 'eng+kor' }, {
+  env: { GEMINI_API_KEY: 'test-key' },
+  readGeminiText: async () => '[]',
+  readOcrText: async () => 'Flavor & Aroma: Green Apple, Melon',
+}).then((officialFallbackText) => {
+  if (officialFallbackText !== 'Flavor & Aroma: Green Apple, Melon') {
+    throw new Error(`공식몰 Gemini 빈 결과는 기존 OCR로 내려가야 합니다: ${officialFallbackText}`);
+  }
+});
+const persistentGeminiCacheDir = _test.getOcrCacheDir(
+  { LOCALAPPDATA: 'C:\\Users\\tester\\AppData\\Local' },
+  'C:\\Users\\tester\\AppData\\Local\\Temp',
+);
+if (persistentGeminiCacheDir !== path.join('C:\\Users\\tester\\AppData\\Local', 'BeanPick', 'ocr-cache')) {
+  throw new Error(`Gemini OCR 캐시는 임시 폴더가 아니라 오래 남는 로컬 앱 데이터 폴더를 써야 합니다: ${persistentGeminiCacheDir}`);
+}
 
 if (!_test.shouldRunThumbnailOcr({ tastingNotes: ['초콜릿'], imageUrl: 'https://example.com/bean.jpg' }, { force: true })) {
   throw new Error('정밀 수집 모드에서는 기존 노트가 있어도 스마트스토어 썸네일을 다시 읽어야 합니다.');
