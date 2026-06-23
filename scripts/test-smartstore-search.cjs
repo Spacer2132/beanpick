@@ -121,6 +121,16 @@ if (plainTitleNotes.length !== 0) {
   throw new Error(`맛 단어가 없는 상품명에서 노트를 추측하면 안 됩니다: ${plainTitleNotes.join(', ')}`);
 }
 
+// Gemini 응답은 설명이 섞여도 JSON 배열만 안전하게 읽어야 한다.
+const geminiNotes = _test.parseGeminiNoteList('결과입니다.\n["초콜릿", "자몽", ""]');
+if (geminiNotes.join(',') !== '초콜릿,자몽') {
+  throw new Error(`Gemini 응답 JSON 배열을 읽지 못했습니다: ${geminiNotes.join(', ') || '(없음)'}`);
+}
+const invalidGeminiNotes = _test.parseGeminiNoteList('노트가 없습니다.');
+if (invalidGeminiNotes.length !== 0) {
+  throw new Error(`JSON 배열이 없는 Gemini 응답은 빈 배열이어야 합니다: ${invalidGeminiNotes.join(', ')}`);
+}
+
 // 상세 본문 텍스트에서 노트 추출 (이미지 OCR 없이 글자만으로)
 _test.extractNotesFromDetail(
   '<div><p>Tasting Note : 자몽, 캐러멜, 다크초콜릿</p><p>원산지: 에티오피아</p></div>',

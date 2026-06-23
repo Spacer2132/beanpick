@@ -928,6 +928,7 @@ module.exports = {
     normalizeSmartStorePrice,
     parseWeight,
     normalizeTastingNotes,
+    parseGeminiNoteList,
     extractNotesFromDetail,
     extractSmartStoreDetailImageUrls,
     mergeNotesFromSearchResults,
