@@ -2,6 +2,15 @@ name: Publish iPhone Snapshot
 
 on:
   workflow_dispatch:
+    inputs:
+      force_gemini_notes:
+        description: '스마트스토어 기존 노트 상품도 Gemini로 다시 읽기'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
   schedule:
     # GitHub cron은 UTC 기준이다. 한국시간 07:30, 09:30, 10:30, 13:00, 14:30, 18:30에 실행된다.
     - cron: '30 22 * * *'
@@ -27,6 +36,7 @@ jobs:
       NAVER_COMMERCE_CLIENT_ID: ${{ secrets.NAVER_COMMERCE_CLIENT_ID }}
       NAVER_COMMERCE_CLIENT_SECRET: ${{ secrets.NAVER_COMMERCE_CLIENT_SECRET }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      BEANPICK_FORCE_GEMINI_NOTES: ${{ github.event_name == 'workflow_dispatch' && inputs.force_gemini_notes == 'true' && '1' || '0' }}
       BEANPICK_AUTO_PUBLISH_TIMEOUT_MS: 1200000
       ELECTRON_DISABLE_SANDBOX: 1
 

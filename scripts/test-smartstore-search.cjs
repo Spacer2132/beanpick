@@ -131,6 +131,17 @@ if (invalidGeminiNotes.length !== 0) {
   throw new Error(`JSON 배열이 없는 Gemini 응답은 빈 배열이어야 합니다: ${invalidGeminiNotes.join(', ')}`);
 }
 
+if (!_test.shouldRunThumbnailOcr({ tastingNotes: ['초콜릿'], imageUrl: 'https://example.com/bean.jpg' }, { force: true })) {
+  throw new Error('정밀 수집 모드에서는 기존 노트가 있어도 스마트스토어 썸네일을 다시 읽어야 합니다.');
+}
+if (_test.shouldRunThumbnailOcr({ tastingNotes: ['초콜릿'], imageUrl: 'https://example.com/bean.jpg' }, { force: false })) {
+  throw new Error('일반 수집 모드에서는 기존 노트가 있으면 썸네일 OCR을 건너뛰어야 합니다.');
+}
+const mergedGeminiNotes = _test.mergeTastingNotes(['초콜릿', '자몽'], ['자몽', '자스민', '꿀', '복숭아', '베르가못']);
+if (mergedGeminiNotes.join(',') !== '자몽,복숭아,자스민,베르가못,초콜릿') {
+  throw new Error(`Gemini 노트는 기존 노트와 중복 없이 최대 5개까지 합쳐야 합니다: ${mergedGeminiNotes.join(', ')}`);
+}
+
 // 상세 본문 텍스트에서 노트 추출 (이미지 OCR 없이 글자만으로)
 _test.extractNotesFromDetail(
   '<div><p>Tasting Note : 자몽, 캐러멜, 다크초콜릿</p><p>원산지: 에티오피아</p></div>',

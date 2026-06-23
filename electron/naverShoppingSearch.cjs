@@ -685,15 +685,32 @@ async function getOcrTasteNotes(imageUrl) {
   return extractOcrTasteNotes(ocrText);
 }
 
-// 노트가 빈 상품만 썸네일 OCR로 보강한다. (OCR 결과는 파일 캐시되어 두 번째부터는 빠름)
-async function enrichProductsWithThumbnailOcr(products, { concurrency = 3 } = {}) {
+function isForceGeminiNotesEnabled(env = process.env) {
+  return env.BEANPICK_FORCE_GEMINI_NOTES === '1';
+}
+
+function shouldRunThumbnailOcr(product, { force = false } = {}) {
+  return Boolean(product?.imageUrl) && (force || !product.tastingNotes?.length);
+}
+
+function mergeTastingNotes(existingNotes, nextNotes) {
+  const merged = [];
+  for (const note of sanitizeTastingNotes([...(existingNotes || []), ...(nextNotes || [])])) {
+    if (!merged.includes(note)) merged.push(note);
+    if (merged.length >= 5) break;
+  }
+  return merged;
+}
+
+// 기본은 노트가 빈 상품만 보강한다. 정밀 수집 모드에서는 기존 노트가 있어도 썸네일을 다시 읽어 합친다.
+async function enrichProductsWithThumbnailOcr(products, { concurrency = 3, force = isForceGeminiNotesEnabled() } = {}) {
   return mapWithConcurrency(products, concurrency, async (product) => {
-    if (product.tastingNotes?.length > 0 || !product.imageUrl) return product;
+    if (!shouldRunThumbnailOcr(product, { force })) return product;
 
     try {
       const ocrNotes = await getOcrTasteNotes(product.imageUrl);
       if (ocrNotes.length === 0) return product;
-      return { ...product, tastingNotes: ocrNotes };
+      return { ...product, tastingNotes: mergeTastingNotes(product.tastingNotes, ocrNotes) };
     } catch {
       return product;
     }
@@ -929,6 +946,8 @@ module.exports = {
     parseWeight,
     normalizeTastingNotes,
     parseGeminiNoteList,
+    shouldRunThumbnailOcr,
+    mergeTastingNotes,
     extractNotesFromDetail,
     extractSmartStoreDetailImageUrls,
     mergeNotesFromSearchResults,
