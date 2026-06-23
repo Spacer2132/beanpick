@@ -440,6 +440,37 @@ const momosUnknownOriginDisplayInfo = core.formatProductDisplayInfo({
 });
 expect(!momosUnknownOriginDisplayInfo.primary.startsWith('블렌드 -'), '모모스 원두여도 확인 안 된 싱글오리진 후보를 블렌드로 추정하면 안 됩니다', JSON.stringify(momosUnknownOriginDisplayInfo));
 
+const libreVertigoDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '커피리브레',
+  productName: '[대용량 원두] 버티고 1kg',
+});
+expect(libreVertigoDisplayInfo.primary === '블렌드 - 버티고', '커피리브레의 고유 블렌드명은 블렌드로 표시해야 합니다', JSON.stringify(libreVertigoDisplayInfo));
+
+const libreNoSurpriseDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '커피리브레',
+  productName: '노서프라이즈',
+});
+expect(libreNoSurpriseDisplayInfo.primary === '블렌드 - 노서프라이즈', '커피리브레의 용량 표기가 없는 고유 블렌드명도 블렌드로 표시해야 합니다', JSON.stringify(libreNoSurpriseDisplayInfo));
+
+const libreSingleOriginDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '커피리브레',
+  productName: '[싱글오리진] 케냐 카구모 [중강배전]',
+  process: '워시드',
+});
+expect(!libreSingleOriginDisplayInfo.primary.startsWith('블렌드 -'), '커피리브레 싱글오리진은 블렌드로 표시하면 안 됩니다', JSON.stringify(libreSingleOriginDisplayInfo));
+
+const fritzOldDogDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '프릳츠 커피 컴퍼니',
+  productName: '[프릳츠] 올드독 200g',
+});
+expect(fritzOldDogDisplayInfo.primary === '블렌드 - 올드독', '프릳츠 고유 블렌드명은 블렌드로 표시해야 합니다', JSON.stringify(fritzOldDogDisplayInfo));
+
+const fritzCinemaDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '프릳츠 커피 컴퍼니',
+  productName: '[프릳츠] 서울 시네마 200g',
+});
+expect(fritzCinemaDisplayInfo.primary === '블렌드 - 서울 시네마', '프릳츠 서울 시네마도 블렌드로 표시해야 합니다', JSON.stringify(fritzCinemaDisplayInfo));
+
 const typoBlendDisplayInfo = core.formatProductDisplayInfo({
   productName: '프루티 블랜드 200g',
 });
@@ -483,6 +514,12 @@ const sparseNonMomosDisplayInfo = core.formatProductDisplayInfo({
   productName: '[프릳츠] 퀵커피 6개입',
 });
 expect(!sparseNonMomosDisplayInfo.primary.startsWith('블렌드 -'), '정보가 부족한 일반 상품을 블렌드로 잘못 표시하면 안 됩니다', JSON.stringify(sparseNonMomosDisplayInfo));
+
+const fritzDecafDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '프릳츠 커피 컴퍼니',
+  productName: '[프릳츠] 디카페인 Decaffeinated 200g',
+});
+expect(!fritzDecafDisplayInfo.primary.startsWith('블렌드 -'), '프릳츠 디카페인은 고유 블렌드명 목록에 없으면 블렌드로 추정하면 안 됩니다', JSON.stringify(fritzDecafDisplayInfo));
 
 const sourceText = `${fs.readFileSync('src/data/roasterySources.ts', 'utf8')}\n${fs.readFileSync('src/data/mockBeans.ts', 'utf8')}`;
 expect(!/펠트|felt/i.test(sourceText), '펠트커피는 로스터리와 샘플 원두에서 제외되어 있어야 합니다');

@@ -392,7 +392,14 @@ const DISPLAY_STOP_WORDS = [
   'single origin',
 ];
 
-const MOMOS_IMPLICIT_BLEND_NAMES = ['에스쇼콜라', '프루티봉봉', '부산', '므쵸베리'];
+const IMPLICIT_BLEND_NAME_RULES = [
+  { roasterPattern: /모모스/, names: ['에스쇼콜라', '프루티봉봉', '부산', '므쵸베리'] },
+  { roasterPattern: /커피리브레/, names: ['나이트호크', '노서프라이즈', '다크리브레', '배드블러드', '버티고', '울서울서울서'] },
+  { roasterPattern: /502커피로스터스/, names: ['BLUES 블루스'] },
+  { roasterPattern: /헬카페/, names: ['헬카페 클래식 커피'] },
+  { roasterPattern: /나무사이로/, names: ['PiCK! 숲', 'PiCK! 고소'] },
+  { roasterPattern: /프릳츠/, names: ['올드독', '잘 되어 가시나', '서울 시네마'] },
+];
 
 function hasAlias(text, aliases) {
   const lowerText = String(text || '').toLowerCase();
@@ -548,12 +555,12 @@ function formatProductDisplayInfo(product) {
   const hasCountry = Boolean(countryRule);
   const hasVariety = varietyLabels.length > 0 || Boolean(koreanVarietyHint);
   const isExplicitBlend = isBlendProduct(product) || processRule?.label === '블렌드';
-  const momosBeanName = compactDisplayText(cleanName.replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1'));
-  const isMomosBeanPrefixBlend = /모모스/.test(product.roasterName || '')
-    && /^원두(?:\s*[-–—:]\s*|\s+)/.test(cleanName)
-    && MOMOS_IMPLICIT_BLEND_NAMES.includes(momosBeanName);
-  // 모모스의 "원두 이름" 형식은 공식 표기에서 블렌드명으로 쓰인다.
-  const looksLikeBlend = isExplicitBlend || (isMomosBeanPrefixBlend && !hasCountry && !hasVariety && !processRule);
+  const implicitBlendName = compactDisplayText(cleanName.replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1'));
+  const isKnownImplicitBlend = IMPLICIT_BLEND_NAME_RULES.some((rule) => (
+    rule.roasterPattern.test(product.roasterName || '') && rule.names.includes(implicitBlendName)
+  ));
+  // 일부 로스터의 고유 상품명은 공식 표기에서 블렌드명으로 쓰인다.
+  const looksLikeBlend = isExplicitBlend || (isKnownImplicitBlend && !hasCountry && !hasVariety && !processRule);
   const shouldUseSimpleDisplay = looksLikeBlend || (!countryRule && !processRule && varietyLabels.length === 0);
 
   if (shouldUseSimpleDisplay) {
