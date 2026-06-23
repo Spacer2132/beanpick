@@ -809,59 +809,15 @@ async function fetchDetailPages(urls, cookie) {
 
 function isLikelyTerarosaBeanRow(row) {
   const name = String(row?.itemname || row?.itemName || row?.productName || '').toLowerCase();
-  const blockedWords = [
-    '???',
-    '????',
-    '????',
-    '???',
-    'rtd',
-    '??',
-    '????',
-    '???',
-    '??',
-    'cup',
-    'bag',
-    'set',
-    '??',
-    'block',
-    '????',
-  ];
-  const beanSignals = [
-    '??',
-    'ethiopia',
-    'kenya',
-    'colombia',
-    'brazil',
-    'guatemala',
-    'panama',
-    'rwanda',
-    'honduras',
-    'costa rica',
-    'washed',
-    'natural',
-    'honey',
-    'geisha',
-    'bourbon',
-    'blend',
-    '?????',
-    '??',
-    '????',
-    '???',
-    '????',
-    '???',
-    '???',
-    '????',
-    '?????',
-    '???',
-    '???',
-    '??',
-    '???',
-    '???',
-    '???',
-  ];
+  if (!name.trim()) return false;
 
-  if (blockedWords.some((word) => name.includes(word))) return false;
-  return beanSignals.some((signal) => name.includes(signal));
+  // 명백한 비(非)원두 상품만 제외하고 나머지는 통과시킨다.
+  // (최종 원두 판별은 뒤단 isLikelyBeanProduct/무게 필터가 담당)
+  const blockedWords = [
+    'rtd', 'cup', 'bag', 'set', 'block',
+    '드립백', '드립 백', '캡슐', '굿즈', '머그', '텀블러', '기프트', '세트',
+  ];
+  return !blockedWords.some((word) => name.includes(word));
 }
 
 function buildTerarosaDetailUrlsFromRows(rows) {
