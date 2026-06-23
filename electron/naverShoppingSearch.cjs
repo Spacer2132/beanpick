@@ -549,7 +549,7 @@ const TASTING_NOTE_PATTERNS = [
   ['볶은아몬드', /볶은아몬드|roastedalmond/i],
   ['마카다미아', /마카다미아|macadamia/i],
   ['땅콩', /땅콩|peanut/i],
-  ['견과류', /견과류|건과류|nutty|nuts?/i],
+  ['견과류', /견과류|건과류|nutty|nuts?(?!meg)/i],
   ['호두', /호두|walnut/i],
   ['캐슈넛', /캐슈넛|cashew/i],
   // Sweet (단맛)
