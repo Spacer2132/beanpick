@@ -107,7 +107,7 @@ const NOTE_RULES = [
   { label: '체리', group: 'fruit', aliases: ['cherry', '체리'] },
   { label: '멜론', group: 'fruit', aliases: ['melon', '멜론'] },
   { label: '구운 사과', group: 'fruit', aliases: ['baked apple', 'baked apples', '구운 사과'] },
-  { label: '사과', group: 'fruit', aliases: ['apple', '사과'] },
+  { label: '사과', group: 'fruit', aliases: ['apple', '사과', '적사과', 'red apple', 'redapple'] },
   { label: '청사과', group: 'fruit', aliases: ['green apple', 'greenapple', '청사과'] },
   { label: '배', group: 'fruit', aliases: ['pear', '배'] },
   { label: '복숭아', group: 'fruit', aliases: ['peach', '복숭아', '백도'] },

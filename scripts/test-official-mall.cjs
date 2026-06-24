@@ -262,6 +262,84 @@ function assertCafe24DetailWeightSample() {
   }
 }
 
+function assertCafe24DetailDivTableSample() {
+  const detailHtml = `
+    <div class="product-table-row">
+      <div class="single-table-column">Tasting Notes</div>
+      <div class="single-table-column">적사과, 오렌지, 캐러멜, 밀크초콜릿</div>
+    </div>
+    <div class="product-table-row">
+      <div class="product-table-column">품종</div>
+      <div class="product-table-column">Red Caturra</div>
+    </div>
+    <div class="product-table-row">
+      <div class="product-table-column">농장</div>
+      <div class="product-table-column">La Palma</div>
+    </div>
+    <div class="product-table-row">
+      <div class="product-table-column">가공방식</div>
+      <div class="product-table-column">Washed (Dry Fermentation)</div>
+    </div>
+    <div class="product-table-row">
+      <div class="product-table-column">지역</div>
+      <div class="product-table-column">Tabaconas, San Ignacio</div>
+    </div>
+  `;
+  const info = cafe24DetailParser.parseCafe24DetailInfo(detailHtml);
+  if (info.tastingNotes !== '적사과, 오렌지, 캐러멜, 밀크초콜릿') {
+    throw new Error(`Cafe24 div 테이블 tastingNotes 수집 실패: ${info.tastingNotes}`);
+  }
+  if (info.variety !== 'Red Caturra') {
+    throw new Error(`Cafe24 div 테이블 variety 수집 실패: ${info.variety}`);
+  }
+  if (info.farm !== 'La Palma') {
+    throw new Error(`Cafe24 div 테이블 farm 수집 실패: ${info.farm}`);
+  }
+  if (info.process !== 'Washed (Dry Fermentation)') {
+    throw new Error(`Cafe24 div 테이블 process 수집 실패: ${info.process}`);
+  }
+  if (info.region !== 'Tabaconas, San Ignacio') {
+    throw new Error(`Cafe24 div 테이블 region 수집 실패: ${info.region}`);
+  }
+}
+
+function assertCafe24DetailLibreSample() {
+  const detailHtml = `
+    <div>
+      [약배전] 온두라스 CoE 4위 엘 오코테 허니 Honduras CoE 4th El Ocote Honey<br>
+      체리, 라벤더, 올리브, 바닐라<br>
+      산미 Acidity ●●●●<br>
+      농장명 : 엘 오코테<br>
+      품종 : 파카스<br>
+      가공방식 : 허니
+    </div>
+  `;
+  const info = cafe24DetailParser.parseCafe24DetailInfo(detailHtml);
+  if (info.tastingNotes !== '체리, 라벤더, 올리브, 바닐라') {
+    throw new Error(`Cafe24 Libre 라벨없는 tastingNotes 수집 실패: ${info.tastingNotes}`);
+  }
+  if (info.farm !== '엘 오코테') {
+    throw new Error(`Cafe24 Libre 농장명 수집 실패: ${info.farm}`);
+  }
+}
+
+function assertCafe24Detail502PipeSample() {
+  const detailHtml = `
+    <div>
+      <span><strong>로스팅</strong> | 중강배전</span> <br>
+      <span><strong>컵노트</strong> | 토스트, 구운 견과, 초콜릿</span> <br>
+      <span><strong>원산지</strong> | 콜롬비아, 케냐, 에티오피아</span>
+    </div>
+  `;
+  const info = cafe24DetailParser.parseCafe24DetailInfo(detailHtml);
+  if (info.tastingNotes !== '토스트, 구운 견과, 초콜릿') {
+    throw new Error(`Cafe24 502 파이프라인 tastingNotes 수집 실패: ${info.tastingNotes}`);
+  }
+  if (info.origin !== '콜롬비아, 케냐, 에티오피아') {
+    throw new Error(`Cafe24 502 파이프라인 origin 수집 실패: ${info.origin}`);
+  }
+}
+
 function assertInjectedMarkerPriceSample(cafe24Adapter, configs) {
   const marker = '<span data-beanpick-detail="{&quot;description&quot;:&quot;적립 1,200원&quot;,&quot;ocrText&quot;:&quot;고도 1,700m&quot;}"></span>';
   const html = `
@@ -582,6 +660,9 @@ async function main() {
   assertTerarosaPromoNoteSample(terarosaAdapter);
   assertOriginalPriceSamples(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24DetailWeightSample();
+  assertCafe24DetailDivTableSample();
+  assertCafe24DetailLibreSample();
+  assertCafe24Detail502PipeSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertHellcafeGiftSetExcluded(cafe24Adapter, OFFICIAL_MALL_CONFIGS);

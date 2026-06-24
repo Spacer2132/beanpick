@@ -1,3 +1,5 @@
+const tastingNotesUtil = require('../tastingNotes.cjs');
+
 function stripHtmlText(value) {
   return String(value || '')
     .replace(/<br\s*\/?>/gi, ' ')
@@ -32,6 +34,59 @@ function readDetailRow(html, labels) {
   return '';
 }
 
+function readDivTableInfo(html) {
+  const infoMap = new Map();
+  const parts = String(html || '').split(/class=["'][^"']*product-table-row[^"']*["']/i);
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i];
+    const colRe = /<div\b[^>]*class=["'][^"']*table-column[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
+    const matches = [];
+    let match;
+    while ((match = colRe.exec(part)) !== null) {
+      matches.push(match[1]);
+      if (matches.length >= 2) break;
+    }
+    if (matches.length >= 2) {
+      const label = stripHtmlText(matches[0]);
+      const value = stripHtmlText(matches[1]);
+      if (label && value) {
+        infoMap.set(label.toLowerCase().replace(/\s+/g, ''), value);
+      }
+    }
+  }
+  return infoMap;
+}
+
+function getValueFromDivTable(infoMap, labels) {
+  for (const label of labels) {
+    const key = label.toLowerCase().replace(/\s+/g, '');
+    if (infoMap.has(key)) {
+      return infoMap.get(key);
+    }
+  }
+  return '';
+}
+
+function findUnlabeledTastingNotesLine(lines) {
+  for (const line of lines) {
+    const parts = line.split(/[,/·\s]+/).map(p => p.trim()).filter(Boolean);
+    if (parts.length < 2 || parts.length > 10) continue;
+    if (/\d|원|배송|주문|택배|결제|수량|고객|반품|교환|카드/i.test(line)) continue;
+    let tasteCount = 0;
+    for (const part of parts) {
+      if (tastingNotesUtil.isTastingNote(part)) {
+        tasteCount++;
+      }
+    }
+    if (tasteCount >= 2 && tasteCount >= parts.length * 0.5) {
+      return line;
+    }
+  }
+  return '';
+}
+
+
+
 function htmlToLines(html) {
   return String(html || '')
     .replace(/<\s*br\s*\/?>/gi, '\n')
@@ -54,7 +109,7 @@ function findLabeledLine(lines, labels) {
     for (const label of labels) {
       if (!lowerLine.startsWith(label.toLowerCase())) continue;
       const rest = line.slice(label.length);
-      const match = rest.match(/^\s*(?:[A-Za-z]+(?:\s+[A-Za-z]+){0,3}\s*)?[:：]\s*(.+)$/);
+      const match = rest.match(/^\s*(?:[A-Za-z]+(?:\s+[A-Za-z]+){0,3}\s*)?[:：\|]\s*(.+)$/);
       if (match) {
         const value = match[1].trim();
         if (value) return value;
@@ -91,7 +146,9 @@ function extractDetailWeight(html) {
     pushWeight(match[1] || match[2]);
   }
 
-  pushWeight(readDetailRow(html, ['중량', '용량', 'NET WT', 'Net WT', 'weight']));
+  const divTableInfo = readDivTableInfo(html);
+  pushWeight(readDetailRow(html, ['중량', '용량', 'NET WT', 'Net WT', 'weight'])
+    || getValueFromDivTable(divTableInfo, ['중량', '용량', 'NET WT', 'Net WT', 'weight']));
 
   return candidates[0] || 0;
 }
@@ -104,19 +161,28 @@ function extractMetaDescription(html) {
 
 function parseCafe24DetailInfo(html) {
   const lines = htmlToLines(html);
+  const divTableInfo = readDivTableInfo(html);
+  
   return {
     origin: readDetailRow(html, ['원산지', 'origin'])
-      || findLabeledLine(lines, ['원산지', '국가', 'Origin', 'Nation', 'Country']),
+      || findLabeledLine(lines, ['원산지', '국가', 'Origin', 'Nation', 'Country'])
+      || getValueFromDivTable(divTableInfo, ['원산지', 'origin', '국가', 'Origin', 'Nation', 'Country']),
     variety: readDetailRow(html, ['품종', 'variety'])
-      || findLabeledLine(lines, ['품종', 'Variety', 'Vriety']),
+      || findLabeledLine(lines, ['품종', 'Variety', 'Vriety'])
+      || getValueFromDivTable(divTableInfo, ['품종', 'variety', 'Variety', 'Vriety']),
     process: readDetailRow(html, ['가공법', '가공', 'process'])
-      || findLabeledLine(lines, ['가공방식', '가공법', '가공', 'Processing Method', 'Processing', 'Process']),
+      || findLabeledLine(lines, ['가공방식', '가공법', '가공', 'Processing Method', 'Processing', 'Process'])
+      || getValueFromDivTable(divTableInfo, ['가공법', '가공', 'process', '가공방식', 'Processing Method', 'Processing']),
     tastingNotes: readDetailRow(html, ['향미', '컵노트', 'cup notes', 'tasting notes'])
-      || findLabeledLine(lines, ['향미', '컵노트', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes']),
+      || findLabeledLine(lines, ['향미', '컵노트', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes'])
+      || getValueFromDivTable(divTableInfo, ['향미', '컵노트', 'cup notes', 'tasting notes', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes'])
+      || findUnlabeledTastingNotesLine(lines),
     region: readDetailRow(html, ['지역', 'region'])
-      || findLabeledLine(lines, ['지역', 'Region', 'Reigon']),
+      || findLabeledLine(lines, ['지역', 'Region', 'Reigon'])
+      || getValueFromDivTable(divTableInfo, ['지역', 'region', 'Region', 'Reigon']),
     farm: readDetailRow(html, ['농장', 'farm'])
-      || findLabeledLine(lines, ['농장', 'Farm']),
+      || findLabeledLine(lines, ['농장명', '농장', 'Farm'])
+      || getValueFromDivTable(divTableInfo, ['농장명', '농장', 'farm', 'Farm']),
     weight: extractDetailWeight(html),
     description: extractMetaDescription(html),
   };

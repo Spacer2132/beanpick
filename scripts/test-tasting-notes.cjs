@@ -172,6 +172,27 @@ const fixtures = [
     expected: ['베리'],
     forbidden: [],
   },
+  {
+    name: '적사과 매칭 검증',
+    kind: 'normalize',
+    input: ['적사과, 오렌지, 캐러멜, 밀크초콜릿'],
+    expected: ['사과', '오렌지', '캐러멜', '밀크초콜릿'],
+    forbidden: [],
+  },
+  {
+    name: '영문 red apple 매칭 검증',
+    kind: 'normalize',
+    input: ['red apple, orange, caramel, milk chocolate'],
+    expected: ['사과', '오렌지', '캐러멜', '밀크초콜릿'],
+    forbidden: [],
+  },
+  {
+    name: '영문 redapple 매칭 검증',
+    kind: 'normalize',
+    input: ['redapple, orange, caramel, milk chocolate'],
+    expected: ['사과', '오렌지', '캐러멜', '밀크초콜릿'],
+    forbidden: [],
+  },
 ];
 
 let falsePositiveCount = 0;
