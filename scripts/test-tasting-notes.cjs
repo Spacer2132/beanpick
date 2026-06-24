@@ -123,6 +123,55 @@ const fixtures = [
     expected: ['건과일', '달콤한 산미', '부드러움', '긴 여운'],
     forbidden: ['Dried Fruits', 'Sweet Acidity', 'Soft', 'Long Aftertaste', 'Sweet'],
   },
+  {
+    name: '짧은 한글 별칭 오매칭 차단 - 배전 오염',
+    kind: 'normalize',
+    input: ['중강배전으로 볶은 깊은 단맛'],
+    expected: ['단맛'],
+    forbidden: ['배'],
+  },
+  {
+    name: '짧은 한글 별칭 오매칭 차단 - 차이 오염',
+    kind: 'normalize',
+    input: ['두 맛의 차이가 확연합니다'],
+    expected: [],
+    forbidden: ['차'],
+  },
+  {
+    name: '짧은 한글 별칭 오매칭 차단 - 짚고 오염',
+    kind: 'normalize',
+    input: ['짚고 넘어가야 할 특징'],
+    expected: [],
+    forbidden: ['짚'],
+  },
+  {
+    name: '짧은 한글 별칭 정상 매칭 - 배향 보존',
+    kind: 'normalize',
+    input: ['배향이 은은하게 퍼지는'],
+    expected: ['배'],
+    forbidden: [],
+  },
+  {
+    name: '짧은 한글 별칭 정상 매칭 - 녹차 보존',
+    kind: 'normalize',
+    input: ['녹차의 쌉싸름함'],
+    expected: ['녹차'],
+    forbidden: [],
+  },
+  {
+    name: '짧은 한글 별칭 정상 매칭 - 꿀 보존',
+    kind: 'normalize',
+    input: ['꿀처럼 달콤한'],
+    expected: ['꿀'],
+    forbidden: [],
+  },
+  {
+    name: '짧은 한글 별칭 정상 매칭 - 류 접미사 보존(베리류)',
+    kind: 'normalize',
+    input: ['베리류의 상큼한 산미'],
+    expected: ['베리'],
+    forbidden: [],
+  },
 ];
 
 let falsePositiveCount = 0;

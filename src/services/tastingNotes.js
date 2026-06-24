@@ -278,6 +278,12 @@ function splitNoteText(value) {
     .filter(Boolean);
 }
 
+const SHORT_ALIAS_BLOCK_PATTERNS = {
+  '배': /배전|배송|택배|재배|배합|배추/i,
+  '차': /차이|차량|차단|차례|차별|차점|차창|차판/i,
+  '짚': /짚고|짚어|짚는|짚다|짚세/i,
+};
+
 function aliasAppearsInText(alias, textKey, compactTextKey) {
   const aliasKey = toKey(alias);
   const compactAlias = toCompactKey(alias);
@@ -288,6 +294,18 @@ function aliasAppearsInText(alias, textKey, compactTextKey) {
     const escaped = aliasKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
     return new RegExp(`(^|[^a-z0-9])${escaped}($|[^a-z0-9])`, 'i').test(textKey);
   }
+
+  // 한글(비영문) 별칭의 오매칭 방지 및 조사 접미사 허용 필터링
+  if (aliasKey.length <= 2) {
+    const blockPattern = SHORT_ALIAS_BLOCK_PATTERNS[aliasKey];
+    if (blockPattern && blockPattern.test(textKey)) {
+      return false;
+    }
+    const escaped = aliasKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+    const regex = new RegExp(`(?<=^|[^가-힣a-zA-Z0-9])${escaped}(?:향|맛|의|와|과|가|이|를|을|류|처럼|한|톤|뉘앙스|아로마)*(?=[^가-힣a-zA-Z0-9]|$)`, 'i');
+    return regex.test(textKey);
+  }
+
   return compactTextKey.includes(compactAlias);
 }
 
