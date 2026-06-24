@@ -311,7 +311,7 @@ function getBestUnitPriceLabel(product, priceOptions) {
   return candidates[0]?.label || '';
 }
 
-function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSelect, onToggleFavorite }) {
+function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSelect, onToggleFavorite, tasteAxis }) {
   const hasImage = Boolean(product.imageUrl);
   const detailLabel = `${product.roasterName} ${product.productName} 상세 보기`;
   const metaItems = [product.roasterName].filter(Boolean);
@@ -326,6 +326,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
   const imageContent = hasImage
     ? <img src={product.imageUrl} alt="" loading="lazy" />
     : <span className="bean-image-placeholder">{product.roasterName.slice(0, 2)}</span>;
+  const showTasteInfoMissing = tasteAxis !== null && (product.acidityScore === null || product.acidityScore === undefined);
 
   return (
     <article className={`bean-card ${product.isSoldOut ? 'is-soldout' : ''}`}>
@@ -367,11 +368,12 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
             ))}
           </div>
         )}
-        {product.tastingNotes.length > 0 && (
+        {(product.tastingNotes.length > 0 || showTasteInfoMissing) && (
           <div className="notes">
             {product.tastingNotes.map((note) => (
               <NoteTag key={note} note={note} active={activeNotes.includes(note)} onClick={onNoteClick} />
             ))}
+            {showTasteInfoMissing && <span className="note-tag is-static taste-missing-note">맛정보 없음</span>}
           </div>
         )}
       </div>
@@ -434,7 +436,7 @@ function ChangeList({ changes }) {
   );
 }
 
-function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.', favoriteIds, products, onNoteClick, onSelect, onToggleFavorite }) {
+function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.', favoriteIds, products, onNoteClick, onSelect, onToggleFavorite, tasteAxis }) {
   if (products.length === 0) {
     return <div className="empty-result">{emptyMessage}</div>;
   }
@@ -450,6 +452,7 @@ function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 �
           onNoteClick={onNoteClick}
           onSelect={onSelect}
           onToggleFavorite={onToggleFavorite}
+          tasteAxis={tasteAxis}
         />
       ))}
     </div>
@@ -655,6 +658,7 @@ export default function App() {
   // On Sale = 할인 중이거나 1+1 행사 상품. 두 필터를 하나로 묶었다.
   const [saleOnly, setSaleOnly] = React.useState(false);
   const [decafOnly, setDecafOnly] = React.useState(false);
+  const [tasteAxis, setTasteAxis] = React.useState(null);
   // 앱을 켜면 마지막으로 저장된 상품 목록을 먼저 보여준다.
   const [initialCache] = React.useState(() => loadProductCache());
   const [baseProducts, setBaseProducts] = React.useState(initialCache?.products ?? mockBeans);
@@ -715,12 +719,13 @@ export default function App() {
   ), [activeNotes, budget, capacityFilter, decafOnly, saleOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
 
   const filteredProducts = React.useMemo(() => (
-    sortProducts(visibleProducts, sortMode)
-  ), [visibleProducts, sortMode]);
+    sortProducts(visibleProducts, sortMode, tasteAxis)
+  ), [visibleProducts, sortMode, tasteAxis]);
 
   const hasActiveFilters = Boolean(searchQuery.trim()) || activeNotes.length > 0
     || budget !== 'all' || capacityFilter !== 'all' || originFilter !== 'all' || processFilter !== 'all' || saleOnly || decafOnly
-    || Boolean(noteIncludeQuery.trim()) || Boolean(noteExcludeQuery.trim());
+    || Boolean(noteIncludeQuery.trim()) || Boolean(noteExcludeQuery.trim())
+    || tasteAxis !== null;
 
   const detailProduct = React.useMemo(() => (
     detailProductId ? products.find((product) => product.id === detailProductId) ?? null : null
@@ -755,6 +760,7 @@ export default function App() {
     setProcessFilter('all');
     setSaleOnly(false);
     setDecafOnly(false);
+    setTasteAxis(null);
   }
 
   function handleNoteClick(note) {
@@ -1138,6 +1144,8 @@ export default function App() {
             setSortMode={setSortMode}
             sortMode={sortMode}
             summaryProducts={products}
+            tasteAxis={tasteAxis}
+            setTasteAxis={setTasteAxis}
           />
         ) : screen === 'sources' ? (
           <SourcesPage monitorSummary={monitorSummary} onSaveSnapshot={handleSaveSnapshot} />
@@ -1173,7 +1181,7 @@ export default function App() {
   );
 }
 
-function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, saleOnly, discountCount, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, processFilter, processOptions, publishState, products, setBudget, setCapacityFilter, setDecafOnly, setSaleOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts }) {
+function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, saleOnly, discountCount, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, processFilter, processOptions, publishState, products, setBudget, setCapacityFilter, setDecafOnly, setSaleOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts, tasteAxis, setTasteAxis }) {
   const PAGE_SIZE = 24;
   const NOTE_PREVIEW_COUNT = 12;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
@@ -1200,7 +1208,8 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
   const visibleProducts = products.slice(0, visibleCount);
   const visibleNotes = notesExpanded ? noteOptions : noteOptions.slice(0, NOTE_PREVIEW_COUNT);
   const hiddenNoteCount = noteOptions.length - NOTE_PREVIEW_COUNT;
-  const sortLabel = sortMode === 'latest' ? '최근 확인순'
+  const sortLabel = tasteAxis !== null ? '내 입맛 맞춤'
+    : sortMode === 'latest' ? '최근 확인순'
     : sortMode === 'unitPriceAsc' ? '100g당 낮은가격순'
     : sortMode === 'unitPriceDesc' ? '100g당 높은가격순'
     : sortMode === 'discount' ? '할인율 높은순'
@@ -1243,7 +1252,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           </div>
           <div className="sort-actions" aria-label="원두 정렬">
             <div className="sort-row">
-              <button className={sortMode === 'score' ? 'active' : ''} type="button" onClick={() => setSortMode('score')}>추천순</button>
+              <button className={tasteAxis === null && sortMode === 'score' ? 'active' : ''} type="button" onClick={() => { setTasteAxis(null); setSortMode('score'); }}>추천순</button>
               {/* On-Sale은 필터이면서, 켜면 자동으로 할인율 높은순 정렬로 보여준다. */}
               <button
                 className={saleOnly ? 'active' : ''}
@@ -1251,8 +1260,12 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                 onClick={() => {
                   const next = !saleOnly;
                   setSaleOnly(next);
-                  if (next) setSortMode('discount');
-                  else if (sortMode === 'discount') setSortMode('score');
+                  if (next) {
+                    setTasteAxis(null);
+                    setSortMode('discount');
+                  } else if (sortMode === 'discount') {
+                    setSortMode('score');
+                  }
                 }}
               >
                 On-Sale
@@ -1260,8 +1273,8 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               <button className={decafOnly ? 'active' : ''} type="button" onClick={() => setDecafOnly(!decafOnly)}>디카페인</button>
             </div>
             <div className="sort-row">
-              <button className={sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceAsc')}>100g당 낮은가격</button>
-              <button className={sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => setSortMode('unitPriceDesc')}>100g당 높은가격</button>
+              <button className={tasteAxis === null && sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => { setTasteAxis(null); setSortMode('unitPriceAsc'); }}>100g당 낮은가격</button>
+              <button className={tasteAxis === null && sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => { setTasteAxis(null); setSortMode('unitPriceDesc'); }}>100g당 높은가격</button>
             </div>
           </div>
         </div>
@@ -1318,6 +1331,45 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                 </select>
               </label>
             </div>
+
+            {/* 맛 슬라이더 UI */}
+            <div className="taste-slider-container">
+              <div className="taste-slider-header">
+                <span>입맛 맞춤 정렬</span>
+                {tasteAxis !== null && (
+                  <button className="btn-reset" type="button" onClick={() => setTasteAxis(null)}>초기화</button>
+                )}
+              </div>
+              <div className="taste-slider-body">
+                <input
+                  type="range"
+                  min="-1"
+                  max="1"
+                  step="0.05"
+                  value={tasteAxis === null ? 0 : tasteAxis}
+                  onChange={(event) => setTasteAxis(parseFloat(event.target.value))}
+                  className={tasteAxis === null ? 'is-disabled' : 'is-active'}
+                />
+                <div className="taste-slider-labels">
+                  <span className="label-left">산뜻·산미형</span>
+                  <span className="label-value">
+                    {tasteAxis === null
+                      ? '슬라이더를 조작해 입맛에 맞춰보세요'
+                      : tasteAxis <= -0.6
+                      ? '산뜻·상큼'
+                      : tasteAxis <= -0.2
+                      ? '새콤한 편'
+                      : tasteAxis <= 0.2
+                      ? '밸런스'
+                      : tasteAxis <= 0.6
+                      ? '고소한 편'
+                      : '고소·묵직'}
+                  </span>
+                  <span className="label-right">고소·묵직형</span>
+                </div>
+              </div>
+            </div>
+
             {noteOptions.length > 0 && (
               <div className="detail-note-cloud">
                 <span>테이스팅 노트</span>
@@ -1380,6 +1432,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               onNoteClick={onNoteClick}
               onSelect={onSelectProduct}
               onToggleFavorite={onToggleFavorite}
+              tasteAxis={tasteAxis}
             />
             {products.length > visibleCount && (
               <div className="load-more-row">

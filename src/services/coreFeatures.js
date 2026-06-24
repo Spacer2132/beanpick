@@ -1,4 +1,4 @@
-import { normalizeTastingNotes, sortTastingNotes } from './tastingNotes.js';
+import { normalizeTastingNotes, sortTastingNotes, getAcidityScore } from './tastingNotes.js';
 
 // 10% 이상 싸게 팔면 할인 상품으로 본다. (1~9%는 표기 오차/소폭 할인이라 제외)
 const DISCOUNT_THRESHOLD = 0.10;
@@ -284,8 +284,20 @@ function pickFeaturedProducts(products, limit = 8) {
   return selected;
 }
 
-function sortProducts(products, sortMode) {
+function sortProducts(products, sortMode, tasteAxis = null) {
   return [...products].sort((a, b) => {
+    if (tasteAxis !== null) {
+      const aHas = a.acidityScore !== null && a.acidityScore !== undefined;
+      const bHas = b.acidityScore !== null && b.acidityScore !== undefined;
+      if (aHas && !bHas) return -1;
+      if (!aHas && bHas) return 1;
+      if (!aHas && !bHas) return b.score - a.score;
+
+      const distA = Math.abs(a.acidityScore + tasteAxis);
+      const distB = Math.abs(b.acidityScore + tasteAxis);
+      if (distA !== distB) return distA - distB;
+      return b.score - a.score;
+    }
     if (sortMode === 'latest') return a.checkedMinutesAgo - b.checkedMinutesAgo;
     if (sortMode === 'unitPriceAsc') return unitPrice(a) - unitPrice(b);
     if (sortMode === 'unitPriceDesc') return unitPrice(b) - unitPrice(a);
@@ -644,6 +656,7 @@ function groupProductsByNameAndWeight(products) {
       ...priceOptions.map((option) => Number(option.discountRate || 0)),
     );
 
+    const groupTastingNotes = normalizeTastingNotes(items.flatMap((item) => item.tastingNotes));
     return {
       ...representative,
       id: createGroupedProductId(representative),
@@ -657,7 +670,8 @@ function groupProductsByNameAndWeight(products) {
       unitPriceLabel: '',
       priceOptions,
       score: Math.max(...items.map((item) => item.score || 0)),
-      tastingNotes: normalizeTastingNotes(items.flatMap((item) => item.tastingNotes)),
+      tastingNotes: groupTastingNotes,
+      acidityScore: getAcidityScore(groupTastingNotes),
       imageUrl: representative.imageUrl || items.find((item) => item.imageUrl)?.imageUrl || '',
       isSoldOut: items.every((item) => item.isSoldOut),
       isNew: items.some((item) => item.isNew),
@@ -674,10 +688,14 @@ function getTasteNoteGroup(note) {
 }
 
 function normalizeProducts(products) {
-  return products.map((product) => normalizeDiscountProduct({
-    ...product,
-    tastingNotes: normalizeTastingNotes(product.tastingNotes),
-  }));
+  return products.map((product) => {
+    const tastingNotes = normalizeTastingNotes(product.tastingNotes);
+    return normalizeDiscountProduct({
+      ...product,
+      tastingNotes,
+      acidityScore: getAcidityScore(tastingNotes),
+    });
+  });
 }
 
 function getNoteOptions(products) {

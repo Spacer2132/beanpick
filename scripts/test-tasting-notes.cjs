@@ -172,3 +172,47 @@ if (failures.length > 0 || precision < 0.95) {
   });
   process.exitCode = 1;
 }
+
+// === getAcidityScore 단위 테스트 ===
+console.log('getAcidityScore 계약 검증 시작...');
+const scoreTests = [
+  { notes: ['블루베리', '자스민'], expectedSign: 1 },
+  { notes: ['견과류', '초콜릿'], expectedSign: -1 },
+  { notes: ['청사과', '캐러멜'], expectedNearZero: true },
+  { notes: [], expectedNull: true },
+  { notes: ['확인 필요'], expectedNull: true }
+];
+
+let scoreFailures = 0;
+scoreTests.forEach((t, i) => {
+  const score = tastingNoteTools.getAcidityScore(t.notes);
+  if (t.expectedNull) {
+    if (score !== null) {
+      console.error(`getAcidityScore 실패 [${i}]: null 기대하였으나 ${score} 반환됨`);
+      scoreFailures++;
+    }
+  } else if (t.expectedSign === 1) {
+    if (score === null || score <= 0) {
+      console.error(`getAcidityScore 실패 [${i}]: 양수(산미형) 기대하였으나 ${score} 반환됨 (입력: ${t.notes.join(', ')})`);
+      scoreFailures++;
+    }
+  } else if (t.expectedSign === -1) {
+    if (score === null || score >= 0) {
+      console.error(`getAcidityScore 실패 [${i}]: 음수(고소형) 기대하였으나 ${score} 반환됨 (입력: ${t.notes.join(', ')})`);
+      scoreFailures++;
+    }
+  } else if (t.expectedNearZero) {
+    if (score === null || Math.abs(score) > 0.5) {
+      console.error(`getAcidityScore 실패 [${i}]: 0 근처(밸런스) 기대하였으나 ${score} 반환됨 (입력: ${t.notes.join(', ')})`);
+      scoreFailures++;
+    }
+  }
+});
+
+if (scoreFailures > 0) {
+  console.error(`getAcidityScore 검증 실패: 총 ${scoreFailures}건 오류`);
+  process.exitCode = 1;
+} else {
+  console.log('getAcidityScore 검증 통과');
+}
+

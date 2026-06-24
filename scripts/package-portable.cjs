@@ -106,6 +106,7 @@ function copyAppFiles() {
   ].forEach((fileName) => {
     copyFile(path.join(rootDir, fileName), path.join(appDir, fileName));
   });
+  copyFile(path.join(rootDir, 'scripts', 'paddle_ocr.py'), path.join(appDir, 'scripts', 'paddle_ocr.py'));
 
   ['.env', '.env.local'].forEach((fileName) => {
     const envPath = path.join(rootDir, fileName);

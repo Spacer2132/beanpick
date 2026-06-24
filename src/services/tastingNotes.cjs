@@ -364,10 +364,44 @@ function isTastingNote(note) {
   return normalizeTastingNotes([note], { limit: Infinity }).length > 0;
 }
 
+const ACIDITY_WEIGHTS = {
+  fruit: 1.0,
+  floral: 0.8,
+  sour: 0.6,
+  green: 0.2,
+  spice: -0.1,
+  sweet: -0.6,
+  roasted: -0.7,
+  nutty: -1.0,
+  body: -0.5,
+};
+
+function getAcidityScore(notes) {
+  if (!Array.isArray(notes) || notes.length === 0) return null;
+
+  let sum = 0;
+  let count = 0;
+
+  notes.forEach((note) => {
+    const group = LABEL_GROUP.get(note);
+    if (group !== undefined && ACIDITY_WEIGHTS[group] !== undefined) {
+      sum += ACIDITY_WEIGHTS[group];
+      count++;
+    }
+  });
+
+  if (count === 0) return null;
+
+  const average = sum / count;
+  return Math.max(-1, Math.min(1, average));
+}
+
 module.exports = {
   COUNTRY_ALIASES,
   NON_TASTE_ALIASES,
   normalizeTastingNotes,
   sortTastingNotes,
   isTastingNote,
+  getAcidityScore,
 };
+

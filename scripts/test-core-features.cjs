@@ -534,6 +534,24 @@ const removedRoasteryText = [
 ].map((file) => fs.readFileSync(file, 'utf8')).join('\n');
 expect(!/lowkey|lowkeycoffee|로우키/i.test(removedRoasteryText), '로우키커피는 등록과 샘플에서 완전히 제외되어 있어야 합니다');
 
+// acidityScore 산출 및 정렬 검증 추가
+const testProductsForScore = core.normalizeProducts([
+  { id: 'p-acidic', tastingNotes: ['블루베리', '자스민'], isSoldOut: false, score: 85 },
+  { id: 'p-nutty', tastingNotes: ['견과류', '초콜릿'], isSoldOut: false, score: 85 },
+  { id: 'p-none', tastingNotes: [], isSoldOut: false, score: 80 }
+]);
+expect(testProductsForScore[0].acidityScore > 0, '산미형 원두의 acidityScore는 양수여야 합니다', testProductsForScore[0].acidityScore);
+expect(testProductsForScore[1].acidityScore < 0, '고소한 단맛형 원두의 acidityScore는 음수여야 합니다', testProductsForScore[1].acidityScore);
+expect(testProductsForScore[2].acidityScore === null, '테이스팅 노트가 없는 경우 acidityScore는 null이어야 합니다', testProductsForScore[2].acidityScore);
+
+// tasteAxis 정렬 순서 검증 (사용자 요청: -1.0이 산미형, 1.0이 고소한 단맛형)
+const sortedByAcidic = core.sortProducts(testProductsForScore, 'score', -1.0);
+expect(sortedByAcidic[0].id === 'p-acidic', 'tasteAxis가 -1.0일 때 산미형 원두가 먼저 와야 합니다', ids(sortedByAcidic));
+expect(sortedByAcidic[sortedByAcidic.length - 1].id === 'p-none', 'tasteAxis 정렬 시 맛 정보가 없는 원두는 맨 뒤에 위치해야 합니다', ids(sortedByAcidic));
+
+const sortedBySweet = core.sortProducts(testProductsForScore, 'score', 1.0);
+expect(sortedBySweet[0].id === 'p-nutty', 'tasteAxis가 1.0일 때 견과류 원두가 먼저 와야 합니다', ids(sortedBySweet));
+
 if (failures.length > 0) {
   failures.forEach((failure) => console.error(`실패: ${failure}`));
   process.exitCode = 1;
