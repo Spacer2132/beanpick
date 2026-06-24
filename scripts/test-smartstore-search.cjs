@@ -250,6 +250,61 @@ if (lubiaOptionPriceFixture[0].price !== 46000 || lubiaOptionPriceFixture[0].ori
   throw new Error('루비아 옵션 추가금 1,000원은 판매가로 쓰지 않고 원래가로 보정해야 합니다.');
 }
 
+const wholeBeanFilterTest = _test.normalizeSmartStoreCategoryItems('identity', [
+  {
+    id: 'test-wb-1',
+    title: '미드센추리 블렌드(1kg) (분쇄요청불가)',
+    price: 48000,
+    originalPrice: 66000,
+    productUrl: 'https://smartstore.naver.com/identity_coffeelab/products/test-wb-1',
+    imageUrl: 'https://example.com/midcentury.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'test-wb-2',
+    title: '미드센추리 블렌드 200g 핸드드립 분쇄',
+    price: 15000,
+    productUrl: 'https://smartstore.naver.com/identity_coffeelab/products/test-wb-2',
+    imageUrl: 'https://example.com/midcentury.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'test-wb-3',
+    title: '테스트 원두 200g 홀빈',
+    price: 15000,
+    productUrl: 'https://smartstore.naver.com/identity_coffeelab/products/test-wb-3',
+    imageUrl: 'https://example.com/midcentury.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'test-wb-4',
+    title: '테스트 원두 200g 분쇄안함',
+    price: 15000,
+    productUrl: 'https://smartstore.naver.com/identity_coffeelab/products/test-wb-4',
+    imageUrl: 'https://example.com/midcentury.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'test-wb-5',
+    title: '테스트 원두 200g ground coffee',
+    price: 15000,
+    productUrl: 'https://smartstore.naver.com/identity_coffeelab/products/test-wb-5',
+    imageUrl: 'https://example.com/midcentury.png',
+    isSoldOut: false,
+  },
+]);
+
+if (wholeBeanFilterTest.length !== 3) {
+  throw new Error(`스마트스토어 홀빈 필터 테스트에서 3개의 상품이 남아있어야 하지만, ${wholeBeanFilterTest.length}개가 남았습니다.`);
+}
+const remainingIds = wholeBeanFilterTest.map(p => p.id);
+if (!remainingIds.includes('identity-test-wb-1') || !remainingIds.includes('identity-test-wb-3') || !remainingIds.includes('identity-test-wb-4')) {
+  throw new Error(`스마트스토어 홀빈 필터 테스트에서 올바른 홀빈 상품들이 포함되지 않았습니다: ${remainingIds.join(', ')}`);
+}
+if (remainingIds.includes('identity-test-wb-2') || remainingIds.includes('identity-test-wb-5')) {
+  throw new Error(`스마트스토어 홀빈 필터 테스트에서 분쇄 전용 상품이 제외되지 않았습니다: ${remainingIds.join(', ')}`);
+}
+
 testSmartStoreSearch()
   .then((result) => {
     console.log(result.message);

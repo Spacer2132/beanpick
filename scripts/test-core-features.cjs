@@ -552,6 +552,24 @@ expect(sortedByAcidic[sortedByAcidic.length - 1].id === 'p-none', 'tasteAxis 정
 const sortedBySweet = core.sortProducts(testProductsForScore, 'score', 1.0);
 expect(sortedBySweet[0].id === 'p-nutty', 'tasteAxis가 1.0일 때 견과류 원두가 먼저 와야 합니다', ids(sortedBySweet));
 
+// 홀빈 기준 및 분쇄 제외 테스트 추가
+expect(core.isGroundCoffeeProduct('테스트 원두 200g 핸드드립 분쇄') === true, '핸드드립 분쇄는 분쇄 상품이어야 합니다');
+expect(core.isGroundCoffeeProduct('테스트 원두 200g 에스프레소 분쇄') === true, '에스프레소 분쇄는 분쇄 상품이어야 합니다');
+expect(core.isGroundCoffeeProduct('테스트 원두 200g ground coffee') === true, 'ground coffee는 분쇄 상품이어야 합니다');
+expect(core.isGroundCoffeeProduct('테스트 원두 200g 홀빈') === false, '홀빈은 분쇄 상품이 아니어야 합니다');
+expect(core.isGroundCoffeeProduct('테스트 원두 200g whole bean') === false, 'whole bean은 분쇄 상품이 아니어야 합니다');
+expect(core.isGroundCoffeeProduct('테스트 원두 200g (분쇄요청불가)') === false, '분쇄요청불가는 분쇄 상품이 아니어야 합니다');
+expect(core.isGroundCoffeeProduct('테스트 원두 200g 분쇄안함') === false, '분쇄안함은 분쇄 상품이 아니어야 합니다');
+
+const testWholeBeanGrouping = core.groupProductsByNameAndWeight([
+  { id: 'wb-1', roasterName: '테스트로스터', productName: '테스트 원두 200g 홀빈', price: 15000, weight: 200, score: 80, tastingNotes: [], isSoldOut: false },
+  { id: 'wb-2', roasterName: '테스트로스터', productName: '테스트 원두 200g whole bean', price: 15000, weight: 200, score: 80, tastingNotes: [], isSoldOut: false },
+  { id: 'wb-3', roasterName: '테스트로스터', productName: '테스트 원두 200g (분쇄요청불가)', price: 15000, weight: 200, score: 80, tastingNotes: [], isSoldOut: false },
+  { id: 'wb-4', roasterName: '테스트로스터', productName: '테스트 원두 200g 분쇄안함', price: 15000, weight: 200, score: 80, tastingNotes: [], isSoldOut: false },
+]);
+expect(testWholeBeanGrouping.length === 1, '홀빈/whole bean/분쇄요청불가/분쇄안함 옵션 차이가 있는 상품들은 하나로 그룹화되어야 합니다', String(testWholeBeanGrouping.length));
+expect(testWholeBeanGrouping[0]?.productName === '테스트 원두', '그룹화된 상품명에서는 홀빈 관련 문구가 제거되어야 합니다', testWholeBeanGrouping[0]?.productName);
+
 if (failures.length > 0) {
   failures.forEach((failure) => console.error(`실패: ${failure}`));
   process.exitCode = 1;

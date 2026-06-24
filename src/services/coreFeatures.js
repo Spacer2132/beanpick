@@ -594,8 +594,42 @@ function formatProductDisplayInfo(product) {
   };
 }
 
+function isGroundCoffeeProduct(productOrTitle) {
+  if (!productOrTitle) return false;
+  const text = typeof productOrTitle === 'object'
+    ? [
+        productOrTitle.productName,
+        productOrTitle.displayInfo?.primary,
+        ...(productOrTitle.priceOptions || []).map(o => o.weightLabel)
+      ].filter(Boolean).join(' ')
+    : String(productOrTitle);
+
+  const lowerText = text.toLowerCase();
+  const isWholeBeanSignal = /분쇄\s*(?:요청\s*)?불가|분쇄\s*(?:안\s*함|안함|없음)|홀\s*빈|whole\s*beans?/i.test(lowerText)
+    || (/\bbeans\b/i.test(lowerText) && !/\b(?:ground|grind)\s+beans\b/i.test(lowerText));
+  if (isWholeBeanSignal) {
+    return false;
+  }
+
+  const isGroundSignal = /분쇄|grind|ground/i.test(lowerText);
+  return isGroundSignal;
+}
+
+function normalizeWholeBeanProductName(productName) {
+  if (!productName) return '';
+  return String(productName)
+    .replace(/[[(]\s*(?:원두상태\s*:\s*)?(?:분쇄도\s*:\s*)?(?:홀\s*빈|whole\s*beans?|beans|분쇄\s*(?:요청\s*)?불가|분쇄\s*(?:안\s*함|안함|없음))\s*[\])]/gi, ' ')
+    .replace(/(?:원두상태\s*:\s*|분쇄도\s*:\s*)(?:홀\s*빈|whole\s*beans?|beans)/gi, ' ')
+    .replace(/\b(?:원두상태|분쇄도)\s*:\s*/gi, ' ')
+    .replace(/(^|[^가-힣a-zA-Z0-9])(?:홀\s*빈|whole\s*beans?|분쇄\s*(?:요청\s*)?불가|분쇄\s*(?:안\s*함|안함|없음))(?=[^가-힣a-zA-Z0-9]|$)/gi, '$1 ')
+    .replace(/(^|[^가-힣a-zA-Z0-9])beans(?=[^가-힣a-zA-Z0-9]|$)/gi, '$1 ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function normalizeProductNameForGroup(productName) {
-  return String(productName || '')
+  const cleanName = normalizeWholeBeanProductName(productName);
+  return cleanName
     .replace(/[★☆]/g, ' ')
     // "[그란데]"(대용량), "[6월 먼슬리]"(행사), "(요청불가)" 같은 수식어 때문에
     // 같은 원두가 따로 표시되는 것을 막는다. 단 [생두]·[디카페인]처럼 상품이 달라지는 표기는 남긴다.
@@ -801,6 +835,7 @@ export {
   groupProductsByNameAndWeight,
   isDecafProduct,
   isDiscountedProduct,
+  isGroundCoffeeProduct,
   isOnePlusOneProduct,
   isRealProductUrl,
   matchesCapacityFilter,
@@ -808,6 +843,7 @@ export {
   matchesSmartSearch,
   normalizeProductNameForGroup,
   normalizeProducts,
+  normalizeWholeBeanProductName,
   pickFeaturedProducts,
   productInfoItems,
   sortProducts,

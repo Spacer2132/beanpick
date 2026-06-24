@@ -313,9 +313,22 @@ function isNonBeanCoffeeTitle(title) {
   return NON_BEAN_COFFEE_WORDS.some((word) => text.includes(word));
 }
 
+function isGroundCoffeeProduct(title) {
+  if (!title) return false;
+  const lowerText = String(title).toLowerCase();
+  const isWholeBeanSignal = /분쇄\s*(?:요청\s*)?불가|분쇄\s*(?:안\s*함|안함|없음)|홀\s*빈|whole\s*beans?/i.test(lowerText)
+    || (/\bbeans\b/i.test(lowerText) && !/\b(?:ground|grind)\s+beans\b/i.test(lowerText));
+  if (isWholeBeanSignal) {
+    return false;
+  }
+  const isGroundSignal = /분쇄|grind|ground/i.test(lowerText);
+  return isGroundSignal;
+}
+
 function isCollectableSmartStoreTitle(title) {
   if (isNonBeanCoffeeTitle(title)) return false;
   if (hasExplicitWeight(title) && parseWeight(title) > 1000) return false;
+  if (isGroundCoffeeProduct(title)) return false;
   return true;
 }
 

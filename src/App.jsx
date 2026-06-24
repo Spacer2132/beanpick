@@ -17,12 +17,14 @@ import {
   getRepresentativePriceOption,
   groupProductsByNameAndWeight,
   isDecafProduct,
+  isGroundCoffeeProduct,
   isOnePlusOneProduct,
   isRealProductUrl,
   matchesCapacityFilter,
   matchesNoteQuery,
   matchesSmartSearch,
   normalizeProducts,
+  normalizeWholeBeanProductName,
   sortProducts,
 } from './services/coreFeatures.js';
 import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, saveProductSnapshot } from './services/monitoring.ts';
@@ -38,13 +40,14 @@ const NAV = [
 
 function productSearchText(product) {
   const displayInfo = formatProductDisplayInfo(product);
+  const cleanProductName = normalizeWholeBeanProductName(product.productName);
   const optionText = (product.priceOptions || [])
     .flatMap((option) => [option.weightLabel, option.priceLabel, option.unitPriceLabel])
     .filter(Boolean);
 
   return [
     product.roasterName,
-    product.productName,
+    cleanProductName,
     product.origin,
     product.process,
     product.roastLevel,
@@ -705,6 +708,7 @@ export default function App() {
   const visibleProducts = React.useMemo(() => (
     products.filter((product) => (
       !product.isSoldOut
+      && !isGroundCoffeeProduct(product)
       && matchesDetailQuery(product, searchQuery)
       && (activeNotes.length === 0 || activeNotes.some((note) => product.tastingNotes.includes(note)))
       && matchesNoteQuery(product, noteIncludeQuery, noteExcludeQuery)
