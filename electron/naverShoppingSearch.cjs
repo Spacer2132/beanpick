@@ -332,6 +332,15 @@ function ocrTextCachePathForImageUrl(imageUrl, options = {}) {
   return path.join(OCR_CACHE_DIR, `${hash}.txt`);
 }
 
+function cacheLogId(cachePath) {
+  return path.basename(cachePath).slice(0, 12);
+}
+
+function logOcrCache(event, engine, cachePath, extra = '') {
+  const suffix = extra ? ` ${extra}` : '';
+  console.log(`[beanpick:ocr-cache] ${engine} ${event} ${cacheLogId(cachePath)}${suffix}`);
+}
+
 function cachePathForImageUrl(imageUrl) {
   const urlPath = new URL(imageUrl).pathname;
   const extension = path.extname(urlPath).slice(0, 8) || '.jpg';
@@ -345,13 +354,22 @@ async function downloadImageToCache(imageUrl) {
   try {
     fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
     const imagePath = cachePathForImageUrl(imageUrl);
-    if (fs.existsSync(imagePath)) return imagePath;
+    if (fs.existsSync(imagePath)) {
+      logOcrCache('hit', 'image', imagePath);
+      return imagePath;
+    }
+
+    logOcrCache('miss', 'image', imagePath);
 
     const response = await fetch(imageUrl);
-    if (!response.ok) return '';
+    if (!response.ok) {
+      logOcrCache('fail', 'image', imagePath, `status=${response.status}`);
+      return '';
+    }
 
     const buffer = Buffer.from(await response.arrayBuffer());
     fs.writeFileSync(imagePath, buffer);
+    logOcrCache('save', 'image', imagePath, `bytes=${buffer.length}`);
     return imagePath;
   } catch {
     return '';
@@ -365,7 +383,12 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
   try {
     fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
     const textPath = ocrTextCachePathForImageUrl(imageUrl, options);
-    if (fs.existsSync(textPath)) return fs.readFileSync(textPath, 'utf8');
+    if (fs.existsSync(textPath)) {
+      logOcrCache('hit', 'paddle', textPath);
+      return fs.readFileSync(textPath, 'utf8');
+    }
+
+    logOcrCache('miss', 'paddle', textPath, `lang=${normalizePaddleOcrLang(options.lang)}`);
 
     const args = [
       path.join(__dirname, '..', 'scripts', 'paddle_ocr.py'),
@@ -388,8 +411,12 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
       });
     });
 
-    if (text == null) return '';
+    if (text == null) {
+      logOcrCache('fail', 'paddle', textPath);
+      return '';
+    }
     fs.writeFileSync(textPath, text, 'utf8');
+    logOcrCache('save', 'paddle', textPath, `chars=${text.length}`);
     return text;
   } catch {
     return '';
@@ -422,7 +449,10 @@ function parseGeminiNoteList(text) {
 
 async function readGeminiTasteNotesFromImageUrl(imageUrl) {
   const apiKey = process.env.GEMINI_API_KEY || '';
-  if (!apiKey) return '';
+  if (!apiKey) {
+    console.log('[beanpick:ocr-cache] gemini skip api-key-empty');
+    return '';
+  }
 
   const imagePath = await downloadImageToCache(imageUrl);
   if (!imagePath) return '';
@@ -430,7 +460,12 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
   try {
     fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
     const textPath = ocrTextCachePathForImageUrl(imageUrl, { engine: 'gemini', lang: 'gemini', psm: GEMINI_MODEL });
-    if (fs.existsSync(textPath)) return fs.readFileSync(textPath, 'utf8');
+    if (fs.existsSync(textPath)) {
+      logOcrCache('hit', 'gemini', textPath);
+      return fs.readFileSync(textPath, 'utf8');
+    }
+
+    logOcrCache('miss', 'gemini', textPath, `model=${GEMINI_MODEL}`);
 
     const base64Image = fs.readFileSync(imagePath).toString('base64');
     const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
@@ -447,11 +482,15 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
       }),
       signal: AbortSignal.timeout(15000),
     });
-    if (!response.ok) return '';
+    if (!response.ok) {
+      logOcrCache('fail', 'gemini', textPath, `status=${response.status}`);
+      return '';
+    }
 
     const json = await response.json();
     const text = json?.candidates?.[0]?.content?.parts?.[0]?.text || '';
     fs.writeFileSync(textPath, text, 'utf8');
+    logOcrCache('save', 'gemini', textPath, `chars=${text.length}`);
     return text;
   } catch {
     return '';

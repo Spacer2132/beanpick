@@ -672,7 +672,6 @@ export default function App() {
   // 상세 보기로 열어 둔 상품. 데이터가 새로고침돼도 id로 다시 찾는다.
   const [detailProductId, setDetailProductId] = React.useState(null);
   const [searchFocused, setSearchFocused] = React.useState(false);
-  const autoLoadStartedRef = React.useRef(false);
   const loadingRef = React.useRef(false);
   const loadProductsRef = React.useRef(null);
 
@@ -958,12 +957,6 @@ export default function App() {
   }
 
   loadProductsRef.current = handleLoadProducts;
-
-  React.useEffect(() => {
-    if (autoLoadStartedRef.current || !canLoadLiveProducts()) return;
-    autoLoadStartedRef.current = true;
-    handleLoadProducts();
-  }, []);
 
   // 일반 웹에서는 PC 앱이 게시한 products.json 스냅샷을 먼저 읽어 아이폰용 목록으로 보여준다.
   React.useEffect(() => {
@@ -1345,7 +1338,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                   type="range"
                   min="-1"
                   max="1"
-                  step="0.05"
+                  step="0.5"
                   value={tasteAxis === null ? 0 : tasteAxis}
                   onChange={(event) => setTasteAxis(parseFloat(event.target.value))}
                   className={tasteAxis === null ? 'is-disabled' : 'is-active'}
@@ -1355,15 +1348,35 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                   <span className="label-value">
                     {tasteAxis === null
                       ? '슬라이더를 조작해 입맛에 맞춰보세요'
-                      : tasteAxis <= -0.6
-                      ? '산뜻·상큼'
-                      : tasteAxis <= -0.2
-                      ? '새콤한 편'
-                      : tasteAxis <= 0.2
-                      ? '밸런스'
-                      : tasteAxis <= 0.6
-                      ? '고소한 편'
-                      : '고소·묵직'}
+                      : (() => {
+                          const getCountForAxis = (axis) => {
+                            return products.filter((p) => {
+                              if (p.acidityScore === null || p.acidityScore === undefined) return false;
+                              const axes = [-1.0, -0.5, 0.0, 0.5, 1.0];
+                              let minD = Infinity;
+                              let closestAxis = 0;
+                              axes.forEach((ax) => {
+                                const d = Math.abs(p.acidityScore + ax);
+                                if (d < minD) {
+                                  minD = d;
+                                  closestAxis = ax;
+                                }
+                              });
+                              return closestAxis === axis;
+                            }).length;
+                          };
+                          const count = getCountForAxis(tasteAxis);
+                          const label = tasteAxis === -1.0
+                            ? '산뜻·상큼'
+                            : tasteAxis === -0.5
+                            ? '새콤한 편'
+                            : tasteAxis === 0
+                            ? '밸런스'
+                            : tasteAxis === 0.5
+                            ? '고소한 편'
+                            : '고소·묵직';
+                          return `${label} (${count}개)`;
+                        })()}
                   </span>
                   <span className="label-right">고소·묵직형</span>
                 </div>
