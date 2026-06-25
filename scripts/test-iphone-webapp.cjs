@@ -122,6 +122,16 @@ async function main() {
     '가격순 정렬은 100g당 정렬과 겹치므로 화면에서 제거해야 합니다',
   );
 
+  const electronMainSource = fs.readFileSync('electron/main.cjs', 'utf8');
+  expect(
+    /오늘의 원두 불러오기/.test(electronMainSource) && /button\.click\(\)/.test(electronMainSource),
+    '자동 게시 러너는 앱 시작 후 원두 불러오기 버튼을 직접 눌러야 합니다',
+  );
+  expect(
+    /app\.exit\(process\.exitCode \|\| 0\)/.test(electronMainSource),
+    '자동 게시 실패 시 Electron 종료 코드가 GitHub Actions 실패로 전달되어야 합니다',
+  );
+
   if (failures.length > 0) {
     console.error('[iphone-webapp:test] 실패');
     failures.forEach((failure) => console.error(` - ${failure}`));

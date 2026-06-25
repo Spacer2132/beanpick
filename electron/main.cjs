@@ -174,6 +174,28 @@ async function waitForRendererState(window, script, timeoutMs, label) {
   throw new Error(`${label} 시간이 초과됐습니다. 마지막 상태: ${lastState?.message || '확인 불가'}`);
 }
 
+async function clickRendererButton(window, label) {
+  const state = await window.webContents.executeJavaScript(`
+    (() => {
+      const targetLabel = ${JSON.stringify(label)};
+      const buttons = [...document.querySelectorAll('button')];
+      const button = buttons.find((item) => (item.innerText || '').trim() === targetLabel);
+      if (!button) {
+        return { ok: false, message: targetLabel + ' 버튼을 찾지 못했습니다.' };
+      }
+      if (button.disabled) {
+        return { ok: false, message: targetLabel + ' 버튼이 비활성화되어 있습니다.' };
+      }
+      button.click();
+      return { ok: true };
+    })()
+  `, true);
+
+  if (!state?.ok) {
+    throw new Error(state?.message || `${label} 버튼 실행 실패`);
+  }
+}
+
 async function runIphoneSnapshotPublish() {
   const mainWindow = new BrowserWindow({
     width: 1440,
@@ -194,6 +216,7 @@ async function runIphoneSnapshotPublish() {
 
   try {
     await mainWindow.loadFile(path.join(__dirname, '..', 'dist', 'index.html'));
+    await clickRendererButton(mainWindow, '오늘의 원두 불러오기');
 
     const loadState = await waitForRendererState(mainWindow, `
       (() => {
@@ -234,24 +257,7 @@ async function runIphoneSnapshotPublish() {
       return;
     }
 
-    const clickState = await mainWindow.webContents.executeJavaScript(`
-      (() => {
-        const buttons = [...document.querySelectorAll('button')];
-        const button = buttons.find((item) => (item.innerText || '').trim() === '아이폰 게시');
-        if (!button) {
-          return { ok: false, message: '아이폰 게시 버튼을 찾지 못했습니다.' };
-        }
-        if (button.disabled) {
-          return { ok: false, message: '아이폰 게시 버튼이 비활성화되어 있습니다.' };
-        }
-        button.click();
-        return { ok: true };
-      })()
-    `, true);
-
-    if (!clickState?.ok) {
-      throw new Error(clickState?.message || '아이폰 게시 버튼 실행 실패');
-    }
+    await clickRendererButton(mainWindow, '아이폰 게시');
 
     const publishState = await waitForRendererState(mainWindow, `
       (() => {
@@ -1211,7 +1217,7 @@ app.whenReady().then(() => {
         process.exitCode = 1;
       })
       .finally(() => {
-        app.quit();
+        app.exit(process.exitCode || 0);
       });
     return;
   }
