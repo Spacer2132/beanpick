@@ -446,18 +446,33 @@ function compactDisplayText(value) {
     .trim();
 }
 
-function formatBlendDisplayName(cleanName) {
+function formatBlendDisplayName(cleanName, roasterName = '') {
   const name = String(cleanName || '').trim();
-  const blendName = name
+  let blendName = name
     .replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1')
     .replace(/^블랜딩(?:\s*[-–—:]\s*|\s+)/, '')
     .replace(/^블[렌랜]드(?:\s*[-–—:]\s*|\s+)/, '')
     .replace(/^blend(?:\s*[-–—:]\s*|\s+)/i, '')
     .replace(/\bspecialty\s+blend\b/i, '')
-    .replace(/\s+블[렌랜]드$/, '')
-    .replace(/\s+블랜딩$/, '')
-    .replace(/\s+blend$/i, '')
+    .replace(/\s*블[렌랜]드\s*/g, ' ')
+    .replace(/\s*블랜딩\s*/g, ' ')
+    .replace(/\s*blend\s*/gi, ' ')
+    .replace(/\s+/g, ' ')
     .trim();
+
+  // 뒤에 붙은 '원두'나 '커피'가 있고, 이를 지워도 다른 단어가 남는 경우에만 제거 (예: "칠린 원두" -> "칠린")
+  if (blendName.endsWith('원두') && blendName.length > 2) {
+    blendName = blendName.slice(0, -2).trim();
+  }
+  if (blendName.endsWith('커피') && blendName.length > 2) {
+    blendName = blendName.slice(0, -2).trim();
+  }
+
+  // 필아웃커피 예외 처리: "블렌드 원두" 상품명을 "블렌드 - 필브라운"으로 변경
+  if (roasterName === '필아웃커피' && (blendName === '원두' || cleanName === '블렌드 원두')) {
+    blendName = '필브라운';
+  }
+
   if (!blendName) return '블렌드';
   return `블렌드 - ${blendName}`;
 }
@@ -569,7 +584,7 @@ function formatProductDisplayInfo(product) {
   const isExplicitBlend = isBlendProduct(product) || processRule?.label === '블렌드';
   const implicitBlendName = compactDisplayText(cleanName.replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1'));
   const isKnownImplicitBlend = IMPLICIT_BLEND_NAME_RULES.some((rule) => (
-    rule.roasterPattern.test(product.roasterName || '') && rule.names.includes(implicitBlendName)
+    rule.roasterPattern.test(product.roasterName || '') && rule.names.some((name) => implicitBlendName.includes(name))
   ));
   // 일부 로스터의 고유 상품명은 공식 표기에서 블렌드명으로 쓰인다.
   const looksLikeBlend = isExplicitBlend || (isKnownImplicitBlend && !hasCountry && !hasVariety && !processRule);
@@ -578,7 +593,7 @@ function formatProductDisplayInfo(product) {
   if (shouldUseSimpleDisplay) {
     // 블렌드나 정보가 부족한 상품은 부제 줄을 비워 두고 실제 테이스팅 노트를 우선 보여준다.
     return {
-      primary: looksLikeBlend ? formatBlendDisplayName(cleanName) : cleanName,
+      primary: looksLikeBlend ? formatBlendDisplayName(cleanName, product.roasterName) : cleanName,
       variety: '',
       process: '',
       farm: '',
