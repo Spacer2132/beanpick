@@ -259,7 +259,7 @@ function isBlendProduct(product) {
     product.process,
   ].filter(Boolean).join(' ').toLowerCase();
 
-  return /\bblend\b|블[렌랜]드|블랜딩/.test(text);
+  return /\bblend\b|블[렌랜]드|블[렌랜]딩/.test(text);
 }
 
 function pickFeaturedProducts(products, limit = 8) {
@@ -370,7 +370,7 @@ const PROCESS_DISPLAY_RULES = [
   { label: '워시드', aliases: ['washed', 'wash', '워시드', '워시'] },
   { label: '내추럴', aliases: ['natural', '내추럴', '네추럴'] },
   { label: '허니', aliases: ['honey', '허니'] },
-  { label: '블렌드', aliases: ['blend', '블렌드', '블랜드', '블랜딩'] },
+  { label: '블렌드', aliases: ['blend', '블렌드', '블랜드', '블랜딩', '블렌딩'] },
 ];
 
 const VARIETY_DISPLAY_RULES = [
@@ -411,6 +411,11 @@ const IMPLICIT_BLEND_NAME_RULES = [
   { roasterPattern: /헬카페/, names: ['헬카페 클래식 커피'] },
   { roasterPattern: /나무사이로/, names: ['PiCK! 숲', 'PiCK! 고소'] },
   { roasterPattern: /프릳츠/, names: ['올드독', '잘 되어 가시나', '서울 시네마'] },
+  { roasterPattern: /커피정경/, names: ['배합커피#1 소로', '배합커피#2 경주', '배합커피#3 플뤼겔혼', '소로', '경주', '플뤼겔혼'] },
+  { roasterPattern: /말릭/, names: ['로프F', '로프결제 M', '로프'] },
+  { roasterPattern: /필아웃/, names: ['시나몬 게이트', '칵테일 게이트', '시나몬 게이트 원두', '칵테일 게이트 원두'] },
+  { roasterPattern: /히떼/, names: ['리볼브', '포스트업', '굿데이', '굿데이 다크', '낙성대'] },
+  { roasterPattern: /루비아/, names: ['시에나', '다크 브라운', '여름 시즈널 블렌딩 화채', '화채', '피렌체', '클래식 이탈리안 스타일 피렌체', '워터멜론 수박맛 라이트 로스트', '워터멜론 수박맛 라이트 로스트 커피원두'] },
 ];
 
 function hasAlias(text, aliases) {
@@ -450,12 +455,12 @@ function formatBlendDisplayName(cleanName, roasterName = '') {
   const name = String(cleanName || '').trim();
   let blendName = name
     .replace(/^원두(?:\s*[-–—:]\s*|\s+)(.+)/, '$1')
-    .replace(/^블랜딩(?:\s*[-–—:]\s*|\s+)/, '')
+    .replace(/^블[렌랜]딩(?:\s*[-–—:]\s*|\s+)/, '')
     .replace(/^블[렌랜]드(?:\s*[-–—:]\s*|\s+)/, '')
     .replace(/^blend(?:\s*[-–—:]\s*|\s+)/i, '')
     .replace(/\bspecialty\s+blend\b/i, '')
     .replace(/\s*블[렌랜]드\s*/g, ' ')
-    .replace(/\s*블랜딩\s*/g, ' ')
+    .replace(/\s*블[렌랜]딩\s*/g, ' ')
     .replace(/\s*blend\s*/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();

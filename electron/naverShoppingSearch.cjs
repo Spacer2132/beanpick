@@ -555,7 +555,7 @@ const TASTING_NOTE_PATTERNS = [
   ['말린살구', /말린살구|dried apricot/i],
   // Fruity - Tree Fruit (과일향 - 나무 과일)
   ['사과', /사과|(?<!pine)apple/i],
-  ['배', /배|pear/i],
+  ['배', /\bpear\b|서양배/i],
   ['살구', /살구|apricot/i],
   ['복숭아', /복숭아|복승아|peach/i],
   ['체리', /체리|cherry/i],

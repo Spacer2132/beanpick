@@ -305,6 +305,25 @@ if (remainingIds.includes('identity-test-wb-2') || remainingIds.includes('identi
   throw new Error(`스마트스토어 홀빈 필터 테스트에서 분쇄 전용 상품이 제외되지 않았습니다: ${remainingIds.join(', ')}`);
 }
 
+// OCR/배 컵노트 오염 방지 테스트
+const testText1 = '중강배전으로 볶은 깊은 단맛';
+const ocrNotes1 = _test.extractFlavorNotesAnywhere(testText1);
+if (ocrNotes1.includes('배')) {
+  throw new Error(`배전 문구 오염: "${testText1}" 결과에 "배"가 검출되었습니다: ${JSON.stringify(ocrNotes1)}`);
+}
+
+const testText2 = '배합커피#1 소로';
+const ocrNotes2 = _test.extractFlavorNotesAnywhere(testText2);
+if (ocrNotes2.includes('배')) {
+  throw new Error(`배합 문구 오염: "${testText2}" 결과에 "배"가 검출되었습니다: ${JSON.stringify(ocrNotes2)}`);
+}
+
+const testText3 = '약배전 온두라스 허니';
+const ocrNotes3 = _test.extractFlavorNotesAnywhere(testText3);
+if (ocrNotes3.includes('배')) {
+  throw new Error(`배전 문구 오염: "${testText3}" 결과에 "배"가 검출되었습니다: ${JSON.stringify(ocrNotes3)}`);
+}
+
 testSmartStoreSearch()
   .then((result) => {
     console.log(result.message);

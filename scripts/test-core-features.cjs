@@ -428,6 +428,30 @@ const momosExplicitBlendPrefixDisplayInfo = core.formatProductDisplayInfo({
 });
 expect(momosExplicitBlendPrefixDisplayInfo.primary === '블렌드 - 에스쇼콜라', '원두 뒤에 블렌드가 있어도 블렌드를 중복 표시하면 안 됩니다', JSON.stringify(momosExplicitBlendPrefixDisplayInfo));
 
+const hitteRevolveDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '히떼 로스터리',
+  productName: '리볼브 200g',
+});
+expect(hitteRevolveDisplayInfo.primary === '블렌드 - 리볼브', '히떼 리볼브는 고유명 암묵 블렌드로 표시해야 합니다', JSON.stringify(hitteRevolveDisplayInfo));
+
+const coffeeJgSoroDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '커피정경 로스터리',
+  productName: '배합커피#1 소로 200g',
+});
+expect(coffeeJgSoroDisplayInfo.primary === '블렌드 - 배합커피#1 소로', '커피정경 배합커피#1 소로는 블렌드로 표시해야 합니다', JSON.stringify(coffeeJgSoroDisplayInfo));
+
+const rubiaHwacheDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '루비아 커피',
+  productName: '여름 시즈널 블렌딩 화채(Hwache) 수박맛 커피 200g',
+});
+expect(rubiaHwacheDisplayInfo.primary === '블렌드 - 여름 시즈널 화채 수박맛', '루비아 여름 시즈널 블렌딩 화채는 블렌드로 표시해야 합니다', JSON.stringify(rubiaHwacheDisplayInfo));
+
+const filloutCinnamonDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '필아웃커피',
+  productName: '시나몬 게이트 원두 200g',
+});
+expect(filloutCinnamonDisplayInfo.primary === '블렌드 - 시나몬 게이트', '필아웃 시나몬 게이트 원두는 블렌드로 표시해야 합니다', JSON.stringify(filloutCinnamonDisplayInfo));
+
 const momosDashedExplicitBlendPrefixDisplayInfo = core.formatProductDisplayInfo({
   roasterName: '모모스커피',
   productName: '원두 - 블렌드 에스쇼콜라 200g',
