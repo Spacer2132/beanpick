@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const path = require('node:path');
 const esbuild = require('esbuild');
 
 function loadJsModule(filePath) {
@@ -130,6 +131,18 @@ async function main() {
   expect(
     /app\.exit\(process\.exitCode \|\| 0\)/.test(electronMainSource),
     '자동 게시 실패 시 Electron 종료 코드가 GitHub Actions 실패로 전달되어야 합니다',
+  );
+
+  const docsIndexSource = fs.readFileSync('docs/index.html', 'utf8');
+  const docsScriptPath = docsIndexSource.match(/src="\.\/([^"]+\.js)"/)?.[1] || '';
+  const docsStylePath = docsIndexSource.match(/href="\.\/([^"]+\.css)"/)?.[1] || '';
+  expect(docsScriptPath && fs.existsSync(path.join('docs', docsScriptPath)), '아이폰 웹앱 HTML은 실제 존재하는 JS 번들을 가리켜야 합니다', docsScriptPath);
+  expect(docsStylePath && fs.existsSync(path.join('docs', docsStylePath)), '아이폰 웹앱 HTML은 실제 존재하는 CSS 번들을 가리켜야 합니다', docsStylePath);
+
+  const workflowSource = fs.readFileSync('.github/workflows/publish-iphone-snapshot.yml', 'utf8');
+  expect(
+    /node scripts\/prepare-pages\.cjs/.test(workflowSource) && /git add docs/.test(workflowSource),
+    '자동 아이폰 게시 workflow는 products.json뿐 아니라 docs 앱 번들도 게시해야 합니다',
   );
 
   if (failures.length > 0) {

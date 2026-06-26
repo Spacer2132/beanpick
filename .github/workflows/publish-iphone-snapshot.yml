@@ -73,5 +73,18 @@ jobs:
       - name: Build app
         run: npm run build
 
+      - name: Prepare GitHub Pages app
+        run: node scripts/prepare-pages.cjs
+
+      - name: Publish GitHub Pages app
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if ! git diff --cached --quiet; then
+            git commit -m "Update BeanPick iPhone web app"
+            git push
+          fi
+
       - name: Load beans and publish iPhone snapshot
         run: xvfb-run -a npm run iphone:snapshot:publish
