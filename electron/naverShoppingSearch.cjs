@@ -376,8 +376,12 @@ async function downloadImageToCache(imageUrl) {
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000);
-    const response = await fetch(imageUrl, { signal: controller.signal });
-    clearTimeout(timeoutId);
+    let response;
+    try {
+      response = await fetch(imageUrl, { signal: controller.signal });
+    } finally {
+      clearTimeout(timeoutId);
+    }
     if (!response.ok) {
       logOcrCache('fail', 'image', imagePath, `status=${response.status}`);
       return '';
