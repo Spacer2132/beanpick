@@ -484,20 +484,27 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
     logOcrCache('miss', 'gemini', textPath, `model=${GEMINI_MODEL}`);
 
     const base64Image = fs.readFileSync(imagePath).toString('base64');
-    const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          parts: [
-            { text: GEMINI_NOTE_PROMPT },
-            { inlineData: { mimeType: guessImageMimeType(imagePath), data: base64Image } },
-          ],
-        }],
-        generationConfig: { temperature: 0 },
-      }),
-      signal: AbortSignal.timeout(15000),
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    let response;
+    try {
+      response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [
+              { text: GEMINI_NOTE_PROMPT },
+              { inlineData: { mimeType: guessImageMimeType(imagePath), data: base64Image } },
+            ],
+          }],
+          generationConfig: { temperature: 0 },
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timeoutId);
+    }
     if (!response.ok) {
       logOcrCache('fail', 'gemini', textPath, `status=${response.status}`);
       return '';
@@ -964,14 +971,21 @@ async function searchNaverShopping(sourceId) {
   url.searchParams.set('start', '1');
   url.searchParams.set('sort', 'sim');
 
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'X-Naver-Client-Id': config.clientId,
-      'X-Naver-Client-Secret': config.clientSecret,
-    },
-    signal: AbortSignal.timeout(15000),
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  let response;
+  try {
+    response = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'X-Naver-Client-Id': config.clientId,
+        'X-Naver-Client-Secret': config.clientSecret,
+      },
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
   const body = await response.json().catch(() => ({}));
 
   if (!response.ok) {

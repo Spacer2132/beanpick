@@ -296,10 +296,17 @@ function parseGithubSnapshotContent(content) {
 }
 
 async function readExistingFile({ fetchImpl, token, owner, repo, path, branch }) {
-  const response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
-    headers: githubHeaders(token),
-    signal: AbortSignal.timeout(15000),
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  let response;
+  try {
+    response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
+      headers: githubHeaders(token),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (response.ok) {
     const json = await response.json();
@@ -360,12 +367,19 @@ async function publishProductsToGitHub({
       };
       if (sha) body.sha = sha;
 
-      const response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
-        method: 'PUT',
-        headers: githubHeaders(token),
-        body: JSON.stringify(body),
-        signal: AbortSignal.timeout(15000),
-      });
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
+      let response;
+      try {
+        response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
+          method: 'PUT',
+          headers: githubHeaders(token),
+          body: JSON.stringify(body),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
 
       if (response.ok) {
         json = await response.json();

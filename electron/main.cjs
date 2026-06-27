@@ -811,6 +811,8 @@ async function fetchDetailPages(urls, cookie) {
   const pages = [];
 
   for (const url of urls) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
     try {
       const response = await fetch(url, {
         headers: {
@@ -819,14 +821,16 @@ async function fetchDetailPages(urls, cookie) {
           Referer: TERAROSA_PRODUCT_LIST_URL,
           ...(cookie ? { Cookie: cookie } : {}),
         },
-        signal: AbortSignal.timeout(15000),
+        signal: controller.signal,
       });
 
       if (response.ok) {
         pages.push({ url, html: await response.text() });
       }
     } catch {
-      // ?�세 ?�이지 ?��?가 ?�패?�도 ?�머지 ?�품?� 계속 보여줍니??
+      // 상세페이지 로드 실패 시 무시
+    } finally {
+      clearTimeout(timeoutId);
     }
   }
 
