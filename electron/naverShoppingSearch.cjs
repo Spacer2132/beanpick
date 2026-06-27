@@ -375,7 +375,7 @@ async function downloadImageToCache(imageUrl) {
     logOcrCache('miss', 'image', imagePath);
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
     const response = await fetch(imageUrl, { signal: controller.signal });
     clearTimeout(timeoutId);
     if (!response.ok) {
@@ -485,7 +485,7 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
 
     const base64Image = fs.readFileSync(imagePath).toString('base64');
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
     let response;
     try {
       response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
@@ -972,7 +972,7 @@ async function searchNaverShopping(sourceId) {
   url.searchParams.set('sort', 'sim');
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
   let response;
   try {
     response = await fetch(url, {

@@ -297,7 +297,7 @@ function parseGithubSnapshotContent(content) {
 
 async function readExistingFile({ fetchImpl, token, owner, repo, path, branch }) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
   let response;
   try {
     response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
@@ -368,7 +368,7 @@ async function publishProductsToGitHub({
       if (sha) body.sha = sha;
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000);
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
       let response;
       try {
         response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {

@@ -603,7 +603,7 @@ function extractDetailUrls(html) {
 
 async function fetchHtmlPage(url, referer) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
   try {
     const response = await fetch(url, {
       headers: {
@@ -753,7 +753,7 @@ async function fetchTerarosaApiRows(cookie, csrfToken) {
 
   for (let pageNumber = 1; pageNumber <= totalPages && pageNumber <= MAX_CATEGORY_PAGES; pageNumber += 1) {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
     try {
       const apiResponse = await fetch(TERAROSA_PRODUCT_API_URL, {
         method: 'POST',
@@ -812,7 +812,7 @@ async function fetchDetailPages(urls, cookie) {
 
   for (const url of urls) {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
     try {
       const response = await fetch(url, {
         headers: {
@@ -938,7 +938,7 @@ async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
 
 async function fetchTerarosaProducts() {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
   let htmlResponse;
   try {
     htmlResponse = await fetch(TERAROSA_PRODUCT_LIST_URL, {
@@ -980,7 +980,7 @@ async function fetchTerarosaProducts() {
     };
   } catch (error) {
     const fallbackController = new AbortController();
-    const fallbackTimeoutId = setTimeout(() => fallbackController.abort(), 15000);
+    const fallbackTimeoutId = setTimeout(() => fallbackController.abort(), 5000);
     let fallbackResponse;
     try {
       fallbackResponse = await fetch(TERAROSA_SOURCE_URL, {
