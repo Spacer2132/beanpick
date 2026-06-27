@@ -298,6 +298,7 @@ function parseGithubSnapshotContent(content) {
 async function readExistingFile({ fetchImpl, token, owner, repo, path, branch }) {
   const response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
     headers: githubHeaders(token),
+    signal: AbortSignal.timeout(15000),
   });
 
   if (response.ok) {
@@ -363,6 +364,7 @@ async function publishProductsToGitHub({
         method: 'PUT',
         headers: githubHeaders(token),
         body: JSON.stringify(body),
+        signal: AbortSignal.timeout(15000),
       });
 
       if (response.ok) {
