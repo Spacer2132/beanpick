@@ -601,6 +601,37 @@ function extractDetailUrls(html) {
   return [...new Set(urls)];
 }
 
+async function fetchHtmlPage(url, referer) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'User-Agent': 'BeanPick/0.1 local desktop app',
+        Referer: referer,
+      },
+      signal: controller.signal,
+    });
+
+    if (!response.ok) return null;
+
+    const text = await response.text();
+    const trimmed = text.trim();
+    if (trimmed.startsWith('{')) {
+      const body = JSON.parse(trimmed);
+      return { url, html: String(body.html || '') };
+    }
+
+    return { url, html: text };
+  } catch (error) {
+    console.error(`[beanpick:fetchHtmlPage-fail] url=${url} error:`, error);
+    return null;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 function extractAnchorProductIds(html, categoryNo) {
   return [...html.matchAll(/<li\s+id=["']anchorBoxId_([^"']+)["'][\s\S]*?(?=<li\s+id=["']anchorBoxId_|<\/ul>)/gi)]
     .filter((match) => !categoryNo || match[0].includes('/category/' + categoryNo + '/') || match[0].includes('category/' + categoryNo) || match[0].includes('cate_no=' + categoryNo))
@@ -625,27 +656,6 @@ function buildOfficialMallPageUrl(config, pageNumber) {
   if (pageNumber === 1) return config.sourceUrl;
   const separator = config.sourceUrl.includes('?') ? '&' : '?';
   return config.sourceUrl + separator + 'page=' + pageNumber;
-}
-
-async function fetchHtmlPage(url, referer) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'text/html,application/xhtml+xml,application/xml,application/json;q=0.9,*/*;q=0.8',
-      'User-Agent': 'BeanPick/0.1 local desktop app',
-      Referer: referer,
-    },
-  });
-
-  if (!response.ok) return null;
-
-  const text = await response.text();
-  const trimmed = text.trim();
-  if (trimmed.startsWith('{')) {
-    const body = JSON.parse(trimmed);
-    return { url, html: String(body.html || '') };
-  }
-
-  return { url, html: text };
 }
 
 function decodeHtmlEntities(value) {
@@ -742,46 +752,56 @@ async function fetchTerarosaApiRows(cookie, csrfToken) {
   let totalPages = 1;
 
   for (let pageNumber = 1; pageNumber <= totalPages && pageNumber <= MAX_CATEGORY_PAGES; pageNumber += 1) {
-    const apiResponse = await fetch(TERAROSA_PRODUCT_API_URL, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json, text/javascript, */*; q=0.01',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'User-Agent': 'BeanPick/0.1 local desktop app',
-        'X-Requested-With': 'XMLHttpRequest',
-        Referer: TERAROSA_PRODUCT_LIST_URL,
-        ...(cookie ? { Cookie: cookie } : {}),
-        ...(csrfToken ? { 'X-CSRF-TOKEN': csrfToken } : {}),
-      },
-      body: new URLSearchParams({
-        Category: TERAROSA_CATEGORY_NO,
-        OrderBy: '',
-        SearchText: '',
-        Event: '',
-        rmin: '',
-        rmax: '',
-        sub: '',
-        gubun: 'product-list',
-        GotoPage: String(pageNumber),
-        PageSize: String(TERAROSA_PAGE_SIZE),
-      }),
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    try {
+      const apiResponse = await fetch(TERAROSA_PRODUCT_API_URL, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/javascript, */*; q=0.01',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'User-Agent': 'BeanPick/0.1 local desktop app',
+          'X-Requested-With': 'XMLHttpRequest',
+          Referer: TERAROSA_PRODUCT_LIST_URL,
+          ...(cookie ? { Cookie: cookie } : {}),
+          ...(csrfToken ? { 'X-CSRF-TOKEN': csrfToken } : {}),
+        },
+        body: new URLSearchParams({
+          Category: TERAROSA_CATEGORY_NO,
+          OrderBy: '',
+          SearchText: '',
+          Event: '',
+          rmin: '',
+          rmax: '',
+          sub: '',
+          gubun: 'product-list',
+          GotoPage: String(pageNumber),
+          PageSize: String(TERAROSA_PAGE_SIZE),
+        }),
+        signal: controller.signal,
+      });
 
-    if (!apiResponse.ok) {
-      throw new Error('Terarosa product API request failed (' + apiResponse.status + ')');
+      if (!apiResponse.ok) {
+        throw new Error('Terarosa product API request failed (' + apiResponse.status + ')');
+      }
+
+      const apiJson = JSON.parse(await apiResponse.text());
+      if (apiJson?.guard === 'fail') {
+        throw new Error('Terarosa product API guard failed: ' + (apiJson.reason || 'unknown'));
+      }
+
+      const pageRows = extractTerarosaRows(apiJson);
+      if (pageRows.length === 0) break;
+
+      const pageCount = Number(pageRows[0]?.totalpage || apiJson?.totalpage || totalPages);
+      if (Number.isFinite(pageCount) && pageCount > 0) totalPages = pageCount;
+      rows.push(...pageRows);
+    } catch (error) {
+      console.error(`[beanpick:fetchTerarosaApiRows-fail] page=${pageNumber} error:`, error);
+      throw error;
+    } finally {
+      clearTimeout(timeoutId);
     }
-
-    const apiJson = JSON.parse(await apiResponse.text());
-    if (apiJson?.guard === 'fail') {
-      throw new Error('Terarosa product API guard failed: ' + (apiJson.reason || 'unknown'));
-    }
-
-    const pageRows = extractTerarosaRows(apiJson);
-    if (pageRows.length === 0) break;
-
-    const pageCount = Number(pageRows[0]?.totalpage || apiJson?.totalpage || totalPages);
-    if (Number.isFinite(pageCount) && pageCount > 0) totalPages = pageCount;
-    rows.push(...pageRows);
   }
 
   return rows;
@@ -799,6 +819,7 @@ async function fetchDetailPages(urls, cookie) {
           Referer: TERAROSA_PRODUCT_LIST_URL,
           ...(cookie ? { Cookie: cookie } : {}),
         },
+        signal: AbortSignal.timeout(15000),
       });
 
       if (response.ok) {
@@ -912,13 +933,24 @@ async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
 }
 
 async function fetchTerarosaProducts() {
-  const htmlResponse = await fetch(TERAROSA_PRODUCT_LIST_URL, {
-    headers: {
-      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'User-Agent': 'BeanPick/0.1 local desktop app',
-      Referer: TERAROSA_SOURCE_URL,
-    },
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+  let htmlResponse;
+  try {
+    htmlResponse = await fetch(TERAROSA_PRODUCT_LIST_URL, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'User-Agent': 'BeanPick/0.1 local desktop app',
+        Referer: TERAROSA_SOURCE_URL,
+      },
+      signal: controller.signal,
+    });
+  } catch (error) {
+    console.error('[beanpick:fetchTerarosaProducts-fail] list request error:', error);
+    throw new Error('Terarosa product page request failed: ' + error.message);
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (!htmlResponse.ok) {
     throw new Error('Terarosa product page request failed (' + htmlResponse.status + ')');
@@ -943,15 +975,25 @@ async function fetchTerarosaProducts() {
       sourceUrl: TERAROSA_PRODUCT_LIST_URL,
     };
   } catch (error) {
-    const fallbackResponse = await fetch(TERAROSA_SOURCE_URL, {
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': 'BeanPick/0.1 local desktop app',
-        Referer: TERAROSA_PRODUCT_LIST_URL,
-        ...(cookie ? { Cookie: cookie } : {}),
-      },
-    });
-    const fallbackHtml = fallbackResponse.ok ? await fallbackResponse.text() : html;
+    const fallbackController = new AbortController();
+    const fallbackTimeoutId = setTimeout(() => fallbackController.abort(), 15000);
+    let fallbackResponse;
+    try {
+      fallbackResponse = await fetch(TERAROSA_SOURCE_URL, {
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'User-Agent': 'BeanPick/0.1 local desktop app',
+          Referer: TERAROSA_PRODUCT_LIST_URL,
+          ...(cookie ? { Cookie: cookie } : {}),
+        },
+        signal: fallbackController.signal,
+      });
+    } catch (fallbackError) {
+      console.error('[beanpick:fetchTerarosaProducts-fail] fallback request error:', fallbackError);
+    } finally {
+      clearTimeout(fallbackTimeoutId);
+    }
+    const fallbackHtml = fallbackResponse && fallbackResponse.ok ? await fallbackResponse.text() : html;
 
     const detailPages = await attachTerarosaOcrText(await fetchDetailPages(extractDetailUrls(fallbackHtml), cookie));
 

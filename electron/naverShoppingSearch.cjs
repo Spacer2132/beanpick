@@ -374,7 +374,10 @@ async function downloadImageToCache(imageUrl) {
 
     logOcrCache('miss', 'image', imagePath);
 
-    const response = await fetch(imageUrl);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const response = await fetch(imageUrl, { signal: controller.signal });
+    clearTimeout(timeoutId);
     if (!response.ok) {
       logOcrCache('fail', 'image', imagePath, `status=${response.status}`);
       return '';
@@ -967,6 +970,7 @@ async function searchNaverShopping(sourceId) {
       'X-Naver-Client-Id': config.clientId,
       'X-Naver-Client-Secret': config.clientSecret,
     },
+    signal: AbortSignal.timeout(15000),
   });
   const body = await response.json().catch(() => ({}));
 

@@ -903,7 +903,9 @@ export default function App() {
       // 끝난 로스터리부터 바로 화면에 반영한다. 느린 곳을 기다리지 않는다.
       await Promise.all(tasks.map(async (task) => {
         try {
+          console.log(`[beanpick:load-start] ${task.label}`);
           const sourceProducts = await task.fetchProducts();
+          console.log(`[beanpick:load-success] ${task.label} (${sourceProducts.length} products)`);
           loadedProducts.push(...sourceProducts);
           sourceCounts.push(`${task.label} ${sourceProducts.length}개`);
 
@@ -912,6 +914,7 @@ export default function App() {
             setDataMode('live');
           }
         } catch (error) {
+          console.error(`[beanpick:load-fail] ${task.label} error:`, error);
           warnings.push(error instanceof Error ? error.message : `${task.label} 데이터를 가져오지 못했습니다.`);
         } finally {
           completedCount += 1;
