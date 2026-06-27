@@ -400,6 +400,36 @@ async function clickSmartStoreCategoryLink(window, categoryId) {
   return false;
 }
 
+async function loadUrlWithTimeout(window, url, timeoutMs = 5000) {
+  let finished = false;
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      if (finished) return;
+      finished = true;
+      try {
+        window.webContents.stop();
+      } catch (err) {
+        // 무시
+      }
+      reject(new Error(`loadURL timeout: ${url}`));
+    }, timeoutMs);
+
+    window.loadURL(url)
+      .then(() => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(timer);
+        resolve();
+      })
+      .catch((err) => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(timer);
+        reject(err);
+      });
+  });
+}
+
 async function crawlSmartStoreCategory(categoryUrl) {
   const hiddenWindow = new BrowserWindow({
     width: 1280,
@@ -416,11 +446,11 @@ async function crawlSmartStoreCategory(categoryUrl) {
     // 스토어 홈을 먼저 연 뒤 카테고리 링크를 클릭해 실제 사용자처럼 이동한다.
     const urlParts = categoryUrl.match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)\/category\/([a-z0-9]+)/i);
     if (urlParts) {
-      await hiddenWindow.loadURL(urlParts[1]);
+      await loadUrlWithTimeout(hiddenWindow, urlParts[1]);
       const clicked = await clickSmartStoreCategoryLink(hiddenWindow, urlParts[2]);
-      if (!clicked) await hiddenWindow.loadURL(categoryUrl);
+      if (!clicked) await loadUrlWithTimeout(hiddenWindow, categoryUrl);
     } else {
-      await hiddenWindow.loadURL(categoryUrl);
+      await loadUrlWithTimeout(hiddenWindow, categoryUrl);
     }
     const firstPage = await waitForSmartStoreProducts(hiddenWindow);
     const productMap = new Map(firstPage.products.map((product) => [product.id, product]));
@@ -466,7 +496,7 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
   });
 
   try {
-    await hiddenWindow.loadURL(storeHomeUrl);
+    await loadUrlWithTimeout(hiddenWindow, storeHomeUrl);
     const channelUid = await hiddenWindow.webContents.executeJavaScript(
       '(JSON.stringify(window.__PRELOADED_STATE__ || {}).match(/"channelUid"\\s*:\\s*"([^"]+)"/) || [])[1] || \'\'',
       true,
