@@ -41,6 +41,9 @@ const TERAROSA_ORIGIN = 'https://www.terarosa.com';
 const MOMOS_SOURCE_URL = 'https://momos.co.kr/category/%EC%9B%90%EB%91%90/42/';
 const MOMOS_CATEGORY_NO = '42';
 const MAX_CATEGORY_PAGES = 5;
+// 공식몰 상세보강(노트·재고)은 부가 기능이라 전체 시간 예산을 둔다.
+// 예산을 넘겨도 상품 목록은 항상 반환되어, 한 곳의 상세수집이 멈춰도 그 로스터 상품이 통째로 사라지지 않는다.
+const OFFICIAL_ENRICH_BUDGET_MS = 90000;
 const OFFICIAL_MALL_PAGE_CONFIGS = {
   fritz: {
     sourceUrl: 'https://fritz.co.kr/product/list.html?cate_no=48',
@@ -441,6 +444,15 @@ function executeJavaScriptWithTimeout(window, script, timeoutMs, fallback) {
   ]);
 }
 
+// 어떤 비동기 작업이든 Node 쪽 타이머로 무조건 끝나게 만든다.
+// AbortController가 (CI의 undici 환경에서) 멈춘 응답 본문 읽기를 못 끊는 경우를 대비한 이중 안전장치.
+function withTimeout(promise, timeoutMs, fallback) {
+  return Promise.race([
+    Promise.resolve(promise).catch(() => fallback),
+    delay(timeoutMs).then(() => fallback),
+  ]);
+}
+
 async function crawlSmartStoreCategory(categoryUrl) {
   const hiddenWindow = new BrowserWindow({
     width: 1280,
@@ -645,7 +657,14 @@ function extractDetailUrls(html) {
   return [...new Set(urls)];
 }
 
-async function fetchHtmlPage(url, referer) {
+function fetchHtmlPage(url, referer) {
+  // AbortController(12초)에 더해 Node 쪽 하드 타임아웃(15초)으로 이중 보호한다.
+  // CI에서 서버가 응답 본문을 멈춘 채 물고 있으면 abort 신호가 안 닿아 무한 대기하는데(발행 행의 실제 원인),
+  // 이때 Node 타이머가 무조건 null로 넘어가게 한다.
+  return withTimeout(fetchHtmlPageRaw(url, referer), 15000, null);
+}
+
+async function fetchHtmlPageRaw(url, referer) {
   const controller = new AbortController();
   // 공식몰 상세 페이지(werk·fritz·502·커피리브레 등)는 5초로는 자주 끊겨 노트가 누락된다.
   const timeoutId = setTimeout(() => controller.abort(), 12000);
@@ -1100,13 +1119,16 @@ function absolutizeImageUrl(src, baseUrl) {
   }
 }
 
-async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs = 100) {
+async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs = 100, deadlineAt = Infinity) {
   const stock = new Map();
   const info = new Map();
   let cursor = 0;
+  let skipped = 0;
 
   async function worker() {
     while (cursor < items.length) {
+      // 전체 시간 예산을 넘기면 남은 상품은 상세보강을 생략한다(상품 목록 자체는 상위에서 그대로 유지).
+      if (Date.now() > deadlineAt) { skipped += items.length - cursor; cursor = items.length; break; }
       const myIndex = cursor;
       cursor += 1;
       const { productNo, detailUrl } = items[myIndex];
@@ -1152,6 +1174,7 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
 
   const workers = Array.from({ length: Math.min(concurrency, items.length) }, () => worker());
   await Promise.all(workers);
+  if (skipped > 0) console.warn(`[beanpick:official-enrich] 시간 예산 초과로 ${skipped}개 상품 상세보강 생략(상품 목록은 유지)`);
   return { stock, info };
 }
 
@@ -1162,19 +1185,21 @@ function injectDetailMarkerIntoBlock(html, productNo, info) {
   return html.replace(re, (match) => `${match}${marker}`);
 }
 
-async function enrichPagesWithDetailStock(pages, config) {
+async function enrichPagesWithDetailStock(pages, config, deadlineAt = Infinity) {
   const referer = config.sourceUrl;
   const origin = config.detailOrigin || (config.sourceUrl ? new URL(config.sourceUrl).origin : '');
   if (!origin) return pages;
 
   const enriched = [];
   for (const page of pages) {
+    // 예산을 넘기면 남은 페이지는 원본 그대로(상세보강 없이) 반환한다.
+    if (Date.now() > deadlineAt) { enriched.push(page); continue; }
     const items = extractCafe24ListItemLinks(page.html, origin);
     if (items.length === 0) {
       enriched.push(page);
       continue;
     }
-    const { stock, info } = await buildDetailDataFromDetails(items, referer);
+    const { stock, info } = await buildDetailDataFromDetails(items, referer, 5, 100, deadlineAt);
     let nextHtml = stripCafe24FalseSoldOutMarkup(page.html, stock);
     for (const [productNo, detailInfo] of info.entries()) {
       nextHtml = injectDetailMarkerIntoBlock(nextHtml, productNo, detailInfo);
@@ -1217,8 +1242,9 @@ async function fetchOfficialMallProducts(sourceId) {
     throw new Error(sourceId + ' product pages could not be loaded.');
   }
 
+  // 상세보강은 부가 기능이므로 전체 시간 예산 안에서만 돈다. 예산을 넘겨도 위에서 모은 상품 목록은 그대로 반환된다.
   const finalPages = config.verifyStockFromDetail
-    ? await enrichPagesWithDetailStock(pages, config)
+    ? await enrichPagesWithDetailStock(pages, config, Date.now() + OFFICIAL_ENRICH_BUDGET_MS)
     : pages;
 
   return {

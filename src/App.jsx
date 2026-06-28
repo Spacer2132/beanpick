@@ -902,7 +902,9 @@ export default function App() {
 
       // 한 로스터리가 비정상적으로 오래 걸리면(네트워크 행 등) 버리고 나머지로 발행을 진행한다.
       // 메인 프로세스의 어떤 비동기 단계가 멈추든 전체 수집이 무한 대기에 빠지지 않게 하는 안전장치.
-      const withRoasterTimeout = (promise, label, ms = 180000) => Promise.race([
+      // 공식몰은 상세보강에 자체 시간 예산이 있어 빨리 반환하므로, 이 한도는 카테고리를 여러 개 크롤하는
+      // 느린 스마트스토어(로스터릭·루비아 등)가 정상 수집을 마칠 수 있도록 넉넉히 준다.
+      const withRoasterTimeout = (promise, label, ms = 300000) => Promise.race([
         promise,
         new Promise((_, reject) => {
           setTimeout(() => reject(new Error(`${label} 수집 시간이 초과됐습니다 (${ms / 1000}초).`)), ms);
