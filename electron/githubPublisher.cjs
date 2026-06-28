@@ -297,7 +297,7 @@ function parseGithubSnapshotContent(content) {
 
 async function readExistingFile({ fetchImpl, token, owner, repo, path, branch }) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000);
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
   let response;
   try {
     response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
@@ -368,7 +368,8 @@ async function publishProductsToGitHub({
       if (sha) body.sha = sha;
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      // products.json(약 1MB) 업로드는 발행의 마지막 단계라 5초로는 위험하다.
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
       let response;
       try {
         response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {

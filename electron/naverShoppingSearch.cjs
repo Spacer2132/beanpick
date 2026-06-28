@@ -375,7 +375,7 @@ async function downloadImageToCache(imageUrl) {
     logOcrCache('miss', 'image', imagePath);
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
     let response;
     try {
       response = await fetch(imageUrl, { signal: controller.signal });
@@ -489,7 +489,8 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
 
     const base64Image = fs.readFileSync(imagePath).toString('base64');
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    // 비전 모델 이미지 분석은 5초로는 자주 잘려 노트가 누락된다. 넉넉히 준다.
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
     let response;
     try {
       response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
@@ -976,7 +977,8 @@ async function searchNaverShopping(sourceId) {
   url.searchParams.set('sort', 'sim');
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000);
+  // 카테고리 크롤이 비면 이 검색 API가 로스터리 상품목록의 마지막 통로다. 5초는 가끔 너무 짧다.
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
   let response;
   try {
     response = await fetch(url, {

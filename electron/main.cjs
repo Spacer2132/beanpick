@@ -430,6 +430,17 @@ async function loadUrlWithTimeout(window, url, timeoutMs = 5000) {
   });
 }
 
+// 숨김 창 안에서 도는 executeJavaScript가 끝나지 않을 때를 대비한 타임아웃 래퍼.
+// 페이지 내부 fetch가 응답 없이 멈추면 executeJavaScript 프라미스가 영원히 안 풀려
+// 전체 수집이 행에 걸리므로, Node 쪽에서 시간이 지나면 fallback 값으로 넘어간다.
+// (멈춘 페이지 프라미스는 이후 창을 닫을 때 함께 정리된다.)
+function executeJavaScriptWithTimeout(window, script, timeoutMs, fallback) {
+  return Promise.race([
+    window.webContents.executeJavaScript(script, true).catch(() => fallback),
+    delay(timeoutMs).then(() => fallback),
+  ]);
+}
+
 async function crawlSmartStoreCategory(categoryUrl) {
   const hiddenWindow = new BrowserWindow({
     width: 1280,
@@ -497,10 +508,12 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
 
   try {
     await loadUrlWithTimeout(hiddenWindow, storeHomeUrl);
-    const channelUid = await hiddenWindow.webContents.executeJavaScript(
+    const channelUid = await executeJavaScriptWithTimeout(
+      hiddenWindow,
       '(JSON.stringify(window.__PRELOADED_STATE__ || {}).match(/"channelUid"\\s*:\\s*"([^"]+)"/) || [])[1] || \'\'',
-      true,
-    ).catch(() => '');
+      8000,
+      '',
+    );
     if (!channelUid) return contents;
 
     const startedAt = Date.now();
@@ -510,10 +523,11 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
     for (const productNo of productNos.slice(0, maxCount)) {
       if (Date.now() - startedAt > timeBudgetMs || consecutiveFailures >= 2) break;
 
-      const detailHtml = await hiddenWindow.webContents.executeJavaScript(`
+      const detailHtml = await executeJavaScriptWithTimeout(hiddenWindow, `
         fetch('/i/v2/channels/${channelUid}/products/${productNo}?withWindow=false', {
           headers: { accept: 'application/json' },
           credentials: 'include',
+          signal: AbortSignal.timeout(8000),
         }).then((res) => (res.ok ? res.json() : null))
           .then((json) => {
             if (!json) return '';
@@ -530,7 +544,7 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
             return best;
           })
           .catch(() => '')
-      `, true).catch(() => '');
+      `, 10000, '');
 
       if (detailHtml) {
         contents.set(String(productNo), String(detailHtml));
@@ -633,7 +647,8 @@ function extractDetailUrls(html) {
 
 async function fetchHtmlPage(url, referer) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000);
+  // 공식몰 상세 페이지(werk·fritz·502·커피리브레 등)는 5초로는 자주 끊겨 노트가 누락된다.
+  const timeoutId = setTimeout(() => controller.abort(), 12000);
   try {
     const response = await fetch(url, {
       headers: {
