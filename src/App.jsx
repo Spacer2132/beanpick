@@ -900,11 +900,20 @@ export default function App() {
       const sourceCounts = [];
       let completedCount = 0;
 
+      // 한 로스터리가 비정상적으로 오래 걸리면(네트워크 행 등) 버리고 나머지로 발행을 진행한다.
+      // 메인 프로세스의 어떤 비동기 단계가 멈추든 전체 수집이 무한 대기에 빠지지 않게 하는 안전장치.
+      const withRoasterTimeout = (promise, label, ms = 180000) => Promise.race([
+        promise,
+        new Promise((_, reject) => {
+          setTimeout(() => reject(new Error(`${label} 수집 시간이 초과됐습니다 (${ms / 1000}초).`)), ms);
+        }),
+      ]);
+
       // 끝난 로스터리부터 바로 화면에 반영한다. 느린 곳을 기다리지 않는다.
       await Promise.all(tasks.map(async (task) => {
         try {
           console.log(`[beanpick:load-start] ${task.label}`);
-          const sourceProducts = await task.fetchProducts();
+          const sourceProducts = await withRoasterTimeout(task.fetchProducts(), task.label);
           console.log(`[beanpick:load-success] ${task.label} (${sourceProducts.length} products)`);
           loadedProducts.push(...sourceProducts);
           sourceCounts.push(`${task.label} ${sourceProducts.length}개`);
