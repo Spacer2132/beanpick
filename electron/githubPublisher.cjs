@@ -298,28 +298,28 @@ function parseGithubSnapshotContent(content) {
 async function readExistingFile({ fetchImpl, token, owner, repo, path, branch }) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 15000);
-  let response;
+  // 본문 읽기(json/text)까지 타이머 보호 안에 둔다.
   try {
-    response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
+    const response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
       headers: githubHeaders(token),
       signal: controller.signal,
     });
+
+    if (response.ok) {
+      const json = await response.json();
+      return {
+        sha: json?.sha || '',
+        snapshot: parseGithubSnapshotContent(json?.content),
+      };
+    }
+
+    if (response.status === 404) return { sha: '', snapshot: null };
+
+    const message = await response.text().catch(() => '');
+    throw new Error(message || `GitHub 파일 확인 실패 (${response.status})`);
   } finally {
     clearTimeout(timeoutId);
   }
-
-  if (response.ok) {
-    const json = await response.json();
-    return {
-      sha: json?.sha || '',
-      snapshot: parseGithubSnapshotContent(json?.content),
-    };
-  }
-
-  if (response.status === 404) return { sha: '', snapshot: null };
-
-  const message = await response.text().catch(() => '');
-  throw new Error(message || `GitHub 파일 확인 실패 (${response.status})`);
 }
 
 function isRetryablePublishStatus(status) {
@@ -371,6 +371,8 @@ async function publishProductsToGitHub({
       // products.json(약 1MB) 업로드는 발행의 마지막 단계라 5초로는 위험하다.
       const timeoutId = setTimeout(() => controller.abort(), 15000);
       let response;
+      let okJson = null;
+      let errMessage = '';
       try {
         response = await fetchImpl(githubContentsUrl({ owner, repo, path, branch }), {
           method: 'PUT',
@@ -378,16 +380,22 @@ async function publishProductsToGitHub({
           body: JSON.stringify(body),
           signal: controller.signal,
         });
+        // 본문 읽기까지 타이머 보호 안에 둔다.
+        if (response.ok) {
+          okJson = await response.json();
+        } else {
+          errMessage = await response.text().catch(() => '');
+        }
       } finally {
         clearTimeout(timeoutId);
       }
 
       if (response.ok) {
-        json = await response.json();
+        json = okJson;
         break;
       }
 
-      const message = await response.text().catch(() => '');
+      const message = errMessage;
       if (attempt >= MAX_PUBLISH_ATTEMPTS || !isRetryablePublishStatus(response.status)) {
         throw new Error(message || `GitHub 게시 실패 (${response.status})`);
       }

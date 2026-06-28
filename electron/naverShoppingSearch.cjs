@@ -376,18 +376,20 @@ async function downloadImageToCache(imageUrl) {
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 12000);
-    let response;
+    let buffer;
     try {
-      response = await fetch(imageUrl, { signal: controller.signal });
+      const response = await fetch(imageUrl, { signal: controller.signal });
+      if (!response.ok) {
+        logOcrCache('fail', 'image', imagePath, `status=${response.status}`);
+        return '';
+      }
+      // 본문 읽기(arrayBuffer)도 타이머 보호 안에 둔다. 헤더만 오고 본문이 멈추면
+      // 여기서 무한 대기하므로 abort 신호가 본문 읽기까지 끊어줘야 한다.
+      buffer = Buffer.from(await response.arrayBuffer());
     } finally {
       clearTimeout(timeoutId);
     }
-    if (!response.ok) {
-      logOcrCache('fail', 'image', imagePath, `status=${response.status}`);
-      return '';
-    }
 
-    const buffer = Buffer.from(await response.arrayBuffer());
     fs.writeFileSync(imagePath, buffer);
     logOcrCache('save', 'image', imagePath, `bytes=${buffer.length}`);
     return imagePath;
@@ -491,9 +493,9 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
     const controller = new AbortController();
     // 비전 모델 이미지 분석은 5초로는 자주 잘려 노트가 누락된다. 넉넉히 준다.
     const timeoutId = setTimeout(() => controller.abort(), 20000);
-    let response;
+    let text;
     try {
-      response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
+      const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -507,16 +509,17 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
         }),
         signal: controller.signal,
       });
+      if (!response.ok) {
+        logOcrCache('fail', 'gemini', textPath, `status=${response.status}`);
+        return '';
+      }
+      // 본문 읽기(json)도 타이머 보호 안에 둔다.
+      const json = await response.json();
+      text = json?.candidates?.[0]?.content?.parts?.[0]?.text || '';
     } finally {
       clearTimeout(timeoutId);
     }
-    if (!response.ok) {
-      logOcrCache('fail', 'gemini', textPath, `status=${response.status}`);
-      return '';
-    }
 
-    const json = await response.json();
-    const text = json?.candidates?.[0]?.content?.parts?.[0]?.text || '';
     fs.writeFileSync(textPath, text, 'utf8');
     logOcrCache('save', 'gemini', textPath, `chars=${text.length}`);
     return text;
@@ -980,6 +983,7 @@ async function searchNaverShopping(sourceId) {
   // 카테고리 크롤이 비면 이 검색 API가 로스터리 상품목록의 마지막 통로다. 5초는 가끔 너무 짧다.
   const timeoutId = setTimeout(() => controller.abort(), 10000);
   let response;
+  let body;
   try {
     response = await fetch(url, {
       headers: {
@@ -989,10 +993,11 @@ async function searchNaverShopping(sourceId) {
       },
       signal: controller.signal,
     });
+    // 본문 읽기(json)도 타이머 보호 안에 둔다.
+    body = await response.json().catch(() => ({}));
   } finally {
     clearTimeout(timeoutId);
   }
-  const body = await response.json().catch(() => ({}));
 
   if (!response.ok) {
     const message = body.errorMessage || body.message || body.errorCode || '';
