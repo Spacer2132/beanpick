@@ -10,6 +10,8 @@ const SMARTSTORE_DISCOUNT_GUARD_MIN_RATE = 0.10;
 // 한두 곳 수집이 통째로 실패하면 상품/로스터리 수가 확 줄어든다. 빈약한 목록으로 기존 게시본을 덮어쓰지 않도록 막는다.
 const COUNT_GUARD_MIN_PREVIOUS = 20;
 const COUNT_GUARD_MIN_RATIO = 0.5;
+const ROASTER_COUNT_GUARD_MIN_PREVIOUS = 15;
+const ROASTER_COUNT_GUARD_MIN_RATIO = 0.5;
 const MAX_PUBLISH_ATTEMPTS = 3;
 const SMARTSTORE_SLUG_BY_ROASTER = {
   '커피정경 로스터리': 'coffeejg',
@@ -224,6 +226,30 @@ function countDistinctRoasters(products) {
   ).size;
 }
 
+function countByRoaster(products) {
+  const counts = new Map();
+  for (const product of Array.isArray(products) ? products : []) {
+    const name = normalizeText(product?.roasterName);
+    if (!name) continue;
+    counts.set(name, (counts.get(name) || 0) + 1);
+  }
+  return counts;
+}
+
+// 전체/로스터리 수는 안 줄어도 특정 로스터리 한 곳만 차단(캡차 등)으로 통째로 무너지는 경우를 잡는다.
+function findCollapsedRoaster(previousProducts, nextProducts) {
+  const previousCounts = countByRoaster(previousProducts);
+  const nextCounts = countByRoaster(nextProducts);
+  for (const [name, previousCount] of previousCounts) {
+    if (previousCount < ROASTER_COUNT_GUARD_MIN_PREVIOUS) continue;
+    const nextCount = nextCounts.get(name) || 0;
+    if (nextCount < Math.ceil(previousCount * ROASTER_COUNT_GUARD_MIN_RATIO)) {
+      return { name, previousCount, nextCount };
+    }
+  }
+  return null;
+}
+
 function getPublishBlockReason(previousSnapshot, snapshot) {
   const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
   if (previousProducts.length === 0) return '';
@@ -238,6 +264,11 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
     const nextRoasters = countDistinctRoasters(nextProducts);
     if (previousRoasters >= 2 && nextRoasters < Math.ceil(previousRoasters * COUNT_GUARD_MIN_RATIO)) {
       return `로스터리 수가 이전 ${previousRoasters}곳에서 현재 ${nextRoasters}곳으로 절반 이하로 줄어 게시를 중단했습니다. 일부 로스터리 수집이 실패했을 수 있습니다.`;
+    }
+
+    const collapsed = findCollapsedRoaster(previousProducts, nextProducts);
+    if (collapsed) {
+      return `'${collapsed.name}' 상품 수가 이전 ${collapsed.previousCount}개에서 현재 ${collapsed.nextCount}개로 절반 이하로 줄어 게시를 중단했습니다. 해당 로스터리 수집이 막혔을 수 있습니다(예: 네이버 차단).`;
     }
   }
 
