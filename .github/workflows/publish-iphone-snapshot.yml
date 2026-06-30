@@ -11,11 +11,6 @@ on:
         options:
           - 'true'
           - 'false'
-  schedule:
-    # GitHub cron은 UTC 기준이다. 한국시간 09:00, 12:00, 14:00에 실행된다.
-    - cron: '0 0 * * *'
-    - cron: '0 3 * * *'
-    - cron: '0 5 * * *'
 
 permissions:
   contents: write
