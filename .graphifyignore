@@ -8,3 +8,8 @@ build/
 graphify-out/
 output/
 *.log
+.vite/
+.cache/
+app/
+app-*/
+docs/assets/
