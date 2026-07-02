@@ -114,6 +114,62 @@ function isGuardDiscountProduct(product) {
     .some((option) => isSmartStoreProduct(product, option) && isGuardDiscountOption(option));
 }
 
+// getSmartStoreDiscountStats와 동일한 판정으로, 상품당 대표 할인 행 하나만 뽑는다
+// (상품 단위 카운트와 정합을 맞추기 위함 — 옵션별로 여러 개 세지 않는다).
+function getGuardDiscountRows(products) {
+  const rows = [];
+  for (const product of Array.isArray(products) ? products : []) {
+    if (product?.isSoldOut || !isSmartStoreProduct(product)) continue;
+    if (isGuardDiscountOption(product)) {
+      rows.push({ product, option: product });
+      continue;
+    }
+    const option = (Array.isArray(product?.priceOptions) ? product.priceOptions : [])
+      .find((opt) => isSmartStoreProduct(product, opt) && isGuardDiscountOption(opt));
+    if (option) rows.push({ product, option });
+  }
+  return rows;
+}
+
+function isPriceNearOriginal(price, originalPrice) {
+  if (price <= 0 || originalPrice <= 0) return false;
+  // 반올림 오차를 감안해 정상가의 97% 이상이면 "복귀"로 본다.
+  return price >= originalPrice * 0.97;
+}
+
+// 할인 상품 수가 줄어든 게 (a) 실제로 할인이 끝나 가격이 정상가로 돌아간 것인지,
+// (b) 수집이 실패해 할인 정보만 사라진 것인지 구분한다. (a)는 정상 상황이라 게시를 막지 않아야 한다.
+function countUnexplainedDiscountLoss(previousProducts, nextProducts) {
+  const previousRows = getGuardDiscountRows(previousProducts);
+  if (previousRows.length === 0) return 0;
+
+  const nextByKey = new Map();
+  for (const row of getPriceRows(nextProducts)) {
+    if (!isSmartStoreProduct(row.product, row.option)) continue;
+    for (const key of getSmartStoreMatchKeys(row.product, row.option)) {
+      if (!nextByKey.has(key)) nextByKey.set(key, row.option);
+    }
+  }
+
+  let unexplained = 0;
+  for (const row of previousRows) {
+    const previousOriginal = Number(row.option.originalPrice || 0);
+    const nextOption = getSmartStoreMatchKeys(row.product, row.option)
+      .map((key) => nextByKey.get(key))
+      .find(Boolean);
+
+    if (!nextOption) {
+      unexplained += 1; // 상품 자체가 사라짐 → 수집 실패 의심
+      continue;
+    }
+    if (isGuardDiscountOption(nextOption)) continue; // 여전히 할인 중 → 정상 (nextStats에 이미 반영됨)
+    if (isPriceNearOriginal(Number(nextOption.price || 0), previousOriginal)) continue; // 정상가로 복귀 → 진짜 할인 종료
+
+    unexplained += 1; // 할인가는 그대로인데 정상가 정보만 사라짐 등 → 수집 실패 의심
+  }
+  return unexplained;
+}
+
 function buildPreviousSmartStoreDiscountMap(previousSnapshot) {
   const map = new Map();
   const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
@@ -273,13 +329,18 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
   }
 
   const previousStats = getSmartStoreDiscountStats(previousProducts);
-  const nextStats = getSmartStoreDiscountStats(snapshot.products);
+  const nextStats = getSmartStoreDiscountStats(nextProducts);
   if (
     previousStats.discountCount >= SMARTSTORE_DISCOUNT_GUARD_MIN_ROWS
     && nextStats.total >= SMARTSTORE_DISCOUNT_GUARD_MIN_ROWS
     && nextStats.discountCount < Math.ceil(previousStats.discountCount * SMARTSTORE_DISCOUNT_GUARD_MIN_RATIO)
   ) {
-    return `스마트스토어 정상가/할인 정보가 이전 ${previousStats.discountCount}개에서 현재 ${nextStats.discountCount}개로 크게 줄어 게시를 중단했습니다.`;
+    // 할인이 줄어든 것 자체으론 안 막는다 — 그중 "설명 안 되는"(정상가 복귀도 아니고 상품이 사라진) 감소만 문제 삼는다.
+    // 월초처럼 여러 로스터리가 동시에 할인을 끝내면 이 값이 커서 정상 통과한다.
+    const unexplained = countUnexplainedDiscountLoss(previousProducts, nextProducts);
+    if (unexplained >= Math.ceil(previousStats.discountCount * SMARTSTORE_DISCOUNT_GUARD_MIN_RATIO)) {
+      return `스마트스토어 정상가/할인 정보가 이전 ${previousStats.discountCount}개에서 현재 ${nextStats.discountCount}개로 크게 줄어 게시를 중단했습니다(원인 불명 ${unexplained}건).`;
+    }
   }
 
   return '';
