@@ -398,6 +398,11 @@ async function downloadImageToCache(imageUrl) {
   }
 }
 
+// 이 기기에서 paddle이 제한시간 안에 못 끝나는 상태(모델 로딩 수 분)면, 시도마다 타임아웃만
+// 태우고 결과는 없다. 연속으로 실패하면 이 실행에서는 paddle을 건너뛴다.
+const PADDLE_MAX_CONSECUTIVE_FAILURES = 3;
+let paddleConsecutiveFailures = 0;
+
 async function readOcrTextFromImageUrl(imageUrl, options = {}) {
   const imagePath = await downloadImageToCache(imageUrl);
   if (!imagePath) return '';
@@ -408,6 +413,11 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
     if (fs.existsSync(textPath)) {
       logOcrCache('hit', 'paddle', textPath);
       return fs.readFileSync(textPath, 'utf8');
+    }
+
+    if (paddleConsecutiveFailures >= PADDLE_MAX_CONSECUTIVE_FAILURES) {
+      logOcrCache('skip', 'paddle', textPath);
+      return '';
     }
 
     logOcrCache('miss', 'paddle', textPath, `lang=${normalizePaddleOcrLang(options.lang)}`);
@@ -434,9 +444,14 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
     });
 
     if (text == null) {
+      paddleConsecutiveFailures += 1;
+      // 실패도 빈 결과로 캐시해, 같은 이미지를 실행마다 제한시간(25초)씩 재시도하지 않는다.
+      // 재시도를 되살리려면 캐시의 0바이트 .txt를 지우면 된다.
+      fs.writeFileSync(textPath, '', 'utf8');
       logOcrCache('fail', 'paddle', textPath);
       return '';
     }
+    paddleConsecutiveFailures = 0;
     fs.writeFileSync(textPath, text, 'utf8');
     logOcrCache('save', 'paddle', textPath, `chars=${text.length}`);
     return text;
