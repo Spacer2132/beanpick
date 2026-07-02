@@ -457,4 +457,7 @@ async function publishProductsToGitHub({
 module.exports = {
   buildGithubSnapshot,
   publishProductsToGitHub,
+  // 아래 두 가드는 safety-guards 테스트 전용 노출. 약화·삭제 시 테스트가 실패한다.
+  findCollapsedRoaster,
+  getPublishBlockReason,
 };

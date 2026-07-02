@@ -64,6 +64,7 @@ jobs:
           npm run dataquality:test
           npm run iphone-webapp:test
           npm run history:test
+          npm run safety-guards:test
 
       - name: Build app
         run: npm run build

@@ -20,7 +20,8 @@
     "iphone:snapshot:publish": "electron . --publish-iphone-snapshot",
     "iphone:snapshot:publish:dry-run": "electron . --publish-iphone-snapshot --dry-run",
     "dataquality:test": "node scripts/test-data-quality.cjs",
-    "verify": "npm.cmd run tasting-notes:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run build && npm.cmd run package:portable"
+    "safety-guards:test": "node scripts/test-safety-guards.cjs",
+    "verify": "npm.cmd run tasting-notes:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run safety-guards:test && npm.cmd run build && npm.cmd run package:portable"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
