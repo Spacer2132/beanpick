@@ -41,6 +41,8 @@ const TERAROSA_ORIGIN = 'https://www.terarosa.com';
 const MOMOS_SOURCE_URL = 'https://momos.co.kr/category/%EC%9B%90%EB%91%90/42/';
 const MOMOS_CATEGORY_NO = '42';
 const MAX_CATEGORY_PAGES = 5;
+const SMARTSTORE_PAGE_LOAD_TIMEOUT_MS = 25000;
+const SMARTSTORE_PAGE_LOAD_RETRIES = 1;
 // 공식몰 상세보강(노트·재고)은 부가 기능이라 전체 시간 예산을 둔다.
 // 예산을 넘겨도 상품 목록은 항상 반환되어, 한 곳의 상세수집이 멈춰도 그 로스터 상품이 통째로 사라지지 않는다.
 const OFFICIAL_ENRICH_BUDGET_MS = 90000;
@@ -433,6 +435,22 @@ async function loadUrlWithTimeout(window, url, timeoutMs = 5000) {
   });
 }
 
+async function loadSmartStorePageWithRetry(window, url) {
+  let lastError;
+  for (let attempt = 0; attempt <= SMARTSTORE_PAGE_LOAD_RETRIES; attempt += 1) {
+    try {
+      await loadUrlWithTimeout(window, url, SMARTSTORE_PAGE_LOAD_TIMEOUT_MS);
+      return;
+    } catch (error) {
+      lastError = error;
+      if (attempt >= SMARTSTORE_PAGE_LOAD_RETRIES) break;
+      console.warn(`[beanpick:smartstore-category] loadURL 재시도 ${attempt + 1}/${SMARTSTORE_PAGE_LOAD_RETRIES}: ${url}`);
+      await delay(1000);
+    }
+  }
+  throw lastError;
+}
+
 // 숨김 창 안에서 도는 executeJavaScript가 끝나지 않을 때를 대비한 타임아웃 래퍼.
 // 페이지 내부 fetch가 응답 없이 멈추면 executeJavaScript 프라미스가 영원히 안 풀려
 // 전체 수집이 행에 걸리므로, Node 쪽에서 시간이 지나면 fallback 값으로 넘어간다.
@@ -469,11 +487,11 @@ async function crawlSmartStoreCategory(categoryUrl) {
     // 스토어 홈을 먼저 연 뒤 카테고리 링크를 클릭해 실제 사용자처럼 이동한다.
     const urlParts = categoryUrl.match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)\/category\/([a-z0-9]+)/i);
     if (urlParts) {
-      await loadUrlWithTimeout(hiddenWindow, urlParts[1]);
+      await loadSmartStorePageWithRetry(hiddenWindow, urlParts[1]);
       const clicked = await clickSmartStoreCategoryLink(hiddenWindow, urlParts[2]);
-      if (!clicked) await loadUrlWithTimeout(hiddenWindow, categoryUrl);
+      if (!clicked) await loadSmartStorePageWithRetry(hiddenWindow, categoryUrl);
     } else {
-      await loadUrlWithTimeout(hiddenWindow, categoryUrl);
+      await loadSmartStorePageWithRetry(hiddenWindow, categoryUrl);
     }
     const firstPage = await waitForSmartStoreProducts(hiddenWindow);
     const productMap = new Map(firstPage.products.map((product) => [product.id, product]));
@@ -519,7 +537,7 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
   });
 
   try {
-    await loadUrlWithTimeout(hiddenWindow, storeHomeUrl);
+    await loadSmartStorePageWithRetry(hiddenWindow, storeHomeUrl);
     const channelUid = await executeJavaScriptWithTimeout(
       hiddenWindow,
       '(JSON.stringify(window.__PRELOADED_STATE__ || {}).match(/"channelUid"\\s*:\\s*"([^"]+)"/) || [])[1] || \'\'',
