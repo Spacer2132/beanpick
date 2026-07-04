@@ -5,6 +5,7 @@ const {
   buildSmartStorePriceOptionsFromDetail,
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
+  extractNotesFromPreloadedDetailText,
   mergeNotesFromSearchResults,
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
@@ -624,10 +625,39 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
             return Number(item.id) === targetNo || groupNos.map(Number).includes(targetNo);
           });
           const groupNos = target?.simpleStandardGroupProduct?.channelProductNos?.map(Number) || [];
-          if (groupNos.length === 0) return null;
+          if (!target) return null;
+
+          const findDetailText = (value) => {
+            const direct = value?.detailContents?.detailContentText
+              || value?.detailContents?.detailHtml
+              || value?.detailContents?.detailContent
+              || '';
+            if (typeof direct === 'string' && direct.trim()) return direct;
+
+            let best = '';
+            const visitText = (item, key = '') => {
+              if (/review|qna|delivery|benefit|purchaseReview/i.test(key)) return;
+              if (typeof item === 'string') {
+                const text = item.trim();
+                if (
+                  text.length > best.length
+                  && text.length >= 120
+                  && !/^https?:\\/\\//i.test(text)
+                  && (/<(img|p|div|table|span)/i.test(text) || /detail|content|description|소개|설명/i.test(key) || /컵노트|향미|tasting\\s*note|cup\\s*note/i.test(text))
+                ) {
+                  best = text;
+                }
+              } else if (item && typeof item === 'object') {
+                Object.entries(item).forEach(([childKey, childValue]) => visitText(childValue, key ? key + '.' + childKey : childKey));
+              }
+            };
+            visitText(value);
+            return best;
+          };
 
           const storeId = location.pathname.split('/').filter(Boolean)[0] || '';
           return {
+            detailText: findDetailText(target),
             optionCombinations: candidates
               .filter((item) => groupNos.includes(Number(item.id)))
               .map((item) => ({
@@ -644,7 +674,12 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
 
       if (groupedOptionPayload?.optionCombinations?.length) {
         detailPayload = {
+          detailText: groupedOptionPayload.detailText || '',
           optionCombinations: groupedOptionPayload.optionCombinations,
+        };
+      } else if (groupedOptionPayload?.detailText) {
+        detailPayload = {
+          detailText: groupedOptionPayload.detailText,
         };
       } else if (channelUid && consecutiveApiFailures < 2) {
         triedApi = true;
@@ -692,11 +727,12 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
       }
 
       const detailHtml = String(detailPayload?.detailHtml || '');
+      const detailText = String(detailPayload?.detailText || '');
       const priceOptions = typeof product === 'object'
         ? buildSmartStorePriceOptionsFromDetail(detailPayload || {}, product)
         : [];
-      if (detailHtml || priceOptions.length > 0) {
-        const detailInfo = { detailHtml, priceOptions };
+      if (detailHtml || detailText || priceOptions.length > 0) {
+        const detailInfo = { detailHtml, detailText, priceOptions };
         contents.set(String(productNo), detailInfo);
         if (typeof product === 'object') writeSmartStoreDetailCache(productNo, product, detailInfo);
         if (triedApi) consecutiveApiFailures = 0;
@@ -730,6 +766,10 @@ async function enrichSmartStoreProductsWithDetailInfo(source, products) {
     let nextProduct = applySmartStoreDetailInfo(product, detailInfo);
     if (nextProduct.tastingNotes.length === 0 && detailInfo.detailHtml) {
       const notes = await extractNotesFromDetail(detailInfo.detailHtml);
+      if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
+    }
+    if (nextProduct.tastingNotes.length === 0 && detailInfo.detailText) {
+      const notes = extractNotesFromPreloadedDetailText(detailInfo.detailText);
       if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
     }
 

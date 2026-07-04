@@ -234,6 +234,39 @@ if (detailImages.length !== 2) {
   throw new Error(`상세 본문 이미지 주소 추출이 잘못되었습니다: ${detailImages.join(', ')}`);
 }
 
+const preloadedLabeledNotes = _test.extractNotesFromPreloadedDetailText(
+  '에티오피아 반코 타라투 더블 퍼먼테이션 워시드 200g\n컵노트: 자스민, 백도, 망고, 파인애플, 베르가못, 꿀, 슈가케인, 블랙티, 레몬\n고도 1,900-2,300m',
+);
+if (!preloadedLabeledNotes.includes('자스민') || !preloadedLabeledNotes.includes('망고')) {
+  throw new Error(`PRELOADED_STATE 설명 텍스트의 라벨 컵노트를 읽지 못했습니다: ${preloadedLabeledNotes.join(', ') || '(없음)'}`);
+}
+
+const preloadedUnlabeledNotes = _test.extractNotesFromPreloadedDetailText(
+  '자스민, 망고, 파인애플, 베르가못, 꿀',
+);
+if (!preloadedUnlabeledNotes.includes('자스민') || !preloadedUnlabeledNotes.includes('파인애플')) {
+  throw new Error(`PRELOADED_STATE 설명 텍스트의 안전한 무라벨 노트 줄을 읽지 못했습니다: ${preloadedUnlabeledNotes.join(', ') || '(없음)'}`);
+}
+
+const preloadedMarketingNotes = _test.extractNotesFromPreloadedDetailText(
+  '아몬드 초콜릿을 떠올리게 합니다. 절제된 산미로 부드럽게 시작해 구운 견과류의 자연스러운 단맛이 퍼집니다.',
+);
+if (preloadedMarketingNotes.length !== 0) {
+  throw new Error(`PRELOADED_STATE 설명 문장 전체에서 노트를 추측하면 안 됩니다: ${preloadedMarketingNotes.join(', ')}`);
+}
+const preloadedReviewTextNotes = _test.extractNotesFromPreloadedDetailText(
+  '복잡한 구성은 아니지만 가진 노트와 뉘앙스들의 구조감이 매우 뛰어납니다.',
+);
+if (preloadedReviewTextNotes.length !== 0) {
+  throw new Error(`PRELOADED_STATE 리뷰성 문장의 "노트와"를 라벨로 오인하면 안 됩니다: ${preloadedReviewTextNotes.join(', ')}`);
+}
+const preloadedSpaceOnlyNotes = _test.extractNotesFromPreloadedDetailText(
+  '복숭아 자두 꿀 같은 달콤함',
+);
+if (preloadedSpaceOnlyNotes.length !== 0) {
+  throw new Error(`PRELOADED_STATE 공백 구분 설명문을 무라벨 노트 목록으로 보면 안 됩니다: ${preloadedSpaceOnlyNotes.join(', ')}`);
+}
+
 if (!SMARTSTORE_SOURCES.identity.categoryUrl) {
   throw new Error('아이덴티티커피랩은 할인 정상가 확인을 위해 스마트스토어 카테고리 주소가 필요합니다.');
 }

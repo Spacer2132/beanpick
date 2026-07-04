@@ -26,6 +26,7 @@ function getSmartStoreDetailCacheDir(env = process.env, tempDir = os.tmpdir()) {
 }
 
 const SMARTSTORE_DETAIL_CACHE_DIR = getSmartStoreDetailCacheDir();
+const SMARTSTORE_DETAIL_CACHE_VERSION = 4;
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
 const MIN_BEAN_WEIGHT = 30;
@@ -477,6 +478,7 @@ function buildSmartStorePriceOptionsFromDetail(detailJson, product = {}) {
 
 function smartStoreDetailCachePath(productNo, product = {}) {
   const fingerprint = crypto.createHash('sha1').update(JSON.stringify({
+    version: SMARTSTORE_DETAIL_CACHE_VERSION,
     productNo: String(productNo || ''),
     productName: product.productName || '',
     price: product.price || 0,
@@ -508,6 +510,7 @@ function writeSmartStoreDetailCache(productNo, product = {}, detailInfo = {}) {
     })))).digest('hex');
     fs.writeFileSync(cachePath, JSON.stringify({
       detailHtml: detailInfo.detailHtml || '',
+      detailText: detailInfo.detailText || '',
       priceOptions,
       optionFingerprint,
       cachedAt: new Date().toISOString(),
@@ -981,6 +984,65 @@ function extractOcrTasteNotes(text) {
   return merged.slice(0, 5);
 }
 
+function splitDetailTextLines(text) {
+  return String(text || '')
+    .replace(/<\s*br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:div|p|li|tr|h[1-6])>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&amp;/gi, '&')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .split(/\n+/)
+    .map((line) => line.replace(/^[*\-•·]\s*/, '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+}
+
+function findUnlabeledTastingNotesLine(lines) {
+  for (const line of lines) {
+    if (!/[,/·ㆍ•]/.test(line)) continue;
+    const parts = line.split(/[,/·ㆍ•]+/).map((part) => part.trim()).filter(Boolean);
+    if (parts.length < 2 || parts.length > 10) continue;
+    if (/\d|원|배송|주문|택배|결제|수량|고객|반품|교환|카드/i.test(line)) continue;
+
+    let tasteCount = 0;
+    for (const part of parts) {
+      if (normalizeTastingNotes([part], { limit: Infinity }).length > 0) tasteCount += 1;
+    }
+    if (tasteCount >= 2 && tasteCount >= parts.length * 0.5) return line;
+  }
+  return '';
+}
+
+function extractLabeledPreloadedNoteText(lines) {
+  const labelPattern = '(?:cupping\\s*note|tasting\\s*note|taste\\s*note|cup\\s*note|커핑\\s*노트|컵\\s*노트|향미|노트)';
+  for (const line of lines) {
+    const colonMatch = line.match(new RegExp(`${labelPattern}\\s*[:：]\\s*(.{1,240})`, 'i'));
+    const startMatch = line.match(new RegExp(`^\\s*${labelPattern}\\s+(.{1,240})`, 'i'));
+    const value = (colonMatch?.[1] || startMatch?.[1] || '')
+      .split(/\b(?:origin|composition|blend|altitude|variety|process|roasting\s*point|taste\s*scale)\b|원산지|구성|블렌드|고도|품종|가공|한줄평|지역|생산자|농장/i)[0]
+      .trim();
+    if (value) return value;
+  }
+  return '';
+}
+
+function extractNotesFromPreloadedDetailText(detailText) {
+  const lines = splitDetailTextLines(detailText);
+  const labeledText = extractLabeledPreloadedNoteText(lines);
+  const labeledNotes = labeledText ? extractOcrTasteNotes(`Tasting Note: ${labeledText}`) : [];
+  if (labeledNotes.length > 0) return labeledNotes;
+
+  const noteLine = findUnlabeledTastingNotesLine(lines);
+  if (!noteLine) return [];
+
+  return normalizeTastingNotes(
+    noteLine.split(/[,/·]+/).map((note) => note.trim()).filter(Boolean),
+    { limit: 5 },
+  );
+}
+
 // 썸네일 OCR 전용: "Tasting Note:" 라벨이 없어도 알려진 맛 단어를 전체 글자에서 직접 찾는다.
 // 상품 상세설명(HTML)에는 쓰지 않는다 — 긴 마케팅 문구에서 엉뚱한 단어를 줍는 것을 막기 위함이다.
 function extractFlavorNotesAnywhere(text) {
@@ -1304,6 +1366,7 @@ module.exports = {
     shouldRunThumbnailOcr,
     mergeTastingNotes,
     extractNotesFromDetail,
+    extractNotesFromPreloadedDetailText,
     extractSmartStoreDetailImageUrls,
     mergeNotesFromMatchedProducts,
     mergeNotesFromSearchResults,
@@ -1315,6 +1378,7 @@ module.exports = {
   },
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
+  extractNotesFromPreloadedDetailText,
   buildSmartStorePriceOptionsFromDetail,
   readSmartStoreDetailCache,
   writeSmartStoreDetailCache,
