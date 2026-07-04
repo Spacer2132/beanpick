@@ -336,8 +336,19 @@ expect(manyVarietyPicks.map((product) => product.id).join(',') === 'geisha-1,gei
 expect(core.getChoseong('에티오피아') === 'ㅇㅌㅇㅍㅇ', '초성 추출이 정확해야 합니다', core.getChoseong('에티오피아'));
 expect(core.getChoseong('블루베리 200g') === 'ㅂㄹㅂㄹ 200g', '한글이 아닌 글자는 그대로 남아야 합니다', core.getChoseong('블루베리 200g'));
 expect(core.matchesSmartSearch('에티오피아 예가체프 워시드', 'ㅇㄱㅊㅍ') === true, '초성 검색이 동작해야 합니다');
+expect(core.matchesSmartSearch('[6월의 커피] 에콰도르 루그마파타 시드라 워시드', 'ㅅㄷㄹ') === true, '시드라 초성 검색이 동작해야 합니다');
+expect(core.matchesSmartSearch('게이샤,시드라', 'ㅅㄷㄹ') === true, '쉼표 뒤 단어도 초성 검색되어야 합니다');
+expect(core.matchesSmartSearch('콜롬비아/에티오피아', 'ㅇㅌㅇㅍㅇ') === true, '슬래시 뒤 단어도 초성 검색되어야 합니다');
+expect(core.matchesSmartSearch('[시즌]시드라', 'ㅅㄷㄹ') === true, '대괄호 뒤 단어도 초성 검색되어야 합니다');
+expect(core.matchesSmartSearch('온두라스 마르칼라 마리&모이 카투아이 워시드', 'ㅁㅇ') === true, '앰퍼샌드 뒤 단어도 초성 검색되어야 합니다');
+expect(core.matchesSmartSearch('🔥에티오피아 예가체프', 'ㅇㅌㅇㅍㅇ') === true, '이모지 뒤 단어도 초성 검색되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '에티오피아예가') === true, '띄어쓰기를 무시하고 검색되어야 합니다');
+expect(core.matchesSmartSearch('풀리 워시드', '풀리워시드') === true, '띄어쓰기 제거 검색은 계속 동작해야 합니다');
+expect(core.matchesSmartSearch('케냐 니에리 뚱구리 AA TOP 워시드 라이트 로스트', '시드라') === false, '단어 경계를 넘어 만들어진 시드라는 매칭되면 안 됩니다');
+expect(core.matchesSmartSearch('워시드 라이트', '드라이') === false, '단어 경계를 넘어 만들어진 드라이는 매칭되면 안 됩니다');
+expect(core.matchesSmartSearch('[6월의 커피] 에콰도르 루그마파타 시드라 워시드', '시드라') === true, '실제 시드라 품종은 검색되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '예가 에티') === true, '여러 단어는 모두 포함되면 매칭되어야 합니다');
+expect(core.matchesSmartSearch('에티오피아 예가체프 워시드', '에티오피아 워시드') === true, '여러 단어 AND 검색이 유지되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '케냐') === false, '없는 단어는 매칭되면 안 됩니다');
 expect(core.matchesSmartSearch('콜롬비아 게이샤', '') === true, '빈 검색어는 전체 매칭이어야 합니다');
 

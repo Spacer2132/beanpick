@@ -758,6 +758,7 @@ function getNoteOptions(products) {
 
 // 한글 음절에서 초성만 뽑아낸다. (예: "에티오피아" → "ㅇㅌㅇㅍㅇ")
 const CHOSEONG_LIST = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+const SEARCH_WORD_CHARACTER_PATTERN = /[\p{L}\p{N}]/u;
 
 function getChoseong(text) {
   return [...String(text)].map((char) => {
@@ -767,18 +768,62 @@ function getChoseong(text) {
   }).join('');
 }
 
+function buildCompactSearchIndex(text) {
+  const compactChars = [];
+  let compactLength = 0;
+  const wordStartOffsets = new Set();
+  let startsWord = true;
+
+  for (const char of String(text).toLowerCase()) {
+    if (/\s/.test(char)) {
+      startsWord = true;
+      continue;
+    }
+
+    if (!SEARCH_WORD_CHARACTER_PATTERN.test(char)) {
+      compactChars.push(char);
+      compactLength += char.length;
+      startsWord = true;
+      continue;
+    }
+
+    if (startsWord) wordStartOffsets.add(compactLength);
+    compactChars.push(char);
+    compactLength += char.length;
+    startsWord = false;
+  }
+
+  return {
+    compactText: compactChars.join(''),
+    wordStartOffsets,
+  };
+}
+
+function hasWordStartMatch(compactText, token, wordStartOffsets) {
+  let start = compactText.indexOf(token);
+
+  while (start !== -1) {
+    if (wordStartOffsets.has(start)) return true;
+    start = compactText.indexOf(token, start + 1);
+  }
+
+  return false;
+}
+
 // 띄어쓰기 무시 + 초성(ㅇㅌㅇㅍㅇ) 검색을 지원하는 매칭.
 // 여러 단어를 입력하면 모든 단어가 들어 있어야 한다.
 function matchesSmartSearch(text, query) {
   const tokens = String(query).trim().toLowerCase().split(/\s+/).filter(Boolean);
   if (tokens.length === 0) return true;
 
-  const compactText = String(text).toLowerCase().replace(/\s+/g, '');
+  const originalText = String(text).toLowerCase();
+  const { compactText, wordStartOffsets } = buildCompactSearchIndex(originalText);
   const choseongText = getChoseong(compactText);
 
   return tokens.every((token) => (
-    compactText.includes(token)
-    || (/^[ㄱ-ㅎ]+$/.test(token) && choseongText.includes(token))
+    originalText.includes(token)
+    || hasWordStartMatch(compactText, token, wordStartOffsets)
+    || (/^[ㄱ-ㅎ]+$/.test(token) && hasWordStartMatch(choseongText, token, wordStartOffsets))
   ));
 }
 
