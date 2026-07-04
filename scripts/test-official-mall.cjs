@@ -374,6 +374,33 @@ function assertCafe24KgWeightSample(cafe24Adapter, configs) {
   }
 }
 
+function assertCoffeeLibreSearchLink(cafe24Adapter, configs) {
+  const html = `
+    <ul>
+      <li id="anchorBoxId_7770">
+        <a href="/product/detail.html?product_no=7770&cate_no=47&display_group=1"><img src="https://example.com/lucuma.jpg" alt="페루 라 루쿠마" /></a>
+        <p class="name"><a>[Roaster's Pick/골드문트] 페루 라 루쿠마</a></p>
+        <span class="price">22,000원</span>
+      </li>
+    </ul>
+  `;
+  const [product] = cafe24Adapter.parseCafe24Products(html, configs.coffeelibre);
+  if (!product) {
+    throw new Error('리브레 상품이 카테고리 필터에 걸려 사라졌습니다(검색링크 교체가 필터보다 먼저 적용됨).');
+  }
+  // 딥링크(product_no) 대신 상품명 검색 링크여야 하고, 대괄호 태그는 제거돼야 한다.
+  if (!/\/product\/search\.html\?keyword=/.test(product.productUrl)) {
+    throw new Error(`리브레 링크가 검색 URL이 아닙니다: ${product.productUrl}`);
+  }
+  const keyword = decodeURIComponent((product.productUrl.match(/keyword=([^&]+)/) || [])[1] || '');
+  if (keyword.includes('[') || keyword.includes('Roaster')) {
+    throw new Error(`검색어에서 대괄호 태그가 제거되지 않았습니다: ${keyword}`);
+  }
+  if (!keyword.includes('페루 라 루쿠마')) {
+    throw new Error(`검색어에 핵심 상품명이 없습니다: ${keyword}`);
+  }
+}
+
 function assertHellcafeGiftSetExcluded(cafe24Adapter, configs) {
   const html = `
     <ul>
@@ -665,6 +692,7 @@ async function main() {
   assertCafe24Detail502PipeSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
+  assertCoffeeLibreSearchLink(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertHellcafeGiftSetExcluded(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
 
   for (const [sourceId, source] of Object.entries(SOURCES)) {

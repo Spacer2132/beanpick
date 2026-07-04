@@ -32,6 +32,8 @@ export const OFFICIAL_MALL_CONFIGS: Record<string, Cafe24SourceConfig> = {
     categoryNo: '47',
     trustCategoryAsBean: true,
     verifyStockFromDetail: true,
+    // 리브레는 배치마다 상품을 재등록해 상품번호가 며칠 만에 죽는다 → 딥링크 대신 상품명 검색 링크 사용.
+    linkByNameSearch: true,
     blockedWords: ['생두'],
   },
   werk: {

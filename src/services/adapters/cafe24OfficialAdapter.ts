@@ -20,6 +20,9 @@ export type Cafe24SourceConfig = {
   beanWords?: string[];
   parser?: 'cafe24' | 'imweb';
   verifyStockFromDetail?: boolean;
+  // 상품번호가 자주 바뀌는 로스터(예: 리브레는 배치마다 재등록)는 딥링크가 금세 죽는다.
+  // 이 옵션을 켜면 상품 링크를 "상품명 검색" URL로 만들어, 번호가 바뀌어도 현재 판매분을 찾게 한다.
+  linkByNameSearch?: boolean;
 };
 
 const COUNTRY_LABELS: Array<[string, string[]]> = [
@@ -89,6 +92,19 @@ function toAbsoluteUrl(url: string, origin: string) {
   if (url.startsWith('http')) return url;
   if (url.startsWith('//')) return `https:${url}`;
   return `${origin}${url.startsWith('/') ? '' : '/'}${url}`;
+}
+
+// 상품명에서 대괄호 태그·용량·괄호를 걷어내 검색어로 쓸 핵심 이름만 남긴다.
+function buildNameSearchUrl(config: Cafe24SourceConfig, productName: string) {
+  const cleaned = String(productName || '')
+    .replace(/\[[^\]]*\]/g, ' ')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/\d+\s*(?:kg|g)\b/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  // 이름이 너무 짧으면 검색이 부정확하므로 목록 페이지로 보낸다.
+  if (cleaned.length < 2) return config.sourceUrl;
+  return `${config.origin}/product/search.html?keyword=${encodeURIComponent(cleaned)}`;
 }
 
 function createProductId(config: Cafe24SourceConfig, productNo: string, productName: string, index: number) {
@@ -423,7 +439,11 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
     .filter((product) => isCategoryProduct(product.productUrl, config))
     .filter((product) => product.productName.length > 0)
     .filter((product) => isLikelyBeanProduct(product.productName, config))
-    .filter((product) => !hasPlaceholderImage(product.imageUrl));
+    .filter((product) => !hasPlaceholderImage(product.imageUrl))
+    // 카테고리 필터까지 통과한 뒤(딥링크 기준) 필요한 로스터만 링크를 검색 URL로 교체한다.
+    .map((product) => (config.linkByNameSearch
+      ? { ...product, productUrl: buildNameSearchUrl(config, product.productName) }
+      : product));
 }
 
 function extractImwebProductBlocks(html: string) {
