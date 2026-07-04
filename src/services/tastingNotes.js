@@ -343,7 +343,7 @@ function removeOverlappingNotes(notes) {
   if (set.has('구운 사과') || set.has('청사과')) {
     set.delete('사과');
   }
-  if (set.has('청포도') || set.has('적포도')) {
+  if (set.has('청포도') || set.has('적포도') || set.has('건포도')) {
     set.delete('포도');
   }
   if (set.has('달콤한 산미')) {

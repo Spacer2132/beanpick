@@ -193,6 +193,13 @@ const fixtures = [
     expected: ['사과', '오렌지', '캐러멜', '밀크초콜릿'],
     forbidden: [],
   },
+  {
+    name: '건포도 겹침 제거 - 포도 중복 방지',
+    kind: 'normalize',
+    input: ['다크코코아, 건포도, 실키바디'],
+    expected: ['건포도', '초콜릿'],
+    forbidden: ['포도'],
+  },
 ];
 
 let falsePositiveCount = 0;
