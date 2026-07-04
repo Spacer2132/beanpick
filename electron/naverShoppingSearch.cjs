@@ -16,8 +16,20 @@ function getOcrCacheDir(env = process.env, tempDir = os.tmpdir()) {
 }
 
 const OCR_CACHE_DIR = getOcrCacheDir();
+function getSmartStoreDetailCacheDir(env = process.env, tempDir = os.tmpdir()) {
+  if (env.BEANPICK_SMARTSTORE_DETAIL_CACHE_DIR) return env.BEANPICK_SMARTSTORE_DETAIL_CACHE_DIR;
+
+  const baseDir = env.LOCALAPPDATA
+    || env.XDG_CACHE_HOME
+    || (env.HOME ? path.join(env.HOME, '.cache') : '');
+  return baseDir ? path.join(baseDir, 'BeanPick', 'smartstore-detail-cache') : path.join(tempDir, 'beanpick-smartstore-detail-cache');
+}
+
+const SMARTSTORE_DETAIL_CACHE_DIR = getSmartStoreDetailCacheDir();
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
+const MIN_BEAN_WEIGHT = 30;
+const MAX_BEAN_WEIGHT = 2000;
 const NON_BEAN_COFFEE_WORDS = [
   '드립백',
   '드립 백',
@@ -297,6 +309,212 @@ function parseWeight(title) {
   if (gramMatch) return Math.round(Number(gramMatch[1]));
 
   return 200;
+}
+
+function parseExplicitWeight(text) {
+  const value = String(text || '');
+  const kgMatch = value.match(/(\d+(?:\.\d+)?)\s*kg/i);
+  if (kgMatch) return Math.round(Number(kgMatch[1]) * 1000);
+
+  const gramMatch = value.match(/(\d+(?:\.\d+)?)\s*g/i);
+  if (gramMatch) return Math.round(Number(gramMatch[1]));
+
+  return 0;
+}
+
+function formatPrice(value) {
+  const price = Number(value || 0);
+  if (!price) return '가격 확인 필요';
+  return `${new Intl.NumberFormat('ko-KR').format(price)}원`;
+}
+
+function formatWeight(value) {
+  const weight = Number(value || 0);
+  if (!weight) return '';
+  if (weight >= 1000 && weight % 1000 === 0) return `${weight / 1000}kg`;
+  return `${weight}g`;
+}
+
+function formatPricePer100g(price, weight) {
+  const salePrice = Number(price || 0);
+  const gram = Number(weight || 0);
+  if (!salePrice || !gram) return '';
+  return `${new Intl.NumberFormat('ko-KR').format(Math.round((salePrice / gram) * 100))}원/100g`;
+}
+
+function parseMoney(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  const normalized = String(value || '').replace(/[^\d.-]/g, '');
+  return normalized ? Number(normalized) || 0 : 0;
+}
+
+function findSmartStoreOptionCombinations(value, seen = new Set()) {
+  if (!value || typeof value !== 'object' || seen.has(value)) return [];
+  seen.add(value);
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const found = findSmartStoreOptionCombinations(item, seen);
+      if (found.length > 0) return found;
+    }
+    return [];
+  }
+
+  if (Array.isArray(value.optionCombinations)) return value.optionCombinations;
+
+  for (const item of Object.values(value)) {
+    const found = findSmartStoreOptionCombinations(item, seen);
+    if (found.length > 0) return found;
+  }
+
+  return [];
+}
+
+function getSmartStoreOptionText(option) {
+  return [
+    option.optionName,
+    option.optionName1,
+    option.optionName2,
+    option.optionName3,
+    option.optionValue,
+    option.optionValue1,
+    option.optionValue2,
+    option.optionValue3,
+    option.name,
+  ].filter(Boolean).join(' ');
+}
+
+function getSmartStoreOptionAddPrice(option) {
+  return parseMoney(
+    option.addPrice
+    ?? option.additionalPrice
+    ?? option.optionAddPrice
+    ?? option.optionPrice
+    ?? option.price
+    ?? 0,
+  );
+}
+
+function getSmartStoreOptionOriginalPrice(option) {
+  return parseMoney(
+    option.originalPrice
+    ?? option.optionOriginalPrice
+    ?? option.consumerPrice
+    ?? option.regularPrice
+    ?? 0,
+  );
+}
+
+function getSmartStoreOptionAbsolutePrice(option) {
+  return parseMoney(
+    option.absolutePrice
+    ?? option.salePrice
+    ?? option.discountedSalePrice
+    ?? 0,
+  );
+}
+
+function isSmartStoreOptionUsable(option) {
+  if (option.usable === false || option.isUsable === false || option.soldOut === true || option.isSoldOut === true) return false;
+  if (option.stockQuantity != null && Number(option.stockQuantity) <= 0) return false;
+  return true;
+}
+
+function normalizeSmartStoreDetailPriceOption(option) {
+  const originalPrice = Number(option.originalPrice || 0);
+  return {
+    ...option,
+    priceLabel: formatPrice(option.price),
+    originalPrice: originalPrice > Number(option.price || 0) ? originalPrice : undefined,
+    originalPriceLabel: originalPrice > Number(option.price || 0) ? formatPrice(originalPrice) : '',
+    unitPriceLabel: formatPricePer100g(option.price, option.weight),
+  };
+}
+
+function isCollectableBeanWeight(weight) {
+  const gram = Number(weight || 0);
+  return gram >= MIN_BEAN_WEIGHT && gram <= MAX_BEAN_WEIGHT;
+}
+
+function buildSmartStorePriceOptionsFromDetail(detailJson, product = {}) {
+  const basePrice = Number(product.price || 0);
+  if (!basePrice) return [];
+
+  const optionMap = new Map();
+  const optionCombinations = findSmartStoreOptionCombinations(detailJson);
+
+  optionCombinations
+    .filter((option) => option && typeof option === 'object')
+    .filter(isSmartStoreOptionUsable)
+    .forEach((option) => {
+      const weight = parseExplicitWeight(getSmartStoreOptionText(option));
+      if (!isCollectableBeanWeight(weight)) return;
+
+      const addPrice = getSmartStoreOptionAddPrice(option);
+      const absolutePrice = getSmartStoreOptionAbsolutePrice(option);
+      const price = absolutePrice || (basePrice + addPrice);
+      if (price <= 0) return;
+
+      const weightLabel = formatWeight(weight);
+      const explicitOriginalPrice = getSmartStoreOptionOriginalPrice(option);
+      const baseOriginalPrice = addPrice === 0 ? Number(product.originalPrice || 0) : 0;
+      const originalPrice = explicitOriginalPrice || baseOriginalPrice || undefined;
+      const current = optionMap.get(weightLabel);
+      const next = normalizeSmartStoreDetailPriceOption({
+        id: `${weightLabel}-${price}`,
+        price,
+        originalPrice,
+        weight,
+        weightLabel,
+        productUrl: normalizeSmartStoreProductUrl(option.productUrl || product.productUrl, {}, option.productUrl ? option : product),
+      });
+
+      if (!current || next.price < current.price) optionMap.set(weightLabel, next);
+    });
+
+  return [...optionMap.values()].sort((a, b) => a.weight - b.weight || a.price - b.price);
+}
+
+function smartStoreDetailCachePath(productNo, product = {}) {
+  const fingerprint = crypto.createHash('sha1').update(JSON.stringify({
+    productNo: String(productNo || ''),
+    productName: product.productName || '',
+    price: product.price || 0,
+    originalPrice: product.originalPrice || 0,
+    productUrl: product.productUrl || '',
+  })).digest('hex');
+  return path.join(SMARTSTORE_DETAIL_CACHE_DIR, `${productNo}-${fingerprint}.json`);
+}
+
+function readSmartStoreDetailCache(productNo, product = {}) {
+  try {
+    const cachePath = smartStoreDetailCachePath(productNo, product);
+    if (!fs.existsSync(cachePath)) return null;
+    return JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function writeSmartStoreDetailCache(productNo, product = {}, detailInfo = {}) {
+  try {
+    fs.mkdirSync(SMARTSTORE_DETAIL_CACHE_DIR, { recursive: true });
+    const cachePath = smartStoreDetailCachePath(productNo, product);
+    const priceOptions = Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : [];
+    const optionFingerprint = crypto.createHash('sha1').update(JSON.stringify(priceOptions.map((option) => ({
+      weight: option.weight,
+      price: option.price,
+      originalPrice: option.originalPrice || 0,
+    })))).digest('hex');
+    fs.writeFileSync(cachePath, JSON.stringify({
+      detailHtml: detailInfo.detailHtml || '',
+      priceOptions,
+      optionFingerprint,
+      cachedAt: new Date().toISOString(),
+    }), 'utf8');
+  } catch {
+    // 상세 옵션 캐시는 네이버 호출 수를 줄이기 위한 보조 장치라 실패해도 수집은 계속한다.
+  }
 }
 
 function hasExplicitWeight(title) {
@@ -835,19 +1053,20 @@ async function enrichProductsWithThumbnailOcr(products, { concurrency = 3, force
 }
 
 function compactTitleKey(title) {
-  return String(title || '').toLowerCase().replace(/[^a-z0-9가-힣]+/g, '');
+  // "블랜드"(스마트스토어)와 "블렌드"(언스페셜티) 표기 차이로 같은 상품이 안 붙는 것을 막는다.
+  return String(title || '').toLowerCase().replace(/블랜/g, '블렌').replace(/[^a-z0-9가-힣]+/g, '');
 }
 
-// 검색 API 결과에서 얻은 노트를 제목이 같은(또는 포함 관계인) 상품에 옮겨 붙인다.
-function mergeNotesFromSearchResults(products, searchProducts) {
+// 노트 보급원에서 얻은 노트를 제목이 같은(또는 포함 관계인) 상품에 옮겨 붙인다.
+function mergeNotesFromMatchedProducts(products, noteProducts) {
   const notesByKey = new Map();
-  for (const item of searchProducts || []) {
+  for (const item of noteProducts || []) {
     if (item.tastingNotes?.length > 0) notesByKey.set(compactTitleKey(item.productName), item.tastingNotes);
   }
   if (notesByKey.size === 0) return products;
 
   return products.map((product) => {
-    if (product.tastingNotes.length > 0) return product;
+    if (product.tastingNotes?.length > 0) return product;
 
     const key = compactTitleKey(product.productName);
     let notes = notesByKey.get(key);
@@ -861,6 +1080,11 @@ function mergeNotesFromSearchResults(products, searchProducts) {
     }
     return notes ? { ...product, tastingNotes: notes } : product;
   });
+}
+
+// 검색 API 결과에서 얻은 노트를 제목이 같은(또는 포함 관계인) 상품에 옮겨 붙인다.
+function mergeNotesFromSearchResults(products, searchProducts) {
+  return mergeNotesFromMatchedProducts(products, searchProducts);
 }
 
 function extractSmartStoreDetailImageUrls(html) {
@@ -1081,11 +1305,20 @@ module.exports = {
     mergeTastingNotes,
     extractNotesFromDetail,
     extractSmartStoreDetailImageUrls,
+    mergeNotesFromMatchedProducts,
     mergeNotesFromSearchResults,
     normalizeSmartStoreProductUrl,
+    buildSmartStorePriceOptionsFromDetail,
+    getSmartStoreDetailCacheDir,
+    readSmartStoreDetailCache,
+    writeSmartStoreDetailCache,
   },
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
+  buildSmartStorePriceOptionsFromDetail,
+  readSmartStoreDetailCache,
+  writeSmartStoreDetailCache,
+  mergeNotesFromMatchedProducts,
   mergeNotesFromSearchResults,
   loadLocalEnv,
   readOfficialMallImageText,

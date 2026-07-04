@@ -2,14 +2,17 @@ const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const {
   SMARTSTORE_SOURCES,
+  buildSmartStorePriceOptionsFromDetail,
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
   mergeNotesFromSearchResults,
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
+  readSmartStoreDetailCache,
   readOfficialMallImageText,
   searchNaverShopping,
   testSmartStoreSearch,
+  writeSmartStoreDetailCache,
 } = require('./naverShoppingSearch.cjs');
 const {
   isSoldOutFromHtml,
@@ -22,6 +25,7 @@ const {
   extractDetailContentImageUrls,
   extractBlendComposition,
 } = require('../src/services/adapters/cafe24DetailParser.cjs');
+const { enrichProductsWithUnspecialtyNotes } = require('./noteSources/unspecialty.cjs');
 const { publishProductsToGitHub } = require('./githubPublisher.cjs');
 
 const rootDir = path.resolve(__dirname, '..');
@@ -520,11 +524,52 @@ function getSmartStoreCategoryUrls(source) {
   return [source?.categoryUrl, ...(source?.categoryUrls || [])].filter(Boolean);
 }
 
-// 스마트스토어 내부 상품 API로 상세 본문(HTML)을 모아온다.
+function getSmartStoreProductNo(product) {
+  if (typeof product === 'string') return product.match(/\d+/)?.[0] || '';
+  return (String(product?.productUrl || '').match(/\/products\/(\d+)/) || [])[1] || '';
+}
+
+function needsSmartStoreDetail(product) {
+  if (!product || typeof product === 'string') return true;
+  const needsNotes = !Array.isArray(product.tastingNotes) || product.tastingNotes.length === 0;
+  const needsOptions = !Array.isArray(product.priceOptions) || product.priceOptions.length === 0;
+  return needsNotes || needsOptions;
+}
+
+function applySmartStoreDetailInfo(product, detailInfo) {
+  if (!detailInfo) return product;
+
+  const priceOptions = Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : [];
+  if (priceOptions.length === 0) return product;
+
+  const representative = priceOptions[0];
+  const nextProduct = {
+    ...product,
+    price: representative.price,
+    originalPrice: representative.originalPrice,
+    weight: representative.weight,
+    weightLabel: representative.weightLabel,
+    priceLabel: representative.priceLabel,
+    unitPriceLabel: '',
+  };
+
+  if (priceOptions.length < 2 || (Array.isArray(product.priceOptions) && product.priceOptions.length > 0)) return nextProduct;
+
+  return {
+    ...nextProduct,
+    priceOptions,
+    weightLabel: priceOptions.map((option) => option.weightLabel).filter(Boolean).join(' / '),
+  };
+}
+
+// 스마트스토어 내부 상품 API로 상세 본문(HTML)과 페이지 내 용량 옵션을 모아온다.
 // 스토어 홈을 연 페이지 안에서 fetch해야 네이버가 봇으로 막지 않는다.
-async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCount = 15, timeBudgetMs = 45000 } = {}) {
+async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount = 20, timeBudgetMs = 45000 } = {}) {
   const contents = new Map();
-  if (productNos.length === 0) return contents;
+  const targets = products
+    .map((product) => ({ product, productNo: getSmartStoreProductNo(product) }))
+    .filter((target) => target.productNo && needsSmartStoreDetail(target.product));
+  if (targets.length === 0) return contents;
 
   const hiddenWindow = new BrowserWindow({
     width: 1280,
@@ -544,43 +589,119 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
       8000,
       '',
     );
-    if (!channelUid) return contents;
 
     const startedAt = Date.now();
-    let consecutiveFailures = 0;
+    let consecutiveApiFailures = 0;
 
     // 직렬 호출: 동시에 부르면 네이버 차단(429·캡차)만 빨라진다.
-    for (const productNo of productNos.slice(0, maxCount)) {
-      if (Date.now() - startedAt > timeBudgetMs || consecutiveFailures >= 2) break;
+    for (const { product, productNo } of targets.slice(0, maxCount)) {
+      if (Date.now() - startedAt > timeBudgetMs) break;
 
-      const detailHtml = await executeJavaScriptWithTimeout(hiddenWindow, `
-        fetch('/i/v2/channels/${channelUid}/products/${productNo}?withWindow=false', {
-          headers: { accept: 'application/json' },
-          credentials: 'include',
-          signal: AbortSignal.timeout(8000),
-        }).then((res) => (res.ok ? res.json() : null))
-          .then((json) => {
-            if (!json) return '';
-            // 필드 이름이 바뀌어도 동작하도록, HTML로 보이는 가장 긴 문자열을 본문으로 삼는다.
-            let best = '';
-            const visit = (value) => {
-              if (typeof value === 'string') {
-                if (value.length > best.length && /<(img|p|div|table|span)/i.test(value)) best = value;
-              } else if (value && typeof value === 'object') {
-                Object.values(value).forEach(visit);
-              }
-            };
-            visit(json);
-            return best;
-          })
-          .catch(() => '')
-      `, 10000, '');
+      const cached = typeof product === 'object' ? readSmartStoreDetailCache(productNo, product) : null;
+      if (cached) {
+        contents.set(String(productNo), cached);
+        continue;
+      }
 
-      if (detailHtml) {
-        contents.set(String(productNo), String(detailHtml));
-        consecutiveFailures = 0;
-      } else {
-        consecutiveFailures += 1;
+      let detailPayload = null;
+      let triedApi = false;
+      const groupedOptionPayload = await executeJavaScriptWithTimeout(hiddenWindow, `
+        (() => {
+          const json = window.__PRELOADED_STATE__ || {};
+          const targetNo = Number(${JSON.stringify(productNo)});
+          const candidates = [];
+          const visit = (value) => {
+            if (!value || typeof value !== 'object') return;
+            if (!Array.isArray(value) && Number(value.id) && typeof value.name === 'string' && Number(value.salePrice)) {
+              candidates.push(value);
+            }
+            Object.values(value).forEach(visit);
+          };
+          visit(json);
+
+          const target = candidates.find((item) => {
+            const groupNos = item.simpleStandardGroupProduct?.channelProductNos || [];
+            return Number(item.id) === targetNo || groupNos.map(Number).includes(targetNo);
+          });
+          const groupNos = target?.simpleStandardGroupProduct?.channelProductNos?.map(Number) || [];
+          if (groupNos.length === 0) return null;
+
+          const storeId = location.pathname.split('/').filter(Boolean)[0] || '';
+          return {
+            optionCombinations: candidates
+              .filter((item) => groupNos.includes(Number(item.id)))
+              .map((item) => ({
+                optionName: item.name,
+                absolutePrice: item.salePrice,
+                originalPrice: item.benefitsView?.mobileDiscountedSalePrice || item.benefitsView?.discountedSalePrice || item.salePrice,
+                productUrl: storeId ? 'https://smartstore.naver.com/' + storeId + '/products/' + item.id : '',
+                usable: item.displayable !== false && item.productStatusType !== 'OUTOFSTOCK',
+                stockQuantity: item.stockQuantity,
+              })),
+          };
+        })()
+      `, 8000, null);
+
+      if (groupedOptionPayload?.optionCombinations?.length) {
+        detailPayload = {
+          optionCombinations: groupedOptionPayload.optionCombinations,
+        };
+      } else if (channelUid && consecutiveApiFailures < 2) {
+        triedApi = true;
+        detailPayload = await executeJavaScriptWithTimeout(hiddenWindow, `
+          fetch('/i/v2/channels/${channelUid}/products/${productNo}?withWindow=false', {
+            headers: { accept: 'application/json' },
+            credentials: 'include',
+            signal: AbortSignal.timeout(8000),
+          }).then((res) => (res.ok ? res.json() : null))
+            .then((json) => {
+              if (!json) return null;
+              // 필드 이름이 바뀌어도 동작하도록, HTML로 보이는 가장 긴 문자열을 본문으로 삼는다.
+              let best = '';
+              const findOptionCombinations = (value) => {
+                if (!value || typeof value !== 'object') return [];
+                if (Array.isArray(value.optionCombinations)) return value.optionCombinations;
+                if (Array.isArray(value)) {
+                  for (const item of value) {
+                    const found = findOptionCombinations(item);
+                    if (found.length > 0) return found;
+                  }
+                  return [];
+                }
+                for (const item of Object.values(value)) {
+                  const found = findOptionCombinations(item);
+                  if (found.length > 0) return found;
+                }
+                return [];
+              };
+              const visit = (value) => {
+                if (typeof value === 'string') {
+                  if (value.length > best.length && /<(img|p|div|table|span)/i.test(value)) best = value;
+                } else if (value && typeof value === 'object') {
+                  Object.values(value).forEach(visit);
+                }
+              };
+              visit(json);
+              return {
+                detailHtml: best,
+                optionCombinations: findOptionCombinations(json),
+              };
+            })
+            .catch(() => null)
+        `, 10000, null);
+      }
+
+      const detailHtml = String(detailPayload?.detailHtml || '');
+      const priceOptions = typeof product === 'object'
+        ? buildSmartStorePriceOptionsFromDetail(detailPayload || {}, product)
+        : [];
+      if (detailHtml || priceOptions.length > 0) {
+        const detailInfo = { detailHtml, priceOptions };
+        contents.set(String(productNo), detailInfo);
+        if (typeof product === 'object') writeSmartStoreDetailCache(productNo, product, detailInfo);
+        if (triedApi) consecutiveApiFailures = 0;
+      } else if (triedApi) {
+        consecutiveApiFailures += 1;
       }
       await delay(400);
     }
@@ -588,6 +709,48 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, productNos, { maxCoun
     return contents;
   } finally {
     hiddenWindow.close();
+  }
+}
+
+async function enrichSmartStoreProductsWithDetailInfo(source, products) {
+  const storeHomeUrl = (
+    source?.storeUrl
+    || getSmartStoreCategoryUrls(source)[0]
+    || ''
+  ).match(/^(https:\/\/smartstore\.naver\.com\/[^/?#]+)/i)?.[1] || '';
+  if (!storeHomeUrl || products.length === 0) return products;
+
+  const detailContents = await fetchSmartStoreDetailContents(storeHomeUrl, products);
+  if (detailContents.size === 0) return products;
+
+  return mapWithConcurrency(products, 2, async (product) => {
+    const detailInfo = detailContents.get(getSmartStoreProductNo(product));
+    if (!detailInfo) return product;
+
+    let nextProduct = applySmartStoreDetailInfo(product, detailInfo);
+    if (nextProduct.tastingNotes.length === 0 && detailInfo.detailHtml) {
+      const notes = await extractNotesFromDetail(detailInfo.detailHtml);
+      if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
+    }
+
+    return nextProduct;
+  });
+}
+
+async function enrichSmartStoreProductsWithExternalNotes(sourceId, products) {
+  const missingBefore = products.filter((product) => !product.tastingNotes?.length).length;
+  if (missingBefore === 0) return products;
+
+  try {
+    const enrichedProducts = await enrichProductsWithUnspecialtyNotes(sourceId, products);
+    const missingAfter = enrichedProducts.filter((product) => !product.tastingNotes?.length).length;
+    if (missingAfter < missingBefore) {
+      console.log(`[beanpick:note-source] unspecialty ${sourceId} filled ${missingBefore - missingAfter} notes`);
+    }
+    return enrichedProducts;
+  } catch (error) {
+    console.warn(`[beanpick:note-source] unspecialty ${sourceId} skipped: ${error instanceof Error ? error.message : String(error || '')}`);
+    return products;
   }
 }
 
@@ -628,30 +791,16 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
     }
   }
 
-  // 컵노트 보강 2단계: 그래도 없으면 상품 상세 본문에서 추출 (실패해도 조용히 넘어감)
-  const getProductNo = (product) => (String(product.productUrl).match(/\/products\/(\d+)/) || [])[1] || '';
-  const missingNoteNos = products
-    .filter((product) => product.tastingNotes.length === 0)
-    .map(getProductNo)
-    .filter(Boolean);
-  const storeHomeUrl = (categoryUrls[0].match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)/i) || [])[1] || '';
-
-  if (missingNoteNos.length > 0 && storeHomeUrl) {
+  // 컵노트 보강 2단계 + 페이지 내 용량 옵션 보강: 같은 상세 API 응답을 재사용한다.
+  if (products.some(needsSmartStoreDetail)) {
     try {
-      const detailContents = await fetchSmartStoreDetailContents(storeHomeUrl, missingNoteNos);
-      products = await mapWithConcurrency(products, 2, async (product) => {
-        if (product.tastingNotes.length > 0) return product;
-
-        const detailHtml = detailContents.get(getProductNo(product));
-        if (!detailHtml) return product;
-
-        const notes = await extractNotesFromDetail(detailHtml);
-        return notes.length > 0 ? { ...product, tastingNotes: notes } : product;
-      });
+      products = await enrichSmartStoreProductsWithDetailInfo(source, products);
     } catch {
       // 상세 보강 실패는 무시하고 0·1단계 결과를 그대로 쓴다.
     }
   }
+
+  products = await enrichSmartStoreProductsWithExternalNotes(sourceId, products);
 
   return {
     ok: true,
@@ -1293,7 +1442,18 @@ ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) =>
       console.warn(`[beanpick:smartstore-category] ${sourceId} 카테고리 결과가 없어 네이버 쇼핑 검색 API로 전환합니다. ${categoryResult?.warning || ''}`);
     }
 
-    return await searchNaverShopping(sourceId);
+    const searchResult = await searchNaverShopping(sourceId);
+    if (searchResult?.products?.length) {
+      return {
+        ...searchResult,
+        products: await enrichSmartStoreProductsWithExternalNotes(
+          sourceId,
+          await enrichSmartStoreProductsWithDetailInfo(source, searchResult.products),
+        ),
+      };
+    }
+
+    return searchResult;
   } catch (error) {
     return {
       ok: false,

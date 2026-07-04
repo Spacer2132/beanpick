@@ -5,6 +5,7 @@ const {
   loadLocalEnv,
   testSmartStoreSearch,
 } = require('../electron/naverShoppingSearch.cjs');
+const unspecialtyNotes = require('../electron/noteSources/unspecialty.cjs');
 
 loadLocalEnv(path.resolve(__dirname, '..'));
 
@@ -193,6 +194,39 @@ if (mergedNotes[1].tastingNotes.length !== 0) {
   throw new Error(`제목이 다른 상품에 노트가 잘못 이식되었습니다: ${mergedNotes[1].tastingNotes.join(', ')}`);
 }
 
+const unspecialtyFixtureHtml = `
+  <li id="anchorBoxId_773">
+    <div class="description">
+      <div class="name"><a href="/product/detail.html?product_no=773"><span>상품명</span> :
+        <span>[말릭커피] 콜롬비아 톨리마 카페 그란데 엘 비노 마운틴워터 디카페인</span></a></div>
+      <span>U:{"cupNotes":"만다린, 사과, 건자두, 체리, 사탕수수","options":"200g/19,500원","roastery":"말릭커피"}:U</span>
+    </div>
+  </li>
+`;
+const unspecialtyParsed = unspecialtyNotes._test.extractUnspecialtyProductsFromHtml(
+  unspecialtyFixtureHtml,
+  'https://unspecialty.com/product/list.html?cate_no=90',
+);
+if (unspecialtyParsed.length !== 1 || !unspecialtyParsed[0].tastingNotes.includes('체리')) {
+  throw new Error(`언스페셜티 목록 컵노트 파싱이 동작하지 않습니다: ${JSON.stringify(unspecialtyParsed)}`);
+}
+const unspecialtyMerged = _test.mergeNotesFromMatchedProducts(
+  [
+    { productName: '콜롬비아 톨리마 카페 그란데 엘 비노 마운틴워터 디카페인', tastingNotes: [], price: 18500 },
+    { productName: '마일드 블렌드', tastingNotes: ['초콜릿'], price: 14500 },
+  ],
+  [
+    ...unspecialtyParsed,
+    { productName: '마일드 블렌드', tastingNotes: ['오렌지'] },
+  ],
+);
+if (!unspecialtyMerged[0].tastingNotes.includes('사과') || unspecialtyMerged[0].price !== 18500) {
+  throw new Error(`언스페셜티 노트는 빈 노트 상품에만 가격 변경 없이 이식되어야 합니다: ${JSON.stringify(unspecialtyMerged[0])}`);
+}
+if (unspecialtyMerged[1].tastingNotes.join(',') !== '초콜릿') {
+  throw new Error(`이미 노트가 있는 상품은 언스페셜티 노트로 덮어쓰면 안 됩니다: ${JSON.stringify(unspecialtyMerged[1])}`);
+}
+
 const detailImages = _test.extractSmartStoreDetailImageUrls(
   '<img src="https://shop-phinf.pstatic.net/a.jpg"><img data-src="https://shop-phinf.pstatic.net/b.png"><img src="/blank.gif">',
 );
@@ -248,6 +282,58 @@ const lubiaOptionPriceFixture = _test.normalizeSmartStoreCategoryItems('lubia', 
 ]);
 if (lubiaOptionPriceFixture[0].price !== 46000 || lubiaOptionPriceFixture[0].originalPrice) {
   throw new Error('루비아 옵션 추가금 1,000원은 판매가로 쓰지 않고 원래가로 보정해야 합니다.');
+}
+
+const coffeejgOptionFixture = _test.buildSmartStorePriceOptionsFromDetail(
+  {
+    optionCombinations: [
+      { optionName1: '20g', price: -18000, stockQuantity: 5, usable: true },
+      { optionName1: '200g', price: 0, stockQuantity: 5, usable: true },
+      { optionName1: '500g', price: 18000, stockQuantity: 3, usable: true },
+      { optionName1: '분쇄안함', price: 0, stockQuantity: 3, usable: true },
+    ],
+  },
+  {
+    productName: '콜롬비아 모모스 셀렉션 라 플라타 게이샤 워시드',
+    price: 21000,
+    originalPrice: 24000,
+    weight: 200,
+    productUrl: 'https://smartstore.naver.com/coffeejg/products/13583727290',
+  },
+);
+if (coffeejgOptionFixture.length !== 2) {
+  throw new Error(`스마트스토어 상세 옵션에서 용량 2개를 읽어야 합니다: ${JSON.stringify(coffeejgOptionFixture)}`);
+}
+if (coffeejgOptionFixture[0].weight !== 200 || coffeejgOptionFixture[0].price !== 21000 || coffeejgOptionFixture[0].originalPrice !== 24000) {
+  throw new Error(`기본 용량 옵션 가격/정상가가 잘못되었습니다: ${JSON.stringify(coffeejgOptionFixture[0])}`);
+}
+if (coffeejgOptionFixture[1].weight !== 500 || coffeejgOptionFixture[1].price !== 39000 || coffeejgOptionFixture[1].originalPrice) {
+  throw new Error(`추가금 옵션은 기본가+추가금으로 계산하고 다른 용량 정상가를 붙이면 안 됩니다: ${JSON.stringify(coffeejgOptionFixture[1])}`);
+}
+if (coffeejgOptionFixture.map((option) => option.weightLabel).join(' / ') !== '200g / 500g') {
+  throw new Error(`스마트스토어 용량 옵션 라벨이 잘못되었습니다: ${coffeejgOptionFixture.map((option) => option.weightLabel).join(' / ')}`);
+}
+
+const coffeejgGroupedProductFixture = _test.buildSmartStorePriceOptionsFromDetail(
+  {
+    optionCombinations: [
+      { optionName: '콜롬비아 모모스 셀렉션 라 플라타 게이샤 워시드 20g, 1개', absolutePrice: 3000, usable: true },
+      { optionName: '콜롬비아 모모스 셀렉션 라 플라타 게이샤 워시드 100g, 1개', absolutePrice: 11000, usable: true },
+      { optionName: '콜롬비아 모모스 셀렉션 라 플라타 게이샤 워시드 200g, 1개', absolutePrice: 21000, usable: true },
+    ],
+  },
+  {
+    productName: '콜롬비아 모모스 셀렉션 라 플라타 게이샤 워시드',
+    price: 3000,
+    weight: 20,
+    productUrl: 'https://smartstore.naver.com/coffeejg/products/13583715798',
+  },
+);
+if (coffeejgGroupedProductFixture.map((option) => option.weightLabel).join(' / ') !== '100g / 200g') {
+  throw new Error(`스마트스토어 그룹 상품 옵션은 20g을 제외하고 절대 가격을 유지해야 합니다: ${JSON.stringify(coffeejgGroupedProductFixture)}`);
+}
+if (coffeejgGroupedProductFixture[1].price !== 21000) {
+  throw new Error(`스마트스토어 그룹 상품의 200g 절대 가격이 보존되어야 합니다: ${JSON.stringify(coffeejgGroupedProductFixture[1])}`);
 }
 
 const wholeBeanFilterTest = _test.normalizeSmartStoreCategoryItems('identity', [
