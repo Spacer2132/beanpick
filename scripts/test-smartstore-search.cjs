@@ -253,6 +253,28 @@ const mergedGeminiNotes = _test.mergeTastingNotes(['초콜릿', '자몽'], ['자
 if (mergedGeminiNotes.join(',') !== '자몽,복숭아,자스민,베르가못,초콜릿') {
   throw new Error(`Gemini 노트는 기존 노트와 중복 없이 최대 5개까지 합쳐야 합니다: ${mergedGeminiNotes.join(', ')}`);
 }
+const rubiaGalleryNotes = _test.extractFlavorNotesAnywhere('헤이즐넛 견과류 초콜릿 달콤함');
+for (const note of ['헤이즐넛', '견과류', '초콜릿', '단맛']) {
+  if (!rubiaGalleryNotes.includes(note)) {
+    throw new Error(`루비아 갤러리 카드 노트를 읽지 못했습니다: ${rubiaGalleryNotes.join(', ') || '(없음)'}`);
+  }
+}
+const rubiaMergedNotes = _test.mergeTastingNotes(['헤이즐넛'], ['견과류', '초콜릿', '단맛']);
+for (const note of ['헤이즐넛', '견과류', '초콜릿', '단맛']) {
+  if (!rubiaMergedNotes.includes(note)) {
+    throw new Error(`기존 헤이즐넛 노트에 상세 노트를 병합하지 못했습니다: ${rubiaMergedNotes.join(', ') || '(없음)'}`);
+  }
+}
+const rubiaTitleOnlyNotes = _test.getTasteNotes('헤이즐넛 브라운 다크 로스트 플레이버드 블렌드 커피');
+if (rubiaTitleOnlyNotes.join(',') !== '헤이즐넛') {
+  throw new Error(`루비아 상품명 단독 경로는 헤이즐넛만 유지해야 합니다: ${rubiaTitleOnlyNotes.join(', ') || '(없음)'}`);
+}
+const marketingSweetNotes = _test.extractNotesFromPreloadedDetailText(
+  '달콤한 초콜릿 케이크처럼 부드럽고 고소한 여운이 느껴지는 블렌드입니다.',
+);
+if (marketingSweetNotes.includes('단맛')) {
+  throw new Error(`달콤한 설명문을 단맛 컵노트로 오인하면 안 됩니다: ${marketingSweetNotes.join(', ')}`);
+}
 
 // 상세 본문 텍스트에서 노트 추출 (이미지 OCR 없이 글자만으로)
 _test.extractNotesFromDetail(
