@@ -54,6 +54,20 @@ const fixtures = [
     forbidden: ['디카페인', '단맛', '아몬드', '밀크초콜릿'],
   },
   {
+    name: '루비아 갤러리 카드 달콤함',
+    kind: 'anywhere',
+    input: 'notes 헤이즐넛 견과류 초콜릿 달콤함',
+    expected: ['헤이즐넛', '견과류', '초콜릿', '단맛'],
+    forbidden: [],
+  },
+  {
+    name: '달콤한 설명문 단맛 오인 금지',
+    kind: 'anywhere',
+    input: '달콤한 초콜릿 케이크처럼 부드러운 플레이버드 블렌드',
+    expected: ['초콜릿'],
+    forbidden: ['단맛'],
+  },
+  {
     name: '상품명 추측 금지',
     kind: 'title',
     input: '고소하고 진한 루비아 다크 브라운 홀빈, 1kg, 1개',

@@ -922,7 +922,7 @@ const TASTING_NOTE_PATTERNS = [
   ['시러피', /시러피|syrupy/i],
   ['바닐라', /바닐라|vanilla/i],
   ['달고나', /달고나/i],
-  ['단맛', /단맛|sweet/i],
+  ['단맛', /단맛|달콤함|sweet/i],
   ['메이플', /메이플|maple/i],
   ['뉘앙스', /뉘앙스|nuance/i],
   // Sour (신맛)

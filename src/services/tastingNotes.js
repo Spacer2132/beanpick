@@ -182,7 +182,7 @@ const NOTE_RULES = [
   { label: '버터스카치', group: 'sweet', aliases: ['butterscotch', '버터스카치'] },
   { label: '코코넛', group: 'sweet', aliases: ['coconut', '코코넛'] },
   { label: '호박', group: 'sweet', aliases: ['pumpkin', '호박'] },
-  { label: '단맛', group: 'sweet', aliases: ['sweet', 'sweetness', '단맛'] },
+  { label: '단맛', group: 'sweet', aliases: ['sweet', 'sweetness', '단맛', '달콤함'] },
   { label: '조청', group: 'sweet', aliases: ['조청'] },
   { label: '뉘앙스', group: 'sweet', aliases: ['nuance', '뉘앙스'] },
 
