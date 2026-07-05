@@ -143,6 +143,7 @@ const NOTE_RULES = [
   { label: '플로럴', group: 'floral', aliases: ['floral', 'flower', 'flowers', '플로럴'] },
   { label: '자스민', group: 'floral', aliases: ['jasmine', '자스민'] },
   { label: '베르가못', group: 'floral', aliases: ['bergamot', '베르가못'] },
+  { label: '라벤더', group: 'floral', aliases: ['lavender', '라벤더'] },
   { label: '노란 백합', group: 'floral', aliases: ['yellow lily', '노란 백합'] },
   { label: '홍차', group: 'floral', aliases: ['black tea', 'blacktea', '홍차'] },
   { label: '녹차', group: 'floral', aliases: ['green tea', 'greentea', '녹차'] },
@@ -204,6 +205,7 @@ const NOTE_RULES = [
   { label: '담배', group: 'green', aliases: ['tobacco', '담배'] },
   { label: '나뭇잎', group: 'green', aliases: ['leaf', 'leafy', '나뭇잎'] },
   { label: '향초', group: 'green', aliases: ['herbaceous', '향초'] },
+  { label: '올리브', group: 'green', aliases: ['olive', 'olives', '올리브'] },
 
   { label: '견과류', group: 'nutty', aliases: ['nutty', 'nuts', 'nut', '견과류', '견과'] },
   { label: '참깨', group: 'nutty', aliases: ['sesame', '참깨'] },

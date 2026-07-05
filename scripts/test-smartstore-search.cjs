@@ -97,6 +97,90 @@ if (nonBeanCoffeeFixture.length !== 1 || nonBeanCoffeeFixture[0].weight !== 1000
   throw new Error(`스마트스토어 수집은 원두 외 커피류와 1kg 초과 상품을 제외하고 1kg 원두만 남겨야 합니다: ${nonBeanCoffeeFixture.map((product) => product.productName).join(', ') || '(없음)'}`);
 }
 
+const smartStoreGoodsFixture = _test.normalizeSmartStoreCategoryItems('malik', [
+  {
+    id: 'goods-socks',
+    title: '말릭커피 로고 양말',
+    price: 12000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/goods-socks',
+    imageUrl: 'https://example.com/socks.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'goods-glass',
+    title: '말릭커피 언더락 글라스',
+    price: 18000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/goods-glass',
+    imageUrl: 'https://example.com/glass.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'goods-postcard',
+    title: '말릭커피 엽서 세트',
+    price: 5000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/goods-postcard',
+    imageUrl: 'https://example.com/postcard.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'goods-hat',
+    title: '말릭커피 로고 모자',
+    price: 18000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/goods-hat',
+    imageUrl: 'https://example.com/hat.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'bean-cupnote',
+    title: '에티오피아 첼베사 컵노트 자스민 200g',
+    price: 19000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/bean-cupnote',
+    imageUrl: 'https://example.com/bean-cupnote.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'bean-gift',
+    title: '선물하기 좋은 블렌드 원두 200g',
+    price: 16000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/bean-gift',
+    imageUrl: 'https://example.com/bean-gift.png',
+    isSoldOut: false,
+  },
+  {
+    id: 'bean-mosaic',
+    title: '모자이크 블렌드 원두 200g',
+    price: 17000,
+    productUrl: 'https://smartstore.naver.com/undercrema/products/bean-mosaic',
+    imageUrl: 'https://example.com/bean-mosaic.png',
+    isSoldOut: false,
+  },
+]);
+if (smartStoreGoodsFixture.length !== 3) {
+  throw new Error(`스마트스토어 굿즈 필터는 굿즈만 제외하고 정상 원두는 남겨야 합니다: ${smartStoreGoodsFixture.map((product) => product.productName).join(', ') || '(없음)'}`);
+}
+const goodsRemainingIds = smartStoreGoodsFixture.map((product) => product.id);
+if (!goodsRemainingIds.includes('malik-bean-cupnote') || !goodsRemainingIds.includes('malik-bean-gift') || !goodsRemainingIds.includes('malik-bean-mosaic')) {
+  throw new Error(`컵노트/선물/모자이크 문구가 들어간 정상 원두가 잘못 제외되었습니다: ${goodsRemainingIds.join(', ')}`);
+}
+if (_test.isCollectableSmartStoreProductTitle('말릭커피 로고 양말') || _test.isCollectableSmartStoreProductTitle('말릭커피 로고 모자')) {
+  throw new Error('검색 API 공통 필터가 스마트스토어 굿즈를 제외하지 못했습니다.');
+}
+if (!_test.isCollectableSmartStoreProductTitle('가방산 블렌드 원두 200g')) {
+  throw new Error('검색 API 공통 필터가 가방 같은 경계 제외어를 포함한 정상 원두를 잘못 제외했습니다.');
+}
+if (_test.isCollectableSmartStoreProductTitle('말릭커피 로고 가방')) {
+  throw new Error('검색 API 공통 필터가 단독 가방 굿즈를 제외하지 못했습니다.');
+}
+if (!_test.isCollectableSmartStoreProductTitle('원두 선물세트 200g') || !_test.isCollectableSmartStoreProductTitle('싱글오리진 원두 기프트 세트')) {
+  throw new Error('검색 API 공통 필터가 정상 원두 선물세트를 잘못 제외했습니다.');
+}
+if (_test.isCollectableSmartStoreProductTitle('말릭커피 기프트 세트')) {
+  throw new Error('검색 API 공통 필터가 원두 신호 없는 기프트 세트를 제외하지 못했습니다.');
+}
+if (!_test.isCollectableSmartStoreProductTitle('모자이크 블렌드 원두 200g')) {
+  throw new Error('검색 API 공통 필터가 모자이크 같은 정상 원두를 잘못 제외했습니다.');
+}
+
 const hitteCategoryFixture = _test.normalizeSmartStoreCategoryItems('hitte', [
   {
     id: '10658396965',
@@ -225,6 +309,57 @@ if (!unspecialtyMerged[0].tastingNotes.includes('사과') || unspecialtyMerged[0
 }
 if (unspecialtyMerged[1].tastingNotes.join(',') !== '초콜릿') {
   throw new Error(`이미 노트가 있는 상품은 언스페셜티 노트로 덮어쓰면 안 됩니다: ${JSON.stringify(unspecialtyMerged[1])}`);
+}
+
+const unspecialtyEdnMerged = _test.mergeNotesFromMatchedProducts(
+  [
+    { productName: '에티오피아 EDN 반코 타라투 더블퍼먼테이션 워시드', tastingNotes: [] },
+  ],
+  [
+    { productName: '에티오피아 반코 타라투 더블 퍼먼테이션 워시드', tastingNotes: ['레몬', '망고', '자스민'] },
+  ],
+);
+if (!unspecialtyEdnMerged[0].tastingNotes.includes('망고')) {
+  throw new Error(`EDN 같은 짧은 영문 토큰이 끼어도 언스페셜티 노트가 이식되어야 합니다: ${JSON.stringify(unspecialtyEdnMerged[0])}`);
+}
+
+const unspecialtyDuplicateSourceMerged = _test.mergeNotesFromMatchedProducts(
+  [
+    { productName: '에티오피아 EDN 반코 타라투 더블퍼먼테이션 워시드', tastingNotes: [] },
+  ],
+  [
+    { productName: '에티오피아 반코 타라투 더블 퍼먼테이션 워시드', tastingNotes: ['레몬', '망고', '자스민'] },
+    { productName: '에티오피아 반코 타라투 더블 퍼먼테이션 워시드', tastingNotes: ['레몬', '망고', '자스민'] },
+  ],
+);
+if (!unspecialtyDuplicateSourceMerged[0].tastingNotes.includes('망고')) {
+  throw new Error(`언스페셜티 중복 상품 카드가 있어도 같은 후보는 하나로 보고 노트를 이식해야 합니다: ${JSON.stringify(unspecialtyDuplicateSourceMerged[0])}`);
+}
+
+const unspecialtyDuplicateTargetMerged = _test.mergeNotesFromMatchedProducts(
+  [
+    { productName: '에티오피아 EDN 반코 타라투 더블퍼먼테이션 워시드', tastingNotes: [] },
+    { productName: '에티오피아 EDN 반코 타라투 더블퍼먼테이션 워시드', tastingNotes: [] },
+  ],
+  [
+    { productName: '에티오피아 반코 타라투 더블 퍼먼테이션 워시드', tastingNotes: ['레몬', '망고', '자스민'] },
+  ],
+);
+if (unspecialtyDuplicateTargetMerged.some((product) => !product.tastingNotes.includes('망고'))) {
+  throw new Error(`같은 스마트스토어 상품 카드가 중복되어도 EDN 보조 매칭은 동작해야 합니다: ${JSON.stringify(unspecialtyDuplicateTargetMerged)}`);
+}
+
+const unspecialtyGradeGuard = _test.mergeNotesFromMatchedProducts(
+  [
+    { productName: '케냐 니에리힐 AA 워시드', tastingNotes: [] },
+    { productName: '케냐 니에리힐 AB 워시드', tastingNotes: [] },
+  ],
+  [
+    { productName: '케냐 니에리힐 워시드', tastingNotes: ['시트러스', '살구'] },
+  ],
+);
+if (unspecialtyGradeGuard.some((product) => product.tastingNotes.length > 0)) {
+  throw new Error(`AA/AB처럼 등급만 다른 상품은 약어 제거 보조키로 잘못 붙이면 안 됩니다: ${JSON.stringify(unspecialtyGradeGuard)}`);
 }
 
 const detailImages = _test.extractSmartStoreDetailImageUrls(

@@ -74,6 +74,41 @@ const NON_BEAN_COFFEE_WORDS = [
   'tea bag',
   'teabag',
 ];
+const SMARTSTORE_GOODS_PHRASES = [
+  '양말',
+  '유리컵',
+  '유리잔',
+  '글라스',
+  '언더락',
+  '종이컵',
+  '컵세트',
+  '컵 세트',
+  '텀블러',
+  '머그',
+  '에코백',
+  '파우치',
+  '포스터',
+  '엽서',
+  '달력',
+  '스티커',
+  '키링',
+  '티셔츠',
+  '앞치마',
+  '코스터',
+  '굿즈',
+  '배지',
+  '뱃지',
+];
+const SMARTSTORE_GOODS_SET_PHRASES = [
+  '기프트세트',
+  '기프트 세트',
+  '선물세트',
+  '선물 세트',
+];
+const SMARTSTORE_GOODS_BOUNDARY_WORDS = [
+  '가방',
+  '모자',
+];
 function getPaddleOcrPythonPath(env = process.env) {
   return env.BEANPICK_PADDLE_OCR_PYTHON || 'C:\\Program Files\\Python311\\python.exe';
 }
@@ -534,6 +569,21 @@ function isNonBeanCoffeeTitle(title) {
   return NON_BEAN_COFFEE_WORDS.some((word) => text.includes(word));
 }
 
+function hasSmartStoreBeanSignal(title) {
+  const text = String(title || '').toLowerCase();
+  return /원두|홀빈|블렌드|블랜드|싱글오리진|single\s*origin/.test(text);
+}
+
+function isSmartStoreGoodsTitle(title) {
+  const text = String(title || '').toLowerCase();
+  if (SMARTSTORE_GOODS_PHRASES.some((word) => text.includes(word))) return true;
+  if (!hasSmartStoreBeanSignal(text) && SMARTSTORE_GOODS_SET_PHRASES.some((word) => text.includes(word))) return true;
+  return SMARTSTORE_GOODS_BOUNDARY_WORDS.some((word) => {
+    const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(^|[^a-z0-9가-힣])${escapedWord}(?=$|[^a-z0-9가-힣])`, 'i').test(text);
+  });
+}
+
 function isGroundCoffeeProduct(title) {
   if (!title) return false;
   const lowerText = String(title).toLowerCase();
@@ -551,6 +601,10 @@ function isCollectableSmartStoreTitle(title) {
   if (hasExplicitWeight(title) && parseWeight(title) > 1000) return false;
   if (isGroundCoffeeProduct(title)) return false;
   return true;
+}
+
+function isCollectableSmartStoreProductTitle(title) {
+  return isCollectableSmartStoreTitle(title) && !isSmartStoreGoodsTitle(title);
 }
 
 // 상품명에서 사전에 있는 맛 단어만 뽑는다. ("달고나 블랜드" → 달고나)
@@ -834,6 +888,7 @@ const TASTING_NOTE_PATTERNS = [
   ['히비스커스', /히비스커스|hibiscus/i],
   ['꿀풀', /꿀풀|honeysuckle/i],
   ['진달래', /진달래|azalea/i],
+  ['라벤더', /라벤더|lavender/i],
   // Spices (향신료)
   ['스파이스', /스파이스|spice/i],
   ['계피', /계피|cinnamon/i],
@@ -894,6 +949,7 @@ const TASTING_NOTE_PATTERNS = [
   ['담배', /담배|tobacco/i],
   ['나뭇잎', /나뭇잎|leaf|leafy/i],
   ['향초', /향초|herbaceous|mint|thyme/i],
+  ['올리브', /올리브|olive/i],
   ['크리미', /크리미|creamy/i],
   ['호박', /호박|pumpkin/i],
   ['녹차', /녹차|greentea/i],
@@ -1119,26 +1175,67 @@ function compactTitleKey(title) {
   return String(title || '').toLowerCase().replace(/블랜/g, '블렌').replace(/[^a-z0-9가-힣]+/g, '');
 }
 
+function compactTitleKeyWithoutShortCodes(title) {
+  const withoutShortCodes = String(title || '').replace(/(^|[^A-Za-z0-9])([A-Z0-9]{2,4})(?=$|[^A-Za-z0-9])/g, (match, prefix, token) => {
+    if (!/[A-Z]/.test(token)) return match;
+    return prefix;
+  });
+  return compactTitleKey(withoutShortCodes);
+}
+
+function titleKeysMatch(productKey, candidateKey) {
+  return candidateKey.length >= 6 && productKey.length >= 6 && (candidateKey.includes(productKey) || productKey.includes(candidateKey));
+}
+
 // 노트 보급원에서 얻은 노트를 제목이 같은(또는 포함 관계인) 상품에 옮겨 붙인다.
 function mergeNotesFromMatchedProducts(products, noteProducts) {
+  const noteEntries = [];
   const notesByKey = new Map();
   for (const item of noteProducts || []) {
-    if (item.tastingNotes?.length > 0) notesByKey.set(compactTitleKey(item.productName), item.tastingNotes);
+    if (item.tastingNotes?.length > 0) {
+      const key = compactTitleKey(item.productName);
+      const fallbackKey = compactTitleKeyWithoutShortCodes(item.productName);
+      notesByKey.set(key, item.tastingNotes);
+      noteEntries.push({ key, fallbackKey, notes: item.tastingNotes });
+    }
   }
   if (notesByKey.size === 0) return products;
+
+  const productKeysByFallback = new Map();
+  products
+    .filter((product) => !product.tastingNotes?.length)
+    .forEach((product) => {
+      const key = compactTitleKey(product.productName);
+      const fallbackKey = compactTitleKeyWithoutShortCodes(product.productName);
+      if (!fallbackKey || fallbackKey === key) return;
+      const keys = productKeysByFallback.get(fallbackKey) || new Set();
+      keys.add(key);
+      productKeysByFallback.set(fallbackKey, keys);
+    });
 
   return products.map((product) => {
     if (product.tastingNotes?.length > 0) return product;
 
     const key = compactTitleKey(product.productName);
+    const fallbackKey = compactTitleKeyWithoutShortCodes(product.productName);
     let notes = notesByKey.get(key);
     if (!notes && key.length >= 6) {
       for (const [candidateKey, candidateNotes] of notesByKey) {
-        if (candidateKey.length >= 6 && (candidateKey.includes(key) || key.includes(candidateKey))) {
+        if (titleKeysMatch(key, candidateKey)) {
           notes = candidateNotes;
           break;
         }
       }
+    }
+    if (!notes && fallbackKey && fallbackKey !== key && productKeysByFallback.get(fallbackKey)?.size === 1) {
+      const fallbackMatches = new Map();
+      for (const entry of noteEntries) {
+        const candidateKeys = [...new Set([entry.key, entry.fallbackKey].filter((candidateKey) => candidateKey && candidateKey.length >= 6))];
+        if (candidateKeys.some((candidateKey) => titleKeysMatch(fallbackKey, candidateKey))) {
+          fallbackMatches.set(`${entry.key}:${entry.notes.join('\0')}`, entry);
+        }
+      }
+      if (fallbackMatches.size === 1) notes = [...fallbackMatches.values()][0].notes;
     }
     return notes ? { ...product, tastingNotes: notes } : product;
   });
@@ -1256,7 +1353,7 @@ function normalizeSmartStoreCategoryItems(sourceId, items) {
   }
 
   return items
-    .filter((item) => isCollectableSmartStoreTitle(stripHtml(item.title)))
+    .filter((item) => isCollectableSmartStoreProductTitle(stripHtml(item.title)))
     .map((item, index) => normalizeSmartStoreCategoryItem(item, source, index))
     .filter((product) => !isAmbiguousBulkOptionProduct(product))
     .filter((product) => Number(product.weight || 0) <= 1000);
@@ -1308,7 +1405,7 @@ async function searchNaverShopping(sourceId) {
   const items = Array.isArray(body.items) ? body.items : [];
   const sourceItems = items
     .filter((item) => isSourceItem(item, source))
-    .filter((item) => isCollectableSmartStoreTitle(stripHtml(item.title)));
+    .filter((item) => isCollectableSmartStoreProductTitle(stripHtml(item.title)));
 
   return {
     ok: true,
@@ -1356,6 +1453,9 @@ module.exports = {
     isSuspiciousOptionOnlyPrice,
     isAmbiguousBulkOptionProduct,
     isCollectableSmartStoreTitle,
+    isCollectableSmartStoreProductTitle,
+    isSmartStoreGoodsTitle,
+    compactTitleKeyWithoutShortCodes,
     normalizeSmartStoreCategoryItems,
     normalizeSmartStorePrice,
     parseWeight,

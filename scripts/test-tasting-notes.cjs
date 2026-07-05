@@ -200,6 +200,20 @@ const fixtures = [
     expected: ['건포도', '초콜릿'],
     forbidden: ['포도'],
   },
+  {
+    name: '라벤더 올리브 정규화 검증',
+    kind: 'normalize',
+    input: ['체리, 라벤더, 올리브, 바닐라'],
+    expected: ['체리', '라벤더', '올리브', '바닐라'],
+    forbidden: [],
+  },
+  {
+    name: '라벤더 올리브 OCR 후보 사전 검증',
+    kind: 'anywhere',
+    input: 'TASTING CARD cherry lavender olive vanilla',
+    expected: ['체리', '라벤더', '올리브', '바닐라'],
+    forbidden: [],
+  },
 ];
 
 let falsePositiveCount = 0;
@@ -215,7 +229,9 @@ fixtures.forEach((fixture) => {
         ? terarosaTest.parseTerarosaDetailProduct(fixture.input, 'https://example.com').tastingNotes
         : fixture.kind === 'normalize'
           ? tastingNoteTools.normalizeTastingNotes(fixture.input, { limit: Infinity })
-          : _test.extractOcrTasteNotes(fixture.input);
+          : fixture.kind === 'anywhere'
+            ? _test.extractFlavorNotesAnywhere(fixture.input)
+            : _test.extractOcrTasteNotes(fixture.input);
   const missing = fixture.expected.filter((note) => !notes.includes(note));
   const forbidden = fixture.forbidden.filter((note) => notes.includes(note));
   const allowed = new Set(fixture.expected);
