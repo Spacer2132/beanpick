@@ -347,6 +347,11 @@ expect(core.matchesSmartSearch('풀리 워시드', '풀리워시드') === true, 
 expect(core.matchesSmartSearch('케냐 니에리 뚱구리 AA TOP 워시드 라이트 로스트', '시드라') === false, '단어 경계를 넘어 만들어진 시드라는 매칭되면 안 됩니다');
 expect(core.matchesSmartSearch('워시드 라이트', '드라이') === false, '단어 경계를 넘어 만들어진 드라이는 매칭되면 안 됩니다');
 expect(core.matchesSmartSearch('[6월의 커피] 에콰도르 루그마파타 시드라 워시드', '시드라') === true, '실제 시드라 품종은 검색되어야 합니다');
+expect(core.matchesSmartSearch('Colombia El Paraiso Sidra Natural', '시드라') === true, '시드라 검색은 영문 Sidra 상품도 찾아야 합니다');
+expect(core.matchesSmartSearch('콜롬비아 엘 파라이소 시드라 내추럴', 'sidra') === true, 'sidra 검색은 한글 시드라 상품도 찾아야 합니다');
+expect(core.matchesSmartSearch('Panama La Esmeralda Gesha Washed', '게이샤') === true, '게이샤 검색은 영문 Gesha 상품도 찾아야 합니다');
+expect(core.matchesSmartSearch('파나마 에스메랄다 게이샤 워시드', 'geisha') === true, 'geisha 검색은 한글 게이샤 상품도 찾아야 합니다');
+expect(core.matchesSmartSearch('브라질 세하도 버본 내추럴', 'bourbon') === true, 'bourbon 검색은 한글 버본 상품도 찾아야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '예가 에티') === true, '여러 단어는 모두 포함되면 매칭되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프 워시드', '에티오피아 워시드') === true, '여러 단어 AND 검색이 유지되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '케냐') === false, '없는 단어는 매칭되면 안 됩니다');
@@ -578,6 +583,26 @@ const testProductsForScore = core.normalizeProducts([
 expect(testProductsForScore[0].acidityScore > 0, '산미형 원두의 acidityScore는 양수여야 합니다', testProductsForScore[0].acidityScore);
 expect(testProductsForScore[1].acidityScore < 0, '고소한 단맛형 원두의 acidityScore는 음수여야 합니다', testProductsForScore[1].acidityScore);
 expect(testProductsForScore[2].acidityScore === null, '테이스팅 노트가 없는 경우 acidityScore는 null이어야 합니다', testProductsForScore[2].acidityScore);
+
+const scaleScore = core.getTasteScaleAcidityScore({ acidity: 2, sweetness: 4, max: 5 });
+expect(scaleScore <= -0.39 && scaleScore >= -0.61, '신맛 2/5·단맛 4/5 막대는 고소한 쪽 점수여야 합니다', scaleScore);
+
+const scalePriorityProducts = core.normalizeProducts([
+  { id: 'p-scale-sweet', tastingNotes: ['블루베리', '자스민'], tasteScale: { acidity: 2, sweetness: 4, max: 5 }, isSoldOut: false, score: 90 },
+  { id: 'p-scale-acidic', tastingNotes: ['초콜릿', '견과류'], tasteScale: { acidity: 5, sweetness: 1, max: 5 }, isSoldOut: false, score: 90 },
+  { id: 'p-no-note-no-scale', tastingNotes: [], isSoldOut: false, score: 80 },
+]);
+expect(scalePriorityProducts[0].acidityScore < 0, '막대값이 있으면 산미형 노트보다 신맛/단맛 막대가 우선되어야 합니다', scalePriorityProducts[0].acidityScore);
+expect(scalePriorityProducts[0].acidityScoreSource === 'tasteScale', '막대값에서 온 acidityScore 출처를 남겨야 합니다', scalePriorityProducts[0].acidityScoreSource);
+expect(scalePriorityProducts[1].acidityScore > 0, '게이샤류처럼 신맛 막대가 높으면 산미형 점수여야 합니다', scalePriorityProducts[1].acidityScore);
+expect(scalePriorityProducts[2].acidityScore === null, '노트와 막대가 모두 없으면 acidityScore는 null이어야 합니다', scalePriorityProducts[2].acidityScore);
+
+const groupedScaleProduct = core.groupProductsByNameAndWeight([
+  { id: 'p-scale-200', roasterName: '커피리브레', productName: '버티고 200g', price: 16000, weight: 200, tastingNotes: ['블루베리'], tasteScale: { acidity: 2, sweetness: 4, max: 5 }, isSoldOut: false, score: 90 },
+  { id: 'p-scale-500', roasterName: '커피리브레', productName: '버티고 500g', price: 36000, weight: 500, tastingNotes: ['블루베리'], isSoldOut: false, score: 90 },
+])[0];
+expect(groupedScaleProduct.acidityScore < 0, '묶인 상품도 상세페이지 신맛/단맛 막대 점수를 우선해야 합니다', groupedScaleProduct.acidityScore);
+expect(groupedScaleProduct.acidityScoreSource === 'tasteScale', '묶인 상품의 acidityScore 출처도 tasteScale이어야 합니다', groupedScaleProduct.acidityScoreSource);
 
 // tasteAxis 정렬 순서 검증 (사용자 요청: -1.0이 산미형, 1.0이 고소한 단맛형)
 const sortedByAcidic = core.sortProducts(testProductsForScore, 'score', -1.0);

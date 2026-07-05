@@ -119,6 +119,59 @@ function findLabeledLine(lines, labels) {
   return '';
 }
 
+function parseTasteScaleValue(text) {
+  const value = String(text || '');
+  const symbolMatch = value.match(/[●★■◆⬤○☆□◇◯]{2,}/);
+  if (symbolMatch) {
+    const symbols = [...symbolMatch[0]];
+    const filled = symbols.filter((ch) => /[●★■◆⬤]/.test(ch)).length;
+    const total = symbols.filter((ch) => /[●★■◆⬤○☆□◇◯]/.test(ch)).length;
+    return { value: filled, max: Math.max(total, 5) };
+  }
+
+  const numericMatch = value.match(/([0-5](?:\.\d+)?)\s*(?:\/\s*5|점(?:\s*\/\s*5)?)/i);
+  if (numericMatch) {
+    const score = Number(numericMatch[1]);
+    if (Number.isFinite(score) && score >= 0 && score <= 5) {
+      return { value: score, max: 5 };
+    }
+  }
+
+  return null;
+}
+
+function getTasteScaleSegment(line, labels) {
+  const labelPattern = labels.join('|');
+  const nextLabelPattern = '신맛|산미|acidity|단맛|sweetness|sweet';
+  const match = String(line || '').match(new RegExp(`(?:${labelPattern})\\s*[:：]?\\s*([\\s\\S]*?)(?=(?:${nextLabelPattern})\\s*[:：]?|$)`, 'i'));
+  return match ? match[1] : '';
+}
+
+function extractTasteScale(lines) {
+  const scale = {};
+  let max = 0;
+
+  for (const line of lines) {
+    if (scale.acidity == null && /신맛|산미|acidity/i.test(line)) {
+      const parsed = parseTasteScaleValue(getTasteScaleSegment(line, ['신맛', '산미', 'acidity']) || line);
+      if (parsed) {
+        scale.acidity = parsed.value;
+        max = Math.max(max, parsed.max);
+      }
+    }
+    if (scale.sweetness == null && /단맛|sweetness|sweet/i.test(line)) {
+      const parsed = parseTasteScaleValue(getTasteScaleSegment(line, ['단맛', 'sweetness', 'sweet']) || line);
+      if (parsed) {
+        scale.sweetness = parsed.value;
+        max = Math.max(max, parsed.max);
+      }
+    }
+  }
+
+  if (scale.acidity == null && scale.sweetness == null) return null;
+  return { ...scale, max: max || 5 };
+}
+
 function parseWeightText(value) {
   const text = String(value || '');
   const kgMatch = text.match(/(\d+(?:\.\d+)?)\s*kg\b/i);
@@ -185,6 +238,7 @@ function parseCafe24DetailInfo(html) {
       || getValueFromDivTable(divTableInfo, ['농장명', '농장', 'farm', 'Farm']),
     weight: extractDetailWeight(html),
     description: extractMetaDescription(html),
+    tasteScale: extractTasteScale(lines),
   };
 }
 
@@ -267,6 +321,7 @@ function extractBlendComposition(text) {
 
 module.exports = {
   parseCafe24DetailInfo,
+  extractTasteScale,
   buildDetailInfoMarker,
   extractDetailContentImageUrls,
   extractBlendComposition,

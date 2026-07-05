@@ -23,6 +23,13 @@ export type BeanProduct = {
   variety?: string;
   farm?: string;
   blendComposition?: Array<{ country: string; percent: number }>;
+  tasteScale?: {
+    acidity?: number;
+    sweetness?: number;
+    max?: number;
+  };
+  acidityScore?: number | null;
+  acidityScoreSource?: 'tasteScale' | 'tastingNotes';
 };
 
 export const mockBeans: BeanProduct[] = [

@@ -277,6 +277,11 @@ type Cafe24DetailInfo = {
   description?: string;
   ocrText?: string;
   blendComposition?: Array<{ country: string; percent: number }>;
+  tasteScale?: {
+    acidity?: number;
+    sweetness?: number;
+    max?: number;
+  };
 };
 
 function extractBeanpickDetailInfo(block: string): Cafe24DetailInfo | null {
@@ -434,6 +439,7 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         variety: detail?.variety || '',
         farm: detail?.farm || '',
         blendComposition: detail?.blendComposition || [],
+        tasteScale: detail?.tasteScale,
       };
     })
     .filter((product) => isCategoryProduct(product.productUrl, config))

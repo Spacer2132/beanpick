@@ -7,6 +7,18 @@ const FEATURED_VARIETY_RULES = [
   { label: '파카마라', aliases: ['pacamara', '파카마라'] },
   { label: '시드라', aliases: ['sidra', '시드라'] },
 ];
+const SEARCH_VARIETY_ALIASES = [
+  ['시드라', 'sidra'],
+  ['게이샤', '게샤', 'geisha', 'gesha'],
+  ['버본', 'bourbon'],
+  ['카투라', 'caturra'],
+  ['카투아이', 'catuai'],
+  ['파카마라', 'pacamara'],
+  ['파카스', 'pacas'],
+  ['티피카', 'typica'],
+  ['SL28', 'sl28', 'sl-28'],
+  ['SL34', 'sl34', 'sl-34'],
+];
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
 
@@ -48,6 +60,7 @@ const TASTE_NOTE_GROUPS = {
     '플로럴',
     '자스민',
     '베르가못',
+    '라벤더',
     '노란 백합',
     '홍차',
     '녹차',
@@ -79,6 +92,33 @@ const TASTE_NOTE_GROUPS = {
 function formatPrice(value) {
   if (!value) return '가격 확인 필요';
   return `${new Intl.NumberFormat('ko-KR').format(value)}원`;
+}
+
+function getTasteScaleAcidityScore(tasteScale) {
+  if (!tasteScale || typeof tasteScale !== 'object') return null;
+  const max = Number(tasteScale.max || 5);
+  if (!Number.isFinite(max) || max <= 0) return null;
+
+  const acidity = Number(tasteScale.acidity);
+  const sweetness = Number(tasteScale.sweetness);
+  const hasAcidity = Number.isFinite(acidity);
+  const hasSweetness = Number.isFinite(sweetness);
+  if (!hasAcidity && !hasSweetness) return null;
+
+  let score;
+  if (hasAcidity && hasSweetness) {
+    score = (acidity - sweetness) / max;
+  } else if (hasAcidity) {
+    score = (acidity - max / 2) / (max / 2);
+  } else {
+    score = (max / 2 - sweetness) / (max / 2);
+  }
+  return Math.max(-1, Math.min(1, score));
+}
+
+function getProductAcidityScore(product, tastingNotes) {
+  const scaleScore = getTasteScaleAcidityScore(product?.tasteScale);
+  return scaleScore !== null ? scaleScore : getAcidityScore(tastingNotes);
 }
 
 function formatWeight(value) {
@@ -711,6 +751,7 @@ function groupProductsByNameAndWeight(products) {
     );
 
     const groupTastingNotes = normalizeTastingNotes(items.flatMap((item) => item.tastingNotes));
+    const tasteScaleProduct = items.find((item) => getTasteScaleAcidityScore(item.tasteScale) !== null);
     return {
       ...representative,
       id: createGroupedProductId(representative),
@@ -725,7 +766,9 @@ function groupProductsByNameAndWeight(products) {
       priceOptions,
       score: Math.max(...items.map((item) => item.score || 0)),
       tastingNotes: groupTastingNotes,
-      acidityScore: getAcidityScore(groupTastingNotes),
+      tasteScale: tasteScaleProduct?.tasteScale || representative.tasteScale,
+      acidityScore: getProductAcidityScore(tasteScaleProduct || representative, groupTastingNotes),
+      acidityScoreSource: tasteScaleProduct ? 'tasteScale' : 'tastingNotes',
       imageUrl: representative.imageUrl || items.find((item) => item.imageUrl)?.imageUrl || '',
       isSoldOut: items.every((item) => item.isSoldOut),
       isNew: items.some((item) => item.isNew),
@@ -747,7 +790,8 @@ function normalizeProducts(products) {
     return normalizeDiscountProduct({
       ...product,
       tastingNotes,
-      acidityScore: getAcidityScore(tastingNotes),
+      acidityScore: getProductAcidityScore(product, tastingNotes),
+      acidityScoreSource: getTasteScaleAcidityScore(product.tasteScale) !== null ? 'tasteScale' : 'tastingNotes',
     });
   });
 }
@@ -810,6 +854,31 @@ function hasWordStartMatch(compactText, token, wordStartOffsets) {
   return false;
 }
 
+function getSearchTokenVariants(token) {
+  const cleanToken = String(token || '').toLowerCase();
+  const variants = new Set([cleanToken]);
+  const compactToken = cleanToken.replace(/[\s-]+/g, '');
+
+  for (const aliases of SEARCH_VARIETY_ALIASES) {
+    const normalizedAliases = aliases.map((alias) => String(alias).toLowerCase());
+    const matchesAlias = normalizedAliases.some((alias) => alias === cleanToken || alias.replace(/[\s-]+/g, '') === compactToken);
+    if (matchesAlias) {
+      normalizedAliases.forEach((alias) => {
+        variants.add(alias);
+        variants.add(alias.replace(/[\s-]+/g, ''));
+      });
+    }
+  }
+
+  return [...variants].filter(Boolean);
+}
+
+function matchesSmartSearchToken(originalText, compactText, choseongText, wordStartOffsets, token) {
+  return originalText.includes(token)
+    || hasWordStartMatch(compactText, token, wordStartOffsets)
+    || (/^[ㄱ-ㅎ]+$/.test(token) && hasWordStartMatch(choseongText, token, wordStartOffsets));
+}
+
 // 띄어쓰기 무시 + 초성(ㅇㅌㅇㅍㅇ) 검색을 지원하는 매칭.
 // 여러 단어를 입력하면 모든 단어가 들어 있어야 한다.
 function matchesSmartSearch(text, query) {
@@ -820,11 +889,8 @@ function matchesSmartSearch(text, query) {
   const { compactText, wordStartOffsets } = buildCompactSearchIndex(originalText);
   const choseongText = getChoseong(compactText);
 
-  return tokens.every((token) => (
-    originalText.includes(token)
-    || hasWordStartMatch(compactText, token, wordStartOffsets)
-    || (/^[ㄱ-ㅎ]+$/.test(token) && hasWordStartMatch(choseongText, token, wordStartOffsets))
-  ));
+  return tokens.every((token) => getSearchTokenVariants(token)
+    .some((variant) => matchesSmartSearchToken(originalText, compactText, choseongText, wordStartOffsets, variant)));
 }
 
 // 노트 상세검색: 포함 단어는 노트에 모두 들어 있어야 하고, 제외 단어는 하나도 없어야 한다.
@@ -897,6 +963,7 @@ export {
   getRepresentativePriceOption,
   getStockCounts,
   getTasteNoteGroup,
+  getTasteScaleAcidityScore,
   groupProductsByNameAndWeight,
   isDecafProduct,
   isDiscountedProduct,

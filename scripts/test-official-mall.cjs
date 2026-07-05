@@ -309,6 +309,7 @@ function assertCafe24DetailLibreSample() {
       [약배전] 온두라스 CoE 4위 엘 오코테 허니 Honduras CoE 4th El Ocote Honey<br>
       체리, 라벤더, 올리브, 바닐라<br>
       산미 Acidity ●●●●<br>
+      단맛 Sweetness ●●○○○<br>
       농장명 : 엘 오코테<br>
       품종 : 파카스<br>
       가공방식 : 허니
@@ -320,6 +321,32 @@ function assertCafe24DetailLibreSample() {
   }
   if (info.farm !== '엘 오코테') {
     throw new Error(`Cafe24 Libre 농장명 수집 실패: ${info.farm}`);
+  }
+  if (info.tasteScale?.acidity !== 4 || info.tasteScale?.sweetness !== 2 || info.tasteScale?.max !== 5) {
+    throw new Error(`Cafe24 Libre 신맛/단맛 막대 수집 실패: ${JSON.stringify(info.tasteScale)}`);
+  }
+}
+
+function assertCafe24DetailTasteScaleVariants() {
+  const numericInfo = cafe24DetailParser.parseCafe24DetailInfo(`
+    <div>
+      신맛 2/5 단맛 4/5<br>
+      초콜릿, 견과류
+    </div>
+  `);
+  if (numericInfo.tasteScale?.acidity !== 2 || numericInfo.tasteScale?.sweetness !== 4) {
+    throw new Error(`Cafe24 숫자형 신맛/단맛 막대 수집 실패: ${JSON.stringify(numericInfo.tasteScale)}`);
+  }
+
+  const starInfo = cafe24DetailParser.parseCafe24DetailInfo(`
+    <div>
+      acidity ★★★★☆<br>
+      sweetness ★★☆☆☆<br>
+      자스민, 복숭아
+    </div>
+  `);
+  if (starInfo.tasteScale?.acidity !== 4 || starInfo.tasteScale?.sweetness !== 2 || starInfo.tasteScale?.max !== 5) {
+    throw new Error(`Cafe24 별표형 신맛/단맛 막대 수집 실패: ${JSON.stringify(starInfo.tasteScale)}`);
   }
 }
 
@@ -355,6 +382,27 @@ function assertInjectedMarkerPriceSample(cafe24Adapter, configs) {
   const [product] = cafe24Adapter.parseCafe24Products(html, configs.namusairo);
   if (product?.price !== 21000) {
     throw new Error(`상세/OCR 내부 숫자를 판매가로 잘못 읽었습니다: ${product?.price || '(없음)'}`);
+  }
+}
+
+function assertInjectedTasteScaleSample(cafe24Adapter, configs) {
+  const marker = cafe24DetailParser.buildDetailInfoMarker({
+    tastingNotes: '초콜릿, 견과류',
+    tasteScale: { acidity: 2, sweetness: 4, max: 5 },
+  });
+  const html = `
+    <ul>
+      <li id="anchorBoxId_7328">
+        ${marker}
+        <a href="/product/detail.html?product_no=7328&cate_no=47"><img src="https://example.com/vertigo.jpg" alt="[대용량 원두] 버티고 1kg" /></a>
+        <p class="name"><a>[대용량 원두] 버티고 1kg</a></p>
+        <span class="price">45,000원</span>
+      </li>
+    </ul>
+  `;
+  const [product] = cafe24Adapter.parseCafe24Products(html, configs.coffeelibre);
+  if (product?.tasteScale?.acidity !== 2 || product?.tasteScale?.sweetness !== 4) {
+    throw new Error(`Cafe24 상세 신맛/단맛 막대가 상품에 전달되지 않았습니다: ${JSON.stringify(product?.tasteScale)}`);
   }
 }
 
@@ -689,8 +737,10 @@ async function main() {
   assertCafe24DetailWeightSample();
   assertCafe24DetailDivTableSample();
   assertCafe24DetailLibreSample();
+  assertCafe24DetailTasteScaleVariants();
   assertCafe24Detail502PipeSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
+  assertInjectedTasteScaleSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCoffeeLibreSearchLink(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertHellcafeGiftSetExcluded(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
