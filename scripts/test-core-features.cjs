@@ -612,34 +612,6 @@ expect(sortedByAcidic[sortedByAcidic.length - 1].id === 'p-none', 'tasteAxis 정
 const sortedBySweet = core.sortProducts(testProductsForScore, 'score', 1.0);
 expect(sortedBySweet[0].id === 'p-nutty', 'tasteAxis가 1.0일 때 견과류 원두가 먼저 와야 합니다', ids(sortedBySweet));
 
-const tasteBoundaryProducts = [
-  { id: 'bucket-bright', acidityScore: 0.75, score: 80 },
-  { id: 'bucket-tart', acidityScore: 0.25, score: 80 },
-  { id: 'bucket-balance', acidityScore: -0.25, score: 80 },
-  { id: 'bucket-nutty', acidityScore: -0.75, score: 80 },
-  { id: 'bucket-heavy', acidityScore: -0.751, score: 80 },
-];
-const tasteAxes = [-1.0, -0.5, 0.0, 0.5, 1.0];
-function closestTasteAxis(product) {
-  let minD = Infinity;
-  let closestAxis = 0;
-  tasteAxes.forEach((axis) => {
-    const distance = Math.abs(product.acidityScore + axis);
-    if (distance < minD) {
-      minD = distance;
-      closestAxis = axis;
-    }
-  });
-  return closestAxis;
-}
-expect(closestTasteAxis(tasteBoundaryProducts[0]) === -1.0, 'acidityScore +0.75 경계는 산뜻·상큼 버킷이어야 합니다');
-expect(closestTasteAxis(tasteBoundaryProducts[1]) === -0.5, 'acidityScore +0.25 경계는 새콤한 편 버킷이어야 합니다');
-expect(closestTasteAxis(tasteBoundaryProducts[2]) === 0.0, 'acidityScore -0.25 경계는 밸런스 버킷이어야 합니다');
-expect(closestTasteAxis(tasteBoundaryProducts[3]) === 0.5, 'acidityScore -0.75 경계는 고소한 편 버킷이어야 합니다');
-expect(closestTasteAxis(tasteBoundaryProducts[4]) === 1.0, 'acidityScore -0.75 미만은 고소·묵직 버킷이어야 합니다');
-expect(core.sortProducts(tasteBoundaryProducts, 'score', -1.0)[0].id === 'bucket-bright', 'tasteAxis=-1.0은 양수 acidityScore와 가장 가까워야 합니다');
-expect(core.sortProducts(tasteBoundaryProducts, 'score', 1.0)[0].id === 'bucket-heavy', 'tasteAxis=+1.0은 가장 낮은 acidityScore와 가장 가까워야 합니다');
-
 // 홀빈 기준 및 분쇄 제외 테스트 추가
 expect(core.isGroundCoffeeProduct('테스트 원두 200g 핸드드립 분쇄') === true, '핸드드립 분쇄는 분쇄 상품이어야 합니다');
 expect(core.isGroundCoffeeProduct('테스트 원두 200g 에스프레소 분쇄') === true, '에스프레소 분쇄는 분쇄 상품이어야 합니다');

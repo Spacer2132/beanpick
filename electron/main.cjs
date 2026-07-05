@@ -6,7 +6,6 @@ const {
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
   extractNotesFromPreloadedDetailText,
-  mergeTastingNotes,
   mergeNotesFromSearchResults,
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
@@ -533,23 +532,9 @@ function getSmartStoreProductNo(product) {
 
 function needsSmartStoreDetail(product) {
   if (!product || typeof product === 'string') return true;
-  return needsSmartStoreNotes(product) || needsSmartStoreOptions(product);
-}
-
-function needsSmartStoreNotes(product) {
-  if (!product || typeof product === 'string') return true;
-  return !Array.isArray(product.tastingNotes) || product.tastingNotes.length < 4;
-}
-
-function needsSmartStoreOptions(product) {
-  if (!product || typeof product === 'string') return true;
-  return !Array.isArray(product.priceOptions) || product.priceOptions.length === 0;
-}
-
-function mergeProductTastingNotes(product, notes) {
-  const mergedNotes = mergeTastingNotes(product?.tastingNotes || [], notes || []);
-  if (mergedNotes.length <= (product?.tastingNotes || []).length) return product;
-  return { ...product, tastingNotes: mergedNotes };
+  const needsNotes = !Array.isArray(product.tastingNotes) || product.tastingNotes.length === 0;
+  const needsOptions = !Array.isArray(product.priceOptions) || product.priceOptions.length === 0;
+  return needsNotes || needsOptions;
 }
 
 function applySmartStoreDetailInfo(product, detailInfo) {
@@ -583,14 +568,8 @@ function applySmartStoreDetailInfo(product, detailInfo) {
 async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount = 20, timeBudgetMs = 45000 } = {}) {
   const contents = new Map();
   const targets = products
-    .map((product) => ({
-      product,
-      productNo: getSmartStoreProductNo(product),
-      needsOptions: needsSmartStoreOptions(product),
-      needsNotes: needsSmartStoreNotes(product),
-    }))
-    .filter((target) => target.productNo && (target.needsOptions || target.needsNotes))
-    .sort((a, b) => Number(b.needsOptions) - Number(a.needsOptions));
+    .map((product) => ({ product, productNo: getSmartStoreProductNo(product) }))
+    .filter((target) => target.productNo && needsSmartStoreDetail(target.product));
   if (targets.length === 0) return contents;
 
   const hiddenWindow = new BrowserWindow({
@@ -785,13 +764,13 @@ async function enrichSmartStoreProductsWithDetailInfo(source, products) {
     if (!detailInfo) return product;
 
     let nextProduct = applySmartStoreDetailInfo(product, detailInfo);
-    if (detailInfo.detailHtml) {
+    if (nextProduct.tastingNotes.length === 0 && detailInfo.detailHtml) {
       const notes = await extractNotesFromDetail(detailInfo.detailHtml);
-      if (notes.length > 0) nextProduct = mergeProductTastingNotes(nextProduct, notes);
+      if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
     }
-    if (detailInfo.detailText) {
+    if (nextProduct.tastingNotes.length === 0 && detailInfo.detailText) {
       const notes = extractNotesFromPreloadedDetailText(detailInfo.detailText);
-      if (notes.length > 0) nextProduct = mergeProductTastingNotes(nextProduct, notes);
+      if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
     }
 
     return nextProduct;

@@ -259,12 +259,6 @@ for (const note of ['헤이즐넛', '견과류', '초콜릿', '단맛']) {
     throw new Error(`루비아 갤러리 카드 노트를 읽지 못했습니다: ${rubiaGalleryNotes.join(', ') || '(없음)'}`);
   }
 }
-const rubiaMergedNotes = _test.mergeTastingNotes(['헤이즐넛'], ['견과류', '초콜릿', '단맛']);
-for (const note of ['헤이즐넛', '견과류', '초콜릿', '단맛']) {
-  if (!rubiaMergedNotes.includes(note)) {
-    throw new Error(`기존 헤이즐넛 노트에 상세 노트를 병합하지 못했습니다: ${rubiaMergedNotes.join(', ') || '(없음)'}`);
-  }
-}
 const rubiaTitleOnlyNotes = _test.getTasteNotes('헤이즐넛 브라운 다크 로스트 플레이버드 블렌드 커피');
 if (rubiaTitleOnlyNotes.join(',') !== '헤이즐넛') {
   throw new Error(`루비아 상품명 단독 경로는 헤이즐넛만 유지해야 합니다: ${rubiaTitleOnlyNotes.join(', ') || '(없음)'}`);

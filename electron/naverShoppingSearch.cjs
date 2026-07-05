@@ -1480,7 +1480,6 @@ module.exports = {
   extractNotesFromDetail,
   extractNotesFromPreloadedDetailText,
   buildSmartStorePriceOptionsFromDetail,
-  mergeTastingNotes,
   readSmartStoreDetailCache,
   writeSmartStoreDetailCache,
   mergeNotesFromMatchedProducts,
