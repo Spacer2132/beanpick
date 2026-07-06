@@ -630,6 +630,27 @@ const testWholeBeanGrouping = core.groupProductsByNameAndWeight([
 expect(testWholeBeanGrouping.length === 1, '홀빈/whole bean/분쇄요청불가/분쇄안함 옵션 차이가 있는 상품들은 하나로 그룹화되어야 합니다', String(testWholeBeanGrouping.length));
 expect(testWholeBeanGrouping[0]?.productName === '테스트 원두', '그룹화된 상품명에서는 홀빈 관련 문구가 제거되어야 합니다', testWholeBeanGrouping[0]?.productName);
 
+// 스마트스토어 상품은 비로그인 직접 접근이 막혀 네이버 쇼핑 검색 주소로 우회해야 한다.
+const smartStoreProduct = { roasterName: '말릭커피', productName: '프루티블렌드' };
+expect(
+  core.resolveProductOpenUrl('https://smartstore.naver.com/undercrema/products/9547825639', smartStoreProduct)
+    === 'https://search.shopping.naver.com/search/all?query=' + encodeURIComponent('말릭커피 프루티블렌드'),
+  '스마트스토어 상품 주소는 로스터리명+상품명 네이버 쇼핑 검색으로 바뀌어야 합니다',
+  core.resolveProductOpenUrl('https://smartstore.naver.com/undercrema/products/9547825639', smartStoreProduct),
+);
+expect(
+  core.resolveProductOpenUrl('https://smartstore.naver.com/undercrema/category/abc123', smartStoreProduct)
+    === 'https://search.shopping.naver.com/search/all?query=' + encodeURIComponent('말릭커피'),
+  '스마트스토어 카테고리(원두 목록) 주소는 로스터리명 검색으로 바뀌어야 합니다',
+  core.resolveProductOpenUrl('https://smartstore.naver.com/undercrema/category/abc123', smartStoreProduct),
+);
+expect(
+  core.resolveProductOpenUrl('https://www.terarosa.com/goods/123', smartStoreProduct)
+    === 'https://www.terarosa.com/goods/123',
+  '스마트스토어가 아닌 자체몰 주소는 그대로 열려야 합니다',
+);
+expect(core.resolveProductOpenUrl('', smartStoreProduct) === '', '빈 주소는 빈 문자열 그대로여야 합니다');
+
 if (failures.length > 0) {
   failures.forEach((failure) => console.error(`실패: ${failure}`));
   process.exitCode = 1;

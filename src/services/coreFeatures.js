@@ -262,6 +262,25 @@ function isRealProductUrl(url) {
     && !/smartstore\.naver\.com\/main\/products\//i.test(normalizedUrl);
 }
 
+function isSmartStoreUrl(url) {
+  return /(?:\/\/|\.)smartstore\.naver\.com\//i.test(String(url || '').trim());
+}
+
+// 스마트스토어 상품은 비로그인으로 직접 주소에 들어가면 네이버가 로그인 화면으로 막는다.
+// 네이버 쇼핑 검색을 거치면 로그인 없이 열리므로, 열 때만 검색 주소로 바꿔준다.
+function resolveProductOpenUrl(url, product) {
+  const normalizedUrl = String(url || '').trim();
+  if (!normalizedUrl || !isSmartStoreUrl(normalizedUrl)) return normalizedUrl;
+
+  const isProductPage = /\/products\/\d+/i.test(normalizedUrl);
+  const query = isProductPage
+    ? [product?.roasterName, product?.productName].filter(Boolean).join(' ').trim()
+    : String(product?.roasterName || '').trim();
+
+  if (!query) return normalizedUrl;
+  return `https://search.shopping.naver.com/search/all?query=${encodeURIComponent(query)}`;
+}
+
 function createPriceOption(product, weightLabel = '') {
   return normalizePriceOptionDiscount({
     id: `${weightLabel || formatWeight(product.weight) || 'unknown'}-${product.price || 0}`,
@@ -978,6 +997,7 @@ export {
   normalizeWholeBeanProductName,
   pickFeaturedProducts,
   productInfoItems,
+  resolveProductOpenUrl,
   sortProducts,
   uniqueProductMeta,
 };

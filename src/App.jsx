@@ -25,6 +25,7 @@ import {
   matchesSmartSearch,
   normalizeProducts,
   normalizeWholeBeanProductName,
+  resolveProductOpenUrl,
   sortProducts,
 } from './services/coreFeatures.js';
 import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, saveProductSnapshot } from './services/monitoring.ts';
@@ -262,7 +263,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) 
                 <PriceOptionTag
                   className={`bean-price-option ${hasOptionLink ? 'is-link' : ''}`}
                   key={option.id}
-                  href={hasOptionLink ? option.productUrl : undefined}
+                  href={hasOptionLink ? resolveProductOpenUrl(option.productUrl, product) : undefined}
                   target={hasOptionLink ? '_blank' : undefined}
                   rel={hasOptionLink ? 'noreferrer' : undefined}
                 >
@@ -282,10 +283,10 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) 
             {isFavorite ? '♥ 관심 해제' : '♡ 관심 저장'}
           </button>
           {storeLink && (
-            <a className="btn" href={storeLink} target="_blank" rel="noreferrer">원두 목록 보기</a>
+            <a className="btn" href={resolveProductOpenUrl(storeLink, product)} target="_blank" rel="noreferrer">원두 목록 보기</a>
           )}
           {productLink && (
-            <a className="btn btn-primary" href={productLink} target="_blank" rel="noreferrer">상품 페이지 열기</a>
+            <a className="btn btn-primary" href={resolveProductOpenUrl(productLink, product)} target="_blank" rel="noreferrer">상품 페이지 열기</a>
           )}
         </div>
       </div>
@@ -393,7 +394,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
               <PriceOptionTag
                 className={`bean-price-option ${hasOptionLink ? 'is-link' : ''}`}
                 key={option.id}
-                href={hasOptionLink ? option.productUrl : undefined}
+                href={hasOptionLink ? resolveProductOpenUrl(option.productUrl, product) : undefined}
                 target={hasOptionLink ? '_blank' : undefined}
                 rel={hasOptionLink ? 'noreferrer' : undefined}
                 aria-label={hasOptionLink ? `${product.productName} ${option.weightLabel} 상품 열기` : undefined}
