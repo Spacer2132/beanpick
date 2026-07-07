@@ -133,6 +133,7 @@ expect(mixedBadReason.includes('원인 불명'), '대부분 수집 실패인데 
 
 const mainSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'main.cjs'), 'utf8');
 const naverSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'naverShoppingSearch.cjs'), 'utf8');
+const runPublishSource = fs.readFileSync(path.join(__dirname, '..', 'run-publish.ps1'), 'utf8');
 
 function extractNumber(source, regex, label) {
   const match = source.match(regex);
@@ -183,6 +184,41 @@ if (geminiCallIdx === -1) {
     expectFloor(ocrTimeout, 20000, 'Gemini 비전 OCR 타임아웃');
   }
 }
+
+// PC 작업 스케줄러 래퍼: 게시 프로세스가 멈춰도 다음 예약을 영원히 막으면 안 된다.
+const publishWrapperTimeout = extractNumber(runPublishSource, /\$maxRunSeconds\s*=\s*(\d+)/, 'PC 자동게시 래퍼 최대 실행 시간');
+expectFloor(publishWrapperTimeout, 3600, 'PC 자동게시 래퍼 최대 실행 시간');
+if (publishWrapperTimeout !== null) {
+  expect(
+    publishWrapperTimeout <= 7200,
+    'PC 자동게시 래퍼 최대 실행 시간이 다음 예약까지 잠금을 붙잡을 만큼 김',
+    `${publishWrapperTimeout}s`,
+  );
+}
+expect(
+  /auto-publish\.lock\.json/.test(runPublishSource),
+  'PC 자동게시 래퍼가 오래된 잠금을 판별할 lock 파일을 남기지 않음',
+);
+expect(
+  /childPid/.test(runPublishSource) && /Get-LiveLockProcessId/.test(runPublishSource),
+  'PC 자동게시 래퍼가 래퍼 종료 뒤 남은 npm/Electron 자식 프로세스를 확인하지 않음',
+);
+expect(
+  /Get-ProcessSnapshot/.test(runPublishSource) && /pidCreatedAt/.test(runPublishSource) && /childCommandLine/.test(runPublishSource),
+  'PC 자동게시 래퍼가 오래된 lock의 PID 재사용 여부를 확인하지 않음',
+);
+expect(
+  /exitCodeFile/.test(runPublishSource) && /!ERRORLEVEL!/.test(runPublishSource),
+  'PC 자동게시 래퍼가 실제 게시 명령 실패 종료코드를 보존하지 않음',
+);
+expect(
+  /taskkill\.exe\s+\/PID[\s\S]*\/T[\s\S]*\/F/.test(runPublishSource),
+  'PC 자동게시 래퍼가 멈춘 npm/Electron 프로세스 트리를 강제 종료하지 않음',
+);
+expect(
+  /TIMEOUT: auto-publish exceeded/.test(runPublishSource),
+  'PC 자동게시 래퍼가 실행 시간 초과를 로그로 남기지 않음',
+);
 
 // ── 결과 ─────────────────────────────────────────────────────────
 
