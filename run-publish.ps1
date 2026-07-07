@@ -1,5 +1,11 @@
 ﻿# 자동 게시 래퍼: 날짜별 로그 + 중복 실행 잠금.
 # 로그 마커는 인코딩 문제를 피하려고 영문으로 쓴다 (PS5.1은 BOM 없는 UTF-8 스크립트의 한글을 깨뜨린다).
+param(
+    # 0(기본값)이면 항상 게시(기존 6개 시간대 작업 동작 그대로).
+    # 양수면 마지막 게시가 이 분(分) 안이면 건너뛴다(로그온 시 1회 작업 전용).
+    [int]$MinFreshMinutes = 0
+)
+
 $date = Get-Date -Format "yyyyMMdd"
 $logFile = "C:\Codeproject\Workspace\beanpick\output\auto-publish-$date.log"
 $lockFile = "C:\Codeproject\Workspace\beanpick\output\auto-publish.lock.json"
@@ -8,6 +14,25 @@ Set-Location "C:\Codeproject\Workspace\beanpick"
 
 function Write-Marker($text) {
     "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $text" | Out-File -FilePath $logFile -Append -Encoding utf8
+}
+
+function Get-LastPublishMinutesAgo {
+    # docs/products.json의 마지막 커밋 시각을 "최근 게시 시각"으로 본다(이 저장소의 게시 방식과 동일).
+    try {
+        $iso = & git log -1 --format=%cI -- docs/products.json 2>$null
+        if (-not $iso) { return $null }
+        return ((Get-Date) - ([datetimeoffset]$iso).LocalDateTime).TotalMinutes
+    } catch {
+        return $null
+    }
+}
+
+if ($MinFreshMinutes -gt 0) {
+    $minutesAgo = Get-LastPublishMinutesAgo
+    if ($minutesAgo -ne $null -and $minutesAgo -lt $MinFreshMinutes) {
+        Write-Marker "SKIP: fresh within ${MinFreshMinutes}m (last publish $([int]$minutesAgo)m ago, logon check)"
+        exit 0
+    }
 }
 
 function Read-LockInfo {
