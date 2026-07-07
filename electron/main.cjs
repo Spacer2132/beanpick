@@ -109,7 +109,7 @@ function createWindow() {
     height: 920,
     minWidth: 1180,
     minHeight: 760,
-    title: 'BeanPick',
+    title: 'Beanly',
     backgroundColor: '#f7f2ea',
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
@@ -211,7 +211,7 @@ async function runIphoneSnapshotPublish() {
     width: 1440,
     height: 920,
     show: false,
-    title: 'BeanPick 자동 게시',
+    title: 'Beanly 자동 게시',
     backgroundColor: '#f7f2ea',
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
