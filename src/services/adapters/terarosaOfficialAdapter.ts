@@ -362,9 +362,12 @@ export function parseNotesNearProductName(productName: string, text: string) {
 }
 
 function parseTastingNotes(infoHtml: string, ocrText = '', productName = '') {
-  // Tasting Note / Flavor & Aroma 라벨이 있을 때만 컵노트를 믿는다.
-  const explicitNotes = parseExplicitTastingNotes(`${ocrText}\n${infoHtml}`);
-  if (explicitNotes.length > 0) return explicitNotes;
+  // OCR 뒤에 긴 상품 설명을 붙이면 마지막 노트가 설명과 한 단어로 합쳐질 수 있어 따로 읽는다.
+  const ocrNotes = parseExplicitTastingNotes(ocrText);
+  if (ocrNotes.length > 0) return ocrNotes;
+
+  const infoNotes = parseExplicitTastingNotes(infoHtml);
+  if (infoNotes.length > 0) return infoNotes;
 
   // 라벨이 없으면 OCR 본문에서 상품명 근처의 영어 노트 목록을 찾는다.
   return parseNotesNearProductName(productName, ocrText);

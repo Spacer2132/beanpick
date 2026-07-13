@@ -1,4 +1,10 @@
+const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
+const vm = require('node:vm');
+const testDetailCacheDir = path.join(os.tmpdir(), `beanpick-smartstore-test-${process.pid}`);
+process.env.BEANPICK_SMARTSTORE_DETAIL_CACHE_DIR = testDetailCacheDir;
+process.on('exit', () => fs.rmSync(testDetailCacheDir, { recursive: true, force: true }));
 const {
   SMARTSTORE_SOURCES,
   _test,
@@ -8,6 +14,37 @@ const {
 const unspecialtyNotes = require('../electron/noteSources/unspecialty.cjs');
 
 loadLocalEnv(path.resolve(__dirname, '..'));
+
+const mainSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'main.cjs'), 'utf8');
+if (!mainSource.includes("{ httpReferrer: storeHomeUrl }")) {
+  throw new Error('스마트스토어 상품 페이지는 로그인 화면으로 빠지지 않도록 스토어 참조 주소와 함께 열어야 합니다.');
+}
+if (!mainSource.includes('SmartStore product page redirected.')) {
+  throw new Error('상품 페이지 이동이 실패했을 때 상세 이미지 확인 완료로 기록하면 안 됩니다.');
+}
+const detailCollectorSource = mainSource.slice(
+  mainSource.indexOf('async function fetchSmartStoreDetailContents'),
+  mainSource.indexOf('async function enrichSmartStoreProductsWithDetailInfo'),
+);
+if (
+  !detailCollectorSource.includes('const detailImageWindow = new BrowserWindow')
+  || !detailCollectorSource.includes('loadSmartStorePageWithRetry(detailImageWindow, product.productUrl')
+) {
+  throw new Error('상품 상세 이미지 수집이 카테고리 기본 데이터 창을 덮어쓰면 안 됩니다.');
+}
+if (!detailCollectorSource.includes("typeof product === 'object' && (triedApi || !channelUid)")) {
+  throw new Error('상세 API를 건너뛴 상품을 빈 캐시로 저장하면 안 됩니다.');
+}
+if (!mainSource.includes('hasTerarosaTastingNoteText(text) && noteCount >= 2')) {
+  throw new Error('테라로사 썸네일에서 노트 하나만 인식했을 때 상세 이미지 확인을 멈추면 안 됩니다.');
+}
+if (!mainSource.includes('!isThumbnail && thumbnailNoteCount === 1')) {
+  throw new Error('테라로사의 불완전한 썸네일 보강은 상세 이미지 한 장으로 제한해야 합니다.');
+}
+if (_test.countRecognizedTastingNotes('Tasting Note: 호두') !== 1
+  || _test.countRecognizedTastingNotes('Tasting Note: Sweet Pumpkin, Walnut, Brown Sugar, Nutty') < 2) {
+  throw new Error('테라로사 OCR 노트 완전성 판정이 잘못됐습니다.');
+}
 
 const roasterickRawTitle = '달고나 블랜드 500g';
 if (_test.parseWeight(roasterickRawTitle) !== 500) {
@@ -253,6 +290,144 @@ const mergedGeminiNotes = _test.mergeTastingNotes(['초콜릿', '자몽'], ['자
 if (mergedGeminiNotes.join(',') !== '자몽,복숭아,자스민,베르가못,초콜릿') {
   throw new Error(`Gemini 노트는 기존 노트와 중복 없이 최대 5개까지 합쳐야 합니다: ${mergedGeminiNotes.join(', ')}`);
 }
+const detailQueuePlan = _test.planSmartStoreDetailTargets([
+  ...Array.from({ length: 25 }, (_, index) => ({
+    productNo: `cached-${index}`,
+    product: { tastingNotes: ['초콜릿'] },
+    cached: { detailText: `cached-${index}` },
+  })),
+  ...Array.from({ length: 20 }, (_, index) => ({
+    productNo: `noted-${index}`,
+    product: { tastingNotes: ['초콜릿'] },
+    cached: null,
+  })),
+  ...Array.from({ length: 10 }, (_, index) => ({
+    productNo: `missing-${index}`,
+    product: { tastingNotes: [] },
+    cached: null,
+  })),
+], 20);
+if (detailQueuePlan.cachedTargets.length !== 25 || detailQueuePlan.pendingTargets.length !== 20) {
+  throw new Error(`상세 캐시는 20개 제한을 소비하지 않아야 합니다: ${JSON.stringify(detailQueuePlan)}`);
+}
+if (!Array.from({ length: 10 }, (_, index) => `missing-${index}`).every(
+  (productNo) => detailQueuePlan.pendingTargets.some((target) => target.productNo === productNo),
+)) {
+  throw new Error('맛정보 누락 상품은 상세수집 대기열에서 먼저 처리되어야 합니다.');
+}
+const detailCacheProduct = {
+  productName: '캐시 테스트 원두',
+  productUrl: 'https://smartstore.naver.com/test/products/1234',
+  price: 18000,
+  originalPrice: 20000,
+};
+const changedPriceCacheProduct = { ...detailCacheProduct, price: 16000, originalPrice: 18000 };
+if (
+  _test.smartStoreDetailCachePath('1234', detailCacheProduct)
+  !== _test.smartStoreDetailCachePath('1234', changedPriceCacheProduct)
+) {
+  throw new Error('가격 변동만으로 스마트스토어 상세캐시 파일이 새로 생기면 안 됩니다.');
+}
+const cacheNow = Date.parse('2026-07-12T00:00:00.000Z');
+const recentEmptyCache = {
+  detailHtml: '',
+  detailText: '',
+  detailImagesChecked: true,
+  detailImagesCheckedVersion: 1,
+  priceOptions: [],
+  cachedAt: '2026-07-11T01:00:00.000Z',
+};
+const expiredEmptyCache = { ...recentEmptyCache, cachedAt: '2026-07-10T23:00:00.000Z' };
+if (!_test.isSmartStoreDetailCacheUsable(recentEmptyCache, detailCacheProduct, cacheNow)) {
+  throw new Error('24시간이 지나지 않은 빈 상세캐시는 반복 실패를 막기 위해 잠시 재사용해야 합니다.');
+}
+if (_test.isSmartStoreDetailCacheUsable(expiredEmptyCache, detailCacheProduct, cacheNow)) {
+  throw new Error('24시간이 지난 빈 상세캐시는 다시 상세수집할 수 있어야 합니다.');
+}
+if (_test.isSmartStoreDetailCacheUsable({ ...recentEmptyCache, detailImagesChecked: false }, detailCacheProduct, cacheNow)) {
+  throw new Error('렌더링 상세 이미지를 확인하지 않은 과거 빈 캐시는 한 번 다시 수집해야 합니다.');
+}
+if (_test.isSmartStoreDetailCacheUsable({ ...recentEmptyCache, detailImagesCheckedVersion: 0 }, detailCacheProduct, cacheNow)) {
+  throw new Error('이전 방식으로 확인한 상세 이미지 캐시는 새 수집 경로로 한 번 다시 확인해야 합니다.');
+}
+const pricedEmptyCache = {
+  ...recentEmptyCache,
+  status: 'empty',
+  sourcePrice: 18000,
+  sourceOriginalPrice: 20000,
+};
+if (_test.isSmartStoreDetailCacheUsable(pricedEmptyCache, changedPriceCacheProduct, cacheNow)) {
+  throw new Error('가격이 바뀌면 24시간 안의 빈 상세캐시도 즉시 다시 수집해야 합니다.');
+}
+const successfulDetailCache = {
+  status: 'success',
+  detailText: '컵노트: 자스민, 복숭아',
+  detailImagesChecked: true,
+  detailImagesCheckedVersion: 1,
+  priceOptions: [],
+  sourcePrice: 18000,
+  sourceOriginalPrice: 20000,
+  cachedAt: '2026-07-01T00:00:00.000Z',
+};
+if (!_test.isSmartStoreDetailCacheUsable(successfulDetailCache, detailCacheProduct, cacheNow)) {
+  throw new Error('가격이 같은 성공 상세캐시는 계속 재사용해야 합니다.');
+}
+if (_test.isSmartStoreDetailCacheUsable(successfulDetailCache, changedPriceCacheProduct, cacheNow)) {
+  throw new Error('가격이 바뀐 성공 상세캐시는 옵션 가격 갱신을 위해 다시 수집해야 합니다.');
+}
+if (_test.isSmartStoreDetailCacheUsable({ ...successfulDetailCache, detailImagesChecked: false }, detailCacheProduct, cacheNow)) {
+  throw new Error('맛정보가 부족한 기존 캐시는 렌더링된 상세 이미지를 한 번 다시 확인해야 합니다.');
+}
+_test.writeSmartStoreDetailCache('1234', detailCacheProduct, {
+  detailText: successfulDetailCache.detailText,
+  detailImageUrls: ['https://example.com/old-detail.png'],
+  detailImagesChecked: true,
+});
+_test.writeSmartStoreDetailCache('1234', detailCacheProduct, {
+  status: 'empty',
+  detailImagesChecked: true,
+});
+const clearedEmptyCache = JSON.parse(fs.readFileSync(
+  _test.smartStoreDetailCachePath('1234', detailCacheProduct),
+  'utf8',
+));
+if (clearedEmptyCache.detailText || clearedEmptyCache.detailHtml || clearedEmptyCache.detailImageUrls.length > 0) {
+  throw new Error('상세수집 실패 캐시에 과거 상세 내용이 남으면 안 됩니다.');
+}
+let detailImageSelector = '';
+const renderedDetailImageUrls = vm.runInNewContext(_test.buildSmartStoreDetailImageUrlsScript(), {
+  document: {
+    querySelectorAll: (selector) => {
+      detailImageSelector = selector;
+      return [
+        {
+          getAttribute: (name) => (name === 'data-src' ? 'https://shop-phinf.pstatic.net/product.png?type=w848' : ''),
+          currentSrc: 'data:image/png;base64,placeholder',
+          src: 'data:image/png;base64,placeholder',
+        },
+        {
+          getAttribute: () => '',
+          currentSrc: 'https://shop-phinf.pstatic.net/banner.png?type=w848',
+          src: '',
+        },
+      ];
+    },
+  },
+});
+if (detailImageSelector !== 'img.se-image-resource') {
+  throw new Error(`스마트스토어 상세 이미지 선택자가 잘못되었습니다: ${detailImageSelector}`);
+}
+if (renderedDetailImageUrls.join(',') !== 'https://shop-phinf.pstatic.net/product.png?type=w848,https://shop-phinf.pstatic.net/banner.png?type=w848') {
+  throw new Error(`렌더링 상세 이미지에서 data-src 원본 주소를 우선 읽어야 합니다: ${renderedDetailImageUrls.join(', ')}`);
+}
+const explicitImageNotes = _test.extractOcrTasteNotes(
+  'Tasting Note: 블랙커런트, 푸룬, 로즈힙, 백차, 미네랄리티',
+);
+for (const note of ['블랙커런트', '말린자두', '로즈힙', '백차', '미네랄리티']) {
+  if (!explicitImageNotes.includes(note)) {
+    throw new Error(`상세 이미지의 명시 맛정보를 사전에서 버리면 안 됩니다: ${note} / ${explicitImageNotes.join(', ')}`);
+  }
+}
 const rubiaGalleryNotes = _test.extractFlavorNotesAnywhere('헤이즐넛 견과류 초콜릿 달콤함');
 for (const note of ['헤이즐넛', '견과류', '초콜릿', '단맛']) {
   if (!rubiaGalleryNotes.includes(note)) {
@@ -392,6 +567,30 @@ if (!preloadedLabeledNotes.includes('자스민') || !preloadedLabeledNotes.inclu
   throw new Error(`PRELOADED_STATE 설명 텍스트의 라벨 컵노트를 읽지 못했습니다: ${preloadedLabeledNotes.join(', ') || '(없음)'}`);
 }
 
+const preloadedInlineDashNotes = _test.extractNotesFromPreloadedDetailText(
+  '상품 설명 원두 정보 컵노트 - 말린 무화과, 살구, 카라멜, 토피, 슈가케인, 바닐라, 파인애플 한줄평 - 달콤한 커피',
+);
+if (!preloadedInlineDashNotes.includes('무화과') || !preloadedInlineDashNotes.includes('파인애플')) {
+  throw new Error(`한 줄 중간의 "컵노트 -"를 읽지 못했습니다: ${preloadedInlineDashNotes.join(', ') || '(없음)'}`);
+}
+
+const preloadedInlineEnglishNotes = _test.extractNotesFromPreloadedDetailText(
+  '원두 정보 컵노트 - Cranberry, Passion Fruit, Peach, Milk Chocolate, Cane Sugar 로스팅 레벨 - Light 상품 안내',
+);
+if (!preloadedInlineEnglishNotes.includes('크랜베리') || !preloadedInlineEnglishNotes.includes('패션프루트')) {
+  throw new Error(`한 줄 중간의 영문 컵노트를 읽지 못했습니다: ${preloadedInlineEnglishNotes.join(', ') || '(없음)'}`);
+}
+if (preloadedInlineEnglishNotes.some((note) => /로스팅|Light/i.test(note))) {
+  throw new Error(`컵노트 뒤의 로스팅 설명까지 포함하면 안 됩니다: ${preloadedInlineEnglishNotes.join(', ')}`);
+}
+
+const preloadedInlineSpaceNotes = _test.extractNotesFromPreloadedDetailText(
+  '상세 정보 컵노트 자스민, 꿀, 베르가못, 열대과일, 구아바, 살구 한줄평 향긋하고 달콤합니다.',
+);
+if (!preloadedInlineSpaceNotes.includes('자스민') || !preloadedInlineSpaceNotes.includes('살구')) {
+  throw new Error(`한 줄 중간의 구두점 없는 컵노트를 읽지 못했습니다: ${preloadedInlineSpaceNotes.join(', ') || '(없음)'}`);
+}
+
 const preloadedUnlabeledNotes = _test.extractNotesFromPreloadedDetailText(
   '자스민, 망고, 파인애플, 베르가못, 꿀',
 );
@@ -410,6 +609,18 @@ const preloadedReviewTextNotes = _test.extractNotesFromPreloadedDetailText(
 );
 if (preloadedReviewTextNotes.length !== 0) {
   throw new Error(`PRELOADED_STATE 리뷰성 문장의 "노트와"를 라벨로 오인하면 안 됩니다: ${preloadedReviewTextNotes.join(', ')}`);
+}
+const preloadedMidlineMarketingNotes = _test.extractNotesFromPreloadedDetailText(
+  '부드럽게 이어지며 은은한 노트가 매력적인 데일리 커피입니다.',
+);
+if (preloadedMidlineMarketingNotes.length !== 0) {
+  throw new Error(`문장 중간의 일반적인 "노트가"를 라벨로 오인하면 안 됩니다: ${preloadedMidlineMarketingNotes.join(', ')}`);
+}
+const preloadedFlavorDescriptionNotes = _test.extractNotesFromPreloadedDetailText(
+  '부드러운 질감과 풍부한 향미 복숭아와 살구를 떠올리게 하는 커피입니다.',
+);
+if (preloadedFlavorDescriptionNotes.length !== 0) {
+  throw new Error(`문장 중간의 일반적인 "향미" 설명을 라벨로 오인하면 안 됩니다: ${preloadedFlavorDescriptionNotes.join(', ')}`);
 }
 const preloadedSpaceOnlyNotes = _test.extractNotesFromPreloadedDetailText(
   '복숭아 자두 꿀 같은 달콤함',

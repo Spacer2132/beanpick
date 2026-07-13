@@ -327,6 +327,19 @@ function assertCafe24DetailLibreSample() {
   }
 }
 
+function assertCafe24DetailLibreCuppingNoteSample() {
+  const detailHtml = '<div>Cupping Note ㅣ 조청, 메이플시럽, 밀크 초콜릿, 크리미 바디</div>';
+  const info = cafe24DetailParser.parseCafe24DetailInfo(detailHtml);
+  if (info.tastingNotes !== '조청, 메이플시럽, 밀크 초콜릿, 크리미 바디') {
+    throw new Error(`Cafe24 Libre Cupping Note 수집 실패: ${info.tastingNotes}`);
+  }
+  const notes = tastingNoteTools.normalizeTastingNotes(info.tastingNotes, { limit: 5 });
+  const expected = ['밀크초콜릿', '메이플시럽', '조청', '크리미'];
+  if (expected.some((note) => !notes.includes(note))) {
+    throw new Error(`Cafe24 Libre Cupping Note 정규화 실패: ${notes.join(', ')}`);
+  }
+}
+
 function assertCafe24DetailTasteScaleVariants() {
   const numericInfo = cafe24DetailParser.parseCafe24DetailInfo(`
     <div>
@@ -632,6 +645,27 @@ function injectDetailMarkerForTest(html, productNo, info) {
   return html.replace(re, (match) => `${match}${marker}`);
 }
 
+async function assertCafe24DetailRetry() {
+  let calls = 0;
+  const delays = [];
+  const result = await cafe24DetailParser.fetchCafe24DetailWithRetry(
+    async () => {
+      calls += 1;
+      return calls === 1 ? null : { html: '<html>ok</html>' };
+    },
+    'https://example.com/product/1',
+    'https://example.com',
+    {
+      retryDelayMs: 1000,
+      delayFn: async (ms) => { delays.push(ms); },
+    },
+  );
+
+  if (calls !== 2 || delays[0] !== 1000 || !result?.html) {
+    throw new Error(`Cafe24 상세 1회 재시도 실패: calls=${calls}, delays=${delays.join(',')}`);
+  }
+}
+
 async function enrichPagesWithDetailStock(pages, source) {
   const origin = source.detailOrigin || new URL(source.sourceUrl).origin;
   const enriched = [];
@@ -724,6 +758,7 @@ async function fetchTerarosaRows(source) {
 
 async function main() {
   assertStockStatusSamples();
+  await assertCafe24DetailRetry();
 
   const momosAdapter = loadTsModule('src/services/adapters/momosOfficialAdapter.ts');
   const cafe24Adapter = loadTsModule('src/services/adapters/cafe24OfficialAdapter.ts');
@@ -737,6 +772,7 @@ async function main() {
   assertCafe24DetailWeightSample();
   assertCafe24DetailDivTableSample();
   assertCafe24DetailLibreSample();
+  assertCafe24DetailLibreCuppingNoteSample();
   assertCafe24DetailTasteScaleVariants();
   assertCafe24Detail502PipeSample();
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
