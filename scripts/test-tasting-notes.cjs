@@ -215,6 +215,27 @@ const fixtures = [
     forbidden: ['포도'],
   },
   {
+    name: '블랙커런트 겹침 제거 - 커런트 중복 방지',
+    kind: 'normalize',
+    input: ['Tasting Note: Black Currant, Peach'],
+    expected: ['블랙커런트', '복숭아'],
+    forbidden: ['까치밥'],
+  },
+  {
+    name: '로즈힙 겹침 제거 - 장미 중복 방지',
+    kind: 'normalize',
+    input: ['Tasting Note: Rose Hip'],
+    expected: ['로즈힙'],
+    forbidden: ['장미'],
+  },
+  {
+    name: '백차 겹침 제거 - 차 중복 방지',
+    kind: 'normalize',
+    input: ['Tasting Note: White Tea'],
+    expected: ['백차'],
+    forbidden: ['차'],
+  },
+  {
     name: '라벤더 올리브 정규화 검증',
     kind: 'normalize',
     input: ['체리, 라벤더, 올리브, 바닐라'],
@@ -226,6 +247,53 @@ const fixtures = [
     kind: 'anywhere',
     input: 'TASTING CARD cherry lavender olive vanilla',
     expected: ['체리', '라벤더', '올리브', '바닐라'],
+    forbidden: [],
+  },
+  {
+    name: '502 7월 커피 명시 노트 정규화',
+    kind: 'normalize',
+    input: ['로즈', '엘더플라워', '피치', '망고스틴'],
+    expected: ['로즈', '엘더플라워', '피치', '망고스틴'],
+    forbidden: [],
+  },
+  {
+    name: '테라로사 슬리피 캣 상세 이미지 노트',
+    kind: 'terarosa',
+    input: 'Tasting Note Sweet Pumpkin, Walnut, Brown Sugar, Nutty',
+    expected: ['브라운슈가', '호박', '단맛', '견과류', '호두'],
+    forbidden: [],
+  },
+  {
+    name: '테라로사 하우스 드립 상세 이미지 노트',
+    kind: 'terarosa',
+    input: 'Tasting Note Roasted Nuts, Sweet Fruits, Well Balanced',
+    expected: ['단맛', '구운향', '견과류'],
+    forbidden: [],
+  },
+  {
+    name: '테라로사 상세 HTML이 OCR 마지막 노트를 삼키지 않음',
+    kind: 'terarosa-detail',
+    input: `
+      <input id="ItemName" value="브라질 슬리피 캣 디카페인">
+      <div class="product_view_text_wrap">
+        <div class="cont_title_info">Brazil Sleepy Cat 상세 상품 설명</div>
+      </div>
+    `,
+    ocrText: 'Tasting Note: 브라운슈가, 호박, 호두',
+    expected: ['브라운슈가', '호박', '호두'],
+    forbidden: [],
+  },
+  {
+    name: '테라로사 단일 OCR 노트를 상세 HTML과 분리',
+    kind: 'terarosa-detail',
+    input: `
+      <input id="ItemName" value="하우스 드립 블렌드">
+      <div class="product_view_text_wrap">
+        <div class="cont_title_info">Blend 상세 상품 설명</div>
+      </div>
+    `,
+    ocrText: 'Tasting Note: 견과류',
+    expected: ['견과류'],
     forbidden: [],
   },
 ];
@@ -240,7 +308,7 @@ fixtures.forEach((fixture) => {
     : fixture.kind === 'terarosa'
       ? terarosaTest.parseExplicitTastingNotes(fixture.input)
       : fixture.kind === 'terarosa-detail'
-        ? terarosaTest.parseTerarosaDetailProduct(fixture.input, 'https://example.com').tastingNotes
+        ? terarosaTest.parseTerarosaDetailProduct(fixture.input, 'https://example.com', fixture.ocrText || '').tastingNotes
         : fixture.kind === 'normalize'
           ? tastingNoteTools.normalizeTastingNotes(fixture.input, { limit: Infinity })
           : fixture.kind === 'anywhere'

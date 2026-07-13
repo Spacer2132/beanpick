@@ -2,13 +2,17 @@ const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const {
   SMARTSTORE_SOURCES,
+  buildSmartStoreDetailImageUrlsScript,
   buildSmartStorePriceOptionsFromDetail,
+  countRecognizedTastingNotes,
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
   extractNotesFromPreloadedDetailText,
+  mergeTastingNotes,
   mergeNotesFromSearchResults,
   loadLocalEnv,
   normalizeSmartStoreCategoryItems,
+  planSmartStoreDetailTargets,
   readSmartStoreDetailCache,
   readOfficialMallImageText,
   searchNaverShopping,
@@ -23,6 +27,7 @@ const {
 const {
   parseCafe24DetailInfo,
   buildDetailInfoMarker,
+  fetchCafe24DetailWithRetry,
   extractDetailContentImageUrls,
   extractBlendComposition,
 } = require('../src/services/adapters/cafe24DetailParser.cjs');
@@ -410,7 +415,7 @@ async function clickSmartStoreCategoryLink(window, categoryId) {
   return false;
 }
 
-async function loadUrlWithTimeout(window, url, timeoutMs = 5000) {
+async function loadUrlWithTimeout(window, url, timeoutMs = 5000, loadOptions = {}) {
   let finished = false;
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
@@ -424,7 +429,7 @@ async function loadUrlWithTimeout(window, url, timeoutMs = 5000) {
       reject(new Error(`loadURL timeout: ${url}`));
     }, timeoutMs);
 
-    window.loadURL(url)
+    window.loadURL(url, loadOptions)
       .then(() => {
         if (finished) return;
         finished = true;
@@ -440,11 +445,11 @@ async function loadUrlWithTimeout(window, url, timeoutMs = 5000) {
   });
 }
 
-async function loadSmartStorePageWithRetry(window, url) {
+async function loadSmartStorePageWithRetry(window, url, loadOptions = {}) {
   let lastError;
   for (let attempt = 0; attempt <= SMARTSTORE_PAGE_LOAD_RETRIES; attempt += 1) {
     try {
-      await loadUrlWithTimeout(window, url, SMARTSTORE_PAGE_LOAD_TIMEOUT_MS);
+      await loadUrlWithTimeout(window, url, SMARTSTORE_PAGE_LOAD_TIMEOUT_MS, loadOptions);
       return;
     } catch (error) {
       lastError = error;
@@ -467,6 +472,23 @@ function executeJavaScriptWithTimeout(window, script, timeoutMs, fallback) {
   ]);
 }
 
+async function waitForSmartStoreDetailImageUrls(window, timeoutMs = 5000) {
+  const startedAt = Date.now();
+
+  while (Date.now() - startedAt < timeoutMs) {
+    const imageUrls = await executeJavaScriptWithTimeout(
+      window,
+      buildSmartStoreDetailImageUrlsScript(),
+      2000,
+      [],
+    );
+    if (imageUrls.length > 0) return imageUrls;
+    await delay(300);
+  }
+
+  return [];
+}
+
 // 어떤 비동기 작업이든 Node 쪽 타이머로 무조건 끝나게 만든다.
 // AbortController가 (CI의 undici 환경에서) 멈춘 응답 본문 읽기를 못 끊는 경우를 대비한 이중 안전장치.
 function withTimeout(promise, timeoutMs, fallback) {
@@ -486,7 +508,6 @@ async function crawlSmartStoreCategory(categoryUrl) {
       contextIsolation: true,
     },
   });
-
   try {
     // 카테고리 주소로 바로 들어가면 네이버가 로그인 화면으로 돌려보낸다.
     // 스토어 홈을 먼저 연 뒤 카테고리 링크를 클릭해 실제 사용자처럼 이동한다.
@@ -569,10 +590,29 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
   const contents = new Map();
   const targets = products
     .map((product) => ({ product, productNo: getSmartStoreProductNo(product) }))
-    .filter((target) => target.productNo && needsSmartStoreDetail(target.product));
+    .filter((target) => target.productNo && needsSmartStoreDetail(target.product))
+    .map((target) => ({
+      ...target,
+      cached: typeof target.product === 'object'
+        ? readSmartStoreDetailCache(target.productNo, target.product)
+        : null,
+    }));
   if (targets.length === 0) return contents;
 
+  const { cachedTargets, pendingTargets } = planSmartStoreDetailTargets(targets, maxCount);
+  cachedTargets.forEach(({ productNo, cached }) => contents.set(String(productNo), cached));
+  if (pendingTargets.length === 0) return contents;
+
   const hiddenWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    show: false,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+    },
+  });
+  const detailImageWindow = new BrowserWindow({
     width: 1280,
     height: 720,
     show: false,
@@ -595,14 +635,8 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
     let consecutiveApiFailures = 0;
 
     // 직렬 호출: 동시에 부르면 네이버 차단(429·캡차)만 빨라진다.
-    for (const { product, productNo } of targets.slice(0, maxCount)) {
+    for (const { product, productNo } of pendingTargets) {
       if (Date.now() - startedAt > timeBudgetMs) break;
-
-      const cached = typeof product === 'object' ? readSmartStoreDetailCache(productNo, product) : null;
-      if (cached) {
-        contents.set(String(productNo), cached);
-        continue;
-      }
 
       let detailPayload = null;
       let triedApi = false;
@@ -726,18 +760,49 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
         `, 10000, null);
       }
 
+      let detailImageUrls = [];
+      let detailImagesChecked = false;
+      const needsRenderedDetailImages = typeof product === 'object'
+        && (!Array.isArray(product.tastingNotes) || product.tastingNotes.length <= 1)
+        && product.productUrl;
+      if (needsRenderedDetailImages && Date.now() - startedAt <= timeBudgetMs) {
+        try {
+          await loadSmartStorePageWithRetry(detailImageWindow, product.productUrl, { httpReferrer: storeHomeUrl });
+          const loadedProductNo = await executeJavaScriptWithTimeout(
+            detailImageWindow,
+            '(location.pathname.match(/\\/products\\/(\\d+)/) || [])[1] || \'\'',
+            2000,
+            '',
+          );
+          if (String(loadedProductNo) !== String(productNo)) throw new Error('SmartStore product page redirected.');
+          detailImageUrls = await waitForSmartStoreDetailImageUrls(detailImageWindow);
+          detailImagesChecked = true;
+        } catch {
+          // 다음 수집에서 다시 시도할 수 있도록 확인 완료로 기록하지 않는다.
+        }
+      }
+
       const detailHtml = String(detailPayload?.detailHtml || '');
       const detailText = String(detailPayload?.detailText || '');
       const priceOptions = typeof product === 'object'
         ? buildSmartStorePriceOptionsFromDetail(detailPayload || {}, product)
         : [];
-      if (detailHtml || detailText || priceOptions.length > 0) {
-        const detailInfo = { detailHtml, detailText, priceOptions };
+      if (detailHtml || detailText || detailImageUrls.length > 0 || priceOptions.length > 0) {
+        const detailInfo = { detailHtml, detailText, detailImageUrls, detailImagesChecked, priceOptions };
         contents.set(String(productNo), detailInfo);
         if (typeof product === 'object') writeSmartStoreDetailCache(productNo, product, detailInfo);
-        if (triedApi) consecutiveApiFailures = 0;
-      } else if (triedApi) {
-        consecutiveApiFailures += 1;
+      } else {
+        if (typeof product === 'object' && (triedApi || !channelUid)) {
+          writeSmartStoreDetailCache(productNo, product, { status: 'empty', detailImagesChecked });
+        }
+      }
+      if (triedApi) {
+        const apiReturnedDetail = Boolean(
+          detailPayload?.detailHtml
+          || detailPayload?.detailText
+          || detailPayload?.optionCombinations?.length,
+        );
+        consecutiveApiFailures = apiReturnedDetail ? 0 : consecutiveApiFailures + 1;
       }
       await delay(400);
     }
@@ -745,6 +810,7 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
     return contents;
   } finally {
     hiddenWindow.close();
+    detailImageWindow.close();
   }
 }
 
@@ -764,13 +830,21 @@ async function enrichSmartStoreProductsWithDetailInfo(source, products) {
     if (!detailInfo) return product;
 
     let nextProduct = applySmartStoreDetailInfo(product, detailInfo);
-    if (nextProduct.tastingNotes.length === 0 && detailInfo.detailHtml) {
-      const notes = await extractNotesFromDetail(detailInfo.detailHtml);
-      if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
+    if (detailInfo.detailHtml || detailInfo.detailImageUrls?.length) {
+      const maxImages = nextProduct.tastingNotes.length <= 1 ? 4 : 0;
+      const notes = await extractNotesFromDetail(detailInfo.detailHtml, {
+        maxImages,
+        imageUrls: detailInfo.detailImageUrls,
+      });
+      if (notes.length > 0) {
+        nextProduct = { ...nextProduct, tastingNotes: mergeTastingNotes(nextProduct.tastingNotes, notes) };
+      }
     }
-    if (nextProduct.tastingNotes.length === 0 && detailInfo.detailText) {
+    if (detailInfo.detailText) {
       const notes = extractNotesFromPreloadedDetailText(detailInfo.detailText);
-      if (notes.length > 0) nextProduct = { ...nextProduct, tastingNotes: notes };
+      if (notes.length > 0) {
+        nextProduct = { ...nextProduct, tastingNotes: mergeTastingNotes(nextProduct.tastingNotes, notes) };
+      }
     }
 
     return nextProduct;
@@ -1184,25 +1258,40 @@ function buildTerarosaThumbnailMap(rows) {
 async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
   return mapWithConcurrency(detailPages, 2, async (page) => {
     const ocrTexts = [];
+    let bestOcrText = '';
+    let bestNoteCount = 0;
     // 노트는 상세 이미지보다 목록 썸네일에 박혀 있는 경우가 많아 썸네일을 먼저 읽는다.
     const itemCode = decodeURIComponent(page.url.match(/ItemCode=([^&]+)/i)?.[1] || '');
     const thumbnailUrl = itemCode ? thumbnailByItemCode[itemCode] : '';
-    const imageUrls = [
-      ...(thumbnailUrl ? [thumbnailUrl] : []),
-      ...extractTerarosaDetailImageUrls(page.html).slice(0, 8),
+    const imageTargets = [
+      ...(thumbnailUrl ? [{ imageUrl: thumbnailUrl, isThumbnail: true }] : []),
+      ...extractTerarosaDetailImageUrls(page.html).slice(0, 8)
+        .map((imageUrl) => ({ imageUrl, isThumbnail: false })),
     ];
+    let thumbnailNoteCount = 0;
 
-    for (const imageUrl of imageUrls) {
+    for (const { imageUrl, isThumbnail } of imageTargets) {
       const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
       if (!text) continue;
 
       ocrTexts.push(text);
-      if (hasTerarosaTastingNoteText(text)) break;
+      const noteCount = countRecognizedTastingNotes(text);
+      if (noteCount > bestNoteCount) {
+        bestOcrText = text;
+        bestNoteCount = noteCount;
+      }
+      if (isThumbnail) thumbnailNoteCount = noteCount;
+      if (hasTerarosaTastingNoteText(text) && noteCount >= 2) break;
+      if (!isThumbnail && thumbnailNoteCount === 1) break;
     }
+
+    const orderedTexts = bestOcrText
+      ? [bestOcrText, ...ocrTexts.filter((text) => text !== bestOcrText)]
+      : ocrTexts;
 
     return {
       ...page,
-      ocrText: ocrTexts.join('\n'),
+      ocrText: orderedTexts.join('\n'),
     };
   });
 }
@@ -1340,7 +1429,7 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
       cursor += 1;
       const { productNo, detailUrl } = items[myIndex];
       try {
-        const detail = await fetchHtmlPage(detailUrl, referer);
+        const detail = await fetchCafe24DetailWithRetry(fetchHtmlPage, detailUrl, referer, { deadlineAt });
         if (detail) {
           stock.set(productNo, isSoldOutFromHtml(detail.html));
           const parsed = parseCafe24DetailInfo(detail.html);

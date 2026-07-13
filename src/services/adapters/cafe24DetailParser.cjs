@@ -109,7 +109,7 @@ function findLabeledLine(lines, labels) {
     for (const label of labels) {
       if (!lowerLine.startsWith(label.toLowerCase())) continue;
       const rest = line.slice(label.length);
-      const match = rest.match(/^\s*(?:[A-Za-z]+(?:\s+[A-Za-z]+){0,3}\s*)?[:：\|]\s*(.+)$/);
+      const match = rest.match(/^\s*(?:[A-Za-z]+(?:\s+[A-Za-z]+){0,3}\s*)?[:：\|ㅣ]\s*(.+)$/);
       if (match) {
         const value = match[1].trim();
         if (value) return value;
@@ -226,9 +226,9 @@ function parseCafe24DetailInfo(html) {
     process: readDetailRow(html, ['가공법', '가공', 'process'])
       || findLabeledLine(lines, ['가공방식', '가공법', '가공', 'Processing Method', 'Processing', 'Process'])
       || getValueFromDivTable(divTableInfo, ['가공법', '가공', 'process', '가공방식', 'Processing Method', 'Processing']),
-    tastingNotes: readDetailRow(html, ['향미', '컵노트', 'cup notes', 'tasting notes'])
-      || findLabeledLine(lines, ['향미', '컵노트', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes'])
-      || getValueFromDivTable(divTableInfo, ['향미', '컵노트', 'cup notes', 'tasting notes', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes'])
+    tastingNotes: readDetailRow(html, ['향미', '컵노트', 'cup notes', 'tasting notes', 'cupping note', 'cupping notes'])
+      || findLabeledLine(lines, ['향미', '컵노트', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes', 'Cupping Note', 'Cupping Notes'])
+      || getValueFromDivTable(divTableInfo, ['향미', '컵노트', 'cup notes', 'tasting notes', 'cupping note', 'cupping notes', '테이스팅 노트', '테이스팅노트', 'Flavor Notes', 'Tasting Notes', 'Cup Notes', 'Cupping Note', 'Cupping Notes'])
       || findUnlabeledTastingNotesLine(lines),
     region: readDetailRow(html, ['지역', 'region'])
       || findLabeledLine(lines, ['지역', 'Region', 'Reigon'])
@@ -252,6 +252,18 @@ function encodeHtmlAttribute(value) {
 
 function buildDetailInfoMarker(info) {
   return `<span data-beanpick-detail="${encodeHtmlAttribute(JSON.stringify(info))}"></span>`;
+}
+
+async function fetchCafe24DetailWithRetry(fetchPage, detailUrl, referer, options = {}) {
+  const retryDelayMs = Number(options.retryDelayMs ?? 1000);
+  const deadlineAt = Number(options.deadlineAt ?? Infinity);
+  const delayFn = options.delayFn || ((ms) => new Promise((resolve) => setTimeout(resolve, ms)));
+  const first = await fetchPage(detailUrl, referer);
+  if (first || Date.now() >= deadlineAt) return first;
+
+  await delayFn(retryDelayMs);
+  if (Date.now() >= deadlineAt) return null;
+  return await fetchPage(detailUrl, referer);
 }
 
 function extractDetailContentImageUrls(html) {
@@ -323,6 +335,7 @@ module.exports = {
   parseCafe24DetailInfo,
   extractTasteScale,
   buildDetailInfoMarker,
+  fetchCafe24DetailWithRetry,
   extractDetailContentImageUrls,
   extractBlendComposition,
 };

@@ -101,6 +101,7 @@ const NOTE_RULES = [
   { label: '라임', group: 'fruit', aliases: ['lime', '라임'] },
   { label: '시트러스', group: 'fruit', aliases: ['citrus', '시트러스'] },
   { label: '베리', group: 'fruit', aliases: ['berry', 'berries', '베리'] },
+  { label: '블랙커런트', group: 'fruit', aliases: ['blackcurrant', 'black currant', '블랙커런트', '블랙 커런트'] },
   { label: '블루베리', group: 'fruit', aliases: ['blueberry', '블루베리'] },
   { label: '딸기', group: 'fruit', aliases: ['strawberry', '딸기'] },
   { label: '라즈베리', group: 'fruit', aliases: ['raspberry', '라즈베리'] },
@@ -123,7 +124,10 @@ const NOTE_RULES = [
   { label: '샤인머스캣', group: 'fruit', aliases: ['shine muscat', 'shinemuscat', '샤인머스캣', '샤인 머스캣'] },
   { label: '건과일', group: 'fruit', aliases: ['dried fruit', 'dried fruits', '건과일', '말린 과일'] },
   { label: '건포도', group: 'fruit', aliases: ['raisin', 'raisins', '건포도'] },
-  { label: '말린자두', group: 'fruit', aliases: ['prune', 'prunes', 'dried plum', 'dried plums', '말린자두', '말린 자두'] },
+  { label: '피치', group: 'fruit', aliases: ['피치'] },
+  { label: '망고스틴', group: 'fruit', aliases: ['망고스틴'] },
+  { label: '말린자두', group: 'fruit', aliases: ['prune', 'prunes', 'dried plum', 'dried plums', '푸룬', '말린자두', '말린 자두'] },
+  { label: '로즈힙', group: 'fruit', aliases: ['rosehip', 'rose hip', '로즈힙', '로즈 힙'] },
   { label: '대추야자', group: 'fruit', aliases: ['date', 'dates', 'jujube', '대추야자', '대추'] },
   { label: '리치', group: 'fruit', aliases: ['lychee', '리치'] },
   { label: '쥬시', group: 'fruit', aliases: ['juicy', '쥬시', '주시'] },
@@ -147,9 +151,12 @@ const NOTE_RULES = [
   { label: '노란 백합', group: 'floral', aliases: ['yellow lily', '노란 백합'] },
   { label: '홍차', group: 'floral', aliases: ['black tea', 'blacktea', '홍차'] },
   { label: '녹차', group: 'floral', aliases: ['green tea', 'greentea', '녹차'] },
+  { label: '백차', group: 'floral', aliases: ['white tea', 'whitetea', '백차'] },
   { label: '차', group: 'floral', aliases: ['tea', 'tea-like', 'tea like', '차'] },
   { label: '다즐링티', group: 'floral', aliases: ['darjeeling', 'darjeeling tea', '다즐링티', '다즐링 티'] },
   { label: '민트', group: 'floral', aliases: ['mint', 'peppermint', '민트', '페퍼민트'] },
+  { label: '로즈', group: 'floral', aliases: ['로즈'] },
+  { label: '엘더플라워', group: 'floral', aliases: ['엘더플라워'] },
   { label: '장미', group: 'floral', aliases: ['rose', '장미'] },
   { label: '히비스커스', group: 'floral', aliases: ['hibiscus', '히비스커스'] },
   { label: '꿀풀', group: 'floral', aliases: ['honeysuckle', '꿀풀'] },
@@ -226,6 +233,7 @@ const NOTE_RULES = [
   { label: '묵직', group: 'body', aliases: ['heavy', '묵직', '묵직한'] },
   { label: '와이니', group: 'body', aliases: ['winey', 'winy', 'wine', '와이니'] },
   { label: '긴 여운', group: 'body', aliases: ['long aftertaste', 'longaftertaste', '긴 여운', '긴여운'] },
+  { label: '미네랄리티', group: 'body', aliases: ['minerality', '미네랄리티'] },
 ];
 
 const ALIAS_LOOKUP = new Map();
@@ -347,6 +355,15 @@ function removeOverlappingNotes(notes) {
   }
   if (set.has('청포도') || set.has('적포도') || set.has('건포도')) {
     set.delete('포도');
+  }
+  if (set.has('블랙커런트')) {
+    set.delete('까치밥');
+  }
+  if (set.has('로즈힙')) {
+    set.delete('장미');
+  }
+  if (set.has('홍차') || set.has('녹차') || set.has('백차') || set.has('다즐링티')) {
+    set.delete('차');
   }
   if (set.has('달콤한 산미')) {
     set.delete('단맛');

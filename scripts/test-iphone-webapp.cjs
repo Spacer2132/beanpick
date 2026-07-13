@@ -50,6 +50,56 @@ async function main() {
   expect(snapshot.count === 2, '게시 JSON에는 상품 개수가 들어가야 합니다', String(snapshot.count));
   expect(snapshot.products[0].id === 'bean-a', '게시 JSON에는 현재 상품 목록이 그대로 들어가야 합니다');
 
+  const notePreservedAt = '2026-06-13T00:00:00.000Z';
+  const currentNoteProducts = [
+    { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: [] },
+    { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['다크초콜릿'], tastingNotesPreservedAt: notePreservedAt },
+    { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: [] },
+    { id: 'new-bean', roasterName: '테스트 로스터리', productName: '동명 원두', price: 22000, weight: 200, tastingNotes: [] },
+  ];
+  const currentNoteProductsBeforePublish = JSON.stringify(currentNoteProducts);
+  const notePreservationSnapshot = githubPublisher.buildGithubSnapshot(currentNoteProducts, '2026-06-14T01:02:03.000Z', {
+    previousSnapshot: {
+      products: [
+        { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: ['자스민', '가짜노트'], tastingNotesPreservedAt: notePreservedAt },
+        { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['복숭아'] },
+        { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: ['꿀'] },
+        { id: 'old-bean', roasterName: '테스트 로스터리', productName: '동명 원두', price: 22000, weight: 200, tastingNotes: ['캐러멜'] },
+      ],
+    },
+  });
+  const preservedNoteProduct = notePreservationSnapshot.products.find((product) => product.id === 'same-bean');
+  const freshNoteProduct = notePreservationSnapshot.products.find((product) => product.id === 'fresh-bean');
+  const firstPreservedProduct = notePreservationSnapshot.products.find((product) => product.id === 'first-preserve');
+  const newProduct = notePreservationSnapshot.products.find((product) => product.id === 'new-bean');
+  expect(
+    preservedNoteProduct?.tastingNotes?.join(',') === '자스민',
+    '새 수집 노트만 비었으면 같은 상품의 이전 유효 노트를 보존해야 합니다',
+    JSON.stringify(preservedNoteProduct),
+  );
+  expect(
+    preservedNoteProduct?.tastingNotesPreservedAt === notePreservedAt,
+    '반복 보존 시 최초 보존 시각을 유지해야 합니다',
+    preservedNoteProduct?.tastingNotesPreservedAt,
+  );
+  expect(freshNoteProduct?.tastingNotes?.join(',') === '다크초콜릿', '새로 수집된 노트가 있으면 이전 노트로 덮으면 안 됩니다');
+  expect(!freshNoteProduct?.tastingNotesPreservedAt, '새 노트가 다시 수집되면 이전 보존 표시를 제거해야 합니다');
+  expect(
+    firstPreservedProduct?.tastingNotesPreservedAt === '2026-06-14T01:02:03.000Z',
+    '처음 이전 노트를 보존할 때 현재 게시 시각을 기록해야 합니다',
+    firstPreservedProduct?.tastingNotesPreservedAt,
+  );
+  expect(newProduct?.tastingNotes?.length === 0, '이름만 같은 다른 상품에 이전 노트를 붙이면 안 됩니다', JSON.stringify(newProduct));
+  expect(
+    notePreservationSnapshot.quality.preservedTastingNoteCount === 2,
+    '게시 품질 정보에 맛정보 보존 상품 수를 기록해야 합니다',
+    JSON.stringify(notePreservationSnapshot.quality),
+  );
+  expect(
+    JSON.stringify(currentNoteProducts) === currentNoteProductsBeforePublish,
+    '게시 스냅샷을 만들면서 현재 수집 상품 원본을 바꾸면 안 됩니다',
+  );
+
   const calls = [];
   const result = await githubPublisher.publishProductsToGitHub({
     products,

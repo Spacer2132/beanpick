@@ -1,4 +1,5 @@
 const { validateProducts } = require('./dataQuality.cjs');
+const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
 
 const DEFAULT_OWNER = 'Spacer2132';
 const DEFAULT_REPO = 'beanpick';
@@ -251,6 +252,46 @@ function preservePreviousSmartStoreDiscounts(products, previousSnapshot) {
   return { products: cloned, preservedCount };
 }
 
+function buildPreviousTastingNoteMap(previousSnapshot) {
+  const map = new Map();
+  const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
+
+  for (const product of previousProducts) {
+    const id = normalizeText(product?.id);
+    const notes = normalizeTastingNotes(product?.tastingNotes, { limit: 5 });
+    if (!id || notes.length === 0) continue;
+    if (map.has(id)) {
+      map.set(id, null);
+    } else {
+      map.set(id, { notes, preservedAt: product.tastingNotesPreservedAt || '' });
+    }
+  }
+
+  return map;
+}
+
+function preservePreviousTastingNotes(products, previousSnapshot, publishedAt) {
+  const previousNotes = buildPreviousTastingNoteMap(previousSnapshot);
+  let preservedCount = 0;
+
+  for (const product of products) {
+    const currentNotes = normalizeTastingNotes(product?.tastingNotes, { limit: 5 });
+    product.tastingNotes = currentNotes;
+    if (currentNotes.length > 0) {
+      delete product.tastingNotesPreservedAt;
+      continue;
+    }
+
+    const match = previousNotes.get(normalizeText(product?.id));
+    if (!match) continue;
+    product.tastingNotes = match.notes;
+    product.tastingNotesPreservedAt = match.preservedAt || publishedAt;
+    preservedCount += 1;
+  }
+
+  return { products, preservedCount };
+}
+
 function normalizeSmartStoreProductUrls(products) {
   for (const product of products) {
     if (isNaverMainProductUrl(product.productUrl)) {
@@ -348,15 +389,22 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
 
 function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), { previousSnapshot = null } = {}) {
   const safeProducts = Array.isArray(products) ? products : [];
-  const preserved = preservePreviousSmartStoreDiscounts(safeProducts, previousSnapshot);
-  const normalizedProducts = normalizeSmartStoreProductUrls(preserved.products);
+  const preservedDiscounts = preservePreviousSmartStoreDiscounts(safeProducts, previousSnapshot);
+  const preservedNotes = preservePreviousTastingNotes(preservedDiscounts.products, previousSnapshot, publishedAt);
+  const normalizedProducts = normalizeSmartStoreProductUrls(preservedNotes.products);
   const { clean, excluded, flagged, report } = validateProducts(normalizedProducts);
 
   return {
     publishedAt,
     count: clean.length,
     products: clean,
-    quality: { ...report, excluded, flagged, preservedDiscountCount: preserved.preservedCount },
+    quality: {
+      ...report,
+      excluded,
+      flagged,
+      preservedDiscountCount: preservedDiscounts.preservedCount,
+      preservedTastingNoteCount: preservedNotes.preservedCount,
+    },
   };
 }
 
@@ -443,6 +491,7 @@ async function publishProductsToGitHub({
         error: blockReason,
         count: snapshot.count,
         preservedDiscountCount: snapshot.quality.preservedDiscountCount,
+        preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
       };
     }
 
@@ -506,6 +555,7 @@ async function publishProductsToGitHub({
       excludedCount: snapshot.quality.excludedCount,
       flaggedCount: snapshot.quality.flaggedCount,
       preservedDiscountCount: snapshot.quality.preservedDiscountCount,
+      preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
     };
   } catch (error) {
     return {

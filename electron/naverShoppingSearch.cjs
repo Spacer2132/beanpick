@@ -26,7 +26,8 @@ function getSmartStoreDetailCacheDir(env = process.env, tempDir = os.tmpdir()) {
 }
 
 const SMARTSTORE_DETAIL_CACHE_DIR = getSmartStoreDetailCacheDir();
-const SMARTSTORE_DETAIL_CACHE_VERSION = 4;
+const SMARTSTORE_DETAIL_CACHE_VERSION = 5;
+const SMARTSTORE_DETAIL_FAILURE_TTL_MS = 24 * 60 * 60 * 1000;
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
 const MIN_BEAN_WEIGHT = 30;
@@ -516,6 +517,16 @@ function smartStoreDetailCachePath(productNo, product = {}) {
     version: SMARTSTORE_DETAIL_CACHE_VERSION,
     productNo: String(productNo || ''),
     productName: product.productName || '',
+    productUrl: product.productUrl || '',
+  })).digest('hex');
+  return path.join(SMARTSTORE_DETAIL_CACHE_DIR, `${productNo}-${fingerprint}.json`);
+}
+
+function legacySmartStoreDetailCachePath(productNo, product = {}) {
+  const fingerprint = crypto.createHash('sha1').update(JSON.stringify({
+    version: 4,
+    productNo: String(productNo || ''),
+    productName: product.productName || '',
     price: product.price || 0,
     originalPrice: product.originalPrice || 0,
     productUrl: product.productUrl || '',
@@ -523,11 +534,49 @@ function smartStoreDetailCachePath(productNo, product = {}) {
   return path.join(SMARTSTORE_DETAIL_CACHE_DIR, `${productNo}-${fingerprint}.json`);
 }
 
+function hasSmartStoreDetailCacheContent(cache = {}) {
+  return Boolean(cache.detailHtml || cache.detailText || cache.detailImageUrls?.length || cache.priceOptions?.length);
+}
+
+function isSmartStoreDetailCacheUsable(cache, product = {}, now = Date.now()) {
+  if (!cache) return false;
+  if (cache.sourcePrice !== undefined && Number(cache.sourcePrice || 0) !== Number(product.price || 0)) return false;
+  if (
+    cache.sourceOriginalPrice !== undefined
+    && Number(cache.sourceOriginalPrice || 0) !== Number(product.originalPrice || 0)
+  ) return false;
+  if (
+    (!product.tastingNotes || product.tastingNotes.length <= 1)
+    && (cache.detailImagesChecked !== true || cache.detailImagesCheckedVersion !== 1)
+  ) return false;
+  if (cache.status === 'empty' || !hasSmartStoreDetailCacheContent(cache)) {
+    const cachedAt = Date.parse(cache.cachedAt || '');
+    const age = now - cachedAt;
+    return Number.isFinite(cachedAt) && age >= 0 && age < SMARTSTORE_DETAIL_FAILURE_TTL_MS;
+  }
+  return true;
+}
+
 function readSmartStoreDetailCache(productNo, product = {}) {
   try {
     const cachePath = smartStoreDetailCachePath(productNo, product);
-    if (!fs.existsSync(cachePath)) return null;
-    return JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+    if (fs.existsSync(cachePath)) {
+      const cached = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+      return isSmartStoreDetailCacheUsable(cached, product) ? cached : null;
+    }
+
+    const legacyCachePath = legacySmartStoreDetailCachePath(productNo, product);
+    if (!fs.existsSync(legacyCachePath)) return null;
+    const legacyCache = JSON.parse(fs.readFileSync(legacyCachePath, 'utf8'));
+    if (!isSmartStoreDetailCacheUsable(legacyCache, product)) return null;
+    const migratedCache = {
+      ...legacyCache,
+      status: hasSmartStoreDetailCacheContent(legacyCache) ? 'success' : 'empty',
+      sourcePrice: Number(product.price || 0),
+      sourceOriginalPrice: Number(product.originalPrice || 0),
+    };
+    fs.writeFileSync(cachePath, JSON.stringify(migratedCache), 'utf8');
+    return migratedCache;
   } catch {
     return null;
   }
@@ -537,22 +586,40 @@ function writeSmartStoreDetailCache(productNo, product = {}, detailInfo = {}) {
   try {
     fs.mkdirSync(SMARTSTORE_DETAIL_CACHE_DIR, { recursive: true });
     const cachePath = smartStoreDetailCachePath(productNo, product);
-    const priceOptions = Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : [];
+    const isEmpty = detailInfo.status === 'empty' || !hasSmartStoreDetailCacheContent(detailInfo);
+    const priceOptions = isEmpty ? [] : (Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : []);
     const optionFingerprint = crypto.createHash('sha1').update(JSON.stringify(priceOptions.map((option) => ({
       weight: option.weight,
       price: option.price,
       originalPrice: option.originalPrice || 0,
     })))).digest('hex');
     fs.writeFileSync(cachePath, JSON.stringify({
-      detailHtml: detailInfo.detailHtml || '',
-      detailText: detailInfo.detailText || '',
+      status: isEmpty ? 'empty' : 'success',
+      detailHtml: isEmpty ? '' : (detailInfo.detailHtml || ''),
+      detailText: isEmpty ? '' : (detailInfo.detailText || ''),
+      detailImageUrls: isEmpty ? [] : (Array.isArray(detailInfo.detailImageUrls) ? detailInfo.detailImageUrls : []),
+      detailImagesChecked: detailInfo.detailImagesChecked === true,
+      detailImagesCheckedVersion: detailInfo.detailImagesChecked === true
+        ? 1
+        : 0,
       priceOptions,
       optionFingerprint,
+      sourcePrice: Number(product.price || 0),
+      sourceOriginalPrice: Number(product.originalPrice || 0),
       cachedAt: new Date().toISOString(),
     }), 'utf8');
   } catch {
     // 상세 옵션 캐시는 네이버 호출 수를 줄이기 위한 보조 장치라 실패해도 수집은 계속한다.
   }
+}
+
+function planSmartStoreDetailTargets(targets, maxCount = 20) {
+  const cachedTargets = targets.filter((target) => target.cached);
+  const pendingTargets = targets
+    .filter((target) => !target.cached)
+    .sort((a, b) => Number(Boolean(a.product?.tastingNotes?.length)) - Number(Boolean(b.product?.tastingNotes?.length)))
+    .slice(0, maxCount);
+  return { cachedTargets, pendingTargets };
 }
 
 function hasExplicitWeight(title) {
@@ -839,12 +906,13 @@ const NON_TASTING_NOTES = new Set([
 
 const TASTING_NOTE_PATTERNS = [
   // Fruity - Berries (과일향 - 베리류)
+  ['블랙커런트', /블랙커런트|blackcurrant/i],
   ['블루베리', /블루베리|blueberry/i],
   ['라즈베리', /라즈베리|raspberry/i],
   ['검은딸기', /검은딸기|blackberry/i],
   ['딸기', /딸기|strawberry/i],
   ['베리', /베리|berry/i],
-  ['까치밥', /까치밥|currant/i],
+  ['까치밥', /까치밥|(?<!black)currant/i],
   ['크랜베리', /크랜베리|cranberry/i],
   ['보이센베리', /보이센베리|boysenberry/i],
   // Fruity - Citrus (과일향 - 시트러스)
@@ -861,6 +929,7 @@ const TASTING_NOTE_PATTERNS = [
   ['자두', /자두|plum/i],
   ['대추', /대추|jujube|date/i],
   ['말린살구', /말린살구|dried apricot/i],
+  ['말린자두', /푸룬|prune/i],
   // Fruity - Tree Fruit (과일향 - 나무 과일)
   ['사과', /사과|(?<!pine)apple/i],
   ['배', /\bpear\b|서양배/i],
@@ -883,8 +952,9 @@ const TASTING_NOTE_PATTERNS = [
   ['패션프루트', /패션프루트|passionfruit/i],
   // Floral (꽃향)
   ['플로럴', /플로럴|floral/i],
+  ['로즈힙', /로즈힙|rosehip/i],
   ['자스민', /자스민|jasmine/i],
-  ['장미', /장미|rose/i],
+  ['장미', /장미|rose(?!hip)/i],
   ['히비스커스', /히비스커스|hibiscus/i],
   ['꿀풀', /꿀풀|honeysuckle/i],
   ['진달래', /진달래|azalea/i],
@@ -954,7 +1024,9 @@ const TASTING_NOTE_PATTERNS = [
   ['호박', /호박|pumpkin/i],
   ['녹차', /녹차|greentea/i],
   ['홍차', /홍차|blacktea/i],
+  ['백차', /백차|whitetea/i],
   ['참깨', /참깨|참께|sesame/i],
+  ['미네랄리티', /미네랄리티|minerality/i],
 ];
 
 function sanitizeTastingNotes(notes) {
@@ -1073,11 +1145,13 @@ function findUnlabeledTastingNotesLine(lines) {
 
 function extractLabeledPreloadedNoteText(lines) {
   const labelPattern = '(?:cupping\\s*note|tasting\\s*note|taste\\s*note|cup\\s*note|커핑\\s*노트|컵\\s*노트|향미|노트)';
+  const strongLabelPattern = '(?:cupping\\s*note|tasting\\s*note|taste\\s*note|cup\\s*note|커핑\\s*노트|컵\\s*노트)';
   for (const line of lines) {
     const colonMatch = line.match(new RegExp(`${labelPattern}\\s*[:：]\\s*(.{1,240})`, 'i'));
+    const inlineMatch = line.match(new RegExp(`(?:^|\\s)${strongLabelPattern}(?:\\s*[:：–—-]\\s*|\\s+)(.{1,240})`, 'i'));
     const startMatch = line.match(new RegExp(`^\\s*${labelPattern}\\s+(.{1,240})`, 'i'));
-    const value = (colonMatch?.[1] || startMatch?.[1] || '')
-      .split(/\b(?:origin|composition|blend|altitude|variety|process|roasting\s*point|taste\s*scale)\b|원산지|구성|블렌드|고도|품종|가공|한줄평|지역|생산자|농장/i)[0]
+    const value = (colonMatch?.[1] || inlineMatch?.[1] || startMatch?.[1] || '')
+      .split(/\b(?:origin|composition|blend|altitude|variety|process|roasting\s*point|taste\s*scale)\b|원산지|구성|블렌드|고도|품종|가공|로스팅(?:\s*레벨)?|한줄평|지역|생산자|농장/i)[0]
       .trim();
     if (value) return value;
   }
@@ -1097,6 +1171,10 @@ function extractNotesFromPreloadedDetailText(detailText) {
     noteLine.split(/[,/·]+/).map((note) => note.trim()).filter(Boolean),
     { limit: 5 },
   );
+}
+
+function countRecognizedTastingNotes(text) {
+  return extractNotesFromPreloadedDetailText(text).length;
 }
 
 // 썸네일 OCR 전용: "Tasting Note:" 라벨이 없어도 알려진 맛 단어를 전체 글자에서 직접 찾는다.
@@ -1255,15 +1333,29 @@ function extractSmartStoreDetailImageUrls(html) {
   )];
 }
 
+function buildSmartStoreDetailImageUrlsScript() {
+  return `
+    (() => [...new Set(
+      [...document.querySelectorAll('img.se-image-resource')]
+        .map((img) => img.getAttribute('data-src') || img.currentSrc || img.src || '')
+        .filter((url) => /^https?:\\/\\//i.test(url))
+    )].slice(0, 4))()
+  `;
+}
+
 // 스마트스토어 상세 본문에서 노트 추출: 글자(무료)를 먼저 보고, 없으면 본문 이미지 OCR
-async function extractNotesFromDetail(detailHtml, { maxImages = 4 } = {}) {
+async function extractNotesFromDetail(detailHtml, { maxImages = 4, imageUrls = [] } = {}) {
   const text = String(detailHtml || '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<[^>]+>/g, ' ');
   const textNotes = extractOcrTasteNotes(text);
   if (textNotes.length > 0) return textNotes;
 
-  for (const imageUrl of extractSmartStoreDetailImageUrls(detailHtml).slice(0, maxImages)) {
+  const detailImageUrls = [...new Set([
+    ...extractSmartStoreDetailImageUrls(detailHtml),
+    ...(Array.isArray(imageUrls) ? imageUrls : []),
+  ].filter((url) => /^https?:\/\//i.test(url)))];
+  for (const imageUrl of detailImageUrls.slice(0, maxImages)) {
     const notes = await getOcrTasteNotes(imageUrl);
     if (notes.length > 0) return notes;
   }
@@ -1447,6 +1539,7 @@ module.exports = {
   SMARTSTORE_SOURCES,
   _test: {
     cleanShoppingTitle,
+    buildSmartStoreDetailImageUrlsScript,
     extractOcrTasteNotes,
     extractFlavorNotesAnywhere,
     getTasteNotes,
@@ -1467,21 +1560,29 @@ module.exports = {
     mergeTastingNotes,
     extractNotesFromDetail,
     extractNotesFromPreloadedDetailText,
+    countRecognizedTastingNotes,
     extractSmartStoreDetailImageUrls,
     mergeNotesFromMatchedProducts,
     mergeNotesFromSearchResults,
     normalizeSmartStoreProductUrl,
     buildSmartStorePriceOptionsFromDetail,
     getSmartStoreDetailCacheDir,
+    smartStoreDetailCachePath,
+    isSmartStoreDetailCacheUsable,
     readSmartStoreDetailCache,
     writeSmartStoreDetailCache,
+    planSmartStoreDetailTargets,
   },
   enrichProductsWithThumbnailOcr,
+  buildSmartStoreDetailImageUrlsScript,
   extractNotesFromDetail,
   extractNotesFromPreloadedDetailText,
+  countRecognizedTastingNotes,
+  mergeTastingNotes,
   buildSmartStorePriceOptionsFromDetail,
   readSmartStoreDetailCache,
   writeSmartStoreDetailCache,
+  planSmartStoreDetailTargets,
   mergeNotesFromMatchedProducts,
   mergeNotesFromSearchResults,
   loadLocalEnv,
