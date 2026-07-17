@@ -184,6 +184,207 @@ function parseWeightText(value) {
   return grams >= 30 && grams <= 5000 ? grams : 0;
 }
 
+function parseMoneyValue(value) {
+  const parsed = Number(String(value || '').replace(/[^\d.-]/g, ''));
+  return Number.isFinite(parsed) && parsed > 0 ? Math.round(parsed) : 0;
+}
+
+function formatWeightLabel(weight) {
+  if (!weight) return '';
+  return weight >= 1000 && weight % 1000 === 0 ? `${weight / 1000}kg` : `${weight}g`;
+}
+
+function formatPricePer100g(price, weight) {
+  if (!price || !weight) return '';
+  return `${new Intl.NumberFormat('ko-KR').format(Math.round((price / weight) * 100))}원/100g`;
+}
+
+function isWeightDimensionName(value) {
+  return /중량|용량|무게|weight|size|capacity|net\s*wt/i.test(String(value || ''));
+}
+
+function isAvailableOption(option) {
+  if (!option || option.is_display === 'F' || option.is_selling === 'F') return false;
+  if (option.use_soldout === 'T' || option.use_soldout_original === 'T') return false;
+  return true;
+}
+
+function extractOptionStockData(html) {
+  const text = String(html || '');
+  const match = text.match(/option_stock_data\s*=\s*'((?:\\.|[^'])*)'/i)
+    || text.match(/option_stock_data\s*=\s*"((?:\\.|[^"])*)"/i);
+  if (!match) return {};
+
+  const raw = match[1]
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/\\"/g, '"')
+    .replace(/\\'/g, "'");
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function extractOptionNameMapper(html) {
+  const match = String(html || '').match(/option_name_mapper\s*=\s*'([^']*)'/i)
+    || String(html || '').match(/option_name_mapper\s*=\s*"([^"]*)"/i);
+  return match ? match[1].split(/#\$%|\s*[|,/]\s*/).map((value) => value.trim()).filter(Boolean) : [];
+}
+
+function extractWeightSelectOptions(html) {
+  const result = [];
+  const text = String(html || '');
+  for (const match of text.matchAll(/<select\b([^>]*)>([\s\S]*?)<\/select>/gi)) {
+    const attrs = match[1];
+    const selectBody = match[2];
+    const title = attrs.match(/option_title=["']([^"']+)["']/i)?.[1] || '';
+    const nearbyLabel = text.slice(Math.max(0, match.index - 220), match.index)
+      .match(/<th\b[^>]*>([\s\S]*?)<\/th>\s*<td[^>]*>\s*$/i)?.[1] || '';
+    if (!isWeightDimensionName(`${title} ${stripHtmlText(nearbyLabel)}`)) continue;
+
+    for (const optionMatch of selectBody.matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/gi)) {
+      const optionAttrs = optionMatch[1];
+      const optionText = stripHtmlText(optionMatch[2]);
+      const optionValue = optionAttrs.match(/value=["']([^"']*)["']/i)?.[1] || '';
+      if (!optionText || /disabled|품절|sold\s*out|soldout/i.test(optionAttrs + optionText)) continue;
+      const weight = parseWeightText(`${optionValue} ${optionText}`);
+      if (!weight) continue;
+      const addedPrice = parseMoneyValue(optionText.match(/(?:\+|추가)\s*([\d,]+)\s*원?/i)?.[1]);
+      result.push({ value: optionValue, weight, addedPrice });
+    }
+  }
+  return result;
+}
+
+function extractDetailBasePrice(html) {
+  const text = String(html || '');
+  const candidates = [
+    parseMoneyValue(text.match(/<meta[^>]+property=["']product:price:amount["'][^>]+content=["']([^"']+)["']/i)?.[1]),
+    parseMoneyValue(text.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']product:price:amount["']/i)?.[1]),
+    parseMoneyValue(text.match(/_iPrdtPrice\s*=\s*([\d.]+)/i)?.[1]),
+  ].filter((price) => price > 0);
+  return candidates[0] || 0;
+}
+
+function extractJsonLdOffers(html) {
+  const offers = [];
+  for (const match of String(html || '').matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const parsed = JSON.parse(stripHtmlText(match[1]));
+      const nodes = Array.isArray(parsed) ? parsed : [parsed];
+      for (const node of nodes) {
+        const candidates = node?.['@graph'] || [node];
+        for (const candidate of candidates) {
+          const nodeOffers = Array.isArray(candidate?.offers) ? candidate.offers : [candidate?.offers];
+          for (const offer of nodeOffers) {
+            if (offer && typeof offer === 'object') offers.push(offer);
+          }
+        }
+      }
+    } catch {
+      // JSON-LD가 여러 블록으로 섞여 있어도 다른 출처를 계속 사용한다.
+    }
+  }
+  return offers;
+}
+
+function extractCafe24PriceOptions(html) {
+  const text = String(html || '');
+  const basePrice = extractDetailBasePrice(text);
+  const stockData = extractOptionStockData(text);
+  const mapper = extractOptionNameMapper(text);
+  const selectOptions = extractWeightSelectOptions(text);
+  const optionMap = new Map();
+
+  const putOption = (weight, price) => {
+    const normalizedWeight = Number(weight || 0);
+    const normalizedPrice = parseMoneyValue(price);
+    if (normalizedWeight < 30 || normalizedWeight > 2000 || normalizedPrice <= 0) return;
+    const current = optionMap.get(normalizedWeight);
+    if (!current || normalizedPrice < current.price) {
+      optionMap.set(normalizedWeight, {
+        id: `${normalizedWeight}-${normalizedPrice}`,
+        price: normalizedPrice,
+        weight: normalizedWeight,
+        priceLabel: `${new Intl.NumberFormat('ko-KR').format(normalizedPrice)}원`,
+        weightLabel: formatWeightLabel(normalizedWeight),
+        unitPriceLabel: formatPricePer100g(normalizedPrice, normalizedWeight),
+      });
+    }
+  };
+
+  for (const entry of Object.values(stockData)) {
+    if (!isAvailableOption(entry)) continue;
+    const values = Array.isArray(entry?.option_value_orginal) ? entry.option_value_orginal : [];
+    const names = Array.isArray(entry?.option_name_original) ? entry.option_name_original : mapper;
+    const dimensionIndex = names.findIndex((name) => isWeightDimensionName(name));
+    const weightCandidates = dimensionIndex >= 0
+      ? [parseWeightText(values[dimensionIndex])]
+      : values.map((value) => parseWeightText(value));
+    const weight = weightCandidates.find((value) => value > 0) || parseWeightText(entry?.option_value);
+    if (!weight) continue;
+
+    const absolutePrice = parseMoneyValue(entry?.option_price);
+    const addedPrice = parseMoneyValue(entry?.stock_price || entry?.origin_option_added_price);
+    putOption(weight, absolutePrice || (basePrice > 0 ? basePrice + addedPrice : 0));
+  }
+
+  if (optionMap.size === 0 && selectOptions.length > 0 && basePrice > 0) {
+    for (const option of selectOptions) {
+      const stock = stockData[option.value];
+      if (stock && !isAvailableOption(stock)) continue;
+      const addedPrice = stock
+        ? parseMoneyValue(stock.stock_price || stock.option_price || stock.origin_option_added_price)
+        : option.addedPrice;
+      putOption(option.weight, basePrice + addedPrice);
+    }
+  }
+
+  // 일부 상품은 JSON-LD offers에 용량별 절대가격을 넣고 옵션 데이터는 비워 둔다.
+  if (optionMap.size === 0) {
+    for (const offer of extractJsonLdOffers(text)) {
+      if (/outofstock|soldout/i.test(String(offer.availability || ''))) continue;
+      const weight = parseWeightText(`${offer.name || ''} ${offer.url || ''}`);
+      putOption(weight, offer.price);
+    }
+  }
+
+  return [...optionMap.values()].sort((a, b) => a.weight - b.weight || a.price - b.price);
+}
+
+function extractImwebPriceOptions(html) {
+  const text = String(html || '')
+    .replace(/\\\"/g, '"')
+    .replace(/\\\//g, '/')
+    .replace(/\\u([0-9a-f]{4})/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'");
+  const options = new Map();
+  const optionPattern = /selectRequireOption\(\s*['"][^'"]+['"]\s*,\s*[^,]+,\s*['"][^'"]+['"]\s*,\s*['"][^'"]+['"]\s*,\s*['"]([^'"]+)['"][\s\S]*?<strong>\s*([\d,]+)\s*원/gi;
+
+  for (const match of text.matchAll(optionPattern)) {
+    const weight = parseWeightText(match[1]);
+    const price = parseMoneyValue(match[2]);
+    if (!weight || !price) continue;
+    const current = options.get(weight);
+    if (!current || price < current.price) {
+      options.set(weight, {
+        id: `${weight}-${price}`,
+        price,
+        weight,
+        priceLabel: `${new Intl.NumberFormat('ko-KR').format(price)}원`,
+        weightLabel: formatWeightLabel(weight),
+        unitPriceLabel: formatPricePer100g(price, weight),
+      });
+    }
+  }
+
+  return [...options.values()].sort((a, b) => a.weight - b.weight || a.price - b.price);
+}
+
 function extractDetailWeight(html) {
   const candidates = [];
   const pushWeight = (value) => {
@@ -203,7 +404,7 @@ function extractDetailWeight(html) {
   pushWeight(readDetailRow(html, ['중량', '용량', 'NET WT', 'Net WT', 'weight'])
     || getValueFromDivTable(divTableInfo, ['중량', '용량', 'NET WT', 'Net WT', 'weight']));
 
-  return candidates[0] || 0;
+  return candidates[0] || extractCafe24PriceOptions(html)[0]?.weight || 0;
 }
 
 function extractMetaDescription(html) {
@@ -237,6 +438,7 @@ function parseCafe24DetailInfo(html) {
       || findLabeledLine(lines, ['농장명', '농장', 'Farm'])
       || getValueFromDivTable(divTableInfo, ['농장명', '농장', 'farm', 'Farm']),
     weight: extractDetailWeight(html),
+    priceOptions: extractCafe24PriceOptions(html),
     description: extractMetaDescription(html),
     tasteScale: extractTasteScale(lines),
   };
@@ -333,6 +535,8 @@ function extractBlendComposition(text) {
 
 module.exports = {
   parseCafe24DetailInfo,
+  extractCafe24PriceOptions,
+  extractImwebPriceOptions,
   extractTasteScale,
   buildDetailInfoMarker,
   fetchCafe24DetailWithRetry,

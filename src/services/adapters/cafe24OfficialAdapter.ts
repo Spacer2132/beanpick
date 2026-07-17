@@ -7,6 +7,18 @@ type Cafe24HtmlPage = {
   html: string;
 };
 
+type Cafe24PriceOption = {
+  id: string;
+  price: number;
+  weight: number;
+  priceLabel?: string;
+  weightLabel?: string;
+  unitPriceLabel?: string;
+  productUrl?: string;
+  originalPrice?: number;
+  originalPriceLabel?: string;
+};
+
 export type Cafe24SourceConfig = {
   sourceId: string;
   roasterName: string;
@@ -274,6 +286,7 @@ type Cafe24DetailInfo = {
   region?: string;
   farm?: string;
   weight?: number;
+  priceOptions?: Cafe24PriceOption[];
   description?: string;
   ocrText?: string;
   blendComposition?: Array<{ country: string; percent: number }>;
@@ -409,8 +422,14 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         if (mergedNotes.length >= 5) break;
       }
       const tastingNotes = mergedNotes;
-      const price = extractPrice(block, config);
-      const originalPrice = extractOriginalPrice(block, price);
+      const listedPrice = extractPrice(block, config);
+      const listedOriginalPrice = extractOriginalPrice(block, listedPrice);
+      const priceOptions = (detail?.priceOptions || [])
+        .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
+        .map((option) => ({ ...option, productUrl }));
+      const representativeOption = priceOptions[0];
+      const price = representativeOption?.price || listedPrice;
+      const originalPrice = representativeOption?.originalPrice || listedOriginalPrice;
 
       return {
         id: createProductId(config, productNo, productName, index),
@@ -427,7 +446,10 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
               : '확인 필요',
         price,
         originalPrice,
-        weight: detail?.weight || inferWeight(`${productName} ${description}`.trim(), config.defaultWeight),
+        weight: representativeOption?.weight || detail?.weight || inferWeight(`${productName} ${description}`.trim(), config.defaultWeight),
+        weightLabel: representativeOption?.weightLabel,
+        priceLabel: representativeOption?.priceLabel,
+        priceOptions: priceOptions.length > 0 ? priceOptions : undefined,
         score: inferScore(combinedText, index),
         tastingNotes,
         productUrl,
@@ -482,18 +504,26 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
       if (!properties) return null;
 
       const productName = String(properties.name || '').trim();
-      const productUrl = toAbsoluteUrl(block.match(/<a[^>]+href=["']([^"']*(?:\?idx=|shop_view)[^"']*)["']/i)?.[1] || config.sourceUrl, config.origin);
+      const listHref = block.match(/<a[^>]+href=["']([^"']*(?:\?idx=|shop_view)[^"']*)["']/i)?.[1] || '';
+      const productUrl = properties.idx
+        ? `${config.origin}/shop_view/${encodeURIComponent(String(properties.idx))}`
+        : toAbsoluteUrl(listHref || config.sourceUrl, config.origin);
       const imageUrl = toAbsoluteUrl(String(properties.image_url || block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || ''), config.origin);
+      const detail = extractBeanpickDetailInfo(block);
       const combinedText = `${productName} ${stripHtml(block)}`;
-      const price = Number(properties.price || properties.original_price || 0);
-      const originalPrice = Number(properties.original_price || 0);
+      const priceOptions = (detail?.priceOptions || [])
+        .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
+        .map((option) => ({ ...option, productUrl }));
+      const representativeOption = priceOptions[0];
+      const price = representativeOption?.price || Number(properties.price || properties.original_price || 0);
+      const originalPrice = representativeOption?.originalPrice || Number(properties.original_price || 0);
 
       return {
         id: createProductId(config, String(properties.idx || properties.code || ''), productName, index),
         roasterName: config.roasterName,
         productName,
-        origin: inferOrigin(combinedText),
-        process: inferProcess(combinedText),
+        origin: detail?.origin || inferOrigin(combinedText),
+        process: detail?.process || inferProcess(combinedText),
         roastLevel: /약배전|light/i.test(combinedText)
           ? 'Light'
           : /강배전|dark/i.test(combinedText)
@@ -503,7 +533,10 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
               : '확인 필요',
         price,
         originalPrice: originalPrice > price ? originalPrice : undefined,
-        weight: inferWeight(combinedText, config.defaultWeight),
+        weight: representativeOption?.weight || detail?.weight || inferWeight(combinedText, config.defaultWeight),
+        weightLabel: representativeOption?.weightLabel,
+        priceLabel: representativeOption?.priceLabel,
+        priceOptions: priceOptions.length > 0 ? priceOptions : undefined,
         score: inferScore(combinedText, index),
         tastingNotes: parseImwebTastingNotes(block, productName),
         productUrl,

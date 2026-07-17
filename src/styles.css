@@ -914,6 +914,14 @@ a {
   gap: 4px;
 }
 
+.bean-price-weight-row {
+  display: flex;
+  min-height: 26px;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
 .bean-footer .bean-price-option em {
   flex-shrink: 0;
   text-align: right;
@@ -928,6 +936,10 @@ a {
   gap: 1px;
   line-height: 1.08;
   white-space: nowrap;
+}
+
+.bean-price-unit.is-placeholder {
+  display: none;
 }
 
 .bean-price-unit-value {
@@ -1023,6 +1035,18 @@ a {
   font-size: 11px;
   font-weight: 900;
   white-space: nowrap;
+}
+
+.bean-price-option .bean-price-more-pill {
+  display: inline-flex;
+}
+
+.bean-price-option .bean-price-more-label {
+  display: inline;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
 }
 
 .bean-actions {
@@ -2246,7 +2270,7 @@ a {
   }
 
   .bean-price-option {
-    min-height: 0;
+    min-height: 100px;
     padding: 8px 9px;
   }
 
@@ -2254,19 +2278,24 @@ a {
     font-size: 15px;
   }
 
-  /* 좁은 2열 카드에서는 가격과 단가가 가로로 안 맞아 잘리므로, 단가를 가격 아래 한 줄로 내린다. */
-  /* 폰에서는 4개씩 보이도록 가격 박스 높이를 고정하지 않고 내용에 맞춘다. */
+  /* 좁은 2열 카드에서는 가격과 단가를 세로로 쌓고 높이를 통일한다. */
   .bean-footer .bean-price-option {
     flex-direction: column;
     align-items: flex-start;
     gap: 3px;
-    min-height: 0;
+    min-height: 100px;
   }
 
   .bean-footer .bean-price-unit {
     flex-direction: row;
     align-items: baseline;
     gap: 2px;
+  }
+
+  .bean-footer .bean-price-unit.is-placeholder {
+    display: flex;
+    min-height: 13px;
+    visibility: hidden;
   }
 
   .bean-footer .bean-price-unit .bean-price-unit-suffix::before {
@@ -2276,6 +2305,30 @@ a {
   /* 카드에서는 단가를 가격 박스 오른쪽에 보이게 하고, 상세 모달에서만 폰 폭에서 숨긴다. */
   .modal-section .bean-price-option em {
     display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .bean-price-weight-row {
+    gap: 4px;
+  }
+
+  .bean-price-more-pill {
+    padding: 0 6px;
+  }
+
+  .bean-price-option span.bean-price-more-label {
+    display: none;
+  }
+
+  .bean-footer .bean-price-unit {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .bean-footer .bean-price-unit.is-placeholder {
+    min-height: 25px;
   }
 }
 

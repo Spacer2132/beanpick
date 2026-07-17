@@ -134,6 +134,11 @@ expect(grouped.length === 1, '같은 원두명은 용량별로 한 카드에 묶
 expect(grouped[0]?.productName === '데일리 블렌드', '묶인 카드명에서는 용량 문구가 제거되어야 합니다', grouped[0]?.productName);
 expect(grouped[0]?.priceOptions.length === 3, '묶인 카드에는 용량별 가격 옵션이 모두 남아야 합니다', String(grouped[0]?.priceOptions.length));
 expect(
+  grouped[0]?.priceOptions.some((option) => option.price === grouped[0]?.price && option.weight === grouped[0]?.weight),
+  '상품 상단 가격과 용량은 서로 다른 옵션에서 섞이면 안 됩니다',
+  JSON.stringify({ price: grouped[0]?.price, weight: grouped[0]?.weight, options: grouped[0]?.priceOptions }),
+);
+expect(
   grouped[0]?.priceOptions.some((option) => option.weightLabel === '1kg' && option.productUrl === 'https://example.com/blend-1000'),
   '가격 옵션은 자기 상품 링크를 유지해야 합니다',
 );
@@ -285,6 +290,9 @@ function groupNames(names) {
 expect(groupNames(['[6월 먼슬리] 과테말라 세이바 풀리 워시드', '[그란데] 과테말라 세이바 풀리 워시드']).length === 1, '행사/대용량 접두 라벨만 다르면 묶여야 합니다');
 expect(groupNames(['콜롬비아 엘 파라이소 리치 피치 라이트', '콜롬비아 엘 파라이소 리치피치 라이트']).length === 1, '띄어쓰기만 다른 같은 원두는 묶여야 합니다');
 expect(groupNames(['칠린 블렌드', '칠린 블렌드 ( 요청불가)']).length === 1, '(요청불가) 같은 안내 문구만 다르면 묶여야 합니다');
+expect(groupNames(['[대용량 원두] 콜롬비아 엘 오브라헤 게이샤 1kg', '콜롬비아 엘 오브라헤 게이샤 200g']).length === 1, '[대용량 원두] 표기만 다른 같은 원두는 묶여야 합니다');
+expect(groupNames(['콜롬비아 라 보헤미아 실속형.', '콜롬비아 라 보헤미아']).length === 1, '실속형 표기만 다른 같은 원두는 묶여야 합니다');
+expect(groupNames(['[마지막 재고] 과테말라 세이바 워시드 1kg', '과테말라 세이바 워시드 200g']).length === 1, '[마지막 재고] 표기만 다른 같은 원두는 묶여야 합니다');
 // 반대로, 상품이 실제로 다른 표기([생두]·[디카페인])는 묶이면 안 된다
 expect(groupNames(['에티오피아 첼베사 워시드', '[생두] 에티오피아 첼베사 워시드']).length === 2, '생두/원두처럼 실제로 다른 상품은 묶이면 안 됩니다');
 expect(groupedDiscount[0]?.priceOptions.some((option) => option.weightLabel === '500g' && option.originalPrice === 40000 && option.discountRate >= 0.3), '용량별 가격 옵션은 원래가와 할인율을 보존해야 합니다');

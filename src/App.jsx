@@ -403,20 +403,29 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
                   {option.originalPriceLabel && <del>{option.originalPriceLabel}</del>}
                   <strong>{option.priceLabel}</strong>
                   {option.discountLabel && <small>{option.discountLabel}</small>}
-                  <span>{option.weightLabel}</span>
+                  <div className="bean-price-weight-row">
+                    <span>{option.weightLabel}</span>
+                    {representativePrice.extraCount > 0 && (
+                      <span className="bean-price-more-pill">
+                        +{representativePrice.extraCount}<span className="bean-price-more-label"> 용량</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
-                {showUnitPrice && (
-                  <em className="bean-price-unit">
-                    <span className="bean-price-unit-value">{unitPriceValue}</span>
-                    {unitPriceSuffix && <span className="bean-price-unit-suffix">{unitPriceSuffix}</span>}
-                  </em>
-                )}
+                <em
+                  className={`bean-price-unit${showUnitPrice ? '' : ' is-placeholder'}`}
+                  aria-hidden={showUnitPrice ? undefined : true}
+                >
+                  {showUnitPrice && (
+                    <>
+                      <span className="bean-price-unit-value">{unitPriceValue}</span>
+                      {unitPriceSuffix && <span className="bean-price-unit-suffix">{unitPriceSuffix}</span>}
+                    </>
+                  )}
+                </em>
               </PriceOptionTag>
             );
           })}
-          {representativePrice.extraCount > 0 && (
-            <span className="bean-price-more-pill">+{representativePrice.extraCount} 용량</span>
-          )}
         </div>
       </div>
     </article>

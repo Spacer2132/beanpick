@@ -28,6 +28,8 @@ function getSmartStoreDetailCacheDir(env = process.env, tempDir = os.tmpdir()) {
 const SMARTSTORE_DETAIL_CACHE_DIR = getSmartStoreDetailCacheDir();
 const SMARTSTORE_DETAIL_CACHE_VERSION = 5;
 const SMARTSTORE_DETAIL_FAILURE_TTL_MS = 24 * 60 * 60 * 1000;
+const SMARTSTORE_DETAIL_OPTION_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const SMARTSTORE_DETAIL_OPTION_PARSER_VERSION = 1;
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
 const MIN_BEAN_WEIGHT = 30;
@@ -554,7 +556,13 @@ function isSmartStoreDetailCacheUsable(cache, product = {}, now = Date.now()) {
     const age = now - cachedAt;
     return Number.isFinite(cachedAt) && age >= 0 && age < SMARTSTORE_DETAIL_FAILURE_TTL_MS;
   }
-  return true;
+  const cachedAt = Date.parse(cache.cachedAt || '');
+  const age = now - cachedAt;
+  if (!Number.isFinite(cachedAt) || age < 0) return false;
+  const hasPriceOptions = Array.isArray(cache.priceOptions) && cache.priceOptions.length > 0;
+  // 옵션이 없었던 성공 응답은 파서가 개선되거나 상품 옵션이 생길 수 있으므로 24시간마다 재확인한다.
+  if (!hasPriceOptions && Number(cache.optionParserVersion || 0) !== SMARTSTORE_DETAIL_OPTION_PARSER_VERSION) return false;
+  return age < (hasPriceOptions ? SMARTSTORE_DETAIL_OPTION_CACHE_TTL_MS : SMARTSTORE_DETAIL_FAILURE_TTL_MS);
 }
 
 function readSmartStoreDetailCache(productNo, product = {}) {
@@ -587,6 +595,19 @@ function writeSmartStoreDetailCache(productNo, product = {}, detailInfo = {}) {
     fs.mkdirSync(SMARTSTORE_DETAIL_CACHE_DIR, { recursive: true });
     const cachePath = smartStoreDetailCachePath(productNo, product);
     const isEmpty = detailInfo.status === 'empty' || !hasSmartStoreDetailCacheContent(detailInfo);
+    if (isEmpty && fs.existsSync(cachePath)) {
+      try {
+        const previous = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+        const previousAge = Date.now() - Date.parse(previous.cachedAt || '');
+        if (previous.status === 'success' && hasSmartStoreDetailCacheContent(previous)
+          && Number.isFinite(previousAge) && previousAge >= 0 && previousAge < SMARTSTORE_DETAIL_OPTION_CACHE_TTL_MS) {
+          // 429·일시 오류가 최근 정상 옵션을 지우지 않도록 마지막 정상값을 유지한다.
+          return;
+        }
+      } catch {
+        // 깨진 캐시는 아래의 새 결과로 교체한다.
+      }
+    }
     const priceOptions = isEmpty ? [] : (Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : []);
     const optionFingerprint = crypto.createHash('sha1').update(JSON.stringify(priceOptions.map((option) => ({
       weight: option.weight,
@@ -604,6 +625,7 @@ function writeSmartStoreDetailCache(productNo, product = {}, detailInfo = {}) {
         : 0,
       priceOptions,
       optionFingerprint,
+      optionParserVersion: SMARTSTORE_DETAIL_OPTION_PARSER_VERSION,
       sourcePrice: Number(product.price || 0),
       sourceOriginalPrice: Number(product.originalPrice || 0),
       cachedAt: new Date().toISOString(),

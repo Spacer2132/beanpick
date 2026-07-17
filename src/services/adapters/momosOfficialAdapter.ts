@@ -1,4 +1,4 @@
-import type { BeanProduct } from '../../data/mockBeans';
+import type { BeanProduct, PriceOption } from '../../data/mockBeans';
 import type { FetchProductsResult, RoasteryAdapter } from './types';
 import { normalizeTastingNotes } from '../tastingNotes.js';
 import { isSoldOutFromHtml } from './stockStatus.js';
@@ -17,6 +17,8 @@ type MomosHtmlPage = {
 function stripHtml(html: string) {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
@@ -39,6 +41,31 @@ function createProductId(productNo: string, productName: string, index: number) 
 function inferWeight(text: string) {
   const match = text.match(/(\d{2,4})\s*g/i);
   return match ? Number(match[1]) : 200;
+}
+
+type MomosDetailInfo = {
+  origin?: string;
+  process?: string;
+  variety?: string;
+  farm?: string;
+  weight?: number;
+  priceOptions?: PriceOption[];
+  tastingNotes?: string;
+};
+
+function extractMomosDetailInfo(block: string): MomosDetailInfo | null {
+  const raw = block.match(/data-beanpick-detail=(['"])([\s\S]*?)\1/i)?.[2] || '';
+  if (!raw) return null;
+  try {
+    const decoded = raw
+      .replace(/&quot;/gi, '"')
+      .replace(/&#39;|&apos;/gi, "'")
+      .replace(/&amp;/gi, '&');
+    const parsed = JSON.parse(decoded);
+    return parsed && typeof parsed === 'object' ? parsed as MomosDetailInfo : null;
+  } catch {
+    return null;
+  }
 }
 
 const COUNTRY_LABELS: Array<[string, string[]]> = [
@@ -172,21 +199,31 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
       const descriptionHtml = block.match(/상품간략설명[\s\S]*?<\/strong>\s*<span[^>]*>([\s\S]*?)<\/span>/i)?.[1] || '';
       const description = stripHtml(descriptionHtml);
       const combinedText = `${productName} ${description}`;
-      const price = Number((block.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, '')) || 0;
-      const originalPrice = extractOriginalPrice(block, price);
+      const detail = extractMomosDetailInfo(block);
+      const detailOptions = (detail?.priceOptions || [])
+        .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
+        .map((option) => ({ ...option, productUrl }));
+      const representativeOption = detailOptions[0];
+      const listedPrice = Number((block.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, '')) || 0;
+      const listedOriginalPrice = extractOriginalPrice(block, listedPrice);
+      const price = representativeOption?.price || listedPrice;
+      const originalPrice = representativeOption?.originalPrice || listedOriginalPrice;
 
       return {
         id: createProductId(productNo, productName, index),
         roasterName: '모모스커피',
         productName,
-        origin: inferOrigin(combinedText),
-        process: inferProcess(combinedText),
+        origin: detail?.origin || inferOrigin(combinedText),
+        process: detail?.process || inferProcess(combinedText),
         roastLevel: '확인 필요',
         price,
         originalPrice,
-        weight: inferWeight(combinedText),
+        weight: representativeOption?.weight || detail?.weight || inferWeight(combinedText),
+        weightLabel: representativeOption?.weightLabel,
+        priceLabel: representativeOption?.priceLabel,
+        priceOptions: detailOptions.length > 0 ? detailOptions : undefined,
         score: inferScore(combinedText, index),
-        tastingNotes: parseTastingNotes(description),
+        tastingNotes: normalizeTastingNotes([detail?.tastingNotes || '', ...parseTastingNotes(description)], { limit: 5 }),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutFromHtml(block),

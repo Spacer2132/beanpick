@@ -28,6 +28,7 @@ const {
   parseCafe24DetailInfo,
   buildDetailInfoMarker,
   fetchCafe24DetailWithRetry,
+  extractImwebPriceOptions,
   extractDetailContentImageUrls,
   extractBlendComposition,
 } = require('../src/services/adapters/cafe24DetailParser.cjs');
@@ -93,8 +94,11 @@ const OFFICIAL_MALL_PAGE_CONFIGS = {
     detailOrigin: 'https://hellcafe.co.kr',
   },
   centercoffee: {
+    sourceId: 'centercoffee',
     sourceUrl: 'https://www.centercoffee.co.kr/67',
     maxPages: 2,
+    verifyStockFromDetail: true,
+    detailOrigin: 'https://www.centercoffee.co.kr',
     pageUrl(pageNumber) {
       if (pageNumber === 1) return this.sourceUrl;
       return `https://www.centercoffee.co.kr/ajax/get_shop_list_view.cm?page=${pageNumber}&pagesize=12&category=s20190728fa16756cae2c6&sort=recent&menu_url=%2F67%2F`;
@@ -1396,10 +1400,18 @@ async function fetchMomosProducts() {
     throw new Error('Momos product pages could not be loaded.');
   }
 
+  // 목록에는 대표 용량만 있으므로, 기존 공식몰 상세보강 경로로 용량별 가격을 함께 읽는다.
+  // 상세보강이 실패해도 목록 자체는 그대로 반환한다.
+  const enrichedPages = await enrichPagesWithDetailStock(
+    pages,
+    { sourceUrl: MOMOS_SOURCE_URL, detailOrigin: 'https://momos.co.kr' },
+    Date.now() + OFFICIAL_ENRICH_BUDGET_MS,
+  );
+
   return {
     ok: true,
-    html: pages[0]?.html || '',
-    pages,
+    html: enrichedPages[0]?.html || '',
+    pages: enrichedPages,
     fetchedAt: new Date().toISOString(),
     sourceUrl: MOMOS_SOURCE_URL,
   };
@@ -1481,7 +1493,110 @@ function injectDetailMarkerIntoBlock(html, productNo, info) {
   return html.replace(re, (match) => `${match}${marker}`);
 }
 
+function extractImwebListItemLinks(html, origin) {
+  const items = [];
+  const seen = new Set();
+  for (const block of extractImwebProductBlocks(html)) {
+    const properties = readImwebProductPropertiesFromBlock(block);
+    const productNo = String(properties?.idx || '').trim();
+    if (!productNo || seen.has(productNo)) continue;
+    items.push({
+      productNo,
+      detailUrl: `${origin}/shop_view/${encodeURIComponent(productNo)}`,
+    });
+    seen.add(productNo);
+  }
+  return items;
+}
+
+function injectDetailMarkerIntoImwebBlock(html, productNo, info) {
+  if (!info) return html;
+  const marker = buildDetailInfoMarker(info);
+  const blocks = extractImwebProductBlocks(html);
+  const block = blocks.find((candidate) => String(readImwebProductPropertiesFromBlock(candidate)?.idx || '') === String(productNo));
+  if (!block) return html;
+  // 문자열 치환에 $& 같은 특수 패턴이 섞여도 그대로 들어가도록 콜백 형태를 쓴다.
+  const updatedBlock = block.replace(/>/, (match) => match + marker);
+  return html.replace(block, () => updatedBlock);
+}
+
+async function fetchImwebOptionPage(detailUrl, productNo, referer, deadlineAt = Infinity) {
+  const detail = await fetchHtmlPage(detailUrl, referer);
+  if (!detail || Date.now() >= deadlineAt) return null;
+  const editTime = detail.html.match(/"prod_edit_time"\s*:\s*(\d+)/i)?.[1] || '';
+  if (!editTime) return null;
+
+  const response = await withTimeout((async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
+    try {
+      return await fetch(`${new URL(detailUrl).origin}/shop/load_option.cm`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/javascript, */*; q=0.01',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'User-Agent': 'BeanPick/0.1 local desktop app',
+          'X-Requested-With': 'XMLHttpRequest',
+          Referer: detailUrl,
+        },
+        body: new URLSearchParams({
+          type: 'prod',
+          prod_idx: String(productNo),
+          selected_require_options: '',
+          __: String(editTime),
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  })(), 15000, null);
+  if (!response?.ok) return null;
+  const html = await withTimeout(response.text(), 15000, '');
+  return html ? { url: detailUrl, html } : null;
+}
+
+async function enrichCenterCoffeeDetailOptions(pages, config, deadlineAt = Infinity) {
+  const enriched = [];
+  for (const page of pages) {
+    if (Date.now() > deadlineAt) {
+      enriched.push(page);
+      continue;
+    }
+    const items = extractImwebListItemLinks(page.html, config.detailOrigin || new URL(config.sourceUrl).origin);
+    if (items.length === 0) {
+      enriched.push(page);
+      continue;
+    }
+    const info = new Map();
+    let cursor = 0;
+    async function worker() {
+      while (cursor < items.length) {
+        if (Date.now() > deadlineAt) return;
+        const item = items[cursor++];
+        try {
+          const optionPage = await fetchImwebOptionPage(item.detailUrl, item.productNo, config.sourceUrl, deadlineAt);
+          const priceOptions = optionPage ? extractImwebPriceOptions(optionPage.html) : [];
+          if (priceOptions.length > 0) info.set(item.productNo, { priceOptions });
+        } catch {
+          // 옵션 상세를 못 받으면 목록의 대표 가격·용량을 그대로 유지한다.
+        }
+      }
+    }
+    await Promise.all(Array.from({ length: Math.min(5, items.length) }, () => worker()));
+    let nextHtml = page.html;
+    for (const [productNo, detailInfo] of info.entries()) {
+      nextHtml = injectDetailMarkerIntoImwebBlock(nextHtml, productNo, detailInfo);
+    }
+    enriched.push({ ...page, html: nextHtml });
+  }
+  return enriched;
+}
+
 async function enrichPagesWithDetailStock(pages, config, deadlineAt = Infinity) {
+  if (config.sourceId === 'centercoffee') {
+    return enrichCenterCoffeeDetailOptions(pages, config, deadlineAt);
+  }
   const referer = config.sourceUrl;
   const origin = config.detailOrigin || (config.sourceUrl ? new URL(config.sourceUrl).origin : '');
   if (!origin) return pages;

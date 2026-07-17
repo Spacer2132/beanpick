@@ -13,6 +13,8 @@ const COUNT_GUARD_MIN_PREVIOUS = 20;
 const COUNT_GUARD_MIN_RATIO = 0.5;
 const ROASTER_COUNT_GUARD_MIN_PREVIOUS = 15;
 const ROASTER_COUNT_GUARD_MIN_RATIO = 0.5;
+const OPTION_GUARD_MIN_PREVIOUS = 5;
+const OPTION_GUARD_MIN_RATIO = 0.5;
 const MAX_PUBLISH_ATTEMPTS = 3;
 const SMARTSTORE_SLUG_BY_ROASTER = {
   '커피정경 로스터리': 'coffeejg',
@@ -347,6 +349,50 @@ function findCollapsedRoaster(previousProducts, nextProducts) {
   return null;
 }
 
+function getProductMatchKeys(product) {
+  const keys = [];
+  const id = normalizeText(product?.id);
+  const roaster = normalizeText(product?.roasterName);
+  const name = normalizeText(product?.productName);
+  if (id) keys.push(`id:${id}`);
+  if (roaster && name) keys.push(`name:${roaster}:${name}`);
+  return keys;
+}
+
+function hasMultiplePriceOptions(product) {
+  return Array.isArray(product?.priceOptions) && product.priceOptions.length >= 2;
+}
+
+function findCollapsedOptionRoaster(previousProducts, nextProducts) {
+  const nextByKey = new Map();
+  for (const product of Array.isArray(nextProducts) ? nextProducts : []) {
+    for (const key of getProductMatchKeys(product)) {
+      if (!nextByKey.has(key)) nextByKey.set(key, product);
+    }
+  }
+
+  const previousByRoaster = new Map();
+  for (const product of Array.isArray(previousProducts) ? previousProducts : []) {
+    if (!hasMultiplePriceOptions(product)) continue;
+    const roaster = normalizeText(product?.roasterName);
+    if (!roaster) continue;
+    const nextProduct = getProductMatchKeys(product).map((key) => nextByKey.get(key)).find(Boolean);
+    // 옵션 1개가 명시적으로 남아 있으면 실제 단일 용량 전환(confirmed-single)로 인정한다.
+    const isConfirmedSingle = Array.isArray(nextProduct?.priceOptions) && nextProduct.priceOptions.length === 1;
+    const isStillMultiple = hasMultiplePriceOptions(nextProduct);
+    const current = previousByRoaster.get(roaster) || { name: product.roasterName, previousCount: 0, unexplainedCount: 0 };
+    current.previousCount += 1;
+    if (!isStillMultiple && !isConfirmedSingle) current.unexplainedCount += 1;
+    previousByRoaster.set(roaster, current);
+  }
+
+  for (const result of previousByRoaster.values()) {
+    if (result.previousCount < OPTION_GUARD_MIN_PREVIOUS) continue;
+    if (result.unexplainedCount >= Math.ceil(result.previousCount * OPTION_GUARD_MIN_RATIO)) return result;
+  }
+  return null;
+}
+
 function getPublishBlockReason(previousSnapshot, snapshot) {
   const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
   if (previousProducts.length === 0) return '';
@@ -367,6 +413,11 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
     if (collapsed) {
       return `'${collapsed.name}' 상품 수가 이전 ${collapsed.previousCount}개에서 현재 ${collapsed.nextCount}개로 절반 이하로 줄어 게시를 중단했습니다. 해당 로스터리 수집이 막혔을 수 있습니다(예: 네이버 차단).`;
     }
+  }
+
+  const collapsedOptions = findCollapsedOptionRoaster(previousProducts, nextProducts);
+  if (collapsedOptions) {
+    return `'${collapsedOptions.name}' 여러 용량 상품이 이전 ${collapsedOptions.previousCount}개 중 ${collapsedOptions.unexplainedCount}개에서 옵션 없이 수집되어 게시를 중단했습니다. 상세 옵션 수집이 실패했을 수 있습니다.`;
   }
 
   const previousStats = getSmartStoreDiscountStats(previousProducts);
@@ -570,5 +621,6 @@ module.exports = {
   publishProductsToGitHub,
   // 아래 두 가드는 safety-guards 테스트 전용 노출. 약화·삭제 시 테스트가 실패한다.
   findCollapsedRoaster,
+  findCollapsedOptionRoaster,
   getPublishBlockReason,
 };

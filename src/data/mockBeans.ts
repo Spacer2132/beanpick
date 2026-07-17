@@ -1,5 +1,19 @@
 export type SortMode = 'score' | 'latest' | 'price' | 'unitPriceAsc' | 'unitPriceDesc';
 
+export type PriceOption = {
+  id: string;
+  price: number;
+  weight: number;
+  priceLabel?: string;
+  weightLabel?: string;
+  unitPriceLabel?: string;
+  productUrl?: string;
+  originalPrice?: number;
+  originalPriceLabel?: string;
+  discountRate?: number;
+  discountLabel?: string;
+};
+
 export type BeanProduct = {
   id: string;
   roasterName: string;
@@ -9,8 +23,12 @@ export type BeanProduct = {
   roastLevel: string;
   price: number;
   originalPrice?: number;
+  priceLabel?: string;
   discountRate?: number;
   weight: number;
+  weightLabel?: string;
+  unitPriceLabel?: string;
+  priceOptions?: PriceOption[];
   score: number;
   tastingNotes: string[];
   productUrl: string;

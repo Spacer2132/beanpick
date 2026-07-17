@@ -262,6 +262,87 @@ function assertCafe24DetailWeightSample() {
   }
 }
 
+function assertCafe24DetailPriceOptionsSamples() {
+  const momosLikeHtml = `
+    <meta property="product:price:amount" content="31000" />
+    <script>
+      var option_name_mapper = '분쇄옵션#$%중량';
+      var option_stock_data = '{\\"A\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":31000,\\"option_value_orginal\\":[\\"홀빈\\",\\"200g\\"],\\"option_name_original\\":[\\"분쇄옵션\\",\\"중량\\"]},\\"B\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":62000,\\"option_value_orginal\\":[\\"홀빈\\",\\"500g\\"],\\"option_name_original\\":[\\"분쇄옵션\\",\\"중량\\"]}}';
+    </script>
+  `;
+  const momosInfo = cafe24DetailParser.parseCafe24DetailInfo(momosLikeHtml);
+  const momosWeights = (momosInfo.priceOptions || []).map((option) => option.weight);
+  if (JSON.stringify(momosWeights) !== JSON.stringify([200, 500])) {
+    throw new Error(`Cafe24 option_stock_data 용량 추출 실패: ${JSON.stringify(momosInfo.priceOptions)}`);
+  }
+  if (momosInfo.priceOptions[1]?.price !== 62000) {
+    throw new Error(`Cafe24 option_stock_data 가격 추출 실패: ${JSON.stringify(momosInfo.priceOptions)}`);
+  }
+
+  const cafe24AddedPriceHtml = `
+    <meta property="product:price:amount" content="14000" />
+    <script>
+      var option_name_mapper = '용량#$%분쇄도';
+      var option_stock_data = '{\\"335\\":{\\"stock_price\\":\\"0.00\\",\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":\\"0.00\\"},\\"334\\":{\\"stock_price\\":\\"14000.00\\",\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":\\"14000.00\\"}}';
+    </script>
+    <select option_title="용량">
+      <option value="335">200g</option>
+      <option value="334">500g (+14,000원)</option>
+    </select>
+  `;
+  const cafe24Info = cafe24DetailParser.parseCafe24DetailInfo(cafe24AddedPriceHtml);
+  const cafe24Options = cafe24Info.priceOptions || [];
+  if (cafe24Options.length !== 2 || cafe24Options[0]?.price !== 14000 || cafe24Options[1]?.price !== 28000) {
+    throw new Error(`Cafe24 추가금액 옵션 추출 실패: ${JSON.stringify(cafe24Options)}`);
+  }
+
+  const werkLikeHtml = `
+    <meta property="product:price:amount" content="18000" />
+    <script>
+      var option_name_mapper = 'Grind#$%Size#$%종이백';
+      var option_stock_data = '{\\"A\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":18000,\\"option_value_orginal\\":[\\"홀빈\\",\\"250g\\",\\"미선택\\"],\\"option_name_original\\":[\\"Grind\\",\\"Size\\",\\"종이백\\"]},\\"B\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":48000,\\"option_value_orginal\\":[\\"홀빈\\",\\"1kg\\",\\"미선택\\"],\\"option_name_original\\":[\\"Grind\\",\\"Size\\",\\"종이백\\"]},\\"C\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":18500,\\"option_value_orginal\\":[\\"에스프레소\\",\\"250g\\",\\"추가\\"],\\"option_name_original\\":[\\"Grind\\",\\"Size\\",\\"종이백\\"]}}';
+    </script>
+  `;
+  const werkInfo = cafe24DetailParser.parseCafe24DetailInfo(werkLikeHtml);
+  const werkOptions = werkInfo.priceOptions || [];
+  if (werkOptions.length !== 2 || werkOptions[0]?.weight !== 250 || werkOptions[1]?.weight !== 1000) {
+    throw new Error(`Werk JSON 옵션 중복 제거 실패: ${JSON.stringify(werkOptions)}`);
+  }
+
+  const imwebOptionResponse = String.raw`{"option_html":"<a onclick=\"SITE_SHOP_DETAIL.selectRequireOption('prod',267,'option','210','210g',function(){})\"><strong> 15,000\uc6d0</strong></a><a onclick=\"SITE_SHOP_DETAIL.selectRequireOption('prod',267,'option','500','500g',function(){})\"><strong> 28,000\uc6d0</strong></a>"}`;
+  const imwebOptions = cafe24DetailParser.extractImwebPriceOptions(imwebOptionResponse);
+  if (imwebOptions.length !== 2 || imwebOptions[0]?.weight !== 210 || imwebOptions[1]?.price !== 28000) {
+    throw new Error(`Imweb 동적 옵션 응답 추출 실패: ${JSON.stringify(imwebOptions)}`);
+  }
+}
+
+function assertMomosDetailPriceOptionsSample(momosAdapter) {
+  const detailInfo = cafe24DetailParser.parseCafe24DetailInfo(`
+    <meta property="product:price:amount" content="31000" />
+    <script>
+      var option_name_mapper = '분쇄옵션#$%중량';
+      var option_stock_data = '{\\"A\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":31000,\\"option_value_orginal\\":[\\"홀빈\\",\\"200g\\"],\\"option_name_original\\":[\\"분쇄옵션\\",\\"중량\\"]},\\"B\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":62000,\\"option_value_orginal\\":[\\"홀빈\\",\\"500g\\"],\\"option_name_original\\":[\\"분쇄옵션\\",\\"중량\\"]}}';
+    </script>
+  `);
+  const marker = cafe24DetailParser.buildDetailInfoMarker(detailInfo);
+  const html = `
+    <ul>
+      <li id="anchorBoxId_2841">
+        ${marker}
+        <a href="/product/lot-118/2841/category/42/display/1/"><img src="https://example.com/lot118.jpg" alt="콜롬비아 엘 오브라헤 게이샤 Lot 118" /></a>
+        <div class="name">상품명 : 콜롬비아 엘 오브라헤 게이샤 Lot 118</div>
+        <span ec-data-price="31000"></span>
+        <span>상품간략설명 : 옐로우 플로럴, 감귤류</span>
+      </li>
+    </ul>
+    </div>
+  `;
+  const [product] = momosAdapter.parseMomosHtmlProducts(html);
+  if (!product || product.priceOptions?.length !== 2 || product.priceOptions[1]?.weight !== 500 || product.priceOptions[1]?.price !== 62000) {
+    throw new Error(`모모스 상세 용량이 상품으로 전달되지 않았습니다: ${JSON.stringify(product?.priceOptions)}`);
+  }
+}
+
 function assertCafe24DetailDivTableSample() {
   const detailHtml = `
     <div class="product-table-row">
@@ -770,6 +851,8 @@ async function main() {
   assertTerarosaPromoNoteSample(terarosaAdapter);
   assertOriginalPriceSamples(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24DetailWeightSample();
+  assertCafe24DetailPriceOptionsSamples();
+  assertMomosDetailPriceOptionsSample(momosAdapter);
   assertCafe24DetailDivTableSample();
   assertCafe24DetailLibreSample();
   assertCafe24DetailLibreCuppingNoteSample();

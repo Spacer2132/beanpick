@@ -67,7 +67,37 @@ expect(
   '소규모 데이터에 급감 가드가 잘못 발동됨',
 );
 
-// 6) 스마트스토어 할인정보 급감(정상가 소실)을 잡는다.
+// 6) 여러 용량 옵션이 한 번에 사라지는 수집 실패를 잡는다. 옵션 1개가 명시되면 실제 단일 용량 전환으로 인정한다.
+const optionBaseline = Array.from({ length: 30 }, (_, i) => ({
+  id: `option-${i}`,
+  roasterName: '옵션로스터리',
+  productName: `옵션 원두 ${i}`,
+  productUrl: `https://example.com/option/${i}`,
+  price: 15000,
+  weight: 200,
+  priceOptions: [
+    { id: `${i}-200`, price: 15000, weight: 200 },
+    { id: `${i}-500`, price: 30000, weight: 500 },
+  ],
+}));
+const optionCollapsed = optionBaseline.map((product) => ({ ...product, priceOptions: undefined }));
+const optionCollapse = publisher.findCollapsedOptionRoaster(optionBaseline, optionCollapsed);
+expect(optionCollapse && optionCollapse.unexplainedCount === 30, '다중 용량 옵션 일괄 소실을 못 잡음', JSON.stringify(optionCollapse));
+const optionCollapseReason = publisher.getPublishBlockReason(
+  { products: optionBaseline },
+  { products: optionCollapsed },
+);
+expect(optionCollapseReason.includes('여러 용량'), '옵션 일괄 소실 게시 차단 사유가 없음', optionCollapseReason);
+const confirmedSingles = optionBaseline.map((product) => ({
+  ...product,
+  priceOptions: [{ id: `${product.id}-200`, price: 15000, weight: 200 }],
+}));
+expect(
+  publisher.getPublishBlockReason({ products: optionBaseline }, { products: confirmedSingles }) === '',
+  '명시된 단일 용량 전환을 옵션 소실로 잘못 차단함',
+);
+
+// 7) 스마트스토어 할인정보 급감(정상가 소실)을 잡는다.
 function makeDiscountProducts(count, withDiscount) {
   return Array.from({ length: count }, (_, i) => ({
     roasterName: '스토어A',

@@ -712,7 +712,8 @@ function normalizeProductNameForGroup(productName) {
     .replace(/[★☆]/g, ' ')
     // "[그란데]"(대용량), "[6월 먼슬리]"(행사), "(요청불가)" 같은 수식어 때문에
     // 같은 원두가 따로 표시되는 것을 막는다. 단 [생두]·[디카페인]처럼 상품이 달라지는 표기는 남긴다.
-    .replace(/[[(]\s*(?:그란데|대용량|벌크|점보|뉴크롭|new\s*crop|(?:\d+월\s*)?먼슬리|(?:분쇄\s*)?요청불가)\s*[\])]/gi, ' ')
+    .replace(/[[(]\s*(?:그란데|대용량\s*원두|대용량|벌크|점보|뉴크롭|new\s*crop|(?:\d+월\s*)?먼슬리|(?:분쇄\s*)?요청불가|마지막\s*재고)\s*[\])]/gi, ' ')
+    .replace(/(?:^|\s)실속형\.?(?=\s|$)/gi, ' ')
     .replace(/\b\d+(?:\.\d+)?\s*(?:kg|g)\b/gi, ' ')
     .replace(/\b\d+\s*개\b/g, ' ')
     .replace(/\s*,\s*/g, ' ')
@@ -760,9 +761,13 @@ function groupProductsByNameAndWeight(products) {
       .filter((item) => item.price > 0 && item.weight > 0)
       .sort((a, b) => (a.price / a.weight) - (b.price / b.weight))[0];
     const representative = bestUnitPriceProduct || sortedByPrice[0] || sortedByWeight[0];
-    const minPriceProduct = sortedByPrice[0] || representative;
     const weights = uniqueValues(sortedByWeight.map((item) => formatWeight(item.weight)));
     const priceOptions = createPriceOptions(items);
+    const minPriceProduct = sortedByPrice[0] || representative;
+    const topLevelOption = priceOptions.find((option) => (
+      Number(option.price || 0) === Number(minPriceProduct.price || 0)
+      && Number(option.weight || 0) === Number(minPriceProduct.weight || 0)
+    )) || priceOptions[0];
     const discountRate = Math.max(
       0,
       ...items.map((item) => Number(item.discountRate || 0)),
@@ -775,11 +780,12 @@ function groupProductsByNameAndWeight(products) {
       ...representative,
       id: createGroupedProductId(representative),
       productName: normalizeProductNameForGroup(representative.productName),
-      price: minPriceProduct.price,
-      originalPrice: minPriceProduct.originalPrice,
+      price: topLevelOption?.price || minPriceProduct.price,
+      originalPrice: topLevelOption?.originalPrice,
       discountRate: discountRate > 0 ? discountRate : undefined,
-      priceLabel: formatPrice(minPriceProduct.price),
-      weight: representative.weight,
+      // 상단 price와 표시 라벨이 서로 다른 출처에서 오면 숫자가 어긋나므로 같은 값에서 만든다.
+      priceLabel: topLevelOption?.priceLabel || formatPrice(topLevelOption?.price || minPriceProduct.price),
+      weight: topLevelOption?.weight || representative.weight,
       weightLabel: weights.join(' / '),
       unitPriceLabel: '',
       priceOptions,

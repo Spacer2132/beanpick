@@ -144,6 +144,39 @@ async function main() {
     '카드 단가는 가격과 100g 단위를 나눠서 렌더링해야 합니다',
   );
   expect(
+    /bean-price-weight-row[\s\S]*bean-price-more-pill/.test(appSource),
+    '추가 용량 표시는 가격 박스 안의 용량 행에 있어야 합니다',
+  );
+
+  const stylesSource = fs.readFileSync('src/styles.css', 'utf8');
+  expect(
+    /\.bean-price-option \.bean-price-more-pill\s*\{[\s\S]*?display:\s*inline-flex/.test(stylesSource)
+      && /\.bean-price-option \.bean-price-more-label\s*\{[\s\S]*?display:\s*inline/.test(stylesSource),
+    '추가 용량 배지의 숫자와 문구는 일반 아이폰 폭에서 한 줄로 보여야 합니다',
+  );
+  const mobileStyles = stylesSource.match(/@media \(max-width: 520px\) \{[\s\S]*?\n\}/)?.[0] || '';
+  expect(
+    /\.bean-footer \.bean-price-option\s*\{[\s\S]*?min-height:\s*100px/.test(mobileStyles),
+    '아이폰 카드 가격 박스는 내용과 관계없이 100px 높이를 확보해야 합니다',
+  );
+  expect(
+    /\.bean-price-unit\.is-placeholder/.test(stylesSource),
+    '중복 단가를 숨겨도 가격 줄 정렬을 유지하는 자리가 있어야 합니다',
+  );
+  expect(
+    /bean-price-more-label/.test(appSource)
+      && /@media \(max-width: 360px\)[\s\S]*?\.bean-price-option span\.bean-price-more-label\s*\{[\s\S]*?display:\s*none/.test(stylesSource),
+    '아주 좁은 화면에서는 추가 용량 문구를 숫자만 남겨 카드 넘침을 막아야 합니다',
+  );
+  expect(
+    /@media \(max-width: 360px\)[\s\S]*?\.bean-footer \.bean-price-unit\s*\{[\s\S]*?flex-direction:\s*column/.test(stylesSource),
+    '아주 좁은 화면에서는 100g당 단가를 두 줄로 접어 가격 박스 넘침을 막아야 합니다',
+  );
+  expect(
+    !/@media \(max-width: 360px\)[\s\S]*?\.bean-price-unit-suffix::before\s*\{[\s\S]*?content:\s*none/.test(stylesSource),
+    '두 줄 단가에서도 /100g 표시는 유지해야 합니다',
+  );
+  expect(
     /<button className="bean-image-link"[\s\S]*onClick=\{\(\) => onSelect\(product\)\}/.test(appSource),
     '아이폰에서 카드 이미지를 누르면 외부몰이 아니라 앱 상세창을 열어야 합니다',
   );

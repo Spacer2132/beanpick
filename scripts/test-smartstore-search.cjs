@@ -365,12 +365,16 @@ const successfulDetailCache = {
   detailImagesChecked: true,
   detailImagesCheckedVersion: 1,
   priceOptions: [],
+  optionParserVersion: 1,
   sourcePrice: 18000,
   sourceOriginalPrice: 20000,
-  cachedAt: '2026-07-01T00:00:00.000Z',
+  cachedAt: '2026-07-11T01:00:00.000Z',
 };
 if (!_test.isSmartStoreDetailCacheUsable(successfulDetailCache, detailCacheProduct, cacheNow)) {
-  throw new Error('가격이 같은 성공 상세캐시는 계속 재사용해야 합니다.');
+  throw new Error('가격이 같고 24시간 이내인 성공 상세캐시는 재사용해야 합니다.');
+}
+if (_test.isSmartStoreDetailCacheUsable({ ...successfulDetailCache, cachedAt: '2026-07-10T23:00:00.000Z' }, detailCacheProduct, cacheNow)) {
+  throw new Error('옵션이 없었던 성공 상세캐시는 24시간이 지나면 다시 확인해야 합니다.');
 }
 if (_test.isSmartStoreDetailCacheUsable(successfulDetailCache, changedPriceCacheProduct, cacheNow)) {
   throw new Error('가격이 바뀐 성공 상세캐시는 옵션 가격 갱신을 위해 다시 수집해야 합니다.');
@@ -391,8 +395,10 @@ const clearedEmptyCache = JSON.parse(fs.readFileSync(
   _test.smartStoreDetailCachePath('1234', detailCacheProduct),
   'utf8',
 ));
-if (clearedEmptyCache.detailText || clearedEmptyCache.detailHtml || clearedEmptyCache.detailImageUrls.length > 0) {
-  throw new Error('상세수집 실패 캐시에 과거 상세 내용이 남으면 안 됩니다.');
+if (clearedEmptyCache.detailText !== successfulDetailCache.detailText
+  || clearedEmptyCache.detailImageUrls.length !== 1
+  || clearedEmptyCache.status !== 'success') {
+  throw new Error('정상 상세수집 후 일시 실패가 발생해도 기존 상세 내용은 보존해야 합니다.');
 }
 let detailImageSelector = '';
 const renderedDetailImageUrls = vm.runInNewContext(_test.buildSmartStoreDetailImageUrlsScript(), {

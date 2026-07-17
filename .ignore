@@ -1,0 +1,11 @@
+# ZCode/ripgrep 검색·색인에서 제외할 민감 파일 (실제 값 노출 방지)
+# beanpick 은 app/ 및 app-*/ 백업 폴더에도 .env 가 있어 전부 포함됨(경로 무관 매칭)
+.env
+.env.*
+!.env.example
+secrets.yaml
+secrets.yml
+credentials.json
+*.token
+*.pem
+*.key
