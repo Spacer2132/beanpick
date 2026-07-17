@@ -189,11 +189,9 @@ const NOTE_RULES = [
   { label: '버터스카치', group: 'sweet', aliases: ['butterscotch', '버터스카치'] },
   { label: '코코넛', group: 'sweet', aliases: ['coconut', '코코넛'] },
   { label: '호박', group: 'sweet', aliases: ['pumpkin', '호박'] },
-  { label: '단맛', group: 'sweet', aliases: ['sweet', 'sweetness', '단맛', '달콤함'] },
   { label: '조청', group: 'sweet', aliases: ['조청'] },
   { label: '뉘앙스', group: 'sweet', aliases: ['nuance', '뉘앙스'] },
 
-  { label: '신맛', group: 'sour', aliases: ['sour', 'tart', '신맛'] },
   { label: '발효', group: 'sour', aliases: ['fermented', '발효'] },
   { label: '식초', group: 'sour', aliases: ['vinegar', 'acetic', '식초', '식초향'] },
   { label: '요구르트', group: 'sour', aliases: ['yogurt', 'lactic', '요구르트'] },
@@ -365,10 +363,6 @@ function removeOverlappingNotes(notes) {
   if (set.has('홍차') || set.has('녹차') || set.has('백차') || set.has('다즐링티')) {
     set.delete('차');
   }
-  if (set.has('달콤한 산미')) {
-    set.delete('단맛');
-  }
-
   return [...set];
 }
 

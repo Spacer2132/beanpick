@@ -1014,11 +1014,10 @@ const TASTING_NOTE_PATTERNS = [
   ['시러피', /시러피|syrupy/i],
   ['바닐라', /바닐라|vanilla/i],
   ['달고나', /달고나/i],
-  ['단맛', /단맛|달콤함|sweet/i],
+  // 단맛·신맛은 신맛↔단맛 축(tasteScale/acidityScore) 라벨이라 향미 노트로 수집하지 않는다.
   ['메이플', /메이플|maple/i],
   ['뉘앙스', /뉘앙스|nuance/i],
   // Sour (신맛)
-  ['신맛', /신맛|sour|tart/i],
   ['와이니', /와이니|winey|winy|wine/i],
   ['발효', /발효|fermented/i],
   ['식초', /식초|vinegar|acetic/i],
