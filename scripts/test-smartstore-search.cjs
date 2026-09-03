@@ -22,6 +22,9 @@ if (!mainSource.includes("{ httpReferrer: storeHomeUrl }")) {
 if (!mainSource.includes('SmartStore product page redirected.')) {
   throw new Error('상품 페이지 이동이 실패했을 때 상세 이미지 확인 완료로 기록하면 안 됩니다.');
 }
+if (!mainSource.includes('await loadSmartStoreCategoryEntry(hiddenWindow, storeHomeUrl)')) {
+  throw new Error('스마트스토어 상세 옵션도 홈 진입 후 카테고리 클릭 경로를 사용해야 합니다.');
+}
 const detailCollectorSource = mainSource.slice(
   mainSource.indexOf('async function fetchSmartStoreDetailContents'),
   mainSource.indexOf('async function enrichSmartStoreProductsWithDetailInfo'),
@@ -34,6 +37,12 @@ if (
 }
 if (!detailCollectorSource.includes("typeof product === 'object' && (triedApi || !channelUid)")) {
   throw new Error('상세 API를 건너뛴 상품을 빈 캐시로 저장하면 안 됩니다.');
+}
+if (!mainSource.includes('retryEmptyOptionCaches: source?.retryEmptyOptionCaches === true')) {
+  throw new Error('다중 용량 스마트스토어는 옵션 없는 상세 캐시를 재확인해야 합니다.');
+}
+if (SMARTSTORE_SOURCES.fillout.retryEmptyOptionCaches !== true) {
+  throw new Error('필아웃커피는 다중 용량 상품의 옵션 없는 상세 캐시를 재확인해야 합니다.');
 }
 if (!mainSource.includes('hasTerarosaTastingNoteText(text) && noteCount >= 2')) {
   throw new Error('테라로사 썸네일에서 노트 하나만 인식했을 때 상세 이미지 확인을 멈추면 안 됩니다.');
@@ -314,6 +323,13 @@ if (!Array.from({ length: 10 }, (_, index) => `missing-${index}`).every(
   (productNo) => detailQueuePlan.pendingTargets.some((target) => target.productNo === productNo),
 )) {
   throw new Error('맛정보 누락 상품은 상세수집 대기열에서 먼저 처리되어야 합니다.');
+}
+const optionRetryPlan = _test.planSmartStoreDetailTargets([
+  { productNo: 'noted', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: false },
+  { productNo: 'option-retry', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: true },
+], 1);
+if (optionRetryPlan.pendingTargets[0]?.productNo !== 'option-retry') {
+  throw new Error('옵션 없는 상세 캐시 재확인은 일반 상세수집보다 먼저 처리되어야 합니다.');
 }
 const detailCacheProduct = {
   productName: '캐시 테스트 원두',
@@ -650,6 +666,39 @@ const coffeejgDirectUrl = _test.normalizeSmartStoreProductUrl(
 );
 if (coffeejgDirectUrl !== 'https://smartstore.naver.com/coffeejg/products/13181681419') {
   throw new Error(`커피정경 검색 API 상품 링크가 직접 스마트스토어 링크로 바뀌어야 합니다: ${coffeejgDirectUrl}`);
+}
+
+const commerceSignatureFixture = _test.createNaverCommerceSignature(
+  'aaaabbbbcccc',
+  '$2a$10$abcdefghijklmnopqrstuv',
+  1643961623299,
+);
+if (commerceSignatureFixture !== 'JDJhJDEwJGFiY2RlZmdoaWprbG1ub3BxcnN0dXVCVldZSk42T0VPdEx1OFY0cDQxa2IuTnpVaUEzbmsy') {
+  throw new Error(`네이버 커머스 API 전자서명 예시와 결과가 다릅니다: ${commerceSignatureFixture}`);
+}
+if (_test.isNaverCommerceSecret('old-search-secret')) {
+  throw new Error('기존 네이버 쇼핑 검색 API Secret을 커머스 API Secret으로 오인하면 안 됩니다.');
+}
+
+const commerceProductFixture = _test.normalizeNaverCommerceProduct({
+  channelProductNo: 13583727290,
+  name: '콜롬비아 게이샤 워시드 200g',
+  salePrice: 22000,
+  consumerPrice: 24000,
+  statusType: 'SALE',
+  representativeImage: { url: 'https://example.com/coffeejg.png' },
+}, SMARTSTORE_SOURCES.coffeejg, 0);
+if (commerceProductFixture.weight !== 200 || commerceProductFixture.price !== 22000 || commerceProductFixture.originalPrice !== 24000) {
+  throw new Error(`커머스 API 상품의 용량·가격 변환이 잘못되었습니다: ${JSON.stringify(commerceProductFixture)}`);
+}
+if (commerceProductFixture.productUrl !== 'https://smartstore.naver.com/coffeejg/products/13583727290') {
+  throw new Error(`커머스 API 상품 링크가 잘못되었습니다: ${commerceProductFixture.productUrl}`);
+}
+const commerceRowsFixture = _test.extractNaverCommerceChannelProducts({
+  contents: [{ channelProducts: [{ channelProductNo: 1, name: '원두 200g' }, { channelProductNo: 2, name: '원두 500g' }] }],
+});
+if (commerceRowsFixture.length !== 2) {
+  throw new Error(`커머스 API 상품 목록 응답을 펼치지 못했습니다: ${JSON.stringify(commerceRowsFixture)}`);
 }
 
 const identityDirectUrl = _test.normalizeSmartStoreProductUrl(

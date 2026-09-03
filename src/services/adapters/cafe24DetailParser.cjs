@@ -181,7 +181,7 @@ function parseWeightText(value) {
   if (!gramMatch) return 0;
 
   const grams = Math.round(Number(gramMatch[1]));
-  return grams >= 30 && grams <= 5000 ? grams : 0;
+  return grams >= 10 && grams <= 5000 ? grams : 0;
 }
 
 function parseMoneyValue(value) {
@@ -302,7 +302,7 @@ function extractCafe24PriceOptions(html) {
   const putOption = (weight, price) => {
     const normalizedWeight = Number(weight || 0);
     const normalizedPrice = parseMoneyValue(price);
-    if (normalizedWeight < 30 || normalizedWeight > 2000 || normalizedPrice <= 0) return;
+    if (normalizedWeight < 10 || normalizedWeight > 2000 || normalizedPrice <= 0) return;
     const current = optionMap.get(normalizedWeight);
     if (!current || normalizedPrice < current.price) {
       optionMap.set(normalizedWeight, {
@@ -380,6 +380,62 @@ function extractImwebPriceOptions(html) {
         unitPriceLabel: formatPricePer100g(price, weight),
       });
     }
+  }
+
+  return [...options.values()].sort((a, b) => a.weight - b.weight || a.price - b.price);
+}
+
+function extractImwebOmsPriceOptions(payload) {
+  let parsed = payload;
+  if (typeof parsed === 'string') {
+    try {
+      parsed = JSON.parse(parsed);
+    } catch {
+      return [];
+    }
+  }
+  const data = parsed?.data || parsed;
+  if (!data || typeof data !== 'object') return [];
+
+  const weightValues = new Map();
+  const optionGroups = Array.isArray(data.options) ? data.options : [];
+  for (const group of optionGroups) {
+    if (!isWeightDimensionName(group?.name)) continue;
+    const values = group?.value_list && typeof group.value_list === 'object' ? group.value_list : {};
+    for (const [code, label] of Object.entries(values)) {
+      const weight = parseWeightText(label);
+      if (weight > 0) weightValues.set(String(code), weight);
+    }
+  }
+  if (weightValues.size === 0) return [];
+
+  const options = new Map();
+  const putOption = (weight, price) => {
+    const normalizedWeight = Number(weight || 0);
+    const normalizedPrice = parseMoneyValue(price);
+    if (normalizedWeight < 10 || normalizedWeight > 2000 || normalizedPrice <= 0) return;
+    const current = options.get(normalizedWeight);
+    if (!current || normalizedPrice < current.price) {
+      options.set(normalizedWeight, {
+        id: `${normalizedWeight}-${normalizedPrice}`,
+        price: normalizedPrice,
+        weight: normalizedWeight,
+        priceLabel: `${new Intl.NumberFormat('ko-KR').format(normalizedPrice)}원`,
+        weightLabel: formatWeightLabel(normalizedWeight),
+        unitPriceLabel: formatPricePer100g(normalizedPrice, normalizedWeight),
+      });
+    }
+  };
+
+  for (const detail of Array.isArray(data.options_detail) ? data.options_detail : []) {
+    const status = String(detail?.status || '').toUpperCase();
+    if (status && !['SALE', 'AVAILABLE', ''].includes(status)) continue;
+    const codes = Array.isArray(detail?.value_code_list)
+      ? detail.value_code_list.map((code) => String(code))
+      : [];
+    const weight = codes.map((code) => weightValues.get(code)).find((value) => value > 0);
+    if (!weight) continue;
+    putOption(weight, detail?.price);
   }
 
   return [...options.values()].sort((a, b) => a.weight - b.weight || a.price - b.price);
@@ -537,6 +593,7 @@ module.exports = {
   parseCafe24DetailInfo,
   extractCafe24PriceOptions,
   extractImwebPriceOptions,
+  extractImwebOmsPriceOptions,
   extractTasteScale,
   buildDetailInfoMarker,
   fetchCafe24DetailWithRetry,

@@ -115,6 +115,24 @@ function canLoadLiveProducts() {
   );
 }
 
+const LIVE_SOURCE_LOAD_CONCURRENCY = 3;
+
+async function mapWithConcurrency(items, limit, mapper) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      const currentIndex = nextIndex;
+      nextIndex += 1;
+      results[currentIndex] = await mapper(items[currentIndex], currentIndex);
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+  return results;
+}
+
 function getOfficialSourceIds() {
   return ['fritz', 'namusairo', 'coffeelibre', 'werk', 'deepbluelake', 'hellcafe', 'centercoffee', 'coffee502'];
 }
@@ -823,7 +841,7 @@ export default function App() {
   }
 
   async function handleTestSmartStoreSearch() {
-    setSmartStoreState({ status: 'loading', message: '로스터릭, 루비아, 히떼, 아이덴티티, 토치 원두를 네이버 쇼핑에서 검색하는 중입니다.' });
+    setSmartStoreState({ status: 'loading', message: '스마트스토어 카테고리와 커피정경 커머스 API 연결을 확인하는 중입니다.' });
 
     try {
       if (!window.beanpick?.testSmartStoreSearch) {
@@ -921,8 +939,10 @@ export default function App() {
         }),
       ]);
 
-      // 끝난 로스터리부터 바로 화면에 반영한다. 느린 곳을 기다리지 않는다.
-      await Promise.all(tasks.map(async (task) => {
+      // 한꺼번에 모든 로스터리를 열면 공식몰·스마트스토어가 서로 요청을 밀어내
+      // 목록 요청 자체가 ECONNRESET/AbortError로 끝날 수 있다. 끝난 로스터리부터
+      // 바로 화면에 반영하되, 전체 수집 요청은 제한된 수만 동시에 진행한다.
+      await mapWithConcurrency(tasks, LIVE_SOURCE_LOAD_CONCURRENCY, async (task) => {
         try {
           console.log(`[beanpick:load-start] ${task.label}`);
           const sourceProducts = await withRoasterTimeout(task.fetchProducts(), task.label);
@@ -944,7 +964,7 @@ export default function App() {
             message: `로스터리 확인 중 ${completedCount}/${tasks.length} · 지금까지 원두 ${loadedProducts.length}개 발견`,
           });
         }
-      }));
+      });
 
       if (loadedProducts.length === 0) {
         throw new Error(warnings.join(' / ') || '상품 데이터를 찾지 못했습니다.');

@@ -15,6 +15,7 @@ const {
   planSmartStoreDetailTargets,
   readSmartStoreDetailCache,
   readOfficialMallImageText,
+  searchNaverCommerce,
   searchNaverShopping,
   testSmartStoreSearch,
   writeSmartStoreDetailCache,
@@ -29,6 +30,7 @@ const {
   buildDetailInfoMarker,
   fetchCafe24DetailWithRetry,
   extractImwebPriceOptions,
+  extractImwebOmsPriceOptions,
   extractDetailContentImageUrls,
   extractBlendComposition,
 } = require('../src/services/adapters/cafe24DetailParser.cjs');
@@ -49,8 +51,7 @@ const TERAROSA_PRODUCT_API_URL = 'https://www.terarosa.com/api/product/list/';
 const TERAROSA_CATEGORY_NO = '12';
 const TERAROSA_PAGE_SIZE = 28;
 const TERAROSA_ORIGIN = 'https://www.terarosa.com';
-const MOMOS_SOURCE_URL = 'https://momos.co.kr/category/%EC%9B%90%EB%91%90/42/';
-const MOMOS_CATEGORY_NO = '42';
+const MOMOS_SOURCE_URL = 'https://momos.co.kr/shop';
 const MAX_CATEGORY_PAGES = 5;
 const SMARTSTORE_PAGE_LOAD_TIMEOUT_MS = 25000;
 const SMARTSTORE_PAGE_LOAD_RETRIES = 1;
@@ -493,6 +494,19 @@ async function waitForSmartStoreDetailImageUrls(window, timeoutMs = 5000) {
   return [];
 }
 
+async function loadSmartStoreCategoryEntry(window, categoryUrl) {
+  const urlParts = String(categoryUrl || '').match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)\/category\/([a-z0-9]+)/i);
+  if (!urlParts) {
+    await loadSmartStorePageWithRetry(window, categoryUrl);
+    return;
+  }
+
+  // 카테고리 주소 직접 진입은 로그인 화면으로 돌아가므로, 홈에서 링크를 눌러 들어간다.
+  await loadSmartStorePageWithRetry(window, urlParts[1]);
+  const clicked = await clickSmartStoreCategoryLink(window, urlParts[2]);
+  if (!clicked) await loadSmartStorePageWithRetry(window, categoryUrl);
+}
+
 // 어떤 비동기 작업이든 Node 쪽 타이머로 무조건 끝나게 만든다.
 // AbortController가 (CI의 undici 환경에서) 멈춘 응답 본문 읽기를 못 끊는 경우를 대비한 이중 안전장치.
 function withTimeout(promise, timeoutMs, fallback) {
@@ -513,16 +527,7 @@ async function crawlSmartStoreCategory(categoryUrl) {
     },
   });
   try {
-    // 카테고리 주소로 바로 들어가면 네이버가 로그인 화면으로 돌려보낸다.
-    // 스토어 홈을 먼저 연 뒤 카테고리 링크를 클릭해 실제 사용자처럼 이동한다.
-    const urlParts = categoryUrl.match(/^(https:\/\/smartstore\.naver\.com\/[^/]+)\/category\/([a-z0-9]+)/i);
-    if (urlParts) {
-      await loadSmartStorePageWithRetry(hiddenWindow, urlParts[1]);
-      const clicked = await clickSmartStoreCategoryLink(hiddenWindow, urlParts[2]);
-      if (!clicked) await loadSmartStorePageWithRetry(hiddenWindow, categoryUrl);
-    } else {
-      await loadSmartStorePageWithRetry(hiddenWindow, categoryUrl);
-    }
+    await loadSmartStoreCategoryEntry(hiddenWindow, categoryUrl);
     const firstPage = await waitForSmartStoreProducts(hiddenWindow);
     const productMap = new Map(firstPage.products.map((product) => [product.id, product]));
     const pageCount = Math.max(1, Math.ceil((firstPage.total || firstPage.products.length) / 40));
@@ -577,9 +582,8 @@ function applySmartStoreDetailInfo(product, detailInfo) {
     weightLabel: representative.weightLabel,
     priceLabel: representative.priceLabel,
     unitPriceLabel: '',
+    priceOptionsComplete: true,
   };
-
-  if (priceOptions.length < 2 || (Array.isArray(product.priceOptions) && product.priceOptions.length > 0)) return nextProduct;
 
   return {
     ...nextProduct,
@@ -590,17 +594,26 @@ function applySmartStoreDetailInfo(product, detailInfo) {
 
 // 스마트스토어 내부 상품 API로 상세 본문(HTML)과 페이지 내 용량 옵션을 모아온다.
 // 스토어 홈을 연 페이지 안에서 fetch해야 네이버가 봇으로 막지 않는다.
-async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount = 20, timeBudgetMs = 45000 } = {}) {
+async function fetchSmartStoreDetailContents(
+  storeHomeUrl,
+  products,
+  { maxCount = 20, timeBudgetMs = 45000, retryEmptyOptionCaches = false } = {},
+) {
   const contents = new Map();
   const targets = products
     .map((product) => ({ product, productNo: getSmartStoreProductNo(product) }))
     .filter((target) => target.productNo && needsSmartStoreDetail(target.product))
-    .map((target) => ({
-      ...target,
-      cached: typeof target.product === 'object'
+    .map((target) => {
+      const cached = typeof target.product === 'object'
         ? readSmartStoreDetailCache(target.productNo, target.product)
-        : null,
-    }));
+        : null;
+      const hasCachedOptions = Array.isArray(cached?.priceOptions) && cached.priceOptions.length > 0;
+      return {
+        ...target,
+        cached: retryEmptyOptionCaches && cached && !hasCachedOptions ? null : cached,
+        retryEmptyOptions: retryEmptyOptionCaches && cached && !hasCachedOptions,
+      };
+    });
   if (targets.length === 0) return contents;
 
   const { cachedTargets, pendingTargets } = planSmartStoreDetailTargets(targets, maxCount);
@@ -627,7 +640,7 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
   });
 
   try {
-    await loadSmartStorePageWithRetry(hiddenWindow, storeHomeUrl);
+    await loadSmartStoreCategoryEntry(hiddenWindow, storeHomeUrl);
     const channelUid = await executeJavaScriptWithTimeout(
       hiddenWindow,
       '(JSON.stringify(window.__PRELOADED_STATE__ || {}).match(/"channelUid"\\s*:\\s*"([^"]+)"/) || [])[1] || \'\'',
@@ -820,13 +833,15 @@ async function fetchSmartStoreDetailContents(storeHomeUrl, products, { maxCount 
 
 async function enrichSmartStoreProductsWithDetailInfo(source, products) {
   const storeHomeUrl = (
-    source?.storeUrl
-    || getSmartStoreCategoryUrls(source)[0]
+    getSmartStoreCategoryUrls(source)[0]
+    || source?.storeUrl
     || ''
-  ).match(/^(https:\/\/smartstore\.naver\.com\/[^/?#]+)/i)?.[1] || '';
+  ).match(/^(https:\/\/smartstore\.naver\.com\/[^?#]+)/i)?.[1] || '';
   if (!storeHomeUrl || products.length === 0) return products;
 
-  const detailContents = await fetchSmartStoreDetailContents(storeHomeUrl, products);
+  const detailContents = await fetchSmartStoreDetailContents(storeHomeUrl, products, {
+    retryEmptyOptionCaches: source?.retryEmptyOptionCaches === true,
+  });
   if (detailContents.size === 0) return products;
 
   return mapWithConcurrency(products, 2, async (product) => {
@@ -897,17 +912,6 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
 
   // 컵노트 보강 1단계: 노트 없는 상품만 썸네일 OCR
   products = await enrichProductsWithThumbnailOcr(products);
-
-  // 컵노트 보강 1.5단계: 공식 검색 API 결과의 노트를 같은 상품(제목 일치)에 이식
-  // (상세 페이지가 막혀 있어도 동작하는 안전한 통로)
-  if (products.some((product) => product.tastingNotes.length === 0)) {
-    try {
-      const searchResult = await searchNaverShopping(sourceId);
-      products = mergeNotesFromSearchResults(products, searchResult?.products || []);
-    } catch {
-      // 검색 API 실패(키 없음 등)는 무시
-    }
-  }
 
   // 컵노트 보강 2단계 + 페이지 내 용량 옵션 보강: 같은 상세 API 응답을 재사용한다.
   if (products.some(needsSmartStoreDetail)) {
@@ -994,10 +998,6 @@ function extractPageProductSignature(html, categoryNo) {
   return [...String(html || '').matchAll(/data-product-properties=["'][^"']*&quot;idx&quot;:\s*([^,&]+)[\s\S]*?["']/gi)]
     .map((match) => match[1])
     .join(',');
-}
-
-function buildMomosPageUrl(pageNumber) {
-  return pageNumber === 1 ? MOMOS_SOURCE_URL : MOMOS_SOURCE_URL + '?page=' + pageNumber;
 }
 
 function buildOfficialMallPageUrl(config, pageNumber) {
@@ -1377,34 +1377,16 @@ async function fetchTerarosaProducts() {
   }
 }
 async function fetchMomosProducts() {
-  const pages = [];
-  const seenSignatures = new Set();
-
-  for (let pageNumber = 1; pageNumber <= MAX_CATEGORY_PAGES; pageNumber += 1) {
-    try {
-      const page = await fetchHtmlPage(buildMomosPageUrl(pageNumber), MOMOS_SOURCE_URL);
-      if (!page) continue;
-
-      const productIds = extractAnchorProductIds(page.html, MOMOS_CATEGORY_NO);
-      const signature = productIds.join(',');
-      if (pageNumber > 1 && (productIds.length === 0 || seenSignatures.has(signature))) break;
-
-      pages.push(page);
-      seenSignatures.add(signature);
-    } catch {
-      // Keep using the other category pages when one page fails.
-    }
-  }
-
-  if (pages.length === 0) {
+  const page = await fetchHtmlPage(MOMOS_SOURCE_URL, MOMOS_SOURCE_URL);
+  if (!page) {
     throw new Error('Momos product pages could not be loaded.');
   }
 
   // 목록에는 대표 용량만 있으므로, 기존 공식몰 상세보강 경로로 용량별 가격을 함께 읽는다.
   // 상세보강이 실패해도 목록 자체는 그대로 반환한다.
   const enrichedPages = await enrichPagesWithDetailStock(
-    pages,
-    { sourceUrl: MOMOS_SOURCE_URL, detailOrigin: 'https://momos.co.kr' },
+    [page],
+    { sourceId: 'momos', parser: 'imweb', sourceUrl: MOMOS_SOURCE_URL, detailOrigin: 'https://momos.co.kr' },
     Date.now() + OFFICIAL_ENRICH_BUDGET_MS,
   );
 
@@ -1493,13 +1475,27 @@ function injectDetailMarkerIntoBlock(html, productNo, info) {
   return html.replace(re, (match) => `${match}${marker}`);
 }
 
-function extractImwebListItemLinks(html, origin) {
+function isLikelyMomosBeanProductName(productName) {
+  const name = String(productName || '').toLowerCase();
+  const blockedWords = [
+    '드립백', '드립커피', '브루백', '커피백', '티백', '캡슐', '콜드브루', '더치커피',
+    '인스턴트', '스틱커피', '커피믹스', '믹스커피', '파우더커피', '액상커피', '원액',
+    'rtd', 'drip bag', 'drip coffee', 'coffee bag', 'instant', 'coffee mix', 'powder coffee',
+    'capsule', 'cold brew', 'dutch coffee', 'concentrate', 'liquid coffee',
+    '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana', '쇼핑백', '생두', '정기배송', '추출기구',
+  ];
+  const beanSignals = ['원두', 'blend', '블렌드', 'washed', 'natural', 'honey', '워시드', '내추럴', '게이샤', 'decaf', '디카페인'];
+  return !blockedWords.some((word) => name.includes(word)) && beanSignals.some((word) => name.includes(word));
+}
+
+function extractImwebListItemLinks(html, origin, includeItem) {
   const items = [];
   const seen = new Set();
   for (const block of extractImwebProductBlocks(html)) {
     const properties = readImwebProductPropertiesFromBlock(block);
     const productNo = String(properties?.idx || '').trim();
     if (!productNo || seen.has(productNo)) continue;
+    if (includeItem && !includeItem(properties?.name)) continue;
     items.push({
       productNo,
       detailUrl: `${origin}/shop_view/${encodeURIComponent(productNo)}`,
@@ -1520,10 +1516,10 @@ function injectDetailMarkerIntoImwebBlock(html, productNo, info) {
   return html.replace(block, () => updatedBlock);
 }
 
-async function fetchImwebOptionPage(detailUrl, productNo, referer, deadlineAt = Infinity) {
-  const detail = await fetchHtmlPage(detailUrl, referer);
-  if (!detail || Date.now() >= deadlineAt) return null;
-  const editTime = detail.html.match(/"prod_edit_time"\s*:\s*(\d+)/i)?.[1] || '';
+async function fetchImwebOptionPage(detailUrl, productNo, referer, deadlineAt = Infinity, detail = null) {
+  const detailPage = detail || await fetchHtmlPage(detailUrl, referer);
+  if (!detailPage || Date.now() >= deadlineAt) return null;
+  const editTime = detailPage.html.match(/"prod_edit_time"\s*:\s*(\d+)/i)?.[1] || '';
   if (!editTime) return null;
 
   const response = await withTimeout((async () => {
@@ -1553,17 +1549,46 @@ async function fetchImwebOptionPage(detailUrl, productNo, referer, deadlineAt = 
   })(), 15000, null);
   if (!response?.ok) return null;
   const html = await withTimeout(response.text(), 15000, '');
-  return html ? { url: detailUrl, html } : null;
+  return html ? { url: detailUrl, html, detailHtml: detailPage.html } : null;
 }
 
-async function enrichCenterCoffeeDetailOptions(pages, config, deadlineAt = Infinity) {
+async function fetchImwebOmsProduct(detailUrl, productNo, referer, deadlineAt = Infinity) {
+  if (Date.now() >= deadlineAt) return null;
+  const endpoint = `${new URL(detailUrl).origin}/ajax/oms/OMS_get_product.cm?prod_idx=${encodeURIComponent(String(productNo))}`;
+  const remainingMs = Math.max(1, Math.min(12000, deadlineAt - Date.now()));
+  const response = await withTimeout((async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), remainingMs);
+    try {
+      return await fetch(endpoint, {
+        headers: {
+          Accept: 'application/json, text/javascript, */*; q=0.01',
+          'User-Agent': 'BeanPick/0.1 local desktop app',
+          Referer: referer || detailUrl,
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  })(), remainingMs + 1000, null);
+  if (!response?.ok) return null;
+  return await withTimeout(response.json(), remainingMs, null);
+}
+
+async function enrichImwebDetailOptions(pages, config, deadlineAt = Infinity) {
   const enriched = [];
   for (const page of pages) {
     if (Date.now() > deadlineAt) {
       enriched.push(page);
       continue;
     }
-    const items = extractImwebListItemLinks(page.html, config.detailOrigin || new URL(config.sourceUrl).origin);
+    const items = extractImwebListItemLinks(
+      page.html,
+      config.detailOrigin || new URL(config.sourceUrl).origin,
+      config.sourceId === 'momos' ? isLikelyMomosBeanProductName : undefined,
+    );
     if (items.length === 0) {
       enriched.push(page);
       continue;
@@ -1575,9 +1600,26 @@ async function enrichCenterCoffeeDetailOptions(pages, config, deadlineAt = Infin
         if (Date.now() > deadlineAt) return;
         const item = items[cursor++];
         try {
-          const optionPage = await fetchImwebOptionPage(item.detailUrl, item.productNo, config.sourceUrl, deadlineAt);
-          const priceOptions = optionPage ? extractImwebPriceOptions(optionPage.html) : [];
-          if (priceOptions.length > 0) info.set(item.productNo, { priceOptions });
+          // OMS가 현재 옵션·가격의 1차 원천이다. 상세 HTML과 동시에 시작하고,
+          // 구형 load_option.cm은 OMS가 비었을 때만 호출해 요청 수와 지연을 줄인다.
+          const [detailPage, omsPayload] = await Promise.all([
+            fetchHtmlPage(item.detailUrl, config.sourceUrl),
+            fetchImwebOmsProduct(item.detailUrl, item.productNo, config.sourceUrl, deadlineAt),
+          ]);
+          const omsPriceOptions = extractImwebOmsPriceOptions(omsPayload);
+          const optionPage = omsPriceOptions.length === 0
+            ? await fetchImwebOptionPage(item.detailUrl, item.productNo, config.sourceUrl, deadlineAt, detailPage)
+            : null;
+          const priceOptions = omsPriceOptions;
+          const fallbackPriceOptions = priceOptions.length > 0
+            ? priceOptions
+            : (optionPage ? extractImwebPriceOptions(optionPage.html) : []);
+          const detailInfo = (optionPage?.detailHtml || detailPage?.html)
+            ? parseCafe24DetailInfo(optionPage?.detailHtml || detailPage.html)
+            : {};
+          if (fallbackPriceOptions.length > 0 || Number(detailInfo.weight || 0) > 0) {
+            info.set(item.productNo, { ...detailInfo, priceOptions: fallbackPriceOptions });
+          }
         } catch {
           // 옵션 상세를 못 받으면 목록의 대표 가격·용량을 그대로 유지한다.
         }
@@ -1594,8 +1636,8 @@ async function enrichCenterCoffeeDetailOptions(pages, config, deadlineAt = Infin
 }
 
 async function enrichPagesWithDetailStock(pages, config, deadlineAt = Infinity) {
-  if (config.sourceId === 'centercoffee') {
-    return enrichCenterCoffeeDetailOptions(pages, config, deadlineAt);
+  if (config.sourceId === 'centercoffee' || config.parser === 'imweb') {
+    return enrichImwebDetailOptions(pages, config, deadlineAt);
   }
   const referer = config.sourceUrl;
   const origin = config.detailOrigin || (config.sourceUrl ? new URL(config.sourceUrl).origin : '');
@@ -1680,13 +1722,19 @@ ipcMain.handle('beanpick:test-smartstore-search', async () => {
 ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) => {
   try {
     const source = SMARTSTORE_SOURCES[sourceId];
-    if (getSmartStoreCategoryUrls(source).length > 0) {
+    const categoryUrls = getSmartStoreCategoryUrls(source);
+    if (categoryUrls.length > 0) {
       const categoryResult = await fetchSmartStoreCategoryProducts(sourceId);
       if (categoryResult?.products?.length) return categoryResult;
-      console.warn(`[beanpick:smartstore-category] ${sourceId} 카테고리 결과가 없어 네이버 쇼핑 검색 API로 전환합니다. ${categoryResult?.warning || ''}`);
+      // 검색 API는 종료되었으므로 카테고리 수집 실패를 빈 성공으로 바꾸지 않는다.
+      // 커피정경만 새 커머스 API를 보조 경로로 시도한다.
+      if (sourceId !== 'coffeejg') return categoryResult;
+      console.warn(`[beanpick:smartstore-category] ${sourceId} 스토어 홈 결과가 없어 커머스 API를 시도합니다. ${categoryResult?.warning || ''}`);
     }
 
-    const searchResult = await searchNaverShopping(sourceId);
+    const searchResult = sourceId === 'coffeejg'
+      ? await searchNaverCommerce(sourceId)
+      : await searchNaverShopping(sourceId);
     if (searchResult?.products?.length) {
       return {
         ...searchResult,

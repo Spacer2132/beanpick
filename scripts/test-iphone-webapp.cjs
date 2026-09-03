@@ -208,6 +208,11 @@ async function main() {
 
   const electronMainSource = fs.readFileSync('electron/main.cjs', 'utf8');
   expect(
+    /LIVE_SOURCE_LOAD_CONCURRENCY\s*=\s*3/.test(appSource)
+      && /mapWithConcurrency\(tasks, LIVE_SOURCE_LOAD_CONCURRENCY/.test(appSource),
+    '자동 수집은 모든 로스터리 요청을 동시에 시작하지 않고 제한된 동시성으로 실행해야 합니다',
+  );
+  expect(
     /오늘의 원두 불러오기/.test(electronMainSource) && /button\.click\(\)/.test(electronMainSource),
     '자동 게시 러너는 앱 시작 후 원두 불러오기 버튼을 직접 눌러야 합니다',
   );

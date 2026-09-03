@@ -16,11 +16,7 @@ const SOURCES = {
   },
   momos: {
     label: '모모스커피',
-    sourceUrl: 'https://momos.co.kr/category/%EC%9B%90%EB%91%90/42/',
-    categoryNo: '42',
-    pageUrl(pageNumber) {
-      return pageNumber === 1 ? this.sourceUrl : `${this.sourceUrl}?page=${pageNumber}`;
-    },
+    sourceUrl: 'https://momos.co.kr/shop',
   },
   namusairo: {
     label: '나무사이로',
@@ -102,6 +98,17 @@ const GENERIC_BLOCKED_WORDS = [
 const SOURCE_BLOCKED_WORDS = {
   terarosa: ['선물', '쿨러백', '드립백', '머그', '스틱', '액상', '카페라테', '블록', '케이크', '파우더'],
 };
+
+const mainSource = fs.readFileSync(require.resolve('../electron/main.cjs'), 'utf8');
+if (!mainSource.includes("const MOMOS_SOURCE_URL = 'https://momos.co.kr/shop';")) {
+  throw new Error('모모스가 원두 기획전 목록을 수집하고 있습니다. 쇼핑 전체 목록을 써야 합니다.');
+}
+if (!mainSource.includes("config.sourceId === 'momos' ? isLikelyMomosBeanProductName : undefined")) {
+  throw new Error('모모스 상세보강이 원두가 아닌 상품까지 조회합니다.');
+}
+if (!mainSource.includes('const [detailPage, omsPayload] = await Promise.all([')) {
+  throw new Error('Imweb 상세보강이 OMS 우선 병렬 호출 순서를 사용하지 않습니다.');
+}
 
 function loadTsModule(filePath) {
   const code = fs.readFileSync(filePath, 'utf8');
@@ -263,6 +270,18 @@ function assertCafe24DetailWeightSample() {
 }
 
 function assertCafe24DetailPriceOptionsSamples() {
+  const deepBlueLikeHtml = `
+    <meta property="product:price:amount" content="22000" />
+    <script>
+      var option_stock_data = '{\\"A\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":20000,\\"option_value_orginal\\":[\\"16g\\"],\\"option_name_original\\":[\\"용량\\"]},\\"B\\":{\\"use_soldout\\":\\"F\\",\\"is_selling\\":\\"T\\",\\"option_price\\":22000,\\"option_value_orginal\\":[\\"200g\\"],\\"option_name_original\\":[\\"용량\\"]}}';
+    </script>
+  `;
+  const deepBlueInfo = cafe24DetailParser.parseCafe24DetailInfo(deepBlueLikeHtml);
+  if (deepBlueInfo.priceOptions?.map((option) => option.weight).join(',') !== '16,200'
+    || deepBlueInfo.priceOptions?.[0]?.price !== 20000) {
+    throw new Error(`16g 공식몰 옵션이 누락되었습니다: ${JSON.stringify(deepBlueInfo.priceOptions)}`);
+  }
+
   const momosLikeHtml = `
     <meta property="product:price:amount" content="31000" />
     <script>
@@ -314,6 +333,23 @@ function assertCafe24DetailPriceOptionsSamples() {
   if (imwebOptions.length !== 2 || imwebOptions[0]?.weight !== 210 || imwebOptions[1]?.price !== 28000) {
     throw new Error(`Imweb 동적 옵션 응답 추출 실패: ${JSON.stringify(imwebOptions)}`);
   }
+
+  const omsOptions = cafe24DetailParser.extractImwebOmsPriceOptions({
+    data: {
+      options: [{
+        name: '중량선택',
+        value_list: { small: '16g', normal: '200g', bulk: '1kg' },
+      }],
+      options_detail: [
+        { value_code_list: ['small'], price: 20000, status: 'SALE' },
+        { value_code_list: ['normal'], price: 22000, status: 'SALE' },
+        { value_code_list: ['bulk'], price: 48000, status: 'SOLDOUT' },
+      ],
+    },
+  });
+  if (omsOptions.length !== 2 || omsOptions[0]?.weight !== 16 || omsOptions[0]?.price !== 20000 || omsOptions[1]?.weight !== 200) {
+    throw new Error(`Imweb OMS 옵션 추출 실패: ${JSON.stringify(omsOptions)}`);
+  }
 }
 
 function assertMomosDetailPriceOptionsSample(momosAdapter) {
@@ -340,6 +376,27 @@ function assertMomosDetailPriceOptionsSample(momosAdapter) {
   const [product] = momosAdapter.parseMomosHtmlProducts(html);
   if (!product || product.priceOptions?.length !== 2 || product.priceOptions[1]?.weight !== 500 || product.priceOptions[1]?.price !== 62000) {
     throw new Error(`모모스 상세 용량이 상품으로 전달되지 않았습니다: ${JSON.stringify(product?.priceOptions)}`);
+  }
+
+  const imwebHtml = `
+    <div class="_shop_item" data-product-properties='{&quot;idx&quot;:2486,&quot;name&quot;:&quot;원두 에스쇼콜라&quot;,&quot;original_price&quot;:15000,&quot;price&quot;:15000,&quot;image_url&quot;:&quot;https://example.com/momos.png&quot;}'>
+      ${cafe24DetailParser.buildDetailInfoMarker({ priceOptions: [
+        { id: '200-15000', weight: 200, price: 15000, weightLabel: '200g', priceLabel: '15,000원' },
+        { id: '500-30000', weight: 500, price: 30000, weightLabel: '500g', priceLabel: '30,000원' },
+      ] })}
+      <a href="/shop_view/2486"><img src="https://example.com/momos.png" /></a>
+    </div>
+  `;
+  const [imwebProduct] = momosAdapter.parseMomosHtmlProducts(imwebHtml);
+  if (!imwebProduct || imwebProduct.productName !== '원두 에스쇼콜라' || imwebProduct.priceOptions?.[1]?.price !== 30000) {
+    throw new Error(`모모스 Imweb 목록 파싱 실패: ${JSON.stringify(imwebProduct)}`);
+  }
+
+  const grinderHtml = `
+    <div class="_shop_item" data-product-properties='{&quot;idx&quot;:3154,&quot;name&quot;:&quot;[추출기구] 펠로우 오드 브루 그라인더 (원두 증정)&quot;,&quot;price&quot;:650000}'></div>
+  `;
+  if (momosAdapter.parseMomosHtmlProducts(grinderHtml).length !== 0) {
+    throw new Error('원두 증정 문구가 있는 추출기구가 모모스 원두로 분류되었습니다.');
   }
 }
 
@@ -513,6 +570,22 @@ function assertCafe24KgWeightSample(cafe24Adapter, configs) {
   const [product] = cafe24Adapter.parseCafe24Products(html, configs.coffeelibre);
   if (product?.weight !== 1000) {
     throw new Error(`Cafe24 1kg 상품 용량 수집 실패: ${product?.weight || '(없음)'}`);
+  }
+}
+
+function assertCafe24DefaultWeightFallback(cafe24Adapter, configs) {
+  const html = `
+    <ul>
+      <li id="anchorBoxId_7330">
+        <a href="/product/detail.html?product_no=7330&cate_no=47"><img src="https://example.com/bean.jpg" alt="에티오피아 게이샤" /></a>
+        <p class="name"><a>에티오피아 게이샤</a></p>
+        <span class="price">22,000원</span>
+      </li>
+    </ul>
+  `;
+  const [product] = cafe24Adapter.parseCafe24Products(html, configs.coffeelibre);
+  if (product?.weight !== configs.coffeelibre.defaultWeight) {
+    throw new Error(`상세보강 실패 시 공식몰 기본 용량 fallback이 동작하지 않습니다: ${product?.weight || '(없음)'}`);
   }
 }
 
@@ -861,6 +934,7 @@ async function main() {
   assertInjectedMarkerPriceSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertInjectedTasteScaleSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
+  assertCafe24DefaultWeightFallback(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCoffeeLibreSearchLink(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertHellcafeGiftSetExcluded(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
 

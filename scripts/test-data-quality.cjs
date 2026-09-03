@@ -20,6 +20,17 @@ expect(dataQuality.validateProduct(roasterlic).excluded, '22g처럼 비정상적
 const filloutAuction = { id: 'fillout-auction', roasterName: '필아웃커피', productName: '에티오피아 알로 옥션랏', price: 10000, weight: 10 };
 expect(dataQuality.validateProduct(filloutAuction).excluded, '10g처럼 비정상적으로 작은 용량은 제외되어야 합니다');
 
+// 상세 옵션에서 가격과 함께 확인된 소용량은 추측값이 아니므로 보존한다.
+const confirmedSmallOption = {
+  id: 'confirmed-small-option',
+  roasterName: '딥블루레이크',
+  productName: '과테말라 게이샤 내추럴',
+  price: 20000,
+  weight: 16,
+  priceOptions: [{ id: '16-20000', price: 20000, weight: 16 }],
+};
+expect(!dataQuality.validateProduct(confirmedSmallOption).excluded, '상세에서 확인된 16g 옵션은 제외되면 안 됩니다', JSON.stringify(dataQuality.validateProduct(confirmedSmallOption)));
+
 // 가격이 4원처럼 비정상적으로 낮으면 제외되어야 한다
 const garbagePrice = { id: 'garbage', roasterName: '테스트', productName: '가격 오류', price: 4, weight: 200 };
 expect(dataQuality.validateProduct(garbagePrice).excluded, '가격이 비정상적으로 낮으면(4원) 제외되어야 합니다');
@@ -153,6 +164,59 @@ expect(preservedSnapshot.products[2].productUrl === 'https://smartstore.naver.co
 expect(preservedSnapshot.products[3].productUrl === 'https://smartstore.naver.com/coffeejg/products/13181681419', '커피정경처럼 등록된 스토어는 storeUrl이 비어 있어도 직접 링크로 바꿔야 합니다', JSON.stringify(preservedSnapshot.products[3]));
 // 옵션이 있는 상품은 상단을 건너뛰고 옵션별로만 복원하므로, 같은 정상가가 상단+옵션으로 이중 집계되지 않는다.
 expect(preservedSnapshot.quality.preservedDiscountCount === 2, '보존된 정상가 수가 quality 정보에 남아야 합니다(상단 중복 집계 없이)', JSON.stringify(preservedSnapshot.quality));
+
+// 공식몰 상세보강이 시간 예산을 넘겨도 7일 안의 이전 검증 용량만 임시 보존한다.
+const officialDetailPrevious = {
+  publishedAt: '2026-06-14T00:00:00.000Z',
+  products: [{
+    id: 'deepblue-267',
+    roasterName: '딥블루레이크',
+    productName: '과테말라 게이샤 내추럴',
+    price: 22000,
+    weight: 200,
+    productUrl: 'https://dblcoffee.com/product/detail.html?product_no=267',
+    priceOptions: [
+      { id: '16g-2000', price: 2000, weight: 16, productUrl: 'https://dblcoffee.com/product/detail.html?product_no=267' },
+      { id: '200g-22000', price: 22000, weight: 200, productUrl: 'https://dblcoffee.com/product/detail.html?product_no=267' },
+    ],
+  }],
+};
+const officialDetailPreserved = githubPublisher.buildGithubSnapshot([{
+  id: 'deepblue-267',
+  roasterName: '딥블루레이크',
+  productName: '과테말라 게이샤 내추럴',
+  price: 22000,
+  weight: 0,
+  productUrl: 'https://dblcoffee.com/product/detail.html?product_no=267',
+}], '2026-06-15T00:00:00.000Z', { previousSnapshot: officialDetailPrevious });
+expect(officialDetailPreserved.products[0]?.weight === 200, '공식몰 상세 실패 때 7일 이내 이전 용량을 임시 보존해야 합니다', JSON.stringify(officialDetailPreserved));
+expect(officialDetailPreserved.products[0]?.priceOptions?.length === 2, '공식몰 상세 실패 때 이전 용량 옵션을 임시 보존해야 합니다', JSON.stringify(officialDetailPreserved));
+expect(officialDetailPreserved.quality.preservedOfficialDetailCount === 1, '공식몰 상세 임시 보존 건수가 quality에 남아야 합니다', JSON.stringify(officialDetailPreserved.quality));
+
+const staleOfficialDetail = githubPublisher.buildGithubSnapshot([{
+  id: 'deepblue-267',
+  roasterName: '딥블루레이크',
+  productName: '과테말라 게이샤 내추럴',
+  price: 22000,
+  weight: 0,
+  productUrl: 'https://dblcoffee.com/product/detail.html?product_no=267',
+}], '2026-06-23T00:00:00.000Z', { previousSnapshot: officialDetailPrevious });
+expect(!staleOfficialDetail.products.some((product) => product.id === 'deepblue-267'), '7일이 지난 공식몰 용량은 자동 보존하지 않아야 합니다', JSON.stringify(staleOfficialDetail));
+
+const invalidOptionSnapshot = githubPublisher.buildGithubSnapshot([{
+  id: 'deepblue-invalid-option',
+  roasterName: '딥블루레이크',
+  productName: '과테말라 게이샤 내추럴',
+  price: 22000,
+  weight: 200,
+  productUrl: 'https://dblcoffee.com/product/detail.html?product_no=999',
+  priceOptions: [
+    { id: '16g-bad', price: 4, weight: 16 },
+    { id: '200g-good', price: 22000, weight: 200 },
+  ],
+}]);
+expect(invalidOptionSnapshot.products[0]?.priceOptions?.every((option) => option.price !== 4), '비정상 옵션 가격 4원은 게시 JSON에서 제거되어야 합니다', JSON.stringify(invalidOptionSnapshot));
+expect(invalidOptionSnapshot.quality.invalidOptionCount === 1, '비정상 옵션 건수가 quality에 기록되어야 합니다', JSON.stringify(invalidOptionSnapshot.quality));
 
 // 뿌리 수정 재현: 이전 1kg 정상가(51000)가 현재 200g 판매가(상단·200g 옵션)에 붙으면 안 된다 (칠린 블렌드 유형)
 const previousMultiWeight = {

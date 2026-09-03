@@ -3,9 +3,13 @@ const os = require('node:os');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFile } = require('node:child_process');
+const bcrypt = require('bcryptjs');
 const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
 
-const NAVER_SHOPPING_SEARCH_URL = 'https://openapi.naver.com/v1/search/shop.json';
+const NAVER_COMMERCE_TOKEN_URL = 'https://api.commerce.naver.com/external/v1/oauth2/token';
+const NAVER_COMMERCE_PRODUCT_SEARCH_URL = 'https://api.commerce.naver.com/external/v1/products/search';
+const NAVER_COMMERCE_REQUEST_TIMEOUT_MS = 15000;
+const NAVER_SHOPPING_API_RETIRED_MESSAGE = '네이버 쇼핑 검색 API가 2026년 7월 31일 종료되어 스마트스토어 카테고리 수집으로 전환되었습니다.';
 function getOcrCacheDir(env = process.env, tempDir = os.tmpdir()) {
   if (env.BEANPICK_OCR_CACHE_DIR) return env.BEANPICK_OCR_CACHE_DIR;
 
@@ -192,6 +196,8 @@ const SMARTSTORE_SOURCES = {
     categoryUrls: [
       'https://smartstore.naver.com/filloutcoffee/category/00f832f1c2da4600b90ddda5d6ae6853?cp=1', // 커피 원두
     ],
+    // 이 스토어는 여러 용량을 한 상품군으로 묶어 판매하므로, 옵션 없는 성공 캐시도 다음 실행에서 재확인한다.
+    retryEmptyOptionCaches: true,
     mallNames: ['필아웃커피', '필아웃 커피', 'fillout'],
   },
   cafedoan: {
@@ -205,7 +211,8 @@ const SMARTSTORE_SOURCES = {
     sourceId: 'coffeejg',
     roasterName: '커피정경 로스터리',
     query: '커피정경 원두',
-    // 원두 카테고리 주소가 없어 네이버 쇼핑 검색 API로만 수집한다.
+    // 검색 API가 종료되어 스토어 홈에서 상품 목록을 읽는다.
+    categoryUrl: 'https://smartstore.naver.com/coffeejg',
     storeUrl: 'https://smartstore.naver.com/coffeejg',
     mallNames: ['커피정경'],
   },
@@ -282,21 +289,32 @@ function loadLocalEnv(rootDir = path.resolve(__dirname, '..')) {
   });
 }
 
-function readNaverSearchConfig(env = process.env) {
+function readNaverCommerceConfig(env = process.env) {
   return {
-    clientId: (env.NAVER_SHOPPING_CLIENT_ID || env.NAVER_COMMERCE_CLIENT_ID || '').trim(),
-    clientSecret: (env.NAVER_SHOPPING_CLIENT_SECRET || env.NAVER_COMMERCE_CLIENT_SECRET || '').trim(),
+    clientId: String(env.NAVER_COMMERCE_CLIENT_ID || '').trim(),
+    clientSecret: String(env.NAVER_COMMERCE_CLIENT_SECRET || '').trim(),
+    accountId: String(env.NAVER_COMMERCE_ACCOUNT_ID || '').trim(),
   };
 }
 
-function requireNaverSearchConfig() {
-  const config = readNaverSearchConfig();
+function isNaverCommerceSecret(value) {
+  // 네이버가 발급하는 Secret은 bcrypt salt(29자) 또는 salt+hash(60자)다.
+  return /^\$2[aby]\$\d{2}\$[./A-Za-z0-9]{22}(?:[./A-Za-z0-9]{31})?$/.test(String(value || ''));
+}
 
-  if (!config.clientId || !config.clientSecret) {
-    throw new Error('네이버 검색 API Client ID와 Secret을 .env에 넣어주세요.');
+function requireNaverCommerceConfig(env = process.env) {
+  const config = readNaverCommerceConfig(env);
+  if (!config.clientId || !isNaverCommerceSecret(config.clientSecret)) {
+    throw new Error('커피정경 수집에는 네이버 커머스 API 앱의 Client ID와 Secret이 필요합니다. 기존 쇼핑 검색 API 키(짧은 Secret)는 사용할 수 없습니다.');
   }
-
   return config;
+}
+
+function createNaverCommerceSignature(clientId, clientSecret, timestamp) {
+  if (!isNaverCommerceSecret(clientSecret)) throw new Error('네이버 커머스 API Secret 형식이 올바르지 않습니다.');
+  const password = `${clientId}_${timestamp}`;
+  const hashed = bcrypt.hashSync(password, clientSecret);
+  return Buffer.from(hashed, 'utf8').toString('base64');
 }
 
 function stripHtml(value) {
@@ -308,11 +326,6 @@ function stripHtml(value) {
     .replace(/&gt;/g, '>')
     .replace(/\s+/g, ' ')
     .trim();
-}
-
-function createProductId(sourceId, item) {
-  const rawId = item.productId || item.link || item.title;
-  return `${sourceId}-${String(rawId).replace(/[^a-z0-9가-힣]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase()}`;
 }
 
 // 네이버 쇼핑 광고형 긴 제목을 다른 카드 톤에 맞춰 정리한다.
@@ -639,7 +652,8 @@ function planSmartStoreDetailTargets(targets, maxCount = 20) {
   const cachedTargets = targets.filter((target) => target.cached);
   const pendingTargets = targets
     .filter((target) => !target.cached)
-    .sort((a, b) => Number(Boolean(a.product?.tastingNotes?.length)) - Number(Boolean(b.product?.tastingNotes?.length)))
+    .sort((a, b) => Number(Boolean(b.retryEmptyOptions)) - Number(Boolean(a.retryEmptyOptions))
+      || Number(Boolean(a.product?.tastingNotes?.length)) - Number(Boolean(b.product?.tastingNotes?.length)))
     .slice(0, maxCount);
   return { cachedTargets, pendingTargets };
 }
@@ -1400,32 +1414,180 @@ async function mapWithConcurrency(items, limit, mapper) {
   return results;
 }
 
-async function normalizeShoppingItem(item, source, index) {
-  const rawTitle = stripHtml(item.title);
-  const title = cleanShoppingTitle(rawTitle, source.roasterName) || rawTitle;
-  const price = Number(item.lprice || 0);
-  const titleNotes = getTasteNotes(rawTitle);
-  const ocrNotes = await getOcrTasteNotes(item.image || '');
-  const tastingNotes = sanitizeTastingNotes(ocrNotes.length > 0 ? [...ocrNotes, ...titleNotes] : titleNotes);
+async function fetchNaverCommerceJson(url, options = {}) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), NAVER_COMMERCE_REQUEST_TIMEOUT_MS);
+  let response;
+  let body;
+  try {
+    response = await fetch(url, { ...options, signal: controller.signal });
+    body = await response.json().catch(() => ({}));
+  } catch (error) {
+    if (error?.name === 'AbortError') throw new Error('네이버 커머스 API 응답 시간이 초과되었습니다.');
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+
+  if (!response.ok) {
+    const code = body?.code || body?.error || '';
+    const message = body?.message || body?.error_description || '';
+    throw new Error(`네이버 커머스 API 실패 (${response.status})${code ? ` ${code}` : ''}${message ? `: ${message}` : ''}`);
+  }
+
+  return body;
+}
+
+async function requestNaverCommerceToken(config) {
+  const timestamp = Date.now();
+  const clientSecretSign = createNaverCommerceSignature(config.clientId, config.clientSecret, timestamp);
+  const body = new URLSearchParams({
+    grant_type: 'client_credentials',
+    client_id: config.clientId,
+    timestamp: String(timestamp),
+    client_secret_sign: clientSecretSign,
+    type: config.accountId ? 'SELLER' : 'SELF',
+  });
+  if (config.accountId) body.set('account_id', config.accountId);
+
+  const tokenResponse = await fetchNaverCommerceJson(NAVER_COMMERCE_TOKEN_URL, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body,
+  });
+  const accessToken = String(tokenResponse.access_token || '').trim();
+  if (!accessToken) throw new Error('네이버 커머스 API 인증 토큰을 받지 못했습니다.');
+  return accessToken;
+}
+
+function extractNaverCommerceChannelProducts(body) {
+  const products = [];
+  const seenObjects = new Set();
+  const seenIds = new Set();
+
+  const visit = (value) => {
+    if (!value || typeof value !== 'object' || seenObjects.has(value)) return;
+    seenObjects.add(value);
+    if (!Array.isArray(value)) {
+      const productNo = value.channelProductNo
+        ?? value.channelProductNumber
+        ?? value.channelProduct?.channelProductNo
+        ?? value.channelProduct?.channelProductNumber;
+      const name = value.name || value.channelProductName || value.productName || value.title || value.channelProduct?.name;
+      if (productNo && name) {
+        const key = String(productNo);
+        if (!seenIds.has(key)) {
+          seenIds.add(key);
+          products.push(value);
+        }
+      }
+    }
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+    } else {
+      Object.values(value).forEach(visit);
+    }
+  };
+
+  visit(body);
+  return products;
+}
+
+function getNaverCommerceProductValue(product, keys = []) {
+  for (const key of keys) {
+    const value = product?.[key] ?? product?.channelProduct?.[key];
+    if (value !== undefined && value !== null && value !== '') return value;
+  }
+  return undefined;
+}
+
+function getNaverCommerceImageUrl(product) {
+  const candidates = [
+    getNaverCommerceProductValue(product, ['representativeImageUrl', 'imageUrl']),
+    product?.representativeImage?.url,
+    product?.channelProduct?.representativeImage?.url,
+    product?.images?.[0]?.url,
+    product?.channelProduct?.images?.[0]?.url,
+  ];
+  return candidates.find((url) => /^https?:\/\//i.test(String(url || ''))) || '';
+}
+
+function getNaverCommercePositiveNumber(product, keys = []) {
+  for (const key of keys) {
+    const value = parseMoney(getNaverCommerceProductValue(product, [key]));
+    if (value > 0) return value;
+  }
+  return 0;
+}
+
+function normalizeNaverCommerceProduct(product, source, index) {
+  const productNo = getNaverCommerceProductValue(product, ['channelProductNo', 'channelProductNumber'])
+    ?? product?.channelProduct?.channelProductNo;
+  const rawTitle = stripHtml(getNaverCommerceProductValue(product, ['name', 'channelProductName', 'productName', 'title']) || '');
+  const price = getNaverCommercePositiveNumber(product, ['discountedPrice', 'salePrice', 'price', 'consumerPrice']);
+  const consumerPrice = getNaverCommercePositiveNumber(product, ['consumerPrice', 'originalPrice', 'regularPrice']);
+  const status = String(getNaverCommerceProductValue(product, ['statusType', 'saleStatus', 'productStatusType']) || '').toUpperCase();
+  const stock = Number(getNaverCommerceProductValue(product, ['stock', 'stockQuantity']) || 0);
+  const normalized = normalizeSmartStoreCategoryItem({
+    id: String(productNo || ''),
+    title: rawTitle,
+    price,
+    originalPrice: consumerPrice > price ? consumerPrice : 0,
+    productUrl: `https://smartstore.naver.com/${getSmartStoreId(source)}/products/${productNo}`,
+    imageUrl: getNaverCommerceImageUrl(product),
+    isSoldOut: /OUTOFSTOCK|STOPPED|SUSPEND|REJECT/.test(status) || (stock === 0 && status !== 'SALE'),
+  }, source, index);
+  return {
+    ...normalized,
+    // 상품 목록 API는 옵션을 주지 않으므로 제목에 명시된 용량만 사용한다.
+    // 상세 옵션은 이후 스마트스토어 상세 보강에서 채운다.
+    weight: parseExplicitWeight(rawTitle),
+  };
+}
+
+async function searchNaverCommerce(sourceId) {
+  const source = SMARTSTORE_SOURCES[sourceId];
+  if (!source) throw new Error(`지원하지 않는 스마트스토어입니다: ${sourceId}`);
+
+  const config = requireNaverCommerceConfig();
+  const accessToken = await requestNaverCommerceToken(config);
+  const allProducts = [];
+  const pageSize = 100;
+  const maxPages = 10;
+
+  for (let page = 1; page <= maxPages; page += 1) {
+    const body = await fetchNaverCommerceJson(NAVER_COMMERCE_PRODUCT_SEARCH_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ page, size: pageSize, orderType: 'NO' }),
+    });
+    const pageProducts = extractNaverCommerceChannelProducts(body);
+    allProducts.push(...pageProducts);
+    const total = Number(body.totalCount ?? body.total ?? body.pagination?.totalCount ?? body.data?.totalCount ?? 0);
+    if (pageProducts.length < pageSize || (total > 0 && page * pageSize >= total)) break;
+  }
+
+  const products = allProducts
+    .map((product, index) => normalizeNaverCommerceProduct(product, source, index))
+    .filter((product) => isCollectableSmartStoreProductTitle(product.productName))
+    .filter((product) => !isAmbiguousBulkOptionProduct(product));
 
   return {
-    id: createProductId(source.sourceId, item),
-    roasterName: source.roasterName,
-    productName: title,
-    origin: stripHtml(item.mallName || ''),
-    process: '',
-    roastLevel: '확인 필요',
-    price,
-    weight: parseWeight(rawTitle),
-    score: Math.max(60, 88 - index),
-    tastingNotes,
-    productUrl: normalizeSmartStoreProductUrl(item.link, source, item),
-    storeUrl: getSmartStoreListUrl(source, item),
-    imageUrl: item.image || '',
-    isSoldOut: false,
-    isNew: index < 2,
-    lastCheckedAt: '방금',
-    checkedMinutesAgo: index,
+    ok: true,
+    sourceId,
+    sourceUrl: source.storeUrl,
+    query: '네이버 커머스 API 상품 목록',
+    total: allProducts.length,
+    fetchedAt: new Date().toISOString(),
+    products,
+    warning: products.length === 0 ? `${source.roasterName} 원두 상품을 커머스 API에서 찾지 못했습니다.` : '',
   };
 }
 
@@ -1472,71 +1634,46 @@ function normalizeSmartStoreCategoryItems(sourceId, items) {
     .filter((product) => Number(product.weight || 0) <= 1000);
 }
 
-function isSourceItem(item, source) {
-  const mallName = stripHtml(item.mallName).toLowerCase();
-  return source.mallNames.some((name) => mallName === name.toLowerCase() || mallName.includes(name.toLowerCase()));
-}
-
 async function searchNaverShopping(sourceId) {
   const source = SMARTSTORE_SOURCES[sourceId];
   if (!source) {
     throw new Error(`지원하지 않는 스마트스토어입니다: ${sourceId}`);
   }
 
-  const config = requireNaverSearchConfig();
-  const url = new URL(NAVER_SHOPPING_SEARCH_URL);
-  url.searchParams.set('query', source.query);
-  url.searchParams.set('display', '30');
-  url.searchParams.set('start', '1');
-  url.searchParams.set('sort', 'sim');
-
-  const controller = new AbortController();
-  // 카테고리 크롤이 비면 이 검색 API가 로스터리 상품목록의 마지막 통로다. 5초는 가끔 너무 짧다.
-  const timeoutId = setTimeout(() => controller.abort(), 10000);
-  let response;
-  let body;
-  try {
-    response = await fetch(url, {
-      headers: {
-        Accept: 'application/json',
-        'X-Naver-Client-Id': config.clientId,
-        'X-Naver-Client-Secret': config.clientSecret,
-      },
-      signal: controller.signal,
-    });
-    // 본문 읽기(json)도 타이머 보호 안에 둔다.
-    body = await response.json().catch(() => ({}));
-  } finally {
-    clearTimeout(timeoutId);
-  }
-
-  if (!response.ok) {
-    const message = body.errorMessage || body.message || body.errorCode || '';
-    throw new Error(`네이버 쇼핑 검색 실패 (${response.status})${message ? `: ${message}` : ''}`);
-  }
-
-  const items = Array.isArray(body.items) ? body.items : [];
-  const sourceItems = items
-    .filter((item) => isSourceItem(item, source))
-    .filter((item) => isCollectableSmartStoreProductTitle(stripHtml(item.title)));
-
-  return {
-    ok: true,
-    sourceId,
-    sourceUrl: 'https://shopping.naver.com',
-    query: source.query,
-    total: Number(body.total || 0),
-    fetchedAt: new Date().toISOString(),
-    products: (await mapWithConcurrency(sourceItems, 3, (item, index) => normalizeShoppingItem(item, source, index)))
-      .filter((product) => !isAmbiguousBulkOptionProduct(product)),
-    warning: sourceItems.length === 0 ? `${source.roasterName} 상품을 네이버 쇼핑 검색 결과에서 찾지 못했습니다.` : '',
-  };
+  if (sourceId === 'coffeejg') return searchNaverCommerce(sourceId);
+  throw new Error(NAVER_SHOPPING_API_RETIRED_MESSAGE);
 }
 
 async function testSmartStoreSearch() {
   const sourceIds = Object.keys(SMARTSTORE_SOURCES);
-  const results = await Promise.all(sourceIds.map((sourceId) => searchNaverShopping(sourceId)));
+  const results = await Promise.all(sourceIds.map(async (sourceId) => {
+    const source = SMARTSTORE_SOURCES[sourceId];
+    if (sourceId !== 'coffeejg') {
+      return {
+        ok: true,
+        sourceId,
+        query: '스마트스토어 카테고리',
+        total: 0,
+        products: [],
+        warning: `${source.roasterName}은 스마트스토어 카테고리 수집 경로를 사용합니다.`,
+      };
+    }
+
+    try {
+      return await searchNaverCommerce(sourceId);
+    } catch (error) {
+      return {
+        ok: false,
+        sourceId,
+        query: '네이버 커머스 API 상품 목록',
+        total: 0,
+        products: [],
+        warning: error instanceof Error ? error.message : String(error || ''),
+      };
+    }
+  }));
   const productCount = results.reduce((sum, result) => sum + result.products.length, 0);
+  const warnings = results.filter((result) => result.ok === false).map((result) => result.warning).filter(Boolean);
 
   return {
     ok: true,
@@ -1552,7 +1689,9 @@ async function testSmartStoreSearch() {
       })),
       warning: result.warning,
     })),
-    message: `네이버 쇼핑에서 스마트스토어 원두 ${productCount}개를 찾았습니다.`,
+    message: warnings.length > 0
+      ? `스마트스토어 수집 경로에서 원두 ${productCount}개를 확인했습니다. ${warnings.join(' / ')}`
+      : `스마트스토어 수집 경로에서 원두 ${productCount}개를 확인했습니다.`,
   };
 }
 
@@ -1593,6 +1732,10 @@ module.exports = {
     readSmartStoreDetailCache,
     writeSmartStoreDetailCache,
     planSmartStoreDetailTargets,
+    createNaverCommerceSignature,
+    extractNaverCommerceChannelProducts,
+    normalizeNaverCommerceProduct,
+    isNaverCommerceSecret,
   },
   enrichProductsWithThumbnailOcr,
   buildSmartStoreDetailImageUrlsScript,
@@ -1610,6 +1753,7 @@ module.exports = {
   readOfficialMallImageText,
   readOcrTextFromImageUrl,
   normalizeSmartStoreCategoryItems,
+  searchNaverCommerce,
   searchNaverShopping,
   testSmartStoreSearch,
 };

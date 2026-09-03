@@ -51,6 +51,36 @@ expect(collapsed && collapsed.name === '로스터리1', '단일 로스터리 붕
 const collapseReason = publisher.getPublishBlockReason({ products: baseline }, { products: collapsedNext });
 expect(collapseReason.includes('로스터리1'), '붕괴 차단 사유에 로스터리명이 없음', collapseReason);
 
+// 모모스 Imweb 개편은 확인된 구상품번호 집합 → 현재 4개 상품번호 집합일 때만 기준선 전환으로 허용한다.
+const momosLegacyIds = [82, 83, 737, 1417, 2381, 2758, 2840, 2832, 2826, 2841, 2323, 2830, 2821, 2780, 2650, 2169, 2783, 2664, 2047, 1977, 2199];
+const momosCurrentIds = [7360, 7357, 7354, 4932, 4876, 4484, 4531, 2486, 2487, 3058, 3658, 4183, 4243, 4775];
+const momosMigrationPrevious = [
+  ...baseline,
+  ...momosLegacyIds.map((id) => ({ id: `momos-${id}`, roasterName: '모모스커피', productName: `구상품 ${id}`, price: 15000, weight: 200 })),
+];
+const momosMigrationNext = [
+  ...baseline,
+  ...momosCurrentIds.map((id) => ({ id: `momos-${id}`, roasterName: '모모스커피', productName: `현재상품 ${id}`, price: 15000, weight: 200 })),
+];
+expect(
+  publisher.getPublishBlockReason(
+    { publishedAt: '2026-07-17T03:02:11.058Z', products: momosMigrationPrevious },
+    { publishedAt: '2026-08-09T00:00:00.000Z', products: momosMigrationNext },
+  ) === '',
+  '확인된 모모스 개편 기준선 전환을 급감으로 차단함',
+);
+const momosMigrationMissingOne = [
+  ...baseline,
+  ...momosCurrentIds.slice(0, 10).map((id) => ({ id: `momos-${id}`, roasterName: '모모스커피', productName: `현재상품 ${id}`, price: 15000, weight: 200 })),
+];
+expect(
+  publisher.getPublishBlockReason(
+    { publishedAt: '2026-07-17T03:02:11.058Z', products: momosMigrationPrevious },
+    { publishedAt: '2026-08-09T00:00:00.000Z', products: momosMigrationMissingOne },
+  ).includes('모모스커피'),
+  '모모스 개편 상품 하나가 더 빠진 경우 급감 가드를 우회함',
+);
+
 // 3) 전체 상품 수 반토막을 잡는다.
 const halvedReason = publisher.getPublishBlockReason({ products: baseline }, { products: baseline.slice(0, 150) });
 expect(halvedReason.includes('상품 수'), '전체 급감을 못 잡음', halvedReason);
@@ -91,10 +121,19 @@ expect(optionCollapseReason.includes('여러 용량'), '옵션 일괄 소실 게
 const confirmedSingles = optionBaseline.map((product) => ({
   ...product,
   priceOptions: [{ id: `${product.id}-200`, price: 15000, weight: 200 }],
+  priceOptionsComplete: true,
 }));
 expect(
   publisher.getPublishBlockReason({ products: optionBaseline }, { products: confirmedSingles }) === '',
-  '명시된 단일 용량 전환을 옵션 소실로 잘못 차단함',
+  '전체 상세 확인이 표시된 단일 용량 전환을 옵션 소실로 잘못 차단함',
+);
+const unconfirmedSingles = optionBaseline.map((product) => ({
+  ...product,
+  priceOptions: [{ id: `${product.id}-200`, price: 15000, weight: 200 }],
+}));
+expect(
+  publisher.getPublishBlockReason({ products: optionBaseline }, { products: unconfirmedSingles }).includes('여러 용량'),
+  '상세 확인 표시가 없는 단일 옵션 전환을 부분 소실로 차단하지 못함',
 );
 
 // 7) 스마트스토어 할인정보 급감(정상가 소실)을 잡는다.

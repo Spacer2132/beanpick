@@ -224,7 +224,7 @@ function extractDescription(block: string) {
   return [stripHtml(memoMatch), descList].filter(Boolean).join(' ');
 }
 
-function inferWeight(text: string, defaultWeight = 200) {
+function inferWeight(text: string, defaultWeight = 0) {
   const kgMatch = text.match(/(\d+(?:\.\d+)?)\s*kg\b/i);
   if (kgMatch) return Math.round(Number(kgMatch[1]) * 1000);
 
@@ -427,7 +427,7 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
       const priceOptions = (detail?.priceOptions || [])
         .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
         .map((option) => ({ ...option, productUrl }));
-      const representativeOption = priceOptions[0];
+      const representativeOption = priceOptions.find((option) => Number(option.weight || 0) >= 30) || priceOptions[0];
       const price = representativeOption?.price || listedPrice;
       const originalPrice = representativeOption?.originalPrice || listedOriginalPrice;
 
@@ -450,6 +450,7 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         weightLabel: representativeOption?.weightLabel,
         priceLabel: representativeOption?.priceLabel,
         priceOptions: priceOptions.length > 0 ? priceOptions : undefined,
+        priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes,
         productUrl,
@@ -514,7 +515,7 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
       const priceOptions = (detail?.priceOptions || [])
         .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
         .map((option) => ({ ...option, productUrl }));
-      const representativeOption = priceOptions[0];
+      const representativeOption = priceOptions.find((option) => Number(option.weight || 0) >= 30) || priceOptions[0];
       const price = representativeOption?.price || Number(properties.price || properties.original_price || 0);
       const originalPrice = representativeOption?.originalPrice || Number(properties.original_price || 0);
 
@@ -537,6 +538,7 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
         weightLabel: representativeOption?.weightLabel,
         priceLabel: representativeOption?.priceLabel,
         priceOptions: priceOptions.length > 0 ? priceOptions : undefined,
+        priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes: parseImwebTastingNotes(block, productName),
         productUrl,

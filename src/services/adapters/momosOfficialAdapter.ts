@@ -4,7 +4,7 @@ import { normalizeTastingNotes } from '../tastingNotes.js';
 import { isSoldOutFromHtml } from './stockStatus.js';
 
 export const MOMOS_SOURCE_ID = 'momos';
-export const MOMOS_SOURCE_URL = 'https://momos.co.kr/category/%EC%9B%90%EB%91%90/42/';
+export const MOMOS_SOURCE_URL = 'https://momos.co.kr/shop';
 
 const MOMOS_ORIGIN = 'https://momos.co.kr';
 const MOMOS_CATEGORY_NO = '42';
@@ -40,7 +40,7 @@ function createProductId(productNo: string, productName: string, index: number) 
 
 function inferWeight(text: string) {
   const match = text.match(/(\d{2,4})\s*g/i);
-  return match ? Number(match[1]) : 200;
+  return match ? Number(match[1]) : 0;
 }
 
 type MomosDetailInfo = {
@@ -109,7 +109,7 @@ function isLikelyBeanProduct(productName: string, allowCategoryProduct = false) 
     '인스턴트', '스틱커피', '커피믹스', '믹스커피', '파우더커피', '액상커피', '원액',
     'rtd', 'drip bag', 'drip coffee', 'coffee bag', 'instant', 'coffee mix', 'powder coffee',
     'capsule', 'cold brew', 'dutch coffee', 'concentrate', 'liquid coffee',
-    '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana', '쇼핑백',
+    '굿즈', '텀블러', '머그', '티셔츠', '에코백', '세트', 'bandana', '쇼핑백', '추출기구', '그라인더',
   ];
   const beanSignals = ['원두', 'coffee', 'blend', '블렌드', 'washed', 'natural', 'honey', '워시드', '내추럴', '게이샤', 'decaf', '디카페인'];
 
@@ -186,7 +186,7 @@ function extractOriginalPrice(block: string, salePrice: number) {
   return candidates.length > 0 ? Math.max(...candidates) : undefined;
 }
 
-export function parseMomosHtmlProducts(html: string): BeanProduct[] {
+function parseMomosCafe24Products(html: string): BeanProduct[] {
   return extractProductBlocks(html)
     .map((match, index) => {
       const productNo = match[1];
@@ -203,7 +203,7 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
       const detailOptions = (detail?.priceOptions || [])
         .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
         .map((option) => ({ ...option, productUrl }));
-      const representativeOption = detailOptions[0];
+      const representativeOption = detailOptions.find((option) => Number(option.weight || 0) >= 30) || detailOptions[0];
       const listedPrice = Number((block.match(/ec-data-price=["'](\d+)["']/i)?.[1] || '').replace(/[^\d]/g, '')) || 0;
       const listedOriginalPrice = extractOriginalPrice(block, listedPrice);
       const price = representativeOption?.price || listedPrice;
@@ -222,6 +222,7 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
         weightLabel: representativeOption?.weightLabel,
         priceLabel: representativeOption?.priceLabel,
         priceOptions: detailOptions.length > 0 ? detailOptions : undefined,
+        priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes: normalizeTastingNotes([detail?.tastingNotes || '', ...parseTastingNotes(description)], { limit: 5 }),
         productUrl,
@@ -235,6 +236,79 @@ export function parseMomosHtmlProducts(html: string): BeanProduct[] {
     .filter((product) => product.productUrl.length > 0)
     .filter((product) => product.productName.length > 0)
     .filter((product) => isLikelyBeanProduct(product.productName, true));
+}
+
+function extractImwebProductBlocks(html: string) {
+  return [...html.matchAll(/<div\b[^>]*class=["'][^"']*\b_shop_item\b[^"']*["'][^>]*data-product-properties=["'][\s\S]*?(?=<div\b[^>]*class=["'][^"']*\b_shop_item\b|<div\b[^>]*class=["'][^"']*_more_btn_wrap\b|<\/section>|$)/gi)]
+    .map((match) => match[0]);
+}
+
+function readImwebProductProperties(block: string) {
+  const raw = block.match(/data-product-properties=(["'])([\s\S]*?)\1/i)?.[2] || '';
+  if (!raw) return null;
+  try {
+    return JSON.parse(stripHtml(raw)) as {
+      idx?: number | string;
+      name?: string;
+      price?: number;
+      original_price?: number;
+      image_url?: string;
+    };
+  } catch {
+    return null;
+  }
+}
+
+function parseMomosImwebProducts(html: string): BeanProduct[] {
+  return extractImwebProductBlocks(html)
+    .map((block, index) => {
+      const properties = readImwebProductProperties(block);
+      if (!properties) return null;
+      const productNo = String(properties.idx || '').trim();
+      const productName = String(properties.name || '').trim();
+      const productUrl = productNo ? `${MOMOS_ORIGIN}/shop_view/${encodeURIComponent(productNo)}` : '';
+      const detail = extractMomosDetailInfo(block);
+      const detailOptions = (detail?.priceOptions || [])
+        .filter((option) => Number(option?.price || 0) > 0 && Number(option?.weight || 0) > 0)
+        .map((option) => ({ ...option, productUrl }));
+      const representativeOption = detailOptions.find((option) => Number(option.weight || 0) >= 30) || detailOptions[0];
+      const listedPrice = Number(properties.price || properties.original_price || 0);
+      const originalPrice = Number(properties.original_price || 0);
+      const combinedText = `${productName} ${stripHtml(block)}`;
+
+      return {
+        id: createProductId(productNo, productName, index),
+        roasterName: '모모스커피',
+        productName,
+        origin: detail?.origin || inferOrigin(combinedText),
+        process: detail?.process || inferProcess(combinedText),
+        roastLevel: '확인 필요',
+        price: representativeOption?.price || listedPrice,
+        originalPrice: representativeOption?.originalPrice || (originalPrice > listedPrice ? originalPrice : undefined),
+        weight: representativeOption?.weight || detail?.weight || inferWeight(combinedText),
+        weightLabel: representativeOption?.weightLabel,
+        priceLabel: representativeOption?.priceLabel,
+        priceOptions: detailOptions.length > 0 ? detailOptions : undefined,
+        priceOptionsComplete: Boolean(detail),
+        score: inferScore(combinedText, index),
+        tastingNotes: normalizeTastingNotes([detail?.tastingNotes || '', ...parseTastingNotes(combinedText)], { limit: 5 }),
+        productUrl,
+        imageUrl: toAbsoluteUrl(String(properties.image_url || block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || '')),
+        isSoldOut: isSoldOutFromHtml(block),
+        isNew: /new|신상품/i.test(block),
+        lastCheckedAt: '방금 전',
+        checkedMinutesAgo: 0,
+      };
+    })
+    .filter((product): product is BeanProduct => Boolean(product))
+    .filter((product) => product.productUrl.length > 0)
+    .filter((product) => product.productName.length > 0)
+    .filter((product) => isLikelyBeanProduct(product.productName));
+}
+
+export function parseMomosHtmlProducts(html: string): BeanProduct[] {
+  const cafe24Products = parseMomosCafe24Products(html);
+  return cafe24Products.length > 0 ? cafe24Products : parseMomosImwebProducts(html);
 }
 
 export function normalizeMomosPages(pages: MomosHtmlPage[] = []) {

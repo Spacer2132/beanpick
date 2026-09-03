@@ -15,6 +15,25 @@ const ROASTER_COUNT_GUARD_MIN_PREVIOUS = 15;
 const ROASTER_COUNT_GUARD_MIN_RATIO = 0.5;
 const OPTION_GUARD_MIN_PREVIOUS = 5;
 const OPTION_GUARD_MIN_RATIO = 0.5;
+const OFFICIAL_DETAIL_PRESERVE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+// 2026-08 Imweb 개편으로 확인된 모모스 현재 판매 상품. 상품번호 집합이 정확히 맞을 때만
+// 기존 Cafe24 기준선(21개 안팎) 급감 가드를 한 번 통과시킨다. 만료 후에는 새 기준선만 사용한다.
+const MOMOS_CATALOG_MIGRATION = {
+  sourceName: '모모스커피',
+  expiresAt: '2026-08-31T23:59:59.999Z',
+  legacyIds: new Set([
+    'momos-82', 'momos-83', 'momos-737', 'momos-1417', 'momos-2381',
+    'momos-2758', 'momos-2840', 'momos-2832', 'momos-2826', 'momos-2841',
+    'momos-2323', 'momos-2830', 'momos-2821', 'momos-2780', 'momos-2650',
+    'momos-2169', 'momos-2783', 'momos-2664', 'momos-2047', 'momos-1977',
+    'momos-2199',
+  ]),
+  currentIds: new Set([
+    'momos-7360', 'momos-7357', 'momos-7354', 'momos-4932', 'momos-4876',
+    'momos-4484', 'momos-4531', 'momos-2486', 'momos-2487', 'momos-3058',
+    'momos-3658', 'momos-4183', 'momos-4243', 'momos-4775',
+  ]),
+};
 const MAX_PUBLISH_ATTEMPTS = 3;
 const SMARTSTORE_SLUG_BY_ROASTER = {
   '커피정경 로스터리': 'coffeejg',
@@ -294,6 +313,87 @@ function preservePreviousTastingNotes(products, previousSnapshot, publishedAt) {
   return { products, preservedCount };
 }
 
+function isOfficialMallProduct(product) {
+  const urls = [product?.productUrl, product?.storeUrl].map((value) => String(value || ''));
+  return urls.some((url) => /^https?:\/\//i.test(url)) && !urls.some((url) => isSmartStoreUrl(url));
+}
+
+function getOfficialDetailMatchKeys(product) {
+  const keys = [];
+  const id = normalizeText(product?.id);
+  const productUrl = normalizeText(product?.productUrl);
+  const roaster = normalizeText(product?.roasterName);
+  const name = normalizeText(product?.productName);
+  if (id) keys.push(`id:${id}`);
+  if (productUrl) keys.push(`url:${productUrl}`);
+  if (roaster && name) keys.push(`name:${roaster}:${name}`);
+  return keys;
+}
+
+function buildPreviousOfficialDetailMap(previousSnapshot) {
+  const map = new Map();
+  for (const product of Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : []) {
+    if (!isOfficialMallProduct(product)) continue;
+    for (const key of getOfficialDetailMatchKeys(product)) {
+      if (!map.has(key)) {
+        map.set(key, product);
+      } else if (map.get(key) !== product) {
+        map.set(key, null);
+      }
+    }
+  }
+  return map;
+}
+
+function isOfficialDetailFresh(previousSnapshot, previousProduct, publishedAt) {
+  const currentAt = Date.parse(publishedAt || '');
+  const previousAt = Date.parse(previousProduct?.officialDetailPreservedAt || previousSnapshot?.publishedAt || '');
+  // 과거 스냅샷에 시각이 없던 경우는 최초 마이그레이션용으로 한 번 허용한다.
+  if (!Number.isFinite(previousAt) || !Number.isFinite(currentAt)) return true;
+  const age = currentAt - previousAt;
+  return age >= 0 && age <= OFFICIAL_DETAIL_PRESERVE_TTL_MS;
+}
+
+function preservePreviousOfficialDetails(products, previousSnapshot, publishedAt) {
+  const cloned = cloneProducts(products);
+  const previousDetails = buildPreviousOfficialDetailMap(previousSnapshot);
+  let preservedCount = 0;
+
+  for (const product of cloned) {
+    if (!isOfficialMallProduct(product)) continue;
+    const previous = getOfficialDetailMatchKeys(product)
+      .map((key) => previousDetails.get(key))
+      .find(Boolean);
+    if (!previous || !isOfficialDetailFresh(previousSnapshot, previous, publishedAt)) continue;
+
+    const currentOptions = Array.isArray(product.priceOptions) ? product.priceOptions : [];
+    const previousOptions = Array.isArray(previous.priceOptions) ? previous.priceOptions : [];
+    const currentWeight = Number(product.weight || 0);
+    const currentPrice = Number(product.price || 0);
+    const copyOptions = currentOptions.length === 0
+      && previousOptions.length > 0
+      && (currentWeight <= 0 || previousOptions.length >= 2);
+    const copyRepresentative = currentWeight <= 0 || currentPrice <= 0;
+    if (!copyOptions && !copyRepresentative) continue;
+
+    if (copyOptions) product.priceOptions = previousOptions.map((option) => ({ ...option }));
+    if (copyRepresentative && Number(previous.weight || 0) > 0 && Number(previous.price || 0) > 0) {
+      product.weight = Number(previous.weight);
+      product.price = Number(previous.price);
+      product.originalPrice = previous.originalPrice;
+      product.weightLabel = previous.weightLabel;
+      product.priceLabel = previous.priceLabel;
+    }
+
+    product.officialDetailPreservedAt = previous.officialDetailPreservedAt
+      || previousSnapshot?.publishedAt
+      || publishedAt;
+    preservedCount += 1;
+  }
+
+  return { products: cloned, preservedCount };
+}
+
 function normalizeSmartStoreProductUrls(products) {
   for (const product of products) {
     if (isNaverMainProductUrl(product.productUrl)) {
@@ -333,6 +433,27 @@ function countByRoaster(products) {
     counts.set(name, (counts.get(name) || 0) + 1);
   }
   return counts;
+}
+
+function getRoasterProductIds(products, roasterName) {
+  return (Array.isArray(products) ? products : [])
+    .filter((product) => normalizeText(product?.roasterName) === normalizeText(roasterName))
+    .map((product) => normalizeText(product?.id))
+    .filter(Boolean);
+}
+
+function isApprovedMomosCatalogMigration(previousSnapshot, snapshot, previousProducts, nextProducts) {
+  const migrationTime = Date.parse(snapshot?.publishedAt || '');
+  const expiryTime = Date.parse(MOMOS_CATALOG_MIGRATION.expiresAt);
+  if (!Number.isFinite(migrationTime) || migrationTime > expiryTime) return false;
+
+  const previousIds = getRoasterProductIds(previousProducts, MOMOS_CATALOG_MIGRATION.sourceName);
+  const currentIds = getRoasterProductIds(nextProducts, MOMOS_CATALOG_MIGRATION.sourceName);
+  if (previousIds.length < 15 || currentIds.length !== MOMOS_CATALOG_MIGRATION.currentIds.size) return false;
+  if (!previousIds.every((id) => MOMOS_CATALOG_MIGRATION.legacyIds.has(id))) return false;
+  if (!currentIds.every((id) => MOMOS_CATALOG_MIGRATION.currentIds.has(id))) return false;
+  if (!MOMOS_CATALOG_MIGRATION.currentIds.has(currentIds[0])) return false;
+  return new Set(currentIds).size === MOMOS_CATALOG_MIGRATION.currentIds.size;
 }
 
 // 전체/로스터리 수는 안 줄어도 특정 로스터리 한 곳만 차단(캡차 등)으로 통째로 무너지는 경우를 잡는다.
@@ -377,8 +498,12 @@ function findCollapsedOptionRoaster(previousProducts, nextProducts) {
     const roaster = normalizeText(product?.roasterName);
     if (!roaster) continue;
     const nextProduct = getProductMatchKeys(product).map((key) => nextByKey.get(key)).find(Boolean);
-    // 옵션 1개가 명시적으로 남아 있으면 실제 단일 용량 전환(confirmed-single)로 인정한다.
-    const isConfirmedSingle = Array.isArray(nextProduct?.priceOptions) && nextProduct.priceOptions.length === 1;
+    // 상세 응답을 완전히 확인했다는 표시가 있을 때만 실제 단일 용량 전환으로 인정한다.
+    // 배열이 1개라는 사실만으로는 부분 수집(나머지 옵션 소실)과 구분할 수 없다.
+    const isConfirmedSingle = nextProduct?.priceOptionsComplete === true
+      && nextProduct?.priceOptionsQualityIssue !== true
+      && ((Array.isArray(nextProduct?.priceOptions) && nextProduct.priceOptions.length === 1)
+        || (!Array.isArray(nextProduct?.priceOptions) && Number(nextProduct?.weight || 0) > 0 && Number(nextProduct?.price || 0) > 0));
     const isStillMultiple = hasMultiplePriceOptions(nextProduct);
     const current = previousByRoaster.get(roaster) || { name: product.roasterName, previousCount: 0, unexplainedCount: 0 };
     current.previousCount += 1;
@@ -410,7 +535,10 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
     }
 
     const collapsed = findCollapsedRoaster(previousProducts, nextProducts);
-    if (collapsed) {
+    if (collapsed && !(
+      collapsed.name === MOMOS_CATALOG_MIGRATION.sourceName
+      && isApprovedMomosCatalogMigration(previousSnapshot, snapshot, previousProducts, nextProducts)
+    )) {
       return `'${collapsed.name}' 상품 수가 이전 ${collapsed.previousCount}개에서 현재 ${collapsed.nextCount}개로 절반 이하로 줄어 게시를 중단했습니다. 해당 로스터리 수집이 막혔을 수 있습니다(예: 네이버 차단).`;
     }
   }
@@ -441,9 +569,10 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
 function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), { previousSnapshot = null } = {}) {
   const safeProducts = Array.isArray(products) ? products : [];
   const preservedDiscounts = preservePreviousSmartStoreDiscounts(safeProducts, previousSnapshot);
-  const preservedNotes = preservePreviousTastingNotes(preservedDiscounts.products, previousSnapshot, publishedAt);
+  const preservedDetails = preservePreviousOfficialDetails(preservedDiscounts.products, previousSnapshot, publishedAt);
+  const preservedNotes = preservePreviousTastingNotes(preservedDetails.products, previousSnapshot, publishedAt);
   const normalizedProducts = normalizeSmartStoreProductUrls(preservedNotes.products);
-  const { clean, excluded, flagged, report } = validateProducts(normalizedProducts);
+  const { clean, excluded, flagged, report, optionExcluded } = validateProducts(normalizedProducts);
 
   return {
     publishedAt,
@@ -453,7 +582,9 @@ function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), {
       ...report,
       excluded,
       flagged,
+      optionExcluded,
       preservedDiscountCount: preservedDiscounts.preservedCount,
+      preservedOfficialDetailCount: preservedDetails.preservedCount,
       preservedTastingNoteCount: preservedNotes.preservedCount,
     },
   };
@@ -542,6 +673,7 @@ async function publishProductsToGitHub({
         error: blockReason,
         count: snapshot.count,
         preservedDiscountCount: snapshot.quality.preservedDiscountCount,
+        preservedOfficialDetailCount: snapshot.quality.preservedOfficialDetailCount,
         preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
       };
     }
@@ -606,6 +738,7 @@ async function publishProductsToGitHub({
       excludedCount: snapshot.quality.excludedCount,
       flaggedCount: snapshot.quality.flaggedCount,
       preservedDiscountCount: snapshot.quality.preservedDiscountCount,
+      preservedOfficialDetailCount: snapshot.quality.preservedOfficialDetailCount,
       preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
     };
   } catch (error) {
@@ -623,4 +756,6 @@ module.exports = {
   findCollapsedRoaster,
   findCollapsedOptionRoaster,
   getPublishBlockReason,
+  preservePreviousOfficialDetails,
+  isApprovedMomosCatalogMigration,
 };
