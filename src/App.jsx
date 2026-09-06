@@ -31,9 +31,12 @@ import {
 import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, saveProductSnapshot } from './services/monitoring.ts';
 import { getPublishButtonLabel, loadPublishedSnapshot } from './services/publishedSnapshot.js';
 import { loadProductCache, saveProductCache } from './services/productHistory.js';
+import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
+import { extractProductCountries } from './services/mapCoordinates.js';
 
 const NAV = [
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
+  { id: 'map', label: 'Map', group: '둘러보기' },
   { id: 'alerts', label: '관심·알림', group: '둘러보기', badge: 0 },
   { id: 'sources', label: '로스터리', group: '데이터', badge: roasterySources.length },
   { id: 'server', label: '앱 상태', group: '데이터' },
@@ -1188,6 +1191,13 @@ export default function App() {
             tasteAxis={tasteAxis}
             setTasteAxis={setTasteAxis}
           />
+        ) : screen === 'map' ? (
+          <MapPage
+            products={products}
+            favoriteIds={favoriteIds}
+            onSelectProduct={(product) => setDetailProductId(product.id)}
+            onToggleFavorite={handleToggleFavorite}
+          />
         ) : screen === 'sources' ? (
           <SourcesPage monitorSummary={monitorSummary} onSaveSnapshot={handleSaveSnapshot} />
         ) : screen === 'alerts' ? (
@@ -1217,6 +1227,190 @@ export default function App() {
           onClose={() => setDetailProductId(null)}
           onToggleFavorite={handleToggleFavorite}
         />
+      )}
+    </div>
+  );
+}
+
+function MapPage({
+  products,
+  favoriteIds,
+  onSelectProduct,
+  onToggleFavorite,
+}) {
+  const PAGE_SIZE = 24;
+  const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
+  const [selectedCountry, setSelectedCountry] = React.useState(null);
+  const [blendOnly, setBlendOnly] = React.useState(false);
+  const [highlightedCountries, setHighlightedCountries] = React.useState([]);
+  const [focusedProductId, setFocusedProductId] = React.useState(null);
+
+  // 국가별 및 블렌드 분류 집계
+  const { filteredProducts, unmappedBlendCount, countryTopList } = React.useMemo(() => {
+    let unmappedBlends = 0;
+    const countryCounts = new Map();
+
+    products.forEach((p) => {
+      const countries = extractProductCountries(p);
+      if (countries.length === 0) {
+        unmappedBlends++;
+      } else {
+        countries.forEach((c) => {
+          countryCounts.set(c, (countryCounts.get(c) || 0) + 1);
+        });
+      }
+    });
+
+    const topList = [...countryCounts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6)
+      .map(([country, count]) => ({ country, count }));
+
+    let result = products;
+    if (blendOnly) {
+      result = products.filter((p) => extractProductCountries(p).length === 0);
+    } else if (selectedCountry) {
+      result = products.filter((p) => extractProductCountries(p).includes(selectedCountry));
+    }
+
+    return {
+      filteredProducts: result,
+      unmappedBlendCount: unmappedBlends,
+      countryTopList: topList,
+    };
+  }, [products, selectedCountry, blendOnly]);
+
+  // 필터 변경 시 표시 개수 리셋
+  React.useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedCountry, blendOnly]);
+
+  const handleSelectCountry = (country) => {
+    setBlendOnly(false);
+    setSelectedCountry(country);
+    if (country) {
+      setHighlightedCountries([country]);
+    } else {
+      setHighlightedCountries([]);
+    }
+  };
+
+  const handleToggleBlendOnly = () => {
+    setSelectedCountry(null);
+    setHighlightedCountries([]);
+    setBlendOnly((prev) => !prev);
+  };
+
+  const handleProductCardClick = (product) => {
+    const countries = extractProductCountries(product);
+    setHighlightedCountries(countries);
+    setFocusedProductId(product.id);
+  };
+
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+
+  return (
+    <div className="browse-layout">
+      {/* 1. 상단 세계지도 뷰어 */}
+      <WorldCoffeeMap
+        products={products}
+        selectedCountry={selectedCountry}
+        highlightedCountries={highlightedCountries}
+        onSelectCountry={handleSelectCountry}
+      />
+
+      {/* 2. 퀵 필터 칩 바 */}
+      <div className="map-view-controls">
+        <button
+          type="button"
+          className={`map-filter-chip ${!selectedCountry && !blendOnly ? 'is-active' : ''}`}
+          onClick={() => {
+            setSelectedCountry(null);
+            setBlendOnly(false);
+            setHighlightedCountries([]);
+            setFocusedProductId(null);
+          }}
+        >
+          전체 ({products.length})
+        </button>
+
+        {countryTopList.map(({ country, count }) => (
+          <button
+            key={country}
+            type="button"
+            className={`map-filter-chip ${selectedCountry === country ? 'is-active' : ''}`}
+            onClick={() => handleSelectCountry(selectedCountry === country ? null : country)}
+          >
+            {country} ({count})
+          </button>
+        ))}
+
+        <button
+          type="button"
+          className={`map-filter-chip is-blend-chip ${blendOnly ? 'is-active' : ''}`}
+          onClick={handleToggleBlendOnly}
+        >
+          생산국 미표기 블렌드 ({unmappedBlendCount})
+        </button>
+      </div>
+
+      {/* 3. 섹션 타이틀 */}
+      <div className="section-head" style={{ marginBottom: '16px' }}>
+        <div>
+          <span className="section-eyebrow">원두 목록</span>
+          <h2 className="section-title" style={{ fontSize: '18px' }}>
+            {selectedCountry
+              ? `${selectedCountry} 생산 원두 (${filteredProducts.length}개)`
+              : blendOnly
+              ? `생산국 미표기 블렌드 (${filteredProducts.length}개)`
+              : `전체 원두 (${filteredProducts.length}개)`}
+          </h2>
+        </div>
+      </div>
+
+      {/* 4. 원두 카드 그리드 피드 */}
+      <div className="product-grid">
+        {visibleProducts.map((product) => {
+          const isFocused = focusedProductId === product.id;
+          return (
+            <div
+              key={product.id}
+              onClick={() => handleProductCardClick(product)}
+              style={{
+                borderRadius: 'var(--radius)',
+                transition: 'box-shadow 0.2s ease',
+                boxShadow: isFocused ? '0 0 0 2.5px var(--accent)' : undefined,
+              }}
+            >
+              <BeanProductCard
+                product={product}
+                activeNotes={[]}
+                isFavorite={favoriteIds.includes(product.id)}
+                onNoteClick={() => {}}
+                onSelect={() => {
+                  handleProductCardClick(product);
+                  onSelectProduct?.(product);
+                }}
+                onToggleFavorite={onToggleFavorite}
+                tasteAxis={null}
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 5. 더보기 버튼 */}
+      {visibleProducts.length < filteredProducts.length && (
+        <div style={{ textAlign: 'center', marginTop: '24px', marginBottom: '24px' }}>
+          <button
+            type="button"
+            className="filter-chip"
+            style={{ padding: '10px 24px', fontSize: '14px', fontWeight: '600' }}
+            onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+          >
+            더 많은 원두 보기 ({visibleProducts.length} / {filteredProducts.length})
+          </button>
+        </div>
       )}
     </div>
   );

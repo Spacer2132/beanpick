@@ -2439,3 +2439,152 @@ a {
   background: rgba(143, 79, 46, 0.12);
   color: var(--accent);
 }
+
+/* ==========================================================================
+   세계지도 탐색 뷰 (WorldCoffeeMap) 스타일
+   ========================================================================== */
+
+.coffee-map-container {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 16px 20px 20px;
+  margin-bottom: 24px;
+}
+
+.coffee-map-header {
+  margin-bottom: 12px;
+}
+
+.coffee-map-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.coffee-map-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.coffee-belt-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(143, 79, 46, 0.4);
+}
+
+.coffee-map-reset-btn {
+  background: rgba(143, 79, 46, 0.08);
+  color: var(--accent-dark);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.coffee-map-reset-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.coffee-map-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.coffee-map-subtitle strong {
+  color: var(--accent-dark);
+}
+
+.coffee-map-svg-wrap {
+  width: 100%;
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #f7f3ec;
+}
+
+.coffee-world-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.coffee-pin-group {
+  transition: transform 0.2s ease;
+}
+
+.coffee-pin-group.has-beans:hover {
+  transform-origin: center;
+}
+
+.coffee-pin-pulse {
+  animation: mapPinPulse 1.8s infinite ease-out;
+  transform-origin: center;
+}
+
+@keyframes mapPinPulse {
+  0% {
+    r: 10;
+    opacity: 0.9;
+  }
+  100% {
+    r: 24;
+    opacity: 0;
+  }
+}
+
+.coffee-pin-label {
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* 지도 뷰 컨트롤 바 */
+.map-view-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.map-filter-chip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.map-filter-chip:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.map-filter-chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.map-filter-chip.is-blend-chip {
+  border-style: dashed;
+}
+
