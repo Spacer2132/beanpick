@@ -1065,6 +1065,23 @@ export default function App() {
           {favoriteIds.length > 0 && <em>{favoriteIds.length}</em>}
         </button>
 
+        {/* 모바일 화면 상단 네비게이션 탭 바 (아이폰에서도 Map 등 메뉴를 자유롭게 이동) */}
+        <div className="mobile-nav-bar" role="tablist" aria-label="메뉴 탐색">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={`mobile-nav-item ${screen === item.id ? 'active' : ''}`}
+              type="button"
+              role="tab"
+              aria-selected={screen === item.id}
+              onClick={() => setScreen(item.id)}
+            >
+              <span>{item.label}</span>
+              {item.badge != null && <em>{item.badge}</em>}
+            </button>
+          ))}
+        </div>
+
         {Object.entries(groups).map(([group, items]) => (
           <nav key={group} className="nav-section" aria-label={group}>
             <span className="nav-label">{group}</span>

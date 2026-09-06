@@ -104,6 +104,11 @@ a {
   display: none;
 }
 
+/* 폰 전용 상단 네비게이션 탭 바. 데스크톱에서는 사이드바가 있으므로 숨긴다. */
+.mobile-nav-bar {
+  display: none;
+}
+
 .brand-head {
   display: flex;
   align-items: baseline;
@@ -1943,11 +1948,65 @@ a {
     padding: 10px 12px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
-    gap: 6px;
-    /* 폰에서는 제목 왼쪽, 관심 하트 버튼 오른쪽으로 한 줄에 배치한다. */
+    gap: 8px;
+    /* 폰에서는 제목 왼쪽, 관심 하트 버튼 오른쪽으로 한 줄에 배치하고, 아래에 메뉴 탭을 배치한다. */
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .mobile-nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 6px 0 2px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .mobile-nav-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-nav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface-strong);
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-item.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+  }
+
+  .mobile-nav-item em {
+    font-size: 11px;
+    font-style: normal;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.08);
+    color: inherit;
+  }
+
+  .mobile-nav-item.active em {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
   }
 
   .mobile-fav-btn {
