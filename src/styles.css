@@ -2540,6 +2540,29 @@ a {
   box-shadow: 0 0 8px rgba(143, 79, 46, 0.4);
 }
 
+.coffee-map-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coffee-map-list-btn {
+  background: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.coffee-map-list-btn:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
 .coffee-map-reset-btn {
   background: rgba(143, 79, 46, 0.08);
   color: var(--accent-dark);
@@ -2583,32 +2606,76 @@ a {
 }
 
 .coffee-pin-group {
-  transition: transform 0.2s ease;
+  /* 호버 시 핀 위치 진동(Flicker) 원천 방지를 위해 transform transition 제거 */
+  pointer-events: auto;
 }
 
-.coffee-pin-group.has-beans:hover {
-  transform-origin: center;
-}
-
-.coffee-pin-pulse {
-  animation: mapPinPulse 1.8s infinite ease-out;
-  transform-origin: center;
-}
-
-@keyframes mapPinPulse {
-  0% {
-    r: 10;
-    opacity: 0.9;
-  }
-  100% {
-    r: 24;
-    opacity: 0;
-  }
+.coffee-pin-glow-ring {
+  pointer-events: none !important;
+  filter: drop-shadow(0 0 3px rgba(143, 79, 46, 0.6));
 }
 
 .coffee-pin-label {
-  pointer-events: none;
+  pointer-events: none !important;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.coffee-map-tooltip,
+.coffee-map-tooltip * {
+  pointer-events: none !important;
+  user-select: none;
+}
+
+/* 지도 범례 */
+.coffee-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.coffee-map-legend .legend-caption {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.coffee-map-legend .legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.coffee-map-legend .legend-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(120, 96, 72, 0.45);
+}
+
+.coffee-map-legend .legend-sale-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d94f2b;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(120, 96, 72, 0.35);
+}
+
+.coffee-map-legend .legend-note {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.coffee-map-legend .legend-line {
+  display: inline-block;
+  width: 18px;
+  height: 0;
+  border-top: 2px dashed #d2984c;
 }
 
 /* 지도 뷰 컨트롤 바 */
@@ -2645,5 +2712,258 @@ a {
 
 .map-filter-chip.is-blend-chip {
   border-style: dashed;
+}
+
+/* 생산국 산지 스토리 카드 */
+.origin-story-card {
+  background: linear-gradient(135deg, #fffcf7 0%, #f7eee1 100%);
+  border: 1px solid #e5d5c2;
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 4px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(78, 52, 33, 0.06);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.origin-story-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.origin-story-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.origin-story-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #f0e2d1;
+  border: 1px solid #dfcfbc;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 2px 5px rgba(60, 40, 20, 0.08);
+  flex-shrink: 0;
+}
+
+.origin-story-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+
+.origin-story-en {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.origin-story-badge {
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.origin-story-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(184, 158, 131, 0.4);
+}
+
+.origin-story-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.origin-story-label {
+  font-weight: 700;
+  color: var(--accent-dark);
+  white-space: nowrap;
+  font-size: 12.5px;
+}
+
+.origin-story-val {
+  color: #42352b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 대륙별 퀵 줌 프리셋 버튼 그룹 */
+.map-zoom-presets {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(238, 226, 212, 0.55);
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 195, 174, 0.7);
+}
+
+.map-preset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #614f41;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.map-preset-btn:hover {
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+}
+
+.map-preset-btn.is-active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 1px 4px rgba(143, 79, 46, 0.25);
+}
+
+.map-preset-icon {
+  font-size: 11.5px;
+  line-height: 1;
+}
+
+/* 지도 우측 하단 플로팅 줌 컨트롤 (+ / - / ⟲) */
+.coffee-map-svg-wrap {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.map-floating-controls {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 5;
+  background: rgba(255, 252, 247, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 195, 174, 0.8);
+  box-shadow: 0 4px 12px rgba(60, 40, 20, 0.12);
+}
+
+.map-zoom-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid rgba(220, 205, 188, 0.7);
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #4a3b30;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.map-zoom-btn:hover:not(:disabled) {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.map-zoom-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.map-zoom-reset {
+  font-size: 13.5px;
+}
+
+.map-zoom-reset.is-active {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* 드래그 및 줌 상태 커서 */
+.coffee-world-svg.is-dragging {
+  cursor: grabbing !important;
+}
+
+.coffee-world-svg.is-zoomed {
+  cursor: grab;
+}
+
+@media (max-width: 640px) {
+  .coffee-map-title-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .map-zoom-presets {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .map-preset-btn {
+    padding: 4px 6px;
+    font-size: 11px;
+    flex: 1;
+    justify-content: center;
+  }
+  /* 좁은 화면에서는 지도가 낮아지므로 줌 컨트롤이 지도를 가리지 않게 축소 */
+  .map-floating-controls {
+    right: 6px;
+    bottom: 6px;
+    padding: 2px;
+    gap: 2px;
+  }
+  .map-zoom-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+  .coffee-map-legend {
+    font-size: 11px;
+    gap: 5px 10px;
+  }
 }
 

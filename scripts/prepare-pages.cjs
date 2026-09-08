@@ -41,6 +41,7 @@ copyDir(distDir, docsDir);
 
 if (savedProductsJson) {
   fs.writeFileSync(productsJsonPath, savedProductsJson);
+  fs.writeFileSync(path.join(distDir, 'products.json'), savedProductsJson);
 }
 
 if (fs.existsSync(docsIndexPath)) {

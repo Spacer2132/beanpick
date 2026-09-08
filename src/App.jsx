@@ -32,7 +32,7 @@ import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, s
 import { getPublishButtonLabel, loadPublishedSnapshot } from './services/publishedSnapshot.js';
 import { loadProductCache, saveProductCache } from './services/productHistory.js';
 import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
-import { extractProductCountries } from './services/mapCoordinates.js';
+import { extractProductCountries, getCountryInfo } from './services/mapCoordinates.js';
 
 const NAV = [
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
@@ -930,6 +930,9 @@ export default function App() {
       const loadedProducts = [];
       const sourceCounts = [];
       let completedCount = 0;
+      const previousProducts = Array.isArray(baseProducts) && baseProducts.length > 0
+        ? baseProducts
+        : (loadProductCache()?.products || []);
 
       // 한 로스터리가 비정상적으로 오래 걸리면(네트워크 행 등) 버리고 나머지로 발행을 진행한다.
       // 메인 프로세스의 어떤 비동기 단계가 멈추든 전체 수집이 무한 대기에 빠지지 않게 하는 안전장치.
@@ -959,7 +962,28 @@ export default function App() {
           }
         } catch (error) {
           console.error(`[beanpick:load-fail] ${task.label} error:`, error);
-          warnings.push(error instanceof Error ? error.message : `${task.label} 데이터를 가져오지 못했습니다.`);
+          const normLabel = String(task.label || '').replace(/\s+/g, '').toLowerCase();
+          const fallbackProducts = previousProducts.filter((p) => {
+            const normRoaster = String(p?.roasterName || '').replace(/\s+/g, '').toLowerCase();
+            return normRoaster && (normRoaster === normLabel || normRoaster.includes(normLabel) || normLabel.includes(normRoaster));
+          });
+
+          if (fallbackProducts.length > 0) {
+            console.log(`[beanpick:load-fallback] ${task.label} (${fallbackProducts.length} products preserved from previous data)`);
+            loadedProducts.push(...fallbackProducts.map((p) => ({
+              ...p,
+              roasterPreservedReason: '수집 실패로 이전 데이터 유지',
+            })));
+            sourceCounts.push(`${task.label} ${fallbackProducts.length}개(보존)`);
+            warnings.push(`${task.label} 수집 지연으로 이전 데이터를 유지합니다.`);
+
+            if (loadedProducts.length > 0) {
+              setBaseProducts(groupProductsByNameAndWeight([...loadedProducts]));
+              setDataMode('live');
+            }
+          } else {
+            warnings.push(error instanceof Error ? error.message : `${task.label} 데이터를 가져오지 못했습니다.`);
+          }
         } finally {
           completedCount += 1;
           setLoadState({
@@ -1261,6 +1285,16 @@ function MapPage({
   const [blendOnly, setBlendOnly] = React.useState(false);
   const [highlightedCountries, setHighlightedCountries] = React.useState([]);
   const [focusedProductId, setFocusedProductId] = React.useState(null);
+  const listHeadRef = React.useRef(null);
+
+  // 할인 중인 원두가 있는 생산국 (지도 핀에 표시)
+  const discountCountries = React.useMemo(() => {
+    const set = new Set();
+    filterDiscountProducts(products)
+      .filter((p) => !p.isSoldOut)
+      .forEach((p) => extractProductCountries(p).forEach((c) => set.add(c)));
+    return [...set];
+  }, [products]);
 
   // 국가별 및 블렌드 분류 집계
   const { filteredProducts, unmappedBlendCount, countryTopList } = React.useMemo(() => {
@@ -1326,6 +1360,8 @@ function MapPage({
 
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
+  const activeCountryMeta = selectedCountry ? getCountryInfo(selectedCountry) : null;
+
   return (
     <div className="browse-layout">
       {/* 1. 상단 세계지도 뷰어 */}
@@ -1333,7 +1369,10 @@ function MapPage({
         products={products}
         selectedCountry={selectedCountry}
         highlightedCountries={highlightedCountries}
+        discountCountries={discountCountries}
+        unmappedCount={unmappedBlendCount}
         onSelectCountry={handleSelectCountry}
+        onShowList={() => listHeadRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       />
 
       {/* 2. 퀵 필터 칩 바 */}
@@ -1348,31 +1387,87 @@ function MapPage({
             setFocusedProductId(null);
           }}
         >
-          전체 ({products.length})
+          🌐 전체 ({products.length})
         </button>
 
-        {countryTopList.map(({ country, count }) => (
-          <button
-            key={country}
-            type="button"
-            className={`map-filter-chip ${selectedCountry === country ? 'is-active' : ''}`}
-            onClick={() => handleSelectCountry(selectedCountry === country ? null : country)}
-          >
-            {country} ({count})
-          </button>
-        ))}
+        {countryTopList.map(({ country, count }) => {
+          const meta = getCountryInfo(country);
+          return (
+            <button
+              key={country}
+              type="button"
+              className={`map-filter-chip ${selectedCountry === country ? 'is-active' : ''}`}
+              onClick={() => handleSelectCountry(selectedCountry === country ? null : country)}
+            >
+              {meta?.flag ? `${meta.flag} ` : ''}{country} ({count})
+            </button>
+          );
+        })}
 
         <button
           type="button"
           className={`map-filter-chip is-blend-chip ${blendOnly ? 'is-active' : ''}`}
           onClick={handleToggleBlendOnly}
         >
-          생산국 미표기 블렌드 ({unmappedBlendCount})
+          ☕ 생산국 미표기 블렌드 ({unmappedBlendCount})
         </button>
       </div>
 
+      {/* 2-1. 선택된 생산국/블렌드 스토리 카드 */}
+      {activeCountryMeta && (
+        <div className="origin-story-card">
+          <div className="origin-story-header">
+            <div className="origin-story-title-group">
+              <span className="origin-story-flag">{activeCountryMeta.flag}</span>
+              <div>
+                <span className="origin-story-name">{activeCountryMeta.label}</span>
+                <span className="origin-story-en">({activeCountryMeta.enName})</span>
+              </div>
+            </div>
+            <span className="origin-story-badge">
+              원두 {filteredProducts.length}종 판매 중
+            </span>
+          </div>
+          <div className="origin-story-body">
+            <div className="origin-story-item">
+              <span className="origin-story-label">📍 주요 산지</span>
+              <span className="origin-story-val">{activeCountryMeta.famousRegions}</span>
+            </div>
+            <div className="origin-story-item">
+              <span className="origin-story-label">☕ 풍미 특징</span>
+              <span className="origin-story-val">{activeCountryMeta.flavorNote}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {blendOnly && (
+        <div className="origin-story-card">
+          <div className="origin-story-header">
+            <div className="origin-story-title-group">
+              <span className="origin-story-flag">☕</span>
+              <div>
+                <span className="origin-story-name">하우스 블렌드 (House Blend)</span>
+                <span className="origin-story-en">(생산국 미표기 또는 복합 배합)</span>
+              </div>
+            </div>
+            <span className="origin-story-badge">
+              원두 {unmappedBlendCount}종 판매 중
+            </span>
+          </div>
+          <div className="origin-story-body">
+            <div className="origin-story-item">
+              <span className="origin-story-label">✨ 특징</span>
+              <span className="origin-story-val">
+                여러 산지의 원두를 황금비율로 배합하여 균형 잡힌 바디감과 고소한 단맛을 느낄 수 있는 로스터리의 대표 시그니처 원두입니다.
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* 3. 섹션 타이틀 */}
-      <div className="section-head" style={{ marginBottom: '16px' }}>
+      <div className="section-head" ref={listHeadRef} style={{ marginBottom: '16px' }}>
         <div>
           <span className="section-eyebrow">원두 목록</span>
           <h2 className="section-title" style={{ fontSize: '18px' }}>
