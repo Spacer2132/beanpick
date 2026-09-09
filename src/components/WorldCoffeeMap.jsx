@@ -6,6 +6,7 @@ import {
 } from '../services/mapCoordinates.js';
 import { COFFEE_COUNTRY_PATHS, OTHER_COUNTRY_PATHS } from './worldCountryPaths.js';
 import { COFFEE_REGION_POINTS } from '../services/coffeeRegions.js';
+import { buildRegionCells } from '../services/regionCells.js';
 
 // 화면 폭에 맞춘 비율은 대륙을 전환해도 유지한다.
 const DEFAULT_VIEW = { x: 182, y: 70, w: 760 };
@@ -37,6 +38,31 @@ const ACTIVE_FILL = '#a96543';
 
 function getCountTier(count) {
   return COUNT_TIERS.find((t) => count >= t.min) || COUNT_TIERS[COUNT_TIERS.length - 1];
+}
+
+// 나라별 국경 좌표의 최소·최대. 경로 데이터는 바뀌지 않으므로 한 번만 계산한다.
+const COUNTRY_BOUNDS = (() => {
+  const out = {};
+  for (const [code, d] of Object.entries(COFFEE_COUNTRY_PATHS)) {
+    const nums = d.match(/-?\d+(?:\.\d+)?/g) || [];
+    let minX = Infinity; let minY = Infinity; let maxX = -Infinity; let maxY = -Infinity;
+    for (let i = 0; i + 1 < nums.length; i += 2) {
+      const x = Number(nums[i]);
+      const y = Number(nums[i + 1]);
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+    }
+    if (Number.isFinite(minX)) out[code] = { minX, minY, maxX, maxY };
+  }
+  return out;
+})();
+
+// 한글·이모지는 글자 폭이 거의 글자 크기와 같고 영숫자는 그보다 좁다.
+// 배너 폭을 넉넉히 잡아 글자가 상자 밖으로 나가지 않게 한다.
+function measureLabelWidth(text, fontSize) {
+  return [...text].reduce((sum, ch) => sum + (ch.codePointAt(0) > 0x2000 ? fontSize : fontSize * 0.6), 0);
 }
 
 function clampView({ x, y, w }, ratio = MAP_RATIO) {
@@ -220,18 +246,7 @@ export default function WorldCoffeeMap({
   // 나라를 클릭했을 때 이동할 화면. 국경 좌표의 최소·최대에 여백을 주고 지도 비율에 맞춘다.
   const countryViews = useMemo(() => {
     const out = {};
-    for (const [code, d] of Object.entries(COFFEE_COUNTRY_PATHS)) {
-      const nums = d.match(/-?\d+(?:\.\d+)?/g) || [];
-      let minX = Infinity; let minY = Infinity; let maxX = -Infinity; let maxY = -Infinity;
-      for (let i = 0; i + 1 < nums.length; i += 2) {
-        const x = Number(nums[i]);
-        const y = Number(nums[i + 1]);
-        if (x < minX) minX = x;
-        if (x > maxX) maxX = x;
-        if (y < minY) minY = y;
-        if (y > maxY) maxY = y;
-      }
-      if (!Number.isFinite(minX)) continue;
+    for (const [code, { minX, minY, maxX, maxY }] of Object.entries(COUNTRY_BOUNDS)) {
       const padX = Math.max(5, (maxX - minX) * 0.2);
       const padY = Math.max(4, (maxY - minY) * 0.2);
       const boxW = (maxX - minX) + padX * 2;
@@ -276,26 +291,58 @@ export default function WorldCoffeeMap({
   // 선택한 나라로 확대했을 때만 주요 산지를 보여 준다(세계 화면에서는 너무 빽빽해진다).
   const selectedInfo = COFFEE_COUNTRIES.find((c) => c.label === selectedCountry);
   const shownRegions = (selectedInfo && isZoomed && COFFEE_REGION_POINTS[selectedInfo.code]) || [];
+  const selectedCount = selectedInfo ? countryCounts.get(selectedInfo.label) || 0 : 0;
 
-  // 가까운 산지끼리 라벨이 겹치므로, 겹치면 위/아래로 번갈아 밀어 놓는다.
+  // 선택한 나라 이름을 지도 좌상단에 고정 배너로 띄운다(화면 아래 설명까지 내려보지 않게).
+  const countryBanner = useMemo(() => {
+    if (!selectedInfo) return null;
+    // 좁은 화면에서는 배너가 지도 폭을 너무 먹으므로 '원두'를 뺀 짧은 문구를 쓴다.
+    const text = isCompact
+      ? `${selectedInfo.flag} ${selectedInfo.label} ${selectedCount}종`
+      : `${selectedInfo.flag} ${selectedInfo.label} · 원두 ${selectedCount}종`;
+    return { text, w: measureLabelWidth(text, 12) + 22, h: 26, pad: 10 };
+  }, [selectedInfo, selectedCount, isCompact]);
+
+  // 산지 좌표 기준의 대략적인 구역 분할선(실제 행정경계 아님).
+  const regionCells = useMemo(() => (
+    selectedInfo ? buildRegionCells(shownRegions, COUNTRY_BOUNDS[selectedInfo.code]) : []
+  ), [selectedInfo, shownRegions]);
+
+  // 가까운 산지끼리 라벨이 겹치므로, 겹치면 위/아래·좌우로 밀어 놓는다.
   const regionLabels = useMemo(() => {
-    // 점 위/아래로 시도해 볼 위치. 무한정 밀어내면 지도 밖으로 나가므로 후보를 한정한다.
-    const CANDIDATES = [17, -19, 32, -34, 47, -49];
+    // 시도해 볼 자리. 무한정 밀어내면 지도 밖으로 나가므로 후보를 한정한다.
+    // sx는 라벨 폭의 배수로 좌우 이동량을 정한다(위아래로 못 피하면 옆으로 비킨다).
+    const CANDIDATES = [
+      { sx: 0, dy: 17 }, { sx: 0, dy: -19 }, { sx: 0, dy: 32 },
+      { sx: 0, dy: -34 }, { sx: 0, dy: 47 }, { sx: 0, dy: -49 },
+      { sx: 1, dy: 0 }, { sx: -1, dy: 0 },
+      { sx: 1, dy: 17 }, { sx: -1, dy: 17 }, { sx: 1, dy: -19 }, { sx: -1, dy: -19 },
+    ];
     const labelW = (name) => name.length * 10 + 16;
     // 화면에 실제로 보이는 위아래 범위(픽셀). 이 밖에 놓으면 라벨이 잘린다.
     const viewTop = viewBox.y / pxScale;
     const viewBottom = (viewBox.y + vbH) / pxScale;
-    // 선택한 나라의 개수 뱃지가 이미 차지한 자리도 피한다.
-    const selPin = pinLayout.find((p) => p.country.label === selectedCountry);
-    const placed = selPin ? [{
-      l: selPin.x / pxScale - 17, r: selPin.x / pxScale + 17,
-      t: selPin.y / pxScale - 17, b: selPin.y / pxScale + 17,
+    // 좌상단 나라 이름 배너와 이웃 나라 핀이 차지한 자리는 비워 둔다(산지 말풍선이 가려지지 않게).
+    const viewLeft = viewBox.x / pxScale;
+    const placed = countryBanner ? [{
+      l: viewLeft, r: viewLeft + countryBanner.pad + countryBanner.w + 6,
+      t: viewTop, b: viewTop + countryBanner.pad + countryBanner.h + 6,
     }] : [];
+    for (const pin of pinLayout) {
+      if (pin.country.label === selectedCountry) continue; // 선택한 나라 핀은 감춰져 있다
+      const pad = pin.tier.r + 2;
+      placed.push({
+        l: pin.x / pxScale - pad, r: pin.x / pxScale + pad,
+        t: pin.y / pxScale - pad, b: pin.y / pxScale + pad,
+      });
+    }
     return shownRegions.map((r) => {
       const w = labelW(r.name);
       const sx = r.x / pxScale;
       const sy = r.y / pxScale;
-      const boxAt = (dy) => ({ l: sx - w / 2, r: sx + w / 2, t: sy + dy - 8.5, b: sy + dy + 8.5 });
+      const boxAt = (dx, dy) => ({
+        l: sx + dx - w / 2, r: sx + dx + w / 2, t: sy + dy - 8.5, b: sy + dy + 8.5,
+      });
       const overlapWith = (box) => placed.reduce((sum, p) => {
         const ox = Math.min(box.r, p.r) - Math.max(box.l, p.l);
         const oy = Math.min(box.b, p.b) - Math.max(box.t, p.t);
@@ -303,22 +350,23 @@ export default function WorldCoffeeMap({
       }, 0);
 
       let best = null;
-      for (const dy of CANDIDATES) {
-        const box = boxAt(dy);
+      for (const cand of CANDIDATES) {
+        const dx = cand.sx * (w / 2 + 12);
+        const box = boxAt(dx, cand.dy);
         if (box.t < viewTop + 2 || box.b > viewBottom - 2) continue; // 잘리는 자리는 후보에서 제외
         const area = overlapWith(box);
-        if (area === 0) { best = { dy, box, area }; break; }
-        if (!best || area < best.area) best = { dy, box, area };
+        if (area === 0) { best = { dx, dy: cand.dy, box, area }; break; }
+        if (!best || area < best.area) best = { dx, dy: cand.dy, box, area };
       }
       if (!best) {
         // 화면 안에 들어가는 후보가 없으면 여유가 더 많은 쪽에 붙인다(잘리는 것보다는 낫다).
         const dy = (sy - viewTop) > (viewBottom - sy) ? -19 : 17;
-        best = { dy, box: boxAt(dy), area: 0 };
+        best = { dx: 0, dy, box: boxAt(0, dy), area: 0 };
       }
       placed.push(best.box);
-      return { ...r, dy: best.dy };
+      return { ...r, dx: best.dx, dy: best.dy };
     });
-  }, [shownRegions, pxScale, viewBox, vbH, pinLayout, selectedCountry]);
+  }, [shownRegions, pxScale, viewBox, vbH, countryBanner, pinLayout, selectedCountry]);
   // 폰처럼 좁은 화면에서는 라벨 칩·영문 안내가 서로 겹쳐 읽을 수 없으므로 줄인다.
 
   const handleZoomIn = () => {
@@ -536,6 +584,13 @@ export default function WorldCoffeeMap({
               <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#2c1a0e" floodOpacity="0.6" />
             </filter>
 
+            {/* 구역 분할선을 선택한 나라 모양 안에서만 보이게 자르는 틀 */}
+            {selectedInfo && COFFEE_COUNTRY_PATHS[selectedInfo.code] && (
+              <clipPath id="selectedCountryClip">
+                <path d={COFFEE_COUNTRY_PATHS[selectedInfo.code]} />
+              </clipPath>
+            )}
+
             {/* 대륙 부드러운 그림자 */}
             <filter id="landShadow" x="-2%" y="-2%" width="104%" height="104%">
               <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" floodColor="#2b3d49" floodOpacity="0.35" />
@@ -698,15 +753,41 @@ export default function WorldCoffeeMap({
             })}
           </g>
 
-          {/* 4-3. 선택한 나라의 주요 산지 */}
+          {/* 4-3. 산지별 대략 구역 점선 (선택한 나라 모양으로 잘라 표시) */}
+          {regionCells.length > 1 && (
+            <g
+              className="map-region-cells"
+              clipPath="url(#selectedCountryClip)"
+              style={{ pointerEvents: 'none' }}
+            >
+              {regionCells.map((cell) => (
+                <polygon
+                  key={cell.name}
+                  points={cell.polygon.map(([px, py]) => `${px},${py}`).join(' ')}
+                  fill="none"
+                  stroke="#5d351e"
+                  strokeWidth={1.1 * pxScale}
+                  strokeDasharray={`${5 * pxScale} ${4 * pxScale}`}
+                  opacity="0.55"
+                />
+              ))}
+            </g>
+          )}
+
+          {/* 4-4. 선택한 나라의 주요 산지 */}
           {shownRegions.length > 0 && (
             <g className="map-regions" style={{ pointerEvents: 'none' }}>
-              {regionLabels.map((r) => (
+              {regionLabels.map((r) => {
+                // 산지 점에서 라벨 상자에 닿기 직전까지만 연결선을 긋는다.
+                const gapX = r.dx ? (r.name.length * 5 + 8) / Math.abs(r.dx) : Infinity;
+                const gapY = r.dy ? 8.5 / Math.abs(r.dy) : Infinity;
+                const lineEnd = Math.max(0, 1 - Math.min(gapX, gapY, 1));
+                return (
                 <g key={r.name} transform={`translate(${r.x}, ${r.y}) scale(${pxScale})`}>
-                  <line x1="0" y1="0" x2="0" y2={r.dy > 0 ? r.dy - 9 : r.dy + 9} stroke="#5d351e" strokeWidth="0.9" opacity="0.5" />
+                  <line x1="0" y1="0" x2={r.dx * lineEnd} y2={r.dy * lineEnd} stroke="#5d351e" strokeWidth="0.9" opacity="0.5" />
                   <circle r="5" fill="#fffaf2" stroke="#5d351e" strokeWidth="1.8" />
                   <circle r="1.8" fill="#5d351e" />
-                  <g transform={`translate(0, ${r.dy})`}>
+                  <g transform={`translate(${r.dx}, ${r.dy})`}>
                     <rect
                       x={-(r.name.length * 5 + 8)}
                       y="-8.5"
@@ -722,18 +803,20 @@ export default function WorldCoffeeMap({
                     </text>
                   </g>
                 </g>
-              ))}
+                );
+              })}
             </g>
           )}
 
           {/* 5. 생산국 핀 마커 (원두가 있는 나라만) */}
           <g className="map-pins">
             {pinLayout.map(({ country, count, tier, x, y }) => {
-              const isSelected = selectedCountry === country.label;
+              // 선택한 나라는 큰 원 뱃지가 산지 표시를 가리므로 감춘다(이름은 좌상단 배너로 표시).
+              if (selectedCountry === country.label) return null;
               const isHighlighted = highlightedCountries.includes(country.label);
               const isHovered = hoveredCountry === country.label;
 
-              const isActive = isSelected || isHighlighted || isHovered;
+              const isActive = isHighlighted || isHovered;
               const showCount = isZoomed || !isCompact || isActive;
               // 겹침을 피해 밀려난 핀은 실제 나라 위치와 가는 선으로 이어 둔다.
               const shifted = Math.hypot(x - country.x, y - country.y) > 1.5 * pxScale;
@@ -863,6 +946,30 @@ export default function WorldCoffeeMap({
               );
             })}
           </g>
+
+          {/* 5-2. 선택한 나라 이름 배너 (확대·이동해도 화면 왼쪽 위에 붙어 있다) */}
+          {countryBanner && (
+            <g
+              className="atlas-country-banner"
+              transform={`translate(${viewBox.x + countryBanner.pad * pxScale}, ${viewBox.y + countryBanner.pad * pxScale}) scale(${pxScale})`}
+              style={{ pointerEvents: 'none' }}
+            >
+              <rect
+                x="0"
+                y="0"
+                width={countryBanner.w}
+                height={countryBanner.h}
+                rx="6"
+                fill="#231b16"
+                stroke="#e6b877"
+                strokeWidth="1.2"
+                filter="url(#pinGlow)"
+              />
+              <text x="11" y="17.5" fill="#ffffff" fontSize="12" fontWeight="700">
+                {countryBanner.text}
+              </text>
+            </g>
+          )}
 
           {/* 6. 호버 / 선택 툴팁 팝업 (국기, 원두 수, 대표 산지)
               산지를 표시 중일 때는 툴팁이 지도를 가리므로 마우스를 올렸을 때만 띄운다. */}
@@ -1012,6 +1119,7 @@ export default function WorldCoffeeMap({
         </div>
         <p>지도 색은 등록 원두 수를 나타냅니다. 여러 생산국이 있는 원두는 각 나라에 함께 집계됩니다.</p>
         <p>주요 산지는 대표 지역 안내이며 개별 원두의 정확한 농장 위치를 뜻하지 않습니다.</p>
+        <p>나라를 선택하면 보이는 점선은 산지 좌표에서 가장 가까운 쪽으로 나눈 대략적인 구역이며, 실제 행정구역이나 커피 산지 경계가 아닙니다.</p>
         <p className="atlas-map-credit">지도: Natural Earth · 산지 좌표: © OpenStreetMap contributors (ODbL)</p>
       </details>
     </section>

@@ -71,7 +71,49 @@ function runMapFeatureTests() {
     '국가 미기재 블렌드는 빈 배열 반환',
   );
 
-  // 6. 실데이터(docs/products.json) 339개 전수 검증
+  // 6. 산지 구역 분할선(점선) 검증 — 각 구역은 자기 산지를 품고 남의 산지는 품지 않아야 한다.
+  const { buildRegionCells, isPointInPolygon } = loadJsModule(
+    path.resolve(__dirname, '../src/services/regionCells.js'),
+  );
+  const { COFFEE_REGION_POINTS } = loadJsModule(
+    path.resolve(__dirname, '../src/services/coffeeRegions.js'),
+  );
+
+  assert.deepStrictEqual(buildRegionCells([], null), [], '산지가 없으면 구역선도 없어야 함');
+  assert.deepStrictEqual(
+    buildRegionCells([{ name: '단일', x: 10, y: 10 }], { minX: 0, minY: 0, maxX: 20, maxY: 20 }),
+    [],
+    '산지가 하나뿐이면 나눌 경계가 없어야 함',
+  );
+
+  let checkedCountries = 0;
+  for (const [code, regions] of Object.entries(COFFEE_REGION_POINTS)) {
+    if (regions.length < 2) continue;
+    const bounds = regions.reduce((acc, r) => ({
+      minX: Math.min(acc.minX, r.x), minY: Math.min(acc.minY, r.y),
+      maxX: Math.max(acc.maxX, r.x), maxY: Math.max(acc.maxY, r.y),
+    }), { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity });
+
+    const cells = buildRegionCells(regions, bounds);
+    assert.strictEqual(cells.length, regions.length, `${code} 구역 수가 산지 수와 다름`);
+    for (const region of regions) {
+      const own = cells.find((c) => c.name === region.name);
+      assert(own, `${code} ${region.name} 구역이 없음`);
+      assert(
+        isPointInPolygon(region.x, region.y, own.polygon),
+        `${code} ${region.name} 구역이 자기 산지를 품지 않음`,
+      );
+      const intruders = cells.filter(
+        (c) => c.name !== region.name && isPointInPolygon(region.x, region.y, c.polygon),
+      );
+      assert.strictEqual(intruders.length, 0, `${code} ${region.name}이 다른 구역에도 포함됨`);
+    }
+    checkedCountries += 1;
+  }
+  assert(checkedCountries >= 10, `구역 분할 검증 국가 수(${checkedCountries})가 기준(10개)에 미달함`);
+  console.log(`[PASS] ${checkedCountries}개국 산지 구역 분할 검증 완료`);
+
+  // 7. 실데이터(docs/products.json) 339개 전수 검증
   const productsPath = path.resolve(__dirname, '../docs/products.json');
   if (fs.existsSync(productsPath)) {
     const rawData = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
