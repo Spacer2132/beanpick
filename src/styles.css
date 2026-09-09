@@ -2503,467 +2503,132 @@ a {
    세계지도 탐색 뷰 (WorldCoffeeMap) 스타일
    ========================================================================== */
 
-.coffee-map-container {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
-  padding: 16px 20px 20px;
-  margin-bottom: 24px;
+.atlas-page {
+  --atlas-ocean: #b8ccca;
+  --atlas-paper: #f7f3eb;
+  --atlas-ink: #382c24;
+  color: var(--atlas-ink);
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.coffee-map-header {
-  margin-bottom: 12px;
-}
+.main:has(.atlas-page) .search-box { display: none; }
+.main:has(.atlas-page) .topbar:not(:has(.btn)) { display: none; }
 
-.coffee-map-title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
+.coffee-map-container { margin-bottom: 24px; }
+.coffee-map-header { padding: 12px 0 0; }
+.atlas-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 8px 0 30px; }
+.atlas-eyebrow { display: block; color: #7d6a58; font-size: 11px; font-weight: 600; letter-spacing: 3px; line-height: 1.6; }
+.atlas-heading h1 { font: 600 clamp(30px, 3.2vw, 44px)/1.45 var(--serif); letter-spacing: -1.8px; margin: 12px 0 14px; }
+.atlas-heading h1 span { white-space: nowrap; }
+.atlas-heading p { color: #756e63; font-size: 15px; margin: 0; }
+.atlas-edition { display: flex; gap: 14px; align-items: center; border-left: 1px solid var(--line); padding-left: 30px; flex-shrink: 0; }
+.atlas-edition strong { font: 500 48px/1 var(--serif); }
+.atlas-edition span { color: #756e63; font-size: 12px; line-height: 1.8; }
 
-.coffee-map-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink);
-}
+.atlas-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 16px; }
+.map-zoom-presets { display: flex; align-items: center; gap: 8px; }
+.map-preset-btn { min-height: 44px; padding: 0 22px; border: 1px solid #dcd5c9; border-radius: 24px; background: transparent; color: #66594d; font-size: 13px; cursor: pointer; transition: background 150ms, color 150ms; }
+.map-preset-btn:hover { background: #eee6d9; }
+.map-preset-btn.is-active { background: #684630; border-color: #684630; color: #fffaf2; }
+.atlas-country-select { max-width: 210px; min-height: 44px; padding: 8px 32px 8px 12px; border: 0; border-bottom: 1px solid #b8aa99; border-radius: 0; color: #5c4a3c; background-color: transparent; font: inherit; font-size: 13px; cursor: pointer; }
 
-.coffee-belt-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px rgba(143, 79, 46, 0.4);
-}
+.coffee-map-svg-wrap { position: relative; width: 100%; overflow: hidden; border-radius: 4px; background: var(--atlas-ocean); user-select: none; }
+.coffee-world-svg { display: block; width: 100%; height: auto; touch-action: none; user-select: none; }
+.coffee-world-svg.is-dragging { cursor: grabbing !important; }
+.coffee-pin-group { pointer-events: auto; }
+.coffee-pin-glow-ring, .coffee-pin-label, .coffee-map-tooltip, .coffee-map-tooltip * { pointer-events: none !important; }
+.map-coffee-lands path:focus-visible { outline: none; stroke: #382c24; stroke-width: 2.5px; }
 
-.coffee-map-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+.map-floating-controls { position: absolute; right: 16px; bottom: 16px; display: flex; flex-direction: column; padding: 2px; z-index: 5; border: 1px solid #e2ded4; border-radius: 12px; background: #fffaf2; box-shadow: 0 3px 12px #35454012; }
+.map-zoom-btn { display: grid; place-items: center; width: 44px; height: 44px; background: transparent; color: #574536; font-size: 22px; font-weight: 400; cursor: pointer; }
+.map-zoom-btn + .map-zoom-btn { border-top: 1px solid #e7dfd4; }
+.map-zoom-btn:hover:not(:disabled) { background: #eee5d8; }
+.map-zoom-btn:disabled { opacity: 0.35; cursor: default; }
+.map-zoom-reset { font-size: 20px; }
+.atlas-map-caption { display: flex; justify-content: space-between; gap: 12px; min-height: 45px; align-items: center; padding: 12px 0; color: #6c7167; font-size: 11px; }
+.atlas-gesture-hint { flex-shrink: 0; }
 
-.coffee-map-list-btn {
-  background: var(--accent);
-  color: #ffffff;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+.atlas-origin-pane { display: grid; grid-template-columns: minmax(0, 1fr) 150px 200px; align-items: center; column-gap: 30px; border-top: 1px solid #d9d2c6; padding: 30px 0; }
+.atlas-origin-copy { grid-column: 1; }
+.atlas-origin-copy h2 { font: 600 30px/1.5 var(--serif); letter-spacing: -1px; margin: 8px 0 10px; }
+.atlas-origin-copy p { margin: 0; color: #756b5f; font-size: 14px; max-width: 52ch; line-height: 1.8; }
+.atlas-origin-regions { margin-top: 14px; color: #4e4438; font-size: 13px; line-height: 1.8; }
+.atlas-origin-silhouette { grid-column: 2; width: 150px; height: 125px; opacity: 0.85; }
+.atlas-origin-actions { grid-column: 3; display: flex; flex-direction: column; gap: 8px; }
+.coffee-map-list-btn { width: 100%; min-height: 48px; padding: 12px 20px; border-radius: 28px; background: #684630; color: #fffaf2; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 150ms; }
+.coffee-map-list-btn:hover { background: #4f3323; }
+.coffee-map-reset-btn { align-self: center; min-height: 40px; background: transparent; color: #756758; text-decoration: underline; text-underline-offset: 4px; font-size: 12px; cursor: pointer; }
 
-.coffee-map-list-btn:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
-}
+.atlas-map-guide { border-top: 1px solid #e4ddd1; border-bottom: 1px solid #e4ddd1; padding: 12px 0; }
+.atlas-map-guide summary { cursor: pointer; color: #5c5145; font-size: 12px; min-height: 24px; }
+.atlas-map-guide summary span { color: #8b7d6c; font-size: 11px; padding-left: 8px; }
+.atlas-map-guide p { margin: 10px 0; color: #73695d; font-size: 12px; }
+.atlas-map-guide .atlas-map-credit { font-size: 10px; color: #8a7b6b; }
+.coffee-map-legend { display: flex; flex-wrap: wrap; gap: 10px 16px; padding: 16px 0 4px; font-size: 12px; color: #72685a; }
+.legend-caption { font-weight: 600; }
+.legend-item { display: inline-flex; gap: 6px; align-items: center; }
+.legend-swatch { width: 12px; height: 12px; border-radius: 2px; border: 1px solid #6e614638; }
+.legend-sale-dot { width: 7px; height: 7px; background: #d94f2b; border-radius: 50%; }
+.legend-line { width: 18px; border-top: 1px dashed #7d9390; }
+.legend-note { flex-basis: 100%; }
 
-.coffee-map-reset-btn {
-  background: rgba(143, 79, 46, 0.08);
-  color: var(--accent-dark);
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+.map-view-controls { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; padding: 0 0 12px; margin-bottom: 22px; }
+.map-filter-chip { flex: 0 0 auto; min-height: 44px; padding: 8px 14px; border: 1px solid #dcd5c9; border-radius: 24px; color: #706355; background: transparent; font-size: 12px; cursor: pointer; }
+.map-filter-chip span { font-size: 11px; margin-left: 6px; opacity: 0.7; }
+.map-filter-chip:hover { background: #eee6d9; }
+.map-filter-chip.is-active { color: #fffaf2; background: #684630; border-color: #684630; }
+.map-filter-chip.is-blend-chip { border-style: dashed; }
+.atlas-list-head { scroll-margin-top: 28px; }
+.atlas-page .bean-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.atlas-page .bean-card { box-shadow: none; border-radius: 12px; }
+.atlas-page .bean-card:hover { box-shadow: 0 6px 20px #382c2410; }
+.atlas-page :is(button, select, summary):focus-visible { outline: 2px solid #684630; outline-offset: 4px; }
 
-.coffee-map-reset-btn:hover {
-  background: var(--accent);
-  color: #ffffff;
-}
+.origin-story-card { border-block: 1px solid #ddd2c1; padding: 22px 0; margin-bottom: 24px; }
+.origin-story-header, .origin-story-title-group { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.origin-story-name { font: 600 20px/1.6 var(--serif); }
+.origin-story-en, .origin-story-badge { font-size: 12px; color: #7d6f63; }
+.origin-story-body { padding-top: 10px; font-size: 14px; color: #756b5f; }
+.origin-story-label { margin-right: 8px; }
 
-.coffee-map-subtitle {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 4px;
-}
-
-.coffee-map-subtitle strong {
-  color: var(--accent-dark);
-}
-
-.coffee-map-svg-wrap {
-  width: 100%;
-  border-radius: var(--radius-small);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #f7f3ec;
-}
-
-.coffee-world-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-}
-
-.coffee-pin-group {
-  /* 호버 시 핀 위치 진동(Flicker) 원천 방지를 위해 transform transition 제거 */
-  pointer-events: auto;
-}
-
-.coffee-pin-glow-ring {
-  pointer-events: none !important;
-  filter: drop-shadow(0 0 3px rgba(143, 79, 46, 0.6));
-}
-
-.coffee-pin-label {
-  pointer-events: none !important;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-.coffee-map-tooltip,
-.coffee-map-tooltip * {
-  pointer-events: none !important;
-  user-select: none;
-}
-
-/* 지도 범례 */
-.coffee-map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 14px;
-  margin-top: 10px;
-  font-size: 11.5px;
-  color: var(--muted);
-}
-
-.coffee-map-legend .legend-caption {
-  font-weight: 700;
-  color: var(--ink);
-}
-
-.coffee-map-legend .legend-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.coffee-map-legend .legend-swatch {
-  display: inline-block;
-  width: 16px;
-  height: 12px;
-  border-radius: 3px;
-  border: 1px solid rgba(120, 96, 72, 0.45);
-}
-
-.coffee-map-legend .legend-sale-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #d94f2b;
-  border: 1px solid #ffffff;
-  box-shadow: 0 0 0 1px rgba(120, 96, 72, 0.35);
-}
-
-.coffee-map-legend .legend-note {
-  color: var(--muted);
-  font-style: italic;
-}
-
-.coffee-map-legend .legend-line {
-  display: inline-block;
-  width: 18px;
-  height: 0;
-  border-top: 2px dashed #d2984c;
-}
-
-/* 지도 뷰 컨트롤 바 */
-.map-view-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.map-filter-chip {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.map-filter-chip:hover {
-  border-color: var(--line-strong);
-  color: var(--ink);
-}
-
-.map-filter-chip.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #ffffff;
-}
-
-.map-filter-chip.is-blend-chip {
-  border-style: dashed;
-}
-
-/* 생산국 산지 스토리 카드 */
-.origin-story-card {
-  background: linear-gradient(135deg, #fffcf7 0%, #f7eee1 100%);
-  border: 1px solid #e5d5c2;
-  border-left: 4px solid var(--accent);
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin-top: 4px;
-  margin-bottom: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 4px 14px rgba(78, 52, 33, 0.06);
-  animation: fadeIn 0.25s ease-out;
-}
-
-.origin-story-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.origin-story-title-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.origin-story-flag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: #f0e2d1;
-  border: 1px solid #dfcfbc;
-  border-radius: 12px;
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--accent-dark);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 2px 5px rgba(60, 40, 20, 0.08);
-  flex-shrink: 0;
-}
-
-.origin-story-name {
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.3px;
-}
-
-.origin-story-en {
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--muted);
-  margin-left: 6px;
-}
-
-.origin-story-badge {
-  background-color: var(--accent);
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
-}
-
-.origin-story-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 13.5px;
-  line-height: 1.55;
-  padding-top: 10px;
-  border-top: 1px dashed rgba(184, 158, 131, 0.4);
-}
-
-.origin-story-item {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.origin-story-label {
-  font-weight: 700;
-  color: var(--accent-dark);
-  white-space: nowrap;
-  font-size: 12.5px;
-}
-
-.origin-story-val {
-  color: #42352b;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 대륙별 퀵 줌 프리셋 버튼 그룹 */
-.map-zoom-presets {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: rgba(238, 226, 212, 0.55);
-  padding: 3px;
-  border-radius: 999px;
-  border: 1px solid rgba(212, 195, 174, 0.7);
-}
-
-.map-preset-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: transparent;
-  border: none;
-  border-radius: 999px;
-  padding: 3px 8px;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #614f41;
-  cursor: pointer;
-  transition: all 0.18s ease;
-}
-
-.map-preset-btn:hover {
-  background: rgba(255, 255, 255, 0.75);
-  color: var(--ink);
-}
-
-.map-preset-btn.is-active {
-  background: var(--accent);
-  color: #ffffff;
-  box-shadow: 0 1px 4px rgba(143, 79, 46, 0.25);
-}
-
-.map-preset-icon {
-  font-size: 11.5px;
-  line-height: 1;
-}
-
-/* 지도 우측 하단 플로팅 줌 컨트롤 (+ / - / ⟲) */
-.coffee-map-svg-wrap {
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-}
-
-.map-floating-controls {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  z-index: 5;
-  background: rgba(255, 252, 247, 0.92);
-  backdrop-filter: blur(8px);
-  padding: 4px;
-  border-radius: 10px;
-  border: 1px solid rgba(212, 195, 174, 0.8);
-  box-shadow: 0 4px 12px rgba(60, 40, 20, 0.12);
-}
-
-.map-zoom-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border: 1px solid rgba(220, 205, 188, 0.7);
-  border-radius: 7px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #4a3b30;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  line-height: 1;
-}
-
-.map-zoom-btn:hover:not(:disabled) {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.map-zoom-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.map-zoom-reset {
-  font-size: 13.5px;
-}
-
-.map-zoom-reset.is-active {
-  color: var(--accent);
-  font-weight: 800;
-}
-
-/* 드래그 및 줌 상태 커서 */
-.coffee-world-svg.is-dragging {
-  cursor: grabbing !important;
-}
-
-.coffee-world-svg.is-zoomed {
-  cursor: grab;
+@media (max-width: 1100px) {
+  .atlas-origin-pane { grid-template-columns: minmax(0, 1fr) 120px; gap: 14px 20px; }
+  .atlas-origin-silhouette { width: 120px; height: 100px; }
+  .atlas-origin-actions { grid-column: 1 / -1; flex-direction: row; align-items: center; }
+  .coffee-map-list-btn { width: auto; min-width: 200px; }
+  .coffee-map-reset-btn { padding-inline: 16px; }
+  .atlas-edition { display: none; }
 }
 
 @media (max-width: 640px) {
-  .coffee-map-title-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .map-zoom-presets {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .map-preset-btn {
-    padding: 4px 6px;
-    font-size: 11px;
-    flex: 1;
-    justify-content: center;
-  }
-  /* 좁은 화면에서는 지도가 낮아지므로 줌 컨트롤이 지도를 가리지 않게 축소 */
-  .map-floating-controls {
-    right: 6px;
-    bottom: 6px;
-    padding: 2px;
-    gap: 2px;
-  }
-  .map-zoom-btn {
-    width: 26px;
-    height: 26px;
-    font-size: 14px;
-  }
-  .coffee-map-legend {
-    font-size: 11px;
-    gap: 5px 10px;
-  }
+  .main:has(.atlas-page) { padding: 20px 20px 40px; }
+  .coffee-map-header { padding-top: 0; }
+  .atlas-heading { padding: 6px 0 22px; }
+  .atlas-eyebrow { font-size: 10px; letter-spacing: 2.6px; }
+  .atlas-heading h1 { font-size: clamp(25px, 7.5vw, 36px); letter-spacing: -1.3px; line-height: 1.5; margin: 10px 0 12px; }
+  .atlas-heading p { font-size: 13px; line-height: 1.8; max-width: 29ch; }
+  .atlas-toolbar { flex-direction: column; align-items: stretch; gap: 10px; padding-bottom: 14px; }
+  .map-zoom-presets { gap: 6px; width: 100%; }
+  .map-preset-btn { flex: 1; padding: 0 6px; min-height: 42px; font-size: 12px; }
+  .atlas-country-select { max-width: 100%; min-height: 38px; font-size: 12px; padding: 6px 28px 6px 4px; }
+  .coffee-map-svg-wrap { width: calc(100% + 40px); margin-left: -20px; border-radius: 0; }
+  .map-floating-controls { right: 12px; bottom: 12px; }
+  .atlas-map-caption { padding: 12px 0; font-size: 10px; flex-wrap: wrap; gap: 4px; }
+  .atlas-gesture-hint { display: none; }
+  .atlas-origin-pane { grid-template-columns: minmax(0, 1fr) 86px; gap: 12px; padding: 22px 0; }
+  .atlas-origin-copy h2 { font-size: 27px; margin: 6px 0 10px; }
+  .atlas-origin-copy p { font-size: 13px; line-height: 1.8; }
+  .atlas-origin-regions { font-size: 12px; margin-top: 12px; }
+  .atlas-origin-silhouette { width: 86px; height: 110px; align-self: start; margin-top: 24px; }
+  .atlas-origin-pane:not(:has(.atlas-origin-silhouette)) .atlas-origin-copy { grid-column: 1 / -1; }
+  .atlas-origin-actions { grid-column: 1 / -1; flex-wrap: wrap; }
+  .coffee-map-list-btn { flex: 1; width: 100%; font-size: 14px; }
+  .coffee-map-reset-btn { min-height: 44px; }
+  .map-view-controls { margin-right: -20px; padding-right: 20px; gap: 6px; }
+  .atlas-page .bean-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .atlas-page *, .atlas-page *::before, .atlas-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

@@ -32,7 +32,7 @@ import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, s
 import { getPublishButtonLabel, loadPublishedSnapshot } from './services/publishedSnapshot.js';
 import { loadProductCache, saveProductCache } from './services/productHistory.js';
 import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
-import { extractProductCountries, getCountryInfo } from './services/mapCoordinates.js';
+import { extractProductCountries } from './services/mapCoordinates.js';
 
 const NAV = [
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
@@ -1360,10 +1360,8 @@ function MapPage({
 
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
-  const activeCountryMeta = selectedCountry ? getCountryInfo(selectedCountry) : null;
-
   return (
-    <div className="browse-layout">
+    <div className="browse-layout atlas-page">
       {/* 1. 상단 세계지도 뷰어 */}
       <WorldCoffeeMap
         products={products}
@@ -1372,14 +1370,25 @@ function MapPage({
         discountCountries={discountCountries}
         unmappedCount={unmappedBlendCount}
         onSelectCountry={handleSelectCountry}
-        onShowList={() => listHeadRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+        onShowList={() => {
+          setBlendOnly(false);
+          // 필터 해제로 목록 위치가 바뀐 뒤 이동한다.
+          window.requestAnimationFrame(() => {
+            listHeadRef.current?.scrollIntoView({
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+              block: 'start',
+            });
+            listHeadRef.current?.focus({ preventScroll: true });
+          });
+        }}
       />
 
       {/* 2. 퀵 필터 칩 바 */}
-      <div className="map-view-controls">
+      <div className="map-view-controls" role="group" aria-label="원두 생산국 빠른 선택">
         <button
           type="button"
           className={`map-filter-chip ${!selectedCountry && !blendOnly ? 'is-active' : ''}`}
+          aria-pressed={!selectedCountry && !blendOnly}
           onClick={() => {
             setSelectedCountry(null);
             setBlendOnly(false);
@@ -1387,19 +1396,19 @@ function MapPage({
             setFocusedProductId(null);
           }}
         >
-          🌐 전체 ({products.length})
+          전체 <span>{products.length}</span>
         </button>
 
         {countryTopList.map(({ country, count }) => {
-          const meta = getCountryInfo(country);
           return (
             <button
               key={country}
               type="button"
               className={`map-filter-chip ${selectedCountry === country ? 'is-active' : ''}`}
+              aria-pressed={selectedCountry === country}
               onClick={() => handleSelectCountry(selectedCountry === country ? null : country)}
             >
-              {meta?.flag ? `${meta.flag} ` : ''}{country} ({count})
+              {country} <span>{count}</span>
             </button>
           );
         })}
@@ -1407,39 +1416,12 @@ function MapPage({
         <button
           type="button"
           className={`map-filter-chip is-blend-chip ${blendOnly ? 'is-active' : ''}`}
+          aria-pressed={blendOnly}
           onClick={handleToggleBlendOnly}
         >
-          ☕ 생산국 미표기 블렌드 ({unmappedBlendCount})
+          생산국 미표기 <span>{unmappedBlendCount}</span>
         </button>
       </div>
-
-      {/* 2-1. 선택된 생산국/블렌드 스토리 카드 */}
-      {activeCountryMeta && (
-        <div className="origin-story-card">
-          <div className="origin-story-header">
-            <div className="origin-story-title-group">
-              <span className="origin-story-flag">{activeCountryMeta.flag}</span>
-              <div>
-                <span className="origin-story-name">{activeCountryMeta.label}</span>
-                <span className="origin-story-en">({activeCountryMeta.enName})</span>
-              </div>
-            </div>
-            <span className="origin-story-badge">
-              원두 {filteredProducts.length}종 판매 중
-            </span>
-          </div>
-          <div className="origin-story-body">
-            <div className="origin-story-item">
-              <span className="origin-story-label">📍 주요 산지</span>
-              <span className="origin-story-val">{activeCountryMeta.famousRegions}</span>
-            </div>
-            <div className="origin-story-item">
-              <span className="origin-story-label">☕ 풍미 특징</span>
-              <span className="origin-story-val">{activeCountryMeta.flavorNote}</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       {blendOnly && (
         <div className="origin-story-card">
@@ -1467,7 +1449,7 @@ function MapPage({
       )}
 
       {/* 3. 섹션 타이틀 */}
-      <div className="section-head" ref={listHeadRef} style={{ marginBottom: '16px' }}>
+      <div className="section-head atlas-list-head" ref={listHeadRef} tabIndex={-1} style={{ marginBottom: '16px' }}>
         <div>
           <span className="section-eyebrow">원두 목록</span>
           <h2 className="section-title" style={{ fontSize: '18px' }}>
@@ -1481,7 +1463,7 @@ function MapPage({
       </div>
 
       {/* 4. 원두 카드 그리드 피드 */}
-      <div className="product-grid">
+      <div className="bean-grid atlas-product-grid">
         {visibleProducts.map((product) => {
           const isFocused = focusedProductId === product.id;
           return (

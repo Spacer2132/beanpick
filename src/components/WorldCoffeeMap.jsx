@@ -7,8 +7,7 @@ import {
 import { COFFEE_COUNTRY_PATHS, OTHER_COUNTRY_PATHS } from './worldCountryPaths.js';
 import { COFFEE_REGION_POINTS } from '../services/coffeeRegions.js';
 
-// 모든 화면이 같은 가로세로 비율을 쓴다. 프리셋마다 비율이 다르면 지도 박스 높이가 튀어
-// 아래 콘텐츠가 밀리므로, viewBox는 x·y·w만 저장하고 h는 항상 w / MAP_RATIO로 계산한다.
+// 화면 폭에 맞춘 비율은 대륙을 전환해도 유지한다.
 const DEFAULT_VIEW = { x: 182, y: 70, w: 760 };
 const MAP_RATIO = 760 / 345;
 const MIN_W = 90;
@@ -17,47 +16,47 @@ const MAX_W = DEFAULT_VIEW.w;
 // 기본 화면은 커피 생산국 23개가 모두 들어가는 영역(x 225~900, y 189~295)에 여백을 준 값.
 // 북극·남극 빈 바다를 잘라내 같은 화면 폭에서 지도가 더 크게 보인다.
 const ZOOM_PRESETS = [
-  { id: 'all', label: '전 세계', icon: '🌐', view: DEFAULT_VIEW },
-  { id: 'latin', label: '중남미', icon: '🌎', view: { x: 125, y: 171, w: 330 } },
-  { id: 'africa', label: '아프리카', icon: '🌍', view: { x: 486, y: 182, w: 245 } },
-  { id: 'asia', label: '아시아', icon: '🌏', view: { x: 663, y: 164, w: 285 } },
+  { id: 'all', label: '전 세계', view: DEFAULT_VIEW },
+  { id: 'latin', label: '중남미', view: { x: 125, y: 171, w: 330 } },
+  { id: 'africa', label: '아프리카', view: { x: 486, y: 182, w: 245 } },
+  { id: 'asia', label: '아시아', view: { x: 663, y: 164, w: 285 } },
 ];
 
 // 원두 보유 수량 구간. fill은 나라 영역 색, r은 개수 뱃지 반지름(화면 픽셀).
 const COUNT_TIERS = [
-  { min: 20, r: 9.5, fill: '#ad6c30', label: '20개 이상' },
-  { min: 5, r: 8.5, fill: '#cf9a58', label: '5~19개' },
-  { min: 1, r: 7.5, fill: '#e3c194', label: '1~4개' },
+  { min: 20, r: 12, fill: '#af805b', label: '20개 이상' },
+  { min: 5, r: 11, fill: '#c8a17c', label: '5~19개' },
+  { min: 1, r: 10, fill: '#dfc7a6', label: '1~4개' },
   { min: 0, r: 0, fill: null, label: '없음' },
 ];
 
-const OTHER_LAND_FILL = '#f2e7d6';
-const LAND_STROKE = '#cdb794';
-const PIN_FILL = '#3f2413';
-const ACTIVE_FILL = '#8f4f2e';
+const OTHER_LAND_FILL = '#f3ecdd';
+const LAND_STROKE = '#b5b1a0';
+const PIN_FILL = '#573f30';
+const ACTIVE_FILL = '#a96543';
 
 function getCountTier(count) {
   return COUNT_TIERS.find((t) => count >= t.min) || COUNT_TIERS[COUNT_TIERS.length - 1];
 }
 
-function clampView({ x, y, w }) {
+function clampView({ x, y, w }, ratio = MAP_RATIO) {
   const cw = Math.min(MAX_W, Math.max(MIN_W, w));
-  const ch = cw / MAP_RATIO;
+  const ch = cw / ratio;
   return {
     w: cw,
     x: Math.max(0, Math.min(1000 - cw, x)),
-    y: Math.max(0, Math.min(500 - ch, y)),
+    y: ch > 500 ? (500 - ch) / 2 : Math.max(0, Math.min(500 - ch, y)),
   };
 }
 
 // px/py는 확대 기준점의 화면 내 상대 위치(0~1). 커서·두 손가락 중심을 고정한 채 확대한다.
-function zoomAt(prev, factor, px, py) {
+function zoomAt(prev, factor, px, py, ratio = MAP_RATIO) {
   const w = Math.min(MAX_W, Math.max(MIN_W, prev.w * factor));
   return clampView({
     w,
     x: prev.x + (prev.w - w) * px,
-    y: prev.y + (prev.w - w) / MAP_RATIO * py,
-  });
+    y: prev.y + (prev.w - w) / ratio * py,
+  }, ratio);
 }
 
 function touchDistance(touches) {
@@ -95,7 +94,10 @@ export default function WorldCoffeeMap({
     hasMoved: false,
   });
 
-  const vbH = viewBox.w / MAP_RATIO;
+  const isCompact = renderedWidth > 0 && renderedWidth < 640;
+  const mapRatio = isCompact ? 1.18 : MAP_RATIO;
+  const previousRatioRef = useRef(MAP_RATIO);
+  const vbH = viewBox.w / mapRatio;
   // 화면 1픽셀이 viewBox 몇 단위인지. 핀·글자에 이 값을 곱하면 확대 배율·화면 크기와
   // 무관하게 항상 같은 픽셀 크기로 보인다. (폰에서 핀이 3px로 뭉개지던 문제 해결)
   const pxScale = viewBox.w / (renderedWidth || 900);
@@ -120,6 +122,16 @@ export default function WorldCoffeeMap({
     return () => ro.disconnect();
   }, []);
 
+  useLayoutEffect(() => {
+    const oldRatio = previousRatioRef.current;
+    setViewBox((prev) => clampView({
+      ...prev, y: prev.y + prev.w / oldRatio / 2 - prev.w / mapRatio / 2,
+    }, mapRatio));
+    previousRatioRef.current = mapRatio;
+  }, [mapRatio]);
+
+  useEffect(() => () => clearTimeout(hoverLeaveTimerRef.current), []);
+
   // 휠 줌. React의 onWheel은 passive라 preventDefault가 먹지 않아 직접 등록한다.
   useEffect(() => {
     const el = svgRef.current;
@@ -131,11 +143,11 @@ export default function WorldCoffeeMap({
       const px = (e.clientX - rect.left) / rect.width;
       const py = (e.clientY - rect.top) / rect.height;
       setActivePreset(null);
-      setViewBox((prev) => zoomAt(prev, e.deltaY < 0 ? 1 / 1.18 : 1.18, px, py));
+      setViewBox((prev) => zoomAt(prev, e.deltaY < 0 ? 1 / 1.18 : 1.18, px, py, mapRatio));
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
-  }, []);
+  }, [mapRatio]);
 
   const handlePinMouseEnter = (countryLabel) => {
     if (hoverLeaveTimerRef.current) {
@@ -224,15 +236,32 @@ export default function WorldCoffeeMap({
       const padY = Math.max(4, (maxY - minY) * 0.2);
       const boxW = (maxX - minX) + padX * 2;
       const boxH = (maxY - minY) + padY * 2;
-      const w = Math.min(MAX_W, Math.max(MIN_W, boxW, boxH * MAP_RATIO));
+      const w = Math.min(MAX_W, Math.max(MIN_W, boxW, boxH * mapRatio));
       out[code] = clampView({
         w,
         x: (minX + maxX) / 2 - w / 2,
-        y: (minY + maxY) / 2 - (w / MAP_RATIO) / 2,
-      });
+        y: (minY + maxY) / 2 - (w / mapRatio) / 2,
+      }, mapRatio);
     }
     return out;
-  }, []);
+  }, [mapRatio]);
+
+  // 지도 밖의 국가 선택도 같은 확대 흐름으로 연결한다.
+  useEffect(() => {
+    const info = COFFEE_COUNTRIES.find((c) => c.label === selectedCountry);
+    if (info && countryViews[info.code]) {
+      setViewBox((prev) => {
+        if (!prevViewRef.current) prevViewRef.current = prev;
+        return countryViews[info.code];
+      });
+      setActivePreset(null);
+    } else if (prevViewRef.current) {
+      setViewBox(clampView(prevViewRef.current, mapRatio));
+      prevViewRef.current = null;
+      setActivePreset(null);
+    }
+    setHoveredCountry(null);
+  }, [selectedCountry, countryViews, mapRatio]);
 
   // 커피와 무관한 154개국은 상태와 무관하게 늘 같으므로 한 번만 만들어 재사용한다.
   const otherLandLayer = useMemo(() => (
@@ -291,16 +320,15 @@ export default function WorldCoffeeMap({
     });
   }, [shownRegions, pxScale, viewBox, vbH, pinLayout, selectedCountry]);
   // 폰처럼 좁은 화면에서는 라벨 칩·영문 안내가 서로 겹쳐 읽을 수 없으므로 줄인다.
-  const isCompact = renderedWidth > 0 && renderedWidth < 560;
 
   const handleZoomIn = () => {
     setActivePreset(null);
-    setViewBox((prev) => zoomAt(prev, 0.72, 0.5, 0.5));
+    setViewBox((prev) => zoomAt(prev, 0.72, 0.5, 0.5, mapRatio));
   };
 
   const handleZoomOut = () => {
     setViewBox((prev) => {
-      const next = zoomAt(prev, 1.38, 0.5, 0.5);
+      const next = zoomAt(prev, 1.38, 0.5, 0.5, mapRatio);
       if (next.w >= MAX_W - 20) setActivePreset('all');
       else setActivePreset(null);
       return next;
@@ -308,13 +336,19 @@ export default function WorldCoffeeMap({
   };
 
   const handleResetZoom = () => {
+    prevViewRef.current = null;
+    onSelectCountry?.(null);
     setActivePreset('all');
-    setViewBox(DEFAULT_VIEW);
+    setViewBox(clampView({ ...DEFAULT_VIEW, y: 250 - MAX_W / mapRatio / 2 }, mapRatio));
   };
 
   const handlePresetClick = (preset) => {
+    prevViewRef.current = null;
+    onSelectCountry?.(null);
     setActivePreset(preset.id);
-    setViewBox(preset.view);
+    setViewBox(clampView({ ...preset.view,
+      y: preset.view.y + preset.view.w / MAP_RATIO / 2 - preset.view.w / mapRatio / 2,
+    }, mapRatio));
   };
 
   // 마우스 드래그 (Pan)
@@ -344,7 +378,7 @@ export default function WorldCoffeeMap({
 
     const nextX = dragRef.current.startVbX - dx * scaleX;
     const nextY = dragRef.current.startVbY - dy * scaleY;
-    setViewBox((prev) => clampView({ ...prev, x: nextX, y: nextY }));
+    setViewBox((prev) => clampView({ ...prev, x: nextX, y: nextY }, mapRatio));
   };
 
   const handleMouseUp = () => {
@@ -392,7 +426,7 @@ export default function WorldCoffeeMap({
       const py = (pinchRef.current.cy - rect.top) / rect.height;
       // 손가락 간격이 벌어지면 확대. 시작 상태 기준으로 계산해 누적 오차를 없앤다.
       setActivePreset(null);
-      setViewBox(zoomAt(pinchRef.current.startView, pinchRef.current.dist / dist, px, py));
+      setViewBox(zoomAt(pinchRef.current.startView, pinchRef.current.dist / dist, px, py, mapRatio));
       return;
     }
 
@@ -409,7 +443,7 @@ export default function WorldCoffeeMap({
 
     const nextX = dragRef.current.startVbX - dx * scaleX;
     const nextY = dragRef.current.startVbY - dy * scaleY;
-    setViewBox((prev) => clampView({ ...prev, x: nextX, y: nextY }));
+    setViewBox((prev) => clampView({ ...prev, x: nextX, y: nextY }, mapRatio));
   };
 
   const handleTouchEnd = (e) => {
@@ -423,33 +457,21 @@ export default function WorldCoffeeMap({
   const handlePinClick = (countryLabel) => {
     if (dragRef.current.hasMoved) return;
     const next = selectedCountry === countryLabel ? null : countryLabel;
-    if (next) {
-      const info = COFFEE_COUNTRIES.find((c) => c.label === next);
-      const view = info && countryViews[info.code];
-      if (view) {
-        // 다시 눌러 해제했을 때 되돌아갈 화면을 기억해 둔다.
-        if (!prevViewRef.current) prevViewRef.current = viewBox;
-        setActivePreset(null);
-        setViewBox(view);
-      }
-    } else if (prevViewRef.current) {
-      setViewBox(prevViewRef.current);
-      prevViewRef.current = null;
-      setActivePreset(null);
-    }
     onSelectCountry?.(next);
   };
 
   return (
-    <div className="coffee-map-container" style={{ touchAction: 'pan-y' }}>
+    <section className="coffee-map-container" aria-labelledby="atlas-title">
       <div className="coffee-map-header">
-        <div className="coffee-map-title-row">
-          <div className="coffee-map-title">
-            <span className="coffee-belt-indicator" />
-            <span>Coffee Belt 정밀 세계지도</span>
+        <div className="atlas-heading">
+          <div>
+            <span className="atlas-eyebrow">THE COFFEE ATLAS</span>
+            <h1 id="atlas-title">한 잔의 시작, <span>산지에서.</span></h1>
+            <p>지도를 따라, 나의 취향에 가까운 커피를 만나보세요.</p>
           </div>
-
-          {/* 대륙별 퀵 줌 프리셋 버튼 */}
+          <div className="atlas-edition"><strong>{countryCounts.size}</strong><span>개의 생산국<br />서로 다른 커피 이야기</span></div>
+        </div>
+        <div className="atlas-toolbar">
           <div className="map-zoom-presets" role="group" aria-label="대륙 확대">
             {ZOOM_PRESETS.map((p) => (
               <button
@@ -457,46 +479,20 @@ export default function WorldCoffeeMap({
                 type="button"
                 className={`map-preset-btn ${activePreset === p.id ? 'is-active' : ''}`}
                 onClick={() => handlePresetClick(p)}
+                aria-pressed={activePreset === p.id}
                 title={`${p.label} 영역 확대`}
               >
-                <span className="map-preset-icon">{p.icon}</span>
                 <span className="map-preset-label">{p.label}</span>
               </button>
             ))}
           </div>
-
-          {selectedCountry && (
-            <div className="coffee-map-header-actions">
-              {onShowList && (
-                <button type="button" className="coffee-map-list-btn" onClick={onShowList}>
-                  원두 목록 보기 ↓
-                </button>
-              )}
-              <button
-                type="button"
-                className="coffee-map-reset-btn"
-                onClick={() => handlePinClick(selectedCountry)}
-              >
-                전체 보기 취소 ✕
-              </button>
-            </div>
-          )}
-        </div>
-        <div className="coffee-map-subtitle">
-          {selectedCountry ? (
-            <span>
-              선택된 생산국: <strong>{selectedCountry}</strong> ({activeCount}개 원두)
-              {shownRegions.length > 0 && <> · 주요 산지 {shownRegions.length}곳 표시 중</>}
-            </span>
-          ) : highlightedCountries.length > 0 ? (
-            <span>
-              원두 생산지: <strong>{highlightedCountries.join(', ')}</strong>
-            </span>
-          ) : (
-            <span>
-              대륙 버튼, <strong>마우스 휠</strong>, 모바일 <strong>두 손가락</strong>으로 확대하고 끌어서 이동할 수 있습니다.
-            </span>
-          )}
+          <select className="atlas-country-select" aria-label="생산국 선택"
+            value={selectedCountry || ''} onChange={(e) => onSelectCountry?.(e.target.value || null)}>
+            <option value="">생산국 찾아보기</option>
+            {COFFEE_COUNTRIES.filter((c) => countryCounts.has(c.label)).map((c) => (
+              <option key={c.code} value={c.label}>{c.label} · {countryCounts.get(c.label)}종</option>
+            ))}
+          </select>
         </div>
       </div>
 
@@ -505,6 +501,8 @@ export default function WorldCoffeeMap({
           ref={svgRef}
           viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.w} ${vbH}`}
           className={`coffee-world-svg ${isDragging ? 'is-dragging' : ''} ${isZoomed ? 'is-zoomed' : ''}`}
+          role="group"
+          aria-label="세계 커피 산지 지도"
           preserveAspectRatio="xMidYMid meet"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -513,22 +511,23 @@ export default function WorldCoffeeMap({
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
           style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
         >
           <defs>
             {/* 바다 그라데이션 (육지와 명암 대비를 확보하기 위한 슬레이트 블루) */}
             <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#628aa2" />
-              <stop offset="50%" stopColor="#57809a" />
-              <stop offset="100%" stopColor="#4e7489" />
+              <stop offset="0%" stopColor="#b8ccca" />
+              <stop offset="50%" stopColor="#b8ccca" />
+              <stop offset="100%" stopColor="#b8ccca" />
             </linearGradient>
 
             {/* 커피 벨트 앰버 골드 그라데이션 */}
             <linearGradient id="coffeeBeltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#f0c07a" stopOpacity="0.05" />
-              <stop offset="30%" stopColor="#e8a94f" stopOpacity="0.18" />
-              <stop offset="50%" stopColor="#e09b34" stopOpacity="0.24" />
-              <stop offset="70%" stopColor="#e8a94f" stopOpacity="0.18" />
+              <stop offset="30%" stopColor="#f3ecdd" stopOpacity="0.04" />
+              <stop offset="50%" stopColor="#f3ecdd" stopOpacity="0.06" />
+              <stop offset="70%" stopColor="#f3ecdd" stopOpacity="0.04" />
               <stop offset="100%" stopColor="#f0c07a" stopOpacity="0.05" />
             </linearGradient>
 
@@ -546,10 +545,10 @@ export default function WorldCoffeeMap({
           {/* 배경 레이어 (바다, 그리디큘, 커피벨트, 해안선 - 이벤트 가로채기 원천 방지) */}
           <g style={{ pointerEvents: 'none' }}>
             {/* 1. 바다 배경 */}
-            <rect width="1000" height="500" fill="url(#oceanGrad)" />
+            <rect x="-1000" y="-1000" width="3000" height="2500" fill="url(#oceanGrad)" />
 
             {/* 2. 위도/경도 가이드 격자선 */}
-            <g className="map-grid" opacity="0.28">
+            <g className="map-grid" opacity="0.14">
               {[125, 250, 375, 500, 625, 750, 875].map((x) => (
                 <line
                   key={`lng-${x}`}
@@ -590,7 +589,7 @@ export default function WorldCoffeeMap({
               y1={COFFEE_BELT_BOUNDS.topY}
               x2="1000"
               y2={COFFEE_BELT_BOUNDS.topY}
-              stroke="#e6b877"
+              stroke="#7d9390"
               strokeDasharray={`${4 * pxScale} ${4 * pxScale}`}
               strokeWidth={1.2 * pxScale}
             />
@@ -600,7 +599,7 @@ export default function WorldCoffeeMap({
               y1={COFFEE_BELT_BOUNDS.bottomY}
               x2="1000"
               y2={COFFEE_BELT_BOUNDS.bottomY}
-              stroke="#e6b877"
+              stroke="#7d9390"
               strokeDasharray={`${4 * pxScale} ${4 * pxScale}`}
               strokeWidth={1.2 * pxScale}
             />
@@ -610,7 +609,7 @@ export default function WorldCoffeeMap({
               y1="250"
               x2="1000"
               y2="250"
-              stroke="#f0d3a6"
+              stroke="#7d9390"
               strokeDasharray={`${6 * pxScale} ${6 * pxScale}`}
               strokeWidth={0.8 * pxScale}
               opacity="0.6"
@@ -620,31 +619,33 @@ export default function WorldCoffeeMap({
             <text
               x={viewBox.x + 10 * pxScale}
               y={COFFEE_BELT_BOUNDS.topY - 6 * pxScale}
-              fill="#f2e2c8"
+              className="atlas-tropic-label"
+              fill="#4a6663"
               fontSize={9 * pxScale}
               fontWeight="700"
               letterSpacing={pxScale}
               opacity="0.85"
             >
-              {isCompact ? '북회귀선 23.5°N' : 'TROPIC OF CANCER (북회귀선 23.5°N)'}
+              {!isCompact && !isZoomed ? '23.5° N' : ''}
             </text>
             <text
               x={viewBox.x + 10 * pxScale}
               y={COFFEE_BELT_BOUNDS.bottomY + 14 * pxScale}
-              fill="#f2e2c8"
+              className="atlas-tropic-label"
+              fill="#4a6663"
               fontSize={9 * pxScale}
               fontWeight="700"
               letterSpacing={pxScale}
               opacity="0.85"
             >
-              {isCompact ? '남회귀선 23.5°S' : 'TROPIC OF CAPRICORN (남회귀선 23.5°S)'}
+              {!isCompact && !isZoomed ? '23.5° S' : ''}
             </text>
             {!isCompact && (
               <text
                 x={viewBox.x + viewBox.w - 14 * pxScale}
                 y={250 + 4 * pxScale}
                 textAnchor="end"
-                fill="#f7e3c2"
+                fill="#4a6663"
                 fontSize={11 * pxScale}
                 fontWeight="800"
                 letterSpacing={3 * pxScale}
@@ -676,8 +677,20 @@ export default function WorldCoffeeMap({
                   stroke={isActive ? '#5d351e' : LAND_STROKE}
                   strokeWidth={isActive ? 1.4 : 0.6}
                   vectorEffect="non-scaling-stroke"
+                  role={count > 0 ? 'button' : undefined}
+                  tabIndex={count > 0 ? 0 : undefined}
+                  aria-label={count > 0 ? `${country.label} 원두 ${count}종 보기` : undefined}
+                  aria-pressed={count > 0 ? selectedCountry === country.label : undefined}
                   style={{ cursor: count > 0 ? 'pointer' : 'default', transition: 'fill 0.15s ease' }}
-                  onClick={() => handlePinClick(country.label)}
+                  onClick={() => count > 0 && handlePinClick(country.label)}
+                  onKeyDown={(e) => {
+                    if (count > 0 && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      onSelectCountry?.(selectedCountry === country.label ? null : country.label);
+                    }
+                  }}
+                  onFocus={() => handlePinMouseEnter(country.label)}
+                  onBlur={() => handlePinMouseLeave(country.label)}
                   onMouseEnter={() => handlePinMouseEnter(country.label)}
                   onMouseLeave={() => handlePinMouseLeave(country.label)}
                 />
@@ -721,6 +734,7 @@ export default function WorldCoffeeMap({
               const isHovered = hoveredCountry === country.label;
 
               const isActive = isSelected || isHighlighted || isHovered;
+              const showCount = isZoomed || !isCompact || isActive;
               // 겹침을 피해 밀려난 핀은 실제 나라 위치와 가는 선으로 이어 둔다.
               const shifted = Math.hypot(x - country.x, y - country.y) > 1.5 * pxScale;
 
@@ -769,7 +783,7 @@ export default function WorldCoffeeMap({
 
                   {/* 외부 원 뱃지 (크기 진동 방지를 위해 r 고정, 색상만 전환) */}
                   <circle
-                    r={tier.r}
+                    r={showCount ? tier.r : 5}
                     fill={isActive ? '#231b16' : PIN_FILL}
                     stroke="#ffffff"
                     strokeWidth={isActive ? 2.2 : 1.5}
@@ -781,7 +795,7 @@ export default function WorldCoffeeMap({
                   />
 
                   {/* 할인 중인 원두가 있는 나라 표시 */}
-                  {discountCountries.includes(country.label) && (
+                  {showCount && discountCountries.includes(country.label) && (
                     <circle
                       cx={tier.r * 0.78}
                       cy={-tier.r * 0.78}
@@ -794,20 +808,20 @@ export default function WorldCoffeeMap({
                   )}
 
                   {/* 원두 개수 */}
-                  <text
+                  {showCount && <text
                     textAnchor="middle"
-                    dy="2.9"
+                    dy="3.7"
                     fill="#ffffff"
-                    fontSize={count >= 10 ? 7.6 : 8.2}
+                    fontSize="11"
                     fontWeight="800"
                     style={{ pointerEvents: 'none' }}
                   >
                     {count}
-                  </text>
+                  </text>}
 
                   {/* 국가 라벨 칩 (시각 전용, pointer-events none) */}
                   {!(isCompact && shownRegions.length > 0)
-                    && (isActive || (!isZoomed && !isCompact && count >= 10)) && (
+                    && isActive && (
                     <g transform={`translate(0, ${tier.r + 12})`} style={{ pointerEvents: 'none' }}>
                       <rect
                         x={-(country.label.length * 6 + String(count).length * 4 + 14)}
@@ -852,7 +866,7 @@ export default function WorldCoffeeMap({
 
           {/* 6. 호버 / 선택 툴팁 팝업 (국기, 원두 수, 대표 산지)
               산지를 표시 중일 때는 툴팁이 지도를 가리므로 마우스를 올렸을 때만 띄운다. */}
-          {activeCountryInfo && (hoveredCountry || shownRegions.length === 0) && (() => {
+          {!isCompact && activeCountryInfo && hoveredCountry && shownRegions.length === 0 && (() => {
             const laid = pinLayout.find((p) => p.country.label === activeCountryInfo.label);
             const ax = laid ? laid.x : activeCountryInfo.x;
             const ay = laid ? laid.y : activeCountryInfo.y;
@@ -941,8 +955,37 @@ export default function WorldCoffeeMap({
         </div>
       </div>
 
-      {/* 8. 범례 */}
-      <div className="coffee-map-legend">
+      <div className="atlas-map-caption">
+        <span aria-live="polite">{activeCountryInfo
+          ? `${activeCountryInfo.label} · 원두 ${activeCount}종${shownRegions.length ? ` · 주요 산지 ${shownRegions.length}곳` : ''}`
+          : countryCounts.size ? '나라를 선택해 커피 이야기를 펼쳐보세요' : '표시할 생산국 정보가 없습니다'}</span>
+        <span className="atlas-gesture-hint">{isCompact ? '두 손가락으로 확대' : '휠로 확대 · 드래그로 이동'}</span>
+      </div>
+
+      <div className="atlas-origin-pane">
+        <div className="atlas-origin-copy" aria-live="polite">
+          <span className="atlas-eyebrow">{selectedInfo ? selectedInfo.enName : 'A WORLD OF COFFEE'}</span>
+          <h2>{selectedInfo ? selectedInfo.label : '어디에서 온 커피를 좋아하세요?'}</h2>
+          <p>{selectedInfo ? selectedInfo.flavorNote : '산지마다 다른 향과 맛. 익숙한 한 잔에서 새로운 취향까지.'}</p>
+          <div className="atlas-origin-regions">{selectedInfo ? selectedInfo.famousRegions : `${countryCounts.size}개 생산국 · ${products.length}종의 원두`}</div>
+        </div>
+        {selectedInfo && countryViews[selectedInfo.code] && (
+          <svg className="atlas-origin-silhouette" aria-hidden="true"
+            viewBox={`${countryViews[selectedInfo.code].x} ${countryViews[selectedInfo.code].y} ${countryViews[selectedInfo.code].w} ${countryViews[selectedInfo.code].w / mapRatio}`}>
+            <path d={COFFEE_COUNTRY_PATHS[selectedInfo.code]} fill={ACTIVE_FILL} />
+          </svg>
+        )}
+        <div className="atlas-origin-actions">
+          {onShowList && <button type="button" className="coffee-map-list-btn" onClick={onShowList}>
+            {selectedInfo ? `원두 ${countryCounts.get(selectedCountry) || 0}종 보기` : `전체 원두 ${products.length}종 보기`}
+          </button>}
+          {selectedInfo && <button type="button" className="coffee-map-reset-btn" onClick={handleResetZoom}>선택 해제</button>}
+        </div>
+      </div>
+
+      <details className="atlas-map-guide">
+        <summary>지도 읽는 법 <span>색상과 데이터 안내</span></summary>
+        <div className="coffee-map-legend">
         <span className="legend-caption">나라 색 = 원두 수</span>
         {COUNT_TIERS.slice().reverse().map((t) => (
           <span key={t.label} className="legend-item">
@@ -966,7 +1009,11 @@ export default function WorldCoffeeMap({
             생산국 미표기 {unmappedCount}개는 지도에 표시되지 않습니다
           </span>
         )}
-      </div>
-    </div>
+        </div>
+        <p>지도 색은 등록 원두 수를 나타냅니다. 여러 생산국이 있는 원두는 각 나라에 함께 집계됩니다.</p>
+        <p>주요 산지는 대표 지역 안내이며 개별 원두의 정확한 농장 위치를 뜻하지 않습니다.</p>
+        <p className="atlas-map-credit">지도: Natural Earth · 산지 좌표: © OpenStreetMap contributors (ODbL)</p>
+      </details>
+    </section>
   );
 }
