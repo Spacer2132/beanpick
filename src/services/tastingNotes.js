@@ -183,7 +183,7 @@ const NOTE_RULES = [
   { label: '달고나', group: 'sweet', aliases: ['dalgona', '달고나'] },
   { label: '당밀', group: 'sweet', aliases: ['molasses', '당밀'] },
   { label: '둘세데레체', group: 'sweet', aliases: ['dulce de leche', 'dulcedeleche', '둘세데레체'] },
-  { label: '브라운슈가', group: 'sweet', aliases: ['brown sugar', 'brownsugar', '브라운슈가', '브라운 슈가'] },
+  { label: '브라운슈가', group: 'sweet', aliases: ['brown sugar', 'brownsugar', '브라운슈가', '브라운 슈가', '갈색설탕'] },
   { label: '꿀', group: 'sweet', aliases: ['honey', '꿀'] },
   { label: '바닐라', group: 'sweet', aliases: ['vanilla', '바닐라'] },
   { label: '버터스카치', group: 'sweet', aliases: ['butterscotch', '버터스카치'] },

@@ -31,6 +31,7 @@ export type BeanProduct = {
   priceOptions?: PriceOption[];
   // 상세 페이지에서 전체 용량 옵션을 확인했다는 표시(부분 수집 결과와 구분)
   priceOptionsComplete?: boolean;
+  priceOptionsStatus?: 'complete' | 'partial' | 'failed';
   score: number;
   tastingNotes: string[];
   productUrl: string;

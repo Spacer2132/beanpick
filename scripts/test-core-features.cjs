@@ -133,6 +133,7 @@ const grouped = core.groupProductsByNameAndWeight([
 expect(grouped.length === 1, '같은 원두명은 용량별로 한 카드에 묶여야 합니다', String(grouped.length));
 expect(grouped[0]?.productName === '데일리 블렌드', '묶인 카드명에서는 용량 문구가 제거되어야 합니다', grouped[0]?.productName);
 expect(grouped[0]?.priceOptions.length === 3, '묶인 카드에는 용량별 가격 옵션이 모두 남아야 합니다', String(grouped[0]?.priceOptions.length));
+expect(grouped[0]?.priceOptionsComplete === true && grouped[0]?.priceOptionsStatus === 'complete', '독립 상품 3개의 링크를 모두 묶으면 전체 옵션 확인 상태여야 합니다', JSON.stringify(grouped[0]));
 expect(
   grouped[0]?.priceOptions.some((option) => option.price === grouped[0]?.price && option.weight === grouped[0]?.weight),
   '상품 상단 가격과 용량은 서로 다른 옵션에서 섞이면 안 됩니다',

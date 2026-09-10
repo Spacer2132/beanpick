@@ -33,6 +33,7 @@ const SMARTSTORE_DETAIL_CACHE_DIR = getSmartStoreDetailCacheDir();
 const SMARTSTORE_DETAIL_CACHE_VERSION = 5;
 const SMARTSTORE_DETAIL_FAILURE_TTL_MS = 24 * 60 * 60 * 1000;
 const SMARTSTORE_DETAIL_OPTION_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const SMARTSTORE_DETAIL_OPTION_RETRY_DELAY_MS = 6 * 60 * 60 * 1000;
 const SMARTSTORE_DETAIL_OPTION_PARSER_VERSION = 1;
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
@@ -335,7 +336,9 @@ function cleanShoppingTitle(rawTitle, roasterName = '') {
   next = next.replace(/★[^★]*★/g, ' ');
   // 2) 선두의 형용사 수식 제거: 최소 2음절, 형용사 어미("한/운/고/진/소") + 공백
   //    예: "달콤하고 부드러운". "달고나"는 뒤에 "나"가 붙어 lookahead로 차단됨.
-  next = next.replace(/^(?:[가-힣]+(?:한|운|고|진|소)(?=\s)\s*){1,4}/, '');
+  if (!(roasterName === '필아웃커피' && /^필브라운(?=\s|$)/.test(next))) {
+    next = next.replace(/^(?:[가-힣]+(?:한|운|고|진|소)(?=\s)\s*){1,4}/, '');
+  }
   // 3) 용량/개수 표기 제거
   next = next.replace(/[,，]?\s*\d+(?:\.\d+)?\s*(kg|g)\b/gi, ' ');
   next = next.replace(/[,，]?\s*\d+\s*개(?![가-힣A-Za-z])/g, ' ');
@@ -527,6 +530,19 @@ function buildSmartStorePriceOptionsFromDetail(detailJson, product = {}) {
   return [...optionMap.values()].sort((a, b) => a.weight - b.weight || a.price - b.price);
 }
 
+function getSmartStorePriceOptionsStatus(detailJson = {}, priceOptions = []) {
+  if (!Array.isArray(priceOptions) || priceOptions.length === 0) return 'failed';
+
+  const expectedOptionCount = Number(detailJson.expectedOptionCount || 0);
+  const allLinksConfirmed = priceOptions.every((option) => /smartstore\.naver\.com\/[^/?#]+\/products\/\d+/i.test(option.productUrl || ''));
+  return detailJson.optionCollectionComplete === true
+    && expectedOptionCount > 0
+    && priceOptions.length === expectedOptionCount
+    && allLinksConfirmed
+    ? 'complete'
+    : 'partial';
+}
+
 function smartStoreDetailCachePath(productNo, product = {}) {
   const fingerprint = crypto.createHash('sha1').update(JSON.stringify({
     version: SMARTSTORE_DETAIL_CACHE_VERSION,
@@ -570,7 +586,8 @@ function isSmartStoreDetailCacheUsable(cache, product = {}, now = Date.now()) {
     return Number.isFinite(cachedAt) && age >= 0 && age < SMARTSTORE_DETAIL_FAILURE_TTL_MS;
   }
   const cachedAt = Date.parse(cache.cachedAt || '');
-  const age = now - cachedAt;
+  const priceOptionsCheckedAt = Date.parse(cache.priceOptionsCheckedAt || cache.cachedAt || '');
+  const age = now - (Number.isFinite(priceOptionsCheckedAt) ? priceOptionsCheckedAt : cachedAt);
   if (!Number.isFinite(cachedAt) || age < 0) return false;
   const hasPriceOptions = Array.isArray(cache.priceOptions) && cache.priceOptions.length > 0;
   // 옵션이 없었던 성공 응답은 파서가 개선되거나 상품 옵션이 생길 수 있으므로 24시간마다 재확인한다.
@@ -608,40 +625,54 @@ function writeSmartStoreDetailCache(productNo, product = {}, detailInfo = {}) {
     fs.mkdirSync(SMARTSTORE_DETAIL_CACHE_DIR, { recursive: true });
     const cachePath = smartStoreDetailCachePath(productNo, product);
     const isEmpty = detailInfo.status === 'empty' || !hasSmartStoreDetailCacheContent(detailInfo);
-    if (isEmpty && fs.existsSync(cachePath)) {
+    let previous = {};
+    if (fs.existsSync(cachePath)) {
       try {
-        const previous = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
-        const previousAge = Date.now() - Date.parse(previous.cachedAt || '');
-        if (previous.status === 'success' && hasSmartStoreDetailCacheContent(previous)
-          && Number.isFinite(previousAge) && previousAge >= 0 && previousAge < SMARTSTORE_DETAIL_OPTION_CACHE_TTL_MS) {
-          // 429·일시 오류가 최근 정상 옵션을 지우지 않도록 마지막 정상값을 유지한다.
-          return;
-        }
+        previous = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
       } catch {
         // 깨진 캐시는 아래의 새 결과로 교체한다.
       }
     }
-    const priceOptions = isEmpty ? [] : (Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : []);
+    const incomingPriceOptions = isEmpty ? [] : (Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : []);
+    const previousPriceOptions = Array.isArray(previous.priceOptions) ? previous.priceOptions : [];
+    const priceOptions = incomingPriceOptions.length > 0 ? incomingPriceOptions : previousPriceOptions;
+    const priceOptionsStatus = incomingPriceOptions.length > 0
+      ? (detailInfo.priceOptionsStatus || 'partial')
+      : (previous.priceOptionsStatus || (previousPriceOptions.length > 0 ? 'partial' : 'failed'));
+    const detailHtml = isEmpty ? (previous.detailHtml || '') : (detailInfo.detailHtml || previous.detailHtml || '');
+    const detailText = isEmpty ? (previous.detailText || '') : (detailInfo.detailText || previous.detailText || '');
+    const detailImageUrls = !isEmpty && detailInfo.detailImageUrls?.length
+      ? detailInfo.detailImageUrls
+      : (Array.isArray(previous.detailImageUrls) ? previous.detailImageUrls : []);
+    const hasContent = Boolean(detailHtml || detailText || detailImageUrls.length || priceOptions.length);
+    const now = new Date();
     const optionFingerprint = crypto.createHash('sha1').update(JSON.stringify(priceOptions.map((option) => ({
       weight: option.weight,
       price: option.price,
       originalPrice: option.originalPrice || 0,
     })))).digest('hex');
     fs.writeFileSync(cachePath, JSON.stringify({
-      status: isEmpty ? 'empty' : 'success',
-      detailHtml: isEmpty ? '' : (detailInfo.detailHtml || ''),
-      detailText: isEmpty ? '' : (detailInfo.detailText || ''),
-      detailImageUrls: isEmpty ? [] : (Array.isArray(detailInfo.detailImageUrls) ? detailInfo.detailImageUrls : []),
-      detailImagesChecked: detailInfo.detailImagesChecked === true,
-      detailImagesCheckedVersion: detailInfo.detailImagesChecked === true
+      status: hasContent ? 'success' : 'empty',
+      detailHtml,
+      detailText,
+      detailImageUrls,
+      detailImagesChecked: detailInfo.detailImagesChecked === true || previous.detailImagesChecked === true,
+      detailImagesCheckedVersion: detailInfo.detailImagesChecked === true || previous.detailImagesChecked === true
         ? 1
         : 0,
       priceOptions,
+      priceOptionsStatus,
       optionFingerprint,
       optionParserVersion: SMARTSTORE_DETAIL_OPTION_PARSER_VERSION,
+      priceOptionsCheckedAt: incomingPriceOptions.length > 0
+        ? now.toISOString()
+        : (previous.priceOptionsCheckedAt || previous.cachedAt || ''),
+      optionRetryAt: priceOptionsStatus === 'complete'
+        ? ''
+        : new Date(now.getTime() + SMARTSTORE_DETAIL_OPTION_RETRY_DELAY_MS).toISOString(),
       sourcePrice: Number(product.price || 0),
       sourceOriginalPrice: Number(product.originalPrice || 0),
-      cachedAt: new Date().toISOString(),
+      cachedAt: now.toISOString(),
     }), 'utf8');
   } catch {
     // 상세 옵션 캐시는 네이버 호출 수를 줄이기 위한 보조 장치라 실패해도 수집은 계속한다.
@@ -652,8 +683,9 @@ function planSmartStoreDetailTargets(targets, maxCount = 20) {
   const cachedTargets = targets.filter((target) => target.cached);
   const pendingTargets = targets
     .filter((target) => !target.cached)
-    .sort((a, b) => Number(Boolean(b.retryEmptyOptions)) - Number(Boolean(a.retryEmptyOptions))
-      || Number(Boolean(a.product?.tastingNotes?.length)) - Number(Boolean(b.product?.tastingNotes?.length)))
+    .sort((a, b) => Number(Boolean(a.retryEmptyOptions)) - Number(Boolean(b.retryEmptyOptions))
+      || Number(Boolean(a.product?.tastingNotes?.length)) - Number(Boolean(b.product?.tastingNotes?.length))
+      || Number(a.lastOptionAttemptAt || 0) - Number(b.lastOptionAttemptAt || 0))
     .slice(0, maxCount);
   return { cachedTargets, pendingTargets };
 }
@@ -947,7 +979,7 @@ const TASTING_NOTE_PATTERNS = [
   ['라즈베리', /라즈베리|raspberry/i],
   ['검은딸기', /검은딸기|blackberry/i],
   ['딸기', /딸기|strawberry/i],
-  ['베리', /베리|berry/i],
+  ['베리', /(?<![가-힣])베리(?:향|류)?(?![가-힣])|\bberr(?:y|ies)\b/i],
   ['까치밥', /까치밥|(?<!black)currant/i],
   ['크랜베리', /크랜베리|cranberry/i],
   ['보이센베리', /보이센베리|boysenberry/i],
@@ -990,7 +1022,7 @@ const TASTING_NOTE_PATTERNS = [
   ['플로럴', /플로럴|floral/i],
   ['로즈힙', /로즈힙|rosehip/i],
   ['자스민', /자스민|jasmine/i],
-  ['장미', /장미|rose(?!hip)/i],
+  ['장미', /장미|\brose\b(?!hip)/i],
   ['히비스커스', /히비스커스|hibiscus/i],
   ['꿀풀', /꿀풀|honeysuckle/i],
   ['진달래', /진달래|azalea/i],
@@ -1022,7 +1054,7 @@ const TASTING_NOTE_PATTERNS = [
   // Sweet (단맛)
   ['꿀', /꿀|honey/i],
   ['캐러멜', /캐러멜|카라멜|caramel/i],
-  ['브라운슈가', /브라운슈가|황설탕|brownsugar/i],
+  ['브라운슈가', /브라운슈가|황설탕|갈색설탕|brownsugar/i],
   ['당밀', /당밀|molasses/i],
   ['조청', /조청/i],
   ['시러피', /시러피|syrupy/i],
@@ -1040,7 +1072,7 @@ const TASTING_NOTE_PATTERNS = [
   ['구운빵', /구운빵|토스트|toast/i],
   ['구운향', /구운향|roasted|roasting/i],
   ['태운맛', /태운맛|burnt|charred/i],
-  ['재향', /재향|ashy|ash/i],
+  ['재향', /재향|\bash(?:y)?\b/i],
   ['스모키', /스모키|smoky|smoke/i],
   ['보리', /보리|barley|grain|cereal/i],
   ['빵', /빵|bread/i],
@@ -1726,6 +1758,7 @@ module.exports = {
     mergeNotesFromSearchResults,
     normalizeSmartStoreProductUrl,
     buildSmartStorePriceOptionsFromDetail,
+    getSmartStorePriceOptionsStatus,
     getSmartStoreDetailCacheDir,
     smartStoreDetailCachePath,
     isSmartStoreDetailCacheUsable,
@@ -1744,6 +1777,7 @@ module.exports = {
   countRecognizedTastingNotes,
   mergeTastingNotes,
   buildSmartStorePriceOptionsFromDetail,
+  getSmartStorePriceOptionsStatus,
   readSmartStoreDetailCache,
   writeSmartStoreDetailCache,
   planSmartStoreDetailTargets,

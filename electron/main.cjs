@@ -4,6 +4,7 @@ const {
   SMARTSTORE_SOURCES,
   buildSmartStoreDetailImageUrlsScript,
   buildSmartStorePriceOptionsFromDetail,
+  getSmartStorePriceOptionsStatus,
   countRecognizedTastingNotes,
   enrichProductsWithThumbnailOcr,
   extractNotesFromDetail,
@@ -571,9 +572,14 @@ function applySmartStoreDetailInfo(product, detailInfo) {
   if (!detailInfo) return product;
 
   const priceOptions = Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : [];
-  if (priceOptions.length === 0) return product;
+  if (priceOptions.length === 0) {
+    return Array.isArray(product.priceOptions) && product.priceOptions.length > 0
+      ? product
+      : { ...product, priceOptionsComplete: false, priceOptionsStatus: detailInfo.priceOptionsStatus || 'failed' };
+  }
 
   const representative = priceOptions[0];
+  const priceOptionsStatus = detailInfo.priceOptionsStatus || 'partial';
   const nextProduct = {
     ...product,
     price: representative.price,
@@ -582,7 +588,8 @@ function applySmartStoreDetailInfo(product, detailInfo) {
     weightLabel: representative.weightLabel,
     priceLabel: representative.priceLabel,
     unitPriceLabel: '',
-    priceOptionsComplete: true,
+    priceOptionsComplete: priceOptionsStatus === 'complete',
+    priceOptionsStatus,
   };
 
   return {
@@ -607,11 +614,16 @@ async function fetchSmartStoreDetailContents(
       const cached = typeof target.product === 'object'
         ? readSmartStoreDetailCache(target.productNo, target.product)
         : null;
-      const hasCachedOptions = Array.isArray(cached?.priceOptions) && cached.priceOptions.length > 0;
+      const optionsIncomplete = cached && cached.priceOptionsStatus !== 'complete';
+      const optionRetryAt = Date.parse(cached?.optionRetryAt || '');
+      const shouldRetryOptions = retryEmptyOptionCaches
+        && optionsIncomplete
+        && (!Number.isFinite(optionRetryAt) || optionRetryAt <= Date.now());
       return {
         ...target,
-        cached: retryEmptyOptionCaches && cached && !hasCachedOptions ? null : cached,
-        retryEmptyOptions: retryEmptyOptionCaches && cached && !hasCachedOptions,
+        cached: shouldRetryOptions ? null : cached,
+        retryEmptyOptions: shouldRetryOptions,
+        lastOptionAttemptAt: Date.parse(cached?.cachedAt || '') || 0,
       };
     });
   if (targets.length === 0) return contents;
@@ -676,6 +688,7 @@ async function fetchSmartStoreDetailContents(
             return Number(item.id) === targetNo || groupNos.map(Number).includes(targetNo);
           });
           const groupNos = target?.simpleStandardGroupProduct?.channelProductNos?.map(Number) || [];
+          const optionProductNos = [...new Set([targetNo, ...groupNos])];
           if (!target) return null;
 
           const findDetailText = (value) => {
@@ -710,7 +723,7 @@ async function fetchSmartStoreDetailContents(
           return {
             detailText: findDetailText(target),
             optionCombinations: candidates
-              .filter((item) => groupNos.includes(Number(item.id)))
+              .filter((item) => optionProductNos.includes(Number(item.id)))
               .map((item) => ({
                 optionName: item.name,
                 absolutePrice: item.salePrice,
@@ -719,6 +732,8 @@ async function fetchSmartStoreDetailContents(
                 usable: item.displayable !== false && item.productStatusType !== 'OUTOFSTOCK',
                 stockQuantity: item.stockQuantity,
               })),
+            expectedOptionCount: optionProductNos.length,
+            optionCollectionComplete: true,
           };
         })()
       `, 8000, null);
@@ -727,6 +742,8 @@ async function fetchSmartStoreDetailContents(
         detailPayload = {
           detailText: groupedOptionPayload.detailText || '',
           optionCombinations: groupedOptionPayload.optionCombinations,
+          expectedOptionCount: groupedOptionPayload.expectedOptionCount,
+          optionCollectionComplete: groupedOptionPayload.optionCollectionComplete === true,
         };
       } else if (groupedOptionPayload?.detailText) {
         detailPayload = {
@@ -768,9 +785,12 @@ async function fetchSmartStoreDetailContents(
                 }
               };
               visit(json);
+              const optionCombinations = findOptionCombinations(json);
               return {
                 detailHtml: best,
-                optionCombinations: findOptionCombinations(json),
+                optionCombinations,
+                expectedOptionCount: optionCombinations.length,
+                optionCollectionComplete: true,
               };
             })
             .catch(() => null)
@@ -804,13 +824,14 @@ async function fetchSmartStoreDetailContents(
       const priceOptions = typeof product === 'object'
         ? buildSmartStorePriceOptionsFromDetail(detailPayload || {}, product)
         : [];
+      const priceOptionsStatus = getSmartStorePriceOptionsStatus(detailPayload || {}, priceOptions);
       if (detailHtml || detailText || detailImageUrls.length > 0 || priceOptions.length > 0) {
-        const detailInfo = { detailHtml, detailText, detailImageUrls, detailImagesChecked, priceOptions };
+        const detailInfo = { detailHtml, detailText, detailImageUrls, detailImagesChecked, priceOptions, priceOptionsStatus };
         contents.set(String(productNo), detailInfo);
         if (typeof product === 'object') writeSmartStoreDetailCache(productNo, product, detailInfo);
       } else {
         if (typeof product === 'object' && (triedApi || !channelUid)) {
-          writeSmartStoreDetailCache(productNo, product, { status: 'empty', detailImagesChecked });
+          writeSmartStoreDetailCache(productNo, product, { status: 'empty', detailImagesChecked, priceOptionsStatus });
         }
       }
       if (triedApi) {

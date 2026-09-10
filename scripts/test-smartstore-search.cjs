@@ -44,6 +44,9 @@ if (!mainSource.includes('retryEmptyOptionCaches: source?.retryEmptyOptionCaches
 if (SMARTSTORE_SOURCES.fillout.retryEmptyOptionCaches !== true) {
   throw new Error('필아웃커피는 다중 용량 상품의 옵션 없는 상세 캐시를 재확인해야 합니다.');
 }
+if (!mainSource.includes("priceOptionsComplete: priceOptionsStatus === 'complete'")) {
+  throw new Error('스마트스토어 옵션 하나를 찾았다는 이유만으로 전체 확인 완료 처리하면 안 됩니다.');
+}
 if (!mainSource.includes('hasTerarosaTastingNoteText(text) && noteCount >= 2')) {
   throw new Error('테라로사 썸네일에서 노트 하나만 인식했을 때 상세 이미지 확인을 멈추면 안 됩니다.');
 }
@@ -89,6 +92,23 @@ if (cafedoanFixture[0].weight !== 250 || cafedoanFixture[1].weight !== 150) {
 }
 if (cafedoanFixture[0].isSoldOut || !cafedoanFixture[1].isSoldOut) {
   throw new Error('카페도안 카테고리의 판매 중/품절 상태가 보존되어야 합니다.');
+}
+for (const title of [
+  'NOMAD COFFEE Peru Timbuyacu Washed',
+  'ROSE COFFEE Panama Longboard',
+  '에티오피아 알로 피베리 내추럴 원두',
+]) {
+  if (_test.getTasteNotes(title).length > 0) {
+    throw new Error(`업체명·가공법·품종을 맛정보로 오인하면 안 됩니다: ${title} => ${_test.getTasteNotes(title).join(', ')}`);
+  }
+}
+const fillbrownTitle = _test.cleanShoppingTitle('필브라운 고소한 블렌드 원두 200g', '필아웃커피');
+if (fillbrownTitle !== '필브라운 고소한 블렌드 원두') {
+  throw new Error(`필브라운 상품명을 선두 형용사로 오인해 지우면 안 됩니다: ${fillbrownTitle}`);
+}
+const fillbrownNotes = _test.extractNotesFromPreloadedDetailText('컵노트: 견과류, 카라멜, 갈색설탕\n가공: 블렌드');
+if (fillbrownNotes.join(',') !== '캐러멜,브라운슈가,견과류') {
+  throw new Error(`필브라운의 명시 컵노트 3종을 보존해야 합니다: ${fillbrownNotes.join(', ')}`);
 }
 
 const filloutBulkFixture = _test.normalizeSmartStoreCategoryItems('fillout', [
@@ -325,11 +345,19 @@ if (!Array.from({ length: 10 }, (_, index) => `missing-${index}`).every(
   throw new Error('맛정보 누락 상품은 상세수집 대기열에서 먼저 처리되어야 합니다.');
 }
 const optionRetryPlan = _test.planSmartStoreDetailTargets([
-  { productNo: 'noted', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: false },
-  { productNo: 'option-retry', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: true },
+  { productNo: 'fresh', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: false },
+  { productNo: 'old-retry', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: true, lastOptionAttemptAt: 100 },
+  { productNo: 'new-retry', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: true, lastOptionAttemptAt: 200 },
 ], 1);
-if (optionRetryPlan.pendingTargets[0]?.productNo !== 'option-retry') {
-  throw new Error('옵션 없는 상세 캐시 재확인은 일반 상세수집보다 먼저 처리되어야 합니다.');
+if (optionRetryPlan.pendingTargets[0]?.productNo !== 'fresh') {
+  throw new Error('실패 재시도 상품이 새 상세수집 대상을 계속 밀어내면 안 됩니다.');
+}
+const retryRotationPlan = _test.planSmartStoreDetailTargets([
+  { productNo: 'new-retry', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: true, lastOptionAttemptAt: 200 },
+  { productNo: 'old-retry', product: { tastingNotes: ['초콜릿'] }, cached: null, retryEmptyOptions: true, lastOptionAttemptAt: 100 },
+], 1);
+if (retryRotationPlan.pendingTargets[0]?.productNo !== 'old-retry') {
+  throw new Error('옵션 재시도는 가장 오래 시도하지 않은 상품부터 순환해야 합니다.');
 }
 const detailCacheProduct = {
   productName: '캐시 테스트 원두',
@@ -415,6 +443,48 @@ if (clearedEmptyCache.detailText !== successfulDetailCache.detailText
   || clearedEmptyCache.detailImageUrls.length !== 1
   || clearedEmptyCache.status !== 'success') {
   throw new Error('정상 상세수집 후 일시 실패가 발생해도 기존 상세 내용은 보존해야 합니다.');
+}
+const confirmedOptionProduct = {
+  ...detailCacheProduct,
+  productName: 'ToH 1st 에티오피아 콰미 아르베고나 원두',
+  productUrl: 'https://smartstore.naver.com/filloutcoffee/products/13741415128',
+};
+const confirmedOptions = _test.buildSmartStorePriceOptionsFromDetail({
+  optionCombinations: [
+    { optionName: '100g', absolutePrice: 16000, productUrl: confirmedOptionProduct.productUrl },
+    { optionName: '200g', absolutePrice: 28000, productUrl: 'https://smartstore.naver.com/filloutcoffee/products/13741415129' },
+  ],
+}, confirmedOptionProduct);
+if (_test.getSmartStorePriceOptionsStatus({
+  expectedOptionCount: 2,
+  optionCollectionComplete: true,
+}, confirmedOptions) !== 'complete') {
+  throw new Error('ToH 100g·200g 링크를 모두 확인한 경우에만 전체 옵션 확인이어야 합니다.');
+}
+if (_test.getSmartStorePriceOptionsStatus({
+  expectedOptionCount: 2,
+  optionCollectionComplete: true,
+}, confirmedOptions.slice(0, 1)) !== 'partial') {
+  throw new Error('ToH 100g만 찾은 결과는 부분 확인이어야 합니다.');
+}
+_test.writeSmartStoreDetailCache('13741415128', confirmedOptionProduct, {
+  detailText: '컵노트: 견과류, 카라멜, 갈색설탕',
+  detailImagesChecked: true,
+  priceOptions: confirmedOptions,
+  priceOptionsStatus: 'complete',
+});
+_test.writeSmartStoreDetailCache('13741415128', confirmedOptionProduct, {
+  detailText: '상세 이미지는 이번 실행에서 확인 실패',
+  detailImagesChecked: false,
+  priceOptions: [],
+  priceOptionsStatus: 'failed',
+});
+const preservedOptionCache = JSON.parse(fs.readFileSync(
+  _test.smartStoreDetailCachePath('13741415128', confirmedOptionProduct),
+  'utf8',
+));
+if (preservedOptionCache.priceOptions.length !== 2 || preservedOptionCache.priceOptionsStatus !== 'complete') {
+  throw new Error('이미지 확인 실패가 마지막으로 확인된 유효 가격 옵션을 지우면 안 됩니다.');
 }
 let detailImageSelector = '';
 const renderedDetailImageUrls = vm.runInNewContext(_test.buildSmartStoreDetailImageUrlsScript(), {

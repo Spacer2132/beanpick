@@ -264,6 +264,13 @@ const fixtures = [
     forbidden: [],
   },
   {
+    name: '필브라운 공식 명시 노트 정규화',
+    kind: 'normalize',
+    input: ['견과류', '카라멜', '갈색설탕'],
+    expected: ['브라운슈가', '캐러멜', '견과류'],
+    forbidden: [],
+  },
+  {
     name: '테라로사 슬리피 캣 상세 이미지 노트',
     kind: 'terarosa',
     input: 'Tasting Note Sweet Pumpkin, Walnut, Brown Sugar, Nutty',

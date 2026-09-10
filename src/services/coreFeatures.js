@@ -794,6 +794,8 @@ function groupProductsByNameAndWeight(products) {
     );
 
     const groupTastingNotes = normalizeTastingNotes(items.flatMap((item) => item.tastingNotes));
+    const priceOptionsComplete = (items.length > 1 && items.every((item) => item.productUrl))
+      || items.every((item) => item.priceOptionsComplete === true);
     const tasteScaleProduct = items.find((item) => getTasteScaleAcidityScore(item.tasteScale) !== null);
     return {
       ...representative,
@@ -809,7 +811,8 @@ function groupProductsByNameAndWeight(products) {
       unitPriceLabel: '',
       priceOptions,
       // 여러 독립 상품 용량이 함께 모였거나 대표 상품 자체가 상세 확인된 경우에만 완전 수집으로 본다.
-      priceOptionsComplete: items.length > 1 || items.every((item) => item.priceOptionsComplete === true),
+      priceOptionsComplete,
+      priceOptionsStatus: priceOptionsComplete ? 'complete' : (priceOptions.length > 0 ? 'partial' : 'failed'),
       score: Math.max(...items.map((item) => item.score || 0)),
       tastingNotes: groupTastingNotes,
       tasteScale: tasteScaleProduct?.tasteScale || representative.tasteScale,
