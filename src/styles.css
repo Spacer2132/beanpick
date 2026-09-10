@@ -2554,6 +2554,24 @@ a {
 .atlas-origin-copy h2 { font: 600 30px/1.5 var(--serif); letter-spacing: -1px; margin: 8px 0 10px; }
 .atlas-origin-copy p { margin: 0; color: #756b5f; font-size: 14px; max-width: 52ch; line-height: 1.8; }
 .atlas-origin-regions { margin-top: 14px; color: #4e4438; font-size: 13px; line-height: 1.8; }
+.atlas-region-hint { margin-top: 12px !important; color: #8a8070 !important; font-size: 12px !important; }
+.atlas-region-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px 18px; margin: 16px 0 0; }
+.atlas-spec { display: flex; gap: 10px; align-items: baseline; border-top: 1px solid #e6ddcd; padding-top: 8px; }
+.atlas-spec dt { flex: 0 0 48px; color: #8a8070; font-size: 11px; letter-spacing: 0.5px; }
+.atlas-spec dd { margin: 0; color: #4e4438; font-size: 13px; line-height: 1.7; }
+.atlas-region-farms { margin-top: 18px; }
+.atlas-region-farms h3 { margin: 0 0 8px; font: 600 13px/1.4 var(--serif); color: #5d4a35; letter-spacing: 0.3px; }
+.atlas-region-farms ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.atlas-region-farms li { background: #f6f1e6; border-radius: 6px; padding: 9px 12px; font-size: 13px; color: #4e4438; }
+.atlas-region-farms strong { font-weight: 700; }
+.atlas-farm-en { margin-left: 6px; color: #8a8070; font-size: 11px; }
+.atlas-region-farms em { display: block; margin-top: 3px; color: #756b5f; font-size: 12px; font-style: normal; line-height: 1.6; }
+.atlas-region-sources { margin-top: 14px !important; color: #8a8070 !important; font-size: 11px !important; }
+.atlas-region-sources a { margin-left: 8px; color: #8a6a45; text-decoration: underline; }
+@media (max-width: 640px) {
+  .atlas-region-specs { grid-template-columns: 1fr; gap: 6px; }
+  .atlas-spec dt { flex-basis: 44px; }
+}
 .atlas-origin-silhouette { grid-column: 2; width: 150px; height: 125px; opacity: 0.85; }
 .atlas-origin-actions { grid-column: 3; display: flex; flex-direction: column; gap: 8px; }
 .coffee-map-list-btn { width: 100%; min-height: 48px; padding: 12px 20px; border-radius: 28px; background: #684630; color: #fffaf2; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 150ms; }

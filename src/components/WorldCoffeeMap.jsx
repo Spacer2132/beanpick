@@ -7,6 +7,7 @@ import {
 import { COFFEE_COUNTRY_PATHS, OTHER_COUNTRY_PATHS } from './worldCountryPaths.js';
 import { COFFEE_REGION_POINTS } from '../services/coffeeRegions.js';
 import { buildRegionCells } from '../services/regionCells.js';
+import { REGION_PROFILES, regionProfileKey } from '../services/coffeeRegionProfiles.js';
 
 // 화면 폭에 맞춘 비율은 대륙을 전환해도 유지한다.
 const DEFAULT_VIEW = { x: 182, y: 70, w: 760 };
@@ -85,6 +86,27 @@ function zoomAt(prev, factor, px, py, ratio = MAP_RATIO) {
   }, ratio);
 }
 
+// 상세 항목은 값이 검증을 통과한 것만 들어 있다. 없으면 그 줄을 아예 그리지 않는다.
+function renderSpec(label, fact) {
+  if (!fact || fact.v === undefined || fact.v === null) return null;
+  const value = Array.isArray(fact.v) ? fact.v.join(' · ') : fact.v;
+  if (!value) return null;
+  return (
+    <div className="atlas-spec">
+      <dt>{label}</dt>
+      <dd>{value}</dd>
+    </div>
+  );
+}
+
+function sourceHost(url) {
+  try {
+    return new URL(url).host.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+
 function touchDistance(touches) {
   const dx = touches[0].clientX - touches[1].clientX;
   const dy = touches[0].clientY - touches[1].clientY;
@@ -101,6 +123,7 @@ export default function WorldCoffeeMap({
   onShowList,
 }) {
   const [hoveredCountry, setHoveredCountry] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState(null);
   const [viewBox, setViewBox] = useState(DEFAULT_VIEW);
   const [activePreset, setActivePreset] = useState('all');
   const [isDragging, setIsDragging] = useState(false);
@@ -276,6 +299,7 @@ export default function WorldCoffeeMap({
       setActivePreset(null);
     }
     setHoveredCountry(null);
+    setSelectedRegion(null);
   }, [selectedCountry, countryViews, mapRatio]);
 
   // 커피와 무관한 154개국은 상태와 무관하게 늘 같으므로 한 번만 만들어 재사용한다.
@@ -297,11 +321,21 @@ export default function WorldCoffeeMap({
   const countryBanner = useMemo(() => {
     if (!selectedInfo) return null;
     // 좁은 화면에서는 배너가 지도 폭을 너무 먹으므로 '원두'를 뺀 짧은 문구를 쓴다.
-    const text = isCompact
+    const base = isCompact
       ? `${selectedInfo.flag} ${selectedInfo.label} ${selectedCount}종`
       : `${selectedInfo.flag} ${selectedInfo.label} · 원두 ${selectedCount}종`;
+    const text = selectedRegion ? `${selectedInfo.flag} ${selectedInfo.label} · ${selectedRegion}` : base;
     return { text, w: measureLabelWidth(text, 12) + 22, h: 26, pad: 10 };
-  }, [selectedInfo, selectedCount, isCompact]);
+  }, [selectedInfo, selectedCount, isCompact, selectedRegion]);
+
+  // 선택한 산지의 검증된 상세. 없으면 이름만 보여 준다.
+  const regionData = useMemo(() => {
+    if (!selectedInfo || !selectedRegion) return null;
+    const pt = (COFFEE_REGION_POINTS[selectedInfo.code] || []).find((r) => r.name === selectedRegion);
+    if (!pt) return null;
+    const profile = REGION_PROFILES[regionProfileKey(selectedInfo.code, pt.en)] || {};
+    return { ...profile, name: pt.name, en: pt.en };
+  }, [selectedInfo, selectedRegion]);
 
   // 산지 좌표 기준의 대략적인 구역 분할선(실제 행정경계 아님).
   const regionCells = useMemo(() => (
@@ -500,6 +534,11 @@ export default function WorldCoffeeMap({
     }
     dragRef.current.isDown = false;
     setIsDragging(false);
+  };
+
+  const handleRegionClick = (regionName) => {
+    if (dragRef.current.hasMoved) return;
+    setSelectedRegion((prev) => (prev === regionName ? null : regionName));
   };
 
   const handlePinClick = (countryLabel) => {
@@ -782,23 +821,36 @@ export default function WorldCoffeeMap({
                 const gapX = r.dx ? (r.name.length * 5 + 8) / Math.abs(r.dx) : Infinity;
                 const gapY = r.dy ? 8.5 / Math.abs(r.dy) : Infinity;
                 const lineEnd = Math.max(0, 1 - Math.min(gapX, gapY, 1));
+                const isSel = selectedRegion === r.name;
                 return (
                 <g key={r.name} transform={`translate(${r.x}, ${r.y}) scale(${pxScale})`}>
                   <line x1="0" y1="0" x2={r.dx * lineEnd} y2={r.dy * lineEnd} stroke="#5d351e" strokeWidth="0.9" opacity="0.5" />
                   <circle r="5" fill="#fffaf2" stroke="#5d351e" strokeWidth="1.8" />
                   <circle r="1.8" fill="#5d351e" />
-                  <g transform={`translate(${r.dx}, ${r.dy})`}>
+                  {/* 말풍선을 누르면 그 산지 상세가 아래 설명판에 뜬다 */}
+                  <g
+                    transform={`translate(${r.dx}, ${r.dy})`}
+                    style={{ pointerEvents: 'all', cursor: 'pointer' }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${r.name} 산지 정보 보기`}
+                    aria-pressed={isSel}
+                    onClick={() => handleRegionClick(r.name)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleRegionClick(r.name); }
+                    }}
+                  >
                     <rect
                       x={-(r.name.length * 5 + 8)}
                       y="-8.5"
                       width={r.name.length * 10 + 16}
                       height="17"
                       rx="5"
-                      fill="rgba(255, 250, 242, 0.96)"
-                      stroke="rgba(93, 53, 30, 0.5)"
-                      strokeWidth="0.9"
+                      fill={isSel ? '#231b16' : 'rgba(255, 250, 242, 0.96)'}
+                      stroke={isSel ? '#e6b877' : 'rgba(93, 53, 30, 0.5)'}
+                      strokeWidth={isSel ? 1.4 : 0.9}
                     />
-                    <text textAnchor="middle" y="3.5" fontSize="9.5" fontWeight="700" fill="#4a3423">
+                    <text textAnchor="middle" y="3.5" fontSize="9.5" fontWeight="700" fill={isSel ? '#ffffff' : '#4a3423'}>
                       {r.name}
                     </text>
                   </g>
@@ -1070,12 +1122,52 @@ export default function WorldCoffeeMap({
       </div>
 
       <div className="atlas-origin-pane">
+        {regionData ? (
+          <div className="atlas-origin-copy atlas-region-copy" aria-live="polite">
+            <span className="atlas-eyebrow">{selectedInfo.label} · {regionData.en}</span>
+            <h2>{regionData.name}</h2>
+            {regionData.summary && <p>{regionData.summary}</p>}
+            <dl className="atlas-region-specs">
+              {renderSpec('향미', regionData.flavor)}
+              {renderSpec('고도', regionData.altitude)}
+              {renderSpec('품종', regionData.varieties)}
+              {renderSpec('가공', regionData.process)}
+              {renderSpec('수확기', regionData.harvest)}
+            </dl>
+            {regionData.farms && regionData.farms.length > 0 && (
+              <div className="atlas-region-farms">
+                <h3>대표 농장 · 워싱스테이션</h3>
+                <ul>
+                  {regionData.farms.map((f) => (
+                    <li key={f.en || f.name}>
+                      <strong>{f.name}</strong>
+                      {f.en && f.en !== f.name && <span className="atlas-farm-en">{f.en}</span>}
+                      {f.note && <em>{f.note}</em>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {regionData.sources && regionData.sources.length > 0 && (
+              <p className="atlas-region-sources">
+                출처
+                {regionData.sources.map((u) => (
+                  <a key={u} href={u} target="_blank" rel="noreferrer">{sourceHost(u)}</a>
+                ))}
+              </p>
+            )}
+          </div>
+        ) : (
         <div className="atlas-origin-copy" aria-live="polite">
           <span className="atlas-eyebrow">{selectedInfo ? selectedInfo.enName : 'A WORLD OF COFFEE'}</span>
           <h2>{selectedInfo ? selectedInfo.label : '어디에서 온 커피를 좋아하세요?'}</h2>
           <p>{selectedInfo ? selectedInfo.flavorNote : '산지마다 다른 향과 맛. 익숙한 한 잔에서 새로운 취향까지.'}</p>
           <div className="atlas-origin-regions">{selectedInfo ? selectedInfo.famousRegions : `${countryCounts.size}개 생산국 · ${products.length}종의 원두`}</div>
+          {selectedInfo && shownRegions.length > 0 && (
+            <p className="atlas-region-hint">지도의 산지 이름을 누르면 그 지역 정보가 여기에 나옵니다.</p>
+          )}
         </div>
+        )}
         {selectedInfo && countryViews[selectedInfo.code] && (
           <svg className="atlas-origin-silhouette" aria-hidden="true"
             viewBox={`${countryViews[selectedInfo.code].x} ${countryViews[selectedInfo.code].y} ${countryViews[selectedInfo.code].w} ${countryViews[selectedInfo.code].w / mapRatio}`}>
@@ -1086,7 +1178,8 @@ export default function WorldCoffeeMap({
           {onShowList && <button type="button" className="coffee-map-list-btn" onClick={onShowList}>
             {selectedInfo ? `원두 ${countryCounts.get(selectedCountry) || 0}종 보기` : `전체 원두 ${products.length}종 보기`}
           </button>}
-          {selectedInfo && <button type="button" className="coffee-map-reset-btn" onClick={handleResetZoom}>선택 해제</button>}
+          {regionData && <button type="button" className="coffee-map-reset-btn" onClick={() => setSelectedRegion(null)}>← {selectedInfo.label} 전체</button>}
+          {selectedInfo && !regionData && <button type="button" className="coffee-map-reset-btn" onClick={handleResetZoom}>선택 해제</button>}
         </div>
       </div>
 
