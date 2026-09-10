@@ -7,7 +7,7 @@ const FEATURED_VARIETY_RULES = [
   { label: '파카마라', aliases: ['pacamara', '파카마라'] },
   { label: '시드라', aliases: ['sidra', '시드라'] },
 ];
-const SEARCH_VARIETY_ALIASES = [
+const SEARCH_TOKEN_ALIASES = [
   ['시드라', 'sidra'],
   ['게이샤', '게샤', 'geisha', 'gesha'],
   ['버본', 'bourbon'],
@@ -18,6 +18,29 @@ const SEARCH_VARIETY_ALIASES = [
   ['티피카', 'typica'],
   ['SL28', 'sl28', 'sl-28'],
   ['SL34', 'sl34', 'sl-34'],
+  ['워시드', 'washed'],
+  ['내추럴', 'natural'],
+  ['허니', 'honey'],
+  ['무산소', 'anaerobic'],
+  ['디카페인', 'decaf'],
+  ['에티오피아', 'ethiopia'],
+  ['케냐', 'kenya'],
+  ['콜롬비아', 'colombia'],
+  ['브라질', 'brazil'],
+  ['과테말라', 'guatemala'],
+  ['파나마', 'panama'],
+  ['에콰도르', 'ecuador'],
+  ['온두라스', 'honduras'],
+  ['코스타리카', 'costa rica'],
+  ['니카라과', 'nicaragua'],
+  ['페루', 'peru'],
+  ['볼리비아', 'bolivia'],
+  ['르완다', 'rwanda'],
+  ['예멘', 'yemen'],
+  ['인도네시아', 'indonesia'],
+  ['인도', 'india'],
+  ['베트남', 'vietnam'],
+  ['파푸아뉴기니', 'papua new guinea'],
 ];
 const OPTION_ONLY_PRICE_MAX = 1000;
 const OPTION_ONLY_ORIGINAL_MIN = 10000;
@@ -882,7 +905,7 @@ function getSearchTokenVariants(token) {
   const variants = new Set([cleanToken]);
   const compactToken = cleanToken.replace(/[\s-]+/g, '');
 
-  for (const aliases of SEARCH_VARIETY_ALIASES) {
+  for (const aliases of SEARCH_TOKEN_ALIASES) {
     const normalizedAliases = aliases.map((alias) => String(alias).toLowerCase());
     const matchesAlias = normalizedAliases.some((alias) => alias === cleanToken || alias.replace(/[\s-]+/g, '') === compactToken);
     if (matchesAlias) {

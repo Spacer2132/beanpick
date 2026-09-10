@@ -360,6 +360,15 @@ expect(core.matchesSmartSearch('콜롬비아 엘 파라이소 시드라 내추�
 expect(core.matchesSmartSearch('Panama La Esmeralda Gesha Washed', '게이샤') === true, '게이샤 검색은 영문 Gesha 상품도 찾아야 합니다');
 expect(core.matchesSmartSearch('파나마 에스메랄다 게이샤 워시드', 'geisha') === true, 'geisha 검색은 한글 게이샤 상품도 찾아야 합니다');
 expect(core.matchesSmartSearch('브라질 세하도 버본 내추럴', 'bourbon') === true, 'bourbon 검색은 한글 버본 상품도 찾아야 합니다');
+expect(core.matchesSmartSearch('Colombia Diwan El Mirador Geisha Washed', '콜롬비아') === true, '콜롬비아 검색은 영문 Colombia 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('Ethiopia Limu Agaro Washed', '에티오피아') === true, '에티오피아 검색은 영문 Ethiopia 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('Kenya Nyeri AA Washed', '워시드') === true, '워시드 검색은 영문 Washed 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('Brazil Pulped Natural', '내추럴') === true, '내추럴 검색은 영문 Natural 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('Ecuador Sidra Anaerobic', '무산소') === true, '무산소 검색은 영문 Anaerobic 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('케냐 니에리 AA 워시드', 'washed') === true, 'washed 검색은 한글 워시드 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('에티오피아 무산소 내추럴', 'anaerobic') === true, 'anaerobic 검색은 한글 무산소 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('Indonesia Mandheling', '인도네시아') === true, '인도네시아 검색은 영문 Indonesia 상품을 찾아야 합니다');
+expect(core.matchesSmartSearch('Colombia El Paraiso Sidra Natural', '콜롬비아 내추럴') === true, '별칭 확장 후에도 여러 단어 AND 검색이 동작해야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '예가 에티') === true, '여러 단어는 모두 포함되면 매칭되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프 워시드', '에티오피아 워시드') === true, '여러 단어 AND 검색이 유지되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '케냐') === false, '없는 단어는 매칭되면 안 됩니다');
