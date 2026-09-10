@@ -262,21 +262,17 @@ function isRealProductUrl(url) {
     && !/smartstore\.naver\.com\/main\/products\//i.test(normalizedUrl);
 }
 
-function isSmartStoreUrl(url) {
-  return /(?:\/\/|\.)smartstore\.naver\.com\//i.test(String(url || '').trim());
+function isNaverMainProductUrl(url) {
+  return /smartstore\.naver\.com\/main\/products\//i.test(String(url || '').trim());
 }
 
-// 스마트스토어 상품은 비로그인으로 직접 주소에 들어가면 네이버가 로그인 화면으로 막는다.
-// 네이버 쇼핑 검색을 거치면 로그인 없이 열리므로, 열 때만 검색 주소로 바꿔준다.
+// 스토어별 주소(smartstore.naver.com/<스토어>/…)는 비로그인 사파리에서 그대로 열린다(2026-09-10 실기 확인).
+// 다만 /main/products/ 형태는 네이버 로그인으로 튕기므로 그때만 쇼핑 검색으로 우회한다.
 function resolveProductOpenUrl(url, product) {
   const normalizedUrl = String(url || '').trim();
-  if (!normalizedUrl || !isSmartStoreUrl(normalizedUrl)) return normalizedUrl;
+  if (!normalizedUrl || !isNaverMainProductUrl(normalizedUrl)) return normalizedUrl;
 
-  const isProductPage = /\/products\/\d+/i.test(normalizedUrl);
-  const query = isProductPage
-    ? [product?.roasterName, product?.productName].filter(Boolean).join(' ').trim()
-    : String(product?.roasterName || '').trim();
-
+  const query = [product?.roasterName, product?.productName].filter(Boolean).join(' ').trim();
   if (!query) return normalizedUrl;
   return `https://search.shopping.naver.com/search/all?query=${encodeURIComponent(query)}`;
 }
