@@ -1,6 +1,29 @@
 const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const {
+  COMPLETENESS,
+  combineListCompleteness,
+  evaluateListCompleteness,
+} = require('./collection/contract.cjs');
+const { putRawObservation, pruneRawObservations } = require('./collection/rawStore.cjs');
+const { getChannelId } = require('./collection/registry.cjs');
+const { runSource, pruneRuns } = require('./collection/runManager.cjs');
+
+// 목록 원문을 해석한 추출기 버전. 원문은 그대로 두고 이 값만 올려 재해석할 수 있다.
+const OFFICIAL_MALL_LIST_EXTRACTOR = 'officialMallList@1';
+const SMARTSTORE_LIST_EXTRACTOR = 'smartStoreList@1';
+const TERAROSA_LIST_EXTRACTOR = 'terarosaApiList@1';
+
+// 원문 저장은 부가 기능이다. 실패해도 수집 결과에 영향을 주지 않는다.
+function storeRawObservation(input) {
+  try {
+    return putRawObservation(input).observationId;
+  } catch (error) {
+    console.warn(`[beanpick:raw-store] ${input.channelId} 원문 저장 실패:`, error?.message || error);
+    return '';
+  }
+}
+const {
   SMARTSTORE_SOURCES,
   buildSmartStoreDetailImageUrlsScript,
   buildSmartStorePriceOptionsFromDetail,
@@ -55,64 +78,13 @@ const TERAROSA_ORIGIN = 'https://www.terarosa.com';
 const MOMOS_SOURCE_URL = 'https://momos.co.kr/shop';
 const MAX_CATEGORY_PAGES = 5;
 const SMARTSTORE_PAGE_LOAD_TIMEOUT_MS = 25000;
+// 총 개수를 못 읽었을 때만 쓰는 기준값. 실제 페이지 크기는 첫 페이지 관측값을 우선한다.
+const SMARTSTORE_DEFAULT_PAGE_SIZE = 40;
 const SMARTSTORE_PAGE_LOAD_RETRIES = 1;
 // 공식몰 상세보강(노트·재고)은 부가 기능이라 전체 시간 예산을 둔다.
 // 예산을 넘겨도 상품 목록은 항상 반환되어, 한 곳의 상세수집이 멈춰도 그 로스터 상품이 통째로 사라지지 않는다.
 const OFFICIAL_ENRICH_BUDGET_MS = 90000;
-const OFFICIAL_MALL_PAGE_CONFIGS = {
-  fritz: {
-    sourceUrl: 'https://fritz.co.kr/product/list.html?cate_no=48',
-    categoryNo: '48',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://fritz.co.kr',
-  },
-  namusairo: {
-    sourceUrl: 'https://namusairo.com/category/coffee/91/',
-    categoryNo: '91',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://namusairo.com',
-  },
-  coffeelibre: {
-    sourceUrl: 'https://coffeelibre.kr/product/list.html?cate_no=47',
-    categoryNo: '47',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://coffeelibre.kr',
-  },
-  werk: {
-    sourceUrl: 'https://werk.co.kr/',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://werk.co.kr',
-  },
-  deepbluelake: {
-    sourceUrl: 'https://dblcoffee.com/product/list.html?cate_no=24',
-    categoryNo: '24',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://dblcoffee.com',
-  },
-  hellcafe: {
-    sourceUrl: 'https://hellcafe.co.kr/store/store.html',
-    categoryNo: '1',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://hellcafe.co.kr',
-  },
-  centercoffee: {
-    sourceId: 'centercoffee',
-    sourceUrl: 'https://www.centercoffee.co.kr/67',
-    maxPages: 2,
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://www.centercoffee.co.kr',
-    pageUrl(pageNumber) {
-      if (pageNumber === 1) return this.sourceUrl;
-      return `https://www.centercoffee.co.kr/ajax/get_shop_list_view.cm?page=${pageNumber}&pagesize=12&category=s20190728fa16756cae2c6&sort=recent&menu_url=%2F67%2F`;
-    },
-  },
-  coffee502: {
-    sourceUrl: 'https://502coffee.com/category/%EC%9B%90%EB%91%90/24/',
-    categoryNo: '24',
-    verifyStockFromDetail: true,
-    detailOrigin: 'https://502coffee.com',
-  },
-};
+const { OFFICIAL_MALL_PAGE_CONFIGS } = require('./collection/officialMallSources.cjs');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -517,6 +489,24 @@ function withTimeout(promise, timeoutMs, fallback) {
   ]);
 }
 
+// 상품 목록의 해석 전 마크업만 뽑는다. 페이지 전체 HTML은 너무 커서 보관 비용이 크다.
+function readSmartStoreListMarkup(window) {
+  return executeJavaScriptWithTimeout(window, `
+    (() => {
+      const nodes = [...document.querySelectorAll('[data-shp-contents-id][data-shp-contents-type="chnl_prod_no"]')];
+      const seen = new Set();
+      const parts = [];
+      for (const node of nodes) {
+        const id = node.getAttribute('data-shp-contents-id');
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        parts.push((node.closest('li') || node).outerHTML);
+      }
+      return parts.join(String.fromCharCode(10));
+    })()
+  `, 5000, '');
+}
+
 async function crawlSmartStoreCategory(categoryUrl) {
   const hiddenWindow = new BrowserWindow({
     width: 1280,
@@ -531,22 +521,59 @@ async function crawlSmartStoreCategory(categoryUrl) {
     await loadSmartStoreCategoryEntry(hiddenWindow, categoryUrl);
     const firstPage = await waitForSmartStoreProducts(hiddenWindow);
     const productMap = new Map(firstPage.products.map((product) => [product.id, product]));
-    const pageCount = Math.max(1, Math.ceil((firstPage.total || firstPage.products.length) / 40));
+    const rawPages = [await readSmartStoreListMarkup(hiddenWindow)];
+    // 페이지 크기는 가정하지 않고 첫 페이지에서 실제로 받은 개수를 쓴다.
+    const pageSize = firstPage.products.length > 0 ? firstPage.products.length : SMARTSTORE_DEFAULT_PAGE_SIZE;
+    const reportedTotal = Number(firstPage.total || 0);
+    const hasReportedTotal = reportedTotal > 0;
+    const pageCount = hasReportedTotal ? Math.max(1, Math.ceil(reportedTotal / pageSize)) : 1;
+    const lastPage = Math.min(pageCount, MAX_CATEGORY_PAGES);
     let previousFirstId = firstPage.products[0]?.id || '';
+    let pagesFetched = 1;
+    let pagesFailed = 0;
+    // 페이지를 끝까지 확인했는지 따로 남긴다. 중간에 끊긴 목록을 완전 수집으로 보지 않기 위해서다.
+    // 총 개수를 못 읽었으면, 첫 페이지가 한 화면을 다 채우지 않았을 때만 끝을 확인한 것이다.
+    let endConfirmed = hasReportedTotal ? pageCount <= 1 : firstPage.products.length < SMARTSTORE_DEFAULT_PAGE_SIZE;
 
     // 스마트스토어는 URL만 바꾸면 1페이지로 되돌아가서 실제 페이지 버튼을 눌러야 한다.
-    for (let pageNumber = 2; pageNumber <= Math.min(pageCount, 5); pageNumber += 1) {
+    for (let pageNumber = 2; pageNumber <= lastPage; pageNumber += 1) {
       const clicked = await clickSmartStorePage(hiddenWindow, pageNumber);
-      if (!clicked) break;
+      if (!clicked) {
+        pagesFailed += 1;
+        break;
+      }
 
       const page = await waitForSmartStoreProducts(hiddenWindow, previousFirstId);
-      if (page.products.length === 0) break;
+      if (page.products.length === 0) {
+        pagesFailed += 1;
+        break;
+      }
 
+      pagesFetched += 1;
       page.products.forEach((product) => productMap.set(product.id, product));
+      rawPages.push(await readSmartStoreListMarkup(hiddenWindow));
       previousFirstId = page.products[0]?.id || previousFirstId;
+      if (pageNumber === lastPage) endConfirmed = pageCount <= MAX_CATEGORY_PAGES;
     }
 
-    return [...productMap.values()];
+    const products = [...productMap.values()];
+    return {
+      products,
+      // 해석 전 목록 마크업. 추출 규칙을 고쳐도 이 원문으로 다시 해석할 수 있다.
+      rawMarkup: rawPages.filter(Boolean).join('<!-- beanpick:page -->'),
+      pagesFetched,
+      pagesFailed,
+      endConfirmed,
+      expectedTotal: Number(firstPage.total || 0) || null,
+      // 페이지 상한에 걸려 잘린 목록은 조용히 넘기지 않는다.
+      truncated: pageCount > MAX_CATEGORY_PAGES,
+      completeness: evaluateListCompleteness({
+        pagesFetched,
+        pagesFailed,
+        endConfirmed,
+        itemsFound: products.length,
+      }),
+    };
   } finally {
     hiddenWindow.close();
   }
@@ -912,21 +939,43 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
   const source = SMARTSTORE_SOURCES[sourceId];
   const categoryUrls = getSmartStoreCategoryUrls(source);
   if (categoryUrls.length === 0) return null;
+  const startedMs = Date.now();
 
   const productMap = new Map();
   const failures = [];
+  const categoryResults = [];
   for (const categoryUrl of categoryUrls) {
     try {
-      const items = await crawlSmartStoreCategory(categoryUrl);
-      console.log(`[beanpick:smartstore-category] ${sourceId} ${categoryUrl} raw ${items.length}개`);
-      items.forEach((item) => productMap.set(item.id, { ...item, categoryUrl }));
+      const crawled = await crawlSmartStoreCategory(categoryUrl);
+      console.log(`[beanpick:smartstore-category] ${sourceId} ${categoryUrl} raw ${crawled.products.length}개 (${crawled.completeness}${crawled.truncated ? ', 페이지 상한으로 잘림' : ''})`);
+      crawled.products.forEach((item) => productMap.set(item.id, { ...item, categoryUrl }));
+      const observationId = storeRawObservation({
+        channelId: getChannelId(sourceId),
+        url: categoryUrl,
+        body: crawled.rawMarkup || '',
+        contentType: 'text/html',
+        extractorVersion: SMARTSTORE_LIST_EXTRACTOR,
+      });
+      categoryResults.push({
+        observationId,
+        categoryUrl,
+        completeness: crawled.completeness,
+        items: crawled.products.length,
+        pagesFetched: crawled.pagesFetched,
+        pagesFailed: crawled.pagesFailed,
+        expectedTotal: crawled.expectedTotal,
+        truncated: crawled.truncated,
+      });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error || '알 수 없는 오류');
       failures.push(`${categoryUrl}: ${message}`);
+      categoryResults.push({ categoryUrl, completeness: COMPLETENESS.FAILED, items: 0, pagesFetched: 0, pagesFailed: 1, expectedTotal: null, truncated: false, error: message });
       console.warn(`[beanpick:smartstore-category] ${sourceId} ${categoryUrl} 실패: ${message}`);
       // 한 카테고리가 실패해도 나머지 카테고리는 계속 확인한다.
     }
   }
+
+  const listCompleteness = combineListCompleteness(categoryResults.map((entry) => entry.completeness));
 
   let products = normalizeSmartStoreCategoryItems(sourceId, [...productMap.values()]);
   console.log(`[beanpick:smartstore-category] ${sourceId} normalized ${products.length}개`);
@@ -945,6 +994,9 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
 
   products = await enrichSmartStoreProductsWithExternalNotes(sourceId, products);
 
+  // 판매처별 상태와 소요시간을 로그에 남긴다. 자동게시 로그에는 지금까지 이 값이 없었다.
+  console.log(`[beanpick:source-run] ${sourceId} ${listCompleteness} 상품 ${products.length}개 ${Date.now() - startedMs}ms`);
+
   return {
     ok: true,
     sourceId,
@@ -953,9 +1005,14 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
     total: products.length,
     fetchedAt: new Date().toISOString(),
     products,
+    // 목록을 끝까지 확인했는지, 일부만 받았는지 성공/실패와 별개로 남긴다.
+    listCompleteness,
+    categoryResults,
     warning: products.length === 0
       ? `${source.roasterName} 카테고리에서 상품을 찾지 못했습니다.${failures.length > 0 ? ` 실패: ${failures.join(' / ')}` : ''}`
-      : '',
+      : (listCompleteness !== COMPLETENESS.COMPLETE
+        ? `${source.roasterName} 목록을 끝까지 확인하지 못했습니다(${listCompleteness}).${failures.length > 0 ? ` 실패: ${failures.join(' / ')}` : ''}`
+        : ''),
   };
 }
 
@@ -1155,7 +1212,16 @@ async function fetchTerarosaApiRows(cookie, csrfToken) {
         throw new Error('Terarosa product API request failed (' + apiResponse.status + ')');
       }
 
-      const apiJson = JSON.parse(await apiResponse.text());
+      const apiText = await apiResponse.text();
+      // 해석 전 API 응답 본문을 그대로 남긴다. 추출 규칙을 고쳐도 이 원문으로 다시 해석할 수 있다.
+      storeRawObservation({
+        channelId: getChannelId('terarosa'),
+        url: `${TERAROSA_PRODUCT_API_URL}#page=${pageNumber}`,
+        body: apiText,
+        contentType: 'application/json',
+        extractorVersion: TERAROSA_LIST_EXTRACTOR,
+      });
+      const apiJson = JSON.parse(apiText);
       if (apiJson?.guard === 'fail') {
         throw new Error('Terarosa product API guard failed: ' + (apiJson.reason || 'unknown'));
       }
@@ -1411,12 +1477,26 @@ async function fetchMomosProducts() {
     Date.now() + OFFICIAL_ENRICH_BUDGET_MS,
   );
 
+  const observationId = storeRawObservation({
+    channelId: getChannelId('momos'),
+    url: MOMOS_SOURCE_URL,
+    body: page.html,
+    extractorVersion: OFFICIAL_MALL_LIST_EXTRACTOR,
+  });
+
   return {
     ok: true,
     html: enrichedPages[0]?.html || '',
-    pages: enrichedPages,
+    pages: observationId ? enrichedPages.map((entry) => ({ ...entry, observationId })) : enrichedPages,
     fetchedAt: new Date().toISOString(),
     sourceUrl: MOMOS_SOURCE_URL,
+    // 모모스 쇼핑 목록은 한 페이지가 전체다. 다만 그 페이지에서 상품을 실제로 읽었는지로 판정한다.
+    listCompleteness: evaluateListCompleteness({
+      pagesFetched: 1,
+      pagesFailed: 0,
+      endConfirmed: true,
+      itemsFound: extractPageProductSignature(page.html, '').split(',').filter(Boolean).length,
+    }),
   };
 }
 function absolutizeImageUrl(src, baseUrl) {
@@ -1689,26 +1769,58 @@ async function fetchOfficialMallProducts(sourceId) {
     throw new Error('Unsupported official mall: ' + sourceId);
   }
 
+  const startedMs = Date.now();
   const pages = [];
   const seenSignatures = new Set();
   const maxPages = config.maxPages || (config.categoryNo ? MAX_CATEGORY_PAGES : 1);
+  let pagesFailed = 0;
+  let pagesWithProducts = 0;
+  // 같은 목록이 반복되면 끝에 도달한 것이다. 상한까지 다 받고 끝났으면 끝을 확인하지 못한 것이다.
+  let endConfirmed = maxPages === 1;
+  // 무엇을 근거로 끝이라고 판단했는지 남긴다. 근거의 세기가 다르다.
+  let endReason = maxPages === 1 ? 'singlePage' : 'pageLimit';
 
   for (let pageNumber = 1; pageNumber <= maxPages; pageNumber += 1) {
     try {
       const url = buildOfficialMallPageUrl(config, pageNumber);
       const page = await fetchHtmlPage(url, config.sourceUrl);
-      if (!page) continue;
+      if (!page) {
+        pagesFailed += 1;
+        continue;
+      }
 
       const enrichedPage = sourceId === 'centercoffee'
         ? await attachCenterCoffeeOcrText(page, config)
         : page;
       const signature = extractPageProductSignature(enrichedPage.html, config.categoryNo);
-      if (pageNumber > 1 && (!signature || seenSignatures.has(signature))) break;
+      if (pageNumber > 1 && !signature) {
+        // 다음 페이지에 상품이 없으면 목록의 끝이다. 다만 근거가 약해 사유를 남긴다.
+        // (차단 페이지가 200으로 와도 여기로 들어올 수 있다.)
+        endConfirmed = true;
+        endReason = 'emptyPage';
+        break;
+      }
+      if (pageNumber > 1 && seenSignatures.has(signature)) {
+        // 같은 목록이 반복되면 확실히 끝이다.
+        endConfirmed = true;
+        endReason = 'repeatedList';
+        break;
+      }
+      if (signature) pagesWithProducts += 1;
 
-      pages.push(enrichedPage);
+      // 해석 전 원문을 따로 남겨, 다시 받지 않고 재해석할 수 있게 한다.
+      const observationId = storeRawObservation({
+        channelId: getChannelId(sourceId),
+        url,
+        body: page.html,
+        extractorVersion: OFFICIAL_MALL_LIST_EXTRACTOR,
+      });
+
+      pages.push(observationId ? { ...enrichedPage, observationId } : enrichedPage);
       seenSignatures.add(signature);
     } catch {
       // Keep using the other pages from the same mall when one page fails.
+      pagesFailed += 1;
     }
   }
 
@@ -1721,12 +1833,31 @@ async function fetchOfficialMallProducts(sourceId) {
     ? await enrichPagesWithDetailStock(pages, config, Date.now() + OFFICIAL_ENRICH_BUDGET_MS)
     : pages;
 
+  const listCompleteness = evaluateListCompleteness({
+    pagesFetched: pages.length,
+    pagesFailed,
+    endConfirmed,
+    // 받은 페이지 수가 아니라 상품이 실제로 들어 있던 페이지 수로 센다.
+    itemsFound: pagesWithProducts,
+  });
+  console.log(`[beanpick:source-run] ${sourceId} ${listCompleteness}(${endReason}) 페이지 ${pages.length}개 ${Date.now() - startedMs}ms`);
+
+  try {
+    pruneRawObservations();
+  } catch {
+    // 정리 실패는 수집 결과에 영향을 주지 않는다.
+  }
+
   return {
     ok: true,
     pages: finalPages,
     html: finalPages[0]?.html || '',
     fetchedAt: new Date().toISOString(),
     sourceUrl: config.sourceUrl,
+    listCompleteness,
+    endReason,
+    pagesFetched: pages.length,
+    pagesFailed,
   };
 }
 ipcMain.handle('beanpick:test-smartstore-search', async () => {
@@ -1740,7 +1871,7 @@ ipcMain.handle('beanpick:test-smartstore-search', async () => {
   }
 });
 
-ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) => {
+ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) => runSource(sourceId, async () => {
   try {
     const source = SMARTSTORE_SOURCES[sourceId];
     const categoryUrls = getSmartStoreCategoryUrls(source);
@@ -1773,9 +1904,9 @@ ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) =>
       error: error instanceof Error ? error.message : `${sourceId} SmartStore search failed.`,
     };
   }
-});
+}));
 
-ipcMain.handle('beanpick:fetch-terarosa-products', async () => {
+ipcMain.handle('beanpick:fetch-terarosa-products', async () => runSource('terarosa', async () => {
   try {
     return await fetchTerarosaProducts();
   } catch (error) {
@@ -1784,9 +1915,9 @@ ipcMain.handle('beanpick:fetch-terarosa-products', async () => {
       error: error instanceof Error ? error.message : '?�라로사 ?�이?��? 가?�오지 못했?�니??',
     };
   }
-});
+}));
 
-ipcMain.handle('beanpick:fetch-momos-products', async () => {
+ipcMain.handle('beanpick:fetch-momos-products', async () => runSource('momos', async () => {
   try {
     return await fetchMomosProducts();
   } catch (error) {
@@ -1795,9 +1926,9 @@ ipcMain.handle('beanpick:fetch-momos-products', async () => {
       error: error instanceof Error ? error.message : '모모?�커???�이?��? 가?�오지 못했?�니??',
     };
   }
-});
+}));
 
-ipcMain.handle('beanpick:fetch-official-mall-products', async (_event, sourceId) => {
+ipcMain.handle('beanpick:fetch-official-mall-products', async (_event, sourceId) => runSource(sourceId, async () => {
   try {
     return await fetchOfficialMallProducts(sourceId);
   } catch (error) {
@@ -1806,7 +1937,7 @@ ipcMain.handle('beanpick:fetch-official-mall-products', async (_event, sourceId)
       error: error instanceof Error ? error.message : `${sourceId} ?�이?��? 가?�오지 못했?�니??`,
     };
   }
-});
+}));
 
 ipcMain.handle('beanpick:publish-iphone', async (_event, payload) => {
   const products = Array.isArray(payload?.products) ? payload.products : [];
@@ -1818,6 +1949,11 @@ ipcMain.handle('beanpick:publish-iphone', async (_event, payload) => {
 app.whenReady().then(() => {
   // Windows 토스트 알림에 필요한 앱 식별자
   app.setAppUserModelId('com.beanpick.app');
+  try {
+    pruneRuns();
+  } catch {
+    // 실행 기록 정리 실패는 수집에 영향을 주지 않는다.
+  }
   if (shouldPublishIphoneSnapshot) {
     runIphoneSnapshotPublish()
       .catch((error) => {

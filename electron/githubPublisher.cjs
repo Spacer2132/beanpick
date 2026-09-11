@@ -1,4 +1,5 @@
 const { validateProducts } = require('./dataQuality.cjs');
+const { markStaleProduct } = require('./collection/contract.cjs');
 const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
 
 const DEFAULT_OWNER = 'Spacer2132';
@@ -518,6 +519,65 @@ function findCollapsedOptionRoaster(previousProducts, nextProducts) {
   return null;
 }
 
+// 한두 곳 로스터리 수집이 네트워크 지연이나 네이버 차단으로 실패(0개 또는 절반 이하 급감)한 경우,
+// 이전 정상 스냅샷에 있던 해당 로스터리의 상품들을 보존하여 전체 발행 중단과 상품 소실을 방지한다.
+function preservePreviousCollapsedRoasters(products, previousSnapshot) {
+  const safeProducts = Array.isArray(products) ? [...products] : [];
+  const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
+  if (previousProducts.length === 0) {
+    return { products: safeProducts, preservedRoasters: [], preservedCount: 0 };
+  }
+
+  const previousCounts = countByRoaster(previousProducts);
+  const currentCounts = countByRoaster(safeProducts);
+  const preservedRoasters = [];
+  let preservedCount = 0;
+
+  for (const [normalizedRoaster, previousCount] of previousCounts) {
+    if (previousCount < ROASTER_COUNT_GUARD_MIN_PREVIOUS) continue;
+
+    const samplePrev = previousProducts.find((p) => normalizeText(p?.roasterName) === normalizedRoaster);
+    const displayRoasterName = samplePrev?.roasterName || normalizedRoaster;
+
+    // 공식 카탈로그 마이그레이션(예: 모모스 개편)은 보존 대상에서 제외
+    if (
+      displayRoasterName === MOMOS_CATALOG_MIGRATION.sourceName
+      && isApprovedMomosCatalogMigration(previousSnapshot, { products: safeProducts }, previousProducts, safeProducts)
+    ) {
+      continue;
+    }
+
+    const currentCount = currentCounts.get(normalizedRoaster) || 0;
+    const threshold = Math.ceil(previousCount * ROASTER_COUNT_GUARD_MIN_RATIO);
+
+    // 이전 대비 절반 미만으로 줄어든 경우(수집 실패/차단) 이전 정상 스냅샷의 상품들을 보존
+    if (currentCount < threshold) {
+      preservedRoasters.push(displayRoasterName);
+      const currentKeys = new Set(
+        safeProducts
+          .filter((p) => normalizeText(p?.roasterName) === normalizedRoaster)
+          .flatMap((p) => getProductMatchKeys(p))
+      );
+
+      for (const prevProduct of previousProducts) {
+        if (normalizeText(prevProduct?.roasterName) !== normalizedRoaster) continue;
+        const keys = getProductMatchKeys(prevProduct);
+        const alreadyExists = keys.some((k) => currentKeys.has(k));
+        if (!alreadyExists) {
+          safeProducts.push({
+            ...prevProduct,
+            roasterPreservedAt: previousSnapshot?.publishedAt || new Date().toISOString(),
+            roasterPreservedReason: '수집 결손으로 직전 정상 스냅샷에서 보존',
+          });
+          preservedCount += 1;
+        }
+      }
+    }
+  }
+
+  return { products: safeProducts, preservedRoasters, preservedCount };
+}
+
 function getPublishBlockReason(previousSnapshot, snapshot) {
   const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
   if (previousProducts.length === 0) return '';
@@ -566,12 +626,35 @@ function getPublishBlockReason(previousSnapshot, snapshot) {
   return '';
 }
 
+// 수집에 실패해 직전 스냅샷에서 살린 상품은 "방금 전 확인"으로 내보내지 않는다.
+// 값 자체는 그대로 둔다. 가격·정상가를 지우면 할인 가드가 수집 실패로 오해한다.
+function markPreservedProductFreshness(products, previousSnapshot, publishedAt) {
+  const fallbackObservedAt = previousSnapshot?.publishedAt || null;
+  const nowMs = new Date(publishedAt).getTime() || Date.now();
+  let staleCount = 0;
+
+  const next = products.map((product) => {
+    if (!product?.roasterPreservedReason) return product;
+    const observedAt = product.roasterPreservedAt || fallbackObservedAt;
+    staleCount += 1;
+    return markStaleProduct(product, {
+      observedAtMs: observedAt ? new Date(observedAt).getTime() : null,
+      nowMs,
+      reason: product.roasterPreservedReason,
+    });
+  });
+
+  return { products: next, staleCount };
+}
+
 function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), { previousSnapshot = null } = {}) {
   const safeProducts = Array.isArray(products) ? products : [];
-  const preservedDiscounts = preservePreviousSmartStoreDiscounts(safeProducts, previousSnapshot);
+  const preservedRoastersResult = preservePreviousCollapsedRoasters(safeProducts, previousSnapshot);
+  const preservedDiscounts = preservePreviousSmartStoreDiscounts(preservedRoastersResult.products, previousSnapshot);
   const preservedDetails = preservePreviousOfficialDetails(preservedDiscounts.products, previousSnapshot, publishedAt);
   const preservedNotes = preservePreviousTastingNotes(preservedDetails.products, previousSnapshot, publishedAt);
-  const normalizedProducts = normalizeSmartStoreProductUrls(preservedNotes.products);
+  const staleMarked = markPreservedProductFreshness(preservedNotes.products, previousSnapshot, publishedAt);
+  const normalizedProducts = normalizeSmartStoreProductUrls(staleMarked.products);
   const { clean, excluded, flagged, report, optionExcluded } = validateProducts(normalizedProducts);
 
   return {
@@ -583,9 +666,12 @@ function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), {
       excluded,
       flagged,
       optionExcluded,
+      preservedRoasters: preservedRoastersResult.preservedRoasters,
+      preservedRoasterProductCount: preservedRoastersResult.preservedCount,
       preservedDiscountCount: preservedDiscounts.preservedCount,
       preservedOfficialDetailCount: preservedDetails.preservedCount,
       preservedTastingNoteCount: preservedNotes.preservedCount,
+      staleProductCount: staleMarked.staleCount,
     },
   };
 }
@@ -737,6 +823,8 @@ async function publishProductsToGitHub({
       commitSha: json?.commit?.sha || '',
       excludedCount: snapshot.quality.excludedCount,
       flaggedCount: snapshot.quality.flaggedCount,
+      preservedRoasters: snapshot.quality.preservedRoasters,
+      preservedRoasterProductCount: snapshot.quality.preservedRoasterProductCount,
       preservedDiscountCount: snapshot.quality.preservedDiscountCount,
       preservedOfficialDetailCount: snapshot.quality.preservedOfficialDetailCount,
       preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
@@ -752,6 +840,7 @@ async function publishProductsToGitHub({
 module.exports = {
   buildGithubSnapshot,
   publishProductsToGitHub,
+  preservePreviousCollapsedRoasters,
   // 아래 두 가드는 safety-guards 테스트 전용 노출. 약화·삭제 시 테스트가 실패한다.
   findCollapsedRoaster,
   findCollapsedOptionRoaster,

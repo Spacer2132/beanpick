@@ -196,6 +196,27 @@ const mixedBadReason = publisher.getPublishBlockReason(
 );
 expect(mixedBadReason.includes('원인 불명'), '대부분 수집 실패인데 일부 정상 종료 때문에 차단을 놓침', mixedBadReason);
 
+// 9) 로스터리 수집 실패 시 자가치유(스냅샷 폴백): 특정 로스터리가 0개 또는 붕괴되었을 때 buildGithubSnapshot이 이전 정상 데이터를 보존하여 정상 발행됨
+const validBaseline = baseline.map((p) => ({ ...p, weight: 200 }));
+const oneRoasterMissing = validBaseline.filter((p) => p.roasterName !== '로스터리1'); // 로스터리1 (20개) 완전히 누락
+const healedSnapshot = publisher.buildGithubSnapshot(oneRoasterMissing, '2026-09-07T00:00:00.000Z', {
+  previousSnapshot: { publishedAt: '2026-09-06T00:00:00.000Z', products: validBaseline },
+});
+expect(
+  publisher.getPublishBlockReason({ products: validBaseline }, healedSnapshot) === '',
+  '수집 누락된 로스터리가 스냅샷에서 자가 치유되지 않아 게시가 차단됨',
+);
+expect(
+  Array.isArray(healedSnapshot.quality.preservedRoasters) && healedSnapshot.quality.preservedRoasters.includes('로스터리1'),
+  '품질 리포트에 보존된 로스터리 기록이 없음',
+  JSON.stringify(healedSnapshot.quality),
+);
+expect(
+  healedSnapshot.quality.preservedRoasterProductCount === 20,
+  '보존된 로스터리 상품 수가 정확하지 않음',
+  String(healedSnapshot.quality.preservedRoasterProductCount),
+);
+
 // ── Part 2. 생명줄 타임아웃 하한 ──────────────────────────────────
 // 사건 교훈: "정상 작업의 실측 소요시간을 재지 않고 타임아웃을 줄이지 말 것".
 // 아래 값을 줄이려면 실측 근거와 사용자 승인이 필요하다. 이 테스트를 고쳐 통과시키지 말 것.

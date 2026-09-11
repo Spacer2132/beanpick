@@ -22,7 +22,9 @@
     "dataquality:test": "node scripts/test-data-quality.cjs",
     "safety-guards:test": "node scripts/test-safety-guards.cjs",
     "map:test": "node scripts/test-map-feature.cjs",
-    "verify": "npm.cmd run tasting-notes:test && npm.cmd run map:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run safety-guards:test && npm.cmd run build && npm.cmd run package:portable"
+    "contract:test": "node scripts/test-collection-contract.cjs",
+    "baseline:collect": "node scripts/collect-baseline.cjs",
+    "verify": "npm.cmd run tasting-notes:test && npm.cmd run map:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run safety-guards:test && npm.cmd run contract:test && npm.cmd run build && npm.cmd run package:portable"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
