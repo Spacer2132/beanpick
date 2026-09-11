@@ -43,22 +43,19 @@ function readLatestCacheByProductNo() {
 }
 
 // ── 스냅샷 옵션 인덱스 ─────────────────────────────────────────
-// productNo 직접 인덱스와 (채널, 무게) 폴백 인덱스를 함께 만든다.
+// 옵션 productUrl에서 뽑은 productNo 직접 인덱스만 만든다.
 // 그룹핑으로 흡수된 옵션은 대표 상품의 priceOptions에 productUrl로 남는다.
+// (채널+무게 폴백은 서로 다른 상품과 비교하는 오탐 원인이라 제거했다.)
 function buildSnapshotIndexes() {
   const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
   const products = Array.isArray(snapshot) ? snapshot : snapshot.products;
   const byProductNo = new Map();
-  const byChannelWeight = new Map();
   const excludedByProductNo = new Set();
 
-  const addOption = (channelId, productNo, weight, price, snapshotProductId) => {
+  const addOption = (productNo, weight, price, snapshotProductId) => {
     const key = String(productNo);
     if (!byProductNo.has(key)) byProductNo.set(key, []);
     byProductNo.get(key).push({ weight, price, snapshotProductId });
-    const weightKey = `${channelId}::${weight}`;
-    if (!byChannelWeight.has(weightKey)) byChannelWeight.set(weightKey, []);
-    byChannelWeight.get(weightKey).push({ weight, price, snapshotProductId, productNo });
   };
 
   for (const product of products) {
@@ -66,10 +63,10 @@ function buildSnapshotIndexes() {
     if (!channel || channel.channelType !== 'smartStore') continue;
     for (const option of Array.isArray(product.priceOptions) ? product.priceOptions : []) {
       const optionNo = extractExternalProductId(option.productUrl || '') || extractExternalProductId(product.productUrl);
-      if (optionNo) addOption(channel.channelId, optionNo, Number(option.weight || 0), Number(option.price || 0), product.id);
+      if (optionNo) addOption(optionNo, Number(option.weight || 0), Number(option.price || 0), product.id);
     }
     const representativeNo = extractExternalProductId(product.productUrl);
-    if (representativeNo) addOption(channel.channelId, representativeNo, Number(product.weight || 0), Number(product.price || 0), product.id);
+    if (representativeNo) addOption(representativeNo, Number(product.weight || 0), Number(product.price || 0), product.id);
   }
 
   for (const excluded of snapshot?.quality?.excluded || []) {
@@ -78,61 +75,64 @@ function buildSnapshotIndexes() {
     excludedByProductNo.add(String(excluded.id).slice(dash + 1));
   }
 
-  return { byProductNo, byChannelWeight, excludedByProductNo, total: products.length };
+  return { byProductNo, excludedByProductNo, total: products.length };
 }
 
 // ── 비교 ────────────────────────────────────────────────────────
 function compare() {
   const caches = readLatestCacheByProductNo();
   const indexes = buildSnapshotIndexes();
+  const snapshotPublishedAt = Date.parse(JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8')).publishedAt || '');
   const rows = [];
   let matched = 0;
   let priceDiff = 0;
   let missing = 0;
   let excluded = 0;
-  let weightOnly = 0;
+  let noWeight = 0;
   const diffs = [];
 
   for (const [productNo, cache] of caches) {
     const options = Array.isArray(cache.priceOptions) ? cache.priceOptions : [];
     if (options.length === 0) continue;
-    const channelId = findChannelByUrl(options[0]?.productUrl || '')?.channelId || '';
     for (const option of options) {
       const weight = Number(option.weight || 0);
       const price = Number(option.price || 0);
       if (!weight || !price) continue;
-      const direct = indexes.byProductNo.get(String(productNo)) || [];
-      const sameWeight = direct.filter((entry) => Number(entry.weight) === weight);
-      let entry = sameWeight[0] || null;
-      let matchKind = 'direct';
-      if (!entry && channelId) {
-        // 그룹핑으로 대표 상품에 흡수된 경우 같은 채널의 같은 무게에서 찾는다. 오탐 가능성이 있어 종류를 남긴다.
-        entry = (indexes.byChannelWeight.get(`${channelId}::${weight}`) || [])[0] || null;
-        matchKind = 'weight-only';
-      }
+      // 옵션의 실제 productUrl이 우선이다. 파일명 productNo는 옵션 URL이 비었을 때 폴백.
+      // (그룹 옵션은 대표와 번호가 다른 경우가 있어 파일명 기준 매칭은 오탐을 만든다.)
+      const optionNo = extractExternalProductId(option.productUrl || '') || String(productNo);
+      const candidates = indexes.byProductNo.get(optionNo) || [];
+      const sameWeight = candidates.filter((entry) => Number(entry.weight) === weight);
+      const entry = sameWeight[0] || null;
       if (!entry) {
-        if (indexes.excludedByProductNo.has(String(productNo))) {
+        if (candidates.length > 0) {
+          // 같은 상품은 있으나 같은 무게가 없음 — 옵션 소실 후보.
+          noWeight += 1;
+          if (rows.length < 400) {
+            rows.push({ productNo: optionNo, weight, price, classification: 'no-matching-weight', cachedAt: cache.cachedAt });
+          }
+        } else if (indexes.excludedByProductNo.has(optionNo)) {
           excluded += 1;
         } else {
           missing += 1;
           if (rows.length < 400) {
-            rows.push({ productNo, weight, price, classification: 'missing-in-snapshot', cachedAt: cache.cachedAt });
+            rows.push({ productNo: optionNo, weight, price, classification: 'missing-in-snapshot', cachedAt: cache.cachedAt });
           }
         }
         continue;
       }
+      const cacheNewer = Number.isFinite(snapshotPublishedAt) && Date.parse(cache.cachedAt || '') > snapshotPublishedAt;
       if (Number(entry.price) === price) {
         matched += 1;
-        if (matchKind === 'weight-only') weightOnly += 1;
       } else {
         priceDiff += 1;
         diffs.push({
-          productNo,
+          productNo: optionNo,
           weight,
           cachePrice: price,
           snapshotPrice: Number(entry.price),
-          matchKind,
           cachedAt: cache.cachedAt,
+          cacheNewerThanSnapshot: cacheNewer,
           snapshotProductId: entry.snapshotProductId,
         });
       }
@@ -142,12 +142,14 @@ function compare() {
   return {
     generatedAt: new Date().toISOString(),
     cacheProducts: caches.size,
-    compared: matched + priceDiff + missing + excluded,
+    compared: matched + priceDiff + missing + excluded + noWeight,
     matched,
-    matchedWeightOnly: weightOnly,
     priceDiff,
+    // 같은 그룹의 여러 캐시가 동일 옵션 세트를 품고 있어 옵션 단위 비교는 중복 카운트된다.
+    uniquePriceDiffProducts: new Set(diffs.map((d) => `${d.productNo}::${d.weight}::${d.cachePrice}::${d.snapshotPrice}`)).size,
     missingInSnapshot: missing,
     excludedInSnapshot: excluded,
+    noMatchingWeight: noWeight,
     diffs,
     missingRows: rows,
     snapshotTotal: indexes.total,
@@ -161,9 +163,9 @@ function main() {
   fs.writeFileSync(outPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 
   console.log(`[compare:prices] 캐시 상품 ${report.cacheProducts}개 · 비교 옵션 ${report.compared}개 (스냅샷 ${report.snapshotTotal}종 기준)`);
-  console.log(`[compare:prices] 가격 일치 ${report.matched}${report.matchedWeightOnly ? `(무게폴백 ${report.matchedWeightOnly})` : ''} · 가격 불일치 ${report.priceDiff} · 스냅샷에 없음 ${report.missingInSnapshot} · 게이트 제외 ${report.excludedInSnapshot}`);
+  console.log(`[compare:prices] 가격 일치 ${report.matched} · 가격 불일치 ${report.priceDiff}(유니크 상품 ${report.uniquePriceDiffProducts}) · 무게 대응 없음 ${report.noMatchingWeight} · 스냅샷에 없음 ${report.missingInSnapshot} · 게이트 제외 ${report.excludedInSnapshot}`);
   for (const diff of report.diffs.slice(0, 15)) {
-    console.log(`    ${diff.productNo} | ${diff.weight}g | 캐시 ${diff.cachePrice} vs 스냅샷 ${diff.snapshotPrice} | ${diff.matchKind} | 캐시시각 ${String(diff.cachedAt).slice(0, 16)}`);
+    console.log(`    ${diff.productNo} | ${diff.weight}g | 캐시 ${diff.cachePrice} vs 스냅샷 ${diff.snapshotPrice} | 캐시${diff.cacheNewerThanSnapshot ? '가 최신' : '가 오래됨'} | 캐시시각 ${String(diff.cachedAt).slice(0, 16)}`);
   }
   if (report.diffs.length > 15) console.log(`    ... 외 ${report.diffs.length - 15}개`);
   console.log(`[compare:prices] 리포트: ${outPath}`);
