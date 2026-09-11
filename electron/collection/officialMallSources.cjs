@@ -55,6 +55,7 @@ const OFFICIAL_MALL_PAGE_CONFIGS = {
     sourceId: 'centercoffee',
     sourceUrl: 'https://www.centercoffee.co.kr/67',
     maxPages: 2,
+    pageSize: 12,
     verifyStockFromDetail: true,
     detailOrigin: 'https://www.centercoffee.co.kr',
     pageUrl(pageNumber) {

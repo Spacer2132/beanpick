@@ -58,6 +58,12 @@ function measureResult(result) {
   return { itemCount: 0, unit: 'none' };
 }
 
+function getDiagnostics(result) {
+  return result?.collectionDiagnostics && typeof result.collectionDiagnostics === 'object'
+    ? result.collectionDiagnostics
+    : null;
+}
+
 function persist() {
   if (!currentRun) return;
   try {
@@ -105,6 +111,7 @@ async function runSource(sourceId, collect) {
       ...measured,
       elapsedMs: Date.now() - startedMs,
       error: null,
+      diagnostics: getDiagnostics(result),
       startedAt: new Date(startedMs).toISOString(),
     });
     persist();
@@ -120,6 +127,7 @@ async function runSource(sourceId, collect) {
       unit: 'none',
       elapsedMs: Date.now() - startedMs,
       error: message,
+      diagnostics: null,
       startedAt: new Date(startedMs).toISOString(),
     });
     persist();

@@ -146,6 +146,11 @@ function evaluateListCompleteness({ blocked = false, pagesFetched = 0, pagesFail
   return COMPLETENESS.COMPLETE;
 }
 
+// 목록 페이지 크기보다 짧은 마지막 페이지는 상한에 닿은 것과 구분한다.
+function isShortFinalPage({ itemCount = 0, pageSize = 0 } = {}) {
+  return Number(pageSize) > 0 && Number(itemCount) >= 0 && Number(itemCount) < Number(pageSize);
+}
+
 // 한 판매처가 카테고리·페이지 여러 개로 나뉠 때, 부분이 하나라도 불완전하면 전체도 완전이 아니다.
 const COMPLETENESS_SEVERITY = [COMPLETENESS.COMPLETE, COMPLETENESS.EMPTY, COMPLETENESS.PARTIAL, COMPLETENESS.BLOCKED, COMPLETENESS.FAILED];
 
@@ -339,6 +344,7 @@ module.exports = {
   createFieldClaim,
   resolveClaims,
   evaluateListCompleteness,
+  isShortFinalPage,
   combineListCompleteness,
   evaluateOptionCompleteness,
   createCollectionRun,

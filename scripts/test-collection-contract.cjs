@@ -91,6 +91,8 @@ expect(contract.evaluateListCompleteness({ pagesFetched: 3, pagesFailed: 1, endC
 expect(contract.evaluateListCompleteness({ pagesFetched: 0 }) === COMPLETENESS.FAILED, '한 페이지도 못 받았는데 실패로 판정되지 않음');
 expect(contract.evaluateListCompleteness({ blocked: true, pagesFetched: 1 }) === COMPLETENESS.BLOCKED, '접근 차단이 별도 상태로 남지 않음');
 expect(contract.evaluateListCompleteness({ pagesFetched: 2, endConfirmed: true, itemsFound: 0 }) === COMPLETENESS.EMPTY, '실제 0개와 수집 실패가 구분되지 않음');
+expect(contract.isShortFinalPage({ itemCount: 9, pageSize: 12 }) === true, '짧은 마지막 페이지를 끝 근거로 인식하지 않음');
+expect(contract.isShortFinalPage({ itemCount: 12, pageSize: 12 }) === false, '페이지 상한에 찬 페이지를 짧은 마지막으로 오인함');
 
 expect(contract.evaluateOptionCompleteness({ enumerationConfirmed: true, observedCount: 3 }) === COMPLETENESS.COMPLETE, '정상 옵션이 완전으로 판정되지 않음');
 expect(contract.evaluateOptionCompleteness({ enumerationConfirmed: false, observedCount: 3 }) === COMPLETENESS.PARTIAL, '전체 옵션 확인 없이 완전으로 판정했다');
@@ -214,9 +216,8 @@ if (!fs.existsSync(snapshotPath)) {
   }
 
   expect(snapshot.products.length === snapshot.count, '스냅샷 개수와 실제 상품 수가 다름');
-  // 2026-09-11 재보정(11→10, 16→15): 커피리브레 배치 로테이션(8043~8058 → 8068~8081)으로
-  // 무근거 완전·확정 ID 없는 행이 각 1건 줄었다. 리브레는 제조일로부터 1주만 판매해 배치마다 번호가 바뀐다.
-  expect(legacyFakeComplete === 10, '기준값(무근거 완전 10건)이 바뀜. output/baseline을 다시 뽑을 것', String(legacyFakeComplete));
+  // 2026-09-11 게시 스냅샷에서 무근거 완전 표시가 모두 제거됐다.
+  expect(legacyFakeComplete === 0, '기준값(무근거 완전 0건)이 바뀜. output/baseline을 다시 뽑을 것', String(legacyFakeComplete));
   expect(contractFakeComplete === 0, '계약을 거쳐도 무근거 완전 표시가 남음', String(contractFakeComplete));
   expect(unidentified === 15, '고유 상품 번호 없는 행이 기준값 15건과 다름', String(unidentified));
   expect(optionCountChanged === 0, '호환층이 옵션 개수를 바꿈', String(optionCountChanged));
@@ -347,7 +348,7 @@ const runManager = require(path.join(__dirname, '..', 'electron', 'collection', 
   try {
     runManager.resetForTest();
 
-    const good = await runManager.runSource('fritz', async () => ({ ok: true, pages: [1, 2], listCompleteness: COMPLETENESS.COMPLETE }));
+    const good = await runManager.runSource('fritz', async () => ({ ok: true, pages: [1, 2], listCompleteness: COMPLETENESS.COMPLETE, collectionDiagnostics: { endReason: 'test' } }));
     expect(good.ok === true, '수집 결과가 그대로 돌아오지 않음');
 
     await runManager.runSource('centercoffee', async () => ({ ok: true, pages: [1, 2], listCompleteness: COMPLETENESS.PARTIAL }));
@@ -369,6 +370,7 @@ const runManager = require(path.join(__dirname, '..', 'electron', 'collection', 
     expect(record.sources.map((entry) => entry.status).join(',') === 'complete,partial,failed,failed', '판매처 상태가 잘못 기록됨', record.sources.map((entry) => entry.status).join(','));
     expect(record.sources.every((entry) => typeof entry.elapsedMs === 'number'), '판매처별 소요시간이 기록되지 않음');
     expect(record.sources[3].error === '네트워크 끊김', '실패 사유가 기록되지 않음');
+    expect(record.sources[0].diagnostics?.endReason === 'test', '판매처별 수집 진단 정보가 기록되지 않음');
     expect(record.sources[0].unit === 'pages' && record.sources[0].itemCount === 2, '공식몰 결과 단위가 페이지로 기록되지 않음', JSON.stringify({ unit: record.sources[0].unit, itemCount: record.sources[0].itemCount }));
     const productUnit = await runManager.runSource('toch', async () => ({ ok: true, products: [1, 2, 3], listCompleteness: COMPLETENESS.COMPLETE }));
     expect(productUnit.ok === true && runManager.getCurrentRunRecord().sources[4].unit === 'products', '스마트스토어 결과 단위가 상품으로 기록되지 않음');
