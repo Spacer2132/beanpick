@@ -15,6 +15,8 @@ const SMARTSTORE_LIST_EXTRACTOR = 'smartStoreList@1';
 const TERAROSA_LIST_EXTRACTOR = 'terarosaApiList@1';
 // 공식몰(cafe24·imweb) 상세 원문을 해석한 추출기 버전.
 const OFFICIAL_MALL_DETAIL_EXTRACTOR = 'officialMallDetail@1';
+// 스마트스토어 상세 원문(상품 페이지 PRELOADED_STATE / 내부 API 응답)을 해석한 추출기 버전.
+const SMARTSTORE_DETAIL_EXTRACTOR = 'smartStoreDetail@1';
 
 // 원문 저장은 부가 기능이다. 실패해도 수집 결과에 영향을 주지 않는다.
 function storeRawObservation(input) {
@@ -749,7 +751,10 @@ async function fetchSmartStoreDetailContents(
           };
 
           const storeId = location.pathname.split('/').filter(Boolean)[0] || '';
+          let rawState = '';
+          try { rawState = JSON.stringify(json); } catch (e) { rawState = ''; }
           return {
+            rawState,
             detailText: findDetailText(target),
             optionCombinations: candidates
               .filter((item) => optionProductNos.includes(Number(item.id)))
@@ -769,6 +774,7 @@ async function fetchSmartStoreDetailContents(
 
       if (groupedOptionPayload?.optionCombinations?.length) {
         detailPayload = {
+          rawState: groupedOptionPayload.rawState || '',
           detailText: groupedOptionPayload.detailText || '',
           optionCombinations: groupedOptionPayload.optionCombinations,
           expectedOptionCount: groupedOptionPayload.expectedOptionCount,
@@ -776,6 +782,7 @@ async function fetchSmartStoreDetailContents(
         };
       } else if (groupedOptionPayload?.detailText) {
         detailPayload = {
+          rawState: groupedOptionPayload.rawState || '',
           detailText: groupedOptionPayload.detailText,
         };
       } else if (channelUid && consecutiveApiFailures < 2) {
@@ -815,7 +822,10 @@ async function fetchSmartStoreDetailContents(
               };
               visit(json);
               const optionCombinations = findOptionCombinations(json);
+              let rawJson = '';
+              try { rawJson = JSON.stringify(json); } catch (e) { rawJson = ''; }
               return {
+                rawJson,
                 detailHtml: best,
                 optionCombinations,
                 expectedOptionCount: optionCombinations.length,
@@ -861,6 +871,20 @@ async function fetchSmartStoreDetailContents(
       } else {
         if (typeof product === 'object' && (triedApi || !channelUid)) {
           writeSmartStoreDetailCache(productNo, product, { status: 'empty', detailImagesChecked, priceOptionsStatus });
+        }
+      }
+      // 상세 원문 보존(7단계 4단계 원문 분리의 스마트스토어 상세 몫). 해석 전 본문을 남겨 재해석할 수 있게 한다.
+      // 캐시의 detailHtml/detailText는 이미 해석·선별된 값이라 원문 대신 못 쓴다(실측: detailHtml 905개 전부 0바이트).
+      if (typeof product === 'object' && product.productUrl) {
+        const rawDetailBody = String(detailPayload?.rawState || detailPayload?.rawJson || '');
+        if (rawDetailBody || detailHtml || detailText) {
+          storeRawObservation({
+            channelId: findChannelByUrl(product.productUrl)?.channelId || '',
+            url: product.productUrl,
+            body: rawDetailBody || detailHtml || detailText,
+            contentType: rawDetailBody ? 'application/json' : 'text/html',
+            extractorVersion: SMARTSTORE_DETAIL_EXTRACTOR,
+          });
         }
       }
       if (triedApi) {
