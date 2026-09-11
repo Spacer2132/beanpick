@@ -16,6 +16,7 @@ const unspecialtyNotes = require('../electron/noteSources/unspecialty.cjs');
 loadLocalEnv(path.resolve(__dirname, '..'));
 
 const mainSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'main.cjs'), 'utf8');
+const smartStoreSearchSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'naverShoppingSearch.cjs'), 'utf8');
 if (!mainSource.includes("{ httpReferrer: storeHomeUrl }")) {
   throw new Error('스마트스토어 상품 페이지는 로그인 화면으로 빠지지 않도록 스토어 참조 주소와 함께 열어야 합니다.');
 }
@@ -44,7 +45,7 @@ if (!mainSource.includes('retryEmptyOptionCaches: source?.retryEmptyOptionCaches
 if (SMARTSTORE_SOURCES.fillout.retryEmptyOptionCaches !== true) {
   throw new Error('필아웃커피는 다중 용량 상품의 옵션 없는 상세 캐시를 재확인해야 합니다.');
 }
-if (!mainSource.includes("priceOptionsComplete: priceOptionsStatus === 'complete'")) {
+if (!smartStoreSearchSource.includes("priceOptionsComplete: priceOptionsStatus === 'complete'")) {
   throw new Error('스마트스토어 옵션 하나를 찾았다는 이유만으로 전체 확인 완료 처리하면 안 됩니다.');
 }
 if (!mainSource.includes('hasTerarosaTastingNoteText(text) && noteCount >= 2')) {
@@ -859,6 +860,48 @@ if (coffeejgGroupedProductFixture.map((option) => option.weightLabel).join(' / '
 }
 if (coffeejgGroupedProductFixture[1].price !== 21000) {
   throw new Error(`스마트스토어 그룹 상품의 200g 절대 가격이 보존되어야 합니다: ${JSON.stringify(coffeejgGroupedProductFixture[1])}`);
+}
+
+// 커피정경형 무게별 별도 상품 회귀(2026-09-11 실측: 1kg 상품이 200g/8,000원으로 둔변해 옵션이 소실됐다).
+// 상세가 그룹 전체 옵션을 돌려줘도 자기 무게·가격을 유지해야 그룹핑에서 무게 라벨이 충돌하지 않는다.
+const coffeejgWeightVariantOptions = _test.buildSmartStorePriceOptionsFromDetail(
+  {
+    optionCombinations: [
+      { optionName: '배합커피#4 율무 200g, 1개', absolutePrice: 8000, productUrl: 'https://smartstore.naver.com/coffeejg/products/13736426450', usable: true },
+      { optionName: '배합커피#4 율무 500g, 1개', absolutePrice: 18000, productUrl: 'https://smartstore.naver.com/coffeejg/products/13736425520', usable: true },
+      { optionName: '배합커피#4 율무 1kg, 1개', absolutePrice: 28000, productUrl: 'https://smartstore.naver.com/coffeejg/products/13736416283', usable: true },
+    ],
+    expectedOptionCount: 3,
+    optionCollectionComplete: true,
+  },
+  {
+    productName: '배합커피#4 율무 1kg',
+    price: 28000,
+    weight: 1000,
+    productUrl: 'https://smartstore.naver.com/coffeejg/products/13736416283',
+  },
+);
+const coffeejgOneKgAfterDetail = _test.applySmartStoreDetailInfo(
+  {
+    productName: '배합커피#4 율무 1kg',
+    price: 28000,
+    weight: 1000,
+    productUrl: 'https://smartstore.naver.com/coffeejg/products/13736416283',
+  },
+  { priceOptions: coffeejgWeightVariantOptions, priceOptionsStatus: 'complete' },
+);
+if (coffeejgOneKgAfterDetail.weight !== 1000 || coffeejgOneKgAfterDetail.price !== 28000) {
+  throw new Error(`무게별 별도 상품은 자기 무게·가격을 유지해야 합니다: ${JSON.stringify(coffeejgOneKgAfterDetail)}`);
+}
+if (coffeejgOneKgAfterDetail.priceOptions.length !== 3) {
+  throw new Error(`그룹 전체 옵션 3개가 그대로 붙어야 합니다: ${JSON.stringify(coffeejgOneKgAfterDetail.priceOptions)}`);
+}
+const weightlessAfterDetail = _test.applySmartStoreDetailInfo(
+  { productName: '무게 표기 없는 원두', price: 9000, productUrl: 'https://smartstore.naver.com/coffeejg/products/1' },
+  { priceOptions: coffeejgWeightVariantOptions, priceOptionsStatus: 'complete' },
+);
+if (weightlessAfterDetail.weight !== 200 || weightlessAfterDetail.price !== 8000) {
+  throw new Error(`무게 표기 없는 상품은 기존대로 첫 옵션으로 대표 무게를 정해야 합니다: ${JSON.stringify(weightlessAfterDetail)}`);
 }
 
 const wholeBeanFilterTest = _test.normalizeSmartStoreCategoryItems('identity', [

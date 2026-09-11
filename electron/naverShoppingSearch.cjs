@@ -543,6 +543,43 @@ function getSmartStorePriceOptionsStatus(detailJson = {}, priceOptions = []) {
     : 'partial';
 }
 
+// 무게별 별도 상품(예: 커피정경)의 상세는 그룹 전체 옵션을 돌려준다.
+// 대표 무게를 priceOptions[0](최소 무게)로 덮어쓰면 다른 용량 상품과 무게 라벨이 충돌해
+// 그룹핑에서 그 용량이 통째로 소실된다. 상품 자체 무게가 있으면 목록 값 그대로 유지한다.
+function applySmartStoreDetailInfo(product, detailInfo) {
+  if (!detailInfo) return product;
+
+  const priceOptions = Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : [];
+  if (priceOptions.length === 0) {
+    return Array.isArray(product.priceOptions) && product.priceOptions.length > 0
+      ? product
+      : { ...product, priceOptionsComplete: false, priceOptionsStatus: detailInfo.priceOptionsStatus || 'failed' };
+  }
+
+  const priceOptionsStatus = detailInfo.priceOptionsStatus || 'partial';
+  const hasOwnWeight = Number(product.weight || 0) > 0;
+  const representative = hasOwnWeight ? null : priceOptions[0];
+  const baseProduct = representative
+    ? {
+      ...product,
+      price: representative.price,
+      originalPrice: representative.originalPrice,
+      weight: representative.weight,
+      weightLabel: representative.weightLabel,
+      priceLabel: representative.priceLabel,
+      unitPriceLabel: '',
+    }
+    : product;
+
+  return {
+    ...baseProduct,
+    priceOptions,
+    priceOptionsComplete: priceOptionsStatus === 'complete',
+    priceOptionsStatus,
+    weightLabel: priceOptions.map((option) => option.weightLabel).filter(Boolean).join(' / '),
+  };
+}
+
 function smartStoreDetailCachePath(productNo, product = {}) {
   const fingerprint = crypto.createHash('sha1').update(JSON.stringify({
     version: SMARTSTORE_DETAIL_CACHE_VERSION,
@@ -1759,6 +1796,7 @@ module.exports = {
     normalizeSmartStoreProductUrl,
     buildSmartStorePriceOptionsFromDetail,
     getSmartStorePriceOptionsStatus,
+    applySmartStoreDetailInfo,
     getSmartStoreDetailCacheDir,
     smartStoreDetailCachePath,
     isSmartStoreDetailCacheUsable,
@@ -1778,6 +1816,7 @@ module.exports = {
   mergeTastingNotes,
   buildSmartStorePriceOptionsFromDetail,
   getSmartStorePriceOptionsStatus,
+  applySmartStoreDetailInfo,
   readSmartStoreDetailCache,
   writeSmartStoreDetailCache,
   planSmartStoreDetailTargets,

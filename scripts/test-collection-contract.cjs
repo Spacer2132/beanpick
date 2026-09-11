@@ -214,9 +214,11 @@ if (!fs.existsSync(snapshotPath)) {
   }
 
   expect(snapshot.products.length === snapshot.count, '스냅샷 개수와 실제 상품 수가 다름');
-  expect(legacyFakeComplete === 11, '기준값(무근거 완전 11건)이 바뀜. output/baseline을 다시 뽑을 것', String(legacyFakeComplete));
+  // 2026-09-11 재보정(11→10, 16→15): 커피리브레 배치 로테이션(8043~8058 → 8068~8081)으로
+  // 무근거 완전·확정 ID 없는 행이 각 1건 줄었다. 리브레는 제조일로부터 1주만 판매해 배치마다 번호가 바뀐다.
+  expect(legacyFakeComplete === 10, '기준값(무근거 완전 10건)이 바뀜. output/baseline을 다시 뽑을 것', String(legacyFakeComplete));
   expect(contractFakeComplete === 0, '계약을 거쳐도 무근거 완전 표시가 남음', String(contractFakeComplete));
-  expect(unidentified === 16, '고유 상품 번호 없는 행이 기준값 16건과 다름', String(unidentified));
+  expect(unidentified === 15, '고유 상품 번호 없는 행이 기준값 15건과 다름', String(unidentified));
   expect(optionCountChanged === 0, '호환층이 옵션 개수를 바꿈', String(optionCountChanged));
   expect(priceChanged === 0, '호환층 왕복에서 가격이 바뀜', String(priceChanged));
   expect(weightChanged === 0, '호환층 왕복에서 용량이 바뀜', String(weightChanged));

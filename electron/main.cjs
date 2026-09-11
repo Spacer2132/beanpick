@@ -29,6 +29,7 @@ function storeRawObservation(input) {
 }
 const {
   SMARTSTORE_SOURCES,
+  applySmartStoreDetailInfo,
   buildSmartStoreDetailImageUrlsScript,
   buildSmartStorePriceOptionsFromDetail,
   getSmartStorePriceOptionsStatus,
@@ -597,37 +598,6 @@ function needsSmartStoreDetail(product) {
   const needsNotes = !Array.isArray(product.tastingNotes) || product.tastingNotes.length === 0;
   const needsOptions = !Array.isArray(product.priceOptions) || product.priceOptions.length === 0;
   return needsNotes || needsOptions;
-}
-
-function applySmartStoreDetailInfo(product, detailInfo) {
-  if (!detailInfo) return product;
-
-  const priceOptions = Array.isArray(detailInfo.priceOptions) ? detailInfo.priceOptions : [];
-  if (priceOptions.length === 0) {
-    return Array.isArray(product.priceOptions) && product.priceOptions.length > 0
-      ? product
-      : { ...product, priceOptionsComplete: false, priceOptionsStatus: detailInfo.priceOptionsStatus || 'failed' };
-  }
-
-  const representative = priceOptions[0];
-  const priceOptionsStatus = detailInfo.priceOptionsStatus || 'partial';
-  const nextProduct = {
-    ...product,
-    price: representative.price,
-    originalPrice: representative.originalPrice,
-    weight: representative.weight,
-    weightLabel: representative.weightLabel,
-    priceLabel: representative.priceLabel,
-    unitPriceLabel: '',
-    priceOptionsComplete: priceOptionsStatus === 'complete',
-    priceOptionsStatus,
-  };
-
-  return {
-    ...nextProduct,
-    priceOptions,
-    weightLabel: priceOptions.map((option) => option.weightLabel).filter(Boolean).join(' / '),
-  };
 }
 
 // 스마트스토어 내부 상품 API로 상세 본문(HTML)과 페이지 내 용량 옵션을 모아온다.
