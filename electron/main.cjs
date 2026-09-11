@@ -6,13 +6,15 @@ const {
   evaluateListCompleteness,
 } = require('./collection/contract.cjs');
 const { putRawObservation, pruneRawObservations } = require('./collection/rawStore.cjs');
-const { getChannelId } = require('./collection/registry.cjs');
+const { getChannelId, findChannelByUrl } = require('./collection/registry.cjs');
 const { runSource, pruneRuns } = require('./collection/runManager.cjs');
 
 // 목록 원문을 해석한 추출기 버전. 원문은 그대로 두고 이 값만 올려 재해석할 수 있다.
 const OFFICIAL_MALL_LIST_EXTRACTOR = 'officialMallList@1';
 const SMARTSTORE_LIST_EXTRACTOR = 'smartStoreList@1';
 const TERAROSA_LIST_EXTRACTOR = 'terarosaApiList@1';
+// 공식몰(cafe24·imweb) 상세 원문을 해석한 추출기 버전.
+const OFFICIAL_MALL_DETAIL_EXTRACTOR = 'officialMallDetail@1';
 
 // 원문 저장은 부가 기능이다. 실패해도 수집 결과에 영향을 주지 않는다.
 function storeRawObservation(input) {
@@ -1526,6 +1528,17 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
       try {
         const detail = await fetchCafe24DetailWithRetry(fetchHtmlPage, detailUrl, referer, { deadlineAt });
         if (detail) {
+          // 해석 전 상세 원문을 남겨 다시 받지 않고 재해석할 수 있게 한다. 저장 실패는 수집에 영향을 주지 않는다.
+          const detailChannelId = findChannelByUrl(detailUrl)?.channelId;
+          if (detailChannelId) {
+            storeRawObservation({
+              channelId: detailChannelId,
+              url: detailUrl,
+              body: detail.html,
+              contentType: 'text/html',
+              extractorVersion: OFFICIAL_MALL_DETAIL_EXTRACTOR,
+            });
+          }
           stock.set(productNo, isSoldOutFromHtml(detail.html));
           const parsed = parseCafe24DetailInfo(detail.html);
           // 1차로 HTML 텍스트에서 블렌딩 구성 시도
