@@ -385,6 +385,39 @@ const runManager = require(path.join(__dirname, '..', 'electron', 'collection', 
     const saved = runManager.listRuns();
     expect(saved.length === 1 && saved[0].sources.length === 7, '실행 기록이 파일로 남지 않음', JSON.stringify(saved.map((entry) => entry.sources.length)));
 
+    // ── Part 12. 등록부 기반 수집 엔진 ─────────────────────────
+    const { createCollectionEngine } = require(path.join(__dirname, '..', 'electron', 'collection', 'engine.cjs'));
+    const called = [];
+    const engine = createCollectionEngine({
+      smartStoreCategory: async (sourceId) => {
+        called.push(sourceId);
+        return { ok: true, products: [{ id: 'x' }] };
+      },
+    }, {
+      runSource: async (_sourceId, collect) => collect(),
+    });
+    const pilot = await engine.collect('coffeejg');
+    expect(pilot.ok === true && called.join(',') === 'coffeejg', '등록부의 드라이버로 시범 판매처를 실행하지 못함', called.join(','));
+    expect(engine.listSources().length === 19, '신엔진 판매처 수가 등록부와 다름', String(engine.listSources().length));
+
+    const customProduct = {
+      id: '커피정경-테스트',
+      roasterName: '커피정경 로스터리',
+      productName: '테스트 200g',
+      productUrl: 'https://smartstore.naver.com/coffeejg/products/123',
+      price: 10000,
+      weight: 200,
+      priceOptions: [],
+      priceOptionsComplete: true,
+      priceOptionsStatus: 'complete',
+      origin: '에티오피아',
+      customDisplayField: '보존',
+    };
+    const promoted = engine.promoteProducts('coffeejg', [customProduct])[0];
+    expect(promoted.customDisplayField === '보존' && promoted.origin === '에티오피아', '계약 호환층이 화면 필드를 잃음');
+    expect(promoted.price === customProduct.price && promoted.weight === customProduct.weight, '계약 호환층이 가격·용량을 바꿈');
+    expect(promoted.priceOptionsComplete === false && promoted.priceOptionsStatus === 'partial', '근거 없는 옵션 완전 표시가 신엔진에 남음');
+
     // 실제 기록 파일명과 같은 형식으로 만들어야 정리 순서를 제대로 검사할 수 있다.
     const olderNames = ['run-2026-09-01T00-00-00-000Z.json', 'run-2026-09-02T00-00-00-000Z.json', 'run-2026-09-03T00-00-00-000Z.json'];
     for (const name of olderNames) {

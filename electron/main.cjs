@@ -7,7 +7,8 @@ const {
 } = require('./collection/contract.cjs');
 const { putRawObservation, pruneRawObservations } = require('./collection/rawStore.cjs');
 const { getChannelId, findChannelByUrl } = require('./collection/registry.cjs');
-const { runSource, pruneRuns } = require('./collection/runManager.cjs');
+const { pruneRuns } = require('./collection/runManager.cjs');
+const { createCollectionEngine } = require('./collection/engine.cjs');
 
 // 목록 원문을 해석한 추출기 버전. 원문은 그대로 두고 이 값만 올려 재해석할 수 있다.
 const OFFICIAL_MALL_LIST_EXTRACTOR = 'officialMallList@1';
@@ -1878,7 +1879,7 @@ ipcMain.handle('beanpick:test-smartstore-search', async () => {
   }
 });
 
-ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) => runSource(sourceId, async () => {
+async function fetchSmartStoreProducts(sourceId) {
   try {
     const source = SMARTSTORE_SOURCES[sourceId];
     const categoryUrls = getSmartStoreCategoryUrls(source);
@@ -1911,39 +1912,20 @@ ipcMain.handle('beanpick:fetch-smartstore-products', async (_event, sourceId) =>
       error: error instanceof Error ? error.message : `${sourceId} SmartStore search failed.`,
     };
   }
-}));
+}
 
-ipcMain.handle('beanpick:fetch-terarosa-products', async () => runSource('terarosa', async () => {
-  try {
-    return await fetchTerarosaProducts();
-  } catch (error) {
-    return {
-      ok: false,
-      error: error instanceof Error ? error.message : '?�라로사 ?�이?��? 가?�오지 못했?�니??',
-    };
-  }
-}));
+const collectionEngine = createCollectionEngine({
+  smartStoreCategory: fetchSmartStoreProducts,
+  terarosaApi: fetchTerarosaProducts,
+  momosShop: fetchMomosProducts,
+  officialMallPages: fetchOfficialMallProducts,
+});
 
-ipcMain.handle('beanpick:fetch-momos-products', async () => runSource('momos', async () => {
-  try {
-    return await fetchMomosProducts();
-  } catch (error) {
-    return {
-      ok: false,
-      error: error instanceof Error ? error.message : '모모?�커???�이?��? 가?�오지 못했?�니??',
-    };
-  }
-}));
-
-ipcMain.handle('beanpick:fetch-official-mall-products', async (_event, sourceId) => runSource(sourceId, async () => {
-  try {
-    return await fetchOfficialMallProducts(sourceId);
-  } catch (error) {
-    return {
-      ok: false,
-      error: error instanceof Error ? error.message : `${sourceId} ?�이?��? 가?�오지 못했?�니??`,
-    };
-  }
+ipcMain.handle('beanpick:list-collection-sources', () => collectionEngine.listSources());
+ipcMain.handle('beanpick:fetch-collection-source', (_event, sourceId) => collectionEngine.collect(sourceId));
+ipcMain.handle('beanpick:promote-collection-products', (_event, sourceId, products) => ({
+  ok: true,
+  products: collectionEngine.promoteProducts(sourceId, products),
 }));
 
 ipcMain.handle('beanpick:publish-iphone', async (_event, payload) => {

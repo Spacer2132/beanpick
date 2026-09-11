@@ -111,10 +111,9 @@ function formatDateTime(value) {
 
 function canLoadLiveProducts() {
   return Boolean(
-    window.beanpick?.fetchTerarosaProducts
-    && window.beanpick?.fetchMomosProducts
-    && window.beanpick?.fetchOfficialMallProducts
-    && window.beanpick?.fetchSmartStoreProducts
+    window.beanpick?.listCollectionSources
+    && window.beanpick?.fetchCollectionSource
+    && window.beanpick?.promoteCollectionProducts
   );
 }
 
@@ -136,24 +135,10 @@ async function mapWithConcurrency(items, limit, mapper) {
   return results;
 }
 
-function getOfficialSourceIds() {
-  return ['fritz', 'namusairo', 'coffeelibre', 'werk', 'deepbluelake', 'hellcafe', 'centercoffee', 'coffee502'];
-}
-
-const SMARTSTORE_SOURCE_LABELS = {
-  roasterick: '로스터릭',
-  lubia: '루비아 커피',
-  hitte: '히떼 로스터리',
-  identity: '아이덴티티 커피랩',
-  toch: '토치 커피',
-  fillout: '필아웃커피',
-  cafedoan: '카페도안',
-  coffeejg: '커피정경 로스터리',
-  malik: '말릭커피',
-};
-
-function getSmartStoreSourceIds() {
-  return ['roasterick', 'lubia', 'hitte', 'identity', 'toch', 'fillout', 'cafedoan', 'coffeejg', 'malik'];
+async function promoteCollectionProducts(sourceId, products) {
+  const promoted = await window.beanpick.promoteCollectionProducts(sourceId, products);
+  if (!promoted?.ok) throw new Error(promoted?.error || `${sourceId} 수집 계약을 적용하지 못했습니다.`);
+  return promoted.products || [];
 }
 
 function dataModeLabel(dataMode) {
@@ -879,53 +864,35 @@ export default function App() {
       }
 
       const warnings = [];
-      const tasks = [
-        {
-          label: '테라로사',
-          fetchProducts: async () => {
-            const result = await window.beanpick.fetchTerarosaProducts();
-            if (!result?.ok) throw new Error(result?.error || '테라로사 데이터를 가져오지 못했습니다.');
-            if (result.warning) warnings.push(result.warning);
+      const sources = await window.beanpick.listCollectionSources();
+      const tasks = sources.map(({ sourceId, roasterName, driver }) => ({
+        label: roasterName || sourceId,
+        fetchProducts: async () => {
+          const result = await window.beanpick.fetchCollectionSource(sourceId);
+          if (!result?.ok) throw new Error(result?.error || `${roasterName || sourceId} 데이터를 가져오지 못했습니다.`);
+          if (result.warning) warnings.push(result.warning);
+
+          let sourceProducts;
+          if (driver === 'terarosaApi') {
             const parsedProducts = result.apiRows?.length
               ? normalizeTerarosaApiRows(result.apiRows)
               : parseTerarosaHtmlProducts(result.html || '');
-            return enrichTerarosaProducts(parsedProducts, result.detailPages || []);
-          },
+            sourceProducts = enrichTerarosaProducts(parsedProducts, result.detailPages || []);
+          } else if (driver === 'momosShop') {
+            sourceProducts = normalizeMomosPages(result.pages || [{ url: result.sourceUrl, html: result.html || '' }]);
+          } else if (driver === 'officialMallPages') {
+            const config = OFFICIAL_MALL_CONFIGS[sourceId];
+            if (!config) throw new Error(`${roasterName || sourceId} 화면 변환 설정이 없습니다.`);
+            sourceProducts = normalizeCafe24Pages(result.pages || [{ url: result.sourceUrl, html: result.html || '' }], config);
+          } else if (driver === 'smartStoreCategory') {
+            sourceProducts = result.products || [];
+          } else {
+            throw new Error(`${roasterName || sourceId} 수집 드라이버를 지원하지 않습니다: ${driver}`);
+          }
+
+          return promoteCollectionProducts(sourceId, sourceProducts);
         },
-        {
-          label: '모모스커피',
-          fetchProducts: async () => {
-            const result = await window.beanpick.fetchMomosProducts();
-            if (!result?.ok) throw new Error(result?.error || '모모스커피 데이터를 가져오지 못했습니다.');
-            return normalizeMomosPages(result.pages || [{ url: result.sourceUrl, html: result.html || '' }]);
-          },
-        },
-        ...getOfficialSourceIds().map((sourceId) => {
-          const config = OFFICIAL_MALL_CONFIGS[sourceId];
-          return {
-            label: config?.roasterName || sourceId,
-            fetchProducts: async () => {
-              const result = await window.beanpick.fetchOfficialMallProducts(sourceId);
-              if (!result?.ok || !config) {
-                throw new Error(result?.error || `${config?.roasterName || sourceId} 데이터를 가져오지 못했습니다.`);
-              }
-              return normalizeCafe24Pages(result.pages || [{ url: result.sourceUrl, html: result.html || '' }], config);
-            },
-          };
-        }),
-        ...getSmartStoreSourceIds().map((sourceId) => {
-          const label = SMARTSTORE_SOURCE_LABELS[sourceId] || sourceId;
-          return {
-            label,
-            fetchProducts: async () => {
-              const result = await window.beanpick.fetchSmartStoreProducts(sourceId);
-              if (!result?.ok) throw new Error(result?.error || `${label} 스마트스토어 검색 결과를 가져오지 못했습니다.`);
-              if (result.warning) warnings.push(result.warning);
-              return result.products || [];
-            },
-          };
-        }),
-      ];
+      }));
 
       const loadedProducts = [];
       const sourceCounts = [];

@@ -226,19 +226,26 @@ function toLegacyProduct(record) {
   // 대표 가격·중량은 레코드 값이 우선이다. 옵션 최저가로 덮으면 가격 이력과 게시 가드 비교 대상이 달라진다.
   const price = Number(record.price) > 0 ? Number(record.price) : Number(cheapest?.price || 0);
   const weight = Number(record.weight) > 0 ? Number(record.weight) : Number(cheapest?.weight || 0);
-  return {
+  const product = {
+    ...(record.legacyProduct || {}),
     id: record.legacyId || record.channelProductId,
     roasterName: record.roasterName,
     productName: record.productName,
     productUrl: record.productUrl || '',
     price,
     weight,
-    priceOptions: options.map((option) => ({ ...option })),
+    priceOptions: options.map((option, index) => {
+      const { optionId: _optionId, ...legacyOption } = option;
+      const originalOptionId = record.legacyProduct?.priceOptions?.[index]?.optionId;
+      return originalOptionId === undefined ? legacyOption : { ...legacyOption, optionId: originalOptionId };
+    }),
     priceOptionsStatus: status,
     priceOptionsComplete: status === 'complete' && options.length > 0,
     isSoldOut: Boolean(record.isSoldOut),
     tastingNotes: Array.isArray(record.tastingNotes) ? [...record.tastingNotes] : [],
-    lastObservedAt: record.lastObservedAt || null,
+    ...(!record.legacyProduct || record.legacyProduct.lastObservedAt !== undefined || record.usedFallback
+      ? { lastObservedAt: record.lastObservedAt || null }
+      : {}),
     // 폴백으로 메운 값은 화면과 가드가 구분할 수 있게 표시를 남긴다.
     isStale: Boolean(record.usedFallback),
     // 최신성 표시는 계약을 지나도 그대로 유지한다. 여기서 잃으면 오래된 값이 최신으로 둔갑한다.
@@ -246,6 +253,8 @@ function toLegacyProduct(record) {
     ...(record.checkedMinutesAgo === undefined ? {} : { checkedMinutesAgo: record.checkedMinutesAgo }),
     ...(record.roasterPreservedReason ? { roasterPreservedReason: record.roasterPreservedReason } : {}),
   };
+  if (!record.usedFallback && record.legacyProduct?.isStale === undefined) delete product.isStale;
+  return product;
 }
 
 // 수집에 실패해 이전 데이터를 그대로 쓰는 상품을 표시한다.
@@ -295,6 +304,8 @@ function fromLegacyProduct(product, { channelId, observedAt = new Date().toISOSt
     observedCount: options.length,
   });
   return {
+    // 계약이 아직 알지 못하는 화면 필드는 호환층 왕복에서 그대로 보존한다.
+    legacyProduct: { ...product },
     channelId,
     channelProductId,
     legacyId: product.id,
