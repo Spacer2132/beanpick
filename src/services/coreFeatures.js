@@ -978,7 +978,12 @@ function matchesSmartSearch(text, query) {
 
 // 노트 상세검색: 포함 단어는 노트에 모두 들어 있어야 하고, 제외 단어는 하나도 없어야 한다.
 function matchesNoteQuery(product, includeQuery = '', excludeQuery = '') {
-  const noteText = [...(product.tastingNotes || []), ...getDisplayTastingNotes(product)].join(' ');
+  // 화면은 한글 정규 라벨을 쓰되, 검색은 기존 원문 별칭도 계속 찾을 수 있게 한다.
+  const searchableEvidence = mergeTastingNoteEvidence(product?.tastingNoteEvidence || [])
+    .filter((entry) => !entry.reviewReason && normalizeTastingNotes([entry.text], { limit: Infinity })
+      .some((tag) => (product?.tastingNotes || []).includes(tag)))
+    .map((entry) => entry.text);
+  const noteText = [...(product.tastingNotes || []), ...getDisplayTastingNotes(product), ...searchableEvidence].join(' ');
 
   if (!matchesSmartSearch(noteText, String(includeQuery).replace(/,/g, ' '))) return false;
 

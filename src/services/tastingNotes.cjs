@@ -458,7 +458,7 @@ function getDisplayTastingNotes(product) {
     normalizeTastingNotes([entry.text], { limit: Infinity }).forEach((tag) => {
       if (covered.has(tag)) return;
       covered.add(tag);
-      displayNotes.push(entry.text);
+      displayNotes.push(tag);
     });
   });
   currentNotes.forEach((note) => {

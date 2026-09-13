@@ -363,6 +363,24 @@ if (failures.length > 0 || precision < 0.95) {
   process.exitCode = 1;
 }
 
+// 표시용 컵노트는 원문 증거의 영어 표기를 그대로 노출하지 않고 한글 정규 라벨을 사용한다.
+const displayLanguageFixture = {
+  tastingNotes: ['초콜릿', '건포도', '부드러움'],
+  tastingNoteEvidence: [
+    { text: 'Dark Cacao', sourceUrl: 'https://example.com/source', method: 'detail-text' },
+    { text: 'Raisin', sourceUrl: 'https://example.com/source', method: 'detail-text' },
+    { text: 'Silky Body', sourceUrl: 'https://example.com/source', method: 'detail-text' },
+  ],
+};
+const displayLanguageNotes = tastingNoteTools.getDisplayTastingNotes(displayLanguageFixture);
+const missingDisplayLanguageNotes = ['초콜릿', '건포도', '부드러움'].filter((note) => !displayLanguageNotes.includes(note));
+if (missingDisplayLanguageNotes.length > 0 || displayLanguageNotes.some((note) => /[A-Za-z]/.test(note))) {
+  console.error(`표시용 컵노트 한글화 실패: ${displayLanguageNotes.join(', ') || '(없음)'}`);
+  process.exitCode = 1;
+} else {
+  console.log(`표시용 컵노트 한글화 통과: ${displayLanguageNotes.join(', ')}`);
+}
+
 // === getAcidityScore 단위 테스트 ===
 console.log('getAcidityScore 계약 검증 시작...');
 const scoreTests = [

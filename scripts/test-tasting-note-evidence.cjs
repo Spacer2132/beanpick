@@ -173,7 +173,7 @@ async function main() {
     { ...product, id: 'evidence-500', productName: '에티오피아 구지 원문검증 500g', weight: 500 },
   ]);
   equal(evidenceFromSecondOption.tastingNoteEvidence, evidence);
-  equal(notes.getDisplayTastingNotes(grouped), raw.slice(0, 3));
+  equal(notes.getDisplayTastingNotes(grouped), ['복숭아', '라즈베리', '오렌지꽃']);
   equal(notes.getPendingTastingNotes(grouped).map((entry) => entry.text), ['화이트 와인']);
   equal(core.matchesNoteQuery(grouped, '라즈베리잼'), true);
   equal(core.matchesNoteQuery(grouped, '', '백도'), false);
