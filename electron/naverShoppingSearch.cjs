@@ -4,7 +4,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFile } = require('node:child_process');
 const bcrypt = require('bcryptjs');
-const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
+const { normalizeTastingNotes, createTastingNoteEvidence, extractTastingNoteEvidence, mergeTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
 
 const NAVER_COMMERCE_TOKEN_URL = 'https://api.commerce.naver.com/external/v1/oauth2/token';
 const NAVER_COMMERCE_PRODUCT_SEARCH_URL = 'https://api.commerce.naver.com/external/v1/products/search';
@@ -909,7 +909,9 @@ async function readOcrTextFromImageUrl(imageUrl, options = {}) {
 
 const GEMINI_MODEL = 'gemini-3.1-flash-lite';
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
-const GEMINI_NOTE_PROMPT = '이 이미지는 커피 원두 상품 사진 또는 상세페이지 캡쳐입니다. 이미지에 적힌 커핑노트(테이스팅 노트, 향미 표현)만 한국어 단어로 뽑아주세요. 예: 초콜릿, 자몽, 자스민. 노트가 명확히 보이지 않으면 빈 배열을 반환하세요. 다른 설명 없이 JSON 배열 형식으로만 답하세요. 예: ["초콜릿", "자몽"]';
+const GEMINI_NOTE_PROMPT = '이 이미지는 커피 원두 상품 사진 또는 상세페이지입니다. 해당 상품의 명시적인 커핑노트·테이스팅 노트 영역에 실제 적힌 표현만 원문 언어와 세부 표현 그대로 옮기세요. 번역하거나 요약하지 마세요. 백도, 라즈베리잼, White Peach 같은 표현을 단순화하지 마세요. 상품명·브랜드·가공법·일반 설명에서 맛을 추측하지 마세요. 명확한 노트 영역이 없거나 읽을 수 없으면 빈 배열을 반환하세요. 다른 설명 없이 문자열 JSON 배열만 반환하세요.';
+const GEMINI_NOTE_PROMPT_VERSION = 'source-notes-v4';
+const GEMINI_EVIDENCE_PROMPT = GEMINI_NOTE_PROMPT.replace('문자열 JSON 배열만', 'JSON 배열만') + ' 각 항목은 {"text":"노트 원문 하나","group":"해당 노트의 제품/로스팅 구분 원문 또는 빈 문자열","process":"이미지에 명시된 가공 방식 원문 또는 빈 문자열","scope":"product 또는 component"} 객체로 반환하세요. Split A/B처럼 구분된 노트는 소속을 각각 보존하세요. process는 노트 영역 밖의 상품명·제목에 적힌 Washed, Natural, Honey, 워시드 같은 가공 방식도 이미지 전체에서 그대로 옮기세요. 맛 노트를 상품명에서 추측하지 않는 규칙과 가공 방식 전사는 별개입니다. group과 process는 추측하지 마세요. scope는 제품 대표 노트이면 "product", 블렌드를 구성하는 개별 원두의 노트나 설명이면 "component"로 명시하세요. 상단 대표 노트와 하단 구성 원두 설명을 합치지 마세요. Split A/B처럼 판매 제품 자체를 나눈 노트는 각각 product입니다.';
 
 function guessImageMimeType(imagePath) {
   const extension = path.extname(imagePath).toLowerCase();
@@ -925,7 +927,7 @@ function parseGeminiNoteList(text) {
   if (!match) return [];
   try {
     const parsed = JSON.parse(match[0]);
-    return Array.isArray(parsed) ? parsed.map((note) => String(note || '').trim()).filter(Boolean) : [];
+    return Array.isArray(parsed) ? parsed.map((note) => typeof note === 'string' ? note.trim() : typeof note?.text === 'string' ? note.text.trim() : '').filter(Boolean) : [];
   } catch {
     return [];
   }
@@ -943,7 +945,7 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
 
   try {
     fs.mkdirSync(OCR_CACHE_DIR, { recursive: true });
-    const textPath = ocrTextCachePathForImageUrl(imageUrl, { engine: 'gemini', lang: 'gemini', psm: GEMINI_MODEL });
+    const textPath = ocrTextCachePathForImageUrl(imageUrl, { engine: 'gemini', lang: GEMINI_NOTE_PROMPT_VERSION, psm: GEMINI_MODEL });
     if (fs.existsSync(textPath)) {
       logOcrCache('hit', 'gemini', textPath);
       return fs.readFileSync(textPath, 'utf8');
@@ -963,7 +965,7 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
         body: JSON.stringify({
           contents: [{
             parts: [
-              { text: GEMINI_NOTE_PROMPT },
+              { text: GEMINI_EVIDENCE_PROMPT },
               { inlineData: { mimeType: guessImageMimeType(imagePath), data: base64Image } },
             ],
           }],
@@ -977,7 +979,11 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
       }
       // 본문 읽기(json)도 타이머 보호 안에 둔다.
       const json = await response.json();
-      text = json?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      if (json?.candidates?.[0]?.finishReason && json.candidates[0].finishReason !== 'STOP') {
+        logOcrCache('fail', 'gemini', textPath, 'incomplete-response');
+        return '';
+      }
+      text = (json?.candidates?.[0]?.content?.parts || []).filter((part) => !part.thought).map((part) => part.text || '').join('');
     } finally {
       clearTimeout(timeoutId);
     }
@@ -985,7 +991,8 @@ async function readGeminiTasteNotesFromImageUrl(imageUrl) {
     fs.writeFileSync(textPath, text, 'utf8');
     logOcrCache('save', 'gemini', textPath, `chars=${text.length}`);
     return text;
-  } catch {
+  } catch (error) {
+    logOcrCache('fail', 'gemini', cachePathForImageUrl(imageUrl), error?.name === 'AbortError' ? 'timeout=20000ms' : 'request-or-response-error');
     return '';
   }
 }
@@ -1133,11 +1140,12 @@ const TASTING_NOTE_PATTERNS = [
   ['미네랄리티', /미네랄리티|minerality/i],
 ];
 
-function sanitizeTastingNotes(notes) {
+function sanitizeTastingNotes(notes, options = {}) {
   return normalizeTastingNotes(
     notes
       .map((note) => String(note || '').trim())
       .filter((note) => note && !NON_TASTING_NOTES.has(note)),
+    options,
   );
 }
 
@@ -1289,19 +1297,72 @@ function extractFlavorNotesAnywhere(text) {
   return sanitizeTastingNotes(notes).slice(0, 5);
 }
 
-async function getOcrTasteNotes(imageUrl) {
+function processingFamilies(text) {
+  const value = String(text || '').toLowerCase();
+  const families = [];
+  if (/wet[ -]?hull|giling[ -]?basah|길링\s*바사|웻\s*훌/.test(value)) families.push('wet-hulled');
+  if (/\bwashed\b|워시드/.test(value)) families.push('washed');
+  if (/\bnatural\b|내추럴|네추럴/.test(value)) families.push('natural');
+  if (/\bhoney\b|허니/.test(value)) families.push('honey');
+  return families;
+}
+
+function hasProcessingConflict(expected, actual) {
+  const a = processingFamilies(expected), b = processingFamilies(actual);
+  return a.length === 1 && b.length === 1 && a[0] !== b[0];
+}
+
+function parseGeminiEvidence(text, imageUrl, productName = '', process = '') {
+  const match = String(text || '').match(/\[[\s\S]*\]/);
+  if (!match) return [];
+  try {
+    const parsed = JSON.parse(match[0]);
+    if (!Array.isArray(parsed)) return [];
+    const isBlend = /blend|블[렌랜][드딩]/i.test(`${productName} ${process}`)
+      || parsed.some((entry) => /blend|블[렌랜][드딩]/i.test(entry?.group || ''));
+    return createTastingNoteEvidence(parsed.map((entry) => {
+      // 구성 원두의 노트는 보관하되 블렌드 대표 노트로 합치지 않는다.
+      const isComponent = entry?.scope === 'component'
+        || (isBlend
+          && !/^split\s+[a-z0-9]+\b/i.test(entry?.group || '')
+          && entry?.group && processingFamilies(`${entry.group} ${entry.process || ''}`).length > 0
+          && !/blend|블[렌랜][드딩]/i.test(entry.group));
+      return isComponent ? { ...entry, reviewReason: 'blend-component' } : entry;
+    }), imageUrl, 'image-model').map((entry) =>
+      entry.reviewReason ? entry : hasProcessingConflict(processingFamilies(productName).length ? productName : process, entry.process) ? { ...entry, reviewReason: 'process-conflict' } : entry);
+  } catch { return []; }
+}
+
+function normalizeOcrImageUrl(imageUrl) {
+  try {
+    const url = new URL(String(imageUrl || ''));
+    if (/\.pstatic\.net$/i.test(url.hostname) && /^f(?:80_80|140)$/i.test(url.searchParams.get('type') || '')) {
+      url.searchParams.set('type', 'f750_750');
+    }
+    return url.href;
+  } catch {
+    return String(imageUrl || '');
+  }
+}
+
+async function getOcrTasteNotes(imageUrl, { onEvidence = () => {}, productName = '', process: productProcess = '', allowUnlabeled = true } = {}, deps = {}) {
+  const readableImageUrl = normalizeOcrImageUrl(imageUrl);
+  const env = deps.env || process.env;
+  const readGeminiText = deps.readGeminiText || readGeminiTasteNotesFromImageUrl;
+  const readOcrText = deps.readOcrText || readOcrTextFromImageUrl;
   // CI(깃허브 액션)에는 로컬 OCR이 없어서 Gemini를 먼저 시도하고, 없거나 실패하면 로컬 OCR로 전환
-  if (process.env.GEMINI_API_KEY) {
-    const geminiText = await readGeminiTasteNotesFromImageUrl(imageUrl);
-    const geminiNotes = sanitizeTastingNotes(parseGeminiNoteList(geminiText));
-    if (geminiNotes.length > 0) return geminiNotes;
+  if (env.GEMINI_API_KEY) {
+    const evidence = parseGeminiEvidence(await readGeminiText(readableImageUrl), readableImageUrl, productName, productProcess);
+    onEvidence(evidence);
+    if (evidence.length > 0) return sanitizeTastingNotes(evidence.filter((entry) => !entry.reviewReason).map((entry) => entry.text), { explicitEvidence: true });
   }
 
-  const ocrText = await readOcrTextFromImageUrl(imageUrl, { lang: 'korean', psm: 6, timeout: 25000 });
+  const ocrText = await readOcrText(readableImageUrl, { lang: 'korean', psm: 6, timeout: 25000 });
+  onEvidence(extractTastingNoteEvidence(ocrText, readableImageUrl, 'image-ocr'));
   const anchoredNotes = extractOcrTasteNotes(ocrText);
   if (anchoredNotes.length > 0) return anchoredNotes;
   // 라벨이 없는 썸네일을 위해 전체 글자에서 한 번 더 찾는다.
-  return extractFlavorNotesAnywhere(ocrText);
+  return allowUnlabeled ? extractFlavorNotesAnywhere(ocrText) : [];
 }
 
 async function readOfficialMallImageText(imageUrl, options = {}, deps = {}) {
@@ -1311,13 +1372,18 @@ async function readOfficialMallImageText(imageUrl, options = {}, deps = {}) {
 
   if (env.GEMINI_API_KEY) {
     const geminiText = await readGeminiText(imageUrl);
-    const geminiNotes = sanitizeTastingNotes(parseGeminiNoteList(geminiText));
+    const rawNotes = parseGeminiEvidence(geminiText, imageUrl, options.productName, options.process);
+    options.onEvidence?.(rawNotes);
+    const geminiNotes = sanitizeTastingNotes(rawNotes.filter((entry) => !entry.reviewReason).map((entry) => entry.text), { explicitEvidence: true });
     if (geminiNotes.length > 0) {
       return `Tasting Note: ${geminiNotes.join(', ')}`;
     }
+    if (rawNotes.length > 0) return '';
   }
 
-  return readOcrText(imageUrl, options);
+  const ocrText = await readOcrText(imageUrl, options);
+  options.onEvidence?.(extractTastingNoteEvidence(ocrText, imageUrl, 'image-ocr'));
+  return ocrText;
 }
 
 function isForceGeminiNotesEnabled(env = process.env) {
@@ -1338,14 +1404,27 @@ function mergeTastingNotes(existingNotes, nextNotes) {
 }
 
 // 기본은 노트가 빈 상품만 보강한다. 정밀 수집 모드에서는 기존 노트가 있어도 썸네일을 다시 읽어 합친다.
-async function enrichProductsWithThumbnailOcr(products, { concurrency = 3, force = isForceGeminiNotesEnabled() } = {}) {
+async function enrichProductsWithThumbnailOcr(products, {
+  concurrency = 3,
+  force = isForceGeminiNotesEnabled(),
+  readNotes = getOcrTasteNotes,
+} = {}) {
   return mapWithConcurrency(products, concurrency, async (product) => {
     if (!shouldRunThumbnailOcr(product, { force })) return product;
 
     try {
-      const ocrNotes = await getOcrTasteNotes(product.imageUrl);
-      if (ocrNotes.length === 0) return product;
-      return { ...product, tastingNotes: mergeTastingNotes(product.tastingNotes, ocrNotes) };
+      const evidence = [];
+      const ocrNotes = await readNotes(product.imageUrl, { productName: product.productName, process: product.process, onEvidence: (entries) => evidence.push(...entries) });
+      if (ocrNotes.length === 0 && evidence.length === 0) return product;
+      const supportedNotes = new Set(sanitizeTastingNotes(
+        evidence.filter((entry) => !entry.reviewReason).map((entry) => entry.text),
+        { limit: Infinity, explicitEvidence: true },
+      ));
+      return {
+        ...product,
+        tastingNotes: mergeTastingNotes(product.tastingNotes, ocrNotes.filter((note) => supportedNotes.has(note))),
+        tastingNoteEvidence: mergeTastingNoteEvidence(product.tastingNoteEvidence || [], evidence),
+      };
     } catch {
       return product;
     }
@@ -1371,55 +1450,31 @@ function titleKeysMatch(productKey, candidateKey) {
 
 // 노트 보급원에서 얻은 노트를 제목이 같은(또는 포함 관계인) 상품에 옮겨 붙인다.
 function mergeNotesFromMatchedProducts(products, noteProducts) {
-  const noteEntries = [];
-  const notesByKey = new Map();
-  for (const item of noteProducts || []) {
-    if (item.tastingNotes?.length > 0) {
-      const key = compactTitleKey(item.productName);
-      const fallbackKey = compactTitleKeyWithoutShortCodes(item.productName);
-      notesByKey.set(key, item.tastingNotes);
-      noteEntries.push({ key, fallbackKey, notes: item.tastingNotes });
-    }
-  }
-  if (notesByKey.size === 0) return products;
-
+  const entries = (noteProducts || []).filter((item) => item.tastingNotes?.length).map((item) => ({
+    item, key: compactTitleKey(item.productName), fallbackKey: compactTitleKeyWithoutShortCodes(item.productName),
+  }));
   const productKeysByFallback = new Map();
-  products
-    .filter((product) => !product.tastingNotes?.length)
-    .forEach((product) => {
-      const key = compactTitleKey(product.productName);
-      const fallbackKey = compactTitleKeyWithoutShortCodes(product.productName);
-      if (!fallbackKey || fallbackKey === key) return;
-      const keys = productKeysByFallback.get(fallbackKey) || new Set();
-      keys.add(key);
-      productKeysByFallback.set(fallbackKey, keys);
-    });
-
+  for (const product of products.filter((item) => !item.tastingNotes?.length)) {
+    const key = compactTitleKey(product.productName), fallback = compactTitleKeyWithoutShortCodes(product.productName);
+    const keys = productKeysByFallback.get(fallback) || new Set();
+    keys.add(key);
+    productKeysByFallback.set(fallback, keys);
+  }
   return products.map((product) => {
-    if (product.tastingNotes?.length > 0) return product;
-
-    const key = compactTitleKey(product.productName);
-    const fallbackKey = compactTitleKeyWithoutShortCodes(product.productName);
-    let notes = notesByKey.get(key);
-    if (!notes && key.length >= 6) {
-      for (const [candidateKey, candidateNotes] of notesByKey) {
-        if (titleKeysMatch(key, candidateKey)) {
-          notes = candidateNotes;
-          break;
-        }
-      }
+    if (product.tastingNotes?.length) return product;
+    const key = compactTitleKey(product.productName), fallback = compactTitleKeyWithoutShortCodes(product.productName);
+    const compatible = entries.filter(({ item }) => !hasProcessingConflict(product.productName, item.productName));
+    let candidates = compatible.filter((entry) => entry.key === key && key.length >= 6);
+    if (!candidates.length) candidates = compatible.filter((entry) => titleKeysMatch(key, entry.key));
+    if (!candidates.length && fallback !== key && productKeysByFallback.get(fallback)?.size === 1) {
+      candidates = compatible.filter((entry) => [entry.key, entry.fallbackKey].some((candidate) => titleKeysMatch(fallback, candidate)));
     }
-    if (!notes && fallbackKey && fallbackKey !== key && productKeysByFallback.get(fallbackKey)?.size === 1) {
-      const fallbackMatches = new Map();
-      for (const entry of noteEntries) {
-        const candidateKeys = [...new Set([entry.key, entry.fallbackKey].filter((candidateKey) => candidateKey && candidateKey.length >= 6))];
-        if (candidateKeys.some((candidateKey) => titleKeysMatch(fallbackKey, candidateKey))) {
-          fallbackMatches.set(`${entry.key}:${entry.notes.join('\0')}`, entry);
-        }
-      }
-      if (fallbackMatches.size === 1) notes = [...fallbackMatches.values()][0].notes;
-    }
-    return notes ? { ...product, tastingNotes: notes } : product;
+    // 서로 다른 후보를 배열 순서로 결정하지 않는다. 동일 카드 중복만 합친다.
+    const unique = new Map(candidates.map((entry) => [JSON.stringify([entry.key, [...entry.item.tastingNotes].sort()]), entry.item]));
+    if (unique.size !== 1) return product;
+    const matched = [...unique.values()][0];
+    return { ...product, tastingNotes: matched.tastingNotes,
+      ...(matched.tastingNoteEvidence?.length ? { tastingNoteEvidence: mergeTastingNoteEvidence(product.tastingNoteEvidence || [], matched.tastingNoteEvidence) } : {}) };
   });
 }
 
@@ -1448,19 +1503,20 @@ function buildSmartStoreDetailImageUrlsScript() {
 }
 
 // 스마트스토어 상세 본문에서 노트 추출: 글자(무료)를 먼저 보고, 없으면 본문 이미지 OCR
-async function extractNotesFromDetail(detailHtml, { maxImages = 4, imageUrls = [] } = {}) {
+async function extractNotesFromDetail(detailHtml, { maxImages = 4, imageUrls = [], sourceUrl = '', productName = '', onEvidence = () => {} } = {}, deps = {}) {
   const text = String(detailHtml || '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<[^>]+>/g, ' ');
   const textNotes = extractOcrTasteNotes(text);
+  onEvidence(extractTastingNoteEvidence(detailHtml, sourceUrl));
   if (textNotes.length > 0) return textNotes;
 
   const detailImageUrls = [...new Set([
-    ...extractSmartStoreDetailImageUrls(detailHtml),
     ...(Array.isArray(imageUrls) ? imageUrls : []),
+    ...extractSmartStoreDetailImageUrls(detailHtml),
   ].filter((url) => /^https?:\/\//i.test(url)))];
   for (const imageUrl of detailImageUrls.slice(0, maxImages)) {
-    const notes = await getOcrTasteNotes(imageUrl);
+    const notes = await (deps.getOcrTasteNotes || getOcrTasteNotes)(imageUrl, { onEvidence, productName, allowUnlabeled: false });
     if (notes.length > 0) return notes;
   }
 
@@ -1784,6 +1840,11 @@ module.exports = {
     normalizeTastingNotes,
     getOcrCacheDir,
     parseGeminiNoteList,
+    GEMINI_EVIDENCE_PROMPT,
+    parseGeminiEvidence,
+    getOcrTasteNotes,
+    normalizeOcrImageUrl,
+    hasProcessingConflict,
     readOfficialMallImageText,
     shouldRunThumbnailOcr,
     mergeTastingNotes,

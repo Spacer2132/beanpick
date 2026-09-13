@@ -34,6 +34,7 @@ export type BeanProduct = {
   priceOptionsStatus?: 'complete' | 'partial' | 'failed';
   score: number;
   tastingNotes: string[];
+  tastingNoteEvidence?: Array<{ text: string; sourceUrl: string; method: 'detail-text' | 'image-model' | 'image-ocr'; group?: string; process?: string; reviewReason?: 'process-conflict' | 'blend-component' }>;
   productUrl: string;
   storeUrl?: string;
   imageUrl: string;

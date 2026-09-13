@@ -1,6 +1,6 @@
 import type { BeanProduct } from '../../data/mockBeans';
 import type { FetchProductsResult, RoasteryAdapter } from './types';
-import { normalizeTastingNotes } from '../tastingNotes.js';
+import { normalizeTastingNotes, extractTastingNoteEvidence, mergeTastingNoteEvidence } from '../tastingNotes.js';
 
 export const TERAROSA_SOURCE_ID = 'terarosa';
 export const TERAROSA_SOURCE_URL = 'https://www.terarosa.com/market/product/list?categoryId=482';
@@ -12,6 +12,7 @@ type TerarosaDetailPage = {
   url: string;
   html: string;
   ocrText?: string;
+  tastingNoteEvidence?: BeanProduct['tastingNoteEvidence'];
 };
 
 function textValue(row: TerarosaRow, keys: string[]) {
@@ -396,6 +397,7 @@ export function parseTerarosaDetailProduct(html: string, url: string, ocrText = 
     originalPrice: parseOriginalPriceFromDetail(html, price),
     weight: weightMatch ? Number(weightMatch[1]) : inferWeight(combinedText),
     tastingNotes: parseTastingNotes(infoHtml, ocrText, productName),
+    tastingNoteEvidence: extractTastingNoteEvidence(infoHtml, url),
     imageUrl,
     isNew: /NEW|신상|신상품|\[\d+월/i.test(productName),
     isSoldOut: /value=["']현재 품절된 상품입니다["'][^>]*disabled/i.test(visibleHtml),
@@ -404,7 +406,11 @@ export function parseTerarosaDetailProduct(html: string, url: string, ocrText = 
 
 export function enrichTerarosaProducts(products: BeanProduct[], detailPages: TerarosaDetailPage[] = []) {
   const detailByItemCode = new Map(
-    detailPages.map((page) => [page.url.match(/ItemCode=([^&]+)/i)?.[1] || page.url, parseTerarosaDetailProduct(page.html, page.url, page.ocrText || '')]),
+    detailPages.map((page) => {
+      const detail = parseTerarosaDetailProduct(page.html, page.url, page.ocrText || '');
+      detail.tastingNoteEvidence = mergeTastingNoteEvidence(detail.tastingNoteEvidence, page.tastingNoteEvidence || []);
+      return [page.url.match(/ItemCode=([^&]+)/i)?.[1] || page.url, detail] as const;
+    }),
   );
 
   return products.map((product) => {
@@ -422,6 +428,7 @@ export function enrichTerarosaProducts(products: BeanProduct[], detailPages: Ter
       originalPrice: detail.originalPrice || product.originalPrice,
       weight: detail.weight || product.weight,
       tastingNotes: detail.tastingNotes,
+      tastingNoteEvidence: detail.tastingNoteEvidence,
       imageUrl: detail.imageUrl || product.imageUrl,
       isNew: detail.isNew,
       isSoldOut: detail.isSoldOut,
@@ -473,6 +480,7 @@ export function normalizeTerarosaApiRows(rows: unknown[]): BeanProduct[] {
         weight: inferWeight(combinedText),
         score: inferScore(productName, index),
         tastingNotes: parseTastingNotes(itemExplain, '', productName),
+        tastingNoteEvidence: extractTastingNoteEvidence(itemExplain, productUrl),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutRow(row),

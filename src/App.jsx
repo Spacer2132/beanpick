@@ -13,6 +13,7 @@ import {
   getNoteOptions,
   getPricePer100g,
   getProductCountryLabel,
+  getProductOriginLabel,
   getProductProcessLabel,
   getRepresentativePriceOption,
   groupProductsByNameAndWeight,
@@ -31,6 +32,7 @@ import {
 import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, saveProductSnapshot } from './services/monitoring.ts';
 import { getPublishButtonLabel, loadPublishedSnapshot } from './services/publishedSnapshot.js';
 import { loadProductCache, saveProductCache } from './services/productHistory.js';
+import { getDisplayTastingNotes, getPendingTastingNotes, normalizeTastingNotes } from './services/tastingNotes.js';
 import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
 import { extractProductCountries } from './services/mapCoordinates.js';
 
@@ -68,6 +70,7 @@ function productSearchText(product) {
     product.priceLabel,
     ...optionText,
     ...product.tastingNotes,
+    ...getDisplayTastingNotes(product),
   ].filter(Boolean).join(' ').toLowerCase();
 }
 
@@ -209,7 +212,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) 
   const titleUnitPriceLabel = getBestUnitPriceLabel(product, priceOptions);
   const infoRows = [
     ['로스터리', product.roasterName],
-    ['원산지', getProductCountryLabel(product) || product.origin],
+    ['원산지', getProductOriginLabel(product)],
     ['가공방식', displayInfo.process || product.process],
     ['품종', displayInfo.variety],
     ['농장', displayInfo.farm],
@@ -248,10 +251,20 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) 
                 ))}
               </div>
             )}
-            {product.tastingNotes.length > 0 && (
+            {getDisplayTastingNotes(product).length > 0 && (
               <div className="notes">
-                {product.tastingNotes.map((note) => <span className="note-tag is-static" key={note}>{note}</span>)}
+                {getDisplayTastingNotes(product).map((note) => <span className="note-tag is-static" key={note}>{note}</span>)}
               </div>
+            )}
+            {getPendingTastingNotes(product).length > 0 && (
+              <p className="modal-original-name">
+                확인할 원문: {getPendingTastingNotes(product).map((entry, index) => (
+                  <React.Fragment key={`${entry.sourceUrl}-${entry.group || ''}-${entry.text}`}>
+                    {index > 0 && ' · '}
+                    <a href={entry.sourceUrl} target="_blank" rel="noreferrer">{entry.group ? `${entry.group}: ` : ''}{entry.text}{entry.reviewReason === 'process-conflict' ? ' (가공 방식 확인 필요)' : ''}</a>
+                  </React.Fragment>
+                ))}
+              </p>
             )}
           </div>
         </div>
@@ -378,11 +391,14 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
             ))}
           </div>
         )}
-        {(product.tastingNotes.length > 0 || showTasteInfoMissing) && (
+        {(getDisplayTastingNotes(product).length > 0 || showTasteInfoMissing) && (
           <div className="notes">
-            {product.tastingNotes.map((note) => (
-              <NoteTag key={note} note={note} active={activeNotes.includes(note)} onClick={onNoteClick} />
-            ))}
+            {getDisplayTastingNotes(product).map((note) => {
+              const filterNote = normalizeTastingNotes([note]).find((tag) => product.tastingNotes.includes(tag));
+              return filterNote
+                ? <NoteTag key={note} note={note} active={activeNotes.includes(filterNote)} onClick={() => onNoteClick(filterNote)} />
+                : <span className="note-tag is-static" key={note}>{note}</span>;
+            })}
             {showTasteInfoMissing && <span className="note-tag is-static taste-missing-note">맛정보 없음</span>}
           </div>
         )}
@@ -684,6 +700,7 @@ export default function App() {
   const [dataMode, setDataMode] = React.useState(initialCache ? 'cached' : 'mock');
   const [loadState, setLoadState] = React.useState({ status: 'idle', message: '' });
   const [publishState, setPublishState] = React.useState({ status: 'idle', message: '' });
+  const [collectionRuns, setCollectionRuns] = React.useState([]);
   const [smartStoreState, setSmartStoreState] = React.useState({ status: 'idle', message: '' });
   const [lastLoadedAt, setLastLoadedAt] = React.useState(initialCache ? new Date(initialCache.savedAt) : null);
   const [favoriteIds, setFavoriteIds] = React.useState(() => loadFavoriteProductIds());
@@ -813,7 +830,7 @@ export default function App() {
         throw new Error('아이폰 게시 기능은 Electron 데스크톱 앱에서만 사용할 수 있습니다.');
       }
 
-      const result = await window.beanpick.publishToGithub({ products });
+      const result = await window.beanpick.publishToGithub({ products, collectionRuns });
       if (!result?.ok) throw new Error(result?.error || 'GitHub에 게시하지 못했습니다.');
 
       setPublishState({
@@ -865,7 +882,11 @@ export default function App() {
 
       const warnings = [];
       const sources = await window.beanpick.listCollectionSources();
+      const sourceRuns = [];
       const tasks = sources.map(({ sourceId, roasterName, driver }) => ({
+        sourceId,
+        roasterName,
+        driver,
         label: roasterName || sourceId,
         fetchProducts: async () => {
           const result = await window.beanpick.fetchCollectionSource(sourceId);
@@ -890,7 +911,17 @@ export default function App() {
             throw new Error(`${roasterName || sourceId} 수집 드라이버를 지원하지 않습니다: ${driver}`);
           }
 
-          return promoteCollectionProducts(sourceId, sourceProducts);
+          const promotedProducts = await promoteCollectionProducts(sourceId, sourceProducts);
+          return {
+            products: promotedProducts,
+            run: {
+              sourceId,
+              roasterName,
+              status: result.listCompleteness || (result.warning ? 'partial' : 'complete'),
+              itemCount: promotedProducts.length,
+              usedFallback: false,
+            },
+          };
         },
       }));
 
@@ -918,7 +949,9 @@ export default function App() {
       await mapWithConcurrency(tasks, LIVE_SOURCE_LOAD_CONCURRENCY, async (task) => {
         try {
           console.log(`[beanpick:load-start] ${task.label}`);
-          const sourceProducts = await withRoasterTimeout(task.fetchProducts(), task.label);
+          const collected = await withRoasterTimeout(task.fetchProducts(), task.label);
+          const sourceProducts = collected.products || [];
+          sourceRuns.push(collected.run);
           console.log(`[beanpick:load-success] ${task.label} (${sourceProducts.length} products)`);
           loadedProducts.push(...sourceProducts);
           sourceCounts.push(`${task.label} ${sourceProducts.length}개`);
@@ -942,6 +975,13 @@ export default function App() {
               roasterPreservedReason: '수집 실패로 이전 데이터 유지',
             })));
             sourceCounts.push(`${task.label} ${fallbackProducts.length}개(보존)`);
+            sourceRuns.push({
+              sourceId: task.sourceId,
+              roasterName: task.roasterName,
+              status: 'failed',
+              itemCount: fallbackProducts.length,
+              usedFallback: true,
+            });
             warnings.push(`${task.label} 수집 지연으로 이전 데이터를 유지합니다.`);
 
             if (loadedProducts.length > 0) {
@@ -949,6 +989,13 @@ export default function App() {
               setDataMode('live');
             }
           } else {
+            sourceRuns.push({
+              sourceId: task.sourceId,
+              roasterName: task.roasterName,
+              status: 'failed',
+              itemCount: 0,
+              usedFallback: false,
+            });
             warnings.push(error instanceof Error ? error.message : `${task.label} 데이터를 가져오지 못했습니다.`);
           }
         } finally {
@@ -959,6 +1006,8 @@ export default function App() {
           });
         }
       });
+
+      setCollectionRuns(sourceRuns);
 
       if (loadedProducts.length === 0) {
         throw new Error(warnings.join(' / ') || '상품 데이터를 찾지 못했습니다.');

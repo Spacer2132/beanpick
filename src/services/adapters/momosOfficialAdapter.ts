@@ -1,6 +1,6 @@
 import type { BeanProduct, PriceOption } from '../../data/mockBeans';
 import type { FetchProductsResult, RoasteryAdapter } from './types';
-import { normalizeTastingNotes } from '../tastingNotes.js';
+import { normalizeTastingNotes, createTastingNoteEvidence, mergeTastingNoteEvidence } from '../tastingNotes.js';
 import { isSoldOutFromHtml } from './stockStatus.js';
 
 export const MOMOS_SOURCE_ID = 'momos';
@@ -51,6 +51,7 @@ type MomosDetailInfo = {
   weight?: number;
   priceOptions?: PriceOption[];
   tastingNotes?: string;
+  tastingNoteEvidence?: BeanProduct['tastingNoteEvidence'];
 };
 
 function extractMomosDetailInfo(block: string): MomosDetailInfo | null {
@@ -225,6 +226,7 @@ function parseMomosCafe24Products(html: string): BeanProduct[] {
         priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes: normalizeTastingNotes([detail?.tastingNotes || '', ...parseTastingNotes(description)], { limit: 5 }),
+        tastingNoteEvidence: mergeTastingNoteEvidence(createTastingNoteEvidence(detail?.tastingNotes || '', productUrl), detail?.tastingNoteEvidence || []),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutFromHtml(block),
@@ -292,6 +294,7 @@ function parseMomosImwebProducts(html: string): BeanProduct[] {
         priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes: normalizeTastingNotes([detail?.tastingNotes || '', ...parseTastingNotes(combinedText)], { limit: 5 }),
+        tastingNoteEvidence: mergeTastingNoteEvidence(createTastingNoteEvidence(detail?.tastingNotes || '', productUrl), detail?.tastingNoteEvidence || []),
         productUrl,
         imageUrl: toAbsoluteUrl(String(properties.image_url || block.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1] || '')),
         isSoldOut: isSoldOutFromHtml(block),

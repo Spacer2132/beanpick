@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('node:path');
+const { extractTastingNoteEvidence, mergeTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
 const {
   COMPLETENESS,
   combineListCompleteness,
@@ -255,6 +256,17 @@ async function runIphoneSnapshotPublish() {
     console.log(`[beanpick:auto-publish] ${loadState.message}`);
 
     if (shouldDryRunIphoneSnapshot) {
+      if (process.env.BEANPICK_DRY_RUN_OUTPUT) {
+        const cache = await mainWindow.webContents.executeJavaScript("JSON.parse(localStorage.getItem('beanpick.productCache.v1') || 'null')");
+        if (!Array.isArray(cache?.products) || cache.products.length !== loadState.groupedCount) {
+          throw new Error('재수집 비교용 상품 목록이 수집 완료 개수와 다릅니다.');
+        }
+        const outputPath = path.resolve(process.env.BEANPICK_DRY_RUN_OUTPUT);
+        const fs = require('node:fs');
+        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+        fs.writeFileSync(outputPath, JSON.stringify({ collectedAt: new Date(cache.savedAt).toISOString(), loadState, products: cache.products }, null, 2));
+        console.log(`[beanpick:auto-publish] 비교용 수집 결과 ${cache.products.length}종 저장: ${outputPath}`);
+      }
       console.log('[beanpick:auto-publish] dry-run이라 GitHub 게시를 건너뜁니다.');
       return;
     }
@@ -437,8 +449,14 @@ async function loadSmartStorePageWithRetry(window, url, loadOptions = {}) {
   for (let attempt = 0; attempt <= SMARTSTORE_PAGE_LOAD_RETRIES; attempt += 1) {
     try {
       await loadUrlWithTimeout(window, url, SMARTSTORE_PAGE_LOAD_TIMEOUT_MS, loadOptions);
+      if (/^https:\/\/nid\.naver\.com\/nidlogin\.login(?:[?#]|$)/i.test(window.webContents.getURL())) {
+        const error = new Error('네이버 로그인이 필요해 상품 목록을 확인하지 못했습니다.');
+        error.code = 'SMARTSTORE_LOGIN_REQUIRED';
+        throw error;
+      }
       return;
     } catch (error) {
+      if (error.code === 'SMARTSTORE_LOGIN_REQUIRED') throw error;
       lastError = error;
       if (attempt >= SMARTSTORE_PAGE_LOAD_RETRIES) break;
       console.warn(`[beanpick:smartstore-category] loadURL 재시도 ${attempt + 1}/${SMARTSTORE_PAGE_LOAD_RETRIES}: ${url}`);
@@ -919,11 +937,15 @@ async function enrichSmartStoreProductsWithDetailInfo(source, products) {
     if (!detailInfo) return product;
 
     let nextProduct = applySmartStoreDetailInfo(product, detailInfo);
+    const evidence = extractTastingNoteEvidence(detailInfo.detailText, product.productUrl);
     if (detailInfo.detailHtml || detailInfo.detailImageUrls?.length) {
       const maxImages = nextProduct.tastingNotes.length <= 1 ? 4 : 0;
       const notes = await extractNotesFromDetail(detailInfo.detailHtml, {
         maxImages,
         imageUrls: detailInfo.detailImageUrls,
+        sourceUrl: product.productUrl,
+        productName: product.productName,
+        onEvidence: (entries) => evidence.push(...entries),
       });
       if (notes.length > 0) {
         nextProduct = { ...nextProduct, tastingNotes: mergeTastingNotes(nextProduct.tastingNotes, notes) };
@@ -936,7 +958,10 @@ async function enrichSmartStoreProductsWithDetailInfo(source, products) {
       }
     }
 
-    return nextProduct;
+    return {
+      ...nextProduct,
+      tastingNoteEvidence: mergeTastingNoteEvidence(nextProduct.tastingNoteEvidence || [], evidence),
+    };
   });
 }
 
@@ -1173,18 +1198,22 @@ async function attachCenterCoffeeOcrText(page, config) {
       .filter(Boolean);
     const uniqueImageUrls = [...new Set(imageUrls)].slice(0, 3);
     const ocrTexts = [];
+    const tastingNoteEvidence = [];
 
     for (const imageUrl of uniqueImageUrls) {
-      const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
+      const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000,
+        productName: properties.name,
+        onEvidence: (entries) => tastingNoteEvidence.push(...entries) });
       if (!text) continue;
 
       ocrTexts.push(text);
       if (hasLikelyCenterCoffeeOcrNote(text)) break;
     }
 
-    if (ocrTexts.length === 0) continue;
+    if (ocrTexts.length === 0 && tastingNoteEvidence.length === 0) continue;
 
-    const marker = '<span data-beanpick-ocr="' + encodeHtmlAttribute(ocrTexts.join('\n')) + '"></span>';
+    const marker = '<span data-beanpick-ocr="' + encodeHtmlAttribute(ocrTexts.join('\n'))
+      + '" data-beanpick-note-evidence="' + encodeHtmlAttribute(JSON.stringify(tastingNoteEvidence)) + '"></span>';
     html = html.replace(block, block.replace(/>/, '>' + marker));
   }
 
@@ -1373,6 +1402,7 @@ function buildTerarosaThumbnailMap(rows) {
 async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
   return mapWithConcurrency(detailPages, 2, async (page) => {
     const ocrTexts = [];
+    const tastingNoteEvidence = [];
     let bestOcrText = '';
     let bestNoteCount = 0;
     // 노트는 상세 이미지보다 목록 썸네일에 박혀 있는 경우가 많아 썸네일을 먼저 읽는다.
@@ -1386,7 +1416,8 @@ async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
     let thumbnailNoteCount = 0;
 
     for (const { imageUrl, isThumbnail } of imageTargets) {
-      const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000 });
+      const text = await readOfficialMallImageText(imageUrl, { lang: 'eng+kor', psm: 6, timeout: 25000,
+        onEvidence: (entries) => tastingNoteEvidence.push(...entries) });
       if (!text) continue;
 
       ocrTexts.push(text);
@@ -1407,6 +1438,7 @@ async function attachTerarosaOcrText(detailPages, thumbnailByItemCode = {}) {
     return {
       ...page,
       ocrText: orderedTexts.join('\n'),
+      tastingNoteEvidence,
     };
   });
 }
@@ -1582,7 +1614,9 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
               const abs = absolutizeImageUrl(src, detailUrl);
               if (!abs) continue;
               try {
-                const text = await readOfficialMallImageText(abs, { lang: 'eng+kor', psm: 6, timeout: 15000 });
+                const text = await readOfficialMallImageText(abs, { lang: 'eng+kor', psm: 6, timeout: 15000,
+                  process: parsed.process,
+                  onEvidence: (entries) => { parsed.tastingNoteEvidence = mergeTastingNoteEvidence(parsed.tastingNoteEvidence || [], entries); } });
                 if (text) ocrChunks.push(text);
               } catch {
                 // OCR 실패 시 무시

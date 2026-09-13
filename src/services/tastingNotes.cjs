@@ -171,7 +171,7 @@ const NOTE_RULES = [
   { label: '생강', group: 'spice', aliases: ['ginger', '생강'] },
   { label: '회향', group: 'spice', aliases: ['anise', 'fennel', '회향'] },
   { label: '커민', group: 'spice', aliases: ['cumin', '커민'] },
-  { label: '오렌지꽃', group: 'spice', aliases: ['orange flower', 'orange blossom', '오렌지꽃'] },
+  { label: '오렌지꽃', group: 'spice', aliases: ['orange flower', 'orange blossom', '오렌지꽃', '오렌지 블로섬'] },
 
   { label: '다크초콜릿', group: 'sweet', aliases: ['dark chocolate', 'darkchocolate', 'dark choco', '다크초콜릿', '다크 초콜릿', '다크쵸콜릿'] },
   { label: '밀크초콜릿', group: 'sweet', aliases: ['milk chocolate', 'milkchocolate', 'milk choco', '밀크초콜릿', '밀크 초콜릿', '밀크쵸콜릿'] },
@@ -317,8 +317,8 @@ function aliasAppearsInText(alias, textKey, compactTextKey) {
   return compactTextKey.includes(compactAlias);
 }
 
-function findCanonicalNotes(value) {
-  if (isBlockedToken(value) || isInvalidFreeText(value)) return [];
+function findCanonicalNotes(value, options = {}) {
+  if (isBlockedToken(value) || (!options.explicitEvidence && isInvalidFreeText(value))) return [];
 
   const exact = ALIAS_LOOKUP.get(toKey(value)) || ALIAS_LOOKUP.get(toCompactKey(value));
   if (exact) return [exact];
@@ -354,6 +354,9 @@ function removeOverlappingNotes(notes) {
   if (set.has('청포도') || set.has('적포도') || set.has('건포도')) {
     set.delete('포도');
   }
+  if (['블랙커런트', '블루베리', '딸기', '라즈베리', '검은딸기', '크랜베리', '보이센베리'].some((note) => set.has(note))) {
+    set.delete('베리');
+  }
   if (set.has('블랙커런트')) {
     set.delete('까치밥');
   }
@@ -382,7 +385,7 @@ function normalizeTastingNotes(notes, options = {}) {
   const found = [];
 
   sourceNotes.flatMap(splitNoteText).forEach((note) => {
-    findCanonicalNotes(note).forEach((canonicalNote) => {
+    findCanonicalNotes(note, options).forEach((canonicalNote) => {
       if (!found.includes(canonicalNote)) found.push(canonicalNote);
     });
   });
@@ -393,6 +396,83 @@ function normalizeTastingNotes(notes, options = {}) {
 
 function isTastingNote(note) {
   return normalizeTastingNotes([note], { limit: Infinity }).length > 0;
+}
+
+// 원문은 검색용 사전과 분리한다. 사전에 없는 표현도 검수 근거로 남긴다.
+function createTastingNoteEvidence(notes, sourceUrl, method = 'detail-text') {
+  if (!/^https?:\/\//i.test(String(sourceUrl || ''))) return [];
+  if (!['detail-text', 'image-model', 'image-ocr'].includes(method)) return [];
+  const entries = new Map();
+  const clean = (value) => typeof value === 'string' && value.trim().length <= 80 && !/[<>\x00-\x1f]/.test(value) ? value.trim() : '';
+  for (const note of Array.isArray(notes) ? notes : [notes]) {
+    const value = typeof note === 'string' ? note : note?.text;
+    if (typeof value !== 'string') continue;
+    for (const part of value.split(/[\n,;/|·ㆍ•]+/)) {
+      const text = clean(part);
+      if (!text) continue;
+      const entry = { text, sourceUrl, method };
+      for (const field of ['group', 'process']) {
+        if (clean(note?.[field])) entry[field] = clean(note[field]);
+      }
+      if (['process-conflict', 'blend-component'].includes(note?.reviewReason)) entry.reviewReason = note.reviewReason;
+      entries.set(JSON.stringify(entry), entry);
+    }
+  }
+  return [...entries.values()];
+}
+
+function mergeTastingNoteEvidence(...lists) {
+  const entries = new Map();
+  for (const entry of lists.flat().filter(Boolean)) {
+    for (const clean of createTastingNoteEvidence(entry, entry.sourceUrl, entry.method)) {
+      entries.set(JSON.stringify(clean), clean);
+    }
+  }
+  return [...entries.values()];
+}
+
+function extractTastingNoteEvidence(text, sourceUrl, method = 'detail-text') {
+  const plain = String(text || '')
+    .replace(/<br\s*\/?>|<\/(?:p|div|li|tr)>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&nbsp;/gi, ' ');
+  const label = /(?:tasting\s*notes?|cupping\s*notes?|cup\s*notes?|flavo[u]?r\s*&\s*aroma|테이스팅\s*노트|커핑\s*노트|컵\s*노트)\s*[:：–—-]?\s*([^\n]{1,420})/gi;
+  const notes = [...plain.matchAll(label)].flatMap((match) => {
+    const groups = [...plain.slice(0, match.index).matchAll(/(?:^|\n)\s*(Split\s+[A-Z0-9]+)\s*:?\s*(?=\n|$)/gi)];
+    const group = groups.at(-1)?.[1];
+    return match[1].split(/\b(?:origin|country|process|variety|altitude|roasting|details?)\b|원산지|가공|품종|고도|로스팅|배송|상품설명/i)[0]
+      .split(/[,;/|·ㆍ•]+/).map((text) => group ? { text, group } : text);
+  });
+  return createTastingNoteEvidence(notes, sourceUrl, method);
+}
+
+function getDisplayTastingNotes(product) {
+  const evidence = mergeTastingNoteEvidence(product?.tastingNoteEvidence || []);
+  const recognized = evidence.filter((entry) => !entry.reviewReason && normalizeTastingNotes([entry.text], { limit: Infinity })
+    .some((tag) => (product?.tastingNotes || []).includes(tag)));
+  const currentNotes = normalizeTastingNotes(product?.tastingNotes || [], { limit: Infinity });
+  const covered = new Set();
+  const displayNotes = [];
+  recognized.forEach((entry) => {
+    normalizeTastingNotes([entry.text], { limit: Infinity }).forEach((tag) => {
+      if (covered.has(tag)) return;
+      covered.add(tag);
+      displayNotes.push(entry.text);
+    });
+  });
+  currentNotes.forEach((note) => {
+    if (covered.has(note)) return;
+    covered.add(note);
+    displayNotes.push(note);
+  });
+  return displayNotes;
+}
+
+function getPendingTastingNotes(product) {
+  return mergeTastingNoteEvidence(product?.tastingNoteEvidence || [])
+    .filter((entry) => entry.reviewReason || !normalizeTastingNotes([entry.text], { limit: Infinity })
+      .some((tag) => (product?.tastingNotes || []).includes(tag)));
 }
 
 const ACIDITY_WEIGHTS = {
@@ -434,5 +514,9 @@ module.exports = {
   sortTastingNotes,
   isTastingNote,
   getAcidityScore,
+  createTastingNoteEvidence,
+  mergeTastingNoteEvidence,
+  extractTastingNoteEvidence,
+  getDisplayTastingNotes,
+  getPendingTastingNotes,
 };
-

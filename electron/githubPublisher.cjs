@@ -1,6 +1,6 @@
 const { validateProducts } = require('./dataQuality.cjs');
 const { markStaleProduct } = require('./collection/contract.cjs');
-const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
+const { normalizeTastingNotes, mergeTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
 
 const DEFAULT_OWNER = 'Spacer2132';
 const DEFAULT_REPO = 'beanpick';
@@ -280,12 +280,18 @@ function buildPreviousTastingNoteMap(previousSnapshot) {
 
   for (const product of previousProducts) {
     const id = normalizeText(product?.id);
-    const notes = normalizeTastingNotes(product?.tastingNotes, { limit: 5 });
+    const evidence = mergeTastingNoteEvidence(product.tastingNoteEvidence || []);
+    const supportedNotes = new Set(normalizeTastingNotes(
+      evidence.filter((entry) => !entry.reviewReason).map((entry) => entry.text),
+      { limit: Infinity, explicitEvidence: true },
+    ));
+    const notes = normalizeTastingNotes(product?.tastingNotes, { limit: 5 })
+      .filter((note) => supportedNotes.has(note));
     if (!id || notes.length === 0) continue;
     if (map.has(id)) {
       map.set(id, null);
     } else {
-      map.set(id, { notes, preservedAt: product.tastingNotesPreservedAt || '' });
+      map.set(id, { notes, evidence, preservedAt: product.tastingNotesPreservedAt || '' });
     }
   }
 
@@ -297,7 +303,11 @@ function preservePreviousTastingNotes(products, previousSnapshot, publishedAt) {
   let preservedCount = 0;
 
   for (const product of products) {
-    const currentNotes = normalizeTastingNotes(product?.tastingNotes, { limit: 5 });
+    product.tastingNoteEvidence = mergeTastingNoteEvidence(product.tastingNoteEvidence || []);
+    const currentNotes = normalizeTastingNotes(
+      product.tastingNoteEvidence.filter((entry) => !entry.reviewReason).map((entry) => entry.text),
+      { limit: 5, explicitEvidence: true },
+    );
     product.tastingNotes = currentNotes;
     if (currentNotes.length > 0) {
       delete product.tastingNotesPreservedAt;
@@ -307,6 +317,7 @@ function preservePreviousTastingNotes(products, previousSnapshot, publishedAt) {
     const match = previousNotes.get(normalizeText(product?.id));
     if (!match) continue;
     product.tastingNotes = match.notes;
+    if (product.tastingNoteEvidence.length === 0) product.tastingNoteEvidence = match.evidence;
     product.tastingNotesPreservedAt = match.preservedAt || publishedAt;
     preservedCount += 1;
   }
@@ -578,10 +589,43 @@ function preservePreviousCollapsedRoasters(products, previousSnapshot) {
   return { products: safeProducts, preservedRoasters, preservedCount };
 }
 
-function getPublishBlockReason(previousSnapshot, snapshot) {
+function normalizeCollectionRuns(collectionRuns) {
+  if (!Array.isArray(collectionRuns)) return [];
+  return collectionRuns
+    .filter((run) => run && typeof run === 'object')
+    .map((run) => ({
+      sourceId: String(run.sourceId || '').trim(),
+      roasterName: String(run.roasterName || run.sourceId || '').trim(),
+      status: String(run.status || '').trim().toLowerCase(),
+      itemCount: Number(run.itemCount || 0),
+      usedFallback: Boolean(run.usedFallback),
+    }))
+    .filter((run) => run.sourceId || run.roasterName);
+}
+
+function getCollectionRunBlockReason(collectionRuns) {
+  const incomplete = normalizeCollectionRuns(collectionRuns)
+    .find((run) => ['partial', 'blocked', 'failed', 'empty'].includes(run.status) && !run.usedFallback);
+  if (!incomplete) return '';
+  const label = incomplete.roasterName || incomplete.sourceId || '알 수 없는 판매처';
+  const statusLabel = {
+    partial: '부분 수집',
+    blocked: '접근 차단',
+    failed: '수집 실패',
+    empty: '상품 0개 수집',
+  }[incomplete.status] || incomplete.status;
+  return `'${label}'이(가) ${statusLabel} 상태라 게시를 중단했습니다. 전체 목록을 확인한 뒤 다시 시도해주세요.`;
+}
+
+function getPublishBlockReason(previousSnapshot, snapshot, collectionRuns = undefined) {
   const previousProducts = Array.isArray(previousSnapshot?.products) ? previousSnapshot.products : [];
-  if (previousProducts.length === 0) return '';
   const nextProducts = Array.isArray(snapshot?.products) ? snapshot.products : [];
+  const observedCollectionRuns = collectionRuns === undefined
+    ? snapshot?.quality?.collectionRuns
+    : collectionRuns;
+  const collectionBlockReason = getCollectionRunBlockReason(observedCollectionRuns);
+  if (collectionBlockReason) return collectionBlockReason;
+  if (previousProducts.length === 0) return '';
 
   // 전체 상품 수 또는 로스터리 수가 이전의 절반 밑으로 떨어지면 일부 로스터리 수집이 통째로 실패한 것으로 보고 막는다.
   if (previousProducts.length >= COUNT_GUARD_MIN_PREVIOUS) {
@@ -647,7 +691,7 @@ function markPreservedProductFreshness(products, previousSnapshot, publishedAt) 
   return { products: next, staleCount };
 }
 
-function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), { previousSnapshot = null } = {}) {
+function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), { previousSnapshot = null, collectionRuns = [] } = {}) {
   const safeProducts = Array.isArray(products) ? products : [];
   const preservedRoastersResult = preservePreviousCollapsedRoasters(safeProducts, previousSnapshot);
   const preservedDiscounts = preservePreviousSmartStoreDiscounts(preservedRoastersResult.products, previousSnapshot);
@@ -672,6 +716,7 @@ function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), {
       preservedOfficialDetailCount: preservedDetails.preservedCount,
       preservedTastingNoteCount: preservedNotes.preservedCount,
       staleProductCount: staleMarked.staleCount,
+      collectionRuns: normalizeCollectionRuns(collectionRuns),
     },
   };
 }
@@ -737,6 +782,7 @@ function isRetryablePublishStatus(status) {
 
 async function publishProductsToGitHub({
   products,
+  collectionRuns = [],
   token = process.env.GITHUB_TOKEN || '',
   owner = DEFAULT_OWNER,
   repo = DEFAULT_REPO,
@@ -751,8 +797,8 @@ async function publishProductsToGitHub({
 
   try {
     const existing = await readExistingFile({ fetchImpl, token, owner, repo, path, branch });
-    const snapshot = buildGithubSnapshot(products, now(), { previousSnapshot: existing.snapshot });
-    const blockReason = getPublishBlockReason(existing.snapshot, snapshot);
+    const snapshot = buildGithubSnapshot(products, now(), { previousSnapshot: existing.snapshot, collectionRuns });
+    const blockReason = getPublishBlockReason(existing.snapshot, snapshot, collectionRuns);
     if (blockReason) {
       return {
         ok: false,
@@ -845,6 +891,7 @@ module.exports = {
   findCollapsedRoaster,
   findCollapsedOptionRoaster,
   getPublishBlockReason,
+  getCollectionRunBlockReason,
   preservePreviousOfficialDetails,
   isApprovedMomosCatalogMigration,
 };

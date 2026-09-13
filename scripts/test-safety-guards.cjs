@@ -152,6 +152,21 @@ const discountReason = publisher.getPublishBlockReason(
 );
 expect(discountReason.includes('할인'), '스마트스토어 할인정보 급감을 못 잡음', discountReason);
 
+// 7-a) 상품 수가 절반 이상 남아도 출처 자체가 부분 수집이면 게시를 막는다.
+const partialCollectionReason = publisher.getPublishBlockReason(
+  { products: baseline },
+  { products: baseline, quality: { collectionRuns: [{ sourceId: 'lubia', roasterName: '루비아 커피', status: 'partial', itemCount: 42 }] } },
+);
+expect(partialCollectionReason.includes('루비아 커피') && partialCollectionReason.includes('부분 수집'), '부분 수집 출처가 게시 가드를 우회함', partialCollectionReason);
+expect(
+  publisher.getPublishBlockReason(
+    { products: baseline },
+    { products: baseline },
+    [{ sourceId: 'lubia', roasterName: '루비아 커피', status: 'failed', itemCount: 20, usedFallback: true }],
+  ) === '',
+  '직전 자료로 보존한 실패 출처까지 게시를 잘못 차단함',
+);
+
 // 7) 진짜 할인 종료(가격이 정상가로 복귀)는 막지 않는다. (2026-07 필아웃커피 월초 할인종료 오탐 사건)
 function makeEndedDiscountProducts(count) {
   return Array.from({ length: count }, (_, i) => ({

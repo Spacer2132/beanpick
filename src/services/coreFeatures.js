@@ -1,4 +1,4 @@
-import { normalizeTastingNotes, sortTastingNotes, getAcidityScore } from './tastingNotes.js';
+import { normalizeTastingNotes, sortTastingNotes, getAcidityScore, mergeTastingNoteEvidence, getDisplayTastingNotes } from './tastingNotes.js';
 
 // 10% 이상 싸게 팔면 할인 상품으로 본다. (1~9%는 표기 오차/소폭 할인이라 제외)
 const DISCOUNT_THRESHOLD = 0.10;
@@ -156,6 +156,9 @@ function formatPricePer100g(price, weight) {
 }
 
 function getPricePer100g(product) {
+  const price = getReliableSalePrice(product.price, product.originalPrice);
+  const calculated = formatPricePer100g(price, product.weight);
+  if (calculated) return calculated;
   if (product.unitPriceLabel) return product.unitPriceLabel;
   return getLowestUnitPriceCandidate(product)?.label || '';
 }
@@ -214,7 +217,7 @@ function calculateDiscountRate(price, originalPrice) {
 
 function formatDiscountRate(rate) {
   if (!rate || rate <= 0) return '';
-  return `${Math.round(rate * 100)}% 할인`;
+  return `${Math.floor(rate * 100)}% 할인`;
 }
 
 function normalizePriceOptionDiscount(option) {
@@ -231,7 +234,7 @@ function normalizePriceOptionDiscount(option) {
     originalPriceLabel: originalPrice ? formatPrice(originalPrice) : '',
     discountRate,
     discountLabel: formatDiscountRate(discountRate),
-    unitPriceLabel: priceWasAdjusted ? formatPricePer100g(price, option.weight) : option.unitPriceLabel,
+    unitPriceLabel: formatPricePer100g(price, option.weight) || option.unitPriceLabel,
   };
 }
 
@@ -293,7 +296,9 @@ function isNaverMainProductUrl(url) {
 // 다만 /main/products/ 형태는 네이버 로그인으로 튕기므로 그때만 쇼핑 검색으로 우회한다.
 function resolveProductOpenUrl(url, product) {
   const normalizedUrl = String(url || '').trim();
-  if (!normalizedUrl || !isNaverMainProductUrl(normalizedUrl)) return normalizedUrl;
+  const isUnverifiedSmartStoreProduct = /smartstore\.naver\.com\/[^/?#]+\/products\/\d+/i.test(normalizedUrl)
+    && ['partial', 'failed'].includes(product?.priceOptionsStatus);
+  if (!normalizedUrl || (!isNaverMainProductUrl(normalizedUrl) && !isUnverifiedSmartStoreProduct)) return normalizedUrl;
 
   const query = [product?.roasterName, product?.productName].filter(Boolean).join(' ').trim();
   if (!query) return normalizedUrl;
@@ -480,6 +485,23 @@ const DISPLAY_STOP_WORDS = [
   '골드문트',
   '싱글오리진',
   'single origin',
+  '홀빈',
+  '라이트 로스트',
+  '라이트로스트',
+  '라이트 로스팅',
+  '라이트로스팅',
+  '미디엄 로스트',
+  '미디엄로스트',
+  '중배전',
+  '중강배전',
+  '강배전',
+  '다크 로스트',
+  '다크로스트',
+  '다크 로스팅',
+  '다크로스팅',
+  '로스트',
+  'roast',
+  'roasting',
 ];
 
 const IMPLICIT_BLEND_NAME_RULES = [
@@ -567,6 +589,9 @@ function findCountryDisplay(product) {
     .sort((a, b) => a.index - b.index);
 
   if (nameMatches.length > 0) return nameMatches[0].rule;
+  const origin = compactDisplayText(product.origin || '').replace(/\s+/g, '').toLowerCase();
+  const roaster = compactDisplayText(product.roasterName || '').replace(/\s+/g, '').toLowerCase();
+  if (origin && roaster && origin === roaster) return undefined;
   return COUNTRY_DISPLAY_RULES.find((rule) => hasAlias(product.origin, rule.aliases));
 }
 
@@ -585,12 +610,13 @@ function findVarietyDisplays(productName) {
   return labels;
 }
 
-function inferFarmName(productName, countryRule, processRule, varietyLabels) {
+function inferFarmName(productName, countryRule, processRule, varietyLabels, roasterName = '') {
   const varietyRules = VARIETY_DISPLAY_RULES.filter((rule) => varietyLabels.includes(rule.label));
   let farmName = compactDisplayText(normalizeProductNameForGroup(productName));
 
   if (countryRule) farmName = removeAliases(farmName, countryRule.aliases);
   if (processRule) farmName = removeAliases(farmName, processRule.aliases);
+  if (roasterName) farmName = removeAliases(farmName, [roasterName]);
   varietyRules.forEach((rule) => {
     farmName = removeAliases(farmName, rule.aliases);
   });
@@ -601,6 +627,12 @@ function inferFarmName(productName, countryRule, processRule, varietyLabels) {
 
 function getProductCountryLabel(product) {
   return findCountryDisplay(product)?.label || '';
+}
+
+function getProductOriginLabel(product) {
+  const country = getProductCountryLabel(product);
+  if (country) return country;
+  return isBlendProduct(product) ? '블렌드' : '';
 }
 
 function getProductProcessLabel(product) {
@@ -656,7 +688,7 @@ function formatProductDisplayInfo(product) {
   const processRule = findProcessDisplay(product);
   const varietyLabels = findVarietyDisplays(`${cleanName} ${varietyHint}`.trim());
   const detailFarm = preferKoreanText(product.farm || '');
-  const farmName = detailFarm || inferFarmName(cleanName, countryRule, processRule, varietyLabels);
+  const farmName = detailFarm || inferFarmName(cleanName, countryRule, processRule, varietyLabels, product.roasterName);
   const varietyLabel = varietyLabels.slice(0, 2).join(' / ');
   // 규칙에 없는 품종이라도 상세에서 한글 값을 찾았으면 그것을 폴백으로 쓴다.
   const koreanVarietyHint = /[가-힣]/.test(varietyHint) ? varietyHint : '';
@@ -771,6 +803,7 @@ function groupProductsByNameAndWeight(products) {
       return normalizeDiscountProduct({
         ...items[0],
         tastingNotes: normalizeTastingNotes(items[0].tastingNotes),
+        tastingNoteEvidence: mergeTastingNoteEvidence(items[0].tastingNoteEvidence || []),
       });
     }
 
@@ -781,20 +814,19 @@ function groupProductsByNameAndWeight(products) {
       .sort((a, b) => (a.price / a.weight) - (b.price / b.weight))[0];
     const representative = bestUnitPriceProduct || sortedByPrice[0] || sortedByWeight[0];
     const weights = uniqueValues(sortedByWeight.map((item) => formatWeight(item.weight)));
-    const priceOptions = createPriceOptions(items);
+    // 정규화된 상품은 자체 상세 옵션이 있을 때 상단 정상가를 비운다. 용량별로 수집한
+    // 판매가·정상가 쌍은 원본 상품에서 만들 때만 잃지 않는다.
+    const priceOptions = createPriceOptions(rawItems);
     const minPriceProduct = sortedByPrice[0] || representative;
     const topLevelOption = priceOptions.find((option) => (
       Number(option.price || 0) === Number(minPriceProduct.price || 0)
       && Number(option.weight || 0) === Number(minPriceProduct.weight || 0)
     )) || priceOptions[0];
-    const discountRate = Math.max(
-      0,
-      ...items.map((item) => Number(item.discountRate || 0)),
-      ...priceOptions.map((option) => Number(option.discountRate || 0)),
-    );
+    const discountRate = Math.max(0, ...priceOptions.map((option) => Number(option.discountRate || 0)));
 
     const groupTastingNotes = normalizeTastingNotes(items.flatMap((item) => item.tastingNotes));
-    const priceOptionsComplete = (items.length > 1 && items.every((item) => item.productUrl))
+    const isSmartStoreGroup = items.some((item) => /smartstore\.naver\.com/i.test(String(item.productUrl || '')));
+    const priceOptionsComplete = (!isSmartStoreGroup && items.length > 1 && items.every((item) => item.productUrl))
       || items.every((item) => item.priceOptionsComplete === true);
     const tasteScaleProduct = items.find((item) => getTasteScaleAcidityScore(item.tasteScale) !== null);
     return {
@@ -815,6 +847,7 @@ function groupProductsByNameAndWeight(products) {
       priceOptionsStatus: priceOptionsComplete ? 'complete' : (priceOptions.length > 0 ? 'partial' : 'failed'),
       score: Math.max(...items.map((item) => item.score || 0)),
       tastingNotes: groupTastingNotes,
+      tastingNoteEvidence: mergeTastingNoteEvidence(items.flatMap((item) => item.tastingNoteEvidence || [])),
       tasteScale: tasteScaleProduct?.tasteScale || representative.tasteScale,
       acidityScore: getProductAcidityScore(tasteScaleProduct || representative, groupTastingNotes),
       acidityScoreSource: tasteScaleProduct ? 'tasteScale' : 'tastingNotes',
@@ -839,6 +872,7 @@ function normalizeProducts(products) {
     return normalizeDiscountProduct({
       ...product,
       tastingNotes,
+      tastingNoteEvidence: mergeTastingNoteEvidence(product.tastingNoteEvidence || []),
       acidityScore: getProductAcidityScore(product, tastingNotes),
       acidityScoreSource: getTasteScaleAcidityScore(product.tasteScale) !== null ? 'tasteScale' : 'tastingNotes',
     });
@@ -944,7 +978,7 @@ function matchesSmartSearch(text, query) {
 
 // 노트 상세검색: 포함 단어는 노트에 모두 들어 있어야 하고, 제외 단어는 하나도 없어야 한다.
 function matchesNoteQuery(product, includeQuery = '', excludeQuery = '') {
-  const noteText = (product.tastingNotes || []).join(' ');
+  const noteText = [...(product.tastingNotes || []), ...getDisplayTastingNotes(product)].join(' ');
 
   if (!matchesSmartSearch(noteText, String(includeQuery).replace(/,/g, ' '))) return false;
 
@@ -963,6 +997,7 @@ function filterProductsBySearchAndNotes(products, searchQuery = '', activeNotes 
       product.process,
       product.roastLevel,
       ...product.tastingNotes,
+      ...getDisplayTastingNotes(product),
     ].join(' ').toLowerCase();
 
     const matchesSearch = query.length === 0 || searchable.includes(query);
@@ -1008,6 +1043,7 @@ export {
   getNoteOptions,
   getPricePer100g,
   getProductCountryLabel,
+  getProductOriginLabel,
   getProductProcessLabel,
   getRepresentativePriceOption,
   getStockCounts,

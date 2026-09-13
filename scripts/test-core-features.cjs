@@ -144,6 +144,7 @@ expect(
   '가격 옵션은 자기 상품 링크를 유지해야 합니다',
 );
 expect(grouped[0]?.priceOptions[0]?.unitPriceLabel === '7,500원/100g', '100g당 가격 표기는 가격 옵션에 남아야 합니다', grouped[0]?.priceOptions[0]?.unitPriceLabel);
+expect(grouped[0]?.priceOptions[1]?.unitPriceLabel === '6,400원/100g', '각 용량 옵션의 100g당 가격은 자기 판매가로 계산해야 합니다', grouped[0]?.priceOptions[1]?.unitPriceLabel);
 expect(grouped[0]?.tastingNotes.includes('초콜릿') && grouped[0]?.tastingNotes.includes('오렌지') && grouped[0]?.tastingNotes.includes('청사과'), '묶인 카드의 테이스팅노트는 한글 대표 태그로 합쳐져야 합니다', grouped[0]?.tastingNotes.join(', '));
 expect(!grouped[0]?.tastingNotes.includes('Brazil') && !grouped[0]?.tastingNotes.includes('Washed'), '나라명과 가공방식은 테이스팅노트로 남으면 안 됩니다', grouped[0]?.tastingNotes.join(', '));
 
@@ -236,6 +237,56 @@ const groupedDiscount = core.groupProductsByNameAndWeight([
   },
 ]);
 expect(groupedDiscount.length === 1 && core.isDiscountedProduct(groupedDiscount[0]), '묶인 원두 중 한 용량만 20% 이상 할인이어도 할인상품에 포함되어야 합니다');
+
+const nestedOptionDiscounts = core.groupProductsByNameAndWeight([
+  {
+    id: 'lubia-firenze-200',
+    roasterName: '루비아 커피',
+    productName: '클래식 이탈리안 스타일 루비아 피렌체 홀빈 200g',
+    price: 13000,
+    originalPrice: 15000,
+    weight: 200,
+    priceOptions: [{ price: 13000, originalPrice: 15000, weight: 200 }],
+    productUrl: 'https://smartstore.naver.com/rubiacoffee/products/6486417168',
+    priceOptionsComplete: true,
+    tastingNotes: [],
+    isSoldOut: false,
+  },
+  {
+    id: 'lubia-firenze-1000',
+    roasterName: '루비아 커피',
+    productName: '클래식 이탈리안 스타일 루비아 피렌체 홀빈 1kg',
+    price: 34000,
+    originalPrice: 38000,
+    weight: 1000,
+    priceOptions: [{ price: 34000, originalPrice: 38000, weight: 1000 }],
+    productUrl: 'https://smartstore.naver.com/rubiacoffee/products/6486417168',
+    priceOptionsComplete: true,
+    tastingNotes: [],
+    isSoldOut: false,
+  },
+]);
+const firenze1kg = nestedOptionDiscounts[0]?.priceOptions.find((option) => option.weight === 1000);
+expect(firenze1kg?.price === 34000 && firenze1kg?.originalPrice === 38000, '상세 옵션이 있는 상품도 목록에서 확인한 같은 용량의 판매가·원래가 쌍을 잃으면 안 됩니다', JSON.stringify(firenze1kg));
+expect(firenze1kg?.discountLabel === '10% 할인', '할인율 표시는 네이버와 같이 소수점을 버려야 합니다', firenze1kg?.discountLabel);
+
+const groupedDiscountRate = core.groupProductsByNameAndWeight([
+  { id: 'rate-200', roasterName: '테스트커피', productName: '정합성 원두 200g', price: 14000, originalPrice: 15000, weight: 200, tastingNotes: [], isSoldOut: false },
+  { id: 'rate-1000', roasterName: '테스트커피', productName: '정합성 원두 1kg', price: 39000, originalPrice: 42000, weight: 1000, tastingNotes: [], isSoldOut: false },
+])[0];
+expect(Math.abs((groupedDiscountRate?.discountRate || 0) - (3000 / 42000)) < 1e-9, '묶인 상품 상단 할인율은 용량별 옵션 중 최대값이어야 합니다', JSON.stringify(groupedDiscountRate));
+const staleUnitPrice = core.normalizeProducts([{
+  id: 'stale-unit-price', productName: '단가 재계산 원두', price: 14000, weight: 200,
+  priceOptions: [{ price: 14000, originalPrice: 15000, weight: 200, unitPriceLabel: '4,200원/100g' }],
+  tastingNotes: [], isSoldOut: false,
+}])[0];
+expect(staleUnitPrice?.priceOptions[0]?.unitPriceLabel === '7,000원/100g', '기존에 저장된 잘못된 단가도 불러올 때 다시 계산해야 합니다', staleUnitPrice?.priceOptions[0]?.unitPriceLabel);
+
+const incompleteSmartStoreGroup = core.groupProductsByNameAndWeight([
+  { id: 'panama-220', roasterName: '로스터릭', productName: '파나마 보케테 팔미라 워시드 220g', price: 9000, weight: 220, productUrl: 'https://smartstore.naver.com/rick/products/12306383294', tastingNotes: [], isSoldOut: false },
+  { id: 'panama-500', roasterName: '로스터릭', productName: '파나마 보케테 팔미라 워시드 500g', price: 18000, weight: 500, productUrl: 'https://smartstore.naver.com/rick/products/12522816818', tastingNotes: [], isSoldOut: false },
+])[0];
+expect(incompleteSmartStoreGroup?.priceOptionsStatus === 'partial', '스마트스토어 링크 존재만으로 용량 옵션 전체 확인을 완료 처리하면 안 됩니다', JSON.stringify(incompleteSmartStoreGroup));
 
 // 루비아 뚱구리처럼 대용량 상품에만 [그란데] 수식어가 붙는 경우도 같은 원두로 묶여야 한다
 const grandeGroup = core.groupProductsByNameAndWeight([
@@ -567,6 +618,30 @@ const unknownDisplayInfo = core.formatProductDisplayInfo({
 });
 expect(!unknownDisplayInfo.primary.startsWith('블렌드 -'), '정보가 부족한 일반 원두를 블렌드로 잘못 표시하면 안 됩니다', JSON.stringify(unknownDisplayInfo));
 
+const sellerOriginProduct = {
+  roasterName: '루비아 커피',
+  productName: '다크 브라운 블렌드 1kg',
+  origin: '루비아 커피',
+  process: 'Blend',
+};
+expect(core.getProductOriginLabel(sellerOriginProduct) === '블렌드', '판매처명이 원산지로 표시되면 안 되고 블렌드로 표시해야 합니다', core.getProductOriginLabel(sellerOriginProduct));
+expect(core.getProductCountryLabel(sellerOriginProduct) === '', '판매처명에서 국가를 추출하면 안 됩니다', core.getProductCountryLabel(sellerOriginProduct));
+
+const inferredFarmDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '로스터릭',
+  productName: '파나마 보케테 팔미라 중강배전 200g',
+  origin: 'Panama',
+});
+expect(inferredFarmDisplayInfo.farm === '보케테 팔미라', '농장 추론에서 로스팅 단계가 섞이면 안 됩니다', JSON.stringify(inferredFarmDisplayInfo));
+
+const roasterBrandFarmDisplayInfo = core.formatProductDisplayInfo({
+  roasterName: '베르크',
+  productName: '에티오피아 베르크 구지 부쿠 사이사 내추럴 200g',
+  origin: 'Ethiopia',
+  process: 'Natural',
+});
+expect(!roasterBrandFarmDisplayInfo.farm.includes('베르크') && !roasterBrandFarmDisplayInfo.farm.includes('로스트'), '농장 추론에 로스터리명이나 로스팅 표현이 남으면 안 됩니다', JSON.stringify(roasterBrandFarmDisplayInfo));
+
 const sparseNonMomosDisplayInfo = core.formatProductDisplayInfo({
   roasterName: '프릳츠 커피 컴퍼니',
   productName: '[프릳츠] 퀵커피 6개입',
@@ -655,6 +730,15 @@ expect(
     === 'https://smartstore.naver.com/undercrema/products/9547825639',
   '스마트스토어 스토어별 상품 주소는 그대로 열려야 합니다',
   core.resolveProductOpenUrl('https://smartstore.naver.com/undercrema/products/9547825639', smartStoreProduct),
+);
+expect(
+  core.resolveProductOpenUrl('https://smartstore.naver.com/rick/products/12522816818', {
+    roasterName: '로스터릭', productName: '파나마 보케테 팔미라 워시드', priceOptionsStatus: 'partial',
+  }) === 'https://search.shopping.naver.com/search/all?query=' + encodeURIComponent('로스터릭 파나마 보케테 팔미라 워시드'),
+  '검증이 끝나지 않은 스마트스토어 상품 주소는 상품명 검색으로 우회해야 합니다',
+  core.resolveProductOpenUrl('https://smartstore.naver.com/rick/products/12522816818', {
+    roasterName: '로스터릭', productName: '파나마 보케테 팔미라 워시드', priceOptionsStatus: 'partial',
+  }),
 );
 expect(
   core.resolveProductOpenUrl('https://smartstore.naver.com/undercrema/category/abc123', smartStoreProduct)

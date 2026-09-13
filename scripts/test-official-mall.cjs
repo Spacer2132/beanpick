@@ -589,6 +589,24 @@ function assertCafe24DefaultWeightFallback(cafe24Adapter, configs) {
   }
 }
 
+function assertCafe24ProcessNamePriority(cafe24Adapter, configs) {
+  // 상품명은 내추럴인데 이전 상품의 메타 설명에 워시드가 남아 있는 실제 오류를 재현한다.
+  const html = `
+    <ul>
+      <li id="anchorBoxId_560">
+        <a href="/product/ethiopia-buku-saysa-natural/560/category/1/display/2/"><img src="https://example.com/buku.jpg" alt="베르크 에티오피아 구지 부쿠 사이사 내추럴" /></a>
+        <p class="name"><a>베르크 에티오피아 구지 부쿠 사이사 내추럴</a></p>
+        <ul><li class="desc">WERK ROASTERS | 에콰도르 라 파파야 티피카 메호라도 워시드</li></ul>
+        <span class="price">22,000원</span>
+      </li>
+    </ul>
+  `;
+  const [product] = cafe24Adapter.parseCafe24Products(html, configs.werk);
+  if (product?.process !== 'Natural') {
+    throw new Error(`상품명 가공방식 우선순위가 깨졌습니다: ${product?.process || '(없음)'}`);
+  }
+}
+
 function assertCoffeeLibreSearchLink(cafe24Adapter, configs) {
   const html = `
     <ul>
@@ -935,6 +953,7 @@ async function main() {
   assertInjectedTasteScaleSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24KgWeightSample(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCafe24DefaultWeightFallback(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
+  assertCafe24ProcessNamePriority(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertCoffeeLibreSearchLink(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
   assertHellcafeGiftSetExcluded(cafe24Adapter, OFFICIAL_MALL_CONFIGS);
 

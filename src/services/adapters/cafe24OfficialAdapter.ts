@@ -1,5 +1,5 @@
 import type { BeanProduct } from '../../data/mockBeans';
-import { normalizeTastingNotes } from '../tastingNotes.js';
+import { normalizeTastingNotes, createTastingNoteEvidence, mergeTastingNoteEvidence } from '../tastingNotes.js';
 import { isSoldOutFromHtml, stripHiddenStockMarkup } from './stockStatus.js';
 
 type Cafe24HtmlPage = {
@@ -249,6 +249,13 @@ function inferProcess(text: string) {
   return '확인 필요';
 }
 
+// 상품명에 적힌 가공방식이 페이지 제목·메타 설명보다 우선한다.
+// Cafe24 일부 상품은 이전 상품의 제목/메타가 남아 있어 합친 본문만 보면 오인한다.
+function inferProcessFromName(productName: string, fallbackText: string) {
+  const fromName = inferProcess(productName);
+  return fromName !== '확인 필요' ? fromName : inferProcess(fallbackText);
+}
+
 function inferScore(text: string, index: number) {
   const lowerText = text.toLowerCase();
   if (lowerText.includes('coe') || lowerText.includes('게이샤') || lowerText.includes('geisha')) return 92;
@@ -283,6 +290,7 @@ type Cafe24DetailInfo = {
   variety?: string;
   process?: string;
   tastingNotes?: string;
+  tastingNoteEvidence?: BeanProduct['tastingNoteEvidence'];
   region?: string;
   farm?: string;
   weight?: number;
@@ -306,6 +314,17 @@ function extractBeanpickDetailInfo(block: string): Cafe24DetailInfo | null {
   } catch {
     return null;
   }
+}
+
+function readNoteEvidence(block: string, detail: Cafe24DetailInfo | null, productUrl: string) {
+  let imageEvidence = [];
+  const raw = block.match(/data-beanpick-note-evidence=(["'])([\s\S]*?)\1/i)?.[2];
+  try { imageEvidence = raw ? JSON.parse(decodeHtmlEntities(raw)) : []; } catch { /* 잘못된 근거는 무시 */ }
+  return mergeTastingNoteEvidence(
+    createTastingNoteEvidence(detail?.tastingNotes || '', productUrl),
+    detail?.tastingNoteEvidence || [],
+    Array.isArray(imageEvidence) ? imageEvidence : [],
+  );
 }
 
 function parseImwebTastingNotes(block: string, productName: string) {
@@ -436,7 +455,7 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         roasterName: config.roasterName,
         productName,
         origin: detail?.origin || inferOrigin(combinedText),
-        process: detail?.process || inferProcess(combinedText),
+        process: detail?.process || inferProcessFromName(productName, combinedText),
         roastLevel: /약배전|light/i.test(combinedText)
           ? 'Light'
           : /강배전|dark/i.test(combinedText)
@@ -453,6 +472,7 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes,
+        tastingNoteEvidence: readNoteEvidence(block, detail, productUrl),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutFromHtml(block),
@@ -524,7 +544,7 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
         roasterName: config.roasterName,
         productName,
         origin: detail?.origin || inferOrigin(combinedText),
-        process: detail?.process || inferProcess(combinedText),
+        process: detail?.process || inferProcessFromName(productName, combinedText),
         roastLevel: /약배전|light/i.test(combinedText)
           ? 'Light'
           : /강배전|dark/i.test(combinedText)
@@ -541,6 +561,7 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
         priceOptionsComplete: Boolean(detail),
         score: inferScore(combinedText, index),
         tastingNotes: parseImwebTastingNotes(block, productName),
+        tastingNoteEvidence: readNoteEvidence(block, detail, productUrl),
         productUrl,
         imageUrl,
         isSoldOut: isSoldOutFromHtml(block),

@@ -2,17 +2,20 @@ const fs = require('node:fs');
 const path = require('node:path');
 const esbuild = require('esbuild');
 
-function loadJsModule(filePath) {
+function loadJsModule(filePath, dependencies = {}) {
   const code = fs.readFileSync(filePath, 'utf8');
   const output = esbuild.transformSync(code, { loader: 'js', format: 'cjs', target: 'es2020' }).code;
   const module = { exports: {} };
 
-  new Function('exports', 'module', 'require', output)(module.exports, module, () => ({}));
+  new Function('exports', 'module', 'require', output)(module.exports, module, (request) => dependencies[request] || {});
   return module.exports;
 }
 
-const publishedSnapshot = loadJsModule('src/services/publishedSnapshot.js');
+const tastingNotes = loadJsModule('src/services/tastingNotes.js');
+const coreFeatures = loadJsModule('src/services/coreFeatures.js', { './tastingNotes.js': tastingNotes });
+const publishedSnapshot = loadJsModule('src/services/publishedSnapshot.js', { './coreFeatures.js': coreFeatures });
 const githubPublisher = require('../electron/githubPublisher.cjs');
+const { createTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
 const failures = [];
 
 function expect(condition, message, details = '') {
@@ -24,6 +27,25 @@ async function main() {
     { id: 'bean-a', productName: '에티오피아 구지 워시드', price: 22000, weight: 200, tastingNotes: ['자스민'] },
     { id: 'bean-b', productName: '콜롬비아 시드라', price: 32000, weight: 200, tastingNotes: ['복숭아'] },
   ];
+  const staleDisplayProducts = [
+    {
+      id: 'stale-display',
+      productName: '테스트 블렌드',
+      price: 28000,
+      weight: 500,
+      priceOptions: [{
+        id: '500g-28000',
+        price: 28000,
+        weight: 500,
+        priceLabel: '28,000원',
+        unitPriceLabel: '6,700원/100g',
+        originalPrice: 35000,
+        originalPriceLabel: '35,000원',
+        discountRate: 0,
+        discountLabel: '',
+      }],
+    },
+  ];
 
   const loaded = await publishedSnapshot.loadPublishedSnapshot(async (url) => ({
     ok: true,
@@ -32,6 +54,14 @@ async function main() {
   }));
   expect(loaded?.products.length === 2, '웹 스냅샷은 products 배열을 읽어야 합니다', String(loaded?.products?.length));
   expect(loaded?.publishedAt === '2026-06-14T00:00:00.000Z', '웹 스냅샷 게시 시각을 보존해야 합니다', loaded?.publishedAt);
+
+  const normalizedLoaded = await publishedSnapshot.loadPublishedSnapshot(async () => ({
+    ok: true,
+    json: async () => ({ publishedAt: '2026-06-14T00:00:00.000Z', products: staleDisplayProducts }),
+  }));
+  const normalizedOption = normalizedLoaded?.products?.[0]?.priceOptions?.[0];
+  expect(normalizedOption?.unitPriceLabel === '5,600원/100g', '웹 스냅샷의 용량별 단가는 현재 가격·중량으로 재계산해야 합니다', normalizedOption?.unitPriceLabel);
+  expect(normalizedOption?.discountRate === 0.2 && normalizedOption?.discountLabel === '20% 할인', '웹 스냅샷의 용량별 할인 표기는 정상가·판매가로 재계산해야 합니다', JSON.stringify(normalizedOption));
 
   const missing = await publishedSnapshot.loadPublishedSnapshot(async () => ({ ok: false, status: 404 }));
   expect(missing === null, 'products.json이 없으면 조용히 null을 돌려줘야 합니다');
@@ -53,7 +83,7 @@ async function main() {
   const notePreservedAt = '2026-06-13T00:00:00.000Z';
   const currentNoteProducts = [
     { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: [] },
-    { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['다크초콜릿'], tastingNotesPreservedAt: notePreservedAt },
+    { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['다크초콜릿'], tastingNoteEvidence: createTastingNoteEvidence(['다크초콜릿'], 'https://example.com/fresh-bean'), tastingNotesPreservedAt: notePreservedAt },
     { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: [] },
     { id: 'new-bean', roasterName: '테스트 로스터리', productName: '동명 원두', price: 22000, weight: 200, tastingNotes: [] },
   ];
@@ -61,9 +91,9 @@ async function main() {
   const notePreservationSnapshot = githubPublisher.buildGithubSnapshot(currentNoteProducts, '2026-06-14T01:02:03.000Z', {
     previousSnapshot: {
       products: [
-        { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: ['자스민', '가짜노트'], tastingNotesPreservedAt: notePreservedAt },
+        { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: ['자스민', '가짜노트'], tastingNoteEvidence: createTastingNoteEvidence(['자스민'], 'https://example.com/same-bean'), tastingNotesPreservedAt: notePreservedAt },
         { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['복숭아'] },
-        { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: ['꿀'] },
+        { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: ['꿀'], tastingNoteEvidence: createTastingNoteEvidence(['꿀'], 'https://example.com/first-preserve') },
         { id: 'old-bean', roasterName: '테스트 로스터리', productName: '동명 원두', price: 22000, weight: 200, tastingNotes: ['캐러멜'] },
       ],
     },
