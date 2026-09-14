@@ -734,8 +734,8 @@ expect(
 expect(
   core.resolveProductOpenUrl('https://smartstore.naver.com/rick/products/12522816818', {
     roasterName: '로스터릭', productName: '파나마 보케테 팔미라 워시드', priceOptionsStatus: 'partial',
-  }) === 'https://search.shopping.naver.com/search/all?query=' + encodeURIComponent('로스터릭 파나마 보케테 팔미라 워시드'),
-  '검증이 끝나지 않은 스마트스토어 상품 주소는 상품명 검색으로 우회해야 합니다',
+  }) === 'https://smartstore.naver.com/rick/products/12522816818',
+  '옵션 부분 수집이어도 확인된 스토어별 상품 주소는 유지해야 합니다',
   core.resolveProductOpenUrl('https://smartstore.naver.com/rick/products/12522816818', {
     roasterName: '로스터릭', productName: '파나마 보케테 팔미라 워시드', priceOptionsStatus: 'partial',
   }),
@@ -758,6 +758,13 @@ expect(
   '스마트스토어가 아닌 자체몰 주소는 그대로 열려야 합니다',
 );
 expect(core.resolveProductOpenUrl('', smartStoreProduct) === '', '빈 주소는 빈 문자열 그대로여야 합니다');
+for (const status of ['partial', 'failed']) {
+  const product = { ...smartStoreProduct, priceOptionsStatus: status };
+  for (const url of ['https://smartstore.naver.com/rubiacoffee/products/11306840351', 'https://smartstore.naver.com/rubiacoffee/products/6084259553']) {
+    expect(core.resolveProductOpenUrl(url, product) === url, `${status}: 상품·용량 옵션의 고유 URL을 보존해야 합니다`);
+  }
+  expect(product.priceOptionsStatus === status, '링크 처리로 수집 상태를 완료로 바꾸면 안 됩니다');
+}
 
 if (failures.length > 0) {
   failures.forEach((failure) => console.error(`실패: ${failure}`));

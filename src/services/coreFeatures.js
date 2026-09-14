@@ -296,9 +296,8 @@ function isNaverMainProductUrl(url) {
 // 다만 /main/products/ 형태는 네이버 로그인으로 튕기므로 그때만 쇼핑 검색으로 우회한다.
 function resolveProductOpenUrl(url, product) {
   const normalizedUrl = String(url || '').trim();
-  const isUnverifiedSmartStoreProduct = /smartstore\.naver\.com\/[^/?#]+\/products\/\d+/i.test(normalizedUrl)
-    && ['partial', 'failed'].includes(product?.priceOptionsStatus);
-  if (!normalizedUrl || (!isNaverMainProductUrl(normalizedUrl) && !isUnverifiedSmartStoreProduct)) return normalizedUrl;
+  // 옵션 수집 완전성과 상품 주소의 유효성은 별개다.
+  if (!normalizedUrl || !isNaverMainProductUrl(normalizedUrl)) return normalizedUrl;
 
   const query = [product?.roasterName, product?.productName].filter(Boolean).join(' ').trim();
   if (!query) return normalizedUrl;
