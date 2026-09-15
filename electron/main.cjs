@@ -363,13 +363,16 @@ function extractSmartStoreCategoryItemsScript() {
   `;
 }
 
-async function waitForSmartStoreProducts(window, previousFirstId = '') {
+async function waitForSmartStoreProducts(window, previousIds = []) {
   const startedAt = Date.now();
+  // 일부 스토어는 매 페이지 맨 위에 같은 대표 상품을 반복해서 보여준다(루비아 시그니처 카테고리).
+  // 맨 앞 상품 번호만 보면 페이지가 넘어간 것을 놓치므로, 직전 페이지에 없던 상품이 나타났는지로 판단한다.
+  const previous = new Set(previousIds);
 
   while (Date.now() - startedAt < 15000) {
     const result = await window.webContents.executeJavaScript(extractSmartStoreCategoryItemsScript(), true).catch(() => null);
-    const firstId = result?.products?.[0]?.id || '';
-    if (result?.products?.length > 0 && (!previousFirstId || firstId !== previousFirstId)) {
+    const hasNewProduct = Boolean(result?.products?.some((product) => !previous.has(product.id)));
+    if (result?.products?.length > 0 && (previous.size === 0 || hasNewProduct)) {
       return result;
     }
     await delay(300);
@@ -555,7 +558,7 @@ async function crawlSmartStoreCategory(categoryUrl) {
     const hasReportedTotal = reportedTotal > 0;
     const pageCount = hasReportedTotal ? Math.max(1, Math.ceil(reportedTotal / pageSize)) : 1;
     const lastPage = Math.min(pageCount, MAX_CATEGORY_PAGES);
-    let previousFirstId = firstPage.products[0]?.id || '';
+    let previousIds = firstPage.products.map((product) => product.id);
     let pagesFetched = 1;
     let pagesFailed = 0;
     let endReason = hasReportedTotal
@@ -574,7 +577,7 @@ async function crawlSmartStoreCategory(categoryUrl) {
         clicked = await clickSmartStorePage(hiddenWindow, pageNumber);
         if (clicked) {
           clickSucceeded = true;
-          const candidate = await waitForSmartStoreProducts(hiddenWindow, previousFirstId);
+          const candidate = await waitForSmartStoreProducts(hiddenWindow, previousIds);
           if (candidate.products.length > 0) {
             page = candidate;
             break;
@@ -597,7 +600,7 @@ async function crawlSmartStoreCategory(categoryUrl) {
       pagesFetched += 1;
       page.products.forEach((product) => productMap.set(product.id, product));
       rawPages.push(await readSmartStoreListMarkup(hiddenWindow));
-      previousFirstId = page.products[0]?.id || previousFirstId;
+      previousIds = page.products.map((product) => product.id);
       if (pageNumber === lastPage) {
         endConfirmed = pageCount <= MAX_CATEGORY_PAGES;
         endReason = endConfirmed ? 'reportedTotal' : 'pageLimit';
