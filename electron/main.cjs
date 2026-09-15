@@ -2009,7 +2009,9 @@ ipcMain.handle('beanpick:promote-collection-products', (_event, sourceId, produc
 
 ipcMain.handle('beanpick:publish-iphone', async (_event, payload) => {
   const products = Array.isArray(payload?.products) ? payload.products : [];
-  return await publishProductsToGitHub({ products });
+  // 판매처별 수집 상태를 그대로 넘겨야 게시 가드가 부분/실패 수집을 막을 수 있다.
+  const collectionRuns = Array.isArray(payload?.collectionRuns) ? payload.collectionRuns : [];
+  return await publishProductsToGitHub({ products, collectionRuns });
 });
 
 
