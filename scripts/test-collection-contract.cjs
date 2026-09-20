@@ -262,7 +262,7 @@ const registry = require(path.join(__dirname, '..', 'electron', 'collection', 'r
 const channels = registry.listChannels();
 
 expect(registry.checkRegistryDrift().length === 0, '등록 설정에 문제가 있음', registry.checkRegistryDrift().join(' / '));
-expect(channels.length === 19, '판매처 수가 19곳이 아님', String(channels.length));
+expect(channels.length === 21, '판매처 수가 21곳이 아님', String(channels.length));
 expect(new Set(channels.map((channel) => channel.channelId)).size === channels.length, '판매처 ID가 중복임');
 expect(channels.every((channel) => ['smartStore', 'cafe24', 'imweb', 'api'].includes(channel.platform)), '알 수 없는 플랫폼이 있음');
 expect(channels.every((channel) => channel.driver), '드라이버가 지정되지 않은 판매처가 있음');
@@ -400,7 +400,7 @@ const runManager = require(path.join(__dirname, '..', 'electron', 'collection', 
     });
     const pilot = await engine.collect('coffeejg');
     expect(pilot.ok === true && called.join(',') === 'coffeejg', '등록부의 드라이버로 시범 판매처를 실행하지 못함', called.join(','));
-    expect(engine.listSources().length === 19, '신엔진 판매처 수가 등록부와 다름', String(engine.listSources().length));
+    expect(engine.listSources().length === 21, '신엔진 판매처 수가 등록부와 다름', String(engine.listSources().length));
 
     const customProduct = {
       id: '커피정경-테스트',

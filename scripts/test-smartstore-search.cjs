@@ -238,6 +238,31 @@ if (!_test.isCollectableSmartStoreProductTitle('가방산 블렌드 원두 200g'
 if (_test.isCollectableSmartStoreProductTitle('말릭커피 로고 가방')) {
   throw new Error('검색 API 공통 필터가 단독 가방 굿즈를 제외하지 못했습니다.');
 }
+const brewGoodsTitles = [
+  '[UFO DRIPPER] UFO 드리퍼 Ceramic / White',
+  '[UFO DRIPPER X aery] UFO DRIPPER Ceramic / White',
+  'UFO 드리퍼 전용 필터 Type F 50매',
+  'UFO 드리퍼 V2 미드나잇 트라이탄',
+  '호커스포커스 투웨이컵 (Copper Alchemy Edition 130ml)',
+  'HOCUS POCUS ROASTERS 시그니쳐 컵',
+  'HOCUS POCUS ROASTERS 밀크컵 (Milk Cup)',
+  'HOCUS POCUS ROASTERS 장바구니',
+  'HOCUS POCUS ROASTERS 바구니',
+  'HOCUS POCUS ROASTERS 커핑스푼 (Cupping Spoon)',
+  '커핑 스푼 / 윌리엄 라이트 S',
+  'HOCUS POCUS ROASTERS 트레이(Small)',
+];
+const brewGoodsMissed = brewGoodsTitles.filter((title) => _test.isCollectableSmartStoreProductTitle(title));
+if (brewGoodsMissed.length > 0) {
+  throw new Error(`추출장비 굿즈(드리퍼/필터/컵/스푼/트레이/바구니)를 제외하지 못했습니다: ${brewGoodsMissed.join(' / ')}`);
+}
+if (
+  !_test.isCollectableSmartStoreProductTitle('NOMAD COFFEE 노마드 커피 Filter Burundi Gahahe Washed')
+  || !_test.isCollectableSmartStoreProductTitle('브라질 NY2 세하도 파인컵 내추럴 미디엄 로스트')
+  || !_test.isCollectableSmartStoreProductTitle('에티오피아 첼베사 컵노트 자스민 200g')
+) {
+  throw new Error('Filter(원두명)·파인컵(등급)·컵노트가 들어간 정상 원두를 잘못 제외했습니다.');
+}
 if (!_test.isCollectableSmartStoreProductTitle('원두 선물세트 200g') || !_test.isCollectableSmartStoreProductTitle('싱글오리진 원두 기프트 세트')) {
   throw new Error('검색 API 공통 필터가 정상 원두 선물세트를 잘못 제외했습니다.');
 }

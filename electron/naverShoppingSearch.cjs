@@ -106,6 +106,10 @@ const SMARTSTORE_GOODS_PHRASES = [
   '굿즈',
   '배지',
   '뱃지',
+  '투웨이컵',
+  '밀크컵',
+  '커핑스푼',
+  '장바구니',
 ];
 const SMARTSTORE_GOODS_SET_PHRASES = [
   '기프트세트',
@@ -113,9 +117,21 @@ const SMARTSTORE_GOODS_SET_PHRASES = [
   '선물세트',
   '선물 세트',
 ];
+// 경계 단어는 이름 안에 독립 토큰으로 있을 때만 제외한다.
+// '컵'은 파인컵(등급)·컵노트 같은 합성어를 치지 않고, '드리퍼'는 드리퍼브런치 같은 합성어를 치지 않는다.
 const SMARTSTORE_GOODS_BOUNDARY_WORDS = [
   '가방',
   '모자',
+  '드리퍼',
+  'dripper',
+  '컵',
+  'cup',
+  '스푼',
+  'spoon',
+  '트레이',
+  'tray',
+  '바구니',
+  'basket',
 ];
 function getPaddleOcrPythonPath(env = process.env) {
   return env.BEANPICK_PADDLE_OCR_PYTHON || 'C:\\Program Files\\Python311\\python.exe';
@@ -223,6 +239,26 @@ const SMARTSTORE_SOURCES = {
     query: '말릭커피 원두',
     categoryUrl: 'https://smartstore.naver.com/undercrema/category/be5659b19f7e4ce0b7cb3f5829607bbc?cp=1',
     mallNames: ['말릭커피'],
+  },
+  aerycoffee: {
+    sourceId: 'aerycoffee',
+    roasterName: '에어리커피',
+    query: '에어리커피 원두',
+    // 원두 전용 카테고리가 없어 전체 상품 카테고리를 읽는다. (공식몰 aerycoffee.com은 달러 가격 영문몰이라 제외)
+    categoryUrls: [
+      'https://smartstore.naver.com/aerycoffee/category/899d2ca8424443e5a30719e769ec88d8?cp=1', // aLL
+    ],
+    mallNames: ['에어리커피', '에어리 커피', 'aery coffee', 'aerycoffee'],
+  },
+  hocuspocus: {
+    sourceId: 'hocuspocus',
+    roasterName: '호커스포커스 로스터스',
+    query: '호커스포커스 원두',
+    // 원두 카테고리만 직접 크롤링한다. (공식몰 hocuspocus.co.kr은 싱글오리진 메뉴가 비어 있어 스마트스토어 사용)
+    categoryUrls: [
+      'https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1', // 원두(사용자 제공, 이름 미확인)
+    ],
+    mallNames: ['호커스포커스 로스터스', '호커스포커스로스터스', '호커스포커스', 'hocuspocus_roasters'],
   },
 };
 
