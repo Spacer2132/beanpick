@@ -1,5 +1,5 @@
 {
-  "publishedAt": "2026-09-20T03:03:40.032Z",
+  "publishedAt": "2026-09-20T05:03:35.308Z",
   "count": 481,
   "products": [
     {
@@ -7504,9 +7504,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z"
+      "acidityScore": 0.9333333333333332,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684412338",
@@ -9949,6 +9948,237 @@
       "groupedProductCount": 6
     },
     {
+      "id": "루비아커피-시에나",
+      "roasterName": "루비아 커피",
+      "productName": "시에나",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 15000,
+      "weight": 200,
+      "score": 87,
+      "tastingNotes": [
+        "초콜릿",
+        "바닐라",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "priceOptions": [
+        {
+          "id": "200g-15000",
+          "price": 15000,
+          "originalPrice": 16000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084225944",
+          "originalPriceLabel": "16,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "500g-30000",
+          "price": 30000,
+          "originalPrice": 32000,
+          "weight": 500,
+          "priceLabel": "30,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306975007",
+          "originalPriceLabel": "32,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "1kg-42000",
+          "price": 42000,
+          "originalPrice": 45000,
+          "weight": 1000,
+          "priceLabel": "42,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,200원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
+          "originalPriceLabel": "45,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#달콤한 바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한 커피의 맛과 부드러운 바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceLabel": "15,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.06666666666666667,
+      "acidityScore": -0.7333333333333334,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-다크브라운",
+      "roasterName": "루비아 커피",
+      "productName": "다크브라운",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 200,
+      "score": 86,
+      "tastingNotes": [
+        "초콜릿",
+        "견과류",
+        "부드러움"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 2,
+      "tastingNoteEvidence": [
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "부드러움",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "깔끔한 뒷맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "깊고 진한 풍미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "originalPrice": 15000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991396210",
+          "originalPriceLabel": "15,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "originalPrice": 30000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307000967",
+          "originalPriceLabel": "30,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "1kg-39000",
+          "price": 39000,
+          "originalPrice": 42000,
+          "weight": 1000,
+          "priceLabel": "39,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,900원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+          "originalPriceLabel": "42,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.07142857142857142,
+      "acidityScore": -0.7000000000000001,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
       "id": "루비아커피-블루문디카페인",
       "roasterName": "루비아 커피",
       "productName": "블루문 디카페인",
@@ -9957,7 +10187,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 87,
+      "score": 85,
       "tastingNotes": [
         "다크초콜릿",
         "견과류"
@@ -9966,10 +10196,30 @@
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
       "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
       "isSoldOut": false,
-      "isNew": true,
+      "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
+      "checkedMinutesAgo": 3,
       "tastingNoteEvidence": [
+        {
+          "text": "디카페인",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
         {
           "text": "꽃",
           "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
@@ -10007,26 +10257,6 @@
         {
           "text": "깔끔한",
           "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "디카페인",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
           "method": "image-model"
         }
       ],
@@ -10082,117 +10312,6 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-다크브라운",
-      "roasterName": "루비아 커피",
-      "productName": "다크브라운",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 200,
-      "score": 86,
-      "tastingNotes": [
-        "초콜릿",
-        "견과류",
-        "부드러움"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "originalPrice": 15000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991396210",
-          "originalPriceLabel": "15,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "originalPrice": 30000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307000967",
-          "originalPriceLabel": "30,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "1kg-39000",
-          "price": 39000,
-          "originalPrice": 42000,
-          "weight": 1000,
-          "priceLabel": "39,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,900원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
-          "originalPriceLabel": "42,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        },
-        {
-          "text": "부드러움",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        },
-        {
-          "text": "깔끔한 뒷맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        }
-      ],
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.07142857142857142,
-      "acidityScore": -0.7000000000000001,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
       "id": "루비아커피-100-에티오피아스칼렛",
       "roasterName": "루비아 커피",
       "productName": "100% 에티오피아 스칼렛",
@@ -10201,87 +10320,20 @@
       "roastLevel": "확인 필요",
       "price": 17000,
       "weight": 200,
-      "score": 80,
+      "score": 79,
       "tastingNotes": [
         "블랙커런트",
         "블루베리",
         "열대과일",
-        "플로럴",
         "다크초콜릿"
       ],
       "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f140",
+      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 8,
-      "tastingNoteEvidence": [
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "블랙커런트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "플로럴",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "꽃향기",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        }
-      ],
+      "checkedMinutesAgo": 9,
       "priceOptions": [
         {
           "id": "200g-17000",
@@ -10326,110 +10378,56 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "꽃향기",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "블루베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "블랙커런트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "베리류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
       "priceLabel": "17,000원",
       "unitPriceLabel": "",
       "discountRate": 0.06,
-      "acidityScore": 0.6399999999999999,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-시에나",
-      "roasterName": "루비아 커피",
-      "productName": "시에나",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 200,
-      "score": 79,
-      "tastingNotes": [
-        "초콜릿",
-        "바닐라",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f140",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 9,
-      "tastingNoteEvidence": [
-        {
-          "text": "깔끔한 커피의 맛과 부드러운 바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#달콤한 바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-15000",
-          "price": 15000,
-          "originalPrice": 16000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084225944",
-          "originalPriceLabel": "16,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-30000",
-          "price": 30000,
-          "originalPrice": 32000,
-          "weight": 500,
-          "priceLabel": "30,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306975007",
-          "originalPriceLabel": "32,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "1kg-42000",
-          "price": 42000,
-          "originalPrice": 45000,
-          "weight": 1000,
-          "priceLabel": "42,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,200원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
-          "originalPriceLabel": "45,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "15,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.06666666666666667,
-      "acidityScore": -0.7333333333333334,
+      "acidityScore": 0.6,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -10442,7 +10440,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 78,
+      "score": 77,
       "tastingNotes": [
         "캐러멜",
         "견과류"
@@ -10453,7 +10451,7 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 10,
+      "checkedMinutesAgo": 11,
       "tastingNoteEvidence": [
         {
           "text": "견과류",
@@ -17299,6 +17297,147 @@
       "groupedProductCount": 2
     },
     {
+      "id": "헬카페-밸런스블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "밸런스 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "13,000원",
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "헬카페-강배전블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "강배전 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Dark",
+      "price": 14000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-52000",
+          "price": 52000,
+          "weight": 1000,
+          "priceLabel": "52,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,200원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "hellcafe-60",
+      "roasterName": "헬카페",
+      "productName": "헬카페 클래식 커피 1kg",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 208000,
+      "weight": 1000,
+      "priceOptionsComplete": false,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
       "id": "aerycoffee-13753086459",
       "roasterName": "에어리커피",
       "productName": "[에어리커피] 파나마 레리다 에스플렌도로사 게이샤 OX 허니",
@@ -19874,147 +20013,6 @@
         }
       ],
       "acidityScore": 0.9,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "헬카페-밸런스블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "밸런스 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 13000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "13,000원",
-      "priceOptions": [
-        {
-          "id": "200g-13000",
-          "price": 13000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "헬카페-강배전블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "강배전 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "Dark",
-      "price": 14000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "14,000원",
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-52000",
-          "price": 52000,
-          "weight": 1000,
-          "priceLabel": "52,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,200원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "hellcafe-60",
-      "roasterName": "헬카페",
-      "productName": "헬카페 클래식 커피 1kg",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 208000,
-      "weight": 1000,
-      "priceOptionsComplete": false,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
     },
     {
@@ -25454,988 +25452,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "momos-7424",
-      "roasterName": "모모스커피",
-      "productName": "원두 에콰도르 엘 도라도 SL28 무산소 워시드",
-      "origin": "확인 필요",
-      "process": "Anaerobic Washed",
-      "roastLevel": "확인 필요",
-      "price": 29000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "29,000원",
-      "priceOptions": [
-        {
-          "id": "200-29000",
-          "price": 29000,
-          "weight": 200,
-          "priceLabel": "29,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "14,500원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7424",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-58000",
-          "price": 58000,
-          "weight": 500,
-          "priceLabel": "58,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "11,600원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7424",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 85,
-      "tastingNotes": [
-        "오렌지",
-        "살구",
-        "망고"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "애플 망고",
-          "sourceUrl": "https://momos.co.kr/shop_view/7424",
-          "method": "detail-text"
-        },
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://momos.co.kr/shop_view/7424",
-          "method": "detail-text"
-        },
-        {
-          "text": "허니서클",
-          "sourceUrl": "https://momos.co.kr/shop_view/7424",
-          "method": "detail-text"
-        },
-        {
-          "text": "살구",
-          "sourceUrl": "https://momos.co.kr/shop_view/7424",
-          "method": "detail-text"
-        },
-        {
-          "text": "잼같은",
-          "sourceUrl": "https://momos.co.kr/shop_view/7424",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7424",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/ba52a25f0f3fd.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7422",
-      "roasterName": "모모스커피",
-      "productName": "원두 파나마 로스 라호네스 포르톤 카투아이 내추럴",
-      "origin": "Panama",
-      "process": "Natural",
-      "roastLevel": "확인 필요",
-      "price": 23000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "23,000원",
-      "priceOptions": [
-        {
-          "id": "200-23000",
-          "price": 23000,
-          "weight": 200,
-          "priceLabel": "23,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "11,500원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7422",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-46000",
-          "price": 46000,
-          "weight": 500,
-          "priceLabel": "46,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "9,200원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7422",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [
-        "블랙커런트",
-        "건포도",
-        "초콜릿",
-        "시러피"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙커런트",
-          "sourceUrl": "https://momos.co.kr/shop_view/7422",
-          "method": "detail-text"
-        },
-        {
-          "text": "포도류",
-          "sourceUrl": "https://momos.co.kr/shop_view/7422",
-          "method": "detail-text"
-        },
-        {
-          "text": "코코아",
-          "sourceUrl": "https://momos.co.kr/shop_view/7422",
-          "method": "detail-text"
-        },
-        {
-          "text": "건포도",
-          "sourceUrl": "https://momos.co.kr/shop_view/7422",
-          "method": "detail-text"
-        },
-        {
-          "text": "시러피",
-          "sourceUrl": "https://momos.co.kr/shop_view/7422",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7422",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/a1d1420b30a5e.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7418",
-      "roasterName": "모모스커피",
-      "productName": "원두 케냐 뚱구리 내추럴",
-      "origin": "Kenya",
-      "process": "Natural",
-      "roastLevel": "확인 필요",
-      "price": 20000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "20,000원",
-      "priceOptions": [
-        {
-          "id": "200-20000",
-          "price": 20000,
-          "weight": 200,
-          "priceLabel": "20,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7418",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-40000",
-          "price": 40000,
-          "weight": 500,
-          "priceLabel": "40,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7418",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [
-        "라즈베리",
-        "포도",
-        "바닐라",
-        "시러피"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "포도",
-          "sourceUrl": "https://momos.co.kr/shop_view/7418",
-          "method": "detail-text"
-        },
-        {
-          "text": "라즈베리",
-          "sourceUrl": "https://momos.co.kr/shop_view/7418",
-          "method": "detail-text"
-        },
-        {
-          "text": "마시멜로우",
-          "sourceUrl": "https://momos.co.kr/shop_view/7418",
-          "method": "detail-text"
-        },
-        {
-          "text": "시러피",
-          "sourceUrl": "https://momos.co.kr/shop_view/7418",
-          "method": "detail-text"
-        },
-        {
-          "text": "바닐라",
-          "sourceUrl": "https://momos.co.kr/shop_view/7418",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7418",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/8d68d2f52b65b.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7410",
-      "roasterName": "모모스커피",
-      "productName": "원두 에티오피아 휴레 내추럴",
-      "origin": "Ethiopia",
-      "process": "Natural",
-      "roastLevel": "확인 필요",
-      "price": 20000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "20,000원",
-      "priceOptions": [
-        {
-          "id": "200-20000",
-          "price": 20000,
-          "weight": 200,
-          "priceLabel": "20,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7410",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-40000",
-          "price": 40000,
-          "weight": 500,
-          "priceLabel": "40,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7410",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [
-        "베리",
-        "자두",
-        "홍차",
-        "메이플시럽"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "자두",
-          "sourceUrl": "https://momos.co.kr/shop_view/7410",
-          "method": "detail-text"
-        },
-        {
-          "text": "베리류",
-          "sourceUrl": "https://momos.co.kr/shop_view/7410",
-          "method": "detail-text"
-        },
-        {
-          "text": "메이플 시럽",
-          "sourceUrl": "https://momos.co.kr/shop_view/7410",
-          "method": "detail-text"
-        },
-        {
-          "text": "홍차",
-          "sourceUrl": "https://momos.co.kr/shop_view/7410",
-          "method": "detail-text"
-        },
-        {
-          "text": "라운드한",
-          "sourceUrl": "https://momos.co.kr/shop_view/7410",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7410",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/b065b4661268e.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-19T07:03:14.599Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7407",
-      "roasterName": "모모스커피",
-      "productName": "원두 에티오피아 사포 클래식 워시드",
-      "origin": "Ethiopia",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "14,000원",
-      "priceOptions": [
-        {
-          "id": "100-14000",
-          "price": 14000,
-          "weight": 100,
-          "priceLabel": "14,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "14,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7407",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 85,
-      "tastingNotes": [
-        "오렌지",
-        "복숭아",
-        "자스민",
-        "바닐라"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "자스민",
-          "sourceUrl": "https://momos.co.kr/shop_view/7407",
-          "method": "detail-text"
-        },
-        {
-          "text": "복숭아",
-          "sourceUrl": "https://momos.co.kr/shop_view/7407",
-          "method": "detail-text"
-        },
-        {
-          "text": "바닐라",
-          "sourceUrl": "https://momos.co.kr/shop_view/7407",
-          "method": "detail-text"
-        },
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://momos.co.kr/shop_view/7407",
-          "method": "detail-text"
-        },
-        {
-          "text": "깨끗한",
-          "sourceUrl": "https://momos.co.kr/shop_view/7407",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7407",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/b4a799956b02c.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.9333333333333332,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-19T12:33:28.621Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-2486",
-      "roasterName": "모모스커피",
-      "productName": "원두 에스쇼콜라",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "15,000원",
-      "priceOptions": [
-        {
-          "id": "200-15000",
-          "price": 15000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/2486",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-30000",
-          "price": 30000,
-          "weight": 500,
-          "priceLabel": "30,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/2486",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/2486",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 85,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/2486",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/f6750771684ac.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7378",
-      "roasterName": "모모스커피",
-      "productName": "원두 에스쇼콜라 1kg 대용량",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 48000,
-      "weight": 1000,
-      "weightLabel": "1kg",
-      "priceLabel": "48,000원",
-      "priceOptions": [
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7378",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/7378",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/fb58e4aeeca59.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-2487",
-      "roasterName": "모모스커피",
-      "productName": "원두 프루티봉봉",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "15,000원",
-      "priceOptions": [
-        {
-          "id": "200-15000",
-          "price": 15000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/2487",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-30000",
-          "price": 30000,
-          "weight": 500,
-          "priceLabel": "30,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/2487",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/2487",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/2487",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/35c081cfdc39f.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7379",
-      "roasterName": "모모스커피",
-      "productName": "원두 프루티봉봉 1kg 대용량",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 48000,
-      "weight": 1000,
-      "weightLabel": "1kg",
-      "priceLabel": "48,000원",
-      "priceOptions": [
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7379",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/7379",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/3568b397f5409.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-3058",
-      "roasterName": "모모스커피",
-      "productName": "원두 부산",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "15,000원",
-      "priceOptions": [
-        {
-          "id": "200-15000",
-          "price": 15000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/3058",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-30000",
-          "price": 30000,
-          "weight": 500,
-          "priceLabel": "30,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/3058",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/3058",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 85,
-      "tastingNotes": [
-        "건과일",
-        "캐러멜",
-        "허브"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "로스티드 넛",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        },
-        {
-          "text": "건과일류",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        },
-        {
-          "text": "허브",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/3058",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/0fdf4b7d81888.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.8,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-19T10:43:17.876Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7380",
-      "roasterName": "모모스커피",
-      "productName": "원두 부산 1kg 대용량",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 48000,
-      "weight": 1000,
-      "weightLabel": "1kg",
-      "priceLabel": "48,000원",
-      "priceOptions": [
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7380",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [
-        "건과일",
-        "캐러멜",
-        "허브"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "로스티드 넛",
-          "sourceUrl": "https://momos.co.kr/shop_view/7380",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://momos.co.kr/shop_view/7380",
-          "method": "detail-text"
-        },
-        {
-          "text": "건과일류",
-          "sourceUrl": "https://momos.co.kr/shop_view/7380",
-          "method": "detail-text"
-        },
-        {
-          "text": "허브",
-          "sourceUrl": "https://momos.co.kr/shop_view/7380",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7380",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/dca000065b31a.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.8,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-3658",
-      "roasterName": "모모스커피",
-      "productName": "원두 므쵸베리",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 16000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "16,000원",
-      "priceOptions": [
-        {
-          "id": "200-16000",
-          "price": 16000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/3658",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-32000",
-          "price": 32000,
-          "weight": 500,
-          "priceLabel": "32,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,400원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/3658",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-51000",
-          "price": 51000,
-          "weight": 1000,
-          "priceLabel": "51,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,100원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/3658",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [
-        "체리",
-        "쥬시"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "믹스베리",
-          "sourceUrl": "https://momos.co.kr/shop_view/3658",
-          "method": "detail-text"
-        },
-        {
-          "text": "체리",
-          "sourceUrl": "https://momos.co.kr/shop_view/3658",
-          "method": "detail-text"
-        },
-        {
-          "text": "쥬시",
-          "sourceUrl": "https://momos.co.kr/shop_view/3658",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/3658",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/beb271847b04b.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.4666666666666666,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-19T10:43:17.876Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7381",
-      "roasterName": "모모스커피",
-      "productName": "원두 므쵸베리 1kg 대용량",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 51000,
-      "weight": 1000,
-      "weightLabel": "1kg",
-      "priceLabel": "51,000원",
-      "priceOptions": [
-        {
-          "id": "1000-51000",
-          "price": 51000,
-          "weight": 1000,
-          "priceLabel": "51,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,100원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7381",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [
-        "체리",
-        "쥬시"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "믹스베리",
-          "sourceUrl": "https://momos.co.kr/shop_view/7381",
-          "method": "detail-text"
-        },
-        {
-          "text": "체리",
-          "sourceUrl": "https://momos.co.kr/shop_view/7381",
-          "method": "detail-text"
-        },
-        {
-          "text": "쥬시",
-          "sourceUrl": "https://momos.co.kr/shop_view/7381",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/7381",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/4dfbb11d2a6a2.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
-      "id": "momos-7375",
-      "roasterName": "모모스커피",
-      "productName": "원두 에티오피아 사포 모스토 무산소 내추럴",
-      "origin": "Ethiopia",
-      "process": "Anaerobic Natural",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "17,000원",
-      "priceOptions": [
-        {
-          "id": "100-17000",
-          "price": 17000,
-          "weight": 100,
-          "priceLabel": "17,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "17,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7375",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/7375",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/5cc39c8ef30ed.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
-      "checkedMinutesAgo": 180,
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-20T00:03:53.082Z"
-    },
-    {
       "id": "werk-572",
       "roasterName": "베르크커피",
       "productName": "베르크 론리 베이비 블렌드",
@@ -27392,6 +26408,946 @@
       "unitPriceLabel": "",
       "acidityScore": -0.6,
       "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "momos-7424",
+      "roasterName": "모모스커피",
+      "productName": "원두 에콰도르 엘 도라도 SL28 무산소 워시드",
+      "origin": "확인 필요",
+      "process": "Anaerobic Washed",
+      "roastLevel": "확인 필요",
+      "price": 29000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "29,000원",
+      "priceOptions": [
+        {
+          "id": "200-29000",
+          "price": 29000,
+          "weight": 200,
+          "priceLabel": "29,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "14,500원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7424",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-58000",
+          "price": 58000,
+          "weight": 500,
+          "priceLabel": "58,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "11,600원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7424",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [
+        "오렌지",
+        "살구",
+        "망고"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "애플 망고",
+          "sourceUrl": "https://momos.co.kr/shop_view/7424",
+          "method": "detail-text"
+        },
+        {
+          "text": "오렌지",
+          "sourceUrl": "https://momos.co.kr/shop_view/7424",
+          "method": "detail-text"
+        },
+        {
+          "text": "허니서클",
+          "sourceUrl": "https://momos.co.kr/shop_view/7424",
+          "method": "detail-text"
+        },
+        {
+          "text": "살구",
+          "sourceUrl": "https://momos.co.kr/shop_view/7424",
+          "method": "detail-text"
+        },
+        {
+          "text": "잼같은",
+          "sourceUrl": "https://momos.co.kr/shop_view/7424",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7424",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/ba52a25f0f3fd.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z"
+    },
+    {
+      "id": "momos-7422",
+      "roasterName": "모모스커피",
+      "productName": "원두 파나마 로스 라호네스 포르톤 카투아이 내추럴",
+      "origin": "Panama",
+      "process": "Natural",
+      "roastLevel": "확인 필요",
+      "price": 23000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "23,000원",
+      "priceOptions": [
+        {
+          "id": "200-23000",
+          "price": 23000,
+          "weight": 200,
+          "priceLabel": "23,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "11,500원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7422",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-46000",
+          "price": 46000,
+          "weight": 500,
+          "priceLabel": "46,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "9,200원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7422",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 86,
+      "tastingNotes": [
+        "블랙커런트",
+        "건포도",
+        "초콜릿",
+        "시러피"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "블랙커런트",
+          "sourceUrl": "https://momos.co.kr/shop_view/7422",
+          "method": "detail-text"
+        },
+        {
+          "text": "포도류",
+          "sourceUrl": "https://momos.co.kr/shop_view/7422",
+          "method": "detail-text"
+        },
+        {
+          "text": "코코아",
+          "sourceUrl": "https://momos.co.kr/shop_view/7422",
+          "method": "detail-text"
+        },
+        {
+          "text": "건포도",
+          "sourceUrl": "https://momos.co.kr/shop_view/7422",
+          "method": "detail-text"
+        },
+        {
+          "text": "시러피",
+          "sourceUrl": "https://momos.co.kr/shop_view/7422",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7422",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/a1d1420b30a5e.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z"
+    },
+    {
+      "id": "momos-7418",
+      "roasterName": "모모스커피",
+      "productName": "원두 케냐 뚱구리 내추럴",
+      "origin": "Kenya",
+      "process": "Natural",
+      "roastLevel": "확인 필요",
+      "price": 20000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "20,000원",
+      "priceOptions": [
+        {
+          "id": "200-20000",
+          "price": 20000,
+          "weight": 200,
+          "priceLabel": "20,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7418",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-40000",
+          "price": 40000,
+          "weight": 500,
+          "priceLabel": "40,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7418",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [
+        "라즈베리",
+        "포도",
+        "바닐라",
+        "시러피"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "포도",
+          "sourceUrl": "https://momos.co.kr/shop_view/7418",
+          "method": "detail-text"
+        },
+        {
+          "text": "라즈베리",
+          "sourceUrl": "https://momos.co.kr/shop_view/7418",
+          "method": "detail-text"
+        },
+        {
+          "text": "마시멜로우",
+          "sourceUrl": "https://momos.co.kr/shop_view/7418",
+          "method": "detail-text"
+        },
+        {
+          "text": "시러피",
+          "sourceUrl": "https://momos.co.kr/shop_view/7418",
+          "method": "detail-text"
+        },
+        {
+          "text": "바닐라",
+          "sourceUrl": "https://momos.co.kr/shop_view/7418",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7418",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/8d68d2f52b65b.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z"
+    },
+    {
+      "id": "momos-7410",
+      "roasterName": "모모스커피",
+      "productName": "원두 에티오피아 휴레 내추럴",
+      "origin": "Ethiopia",
+      "process": "Natural",
+      "roastLevel": "확인 필요",
+      "price": 20000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "20,000원",
+      "priceOptions": [
+        {
+          "id": "200-20000",
+          "price": 20000,
+          "weight": 200,
+          "priceLabel": "20,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7410",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-40000",
+          "price": 40000,
+          "weight": 500,
+          "priceLabel": "40,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7410",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [
+        "베리",
+        "자두",
+        "홍차",
+        "메이플시럽"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "자두",
+          "sourceUrl": "https://momos.co.kr/shop_view/7410",
+          "method": "detail-text"
+        },
+        {
+          "text": "베리류",
+          "sourceUrl": "https://momos.co.kr/shop_view/7410",
+          "method": "detail-text"
+        },
+        {
+          "text": "메이플 시럽",
+          "sourceUrl": "https://momos.co.kr/shop_view/7410",
+          "method": "detail-text"
+        },
+        {
+          "text": "홍차",
+          "sourceUrl": "https://momos.co.kr/shop_view/7410",
+          "method": "detail-text"
+        },
+        {
+          "text": "라운드한",
+          "sourceUrl": "https://momos.co.kr/shop_view/7410",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7410",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/b065b4661268e.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-19T07:03:14.599Z"
+    },
+    {
+      "id": "momos-7407",
+      "roasterName": "모모스커피",
+      "productName": "원두 에티오피아 사포 클래식 워시드",
+      "origin": "Ethiopia",
+      "process": "Washed",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 100,
+      "weightLabel": "100g",
+      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "100-14000",
+          "price": 14000,
+          "weight": 100,
+          "priceLabel": "14,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "14,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7407",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [
+        "오렌지",
+        "복숭아",
+        "자스민",
+        "바닐라"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "자스민",
+          "sourceUrl": "https://momos.co.kr/shop_view/7407",
+          "method": "detail-text"
+        },
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://momos.co.kr/shop_view/7407",
+          "method": "detail-text"
+        },
+        {
+          "text": "바닐라",
+          "sourceUrl": "https://momos.co.kr/shop_view/7407",
+          "method": "detail-text"
+        },
+        {
+          "text": "오렌지",
+          "sourceUrl": "https://momos.co.kr/shop_view/7407",
+          "method": "detail-text"
+        },
+        {
+          "text": "깨끗한",
+          "sourceUrl": "https://momos.co.kr/shop_view/7407",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7407",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/b4a799956b02c.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 0.9333333333333332,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-19T12:33:28.621Z"
+    },
+    {
+      "id": "momos-2486",
+      "roasterName": "모모스커피",
+      "productName": "원두 에스쇼콜라",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 15000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "15,000원",
+      "priceOptions": [
+        {
+          "id": "200-15000",
+          "price": 15000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/2486",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-30000",
+          "price": 30000,
+          "weight": 500,
+          "priceLabel": "30,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/2486",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/2486",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://momos.co.kr/shop_view/2486",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/f6750771684ac.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "momos-7378",
+      "roasterName": "모모스커피",
+      "productName": "원두 에스쇼콜라 1kg 대용량",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 48000,
+      "weight": 1000,
+      "weightLabel": "1kg",
+      "priceLabel": "48,000원",
+      "priceOptions": [
+        {
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7378",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://momos.co.kr/shop_view/7378",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/fb58e4aeeca59.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "momos-2487",
+      "roasterName": "모모스커피",
+      "productName": "원두 프루티봉봉",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 15000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "15,000원",
+      "priceOptions": [
+        {
+          "id": "200-15000",
+          "price": 15000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/2487",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-30000",
+          "price": 30000,
+          "weight": 500,
+          "priceLabel": "30,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/2487",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/2487",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://momos.co.kr/shop_view/2487",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/35c081cfdc39f.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "momos-7379",
+      "roasterName": "모모스커피",
+      "productName": "원두 프루티봉봉 1kg 대용량",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 48000,
+      "weight": 1000,
+      "weightLabel": "1kg",
+      "priceLabel": "48,000원",
+      "priceOptions": [
+        {
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7379",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://momos.co.kr/shop_view/7379",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/3568b397f5409.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "momos-3058",
+      "roasterName": "모모스커피",
+      "productName": "원두 부산",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 15000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "15,000원",
+      "priceOptions": [
+        {
+          "id": "200-15000",
+          "price": 15000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/3058",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-30000",
+          "price": 30000,
+          "weight": 500,
+          "priceLabel": "30,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/3058",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/3058",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [
+        "건과일",
+        "캐러멜",
+        "허브"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "로스티드 넛",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        },
+        {
+          "text": "건과일류",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        },
+        {
+          "text": "허브",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/3058",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/0fdf4b7d81888.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-19T10:43:17.876Z"
+    },
+    {
+      "id": "momos-7380",
+      "roasterName": "모모스커피",
+      "productName": "원두 부산 1kg 대용량",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 48000,
+      "weight": 1000,
+      "weightLabel": "1kg",
+      "priceLabel": "48,000원",
+      "priceOptions": [
+        {
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7380",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 86,
+      "tastingNotes": [
+        "건과일",
+        "캐러멜",
+        "허브"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "로스티드 넛",
+          "sourceUrl": "https://momos.co.kr/shop_view/7380",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://momos.co.kr/shop_view/7380",
+          "method": "detail-text"
+        },
+        {
+          "text": "건과일류",
+          "sourceUrl": "https://momos.co.kr/shop_view/7380",
+          "method": "detail-text"
+        },
+        {
+          "text": "허브",
+          "sourceUrl": "https://momos.co.kr/shop_view/7380",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7380",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/dca000065b31a.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-20T00:03:53.082Z"
+    },
+    {
+      "id": "momos-3658",
+      "roasterName": "모모스커피",
+      "productName": "원두 므쵸베리",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 16000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "16,000원",
+      "priceOptions": [
+        {
+          "id": "200-16000",
+          "price": 16000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/3658",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-32000",
+          "price": 32000,
+          "weight": 500,
+          "priceLabel": "32,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,400원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/3658",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-51000",
+          "price": 51000,
+          "weight": 1000,
+          "priceLabel": "51,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,100원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/3658",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [
+        "체리",
+        "쥬시"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "믹스베리",
+          "sourceUrl": "https://momos.co.kr/shop_view/3658",
+          "method": "detail-text"
+        },
+        {
+          "text": "체리",
+          "sourceUrl": "https://momos.co.kr/shop_view/3658",
+          "method": "detail-text"
+        },
+        {
+          "text": "쥬시",
+          "sourceUrl": "https://momos.co.kr/shop_view/3658",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/3658",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/beb271847b04b.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 0.4666666666666666,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-19T10:43:17.876Z"
+    },
+    {
+      "id": "momos-7381",
+      "roasterName": "모모스커피",
+      "productName": "원두 므쵸베리 1kg 대용량",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 51000,
+      "weight": 1000,
+      "weightLabel": "1kg",
+      "priceLabel": "51,000원",
+      "priceOptions": [
+        {
+          "id": "1000-51000",
+          "price": 51000,
+          "weight": 1000,
+          "priceLabel": "51,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,100원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7381",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [
+        "체리",
+        "쥬시"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "믹스베리",
+          "sourceUrl": "https://momos.co.kr/shop_view/7381",
+          "method": "detail-text"
+        },
+        {
+          "text": "체리",
+          "sourceUrl": "https://momos.co.kr/shop_view/7381",
+          "method": "detail-text"
+        },
+        {
+          "text": "쥬시",
+          "sourceUrl": "https://momos.co.kr/shop_view/7381",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/7381",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/4dfbb11d2a6a2.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "momos-7375",
+      "roasterName": "모모스커피",
+      "productName": "원두 에티오피아 사포 모스토 무산소 내추럴",
+      "origin": "Ethiopia",
+      "process": "Anaerobic Natural",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 100,
+      "weightLabel": "100g",
+      "priceLabel": "17,000원",
+      "priceOptions": [
+        {
+          "id": "100-17000",
+          "price": 17000,
+          "weight": 100,
+          "priceLabel": "17,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "17,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7375",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://momos.co.kr/shop_view/7375",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/5cc39c8ef30ed.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
     }
   ],
   "quality": {
@@ -27486,8 +27442,8 @@
     "preservedRoasterProductCount": 0,
     "preservedDiscountCount": 0,
     "preservedOfficialDetailCount": 0,
-    "preservedTastingNoteCount": 12,
-    "staleProductCount": 14,
+    "preservedTastingNoteCount": 11,
+    "staleProductCount": 0,
     "collectionRuns": [
       {
         "sourceId": "identity",
@@ -27581,17 +27537,17 @@
         "usedFallback": false
       },
       {
-        "sourceId": "aerycoffee",
-        "roasterName": "에어리커피",
-        "status": "complete",
-        "itemCount": 99,
-        "usedFallback": false
-      },
-      {
         "sourceId": "hellcafe",
         "roasterName": "헬카페",
         "status": "complete",
         "itemCount": 7,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "aerycoffee",
+        "roasterName": "에어리커피",
+        "status": "complete",
+        "itemCount": 99,
         "usedFallback": false
       },
       {
@@ -27623,17 +27579,17 @@
         "usedFallback": false
       },
       {
-        "sourceId": "momos",
-        "roasterName": "모모스커피",
-        "status": "failed",
-        "itemCount": 14,
-        "usedFallback": true
-      },
-      {
         "sourceId": "werk",
         "roasterName": "베르크커피",
         "status": "complete",
         "itemCount": 10,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "momos",
+        "roasterName": "모모스커피",
+        "status": "complete",
+        "itemCount": 14,
         "usedFallback": false
       }
     ]
