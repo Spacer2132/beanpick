@@ -425,6 +425,11 @@ expect(core.matchesSmartSearch('에티오피아 예가체프', '예가 에티') 
 expect(core.matchesSmartSearch('에티오피아 예가체프 워시드', '에티오피아 워시드') === true, '여러 단어 AND 검색이 유지되어야 합니다');
 expect(core.matchesSmartSearch('에티오피아 예가체프', '케냐') === false, '없는 단어는 매칭되면 안 됩니다');
 expect(core.matchesSmartSearch('콜롬비아 게이샤', '') === true, '빈 검색어는 전체 매칭이어야 합니다');
+// 한글 합성어는 부분 일치도 매칭을 허용한다('블렌드'로 '시즌블렌드' 검색 보호).
+// 단어 경계로 막으면 454종 실측에서 교차 매칭 2,622건이 사라진다(2026-09-21 결정, .wiki log 참조).
+expect(core.matchesSmartSearch('중강천도 블렌드 원두', '천도') === true, '합성어 내부 어미(천도⊂중강천도)는 매칭을 유지해야 합니다');
+expect(core.matchesSmartSearch('모닝블렌드 원두', '블렌드') === true, '합성어 어미(블렌드⊂모닝블렌드)는 매칭을 유지해야 합니다');
+expect(core.matchesSmartSearch('파푸아뉴기니 블루마운틴', '마운틴') === true, '합성어 어미(마운틴⊂블루마운틴)는 매칭을 유지해야 합니다');
 
 const noteQueryProduct = { tastingNotes: ['밀크초콜릿', '헤이즐넛', '캐러멜'] };
 expect(core.matchesNoteQuery(noteQueryProduct, '초콜릿 캐러멜', '') === true, '포함 단어가 노트에 모두 있으면 매칭되어야 합니다');
