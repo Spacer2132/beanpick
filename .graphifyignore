@@ -21,6 +21,9 @@ output/
 *.log
 .vite/
 .cache/
+.ocr-cache/
 app/
 app-*/
 docs/assets/
+docs/images/
+public/images/

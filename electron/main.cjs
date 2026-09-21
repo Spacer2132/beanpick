@@ -667,9 +667,14 @@ async function fetchSmartStoreDetailContents(
       const shouldRetryOptions = retryEmptyOptionCaches
         && optionsIncomplete
         && (!Number.isFinite(optionRetryAt) || optionRetryAt <= Date.now());
+      // 옵션 캐시가 살아 있어도 노트가 없고 상세 이미지 확인을 안 한 상품은 다시 시도한다.
+      // 확인(check)이 끝났으면 이미지가 없다는 결론이든 아니든 다시 큐에 넣지 않는다.
+      const needsNotesRetry = Boolean(cached)
+        && (!Array.isArray(target.product?.tastingNotes) || target.product.tastingNotes.length === 0)
+        && !cached.detailImagesChecked;
       return {
         ...target,
-        cached: shouldRetryOptions ? null : cached,
+        cached: shouldRetryOptions || needsNotesRetry ? null : cached,
         retryEmptyOptions: shouldRetryOptions,
         lastOptionAttemptAt: Date.parse(cached?.cachedAt || '') || 0,
       };
@@ -711,6 +716,29 @@ async function fetchSmartStoreDetailContents(
     const startedAt = Date.now();
     let consecutiveApiFailures = 0;
 
+    // 상태 스냅샷(후보 상품·원문 문자열)은 상품 루프 전에 1회만 뽑는다.
+    // 매 상품마다 전체 상태(수 MB)를 재귀 탐색·직렬화하면 45초 예산이 이미지 단계 전에 소진된다(에어리커피 실측).
+    const hoistedStatePayload = await executeJavaScriptWithTimeout(hiddenWindow, `
+      (() => {
+        const json = window.__PRELOADED_STATE__ || {};
+        const candidates = [];
+        const visit = (value) => {
+          if (!value || typeof value !== 'object') return;
+          if (!Array.isArray(value) && Number(value.id) && typeof value.name === 'string' && Number(value.salePrice)) {
+            candidates.push(value);
+          }
+          Object.values(value).forEach(visit);
+        };
+        visit(json);
+        let rawState = '';
+        try { rawState = JSON.stringify(json); } catch (e) { rawState = ''; }
+        window.__BEANPICK_DETAIL_CANDIDATES__ = candidates;
+        return JSON.stringify({ rawState, candidateCount: candidates.length });
+      })()
+    `, 8000, 'null');
+    let hoistedRawState = '';
+    try { hoistedRawState = String(JSON.parse(hoistedStatePayload || 'null')?.rawState || ''); } catch (e) { hoistedRawState = ''; }
+
     // 직렬 호출: 동시에 부르면 네이버 차단(429·캡차)만 빨라진다.
     for (const { product, productNo } of pendingTargets) {
       if (Date.now() - startedAt > timeBudgetMs) break;
@@ -719,17 +747,8 @@ async function fetchSmartStoreDetailContents(
       let triedApi = false;
       const groupedOptionPayload = await executeJavaScriptWithTimeout(hiddenWindow, `
         (() => {
-          const json = window.__PRELOADED_STATE__ || {};
+          const candidates = window.__BEANPICK_DETAIL_CANDIDATES__ || [];
           const targetNo = Number(${JSON.stringify(productNo)});
-          const candidates = [];
-          const visit = (value) => {
-            if (!value || typeof value !== 'object') return;
-            if (!Array.isArray(value) && Number(value.id) && typeof value.name === 'string' && Number(value.salePrice)) {
-              candidates.push(value);
-            }
-            Object.values(value).forEach(visit);
-          };
-          visit(json);
 
           const target = candidates.find((item) => {
             const groupNos = item.simpleStandardGroupProduct?.channelProductNos || [];
@@ -768,10 +787,7 @@ async function fetchSmartStoreDetailContents(
           };
 
           const storeId = location.pathname.split('/').filter(Boolean)[0] || '';
-          let rawState = '';
-          try { rawState = JSON.stringify(json); } catch (e) { rawState = ''; }
           return {
-            rawState,
             detailText: findDetailText(target),
             optionCombinations: candidates
               .filter((item) => optionProductNos.includes(Number(item.id)))
@@ -791,7 +807,7 @@ async function fetchSmartStoreDetailContents(
 
       if (groupedOptionPayload?.optionCombinations?.length) {
         detailPayload = {
-          rawState: groupedOptionPayload.rawState || '',
+          rawState: hoistedRawState,
           detailText: groupedOptionPayload.detailText || '',
           optionCombinations: groupedOptionPayload.optionCombinations,
           expectedOptionCount: groupedOptionPayload.expectedOptionCount,
@@ -799,7 +815,7 @@ async function fetchSmartStoreDetailContents(
         };
       } else if (groupedOptionPayload?.detailText) {
         detailPayload = {
-          rawState: groupedOptionPayload.rawState || '',
+          rawState: hoistedRawState,
           detailText: groupedOptionPayload.detailText,
         };
       } else if (channelUid && consecutiveApiFailures < 2) {
