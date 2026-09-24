@@ -1,5 +1,5 @@
 {
-  "publishedAt": "2026-09-24T03:03:26.639Z",
+  "publishedAt": "2026-09-24T07:03:16.561Z",
   "count": 457,
   "products": [
     {
@@ -4485,7 +4485,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13587119731",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260528_117/1779960938851MaEnI_PNG/126594722072573128_665075433.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260528_117/1779960938851MaEnI_PNG/126594722072573128_665075433.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -4507,7 +4507,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13587115570",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260528_75/1779960877648oANaw_PNG/114093750780601422_50690461.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260528_75/1779960877648oANaw_PNG/114093750780601422_50690461.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -4529,7 +4529,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13587104702",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260528_59/1779960723762aTpjS_PNG/102770434424369442_1541768161.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260528_59/1779960723762aTpjS_PNG/102770434424369442_1541768161.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -4551,7 +4551,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13422185147",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260419_136/1776586838910aKRHP_PNG/58665031385577632_675804974.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260419_136/1776586838910aKRHP_PNG/58665031385577632_675804974.png?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -6258,24 +6258,6 @@
           "method": "image-model"
         }
       ],
-      "priceOptions": [
-        {
-          "id": "200g-16000",
-          "price": 16000,
-          "weight": 200,
-          "weightLabel": "200g",
-          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/5310178180",
-          "priceLabel": "16,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "8,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g",
-      "unitPriceLabel": "",
       "acidityScore": -0.7333333333333334,
       "acidityScoreSource": "tastingNotes"
     },
@@ -6321,24 +6303,6 @@
           "group": "MEDIUM"
         }
       ],
-      "priceOptions": [
-        {
-          "id": "200g-18000",
-          "price": 18000,
-          "weight": 200,
-          "weightLabel": "200g",
-          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/5310169256",
-          "priceLabel": "18,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "9,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g",
-      "unitPriceLabel": "",
       "acidityScore": -0.5666666666666667,
       "acidityScoreSource": "tastingNotes"
     },
@@ -6667,8 +6631,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.9,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "fillout-13684414219",
@@ -6691,23 +6656,6 @@
       "isNew": false,
       "lastCheckedAt": "방금",
       "checkedMinutesAgo": 11,
-      "priceOptions": [
-        {
-          "id": "100g-13000",
-          "price": 13000,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13684414219",
-          "priceLabel": "13,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "13,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
       "tastingNoteEvidence": [
         {
           "text": "홍차",
@@ -6728,9 +6676,9 @@
           "process": "WASHED"
         }
       ],
-      "unitPriceLabel": "",
-      "acidityScore": 0.9333333333333332,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "fillout-13684412338",
@@ -6767,29 +6715,7 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "100g",
-      "tastingNoteEvidence": [
-        {
-          "text": "자스민",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
-          "method": "image-model",
-          "process": "무산소 내추럴",
-          "reviewReason": "process-conflict"
-        },
-        {
-          "text": "핵과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
-          "method": "image-model",
-          "process": "무산소 내추럴",
-          "reviewReason": "process-conflict"
-        },
-        {
-          "text": "사과",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
-          "method": "image-model",
-          "process": "무산소 내추럴",
-          "reviewReason": "process-conflict"
-        }
-      ],
+      "tastingNoteEvidence": [],
       "unitPriceLabel": "",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
@@ -6981,8 +6907,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.5,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "fillout-13732632561",
@@ -7243,8 +7170,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "fillout-13684407826",
@@ -7717,8 +7645,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "fillout-13622307018",
@@ -7779,8 +7708,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "fillout-8259237237",
@@ -8431,6 +8361,1084 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
+      "id": "coffeejg-10794029959",
+      "roasterName": "커피정경 로스터리",
+      "productName": "배합커피#1 소로",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 34000,
+      "weight": 1000,
+      "score": 88,
+      "tastingNotes": [
+        "오렌지",
+        "딸기",
+        "밀크초콜릿",
+        "브라운슈가",
+        "아몬드"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/10794029959",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 0,
+      "tastingNoteEvidence": [
+        {
+          "text": "Strawberry Jam",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Brown Sugar",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Almond",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Milk Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "1kg-34000",
+          "price": 34000,
+          "weight": 1000,
+          "weightLabel": "1kg",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/10794029959",
+          "priceLabel": "34,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "3,400원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "1kg",
+      "unitPriceLabel": "",
+      "acidityScore": -0.040000000000000015,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-10793450163",
+      "roasterName": "커피정경 로스터리",
+      "productName": "배합커피#2 경주",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 28000,
+      "weight": 1000,
+      "score": 87,
+      "tastingNotes": [
+        "다크초콜릿",
+        "캐러멜",
+        "브라운슈가",
+        "버터스카치",
+        "아몬드"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/10793450163",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "tastingNoteEvidence": [
+        {
+          "text": "Brown Sugar",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Butterscotch Candy",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Caramel",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Almond",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Dark Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "1kg-28000",
+          "price": 28000,
+          "weight": 1000,
+          "weightLabel": "1kg",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/10793450163",
+          "priceLabel": "28,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "2,800원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "1kg",
+      "unitPriceLabel": "",
+      "acidityScore": -0.6799999999999999,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-12287750188",
+      "roasterName": "커피정경 로스터리",
+      "productName": "배합커피#3 플뤼겔혼",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 41800,
+      "weight": 1000,
+      "score": 86,
+      "tastingNotes": [
+        "오렌지",
+        "복숭아",
+        "리치",
+        "패션프루트"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/12287750188",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 2,
+      "tastingNoteEvidence": [
+        {
+          "text": "Violet",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Lychee",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Passion Fruit",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "1kg-41800",
+          "price": 41800,
+          "weight": 1000,
+          "weightLabel": "1kg",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/12287750188",
+          "priceLabel": "41,800원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "4,180원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "1kg",
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "커피정경로스터리-배합커피-4율무",
+      "roasterName": "커피정경 로스터리",
+      "productName": "배합커피#4 율무",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 8000,
+      "weight": 200,
+      "score": 85,
+      "tastingNotes": [
+        "밀크초콜릿",
+        "브라운슈가",
+        "아몬드"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13736416283",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 3,
+      "tastingNoteEvidence": [
+        {
+          "text": "Oats",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Job's Tears",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Almond",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Brown Sugar",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "Milk Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-8000",
+          "price": 8000,
+          "weight": 200,
+          "priceLabel": "8,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "4,000원/100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13736426450",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-28000",
+          "price": 28000,
+          "weight": 1000,
+          "priceLabel": "28,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "2,800원/100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13736416283",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "8,000원",
+      "unitPriceLabel": "",
+      "acidityScore": -0.7333333333333334,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 2
+    },
+    {
+      "id": "coffeejg-13735236794",
+      "roasterName": "커피정경 로스터리",
+      "productName": "모호의 시간 - 시즌블렌드",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 7500,
+      "weight": 100,
+      "score": 84,
+      "tastingNotes": [
+        "라즈베리"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13735236794",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 4,
+      "tastingNoteEvidence": [
+        {
+          "text": "블랙베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f750_750",
+          "method": "image-model",
+          "group": "모호의 시간"
+        },
+        {
+          "text": "흑설탕",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f750_750",
+          "method": "image-model",
+          "group": "모호의 시간"
+        },
+        {
+          "text": "라즈베리잼",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f750_750",
+          "method": "image-model",
+          "group": "모호의 시간"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-7500",
+          "price": 7500,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13735236794",
+          "priceLabel": "7,500원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "7,500원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13718282182",
+      "roasterName": "커피정경 로스터리",
+      "productName": "에티오피아 반코 고티티 내추럴",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 8000,
+      "weight": 100,
+      "score": 82,
+      "tastingNotes": [
+        "복숭아",
+        "오렌지꽃"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13718282182",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 6,
+      "tastingNoteEvidence": [
+        {
+          "text": "Violet",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Orange Blossom",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Kumquat",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Yellow Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Mangosteen",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-8000",
+          "price": 8000,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13718282182",
+          "priceLabel": "8,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "8,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 0.45,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13718310924",
+      "roasterName": "커피정경 로스터리",
+      "productName": "케냐 키아무구모 AA 워시드",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 8000,
+      "weight": 100,
+      "score": 81,
+      "tastingNotes": [
+        "자몽",
+        "블랙커런트",
+        "블루베리",
+        "살구",
+        "플로럴"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13718310924",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 7,
+      "tastingNoteEvidence": [
+        {
+          "text": "Blackcurrant",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Grapefruit",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Blueberry",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Apricot",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Floral Honey",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-8000",
+          "price": 8000,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13718310924",
+          "priceLabel": "8,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "8,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 0.96,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13717993203",
+      "roasterName": "커피정경 로스터리",
+      "productName": "에티오피아 반코 고티티 워시드",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 7500,
+      "weight": 100,
+      "score": 80,
+      "tastingNotes": [
+        "복숭아",
+        "포도",
+        "라벤더",
+        "백차"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13717993203",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 8,
+      "tastingNoteEvidence": [
+        {
+          "text": "Lavender",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Earl Grey",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "White Grape",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "White Tea",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-7500",
+          "price": 7500,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13717993203",
+          "priceLabel": "7,500원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "7,500원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 0.8999999999999999,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13698642367",
+      "roasterName": "커피정경 로스터리",
+      "productName": "디카페인 콜롬비아 파라이소92 써멀쇼크 슈가케인",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 8000,
+      "weight": 100,
+      "score": 79,
+      "tastingNotes": [
+        "살구",
+        "열대과일",
+        "자두"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13698642367",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 9,
+      "tastingNoteEvidence": [
+        {
+          "text": "Apricot",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
+          "method": "image-model",
+          "process": "Sugarcane"
+        },
+        {
+          "text": "Plum",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
+          "method": "image-model",
+          "process": "Sugarcane"
+        },
+        {
+          "text": "Star Fruit",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
+          "method": "image-model",
+          "process": "Sugarcane"
+        },
+        {
+          "text": "Tropical Fruit",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
+          "method": "image-model",
+          "process": "Sugarcane"
+        },
+        {
+          "text": "Cotton Candy",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
+          "method": "image-model",
+          "process": "Sugarcane"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-8000",
+          "price": 8000,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13698642367",
+          "priceLabel": "8,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "8,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13683314164",
+      "roasterName": "커피정경 로스터리",
+      "productName": "에티오피아 알로 사포 미니 클래식 워시드",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 18500,
+      "weight": 100,
+      "score": 78,
+      "tastingNotes": [
+        "복숭아",
+        "오렌지꽃"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13683314164",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 10,
+      "tastingNoteEvidence": [
+        {
+          "text": "Violet",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
+          "method": "image-model",
+          "process": "Classic Washed"
+        },
+        {
+          "text": "Orange Blossom",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
+          "method": "image-model",
+          "process": "Classic Washed"
+        },
+        {
+          "text": "Kumquat",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
+          "method": "image-model",
+          "process": "Classic Washed"
+        },
+        {
+          "text": "Yellow Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
+          "method": "image-model",
+          "process": "Classic Washed"
+        },
+        {
+          "text": "Mangosteen",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
+          "method": "image-model",
+          "process": "Classic Washed"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-18500",
+          "price": 18500,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13683314164",
+          "priceLabel": "18,500원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "18,500원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 0.45,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13685877332",
+      "roasterName": "커피정경 로스터리",
+      "productName": "볼리비아 팔리 패밀리 카투라 워시드",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 6000,
+      "weight": 100,
+      "score": 77,
+      "tastingNotes": [
+        "오렌지",
+        "녹차",
+        "캐러멜",
+        "마카다미아"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13685877332",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 11,
+      "tastingNoteEvidence": [
+        {
+          "text": "Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Macadamia",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Caramel",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Green Tea",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Assam Tea",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-6000",
+          "price": 6000,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13685877332",
+          "priceLabel": "6,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "6,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 0.050000000000000044,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13668970051",
+      "roasterName": "커피정경 로스터리",
+      "productName": "에티오피아 구지 부쿠사이사 내추럴",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 8000,
+      "weight": 100,
+      "score": 76,
+      "tastingNotes": [
+        "오렌지",
+        "베리",
+        "복숭아",
+        "포도"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13668970051",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 12,
+      "tastingNoteEvidence": [
+        {
+          "text": "Lilac",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Grape",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Açai Berry",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "100g-8000",
+          "price": 8000,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/coffeejg/products/13668970051",
+          "priceLabel": "8,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "8,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeejg-13658727081",
+      "roasterName": "커피정경 로스터리",
+      "productName": "콜롬비아 인마쿨라다 펠로우즈 팜즈 게이샤 내추럴",
+      "origin": "커피정경 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 18000,
+      "weight": 100,
+      "score": 75,
+      "tastingNotes": [
+        "자두",
+        "자스민",
+        "차"
+      ],
+      "productUrl": "https://smartstore.naver.com/coffeejg/products/13658727081",
+      "storeUrl": "https://smartstore.naver.com/coffeejg",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f80_80",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 13,
+      "tastingNoteEvidence": [
+        {
+          "text": "Jasmine",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Magnolia",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Plum",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Milk Tea",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        },
+        {
+          "text": "Condensed Milk",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
+          "method": "image-model",
+          "process": "Natural"
+        }
+      ],
+      "acidityScore": 0.8666666666666667,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "루비아커피-블루문디카페인",
+      "roasterName": "루비아 커피",
+      "productName": "블루문 디카페인",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 16000,
+      "weight": 200,
+      "score": 88,
+      "tastingNotes": [
+        "다크초콜릿",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 0,
+      "tastingNoteEvidence": [
+        {
+          "text": "디카페인",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "꽃",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "산미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "단맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-16000",
+          "price": 16000,
+          "originalPrice": 17000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5990987020",
+          "originalPriceLabel": "17,000원",
+          "discountRate": 0.058823529411764705,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "500g-33000",
+          "price": 33000,
+          "originalPrice": 35000,
+          "weight": 500,
+          "priceLabel": "33,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306896060",
+          "originalPriceLabel": "35,000원",
+          "discountRate": 0.05714285714285714,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "originalPrice": 48000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
+          "originalPriceLabel": "48,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "16,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.0625,
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
       "id": "루비아커피-시에나",
       "roasterName": "루비아 커피",
       "productName": "시에나",
@@ -8439,7 +9447,7 @@
       "roastLevel": "확인 필요",
       "price": 15000,
       "weight": 200,
-      "score": 88,
+      "score": 87,
       "tastingNotes": [
         "초콜릿",
         "바닐라",
@@ -8451,7 +9459,7 @@
       "isSoldOut": false,
       "isNew": true,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 0,
+      "checkedMinutesAgo": 1,
       "priceOptions": [
         {
           "id": "200g-15000",
@@ -8531,119 +9539,122 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "id": "루비아커피-100-에티오피아스칼렛",
       "roasterName": "루비아 커피",
-      "productName": "클래식 이탈리안 스타일 피렌체",
+      "productName": "100% 에티오피아 스칼렛",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 13000,
+      "price": 17000,
       "weight": 200,
-      "score": 87,
+      "score": 86,
       "tastingNotes": [
-        "초콜릿",
-        "캐러멜",
-        "견과류",
-        "아몬드",
-        "몰트"
+        "블랙커런트",
+        "블루베리",
+        "열대과일",
+        "다크초콜릿"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f140",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
       "isSoldOut": false,
-      "isNew": true,
+      "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
+      "checkedMinutesAgo": 2,
       "tastingNoteEvidence": [
         {
-          "text": "부드러운",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "text": "블루베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "아몬드",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "text": "블랙커런트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
+        },
+        {
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "베리류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "꽃향기",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
         },
         {
           "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "카라멜",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "구운디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
         }
       ],
       "priceOptions": [
         {
-          "id": "200g-13000",
-          "price": 13000,
-          "originalPrice": 14000,
+          "id": "200g-17000",
+          "price": 17000,
+          "originalPrice": 18000,
           "weight": 200,
-          "priceLabel": "13,000원",
+          "priceLabel": "17,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
-          "originalPriceLabel": "14,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
+          "unitPriceLabel": "8,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084252336",
+          "originalPriceLabel": "18,000원",
+          "discountRate": 0.05555555555555555,
+          "discountLabel": "5% 할인"
         },
         {
-          "id": "500g-25000",
-          "price": 25000,
-          "originalPrice": 26000,
-          "weight": 500,
-          "priceLabel": "25,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
-          "originalPriceLabel": "26,000원",
-          "discountRate": 0.038461538461538464,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-34000",
+          "id": "500g-34000",
           "price": 34000,
-          "originalPrice": 38000,
-          "weight": 1000,
+          "originalPrice": 36000,
+          "weight": 500,
           "priceLabel": "34,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,800원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306840350",
+          "originalPriceLabel": "36,000원",
+          "discountRate": 0.05555555555555555,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "1kg-47000",
+          "price": 47000,
+          "originalPrice": 50000,
+          "weight": 1000,
+          "priceLabel": "47,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "3,400원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-          "originalPriceLabel": "38,000원",
-          "discountRate": 0.10526315789473684,
-          "discountLabel": "10% 할인"
+          "unitPriceLabel": "4,700원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
+          "originalPriceLabel": "50,000원",
+          "discountRate": 0.06,
+          "discountLabel": "6% 할인"
         }
       ],
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "13,000원",
+      "priceLabel": "17,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.10526315789473684,
-      "acidityScore": -0.8400000000000001,
+      "discountRate": 0.06,
+      "acidityScore": 0.6,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -8656,7 +9667,7 @@
       "roastLevel": "확인 필요",
       "price": 14000,
       "weight": 200,
-      "score": 86,
+      "score": 84,
       "tastingNotes": [
         "초콜릿",
         "견과류",
@@ -8668,7 +9679,7 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
+      "checkedMinutesAgo": 4,
       "tastingNoteEvidence": [
         {
           "text": "초콜릿",
@@ -8777,255 +9788,119 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-100-에티오피아스칼렛",
+      "id": "루비아커피-클래식이탈리안스타일피렌체",
       "roasterName": "루비아 커피",
-      "productName": "100% 에티오피아 스칼렛",
+      "productName": "클래식 이탈리안 스타일 피렌체",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 17000,
+      "price": 13000,
       "weight": 200,
-      "score": 85,
+      "score": 82,
       "tastingNotes": [
-        "블랙커런트",
-        "블루베리",
-        "열대과일",
-        "다크초콜릿"
+        "초콜릿",
+        "캐러멜",
+        "견과류",
+        "아몬드",
+        "몰트"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f140",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 3,
-      "priceOptions": [
+      "checkedMinutesAgo": 6,
+      "tastingNoteEvidence": [
         {
-          "id": "200g-17000",
-          "price": 17000,
-          "originalPrice": 18000,
-          "weight": 200,
-          "priceLabel": "17,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084252336",
-          "originalPriceLabel": "18,000원",
-          "discountRate": 0.05555555555555555,
-          "discountLabel": "5% 할인"
+          "text": "부드러운",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
         },
         {
-          "id": "500g-34000",
+          "text": "아몬드",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "몰트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "구운디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "originalPrice": 14000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
+          "originalPriceLabel": "14,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
+        },
+        {
+          "id": "500g-25000",
+          "price": 25000,
+          "originalPrice": 26000,
+          "weight": 500,
+          "priceLabel": "25,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
+          "originalPriceLabel": "26,000원",
+          "discountRate": 0.038461538461538464,
+          "discountLabel": "3% 할인"
+        },
+        {
+          "id": "1kg-34000",
           "price": 34000,
-          "originalPrice": 36000,
-          "weight": 500,
+          "originalPrice": 38000,
+          "weight": 1000,
           "priceLabel": "34,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,800원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306840350",
-          "originalPriceLabel": "36,000원",
-          "discountRate": 0.05555555555555555,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "1kg-47000",
-          "price": 47000,
-          "originalPrice": 50000,
-          "weight": 1000,
-          "priceLabel": "47,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "4,700원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
-          "originalPriceLabel": "50,000원",
-          "discountRate": 0.06,
-          "discountLabel": "6% 할인"
+          "unitPriceLabel": "3,400원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+          "originalPriceLabel": "38,000원",
+          "discountRate": 0.10526315789473684,
+          "discountLabel": "10% 할인"
         }
       ],
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "꽃향기",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "블랙커런트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceLabel": "17,000원",
+      "priceLabel": "13,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.06,
-      "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-블루문디카페인",
-      "roasterName": "루비아 커피",
-      "productName": "블루문 디카페인",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 16000,
-      "weight": 200,
-      "score": 81,
-      "tastingNotes": [
-        "다크초콜릿",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 7,
-      "tastingNoteEvidence": [
-        {
-          "text": "꽃",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "산미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "단맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "디카페인",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-16000",
-          "price": 16000,
-          "originalPrice": 17000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5990987020",
-          "originalPriceLabel": "17,000원",
-          "discountRate": 0.058823529411764705,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "500g-33000",
-          "price": 33000,
-          "originalPrice": 35000,
-          "weight": 500,
-          "priceLabel": "33,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306896060",
-          "originalPriceLabel": "35,000원",
-          "discountRate": 0.05714285714285714,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "originalPrice": 48000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
-          "originalPriceLabel": "48,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "16,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.0625,
-      "acidityScore": -0.8,
+      "discountRate": 0.10526315789473684,
+      "acidityScore": -0.8400000000000001,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -11812,951 +12687,6 @@
       "groupedProductCount": 2
     },
     {
-      "id": "coffeejg-10794029959",
-      "roasterName": "커피정경 로스터리",
-      "productName": "배합커피#1 소로",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 34000,
-      "weight": 1000,
-      "score": 88,
-      "tastingNotes": [
-        "오렌지",
-        "딸기",
-        "밀크초콜릿",
-        "브라운슈가",
-        "아몬드"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/10794029959",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 0,
-      "tastingNoteEvidence": [
-        {
-          "text": "Strawberry Jam",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Brown Sugar",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Almond",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Milk Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_224/1769083432644Jju35_PNG/7619400635321851_1939994110.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "1kg-34000",
-          "price": 34000,
-          "weight": 1000,
-          "weightLabel": "1kg",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/10794029959",
-          "priceLabel": "34,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "3,400원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "1kg",
-      "unitPriceLabel": "",
-      "acidityScore": -0.040000000000000015,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-10793450163",
-      "roasterName": "커피정경 로스터리",
-      "productName": "배합커피#2 경주",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 28000,
-      "weight": 1000,
-      "score": 87,
-      "tastingNotes": [
-        "다크초콜릿",
-        "캐러멜",
-        "브라운슈가",
-        "버터스카치",
-        "아몬드"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/10793450163",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
-      "tastingNoteEvidence": [
-        {
-          "text": "Brown Sugar",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Butterscotch Candy",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Caramel",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Almond",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Dark Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_238/1769083527832avoen_PNG/103216434934192856_1824150454.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "1kg-28000",
-          "price": 28000,
-          "weight": 1000,
-          "weightLabel": "1kg",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/10793450163",
-          "priceLabel": "28,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "2,800원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "1kg",
-      "unitPriceLabel": "",
-      "acidityScore": -0.6799999999999999,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-12287750188",
-      "roasterName": "커피정경 로스터리",
-      "productName": "배합커피#3 플뤼겔혼",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 41800,
-      "weight": 1000,
-      "score": 86,
-      "tastingNotes": [
-        "오렌지",
-        "복숭아",
-        "리치",
-        "패션프루트"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/12287750188",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "tastingNoteEvidence": [
-        {
-          "text": "Violet",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Lychee",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Passion Fruit",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260122_140/1769083552417YT8Er_PNG/103216376578509873_1685535401.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "1kg-41800",
-          "price": 41800,
-          "weight": 1000,
-          "weightLabel": "1kg",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/12287750188",
-          "priceLabel": "41,800원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "4,180원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "1kg",
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "커피정경로스터리-배합커피-4율무",
-      "roasterName": "커피정경 로스터리",
-      "productName": "배합커피#4 율무",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 8000,
-      "weight": 200,
-      "score": 85,
-      "tastingNotes": [
-        "밀크초콜릿",
-        "브라운슈가",
-        "아몬드"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13736416283",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 3,
-      "tastingNoteEvidence": [
-        {
-          "text": "Oats",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Job's Tears",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Almond",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Brown Sugar",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "Milk Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260828_245/1787846421705x7cpK_PNG/43666352799980163_1896033119.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-8000",
-          "price": 8000,
-          "weight": 200,
-          "priceLabel": "8,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "4,000원/100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13736426450",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-28000",
-          "price": 28000,
-          "weight": 1000,
-          "priceLabel": "28,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "2,800원/100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13736416283",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "8,000원",
-      "unitPriceLabel": "",
-      "acidityScore": -0.7333333333333334,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 2
-    },
-    {
-      "id": "coffeejg-13735236794",
-      "roasterName": "커피정경 로스터리",
-      "productName": "모호의 시간 - 시즌블렌드",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 7500,
-      "weight": 100,
-      "score": 84,
-      "tastingNotes": [
-        "라즈베리"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13735236794",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 4,
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f750_750",
-          "method": "image-model",
-          "group": "모호의 시간"
-        },
-        {
-          "text": "흑설탕",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f750_750",
-          "method": "image-model",
-          "group": "모호의 시간"
-        },
-        {
-          "text": "라즈베리잼",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260827_143/1787760509433sCki4_PNG/18971810318581337_1647438686.png?type=f750_750",
-          "method": "image-model",
-          "group": "모호의 시간"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-7500",
-          "price": 7500,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13735236794",
-          "priceLabel": "7,500원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "7,500원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13718282182",
-      "roasterName": "커피정경 로스터리",
-      "productName": "에티오피아 반코 고티티 내추럴",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 8000,
-      "weight": 100,
-      "score": 82,
-      "tastingNotes": [
-        "복숭아",
-        "오렌지꽃"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13718282182",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 6,
-      "tastingNoteEvidence": [
-        {
-          "text": "Violet",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Orange Blossom",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Kumquat",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Yellow Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Mangosteen",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_196/1786500429488HFsIa_PNG/37055921099571658_1335606634.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-8000",
-          "price": 8000,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13718282182",
-          "priceLabel": "8,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "8,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 0.45,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13718310924",
-      "roasterName": "커피정경 로스터리",
-      "productName": "케냐 키아무구모 AA 워시드",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 8000,
-      "weight": 100,
-      "score": 81,
-      "tastingNotes": [
-        "자몽",
-        "블랙커런트",
-        "블루베리",
-        "살구",
-        "플로럴"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13718310924",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 7,
-      "tastingNoteEvidence": [
-        {
-          "text": "Blackcurrant",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Grapefruit",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Blueberry",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Apricot",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Floral Honey",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_12/1786502062890VqYyX_PNG/10258501683751643_1220037678.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-8000",
-          "price": 8000,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13718310924",
-          "priceLabel": "8,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "8,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 0.96,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13717993203",
-      "roasterName": "커피정경 로스터리",
-      "productName": "에티오피아 반코 고티티 워시드",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 7500,
-      "weight": 100,
-      "score": 80,
-      "tastingNotes": [
-        "복숭아",
-        "포도",
-        "라벤더",
-        "백차"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13717993203",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 8,
-      "tastingNoteEvidence": [
-        {
-          "text": "Lavender",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Earl Grey",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "White Grape",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "White Tea",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_98/1786472612912KMq5A_PNG/84119014785662101_284686715.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-7500",
-          "price": 7500,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13717993203",
-          "priceLabel": "7,500원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "7,500원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 0.8999999999999999,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13698642367",
-      "roasterName": "커피정경 로스터리",
-      "productName": "디카페인 콜롬비아 파라이소92 써멀쇼크 슈가케인",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 8000,
-      "weight": 100,
-      "score": 79,
-      "tastingNotes": [
-        "살구",
-        "열대과일",
-        "자두"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13698642367",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 9,
-      "tastingNoteEvidence": [
-        {
-          "text": "Apricot",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
-          "method": "image-model",
-          "process": "Sugarcane"
-        },
-        {
-          "text": "Plum",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
-          "method": "image-model",
-          "process": "Sugarcane"
-        },
-        {
-          "text": "Star Fruit",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
-          "method": "image-model",
-          "process": "Sugarcane"
-        },
-        {
-          "text": "Tropical Fruit",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
-          "method": "image-model",
-          "process": "Sugarcane"
-        },
-        {
-          "text": "Cotton Candy",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260804_152/1785846950213LnC6P_PNG/40468688178227537_1755522968.png?type=f750_750",
-          "method": "image-model",
-          "process": "Sugarcane"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-8000",
-          "price": 8000,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13698642367",
-          "priceLabel": "8,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "8,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13683314164",
-      "roasterName": "커피정경 로스터리",
-      "productName": "에티오피아 알로 사포 미니 클래식 워시드",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 18500,
-      "weight": 100,
-      "score": 78,
-      "tastingNotes": [
-        "복숭아",
-        "오렌지꽃"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13683314164",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 10,
-      "tastingNoteEvidence": [
-        {
-          "text": "Violet",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
-          "method": "image-model",
-          "process": "Classic Washed"
-        },
-        {
-          "text": "Orange Blossom",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
-          "method": "image-model",
-          "process": "Classic Washed"
-        },
-        {
-          "text": "Kumquat",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
-          "method": "image-model",
-          "process": "Classic Washed"
-        },
-        {
-          "text": "Yellow Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
-          "method": "image-model",
-          "process": "Classic Washed"
-        },
-        {
-          "text": "Mangosteen",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260726_179/1785058162152jtjGn_PNG/38019693023411174_934948647.png?type=f750_750",
-          "method": "image-model",
-          "process": "Classic Washed"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-18500",
-          "price": 18500,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13683314164",
-          "priceLabel": "18,500원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "18,500원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 0.45,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13685877332",
-      "roasterName": "커피정경 로스터리",
-      "productName": "볼리비아 팔리 패밀리 카투라 워시드",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 6000,
-      "weight": 100,
-      "score": 77,
-      "tastingNotes": [
-        "오렌지",
-        "녹차",
-        "캐러멜",
-        "마카다미아"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13685877332",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 11,
-      "tastingNoteEvidence": [
-        {
-          "text": "Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Macadamia",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Caramel",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Green Tea",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Assam Tea",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260728_51/1785246451761MRQhY_PNG/38207982609608337_496284241.png?type=f750_750",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-6000",
-          "price": 6000,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13685877332",
-          "priceLabel": "6,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "6,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 0.050000000000000044,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13668970051",
-      "roasterName": "커피정경 로스터리",
-      "productName": "에티오피아 구지 부쿠사이사 내추럴",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 8000,
-      "weight": 100,
-      "score": 76,
-      "tastingNotes": [
-        "오렌지",
-        "베리",
-        "복숭아",
-        "포도"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13668970051",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 12,
-      "tastingNoteEvidence": [
-        {
-          "text": "Lilac",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Grape",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Açai Berry",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260717_228/1784267255849m3A1o_PNG/105584592822651595_968417426.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "100g-8000",
-          "price": 8000,
-          "weight": 100,
-          "weightLabel": "100g",
-          "productUrl": "https://smartstore.naver.com/coffeejg/products/13668970051",
-          "priceLabel": "8,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "8,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "100g",
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffeejg-13658727081",
-      "roasterName": "커피정경 로스터리",
-      "productName": "콜롬비아 인마쿨라다 펠로우즈 팜즈 게이샤 내추럴",
-      "origin": "커피정경 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 18000,
-      "weight": 100,
-      "score": 75,
-      "tastingNotes": [
-        "자두",
-        "자스민",
-        "차"
-      ],
-      "productUrl": "https://smartstore.naver.com/coffeejg/products/13658727081",
-      "storeUrl": "https://smartstore.naver.com/coffeejg",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f80_80",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 13,
-      "tastingNoteEvidence": [
-        {
-          "text": "Jasmine",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Magnolia",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Plum",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Milk Tea",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        },
-        {
-          "text": "Condensed Milk",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260131_198/1769798410095wl3sJ_PNG/84814224963621504_1182161616.png?type=f750_750",
-          "method": "image-model",
-          "process": "Natural"
-        }
-      ],
-      "acidityScore": 0.8666666666666667,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
       "id": "aerycoffee-13753086459",
       "roasterName": "에어리커피",
       "productName": "[에어리커피] 파나마 레리다 에스플렌도로사 게이샤 OX 허니",
@@ -15049,6 +14979,504 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
+      "id": "toch-6650495962",
+      "roasterName": "토치 커피",
+      "productName": "블렌드 3종 원두선택",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 12000,
+      "weight": 200,
+      "score": 88,
+      "tastingNotes": [
+        "베리",
+        "다크초콜릿",
+        "밀크초콜릿",
+        "브라운슈가",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/toch/products/6650495962",
+      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 0,
+      "tastingNoteEvidence": [
+        {
+          "text": "Berry and Nut",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "GLAM."
+        },
+        {
+          "text": "Sweet and well-balanced coffee with a clean and pleasant aftertaste",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "SWEET."
+        },
+        {
+          "text": "Nutty",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "SWEET."
+        },
+        {
+          "text": "Brown Sugar",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "SWEET."
+        },
+        {
+          "text": "Milk Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "SWEET."
+        },
+        {
+          "text": "A Sophisticated Blend Crafted for the Best Morning Cup of Coffee",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "BLACK & MORE"
+        },
+        {
+          "text": "Mellow",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "BLACK & MORE"
+        },
+        {
+          "text": "Roasted Almond",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "BLACK & MORE"
+        },
+        {
+          "text": "Dark Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
+          "method": "image-model",
+          "group": "BLACK & MORE"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-12000",
+          "price": 12000,
+          "weight": 200,
+          "weightLabel": "200g",
+          "productUrl": "https://smartstore.naver.com/toch/products/6650495962",
+          "priceLabel": "12,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "6,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "200g",
+      "unitPriceLabel": "",
+      "acidityScore": -0.36,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-10130617351",
+      "roasterName": "토치 커피",
+      "productName": "(토치커피) 글램 앤 모어 블렌드 ( 요청불가)",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 42000,
+      "weight": 1000,
+      "score": 87,
+      "tastingNotes": [
+        "블루베리",
+        "포도",
+        "쥬시",
+        "크랜베리"
+      ],
+      "productUrl": "https://smartstore.naver.com/toch/products/10130617351",
+      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250204_59/1738638911967jEaHi_JPEG/20000600759360460_1959952668.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "priceOptions": [
+        {
+          "id": "1kg-70000",
+          "price": 70000,
+          "weight": 1000,
+          "weightLabel": "1kg",
+          "productUrl": "https://smartstore.naver.com/toch/products/10130617351",
+          "priceLabel": "70,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "7,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "BLUEBERRY",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED, NATURAL"
+        },
+        {
+          "text": "GRAPE",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED, NATURAL"
+        },
+        {
+          "text": "POMEGRANATE",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED, NATURAL"
+        },
+        {
+          "text": "CRANBERRY",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED, NATURAL"
+        },
+        {
+          "text": "JUICY",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED, NATURAL"
+        }
+      ],
+      "unitPriceLabel": "",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-10130608793",
+      "roasterName": "토치 커피",
+      "productName": "(토치커피) 스윗 앤 모어 블렌드 ( 요청불가)",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 36000,
+      "weight": 1000,
+      "score": 86,
+      "tastingNotes": [
+        "밀크초콜릿",
+        "브라운슈가",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/toch/products/10130608793",
+      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250204_151/1738645481066ycD4f_JPEG/72778412070895600_979494050.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 2,
+      "priceOptions": [
+        {
+          "id": "1kg-60000",
+          "price": 60000,
+          "weight": 1000,
+          "weightLabel": "1kg",
+          "productUrl": "https://smartstore.naver.com/toch/products/10130608793",
+          "priceLabel": "60,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "6,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "NUTS",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
+          "method": "image-model"
+        },
+        {
+          "text": "BROWN SUGAR",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
+          "method": "image-model"
+        },
+        {
+          "text": "MILK CHOCOLATE",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
+          "method": "image-model"
+        },
+        {
+          "text": "MALIC",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
+          "method": "image-model"
+        },
+        {
+          "text": "WELL BALANCED",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
+          "method": "image-model"
+        }
+      ],
+      "unitPriceLabel": "",
+      "acidityScore": -0.7333333333333334,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-10130602320",
+      "roasterName": "토치 커피",
+      "productName": "(토치커피)블랙 앤 모어 블렌드 ( 요청불가)",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 36000,
+      "weight": 1000,
+      "score": 85,
+      "tastingNotes": [
+        "다크초콜릿",
+        "볶은아몬드",
+        "긴 여운"
+      ],
+      "productUrl": "https://smartstore.naver.com/toch/products/10130602320",
+      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250204_14/17386466166504KAFr_JPEG/72779445700209431_1924960634.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 3,
+      "priceOptions": [
+        {
+          "id": "1kg-60000",
+          "price": 60000,
+          "weight": 1000,
+          "weightLabel": "1kg",
+          "productUrl": "https://smartstore.naver.com/toch/products/10130602320",
+          "priceLabel": "60,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "6,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "ROASTED ALMOND",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED"
+        },
+        {
+          "text": "DARK CHOCOLATE",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED"
+        },
+        {
+          "text": "CACAO",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED"
+        },
+        {
+          "text": "SWEET",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED"
+        },
+        {
+          "text": "LONG AFTERTASTE",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
+          "method": "image-model",
+          "process": "WASHED"
+        }
+      ],
+      "unitPriceLabel": "",
+      "acidityScore": -0.7000000000000001,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-12280895272",
+      "roasterName": "토치 커피",
+      "productName": "코스타리카 하시엔다 코페이 Don KS 게샤 메케니컬 워시드",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 36000,
+      "weight": 100,
+      "score": 84,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/12280895272",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260831_159/1788160982064Hf1aj_JPEG/37761669105906246_106334395.jpg?type=f750_974",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 4,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-12315205053",
+      "roasterName": "토치 커피",
+      "productName": "에티오피아 에사야스 바리소 싱글 팜 모디파이드 워시드",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 19000,
+      "weight": 150,
+      "score": 83,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/12315205053",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260831_295/1788160174244Wp6F1_JPEG/58549626312879264_523368773.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 5,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-11523901330",
+      "roasterName": "토치 커피",
+      "productName": "케냐 윈드러시 AB 워시드",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 17500,
+      "weight": 200,
+      "score": 82,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/11523901330",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260831_219/1788161836701IYzdq_JPEG/4557909793600534_403053238.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 6,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-13725054700",
+      "roasterName": "토치 커피",
+      "productName": "큐레이션 - 콜롬비아 핀카 라 네그리타 수단 루메 질소 침용 내추럴",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 38500,
+      "weight": 50,
+      "score": 81,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/13725054700",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260831_85/1788159966628HuotE_JPEG/4556039695835877_52898506.jpg?type=f155_200",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 7,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-13663022224",
+      "roasterName": "토치 커피",
+      "productName": "콜롬비아 라 에스페란자 부에노스 아이레스 게이샤 워시드",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 23000,
+      "weight": 150,
+      "score": 80,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/13663022224",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260831_246/1788160716688TxnVC_JPEG/37730929124231922_1351172558.jpg?type=f155_200",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 8,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-12459923606",
+      "roasterName": "토치 커피",
+      "productName": "에티오피아 바샤 베켈레 바다갈로 내추럴",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 18500,
+      "weight": 150,
+      "score": 79,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/12459923606",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260901_134/1788216767427RQjWz_JPEG/122349689296513442_1958177375.jpg?type=f155_200",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 9,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-12301635886",
+      "roasterName": "토치 커피",
+      "productName": "에티오피아 부르사 메인 스테이션 화이트 허니",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 17500,
+      "weight": 150,
+      "score": 78,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/12301635886",
+      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260831_299/1788160429406a57EF_JPEG/118947709148166903_513597649.jpg?type=f155_200",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 10,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "toch-12166525780",
+      "roasterName": "토치 커피",
+      "productName": "디카페인 - 콜롬비아 우일라 피탈리토 디카페인 슈가케인 EA",
+      "origin": "토치 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 13500,
+      "weight": 200,
+      "score": 77,
+      "tastingNotes": [],
+      "productUrl": "https://smartstore.naver.com/toch/products/12166525780",
+      "storeUrl": "https://smartstore.naver.com/toch/category/9ff908ee7a0341fc9e1789b13b68e6d1?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250203_270/1738559951834KvrEt_JPEG/50198853766752258_1428587337.jpg?type=f750_974",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 11,
+      "tastingNoteEvidence": [],
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
       "id": "centercoffee-418",
       "roasterName": "센터커피",
       "productName": "Colombia Diwan El Mirador Pink Bourbon Washed",
@@ -15607,504 +16035,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "toch-6650495962",
-      "roasterName": "토치 커피",
-      "productName": "블렌드 3종 원두선택",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 12000,
-      "weight": 200,
-      "score": 88,
-      "tastingNotes": [
-        "베리",
-        "다크초콜릿",
-        "밀크초콜릿",
-        "브라운슈가",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/toch/products/6650495962",
-      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 0,
-      "tastingNoteEvidence": [
-        {
-          "text": "Berry and Nut",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "GLAM."
-        },
-        {
-          "text": "Sweet and well-balanced coffee with a clean and pleasant aftertaste",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "SWEET."
-        },
-        {
-          "text": "Nutty",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "SWEET."
-        },
-        {
-          "text": "Brown Sugar",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "SWEET."
-        },
-        {
-          "text": "Milk Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "SWEET."
-        },
-        {
-          "text": "A Sophisticated Blend Crafted for the Best Morning Cup of Coffee",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "BLACK & MORE"
-        },
-        {
-          "text": "Mellow",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "BLACK & MORE"
-        },
-        {
-          "text": "Roasted Almond",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "BLACK & MORE"
-        },
-        {
-          "text": "Dark Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260716_67/17841850913700kXx1_JPEG/118317918448735429_1806523458.jpg?type=f750_974",
-          "method": "image-model",
-          "group": "BLACK & MORE"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-12000",
-          "price": 12000,
-          "weight": 200,
-          "weightLabel": "200g",
-          "productUrl": "https://smartstore.naver.com/toch/products/6650495962",
-          "priceLabel": "12,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "6,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "200g",
-      "unitPriceLabel": "",
-      "acidityScore": -0.36,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-10130617351",
-      "roasterName": "토치 커피",
-      "productName": "(토치커피) 글램 앤 모어 블렌드 ( 요청불가)",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 42000,
-      "weight": 1000,
-      "score": 87,
-      "tastingNotes": [
-        "블루베리",
-        "포도",
-        "쥬시",
-        "크랜베리"
-      ],
-      "productUrl": "https://smartstore.naver.com/toch/products/10130617351",
-      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250204_59/1738638911967jEaHi_JPEG/20000600759360460_1959952668.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
-      "priceOptions": [
-        {
-          "id": "1kg-70000",
-          "price": 70000,
-          "weight": 1000,
-          "weightLabel": "1kg",
-          "productUrl": "https://smartstore.naver.com/toch/products/10130617351",
-          "priceLabel": "70,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "7,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "BLUEBERRY",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED, NATURAL"
-        },
-        {
-          "text": "GRAPE",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED, NATURAL"
-        },
-        {
-          "text": "POMEGRANATE",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED, NATURAL"
-        },
-        {
-          "text": "CRANBERRY",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED, NATURAL"
-        },
-        {
-          "text": "JUICY",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_204/1780551146090qCUKb_JPEG/%EC%83%81%EC%84%B8_%EA%B8%80%EB%9E%A8.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED, NATURAL"
-        }
-      ],
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-10130608793",
-      "roasterName": "토치 커피",
-      "productName": "(토치커피) 스윗 앤 모어 블렌드 ( 요청불가)",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 36000,
-      "weight": 1000,
-      "score": 86,
-      "tastingNotes": [
-        "밀크초콜릿",
-        "브라운슈가",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/toch/products/10130608793",
-      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250204_151/1738645481066ycD4f_JPEG/72778412070895600_979494050.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "priceOptions": [
-        {
-          "id": "1kg-60000",
-          "price": 60000,
-          "weight": 1000,
-          "weightLabel": "1kg",
-          "productUrl": "https://smartstore.naver.com/toch/products/10130608793",
-          "priceLabel": "60,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "6,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "NUTS",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
-          "method": "image-model"
-        },
-        {
-          "text": "BROWN SUGAR",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
-          "method": "image-model"
-        },
-        {
-          "text": "MILK CHOCOLATE",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
-          "method": "image-model"
-        },
-        {
-          "text": "MALIC",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
-          "method": "image-model"
-        },
-        {
-          "text": "WELL BALANCED",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_288/178055151830631Mx3_JPEG/%EC%83%81%EC%84%B8_%EC%8A%A4%EC%9C%97.jpg?type=w848",
-          "method": "image-model"
-        }
-      ],
-      "unitPriceLabel": "",
-      "acidityScore": -0.7333333333333334,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-10130602320",
-      "roasterName": "토치 커피",
-      "productName": "(토치커피)블랙 앤 모어 블렌드 ( 요청불가)",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 36000,
-      "weight": 1000,
-      "score": 85,
-      "tastingNotes": [
-        "다크초콜릿",
-        "볶은아몬드",
-        "긴 여운"
-      ],
-      "productUrl": "https://smartstore.naver.com/toch/products/10130602320",
-      "storeUrl": "https://smartstore.naver.com/toch/category/046e927a14bc47dcbeb6c41524ff8bb4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250204_14/17386466166504KAFr_JPEG/72779445700209431_1924960634.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 3,
-      "priceOptions": [
-        {
-          "id": "1kg-60000",
-          "price": 60000,
-          "weight": 1000,
-          "weightLabel": "1kg",
-          "productUrl": "https://smartstore.naver.com/toch/products/10130602320",
-          "priceLabel": "60,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "6,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "ROASTED ALMOND",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED"
-        },
-        {
-          "text": "DARK CHOCOLATE",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED"
-        },
-        {
-          "text": "CACAO",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED"
-        },
-        {
-          "text": "SWEET",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED"
-        },
-        {
-          "text": "LONG AFTERTASTE",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260604_77/1780552198107FdMHG_JPEG/%EC%83%81%EC%84%B8_%EB%B8%94%EB%9E%99.jpg?type=w848",
-          "method": "image-model",
-          "process": "WASHED"
-        }
-      ],
-      "unitPriceLabel": "",
-      "acidityScore": -0.7000000000000001,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-12280895272",
-      "roasterName": "토치 커피",
-      "productName": "코스타리카 하시엔다 코페이 Don KS 게샤 메케니컬 워시드",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 36000,
-      "weight": 100,
-      "score": 84,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/12280895272",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260831_159/1788160982064Hf1aj_JPEG/37761669105906246_106334395.jpg?type=f750_974",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 4,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-12315205053",
-      "roasterName": "토치 커피",
-      "productName": "에티오피아 에사야스 바리소 싱글 팜 모디파이드 워시드",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 19000,
-      "weight": 150,
-      "score": 83,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/12315205053",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260831_295/1788160174244Wp6F1_JPEG/58549626312879264_523368773.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 5,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-11523901330",
-      "roasterName": "토치 커피",
-      "productName": "케냐 윈드러시 AB 워시드",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 17500,
-      "weight": 200,
-      "score": 82,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/11523901330",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260831_219/1788161836701IYzdq_JPEG/4557909793600534_403053238.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 6,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-13725054700",
-      "roasterName": "토치 커피",
-      "productName": "큐레이션 - 콜롬비아 핀카 라 네그리타 수단 루메 질소 침용 내추럴",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 38500,
-      "weight": 50,
-      "score": 81,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/13725054700",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260831_85/1788159966628HuotE_JPEG/4556039695835877_52898506.jpg?type=f155_200",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 7,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-13663022224",
-      "roasterName": "토치 커피",
-      "productName": "콜롬비아 라 에스페란자 부에노스 아이레스 게이샤 워시드",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 23000,
-      "weight": 150,
-      "score": 80,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/13663022224",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260831_246/1788160716688TxnVC_JPEG/37730929124231922_1351172558.jpg?type=f155_200",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 8,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-12459923606",
-      "roasterName": "토치 커피",
-      "productName": "에티오피아 바샤 베켈레 바다갈로 내추럴",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 18500,
-      "weight": 150,
-      "score": 79,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/12459923606",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260901_134/1788216767427RQjWz_JPEG/122349689296513442_1958177375.jpg?type=f155_200",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 9,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-12301635886",
-      "roasterName": "토치 커피",
-      "productName": "에티오피아 부르사 메인 스테이션 화이트 허니",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 17500,
-      "weight": 150,
-      "score": 78,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/12301635886",
-      "storeUrl": "https://smartstore.naver.com/toch/category/6bd2883247b64b1d868dd3405acc63d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260831_299/1788160429406a57EF_JPEG/118947709148166903_513597649.jpg?type=f155_200",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 10,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "toch-12166525780",
-      "roasterName": "토치 커피",
-      "productName": "디카페인 - 콜롬비아 우일라 피탈리토 디카페인 슈가케인 EA",
-      "origin": "토치 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 13500,
-      "weight": 200,
-      "score": 77,
-      "tastingNotes": [],
-      "productUrl": "https://smartstore.naver.com/toch/products/12166525780",
-      "storeUrl": "https://smartstore.naver.com/toch/category/9ff908ee7a0341fc9e1789b13b68e6d1?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250203_270/1738559951834KvrEt_JPEG/50198853766752258_1428587337.jpg?type=f750_974",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 11,
-      "tastingNoteEvidence": [],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
       "id": "terarosa-100543",
       "roasterName": "테라로사",
       "productName": "[9월 KING콩] 에티오피아 리무 아가로 토착종 워시드",
@@ -16412,13 +16342,14 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100520",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063103_1787293863785_3Lc5vZz_kt.webp",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821063059_1787293859710_MgCGVO5PAU.png",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "terarosa-100502",
@@ -16479,13 +16410,14 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100521",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063016_1787293816037_5YPX60OBlu.webp",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821063013_1787293813008_GMSeg4d6uB.png",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "terarosa-100506",
@@ -16516,13 +16448,14 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100506",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063228_1787293948641_UjaxSd9duQ.webp",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821063226_1787293946036_7udWhfIleL.png",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "terarosa-100037",
@@ -22207,6 +22140,8 @@
           "process": "내추럴"
         }
       ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
       "priceLabel": "22,000원",
       "unitPriceLabel": "",
       "priceOptions": [
@@ -22236,8 +22171,6 @@
         }
       ],
       "weightLabel": "220g / 500g",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 2
@@ -24846,8 +24779,9 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.5499999999999999,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "momos-2486",
@@ -25343,9 +25277,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.4666666666666666,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-24T00:37:42.788Z"
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-7375",
@@ -25478,8 +25411,9 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.31999999999999995,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-24T07:03:16.561Z"
     },
     {
       "id": "momos-4183",
@@ -26583,7 +26517,7 @@
     "preservedRoasterProductCount": 0,
     "preservedDiscountCount": 1,
     "preservedOfficialDetailCount": 1,
-    "preservedTastingNoteCount": 5,
+    "preservedTastingNoteCount": 15,
     "staleProductCount": 0,
     "collectionRuns": [
       {
@@ -26629,17 +26563,17 @@
         "usedFallback": false
       },
       {
-        "sourceId": "lubia",
-        "roasterName": "루비아 커피",
-        "status": "complete",
-        "itemCount": 95,
-        "usedFallback": false
-      },
-      {
         "sourceId": "coffeejg",
         "roasterName": "커피정경 로스터리",
         "status": "complete",
         "itemCount": 14,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "lubia",
+        "roasterName": "루비아 커피",
+        "status": "complete",
+        "itemCount": 95,
         "usedFallback": false
       },
       {
@@ -26650,17 +26584,17 @@
         "usedFallback": false
       },
       {
-        "sourceId": "centercoffee",
-        "roasterName": "센터커피",
-        "status": "complete",
-        "itemCount": 8,
-        "usedFallback": false
-      },
-      {
         "sourceId": "toch",
         "roasterName": "토치 커피",
         "status": "complete",
         "itemCount": 12,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "centercoffee",
+        "roasterName": "센터커피",
+        "status": "complete",
+        "itemCount": 8,
         "usedFallback": false
       },
       {
