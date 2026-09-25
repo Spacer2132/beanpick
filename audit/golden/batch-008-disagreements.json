@@ -1,0 +1,366 @@
+[
+ {
+  "pid": "toch-12280895272",
+  "field": "status",
+  "a": "soldout",
+  "b": null
+ },
+ {
+  "pid": "toch-12280895272",
+  "field": "producer",
+  "a": "하시엔다 코페이 Don KS",
+  "b": "하시엔다 코페이"
+ },
+ {
+  "pid": "deepbluelake-577",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "deepbluelake-577",
+  "field": "producer",
+  "a": "엘 보스케",
+  "b": null
+ },
+ {
+  "pid": "identity-13760156284",
+  "field": "productType",
+  "a": "single",
+  "b": null
+ },
+ {
+  "pid": "identity-13760156284",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "identity-13760156284",
+  "field": "producer",
+  "a": "다테하",
+  "b": null
+ },
+ {
+  "pid": "히떼로스터리-낙성대",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "히떼로스터리-낙성대",
+  "field": "originCountry",
+  "a": null,
+  "b": "과테말라, 인도네시아, 코스타리카"
+ },
+ {
+  "pid": "coffee502-121",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "coffee502-121",
+  "field": "originCountry",
+  "a": null,
+  "b": "콜롬비아, 에티오피아"
+ },
+ {
+  "pid": "werk-545",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "werk-545",
+  "field": "process",
+  "a": "워시드",
+  "b": "E.A"
+ },
+ {
+  "pid": "fritz-1202",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "cafedoan-13648670059",
+  "field": "status",
+  "a": "soldout",
+  "b": null
+ },
+ {
+  "pid": "cafedoan-13648670059",
+  "field": "originRegion",
+  "a": null,
+  "b": "첼베사"
+ },
+ {
+  "pid": "cafedoan-13648670059",
+  "field": "producer",
+  "a": "첼베사",
+  "b": null
+ },
+ {
+  "pid": "cafedoan-13648670059",
+  "field": "tastingNotes",
+  "a": [
+   "살구",
+   "포도",
+   "홍차"
+  ],
+  "b": [
+   "살구",
+   "포도",
+   "블랙티"
+  ]
+ },
+ {
+  "pid": "hocuspocus-13070042675",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "hocuspocus-13070042675",
+  "field": "producer",
+  "a": "엘 네그로",
+  "b": null
+ },
+ {
+  "pid": "루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트",
+  "field": "originRegion",
+  "a": "예가체프",
+  "b": "예가체프 할로 베리티"
+ },
+ {
+  "pid": "루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트",
+  "field": "producer",
+  "a": "할로 베리티",
+  "b": null
+ },
+ {
+  "pid": "fillout-13637035667",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "fillout-13637035667",
+  "field": "producer",
+  "a": "라 루쿠마",
+  "b": null
+ },
+ {
+  "pid": "fillout-13637035667",
+  "field": "tastingNotes",
+  "a": [
+   "재스민",
+   "허브",
+   "시트러스"
+  ],
+  "b": [
+   "자스민",
+   "허브",
+   "시트러스"
+  ]
+ },
+ {
+  "pid": "namusairo-1039",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "namusairo-1039",
+  "field": "originRegion",
+  "a": "구지, 우라가, 솔로모",
+  "b": "구지 · 우라가 · 솔로모"
+ },
+ {
+  "pid": "namusairo-1039",
+  "field": "variety",
+  "a": [
+   "74110",
+   "74112"
+  ],
+  "b": "74110 · 74112"
+ },
+ {
+  "pid": "로스터릭-에티오피아벤사곤조베벨라이네바리소내추럴",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "로스터릭-에티오피아벤사곤조베벨라이네바리소내추럴",
+  "field": "tastingNotes",
+  "a": [
+   "딸기",
+   "블루베리",
+   "사탕후미"
+  ],
+  "b": [
+   "딸기",
+   "블루베리",
+   "사탕"
+  ]
+ },
+ {
+  "pid": "terarosa-100521",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "malik-5829990832",
+  "field": "status",
+  "a": "soldout",
+  "b": null
+ },
+ {
+  "pid": "malik-5829990832",
+  "field": "variety",
+  "a": [
+   "Sl28",
+   "Ruiru11",
+   "Batian"
+  ],
+  "b": "SL28 · Ruiru11 · Batian"
+ },
+ {
+  "pid": "coffeejg-13685877332",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "coffeejg-13685877332",
+  "field": "tastingNotes",
+  "a": [
+   "오렌지",
+   "마카다미아",
+   "캐러멜",
+   "그린티",
+   "아삼티"
+  ],
+  "b": []
+ },
+ {
+  "pid": "toch-12166525780",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "toch-12166525780",
+  "field": "originRegion",
+  "a": "우일라 피탈리토",
+  "b": "우일라 · 피탈리토"
+ },
+ {
+  "pid": "toch-12166525780",
+  "field": "process",
+  "a": "디카페인 슈가케인 EA",
+  "b": "슈가케인 EA"
+ },
+ {
+  "pid": "deepbluelake-538",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "아이덴티티커피랩-콜롬비아엑셀소디카페인마운틴워터",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "아이덴티티커피랩-콜롬비아엑셀소디카페인마운틴워터",
+  "field": "process",
+  "a": "디카페인 마운틴 워터",
+  "b": "마운틴 워터"
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "status",
+  "a": "active",
+  "b": null
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "originCountry",
+  "a": null,
+  "b": "브라질 · 탄자니아"
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "producer",
+  "a": null,
+  "b": "Fazenda Sitio Terra Boa · Casa Blend · Acacia Hills"
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "process",
+  "a": null,
+  "b": "펄프드 내추럴 · 내추럴 · 워시드"
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "variety",
+  "a": null,
+  "b": "Kent"
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "originCountry",
+  "a": null,
+  "b": "브라질 · 과테말라 · 콜롬비아 · 케냐 · 에티오피아"
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "roast",
+  "a": null,
+  "b": "Medium-Dark · Dark · Medium"
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "tastingNotes",
+  "a": [],
+  "b": [
+   "토스트",
+   "구운견과",
+   "초콜릿",
+   "다크초콜릿",
+   "카카오",
+   "블랙슈가",
+   "감귤",
+   "베리"
+  ]
+ },
+ {
+  "pid": "werk-562",
+  "field": "status",
+  "a": "active",
+  "b": "soldout"
+ },
+ {
+  "pid": "werk-562",
+  "field": "producer",
+  "a": "와이칸",
+  "b": null
+ }
+]

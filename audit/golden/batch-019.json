@@ -1,0 +1,880 @@
+{
+ "batch": 19,
+ "ids": [
+  "aerycoffee-13284270515",
+  "aerycoffee-11751559981",
+  "aerycoffee-12350471217",
+  "aerycoffee-11368676360"
+ ],
+ "snapshot": {
+  "sha256": "ac7739a73376f125a8a200796391a128b206a4da50582fbfa8e350723e6d0b81",
+  "repoHead": "88fad74faad43b8a1e8abf6ef7676c62ed0a9f09",
+  "count": 454
+ },
+ "summary": {
+  "total": 4,
+  "cMechanical": 3,
+  "reviewed": 1,
+  "disagreements": 0,
+  "disagreementsExclStatus": 0,
+  "disagreementRateExclStatus": 0,
+  "unknownFieldCount": 24,
+  "unknownFieldRate": 0.6667,
+  "unknownFieldCountExclC": 0,
+  "sourceMissingFieldCount": 6,
+  "sourceMissingFieldRate": 0.1667,
+  "unmappedLabelFieldCount": 0,
+  "mismatchCountExclStatus": 1,
+  "failureReasonDistributionExclStatus": {
+   "FIELD_MAPPING_ERROR": 1
+  },
+  "statusExcludedFromAccuracy": true,
+  "qaReversals": 0,
+  "domainCorrections": 0,
+  "topMisjudgments": [
+   "aerycoffee-11368676360#process: 원문에 가공 정보가 없어 golden은 SOURCE_MISSING이나, 앱 표시 규칙상 블렌드 상품의 process 슬롯에 '블렌드'(상품 유형)가 표시됨 → FIELD_MAPPING_ERROR(CASE 2). 가공법이 아닌 유형값이 가공 필드에 들어간 사례."
+  ],
+  "revisionNotes": "rev2 적용: 상품명 '다크 블렌드'의 '다크'를 로스팅 단계로 승격하지 않음(roast SOURCE_MISSING), 에스테이트명 승격 금지, 질감어('쌉싸름한 단맛'·'균형감') value 제외·raw 보존, OCR 단독 MEDIUM에 evidenceKind current_echo, A/B 9필드 완전 일치로 Judge 생략. QA 되돌림 0건·도메인 수정 0건.",
+  "mismatchCount": 1,
+  "tastingNotesRecomputed": "2026-09-26 §6.1 집합 비교 재계산"
+ },
+ "products": [
+  {
+   "id": "aerycoffee-13284270515",
+   "roastery": "에어리커피",
+   "productName": "[에어리커피] 파나마 핀카 데보라 에니그마 CM 내추럴",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/13284270515",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "status": {
+     "value": "soldout",
+     "raw": "soldout",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=True (수집 플래그)",
+     "evidenceSource": "collector_flag"
+    },
+    "originCountry": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originRegion": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "producer": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "process": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "variety": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "roast": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "tastingNotes": {
+     "value": [],
+     "raw": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "id": "aerycoffee-13284270515",
+    "roasterName": "에어리커피",
+    "productName": "[에어리커피] 파나마 핀카 데보라 에니그마 CM 내추럴",
+    "productUrl": "https://smartstore.naver.com/aerycoffee/products/13284270515",
+    "isSoldOut": true,
+    "smartstore": true,
+    "evidenceGrade": "C",
+    "evidenceFile": "products/aerycoffee-13284270515-3cd5f90c.json",
+    "raw": {
+     "origin": "에어리커피",
+     "process": "",
+     "variety": null,
+     "roastLevel": "확인 필요",
+     "tastingNotes": [],
+     "tastingNoteEvidence": [],
+     "type": null,
+     "status": "soldout"
+    },
+    "displayed": {
+     "originCountry": "파나마",
+     "originRegion": "NOT_DISPLAYED",
+     "originLabel": "파나마",
+     "process": "내추럴",
+     "variety": "",
+     "region": "핀카 데보라 에니그마 CM",
+     "roastLevel": "확인 필요",
+     "tastingNotes": [],
+     "type": "NOT_DISPLAYED",
+     "status": "soldout"
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "정확도 통계에서 제외 (collector_flag)"
+    },
+    "originCountry": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "process": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "variety": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "roast": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "aerycoffee-11751559981",
+   "roastery": "에어리커피",
+   "productName": "[에어리커피] 에티오피아 타미루 알로 74158 모스토 언에어로빅 내추럴",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11751559981",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "status": {
+     "value": "soldout",
+     "raw": "soldout",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=True (수집 플래그)",
+     "evidenceSource": "collector_flag"
+    },
+    "originCountry": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originRegion": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "producer": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "process": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "variety": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "roast": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "tastingNotes": {
+     "value": [],
+     "raw": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "id": "aerycoffee-11751559981",
+    "roasterName": "에어리커피",
+    "productName": "[에어리커피] 에티오피아 타미루 알로 74158 모스토 언에어로빅 내추럴",
+    "productUrl": "https://smartstore.naver.com/aerycoffee/products/11751559981",
+    "isSoldOut": true,
+    "smartstore": true,
+    "evidenceGrade": "C",
+    "evidenceFile": "products/aerycoffee-11751559981-d4e28152.json",
+    "raw": {
+     "origin": "에어리커피",
+     "process": "",
+     "variety": null,
+     "roastLevel": "확인 필요",
+     "tastingNotes": [],
+     "tastingNoteEvidence": [],
+     "type": null,
+     "status": "soldout"
+    },
+    "displayed": {
+     "originCountry": "에티오피아",
+     "originRegion": "NOT_DISPLAYED",
+     "originLabel": "에티오피아",
+     "process": "내추럴",
+     "variety": "",
+     "region": "타미루 알로 74158 모스토 언에어로빅",
+     "roastLevel": "확인 필요",
+     "tastingNotes": [],
+     "type": "NOT_DISPLAYED",
+     "status": "soldout"
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "정확도 통계에서 제외 (collector_flag)"
+    },
+    "originCountry": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "process": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "variety": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "roast": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "aerycoffee-12350471217",
+   "roastery": "에어리커피",
+   "productName": "[에어리커피] 에티오피아 알로 스카이프로젝트 이터니티 74158 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/12350471217",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "status": {
+     "value": "soldout",
+     "raw": "soldout",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=True (수집 플래그)",
+     "evidenceSource": "collector_flag"
+    },
+    "originCountry": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originRegion": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "producer": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "process": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "variety": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "roast": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "tastingNotes": {
+     "value": [],
+     "raw": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "id": "aerycoffee-12350471217",
+    "roasterName": "에어리커피",
+    "productName": "[에어리커피] 에티오피아 알로 스카이프로젝트 이터니티 74158 워시드",
+    "productUrl": "https://smartstore.naver.com/aerycoffee/products/12350471217",
+    "isSoldOut": true,
+    "smartstore": true,
+    "evidenceGrade": "C",
+    "evidenceFile": "products/aerycoffee-12350471217-03c7a2bd.json",
+    "raw": {
+     "origin": "에어리커피",
+     "process": "",
+     "variety": null,
+     "roastLevel": "확인 필요",
+     "tastingNotes": [],
+     "tastingNoteEvidence": [],
+     "type": null,
+     "status": "soldout"
+    },
+    "displayed": {
+     "originCountry": "에티오피아",
+     "originRegion": "NOT_DISPLAYED",
+     "originLabel": "에티오피아",
+     "process": "워시드",
+     "variety": "",
+     "region": "알로 스카이프로젝트 이터니티 74158",
+     "roastLevel": "확인 필요",
+     "tastingNotes": [],
+     "type": "NOT_DISPLAYED",
+     "status": "soldout"
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "정확도 통계에서 제외 (collector_flag)"
+    },
+    "originCountry": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "process": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "variety": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "roast": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "판정 불가 (golden UNKNOWN)"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "aerycoffee-11368676360",
+   "roastery": "에어리커피",
+   "productName": "[에어리커피] 다크 블렌드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11368676360",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "confidence": "HIGH",
+     "evidence": "상품명에 '다크 블렌드'라는 블렌드 표기가 직접 들어 있다. 단독 원산지·디카페인 표기는 어디에도 없다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+     "raw": "블렌드",
+     "value": "blend"
+    },
+    "status": {
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그). 본문에 별도 품절 안내가 없다 (detailText 비어 있음).",
+     "evidenceSource": "collector_flag",
+     "raw": "active",
+     "value": "active"
+    },
+    "originCountry": {
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문 어디에도 산지 표기가 없다. 수집값 '에어리커피'는 로스터리명이 들어간 수집 고정값이라 무시한다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+     "raw": null,
+     "value": null
+    },
+    "originRegion": {
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문에 지역·에스테이트·농장 표기가 전혀 없다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+     "raw": null,
+     "value": null
+    },
+    "producer": {
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문에 농장·생산자 표기가 전혀 없다. '에어리커피'는 로스터리명이다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+     "raw": null,
+     "value": null
+    },
+    "process": {
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문에 가공 표기가 없다. OCR 출력의 process도 빈 값이다. 앱 화면의 process='블렌드'는 제품 유형이지 가공이 아니다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+     "raw": null,
+     "value": null
+    },
+    "variety": {
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문에 품종 표기가 전혀 없다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+     "raw": null,
+     "value": null
+    },
+    "roast": {
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문에 로스팅 단계 표기가 없다. 상품명의 '다크'는 블렌드 라인명·플레이버 지향(OCR flavor group 'DARK')으로 보이며, 로스팅 단계 표기로 단정할 수 없어 추정하지 않는다.",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+     "raw": null,
+     "value": null
+    },
+    "tastingNotes": {
+     "confidence": "MEDIUM",
+     "evidence": "동일 상품 이미지의 OCR 추출값 2건(영문·한글)이 모두 다크초콜릿과 견과류를 지목한다. '쌉싸름한 단맛'과 '균형감'은 질감·강도 서술이라 value에서는 제외하고 raw에만 보존한다. 해당 노트 조합은 §9.1 교차 반복 블록 5개에 해당하지 않는다.",
+     "evidenceKind": "current_echo",
+     "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+     "raw": [
+      "bittersweet dark chocolate balanced with a nutty softness",
+      "다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감"
+     ],
+     "value": [
+      "다크초콜릿",
+      "견과류"
+     ],
+     "comparable": [
+      "다크초콜릿",
+      "견과류"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "id": "aerycoffee-11368676360",
+    "roasterName": "에어리커피",
+    "productName": "[에어리커피] 다크 블렌드",
+    "productUrl": "https://smartstore.naver.com/aerycoffee/products/11368676360",
+    "isSoldOut": false,
+    "smartstore": true,
+    "evidenceGrade": "B",
+    "evidenceFile": "products/aerycoffee-11368676360-5544a0ab.json",
+    "raw": {
+     "origin": "에어리커피",
+     "process": "",
+     "variety": null,
+     "roastLevel": "확인 필요",
+     "tastingNotes": [
+      "다크초콜릿",
+      "견과류"
+     ],
+     "tastingNoteEvidence": [
+      {
+       "text": "bittersweet dark chocolate balanced with a nutty softness",
+       "sourceUrl": "https://shop-phinf.pstatic.net/20250321_21/1742541054735eV5Oa_JPEG/76673840863924002_19566527.jpg?type=f750_750",
+       "method": "image-model",
+       "group": "DARK"
+      },
+      {
+       "text": "다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감",
+       "sourceUrl": "https://shop-phinf.pstatic.net/20250321_21/1742541054735eV5Oa_JPEG/76673840863924002_19566527.jpg?type=f750_750",
+       "method": "image-model",
+       "group": "DARK"
+      }
+     ],
+     "type": null,
+     "status": "active"
+    },
+    "displayed": {
+     "originCountry": "",
+     "originRegion": "NOT_DISPLAYED",
+     "originLabel": "블렌드",
+     "process": "블렌드",
+     "variety": "",
+     "region": "",
+     "roastLevel": "확인 필요",
+     "tastingNotes": [
+      "다크초콜릿",
+      "견과류"
+     ],
+     "type": "NOT_DISPLAYED",
+     "status": "active"
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱 표시 없음 — 비교 제외"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "정확도 통계에서 제외 (collector_flag)"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "둘 다 정보 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "둘 다 정보 없음"
+    },
+    "process": {
+     "match": false,
+     "case": 2,
+     "failureReason": "FIELD_MAPPING_ERROR",
+     "note": "golden process는 SOURCE_MISSING(원문에 가공 정보 없음)인데 표시값 '블렌드' — 상품 유형(블렌드)이 가공법 필드에 표시됨 (앱 표시 규칙)"
+    },
+    "variety": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "둘 다 정보 없음"
+    },
+    "roast": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "둘 다 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 2건"
+    }
+   },
+   "review": {
+    "note": "Reviewer A/B 독립 판정 + Judge 불일치 해소(0건) + QA/도메인 리뷰. 상세: audit/golden/_work/batch-019-judge.json, batch-019-qa.json, batch-019-domain.json",
+    "reviewerA": {
+     "golden": {
+      "originCountry": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문 어디에도 산지 표기가 없다. 수집값 '에어리커피'는 로스터리명이 들어간 수집 고정값이라 무시한다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+       "raw": null,
+       "value": null
+      },
+      "originRegion": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문에 지역·에스테이트·농장 표기가 전혀 없다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+       "raw": null,
+       "value": null
+      },
+      "process": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문에 가공 표기가 없다. OCR 출력의 process도 빈 값이다. 앱 화면의 process='블렌드'는 제품 유형이지 가공이 아니다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+       "raw": null,
+       "value": null
+      },
+      "producer": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문에 농장·생산자 표기가 전혀 없다. '에어리커피'는 로스터리명이다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+       "raw": null,
+       "value": null
+      },
+      "productType": {
+       "confidence": "HIGH",
+       "evidence": "상품명에 '다크 블렌드'라는 블렌드 표기가 직접 들어 있다. 단독 원산지·디카페인 표기는 어디에도 없다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+       "raw": "블렌드",
+       "value": "blend"
+      },
+      "roast": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문에 로스팅 단계 표기가 없다. 상품명의 '다크'는 블렌드 라인명·플레이버 지향(OCR flavor group 'DARK')으로 보이며, 로스팅 단계 표기로 단정할 수 없어 추정하지 않는다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+       "raw": null,
+       "value": null
+      },
+      "status": {
+       "confidence": "MEDIUM",
+       "evidence": "isSoldOut=False (수집 플래그). 본문에 별도 품절 안내가 없다 (detailText 비어 있음).",
+       "evidenceSource": "collector_flag",
+       "raw": "active",
+       "value": "active"
+      },
+      "tastingNotes": {
+       "confidence": "MEDIUM",
+       "evidence": "동일 상품 이미지의 OCR 추출값 2건(영문·한글)이 모두 다크초콜릿과 견과류를 지목한다. '쌉싸름한 단맛'과 '균형감'은 질감·강도 서술이라 value에서는 제외하고 raw에만 보존한다. 해당 노트 조합은 §9.1 교차 반복 블록 5개에 해당하지 않는다.",
+       "evidenceKind": "current_echo",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+       "raw": [
+        "bittersweet dark chocolate balanced with a nutty softness",
+        "다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감"
+       ],
+       "value": [
+        "다크초콜릿",
+        "견과류"
+       ]
+      },
+      "variety": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문에 품종 표기가 전혀 없다.",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr[0].output",
+       "raw": null,
+       "value": null
+      }
+     }
+    },
+    "reviewerB": {
+     "golden": {
+      "originCountry": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "제공된 증거(상품명·상세 텍스트·관측 텍스트·OCR 노트)를 모두 확인했으나 국가에 대한 언급이 없음",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence",
+       "raw": null,
+       "value": null
+      },
+      "originRegion": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "지역·마을·농장명에 대한 표기가 원문 어디에도 없음",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence",
+       "raw": null,
+       "value": null
+      },
+      "process": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "OCR의 process 항목이 빈 문자열이며, 다른 원문에도 가공 방식 언급 없음",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr",
+       "raw": null,
+       "value": null
+      },
+      "producer": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "농장·에스테이트·생산자 역할 표기가 원문 어디에도 없음. 상품명의 '에어리커피'는 로스터리명이므로 생산자 근거가 아님",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+       "raw": null,
+       "value": null
+      },
+      "productType": {
+       "confidence": "HIGH",
+       "evidence": "상품명 '[에어리커피] 다크 블렌드'에 '블렌드'가 명시되어 있어 복수 원두 혼합 제품임",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+       "raw": "블렌드",
+       "value": "blend"
+      },
+      "roast": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "원문에 로스팅 단계 표기가 없음. 상품명의 '다크'는 블렌드 이름의 일부로, 로스팅 단계 명시로 볼 근거 없음",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#productName",
+       "raw": null,
+       "value": null
+      },
+      "status": {
+       "confidence": "MEDIUM",
+       "evidence": "isSoldOut=False (수집 플래그). 본문에 별도 품절 안내 없음(상세 텍스트 비어 있음)",
+       "evidenceSource": "collector_flag",
+       "raw": "active",
+       "value": "active"
+      },
+      "tastingNotes": {
+       "confidence": "MEDIUM",
+       "evidence": "OCR 단독 근거: 다크초콜릿과 견과류 노트. '균형감'은 질감 서술이므로 value에서 제외하고 raw에만 보존",
+       "evidenceKind": "current_echo",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence.ocr",
+       "raw": [
+        "bittersweet dark chocolate balanced with a nutty softness",
+        "다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감"
+       ],
+       "value": [
+        "다크초콜릿",
+        "견과류"
+       ]
+      },
+      "variety": {
+       "confidence": "SOURCE_MISSING",
+       "evidence": "품종명 언급이 원문 어디에도 없음",
+       "evidenceSource": "audit-input/products/aerycoffee-11368676360-5544a0ab.json#evidence",
+       "raw": null,
+       "value": null
+      }
+     }
+    }
+   }
+  }
+ ]
+}

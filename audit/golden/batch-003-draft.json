@@ -1,0 +1,655 @@
+{
+ "batch": 3,
+ "ids": [
+  "커피리브레-버티고",
+  "momos-7422",
+  "malik-5266435381",
+  "coffeejg-10793450163",
+  "toch-6650495962",
+  "deepbluelake-559",
+  "아이덴티티커피랩-칠린블렌드",
+  "히떼로스터리-콜롬비아후일라루시타니아-2by구스타보피게로아워시드",
+  "coffee502-184",
+  "werk-161",
+  "fritz-1290",
+  "centercoffee-133",
+  "hellcafe-60",
+  "aerycoffee-13666861088",
+  "cafedoan-12007318426",
+  "hocuspocus-5935682761",
+  "루비아커피-클래식이탈리안스타일피렌체",
+  "fillout-13741415128",
+  "namusairo-1090",
+  "로스터릭-사계블랜드",
+  "terarosa-100499",
+  "coffeelibre-8150",
+  "momos-7375",
+  "malik-5266393857",
+  "coffeejg-13658727081"
+ ],
+ "snapshot": {
+  "sha256": "ac7739a73376f125a8a200796391a128b206a4da50582fbfa8e350723e6d0b81",
+  "repoHead": "88fad74faad43b8a1e8abf6ef7676c62ed0a9f09",
+  "count": 454
+ },
+ "summary": {},
+ "products": [
+  {
+   "id": "커피리브레-버티고",
+   "roastery": "커피리브레",
+   "productName": "버티고",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "momos-7422",
+   "roastery": "모모스커피",
+   "productName": "원두 파나마 로스 라호네스 포르톤 카투아이 내추럴",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "status": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "single"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Panama",
+     "displayed": "파나마"
+    },
+    "process": {
+     "raw": "Natural",
+     "displayed": "내추럴"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "카투아이"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "블랙커런트",
+      "건포도",
+      "초콜릿",
+      "시러피"
+     ],
+     "displayed": [
+      "블랙커런트",
+      "초콜릿",
+      "건포도",
+      "시러피"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "status": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "originRegion": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "producer": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "malik-5266435381",
+   "roastery": "말릭커피",
+   "productName": "프루티 블랜드",
+   "evidenceGrade": "A",
+   "pending": true
+  },
+  {
+   "id": "coffeejg-10793450163",
+   "roastery": "커피정경 로스터리",
+   "productName": "배합커피#2 경주",
+   "evidenceGrade": "A",
+   "pending": true
+  },
+  {
+   "id": "toch-6650495962",
+   "roastery": "토치 커피",
+   "productName": "블렌드 3종 원두선택",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "deepbluelake-559",
+   "roastery": "딥블루레이크",
+   "productName": "Single Orgin 에티오피아 예가체프 게뎁 초르소 워시드 (로스팅 9월 21일 )",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "아이덴티티커피랩-칠린블렌드",
+   "roastery": "아이덴티티 커피랩",
+   "productName": "칠린 블렌드",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "히떼로스터리-콜롬비아후일라루시타니아-2by구스타보피게로아워시드",
+   "roastery": "히떼 로스터리",
+   "productName": "콜롬비아 후일라 루시타니아#2 by 구스타보 피게로아 워시드",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "coffee502-184",
+   "roastery": "502커피로스터스",
+   "productName": "에티오피아 예가체프 게뎁 초르소 워시드",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "werk-161",
+   "roastery": "베르크커피",
+   "productName": "베르크 베이비 블렌드",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "fritz-1290",
+   "roastery": "프릳츠 커피 컴퍼니",
+   "productName": "[프릳츠] Herbazu Villa Sarchi Semi Washed",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "centercoffee-133",
+   "roastery": "센터커피",
+   "productName": "Decaf Ethiopia Yirgacheffe Worka Natural Swiss Water",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "hellcafe-60",
+   "roastery": "헬카페",
+   "productName": "헬카페 클래식 커피 1kg",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "aerycoffee-13666861088",
+   "roastery": "에어리커피",
+   "productName": "[에어리커피] 파나마 알티에리 알레 게이샤 워시드",
+   "evidenceGrade": "A",
+   "pending": true
+  },
+  {
+   "id": "cafedoan-12007318426",
+   "roastery": "카페도안",
+   "productName": "Solberg & Hansen 솔벅 & 한센 케냐 루키라 워시드 [프루티 써머 커피]",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "hocuspocus-5935682761",
+   "roastery": "호커스포커스 로스터스",
+   "productName": "콜롬비아 로꼬시리즈 피나콜라다",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "루비아커피-클래식이탈리안스타일피렌체",
+   "roastery": "루비아 커피",
+   "productName": "클래식 이탈리안 스타일 피렌체",
+   "evidenceGrade": "A",
+   "pending": true
+  },
+  {
+   "id": "fillout-13741415128",
+   "roastery": "필아웃커피",
+   "productName": "ToH 1st 에티오피아 콰미 아르베고나 원두",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "namusairo-1090",
+   "roastery": "나무사이로",
+   "productName": "피크닉",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "로스터릭-사계블랜드",
+   "roastery": "로스터릭",
+   "productName": "사계 블랜드",
+   "evidenceGrade": "A",
+   "pending": true
+  },
+  {
+   "id": "terarosa-100499",
+   "roastery": "테라로사",
+   "productName": "에티오피아 예가체페 아리차 토착종 워시드",
+   "evidenceGrade": "B",
+   "pending": true
+  },
+  {
+   "id": "coffeelibre-8150",
+   "roastery": "커피리브레",
+   "productName": "[골드문트] 페루 라 루쿠마 게이샤 [약배전]",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "status": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "single"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "'https://coffeelibre.kr',",
+     "displayed": "페루"
+    },
+    "process": {
+     "raw": "워시드",
+     "displayed": "워시드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "게이샤"
+    },
+    "roast": {
+     "raw": "Light",
+     "displayed": "Light"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "status": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "originRegion": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "producer": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "momos-7375",
+   "roastery": "모모스커피",
+   "productName": "원두 에티오피아 사포 모스토 무산소 내추럴",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "status": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "single"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Ethiopia",
+     "displayed": "에티오피아"
+    },
+    "process": {
+     "raw": "Anaerobic Natural",
+     "displayed": "무산소 내추럴"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "status": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "originRegion": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "producer": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "증거 없음 — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "malik-5266393857",
+   "roastery": "말릭커피",
+   "productName": "마일드 블랜드",
+   "evidenceGrade": "A",
+   "pending": true
+  },
+  {
+   "id": "coffeejg-13658727081",
+   "roastery": "커피정경 로스터리",
+   "productName": "콜롬비아 인마쿨라다 펠로우즈 팜즈 게이샤 내추럴",
+   "evidenceGrade": "B",
+   "pending": true
+  }
+ ]
+}

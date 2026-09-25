@@ -1,0 +1,489 @@
+[
+ {
+  "id": "aerycoffee-11368384812",
+  "field": "originRegion",
+  "A": {
+   "value": null,
+   "raw": "물루게타",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'물루게타'가 지역인지 확인 불가 — 상품명 기반 추론 금지 (batch-011 교훈)",
+   "evidenceSource": "audit-input/products/aerycoffee-11368384812-51869f78.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "물루게타",
+   "raw": "물루게타 문타샤",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '에티오피아 물루게타 문타샤 내추럴' — 지역 토큰이나 하위 구분 모호",
+   "evidenceSource": "audit-input/products/aerycoffee-11368384812-51869f78.json#input.productName"
+  }
+ },
+ {
+  "id": "cafedoan-11754674334",
+  "field": "producer",
+  "A": {
+   "value": "잰슨",
+   "raw": "잰슨 (Janson)",
+   "confidence": "HIGH",
+   "evidence": "detailText '카이 잰슨과 그의 팀' · '해발 1350m에 위치한 Hacienda 농장' — 잰슨 가족 농장",
+   "evidenceSource": "audit-input/products/cafedoan-11754674334-7a64fb7a.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": "Hacienda",
+   "raw": "Hacienda 농장 (카이 잰슨)",
+   "confidence": "HIGH",
+   "evidence": "본문 '해발 1350m에 위치한 Hacienda 농장에서 재배', '카이 잰슨과 그의 팀' 명시",
+   "evidenceSource": "audit-input/products/cafedoan-11754674334-7a64fb7a.json#input.detailText"
+  }
+ },
+ {
+  "id": "cafedoan-11754674334",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "센차",
+    "레몬제스트",
+    "자스민",
+    "피치",
+    "허니"
+   ],
+   "raw": [
+    "센차, 레몬제스트, 자스민",
+    "Peach",
+    "Honey"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "detailText CUP NOTE '센차, 레몬제스트, 자스민'(본문 명시, OCR도 확인) + OCR 단독 추가분 'Peach'·'Honey' — OCR 단독분 포함으로 전체 MEDIUM; 'juicy mouthfeel'은 질감 서술로 제외; 동일 이미지 URL의 두 OCR 출력은 보완 관계(정면 충돌 아님)",
+   "evidenceSource": "audit-input/products/cafedoan-11754674334-7a64fb7a.json#evidence.detailCache.detailText, audit-input/products/cafedoan-11754674334-7a64fb7a.json#evidence.ocr"
+  },
+  "B": {
+   "value": [
+    "센차",
+    "레몬제스트",
+    "자스민"
+   ],
+   "raw": [
+    "센차, 레몬제스트, 자스민",
+    "juicy mouthfeel"
+   ],
+   "confidence": "HIGH",
+   "evidence": "본문 'CUP NOTE 센차, 레몬제스트, 자스민' 명시; OCR 추출값도 일치 — 'juicy mouthfeel'은 질감어로 value에서 제외. 동일 이미지의 저해상도 OCR 추출(Peach/Honey 포함)은 본문 CUP NOTE와 충돌하므로 본문 우선",
+   "evidenceSource": "audit-input/products/cafedoan-11754674334-7a64fb7a.json#input.detailText",
+   "evidenceKind": "text_confirmed"
+  }
+ },
+ {
+  "id": "cafedoan-12759206817",
+  "field": "producer",
+  "A": {
+   "value": "인마쿨라다 펠로우 팜스",
+   "raw": "인마쿨라다 펠로우 팜스 (Inmaculada Fellow Farms)",
+   "confidence": "HIGH",
+   "evidence": "detailText '인마쿨라다 커피 팜스 Inmaculada Coffee Farms'",
+   "evidenceSource": "audit-input/products/cafedoan-12759206817-f7afcc24.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": "인마쿨라다 커피 팜스",
+   "raw": "인마쿨라다 커피 팜스 Inmaculada Coffee Farms",
+   "confidence": "HIGH",
+   "evidence": "본문 '인마쿨라다 커피 팜스 Inmaculada Coffee Farms는 … 농장' 명시",
+   "evidenceSource": "audit-input/products/cafedoan-12759206817-f7afcc24.json#input.detailText"
+  }
+ },
+ {
+  "id": "cafedoan-5027185632",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "자스민",
+    "피치",
+    "얼그레이",
+    "허니",
+    "체리",
+    "스위트크림",
+    "퍼지"
+   ],
+   "raw": [
+    "Jasmine",
+    "Peach",
+    "Earl Grey",
+    "Honey",
+    "cherry",
+    "sweet cream",
+    "fudge"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "동일 이미지 URL의 두 OCR 출력 병합 — [Jasmine·Peach·Earl Grey·Honey]와 [cherry·Sweet Cream·Fudge]는 보완 관계(정면 충돌 아님). OCR 단독 근거",
+   "evidenceSource": "audit-input/products/cafedoan-5027185632-965de986.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "cherry",
+    "fudge"
+   ],
+   "raw": [
+    "cherry",
+    "sweet cream",
+    "fudge"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "동일 이미지의 고해상도 OCR 추출(cherry/sweet cream/fudge) 단독 근거 — 'sweet cream'은 질감·서술로 value에서 제외. 저해상도 추출의 교차 반복 오염 블록(Jasmine/Peach/Earl Grey/Honey)은 인용에서 제외",
+   "evidenceSource": "audit-input/products/cafedoan-5027185632-965de986.json#input.ocrNotes",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "cafedoan-9628182790",
+  "field": "originRegion",
+  "A": {
+   "value": null,
+   "raw": "타데",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'타데'는 스테이션명 — 지역 정보 아님",
+   "evidenceSource": "audit-input/products/cafedoan-9628182790-3b34271e.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "타데",
+   "raw": "타데",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '에티오피아 타데 워시드' — 지역 토큰으로 명시되나 하위 구분 모호",
+   "evidenceSource": "audit-input/products/cafedoan-9628182790-3b34271e.json#input.productName"
+  }
+ },
+ {
+  "id": "cafedoan-9628182790",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "시트러스",
+    "스톤프룻",
+    "베르가못"
+   ],
+   "raw": [
+    "Sitrus",
+    "steinfrukt",
+    "bergamott"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 단독 근거 (노르웨이어 노트) — 동일 이미지 URL의 빈 OCR 출력과 노트 출력은 상충 아님",
+   "evidenceSource": "audit-input/products/cafedoan-9628182790-3b34271e.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "Sitrus",
+    "steinfrukt",
+    "bergamott"
+   ],
+   "raw": [
+    "Sitrus",
+    "steinfrukt",
+    "bergamott"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 추출값(BeanPick 자체 추출, 노르웨이어: 감귤/핵과/베르가못) 단독 근거",
+   "evidenceSource": "audit-input/products/cafedoan-9628182790-3b34271e.json#input.ocrNotes",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "fillout-13673422137",
+  "field": "originRegion",
+  "A": {
+   "value": "로스 파티오스",
+   "raw": "로스 파티오스",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '로스 파티오스' — 콜롬비아 지역명으로 보이나 상품명 기반 추론이므로 MEDIUM",
+   "evidenceSource": "audit-input/products/fillout-13673422137-2901674a.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명의 '로스 파티오스'는 농장/지역 구분 불가 — 지역으로 단정 불가",
+   "evidenceSource": "audit-input/products/fillout-13673422137-2901674a.json#input.productName"
+  }
+ },
+ {
+  "id": "fillout-13673422137",
+  "field": "process",
+  "A": {
+   "value": "코퍼먼티드",
+   "raw": "베리 코퍼먼티드",
+   "confidence": "HIGH",
+   "evidence": "상품명 '베리 코퍼먼티드' 명시 + OCR process 태그 '베리 코퍼먼티드' — '베리'는 코퍼먼테이션 수식어",
+   "evidenceSource": "audit-input/products/fillout-13673422137-2901674a.json#snapshotRecord.productName, audit-input/products/fillout-13673422137-2901674a.json#evidence.ocr"
+  },
+  "B": {
+   "value": "베리 코퍼먼티드",
+   "raw": "베리 코퍼먼티드",
+   "confidence": "MEDIUM",
+   "evidence": "OCR 추출값(BeanPick 자체 추출)의 process='베리 코퍼먼티드' 단독 근거",
+   "evidenceSource": "audit-input/products/fillout-13673422137-2901674a.json#input.ocrNotes"
+  }
+ },
+ {
+  "id": "fillout-13684351661",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 빈값 — 이미지 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/fillout-13684351661-0758a94d.json#evidence.ocr"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 비어 있음, 텍스트 노트 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/fillout-13684351661-0758a94d.json#input.ocrNotes"
+  }
+ },
+ {
+  "id": "fillout-13752509968",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 빈값 — 이미지 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/fillout-13752509968-90d12388.json#evidence.ocr"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 비어 있음, 텍스트 노트 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/fillout-13752509968-90d12388.json#input.ocrNotes"
+  }
+ },
+ {
+  "id": "fillout-8427587166",
+  "field": "process",
+  "A": {
+   "value": "코퍼먼티드 · 워시드",
+   "raw": "코퍼멘티드, 워시드",
+   "confidence": "MEDIUM",
+   "evidence": "OCR process 태그 '코퍼멘티드, 워시드' — OCR 단독 근거",
+   "evidenceSource": "audit-input/products/fillout-8427587166-d38c2955.json#evidence.ocr"
+  },
+  "B": {
+   "value": "코퍼멘티드 워시드",
+   "raw": "코퍼멘티드, 워시드",
+   "confidence": "MEDIUM",
+   "evidence": "OCR 추출값(BeanPick 자체 추출)의 process='코퍼멘티드, 워시드' 단독 근거",
+   "evidenceSource": "audit-input/products/fillout-8427587166-d38c2955.json#input.ocrNotes"
+  }
+ },
+ {
+  "id": "hocuspocus-12301405254",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 증거 없음 — 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-12301405254-3a733d24.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 노트 모두 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/hocuspocus-12301405254-3a733d24.json#input.productName"
+  }
+ },
+ {
+  "id": "hocuspocus-12523553689",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 증거 없음 — 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-12523553689-f00447de.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 노트 모두 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/hocuspocus-12523553689-f00447de.json#input.productName"
+  }
+ },
+ {
+  "id": "hocuspocus-13639350218",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 빈값 — 이미지 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-13639350218-91bc6241.json#evidence.ocr"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 비어 있음, 텍스트 노트 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/hocuspocus-13639350218-91bc6241.json#input.ocrNotes"
+  }
+ },
+ {
+  "id": "hocuspocus-13639352375",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 증거 없음 — 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-13639352375-d477e6e7.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 노트 모두 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/hocuspocus-13639352375-d477e6e7.json#input.productName"
+  }
+ },
+ {
+  "id": "루비아커피-100-에티오피아스칼렛",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "꽃향기",
+    "베리",
+    "열대과일",
+    "초콜릿",
+    "블루베리",
+    "블랙커런트",
+    "다크초콜릿",
+    "베리류"
+   ],
+   "raw": [
+    "꽃향기",
+    "베리",
+    "열대과일",
+    "초콜릿",
+    "블루베리",
+    "블랙커런트",
+    "다크초콜릿",
+    "베리류"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "서로 다른 이미지 2종의 OCR 노트 병합 (batch-011 교훈): 이미지1 [꽃향기·베리·열대과일·초콜릿], 이미지2 [블루베리·블랙커런트·다크초콜릿·베리류]",
+   "evidenceSource": "audit-input/products/루비아커피-100-에티오피아스칼렛-84a97bf3.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "꽃향기",
+    "베리",
+    "열대과일",
+    "초콜릿"
+   ],
+   "raw": [
+    "꽃향기",
+    "베리",
+    "열대과일",
+    "초콜릿"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 추출값(BeanPick 자체 추출, group='SCARLET' 라벨 블록) 단독 근거 — group 미지정 다른 이미지의 추출(블루베리/블랙커런트/다크초콜릿/베리류)과 부분 상이하므로 SCARLET 라벨 블록 우선",
+   "evidenceSource": "audit-input/products/루비아커피-100-에티오피아스칼렛-84a97bf3.json#input.ocrNotes",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트",
+  "field": "originRegion",
+  "A": {
+   "value": "수마트라",
+   "raw": "수마트라",
+   "confidence": "HIGH",
+   "evidence": "상품명 '인도네시아 수마트라' — 수마트라는 지역(섬) 명시; '만델링'은 수마트라 커피 거래 통칭이므로 지역·품종에서 제외",
+   "evidenceSource": "audit-input/products/루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트-e31ea3e5.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "만델링",
+   "raw": "수마트라 만델링",
+   "confidence": "HIGH",
+   "evidence": "상품명 '인도네시아 수마트라 만델링 G1 길링 바사'",
+   "evidenceSource": "audit-input/products/루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트-e31ea3e5.json#input.productName"
+  }
+ },
+ {
+  "id": "루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트",
+  "field": "process",
+  "A": {
+   "value": "웻훌",
+   "raw": "웻 훌 (Wet Hulled)",
+   "confidence": "HIGH",
+   "evidence": "상품명 '웻 훌' 명시 + OCR process 태그 'Wet Hulled'",
+   "evidenceSource": "audit-input/products/루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트-e31ea3e5.json#snapshotRecord.productName, audit-input/products/루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트-e31ea3e5.json#evidence.ocr"
+  },
+  "B": {
+   "value": "Wet-Hulled",
+   "raw": "웻 훌",
+   "confidence": "HIGH",
+   "evidence": "상품명 '(웻 훌)' 명시; '길링 바사'=웻헐링(인도네시아어)",
+   "evidenceSource": "audit-input/products/루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트-e31ea3e5.json#input.productName"
+  }
+ },
+ {
+  "id": "루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피",
+  "field": "producer",
+  "A": {
+   "value": "엘 파라이소",
+   "raw": "엘 파라이소",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 파라이소' — 유명 농장명이나 상품명 기반 추론이므로 MEDIUM",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피-07fd753c.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명의 '엘 파라이소'는 농장 후보이나 이름만으로 생산자·농장·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피-07fd753c.json#input.productName"
+  }
+ },
+ {
+  "id": "루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피",
+  "field": "process",
+  "A": {
+   "value": "인퓨즈드",
+   "raw": "리치피치 라이트 로스트 가향커피",
+   "confidence": "HIGH",
+   "evidence": "상품명 '리치피치 ... 가향커피' — 가향(인퓨즈드) 명시",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피-07fd753c.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "가향",
+   "raw": "가향커피",
+   "confidence": "HIGH",
+   "evidence": "상품명 '가향커피' 명시 — 가향(인퓨즈드) 가공",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피-07fd753c.json#input.productName"
+  }
+ },
+ {
+  "id": "루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR·텍스트 증거 없음 — 확인했으나 노트 정보 없음",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피-07fd753c.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "OCR 출력 없음, 텍스트 노트 없음 — 증거 확인됨",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피-07fd753c.json#input.productName"
+  }
+ }
+]

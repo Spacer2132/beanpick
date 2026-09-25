@@ -1,0 +1,2240 @@
+[
+ {
+  "id": "aerycoffee-11941856461",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 잔슨 게이샤 언에어로빅 내추럴 836",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11941856461",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer",
+   "tastingNotes"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "파나마",
+    "value": "파나마"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 지역·농장명 '잔슨' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "잔슨",
+    "value": "잔슨"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '언에어로빅 내추럴' — 언에어로빅은 가공 수식어, 본가공은 내추럴. OCR의 process 표기 'ANAEROBIC NATURAL'도 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "언에어로빅 내추럴",
+    "value": "무산소 내추럴"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '잔슨'은 파나마의 농장명으로 판단",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "잔슨",
+    "value": "잔슨"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '파나마 잔슨 게이샤 언에어로빅 내추럴 836' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR의 'complex tropical fruit'→열대과일, 'elegant florals'→플로럴. '복합적인·우아한' 같은 수식어는 질감·강도 서술로 value에서 제외",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#evidence.ocr[0].output",
+    "raw": [
+     "complex tropical fruit",
+     "elegant florals"
+    ],
+    "value": [
+     "열대과일",
+     "플로럴"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "파나마",
+    "value": "파나마"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '잔슨'이 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "잔슨",
+    "value": "잔슨"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '언에어로빅 내추럴'이 명시. OCR의 ANAEROBIC NATURAL도 일치하나 독립 증거는 아님",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "언에어로빅 내추럴",
+    "value": "무산소 내추럴"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 '파나마 잔슨'은 잔슨 농장(에스테이트)의 커피임",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "잔슨",
+    "value": "잔슨"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 파나마 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "파나마 잔슨 게이샤 언에어로빅 내추럴 836",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR에 'elegant florals'와 '복합적인 열대과일의 플레이버'가 기재. '복합적인'은 질감 수식이라 제외하고 열대과일만 노트로 인정",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#evidence.ocr",
+    "raw": [
+     "elegant florals",
+     "complex tropical fruit"
+    ],
+    "value": [
+     "꽃향기",
+     "열대과일"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-11941856461-ba4c0d22.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-11941856461-ba4c0d22.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250609_247/1749436343862Ns3dz_JPEG/12935884728535818_482580733.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"elegant florals\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"complex tropical fruit\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"우아한 꽃 향기와 어우러지는 복합적인 열대과일의 플레이버\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13666855026",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 잔슨 하시엔다 26-227 게이샤 48h 퍼먼테이션 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13666855026",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "originRegion",
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "파나마",
+    "value": "파나마"
+   },
+   "originRegion": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '잔슨 하시엔다'는 농장·지역 표기. '26-227'은 로트 번호로 판단해 제외",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "잔슨 하시엔다",
+    "value": "잔슨 하시엔다"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '48h 퍼먼테이션 내추럴' — 48h 퍼먼테이션은 가공 수식어, 본가공은 내추럴",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "48h 퍼먼테이션 내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '잔슨 하시엔다'는 파나마의 농장명으로 판단",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "잔슨 하시엔다",
+    "value": "잔슨 하시엔다"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '파나마 잔슨 하시엔다 26-227 게이샤 48h 퍼먼테이션 내추럴' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 로스팅 머신·로스팅일만 있고 로스팅 단계 표기는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#evidence.detailCache.detailText",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 테이스팅 노트 정보 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "파나마",
+    "value": "파나마"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '잔슨 하시엔다'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "잔슨 하시엔다",
+    "value": "잔슨 하시엔다"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '48h 퍼먼테이션 내추럴'이 명시. 내추럴은 명시된 가공이고 48h 발효는 수식임",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "48h 퍼먼테이션 내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 잔슨 하시엔다 농장이 생산 농장임",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "잔슨 하시엔다",
+    "value": "잔슨 하시엔다"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 파나마 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "파나마 잔슨 하시엔다 26-227 게이샤 48h 퍼먼테이션 내추럴",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세에 로스팅 머신과 로스팅일만 있고 로스팅 단계 표기가 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세·OCR 어디에도 노트 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#evidence",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666855026-101c85e1.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-13666855026-101c85e1.json",
+  "detailText": "로스팅 머신 : 스트롱 홀드 S8X 로스팅일 : 26.07.23 권장 추출일 : 26.08.13 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13694885280",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 알티에리 알레사 게이샤 DFM 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13694885280",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "originRegion",
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "파나마",
+    "value": "파나마"
+   },
+   "originRegion": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '알티에리 알레사'는 농장·로트 표기로 보이나 지역과 로트의 구분이 불확실",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "알티에리 알레사",
+    "value": "알티에리 알레사"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '내추럴' 명시. 'DFM'의 의미는 원문에서 확인되지 않아 추측하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '알티에리'는 파나마의 농장명으로 판단. '알레사'의 성격은 원문에서 확인 불가",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "알티에리 알레사",
+    "value": "알티에리"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '파나마 알티에리 알레사 게이샤 DFM 내추럴' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 로스팅 머신·로스팅일만 있고 로스팅 단계 표기는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#evidence.detailCache.detailText",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 테이스팅 노트 정보 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "파나마",
+    "value": "파나마"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '알티에리'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "알티에리",
+    "value": "알티에리"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '내추럴'이 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 알티에리 농장이 생산 농장임",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "알티에리",
+    "value": "알티에리"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 파나마 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "파나마 알티에리 알레사 게이샤 DFM 내추럴",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세에 로스팅 머신과 로스팅일만 있고 로스팅 단계 표기가 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세·OCR 어디에도 노트 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#evidence",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/aerycoffee-13694885280-c2cd59c5.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-13694885280-c2cd59c5.json",
+  "detailText": "로스팅 머신 : 스트롱 홀드 S8X 로스팅일 : 26.08.05 권장 추출일 : 26.08.26 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-11382415813",
+  "roastery": "카페도안",
+  "productName": "ROSE COFFEE 로즈 커피 Colombia Finca Buena Vista Pink Bourobn Mosto Washed",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382415813",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Colombia' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Colombia",
+    "value": "콜롬비아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장·지역명 'Finca Buena Vista' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Finca Buena Vista",
+    "value": "부에나 비스타"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Mosto Washed' 명시 — 본가공은 워시드",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Mosto Washed",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 'Finca Buena Vista'는 수출 브랜드(ROSE COFFEE)와 구분되는 농장명으로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Finca Buena Vista",
+    "value": "부에나 비스타"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 'ROSE COFFEE 로즈 커피 Colombia Finca Buena Vista Pink Bourobn Mosto Washed' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 테이스팅 노트 정보 없음 (이미지 OCR도 빈 결과)",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#evidence.ocr[0].output",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 'Pink Bourobn'은 Pink Bourbon의 오타로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Pink Bourobn",
+    "value": "핑크 버번"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 'Colombia'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Colombia",
+    "value": "콜롬비아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 'Finca Buena Vista'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Finca Buena Vista",
+    "value": "부에나 비스타"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Mosto Washed'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Mosto Washed",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 부에나 비스타 농장이 생산 농장임. 로즈 커피는 판매 로스터리임",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Finca Buena Vista",
+    "value": "부에나 비스타"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 콜롬비아 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Colombia Finca Buena Vista Pink Bourobn Mosto Washed",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "이미지 OCR 출력이 빈 배열이라 노트 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#evidence.ocr",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Pink Bourobn'(Bourbon의 오타)이 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11382415813-9301e85c.json#productName",
+    "raw": "Pink Bourobn",
+    "value": "핑크 버번"
+   }
+  },
+  "evidenceFile": "products/cafedoan-11382415813-9301e85c.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250121_194/1737429704492OOvGt_PNG/9583841621353952_1612451964.png?type=f750_750",
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-11446555211",
+  "roastery": "카페도안",
+  "productName": "Solberg & Hansen 솔벅 & 한센 콜롬비아 라 트리니다드 게이샤 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/11446555211",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer",
+   "tastingNotes"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '콜롬비아' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "콜롬비아",
+    "value": "콜롬비아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장·지역명 '라 트리니다드' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "라 트리니다드",
+    "value": "라 트리니다드"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드' 명시. OCR의 'Våtforedlet'(노르웨이어: 습식가공)도 워시드와 일치",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '라 트리니다드'는 수입원(Solberg & Hansen)과 별개인 농장명으로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "라 트리니다드",
+    "value": "라 트리니다드"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 '콜롬비아 라 트리니다드 게이샤 워시드'로 단일 산지 구성을 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문(상품명·OCR)에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR(f750)의 'Floral og leskende. Melon, sitron og sort te.'에서 추출 — Floral→플로럴, Melon→멜론, sitron→레몬, sort te→홍차. 'leskende'(상쾌한)는 질감 서술로 value에서 제외. 썸네일 OCR의 Jasmine/Peach/Honey/Black Tea 블록은 §9.1 교차 반복 블록이라 인용에서 제외",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#evidence.ocr[1].output",
+    "raw": [
+     "Floral",
+     "leskende",
+     "Melon",
+     "sitron",
+     "sort te"
+    ],
+    "value": [
+     "플로럴",
+     "멜론",
+     "레몬",
+     "홍차"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '콜롬비아'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "콜롬비아",
+    "value": "콜롬비아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '라 트리니다드'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "라 트리니다드",
+    "value": "라 트리니다드"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 '라 트리니다드' 농장이 생산 농장임. '솔벅 & 한센'은 노르웨이 로스터리이지 생산자가 아님",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "라 트리니다드",
+    "value": "라 트리니다드"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 콜롬비아 단일 산지·게이샤로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "콜롬비아 라 트리니다드 게이샤 워시드",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계에 대한 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "두 번째 OCR 이미지의 노르웨이어 설명에서 멜론·레몬·블랙티를 확인. 'leskende'(상쾌함)는 질감 서술이라 제외. 첫 번째 OCR의 Jasmine/Peach/Honey/Black Tea는 교차 반복 블록(§9.1)이라 근거에서 제외함",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#evidence.ocr",
+    "raw": [
+     "Melon",
+     "sitron",
+     "sort te"
+    ],
+    "value": [
+     "멜론",
+     "레몬",
+     "블랙티"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-11446555211-4899d2e0.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/cafedoan-11446555211-4899d2e0.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260609_287/1781001652715A0g1m_PNG/57226626572073334_201507370.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260609_287/1781001652715A0g1m_PNG/57226626572073334_201507370.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Floral og leskende. Melon, sitron og sort te.\",\n    \"group\": \"\",\n    \"process\": \"Våtforedlet\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-11754458202",
+  "roastery": "카페도안",
+  "productName": "MANHATTAN 맨해튼 Honduras Santa Lucia Honey",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/11754458202",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer",
+   "variety"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 'Honduras', 상세 텍스트의 '온두라스 산타 루치아'에 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#productName",
+    "raw": "온두라스",
+    "value": "온두라스"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상세 텍스트에 '온두라스 산타 루치아, 허니' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "산타 루치아",
+    "value": "산타 루치아"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 'Honey', 상세 텍스트의 '허니'에 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#productName",
+    "raw": "허니",
+    "value": "허니"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "상세 텍스트에 '핀카스 미에리시 Santa Lucia 농장에서 생산된 로트'로 생산 주체 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "핀카스 미에리시",
+    "value": "미에리시"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 'MANHATTAN 맨해튼 Honduras Santa Lucia Honey' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "HIGH",
+    "evidence": "상세 텍스트 CUP NOTE에 '머랭, 오렌지, 파인애플' 명시",
+    "evidenceKind": "text_confirmed",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": [
+     "머랭",
+     "오렌지",
+     "파인애플"
+    ],
+    "value": [
+     "머랭",
+     "오렌지",
+     "파인애플"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상세 텍스트에 '이 옐로우 파카스는...'으로 품종 명시. 파카마라와의 교배 경위 서술이 있으나 해당 로트의 품종 자체는 파카스",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "옐로우 파카스",
+    "value": "파카스"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Honduras', 상세에 '온두라스 산타 루치아'라고 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "온두라스 / Honduras",
+    "value": "온두라스"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상세에 '온두라스 산타 루치아'라고 산지가 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "산타 루치아",
+    "value": "산타 루치아"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Honey', 상세에 '산타 루치아, 허니'라고 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#productName",
+    "raw": "Honey",
+    "value": "허니"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "상세에 '핀카스 미에리시 Santa Lucia 농장에서 생산된 로트'라고 명시. 맨해튼은 판매 로스터리임",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "핀카스 미에리시 Santa Lucia 농장",
+    "value": "산타 루치아"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명과 상세가 온두라스 단일 산지 로트로 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#productName",
+    "raw": "Honduras Santa Lucia Honey",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세에 로스팅 단계에 대한 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "HIGH",
+    "evidence": "상세의 CUP NOTE에 머랭·오렌지·파인애플이 명시. '달콤하고 균형 잡힌'은 질감 서술이라 제외",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": [
+     "머랭",
+     "오렌지",
+     "파인애플"
+    ],
+    "value": [
+     "머랭",
+     "오렌지",
+     "파인애플"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상세에 '이 옐로우 파카스는 ... Santa Lucia 농장에서 생산된 로트'라고 품종이 명시",
+    "evidenceSource": "audit-input/products/cafedoan-11754458202-9f902973.json#evidence.detailCache.detailText",
+    "raw": "옐로우 파카스",
+    "value": "옐로우 파카스"
+   }
+  },
+  "evidenceFile": "products/cafedoan-11754458202-9f902973.json",
+  "detailText": "Roast Date - 04/15 온두라스 산타 루치아, 허니 Honduras Santa Lucia, Honey CUP NOTE 머랭, 오렌지, 파인애플 INFORMATION 이 옐로우 파카스는 온두라스에 위치한 핀카스 미에리시 Santa Lucia 농장에서 생산된 로트입니다. 이 품종은 파카마라의 자연적인 퇴화 과정에서 비롯된 것으로, 파카스와 마라고지페를 교배해 탄생한 파카마라에서 유래하였습니다. 역사적으로, 파카스(레드든 옐로우든)는 온두라스 컵 오브 엑설런스에서 매우 좋은 성적을 거둬왔고, 이에 따라 미에리시 팀은 이 품종을",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20220604_223/1654316857111shQf3_PNG/013.png?type=w848",
+   "https://shop-phinf.pstatic.net/20220604_158/1654316856997qyLmC_PNG/014.png?type=w848",
+   "https://shop-phinf.pstatic.net/20220604_36/1654316857617GdyAv_PNG/015.png?type=w848"
+  ]
+ },
+ {
+  "id": "cafedoan-12746989802",
+  "roastery": "카페도안",
+  "productName": "NOMAD COFFEE 노마드 커피 Ethiopia Abebe Hewiso Natural",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/12746989802",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 'Ethiopia', 상세 텍스트의 '에티오피아 아베베 헤위소'에 명시",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": "에티오피아",
+    "value": "에티오피아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상세 텍스트에 '시다모 Sidamo 내추럴 커피' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence.detailCache.detailText",
+    "raw": "시다모",
+    "value": "시다모"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 'Natural', 상세 텍스트의 '내추럴'에 명시",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": "내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상세 텍스트의 '에티오피아 아베베 헤위소'는 생산지·생산자명으로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence.detailCache.detailText",
+    "raw": "아베베 헤위소",
+    "value": "아베베 헤위소"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 'NOMAD COFFEE 노마드 커피 Ethiopia Abebe Hewiso Natural' — 에티오피아 단일 산지 명시. 본문의 '이 블렌드'는 향미의 어울림을 뜻하는 서술로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "HIGH",
+    "evidence": "상세 텍스트 CUP NOTE에 '배, 캐모마일, 비파' 명시. 이미지 OCR의 PERA/MANZANILLA/NISPERO와 일치. 본문에 함께 언급된 꿀·꽃·파넬라·코코아 파우더는 CUP NOTE 목록이 아니어서 제외",
+    "evidenceKind": "text_confirmed",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence.detailCache.detailText",
+    "raw": [
+     "배",
+     "캐모마일",
+     "비파"
+    ],
+    "value": [
+     "배",
+     "캐모마일",
+     "비파"
+    ]
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 품종 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": null,
+    "value": null
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Ethiopia', 상세에 '에티오피아 아베베 헤위소'라고 명시",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence.detailCache.detailText",
+    "raw": "Ethiopia / 에티오피아",
+    "value": "에티오피아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상세에 '시다모 Sidamo 내추럴 커피'라고 지역이 명시",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence.detailCache.detailText",
+    "raw": "시다모 Sidamo",
+    "value": "시다모"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 'Natural', 상세에 '내추럴'이 명시",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": "Natural / 내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "상품명과 상세에 생산자명 'Abebe Hewiso / 아베베 헤위소'가 명시. 노마드는 판매 로스터리임",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": "Abebe Hewiso / 아베베 헤위소",
+    "value": "아베베 헤위소"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명과 상세가 에티오피아 단일 산지 로트임. 상세의 '이 블렌드'는 향미 조합을 가리키는 표현이지 제품 유형이 아님",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#productName",
+    "raw": "Ethiopia Abebe Hewiso Natural",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세에 로스팅 단계에 대한 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "HIGH",
+    "evidence": "상세의 CUP NOTE에 배·캐모마일·비파가 명시. 스페인어 OCR(PERA/MANZANILLA/NISPERO)도 동일함. '달콤하고 균형 잡힌'은 질감 서술이라 제외",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence.detailCache.detailText",
+    "raw": [
+     "배",
+     "캐모마일",
+     "비파"
+    ],
+    "value": [
+     "배",
+     "캐모마일",
+     "비파"
+    ]
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·상세·OCR 어디에도 품종에 대한 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-12746989802-d074e1d8.json#evidence",
+    "raw": null,
+    "value": null
+   }
+  },
+  "evidenceFile": "products/cafedoan-12746989802-d074e1d8.json",
+  "detailText": "Roast Date - 2/24 에티오피아 아베베 헤위소, 내추럴 Ethiopia Abebe Hewiso, Natural CUP NOTE 배, 캐모마일, 비파 INFORMATION 배, 캐모마일, 비파의 향미가 어우러진 달콤하고 균형 잡힌 커피입니다. 실키한 바디감에 중간 정도의 산미가 더해져 산뜻하면서도 우아한 인상을 줍니다. 한 모금씩 천천히 마시면 꿀과 꽃, 파넬라, 그리고 은은한 코코아 파우더의 뉘앙스가 드러납니다. 복합적이면서도 감싸듯 부드러운 이 블렌드는 깨끗하고 조화로운 경험을 선사하며, 시다모 Sidamo 내추럴 커피",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20251201_32/1764563622699X5ojB_PNG/27554475864556920_1001219390.png?type=f80_80",
+    "output": "[]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20251201_32/1764563622699X5ojB_PNG/27554475864556920_1001219390.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"PERA\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"MANZANILLA\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"NISPERO\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-13627490056",
+  "roastery": "카페도안",
+  "productName": "Solberg & Hansen 솔벅 & 한센 과테말라 카멜리아스 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13627490056",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '과테말라' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "과테말라",
+    "value": "과테말라"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장·지역명 '카멜리아스' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "카멜리아스",
+    "value": "카멜리아스"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드' 명시. OCR의 'Våforedlet'(노르웨이어: 습식가공)도 워시드와 일치",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '카멜리아스'는 수입원(Solberg & Hansen)과 별개인 농장명으로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "카멜리아스",
+    "value": "카멜리아스"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 'Solberg & Hansen 솔벅 & 한센 과테말라 카멜리아스 워시드' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR 'Fyldig og søt. Kirsebær, plomme, sjokolade.' — Kirsebær→체리, plomme→자두, sjokolade→초콜릿. 'Fyldig og søt'(묵직하고 달콤한)는 질감 서술로 value에서 제외",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#evidence.ocr[1].output",
+    "raw": [
+     "Kirsebær",
+     "plomme",
+     "sjokolade",
+     "Fyldig og søt"
+    ],
+    "value": [
+     "체리",
+     "자두",
+     "초콜릿"
+    ]
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명에 품종 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": null,
+    "value": null
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '과테말라'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "과테말라",
+    "value": "과테말라"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '카멜리아스'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "카멜리아스",
+    "value": "카멜리아스"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 카멜리아스 농장이 생산 농장임. 솔벅&한센은 노르웨이 로스터리임",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "카멜리아스",
+    "value": "카멜리아스"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 과테말라 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#productName",
+    "raw": "과테말라 카멜리아스 워시드",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "노르웨이어 OCR 문구에서 체리·자두·초콜릿을 확인. 앞부분 'Fyldig og søt'(풍부하고 달콤함)은 질감 서술이라 제외",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#evidence.ocr",
+    "raw": [
+     "Kirsebær",
+     "plomme",
+     "sjokolade"
+    ],
+    "value": [
+     "체리",
+     "자두",
+     "초콜릿"
+    ]
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·OCR 어디에도 품종에 대한 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13627490056-85d1de4e.json#evidence",
+    "raw": null,
+    "value": null
+   }
+  },
+  "evidenceFile": "products/cafedoan-13627490056-85d1de4e.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260609_261/1781002106796scM6O_PNG/36210277888793209_1637279245.png?type=f80_80",
+    "output": "[]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260609_261/1781002106796scM6O_PNG/36210277888793209_1637279245.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Fyldig og søt. Kirsebær, plomme, sjokolade.\",\n    \"group\": \"\",\n    \"process\": \"Våforedlet\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-13647238261",
+  "roastery": "카페도안",
+  "productName": "콜롬비아 라 시리아 게이샤 워시드 로트 3",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13647238261",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer",
+   "tastingNotes"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '콜롬비아' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "콜롬비아",
+    "value": "콜롬비아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장·지역명 '라 시리아' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "라 시리아",
+    "value": "라 시리아"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드' 명시. OCR의 process 표기 'WASHED'도 일치",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '라 시리아'는 수입원(Solberg & Hansen)과 별개인 농장명으로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "라 시리아",
+    "value": "라 시리아"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '콜롬비아 라 시리아 게이샤 워시드 로트 3' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "LOW",
+    "evidence": "동일 이미지의 두 OCR이 노트 목록에서 정면 상충 — f80은 White Peach/Jasmine/Black Tea, f750은 Bergamot/White Peach/White Flower. 원본 이미지 없이 해소 불가하므로 양쪽이 공통으로 확인한 White Peach만 채택하고 상충 노트(Jasmine/Black Tea/Bergamot/White Flower)는 제외",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#evidence.ocr[0].output; audit-input/products/cafedoan-13647238261-220ac49f.json#evidence.ocr[1].output",
+    "raw": [
+     "White Peach"
+    ],
+    "value": [
+     "복숭아"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '콜롬비아'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "콜롬비아",
+    "value": "콜롬비아"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '라 시리아'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "라 시리아",
+    "value": "라 시리아"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 라 시리아 농장이 생산 농장임",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "라 시리아",
+    "value": "라 시리아"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 콜롬비아 단일 산지 로트로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "콜롬비아 라 시리아 게이샤 워시드 로트 3",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "같은 라벨 이미지 두 해상도의 OCR에서 화이트피치·자스민·블랙티·베르가못·화이트플라워가 확인됨. 상세 텍스트는 없음",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#evidence.ocr",
+    "raw": [
+     "White Peach",
+     "Jasmine",
+     "Black Tea",
+     "Bergamot",
+     "White Flower"
+    ],
+    "value": [
+     "화이트피치",
+     "자스민",
+     "블랙티",
+     "베르가못",
+     "화이트플라워"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647238261-220ac49f.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/cafedoan-13647238261-220ac49f.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260630_77/1782814731099ec8q8_PNG/12013810208610458_1009207017.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"White Peach\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260630_77/1782814731099ec8q8_PNG/12013810208610458_1009207017.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Bergamot\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"White Peach\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"White Flower\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-13647777127",
+  "roastery": "카페도안",
+  "productName": "에콰도르 라 노리아 게이샤 워시드 로트 4",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13647777127",
+  "isSoldOut": true,
+  "disagreedFields": [
+   "producer",
+   "tastingNotes"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '에콰도르' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "에콰도르",
+    "value": "에콰도르"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장·지역명 '라 노리아' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "라 노리아",
+    "value": "라 노리아"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드' 명시. OCR의 process 표기 'WASHED'도 일치",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '라 노리아'는 농장명으로 판단",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "라 노리아",
+    "value": "라 노리아"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '에콰도르 라 노리아 게이샤 워시드 로트 4' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR의 Osmanthus→오스만투스(금목서), Bergamot→베르가못, White Peach→복숭아",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#evidence.ocr[0].output",
+    "raw": [
+     "Osmanthus",
+     "Bergamot",
+     "White Peach"
+    ],
+    "value": [
+     "오스만투스",
+     "베르가못",
+     "복숭아"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '에콰도르'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "에콰도르",
+    "value": "에콰도르"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '라 노리아'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "라 노리아",
+    "value": "라 노리아"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '워시드'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "워시드",
+    "value": "워시드"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 라 노리아 농장이 생산 농장임",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "라 노리아",
+    "value": "라 노리아"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 에콰도르 단일 산지 로트로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "에콰도르 라 노리아 게이샤 워시드 로트 4",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "soldout",
+    "value": "soldout"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR에서 오스만투스·베르가못·화이트피치가 확인됨. 다른 텍스트 증거는 없음",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#evidence.ocr",
+    "raw": [
+     "Osmanthus",
+     "Bergamot",
+     "White Peach"
+    ],
+    "value": [
+     "오스만투스",
+     "베르가못",
+     "화이트피치"
+    ]
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/cafedoan-13647777127-354e13d0.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/cafedoan-13647777127-354e13d0.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260701_169/1782875835447LueeN_PNG/68918178816683551_212931472.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Osmanthus\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Bergamot\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"White Peach\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "hocuspocus-11755848790",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "브라질 다테하 리저브 펄프드 내추럴",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11755848790",
+  "isSoldOut": false,
+  "disagreedFields": [
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '브라질' 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "브라질",
+    "value": "브라질"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명의 '다테하'는 브라질의 농장(지역 표기)으로 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "다테하",
+    "value": "다테하"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '펄프드 내추럴' 명시 — 본가공은 내추럴",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "펄프드 내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '다테하'는 브라질의 커피 농장명으로 판단",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "다테하",
+    "value": "다테하"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '브라질 다테하 리저브 펄프드 내추럴' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 테이스팅 노트 정보 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명에 품종 표기 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": null,
+    "value": null
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '브라질'이 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "브라질",
+    "value": "브라질"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '다테하'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "다테하",
+    "value": "다테하"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '펄프드 내추럴'이 명시. 정규화값은 내추럴, 원문 표기는 raw에 보존",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "펄프드 내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 다테하 농장이 생산 농장임",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "다테하",
+    "value": "다테하"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 브라질 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#productName",
+    "raw": "브라질 다테하 리저브 펄프드 내추럴",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 노트 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#evidence",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 품종 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-11755848790-afe769e4.json#evidence",
+    "raw": null,
+    "value": null
+   }
+  },
+  "evidenceFile": "products/hocuspocus-11755848790-afe769e4.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "hocuspocus-12134209835",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "과테말라 비스타 헤르모사 게이샤 내추럴",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/12134209835",
+  "isSoldOut": false,
+  "disagreedFields": [
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '과테말라' 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "과테말라",
+    "value": "과테말라"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 지역·농장명 '비스타 헤르모사' 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "비스타 헤르모사",
+    "value": "비스타 헤르모사"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '내추럴' 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '비스타 헤르모사'는 과테말라의 농장명으로 판단",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "비스타 헤르모사",
+    "value": "비스타 헤르모사"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명 '과테말라 비스타 헤르모사 게이샤 내추럴' — 단일 산지 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "single",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 테이스팅 노트 정보 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '과테말라'가 직접 표기되어 있음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "과테말라",
+    "value": "과테말라"
+   },
+   "originRegion": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 농장명 '비스타 헤르모사'가 산지로 명시되어 있음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "비스타 헤르모사",
+    "value": "비스타 헤르모사"
+   },
+   "process": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 '내추럴'이 명시되어 있음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "내추럴",
+    "value": "내추럴"
+   },
+   "producer": {
+    "confidence": "HIGH",
+    "evidence": "에스테이트 커피로 상품명의 비스타 헤르모사 농장이 생산 농장임",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "비스타 헤르모사",
+    "value": "비스타 헤르모사"
+   },
+   "productType": {
+    "confidence": "HIGH",
+    "evidence": "상품명이 과테말라 단일 산지로만 구성되어 있고 블렌드 표기가 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "과테말라 비스타 헤르모사 게이샤 내추럴",
+    "value": "single"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 텍스트 증거가 없고 노트 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#evidence",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종명 '게이샤'가 명시되어 있음",
+    "evidenceSource": "audit-input/products/hocuspocus-12134209835-19fcf903.json#productName",
+    "raw": "게이샤",
+    "value": "게이샤"
+   }
+  },
+  "evidenceFile": "products/hocuspocus-12134209835-19fcf903.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "hocuspocus-13691086760",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "다테하 테라스",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13691086760",
+  "isSoldOut": false,
+  "disagreedFields": [
+   "producer"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문에 국가 표기 없음 — '다테하'는 농장·브랜드명으로만 등장",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "originRegion": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 지역 정보 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "process": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 가공법 표기 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "producer": {
+    "confidence": "MEDIUM",
+    "evidence": "상품명의 '다테하'는 브라질의 커피 농장·브랜드명으로 판단",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": "다테하",
+    "value": "다테하"
+   },
+   "productType": {
+    "confidence": "LOW",
+    "evidence": "상품명 '다테하 테라스'에 산지·블렌드·분쇄 등 유형 단서 없음 — 커피 상품이나 분류 불가",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": null,
+    "value": "other"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 테이스팅 노트 정보 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 품종 표기 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": null,
+    "value": null
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 국가 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "originRegion": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 지역 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "process": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 가공 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "producer": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 생산자 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "productType": {
+    "confidence": "LOW",
+    "evidence": "상품명에 '다테하 테라스'만 있고 단일산지·블렌드·드립백·캡슐 등 유형 단서가 없어 분류 불가",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#productName",
+    "raw": "다테하 테라스",
+    "value": "other"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 노트 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": [],
+    "value": []
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명 외에 증거가 없고 품종 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/hocuspocus-13691086760-a62bf378.json#evidence",
+    "raw": null,
+    "value": null
+   }
+  },
+  "evidenceFile": "products/hocuspocus-13691086760-a62bf378.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "호커스포커스로스터스-미스토라홈카페원두",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "미스토라 홈카페 원두",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/7111063746",
+  "isSoldOut": false,
+  "disagreedFields": [
+   "tastingNotes"
+  ],
+  "reviewerA_golden": {
+   "originCountry": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 산지 국가 정보 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "originRegion": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 지역 정보 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "process": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 가공법 표기 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "producer": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 생산자 정보 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "productType": {
+    "confidence": "LOW",
+    "evidence": "상품명 '미스토라 홈카페 원두'에 산지·블렌드·분쇄 등 유형 단서 없음 — 커피 상품이나 분류 불가",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": "other"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "이미지 OCR에서 Peach→복숭아, Mango→망고, Black Tea→홍차 확인",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence.ocr[0].output",
+    "raw": [
+     "Peach",
+     "Mango",
+     "Black Tea"
+    ],
+    "value": [
+     "복숭아",
+     "망고",
+     "홍차"
+    ]
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 원문에 품종 표기 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": null,
+    "value": null
+   }
+  },
+  "reviewerB_golden": {
+   "originCountry": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·OCR 등 제공된 증거 어디에도 국가 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "originRegion": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 지역 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "process": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 가공 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "producer": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 생산자 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "productType": {
+    "confidence": "LOW",
+    "evidence": "상품명에 '홈카페 원두' 외에 단일산지·블렌드·드립백·캡슐 등 유형 단서가 전혀 없어 분류 불가",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#productName",
+    "raw": "홈카페 원두",
+    "value": "other"
+   },
+   "roast": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 로스팅 단계 언급이 없음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence",
+    "raw": null,
+    "value": null
+   },
+   "status": {
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag",
+    "raw": "active",
+    "value": "active"
+   },
+   "tastingNotes": {
+    "confidence": "MEDIUM",
+    "evidence": "상품 이미지 OCR에서 복숭아·망고·블랙티를 추출. 다른 텍스트 증거는 존재하지 않음",
+    "evidenceKind": "current_echo",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence.ocr",
+    "raw": [
+     "Peach",
+     "Mango",
+     "Black Tea"
+    ],
+    "value": [
+     "복숭아",
+     "망고",
+     "블랙티"
+    ]
+   },
+   "variety": {
+    "confidence": "SOURCE_MISSING",
+    "evidence": "제공된 증거 어디에도 품종 정보가 확인되지 않음",
+    "evidenceSource": "audit-input/products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json#evidence",
+    "raw": null,
+    "value": null
+   }
+  },
+  "evidenceFile": "products/호커스포커스로스터스-미스토라홈카페원두-098c91b0.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260630_117/1782814431008DWkln_JPEG/116222640992186286_2032822471.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Mango\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ }
+]

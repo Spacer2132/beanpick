@@ -20,6 +20,8 @@
     "iphone:snapshot:publish": "electron . --publish-iphone-snapshot",
     "iphone:snapshot:publish:dry-run": "electron . --publish-iphone-snapshot --dry-run",
     "dataquality:test": "node scripts/test-data-quality.cjs",
+    "audit:data": "node audit/tools/audit-data.mjs",
+    "audit:test": "node audit/tools/test-audit-data.mjs",
     "safety-guards:test": "node scripts/test-safety-guards.cjs",
     "map:test": "node scripts/test-map-feature.cjs",
     "contract:test": "node scripts/test-collection-contract.cjs",

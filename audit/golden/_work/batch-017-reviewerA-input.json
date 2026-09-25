@@ -1,0 +1,1252 @@
+[
+ {
+  "id": "cafedoan-11754520054",
+  "evidenceGrade": "A",
+  "roastery": "카페도안",
+  "productName": "MANHATTAN 맨해튼 Colombia Entre Montañas Mokka",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/11754520054",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-11754520054",
+   "roasterName": "카페도안",
+   "productName": "MANHATTAN 맨해튼 Colombia Entre Montañas Mokka",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/11754520054",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/cafedoan-11754520054-d4906c8f.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "오렌지",
+     "쥬시",
+     "크랜베리",
+     "홍차"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "orange",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_256/17453883499165wR2y_PNG/37136141780295375_103051502.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "cranberry",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_256/17453883499165wR2y_PNG/37136141780295375_103051502.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "black tea",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_256/17453883499165wR2y_PNG/37136141780295375_103051502.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "juicy and sticky mouthfeel",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_256/17453883499165wR2y_PNG/37136141780295375_103051502.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "콜롬비아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "콜롬비아",
+    "process": "",
+    "variety": "",
+    "region": "MANHATTAN 맨해튼 Entre Montañas Mokka",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "오렌지",
+     "크랜베리",
+     "홍차",
+     "쥬시"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-11754520054-d4906c8f.json",
+  "detailText": "Roast Date - 04/15 콜롬비아 엔트레 몬타냐스 모카, 내추럴 Colombia Entre Montañas Mokka, Natural CUP NOTE 크랜베리, 홍차, 오렌지 INFORMATION 호세 히랄도 모카 José Giraldo Mokka! 엔트레 몬타냐스 Entre Montañas는 호세 히랄도 José Giraldo의 고지대 농장으로, 이곳에서는 놀라운 그린 팁 게이샤 Green Tip Geisha와 이번에 소개하는 환상적인 모카 Mokka를 재배합니다. 카페 1959 Cafe 1959와 함께하는 파트너십과 그",
+  "detailTextFullLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250423_256/17453883499165wR2y_PNG/37136141780295375_103051502.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Lemon\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250423_256/17453883499165wR2y_PNG/37136141780295375_103051502.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"orange\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"cranberry\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"black tea\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"juicy and sticky mouthfeel\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "호커스포커스로스터스-에티오피아케라모워시드디카페인",
+  "evidenceGrade": "B",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "에티오피아 케라모 워시드 디카페인",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13636273247",
+  "isSoldOut": false,
+  "current": {
+   "id": "호커스포커스로스터스-에티오피아케라모워시드디카페인",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "에티오피아 케라모 워시드 디카페인",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13636273247",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/호커스포커스로스터스-에티오피아케라모워시드디카페인-e8f298ed.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "케라모 디카페인",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/호커스포커스로스터스-에티오피아케라모워시드디카페인-e8f298ed.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260528_209/1779960168216G6pSP_PNG/56421514035169091_2067386086.png?type=f750_750",
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11884752616",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 고로 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11884752616",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-11884752616",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 에티오피아 고로 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11884752616",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/aerycoffee-11884752616-83738cc2.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "레몬",
+     "플로럴"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Light floral notes",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250525_23/1748177203700RSIEQ_JPEG/2715923629401040_1818187379.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "a touch of lemon candy brightness",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250525_23/1748177203700RSIEQ_JPEG/2715923629401040_1818187379.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "은은하게 퍼지는 꽃향기와 레몬 캔디를 연상시키는 산뜻한 향미",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250525_23/1748177203700RSIEQ_JPEG/2715923629401040_1818187379.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "고로",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴",
+     "레몬"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-11884752616-83738cc2.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250525_23/1748177203700RSIEQ_JPEG/2715923629401040_1818187379.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Light floral notes\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"a touch of lemon candy brightness\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"은은하게 퍼지는 꽃향기와 레몬 캔디를 연상시키는 산뜻한 향미\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-13648554316",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "ONYX 오닉스 콜롬비아 에드워드 산도발 치로소 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13648554316",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-13648554316",
+   "roasterName": "카페도안",
+   "productName": "ONYX 오닉스 콜롬비아 에드워드 산도발 치로소 워시드",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/13648554316",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-13648554316-5b90f259.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "콜롬비아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "콜롬비아",
+    "process": "워시드",
+    "variety": "",
+    "region": "ONYX 오닉스 에드워드 산도발 치로소",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-13648554316-5b90f259.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260414_261/1776139568126AethB_PNG/7841590953367722_1299887545.png?type=f750_750",
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260702_69/1782952948923MusEK_PNG/%EC%97%90%EB%93%9C%EC%9B%8C%EB%93%9C_%EC%82%B0%EB%8F%84%EB%B0%9C_%EC%B9%98%EB%A1%9C%EC%86%8C.png?type=w848",
+   "https://shop-phinf.pstatic.net/20260414_178/1776153781783kGjko_PNG/2.png?type=w848",
+   "https://shop-phinf.pstatic.net/20260414_73/1776153781764GgJVU_PNG/3.png?type=w848",
+   "https://shop-phinf.pstatic.net/20260414_66/1776153781827z9Iw4_PNG/4.png?type=w848"
+  ]
+ },
+ {
+  "id": "hocuspocus-11858888892",
+  "evidenceGrade": "B",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "탄자니아 아카시아 힐스 AA 게이샤 워시드",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11858888892",
+  "isSoldOut": false,
+  "current": {
+   "id": "hocuspocus-11858888892",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "탄자니아 아카시아 힐스 AA 게이샤 워시드",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11858888892",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/hocuspocus-11858888892-56972369.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "복숭아",
+     "살구",
+     "차",
+     "캐러멜"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Peach",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250819_249/17555717130344u7Hp_JPEG/4209305162559676_560582151.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "Fully Wahsed"
+     },
+     {
+      "text": "Tea",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250819_249/17555717130344u7Hp_JPEG/4209305162559676_560582151.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "Fully Wahsed"
+     },
+     {
+      "text": "Dry Apricot",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250819_249/17555717130344u7Hp_JPEG/4209305162559676_560582151.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "Fully Wahsed"
+     },
+     {
+      "text": "Caramel",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250819_249/17555717130344u7Hp_JPEG/4209305162559676_560582151.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "Fully Wahsed"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "",
+    "process": "워시드",
+    "variety": "게이샤",
+    "region": "탄자니아 아카시아 힐스 AA",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "복숭아",
+     "차",
+     "살구",
+     "캐러멜"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/hocuspocus-11858888892-56972369.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250819_249/17555717130344u7Hp_JPEG/4209305162559676_560582151.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Peach, Tea, Dry Apricot, Caramel\",\n    \"group\": \"\",\n    \"process\": \"Fully Wahsed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-13647238246",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "케냐 지와 팜 AB 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13647238246",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-13647238246",
+   "roasterName": "카페도안",
+   "productName": "케냐 지와 팜 AB 워시드",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/13647238246",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-13647238246-e209e7b7.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "체리",
+     "사과"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Bing Cherry",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260630_163/1782814728938UL6CW_PNG/12874119209693307_1967692722.png?type=f750_750",
+      "method": "image-model",
+      "group": "KENYA ZIWA FARM AB",
+      "process": "WASHED"
+     },
+     {
+      "text": "Red Apple",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260630_163/1782814728938UL6CW_PNG/12874119209693307_1967692722.png?type=f750_750",
+      "method": "image-model",
+      "group": "KENYA ZIWA FARM AB",
+      "process": "WASHED"
+     },
+     {
+      "text": "Chamomile",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260630_163/1782814728938UL6CW_PNG/12874119209693307_1967692722.png?type=f750_750",
+      "method": "image-model",
+      "group": "KENYA ZIWA FARM AB",
+      "process": "WASHED"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "케냐",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "케냐",
+    "process": "워시드",
+    "variety": "",
+    "region": "지와 팜 AB",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "체리",
+     "사과"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-13647238246-e209e7b7.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260630_163/1782814728938UL6CW_PNG/12874119209693307_1967692722.png?type=f80_80",
+    "output": "[]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260630_163/1782814728938UL6CW_PNG/12874119209693307_1967692722.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Bing Cherry\",\n    \"group\": \"KENYA ZIWA FARM AB\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Red Apple\",\n    \"group\": \"KENYA ZIWA FARM AB\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Chamomile\",\n    \"group\": \"KENYA ZIWA FARM AB\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-12844568790",
+  "evidenceGrade": "A",
+  "roastery": "카페도안",
+  "productName": "LUNA 루나 Ecuador Pepe Jijon Mejorado Wave Honey",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/12844568790",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-12844568790",
+   "roasterName": "카페도안",
+   "productName": "LUNA 루나 Ecuador Pepe Jijon Mejorado Wave Honey",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/12844568790",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/cafedoan-12844568790-9db4cbea.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에콰도르",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에콰도르",
+    "process": "허니",
+    "variety": "",
+    "region": "LUNA 루나 Pepe Jijon Mejorado Wave",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-12844568790-9db4cbea.json",
+  "detailText": "Roast Date - 12/10 에콰도르 페페 히욘 메호라도, 웨이브 허니 Ecuador Pepe Jijon Mejorado, Wave Honey 용량 200g CUP NOTE 감, 오렌지 크림시클, 사과, 대추 INFORMATION 페페 Pepe의 가족 농장은 에콰도르 Ecuador 인탁 밸리 Intag Valley에 위치해 있으며, 야생 효모와 살아 있는 생태계를 중심에 둔 철학으로 커피를 재배합니다. 이 웨이브 허니 Wave Honey 로트는 메호라도 Mejorado 체리를 밀봉된 탱크에서 홀딩한 뒤 펄핑을 진행하고, 파치먼",
+  "detailTextFullLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "hocuspocus-13753415504",
+  "evidenceGrade": "A",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "호커스포커스 X 모닝커피 에티오피아 게뎁 게쉬 모디파이드 허니",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13753415504",
+  "isSoldOut": true,
+  "current": {
+   "id": "hocuspocus-13753415504",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "호커스포커스 X 모닝커피 에티오피아 게뎁 게쉬 모디파이드 허니",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13753415504",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/hocuspocus-13753415504-7b532cff.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "허니",
+    "variety": "",
+    "region": "호커스포커스 X 모닝 게뎁 게쉬 모디파이드",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/hocuspocus-13753415504-7b532cff.json",
+  "detailText": "호커스포커스 로스터스 X 모닝커피 배송안내 9/10(목)부터 9/13(일)까지의 주문건은 로스팅 후 9/14(월)부터 순차적으로 출고되니 참고 부탁드립니다. (호커스포커스 로스터스 기존 제품과 함께 구매해주신 건들도 9월 14일부터 순차 배송될 예정입니다. 감사합니다.) 5만원이상 구매 및 리뷰 이벤트는 9월 20일 추첨 후 유튜브와 인스타그램에 공지 드릴 예정입니다. 감사합니다.",
+  "detailTextFullLen": 214,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13753050878",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 반코 타라투 74110 74112 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13753050878",
+  "isSoldOut": false,
+  "current": {
+   "id": "aerycoffee-13753050878",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 에티오피아 반코 타라투 74110 74112 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/13753050878",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/aerycoffee-13753050878-41407f86.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "반코 타라투 74110 74112",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-13753050878-41407f86.json",
+  "detailText": "로스팅 머신 : 로링 S15 로스팅일 : 26.09.17 권장 추출일 : 26.10.08 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 162,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-12844471045",
+  "evidenceGrade": "A",
+  "roastery": "카페도안",
+  "productName": "LUNA 루나 Ethiopia Nigusse Nare Natural",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-12844471045",
+   "roasterName": "카페도안",
+   "productName": "LUNA 루나 Ethiopia Nigusse Nare Natural",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/cafedoan-12844471045-926e8bf8.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "베리",
+     "플로럴"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "플로럴",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+      "method": "detail-text"
+     },
+     {
+      "text": "태피",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+      "method": "detail-text"
+     },
+     {
+      "text": "베리",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+      "method": "detail-text"
+     },
+     {
+      "text": "락틱",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+      "method": "detail-text"
+     },
+     {
+      "text": "크림 INFORMATION JARC 74158",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12844471045",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "내추럴",
+    "variety": "",
+    "region": "LUNA 루나 Nigusse Nare",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴",
+     "베리"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-12844471045-926e8bf8.json",
+  "detailText": "Roast Date - 12/10 에티오피아 니구세 나레, 내추럴 Ethiopia Nigusse Nare, Natural 용량 250g CUP NOTE 플로럴, 태피, 베리, 락틱, 크림 INFORMATION JARC 74158 품종으로, 시다마 Sidama 벤사 Bensa 지역에서 니구세 나레 Nguisse Nare와 인근 몇몇 이웃 농가가 재배했습니다. 전통 내추럴 방식으로 가공되었으며, 완전히 익은 보랏빛 체리를 고상 건조대에서 건조해 효모가 충분한 시간을 두고 작용하도록 했습니다. 이 과정에서 과일 본연의 단맛과 향미가 자연",
+  "detailTextFullLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20251218_48/1766040008998DrGEN_PNG/13324791774514567_1248989521.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Earl Grey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "hocuspocus-12854598699",
+  "evidenceGrade": "B",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "온두라스 아르투로 파즈 카물리안 애너로빅 워시드",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/12854598699",
+  "isSoldOut": false,
+  "current": {
+   "id": "hocuspocus-12854598699",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "온두라스 아르투로 파즈 카물리안 애너로빅 워시드",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/12854598699",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/hocuspocus-12854598699-0a597d52.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "온두라스",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "온두라스",
+    "process": "워시드",
+    "variety": "",
+    "region": "아르투로 파즈 카물리안 애너로빅",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/hocuspocus-12854598699-0a597d52.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11941853371",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 잔슨 게이샤 워시드 985",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11941853371",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-11941853371",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 파나마 잔슨 게이샤 워시드 985",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11941853371",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/aerycoffee-11941853371-80a0f7a8.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "자스민"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Fragrant jasmine",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_96/1749436477730S2gg3_JPEG/2316221871462079_1380669749.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "bright acidity",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_96/1749436477730S2gg3_JPEG/2316221871462079_1380669749.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "향기로운 자스민",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_96/1749436477730S2gg3_JPEG/2316221871462079_1380669749.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "기분 좋은 산도감의 조화로운 균형감",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_96/1749436477730S2gg3_JPEG/2316221871462079_1380669749.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "파나마",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "파나마",
+    "process": "워시드",
+    "variety": "게이샤",
+    "region": "잔슨 985",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "자스민"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-11941853371-80a0f7a8.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250609_96/1749436477730S2gg3_JPEG/2316221871462079_1380669749.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Fragrant jasmine\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"bright acidity\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"향기로운 자스민\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"기분 좋은 산도감의 조화로운 균형감\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-11754693192",
+  "evidenceGrade": "A",
+  "roastery": "카페도안",
+  "productName": "MANHATTAN 맨해튼 Panama Summer",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/11754693192",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-11754693192",
+   "roasterName": "카페도안",
+   "productName": "MANHATTAN 맨해튼 Panama Summer",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/11754693192",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/cafedoan-11754693192-2bf037aa.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "오렌지",
+     "레몬",
+     "쥬시",
+     "꿀"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "orange",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_227/1745389035273cnHRz_PNG/39931780409724916_1021912209.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "lemon myrtle",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_227/1745389035273cnHRz_PNG/39931780409724916_1021912209.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "honey",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_227/1745389035273cnHRz_PNG/39931780409724916_1021912209.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "juicy mouthfeel",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_227/1745389035273cnHRz_PNG/39931780409724916_1021912209.png?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "파나마",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "파나마",
+    "process": "",
+    "variety": "",
+    "region": "MANHATTAN 맨해튼 Summer",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "오렌지",
+     "레몬",
+     "꿀",
+     "쥬시"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-11754693192-2bf037aa.json",
+  "detailText": "Roast Date - 04/15 파나마 써머, 내추럴 Panama Summer, Natural CUP NOTE 오렌지, 레몬 머틀, 꿀 INFORMATION 맨해튼은 Finca Santa Teresa 팀과 수년간 협업을 이어오고 있으며, 그들이 생산하는 게이샤는 늘 감탄을 자아냅니다! 이번 커피는 FST의 유명한 ‘Summer’ 구역에서 왔으며, 12년 이상 된 나무에서 그늘 아래 자란 커피로, 산을 따라 동쪽을 향해 펼쳐진 이 아름다운 구역은 평균 고도 1550m에 위치해 있습니다. 이 커피는 맨해튼이 파나마 커피를 사랑하는 이",
+  "detailTextFullLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250423_227/1745389035273cnHRz_PNG/39931780409724916_1021912209.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250423_227/1745389035273cnHRz_PNG/39931780409724916_1021912209.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"orange\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"lemon myrtle\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"honey\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"juicy mouthfeel\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-12994609419",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "HEART ROASTERS 하트 로스터스 에티오피아 게르바 도고 소두 풀리 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/12994609419",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-12994609419",
+   "roasterName": "카페도안",
+   "productName": "HEART ROASTERS 하트 로스터스 에티오피아 게르바 도고 소두 풀리 워시드",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/12994609419",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-12994609419-6f2105f5.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "딸기",
+     "히비스커스",
+     "브라운슈가"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "strawberry",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260430_247/1777548978736VCa6x_PNG/10372589682138606_345993032.png?type=f750_750",
+      "method": "image-model",
+      "process": "Fully washed"
+     },
+     {
+      "text": "brown sugar",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260430_247/1777548978736VCa6x_PNG/10372589682138606_345993032.png?type=f750_750",
+      "method": "image-model",
+      "process": "Fully washed"
+     },
+     {
+      "text": "hibiscus",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260430_247/1777548978736VCa6x_PNG/10372589682138606_345993032.png?type=f750_750",
+      "method": "image-model",
+      "process": "Fully washed"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "HEART ERS 하트 로스터스 게르바 도고 소두 풀리",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "딸기",
+     "브라운슈가",
+     "히비스커스"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-12994609419-6f2105f5.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260430_247/1777548978736VCa6x_PNG/10372589682138606_345993032.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Blueberry\",\n    \"group\": \"\",\n    \"process\": \"Natural\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Blackberry\",\n    \"group\": \"\",\n    \"process\": \"Natural\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Dark Chocolate\",\n    \"group\": \"\",\n    \"process\": \"Natural\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Winey\",\n    \"group\": \"\",\n    \"process\": \"Natural\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260430_247/1777548978736VCa6x_PNG/10372589682138606_345993032.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"strawberry\",\n    \"group\": \"\",\n    \"process\": \"Fully washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"brown sugar\",\n    \"group\": \"\",\n    \"process\": \"Fully washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"hibiscus\",\n    \"group\": \"\",\n    \"process\": \"Fully washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-7576023321",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "Tim Wendelboe 팀 웬들보 에티오피아 에체모 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/7576023321",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-7576023321",
+   "roasterName": "카페도안",
+   "productName": "Tim Wendelboe 팀 웬들보 에티오피아 에체모 워시드",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/7576023321",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-7576023321-611ccbd9.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴",
+     "백차"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Floral",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260609_294/1781000045635xQ08K_PNG/58522722511812817_1366399967.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "white tea & stone fruits",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260609_294/1781000045635xQ08K_PNG/58522722511812817_1366399967.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "Tim Wendelboe 팀 웬들보 에체모",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴",
+     "백차"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-7576023321-611ccbd9.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260609_294/1781000045635xQ08K_PNG/58522722511812817_1366399967.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Earl Grey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20260609_294/1781000045635xQ08K_PNG/58522722511812817_1366399967.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"Floral, white tea & stone fruits\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13695069429",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 케냐 카리미쿠이 SL28 SL34 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13695069429",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-13695069429",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 케냐 카리미쿠이 SL28 SL34 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/13695069429",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/aerycoffee-13695069429-b2494f5e.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "케냐",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "케냐",
+    "process": "워시드",
+    "variety": "SL28 / SL34",
+    "region": "카리미쿠이",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-13695069429-b2494f5e.json",
+  "detailText": "[마지막 배치] 로스팅 머신 : 로링 S15 로스팅일 : 2026.08.29 권장 추출일 : 2026.09.19 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 175,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-12769099340",
+  "evidenceGrade": "A",
+  "roastery": "카페도안",
+  "productName": "LUNA 루나 Ethiopia Bekele Yutute Anaerobic Natural",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/12769099340",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-12769099340",
+   "roasterName": "카페도안",
+   "productName": "LUNA 루나 Ethiopia Bekele Yutute Anaerobic Natural",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/12769099340",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/cafedoan-12769099340-15ca3980.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "구아바",
+     "라벤더",
+     "백차"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "라벤더",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12769099340",
+      "method": "detail-text"
+     },
+     {
+      "text": "백차",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12769099340",
+      "method": "detail-text"
+     },
+     {
+      "text": "구아바",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12769099340",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "무산소 내추럴",
+    "variety": "",
+    "region": "LUNA 루나 Bekele Yutute",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "라벤더",
+     "백차",
+     "구아바"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-12769099340-15ca3980.json",
+  "detailText": "Roast Date - 12/10 에티오피아 베켈레 유투테, 무산소 내추럴 Ethiopia Bekele Yutute, Anaerobic Natural 용량 250g CUP NOTE 라벤더, 백차, 구아바, 망고 같은 과일의 캐릭터가 들어있는 섬세하고 클린한 커피 INFORMATION 2024년 컵 오브 엑설런스 4위를 차지한 생산자 베켈레 유투테 Bekele Yutute가 시다마 Sidama 벤사 Bensa 지역의 자신의 농장에서 재배한 74158 품종입니다. 전통 내추럴 방식으로 가공했으며, 체리 전체를 아프리칸 베드에서 건조해 ",
+  "detailTextFullLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20251203_277/17647405507204Gr7S_PNG/2865060470083569_1577399973.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "cafedoan-10838004944",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "MANHATTAN 맨해튼 Kenya Kegwa AA Washed",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/10838004944",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-10838004944",
+   "roasterName": "카페도안",
+   "productName": "MANHATTAN 맨해튼 Kenya Kegwa AA Washed",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/10838004944",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-10838004944-91638706.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "레몬",
+     "체리",
+     "쥬시",
+     "검은딸기"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "lemon",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_156/1745388536436LzXwp_PNG/79521369864458782_1365527114.png?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "cherry",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_156/1745388536436LzXwp_PNG/79521369864458782_1365527114.png?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "blackberry",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_156/1745388536436LzXwp_PNG/79521369864458782_1365527114.png?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     },
+     {
+      "text": "juicy mouthfeel",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250423_156/1745388536436LzXwp_PNG/79521369864458782_1365527114.png?type=f750_750",
+      "method": "image-model",
+      "process": "WASHED"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "케냐",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "케냐",
+    "process": "워시드",
+    "variety": "",
+    "region": "MANHATTAN 맨해튼 Kegwa AA",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "레몬",
+     "체리",
+     "검은딸기",
+     "쥬시"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-10838004944-91638706.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250423_156/1745388536436LzXwp_PNG/79521369864458782_1365527114.png?type=f80_80",
+    "output": "[\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Lemon\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250423_156/1745388536436LzXwp_PNG/79521369864458782_1365527114.png?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"lemon\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"cherry\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"blackberry\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"juicy mouthfeel\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20220604_223/1654316857111shQf3_PNG/013.png?type=w848",
+   "https://shop-phinf.pstatic.net/20220604_158/1654316856997qyLmC_PNG/014.png?type=w848",
+   "https://shop-phinf.pstatic.net/20220604_36/1654316857617GdyAv_PNG/015.png?type=w848"
+  ]
+ }
+]

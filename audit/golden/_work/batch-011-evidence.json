@@ -1,0 +1,2035 @@
+[
+ {
+  "id": "terarosa-100020",
+  "evidenceGrade": "B",
+  "roastery": "테라로사",
+  "productName": "강릉 블렌드",
+  "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100020",
+  "isSoldOut": false,
+  "current": {
+   "id": "terarosa-100020",
+   "roasterName": "테라로사",
+   "productName": "강릉 블렌드",
+   "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100020",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/terarosa-100020-89e4091d.json",
+   "raw": {
+    "origin": "Blend",
+    "process": "Blend",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "시트러스",
+     "건과일",
+     "달콤한 산미",
+     "부드러움",
+     "긴 여운"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "말린 과일의 풍미와",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
+      "method": "image-model"
+     },
+     {
+      "text": "짙은 단맛의 여운이 남는 커피",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Dried Fruits",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Sweet Acidity",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Soft",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Long Aftertaste",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "말린 과일",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "시트러스",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "긴 여운",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Citrus",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+      "method": "image-model"
+     },
+     {
+      "text": "말린 과일의 풍미와",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
+      "method": "image-model"
+     },
+     {
+      "text": "짙은 단맛의 여운이 남는 커피",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
+      "method": "image-model"
+     },
+     {
+      "text": "잘 익은 과일의 산미",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "농축된 단맛",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "부드러운 촉감",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "깊은 여운",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Dried Fruits",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Sweet Acidity",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Soft",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     },
+     {
+      "text": "Long Aftertaste",
+      "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+      "method": "image-model"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "블렌드",
+    "process": "블렌드",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "건과일",
+     "달콤한 산미",
+     "부드러움",
+     "긴 여운",
+     "시트러스"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/terarosa-100020-89e4091d.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"말린 과일의 풍미와\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"짙은 단맛의 여운이 남는 커피\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"Dried Fruits, Sweet Acidity, Soft, Long Aftertaste\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"말린 과일, 시트러스, 긴 여운\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Dried Fruits, Citrus, Long Aftertaste\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"말린 과일의 풍미와\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"짙은 단맛의 여운이 남는 커피\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"잘 익은 과일의 산미, 농축된 단맛, 부드러운 촉감, 깊은 여운\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Dried Fruits, Sweet Acidity, Soft, Long Aftertaste\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
+   "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+   "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
+   "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+   "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.webp"
+  ]
+ },
+ {
+  "id": "coffeelibre-8141",
+  "evidenceGrade": "C",
+  "roastery": "커피리브레",
+  "productName": "[싱글오리진] 니카라과 로 프로메티도 허니 [강배전]",
+  "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%88%EC%B9%B4%EB%9D%BC%EA%B3%BC%20%EB%A1%9C%20%ED%94%84%EB%A1%9C%EB%A9%94%ED%8B%B0%EB%8F%84%20%ED%97%88%EB%8B%88",
+  "isSoldOut": false,
+  "current": {
+   "id": "coffeelibre-8141",
+   "roasterName": "커피리브레",
+   "productName": "[싱글오리진] 니카라과 로 프로메티도 허니 [강배전]",
+   "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%88%EC%B9%B4%EB%9D%BC%EA%B3%BC%20%EB%A1%9C%20%ED%94%84%EB%A1%9C%EB%A9%94%ED%8B%B0%EB%8F%84%20%ED%97%88%EB%8B%88",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/coffeelibre-8141-7891154c.json",
+   "raw": {
+    "origin": "'https://coffeelibre.kr',",
+    "process": "허니",
+    "variety": null,
+    "roastLevel": "Dark",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "니카라과",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "니카라과",
+    "process": "허니",
+    "variety": "카투아이",
+    "region": "로 프메티도",
+    "roastLevel": "Dark",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/coffeelibre-8141-7891154c.json"
+ },
+ {
+  "id": "momos-7381",
+  "evidenceGrade": "C",
+  "roastery": "모모스커피",
+  "productName": "원두 므쵸베리 1kg 대용량",
+  "productUrl": "https://momos.co.kr/shop_view/7381",
+  "isSoldOut": false,
+  "current": {
+   "id": "momos-7381",
+   "roasterName": "모모스커피",
+   "productName": "원두 므쵸베리 1kg 대용량",
+   "productUrl": "https://momos.co.kr/shop_view/7381",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/momos-7381-d436a2c3.json",
+   "raw": {
+    "origin": "확인 필요",
+    "process": "확인 필요",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "체리",
+     "쥬시"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "믹스베리",
+      "sourceUrl": "https://momos.co.kr/shop_view/7381",
+      "method": "detail-text"
+     },
+     {
+      "text": "체리",
+      "sourceUrl": "https://momos.co.kr/shop_view/7381",
+      "method": "detail-text"
+     },
+     {
+      "text": "쥬시",
+      "sourceUrl": "https://momos.co.kr/shop_view/7381",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "",
+    "process": "",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "체리",
+     "쥬시"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/momos-7381-d436a2c3.json"
+ },
+ {
+  "id": "aerycoffee-12350302153",
+  "evidenceGrade": "C",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 엘리다 토레 게이샤 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/12350302153",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-12350302153",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 파나마 엘리다 토레 게이샤 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/12350302153",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/aerycoffee-12350302153-591b29a6.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "파나마",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "파나마",
+    "process": "워시드",
+    "variety": "게이샤",
+    "region": "엘리다 토레",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-12350302153-591b29a6.json"
+ },
+ {
+  "id": "cafedoan-13627489275",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "Solberg & Hansen 솔벅 & 한센 페루 히메네즈 게이샤 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13627489275",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-13627489275",
+   "roasterName": "카페도안",
+   "productName": "Solberg & Hansen 솔벅 & 한센 페루 히메네즈 게이샤 워시드",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/13627489275",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-13627489275-b4e97a49.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Floral og kompleks. Fersken og sitrustoner.",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260609_199/1781002052194s5CC6_PNG/60395999292860008_977316341.png?type=f750_750",
+      "method": "image-model",
+      "process": "Våtforedlet, fermentert i 24 t uten fruktkjøtt"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "페루",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "페루",
+    "process": "워시드",
+    "variety": "게이샤",
+    "region": "Solberg Hansen 솔벅 한센 히메네즈",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-13627489275-b4e97a49.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"Floral og kompleks. Fersken og sitrustoner.\",\n    \"group\": \"\",\n    \"process\": \"Våtforedlet, fermentert i 24 t uten fruktkjøtt\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260609_199/1781002052194s5CC6_PNG/60395999292860008_977316341.png?type=f80_80",
+   "https://shop-phinf.pstatic.net/20260609_199/1781002052194s5CC6_PNG/60395999292860008_977316341.png?type=f750_750"
+  ]
+ },
+ {
+  "id": "hocuspocus-11541409913",
+  "evidenceGrade": "C",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "온두라스 페드로 모레노 워시드",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11541409913",
+  "isSoldOut": false,
+  "current": {
+   "id": "hocuspocus-11541409913",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "온두라스 페드로 모레노 워시드",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11541409913",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/hocuspocus-11541409913-55c6a47f.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "온두라스",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "온두라스",
+    "process": "워시드",
+    "variety": "",
+    "region": "페드로 모레노",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/hocuspocus-11541409913-55c6a47f.json"
+ },
+ {
+  "id": "루비아커피-콜롬비아라스알마스워시드다크로스트",
+  "evidenceGrade": "B",
+  "roastery": "루비아 커피",
+  "productName": "콜롬비아 라스 알마스 워시드 다크 로스트",
+  "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11382673190",
+  "isSoldOut": false,
+  "current": {
+   "id": "루비아커피-콜롬비아라스알마스워시드다크로스트",
+   "roasterName": "루비아 커피",
+   "productName": "콜롬비아 라스 알마스 워시드 다크 로스트",
+   "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11382673190",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/루비아커피-콜롬비아라스알마스워시드다크로스트-9e7c6fb1.json",
+   "raw": {
+    "origin": "루비아 커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초콜릿",
+     "바닐라",
+     "견과류"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "바닐라",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20251023_108/1761179156637qIjK6_PNG/14774068685995093_1706546667.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "견과류",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20251023_108/1761179156637qIjK6_PNG/14774068685995093_1706546667.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20251023_108/1761179156637qIjK6_PNG/14774068685995093_1706546667.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "바닐라",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "달콤한 견과류",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f750_750",
+      "method": "image-model",
+      "process": "Washed"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "콜롬비아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "콜롬비아",
+    "process": "워시드",
+    "variety": "",
+    "region": "라스 알마스",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "바닐라",
+     "견과류",
+     "초콜릿"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/루비아커피-콜롬비아라스알마스워시드다크로스트-9e7c6fb1.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"바닐라\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"견과류\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"초콜릿\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"바닐라\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"달콤한 견과류\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"초콜릿\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20251023_108/1761179156637qIjK6_PNG/14774068685995093_1706546667.png?type=f80_80",
+   "https://shop-phinf.pstatic.net/20251023_108/1761179156637qIjK6_PNG/14774068685995093_1706546667.png?type=f750_750",
+   "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f750_750"
+  ]
+ },
+ {
+  "id": "fillout-13737330771",
+  "evidenceGrade": "B",
+  "roastery": "필아웃커피",
+  "productName": "필아웃커피 싱글오리진 원두 정기배송",
+  "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13737330771",
+  "isSoldOut": false,
+  "current": {
+   "id": "fillout-13737330771",
+   "roasterName": "필아웃커피",
+   "productName": "필아웃커피 싱글오리진 원두 정기배송",
+   "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13737330771",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/fillout-13737330771-9100b988.json",
+   "raw": {
+    "origin": "필아웃커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "",
+    "process": "",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/fillout-13737330771-9100b988.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260828_177/1787919530535lqpVR_JPEG/64381441683123548_1199709240.jpg?type=f750_750",
+   "https://shop-phinf.pstatic.net/20260831_36/1788165272977GsWXu_JPEG/%EC%A0%95%EA%B8%B0%EA%B5%AC%EB%8F%85_%EC%83%81%EC%84%B8_01.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260831_42/178816527299221EbT_JPEG/%EC%A0%95%EA%B8%B0%EA%B5%AC%EB%8F%85_%EC%83%81%EC%84%B8_02.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260831_1/1788166766923nV1W8_JPEG/%EC%A0%95%EA%B8%B0%EA%B5%AC%EB%8F%85_%EC%83%81%EC%84%B8_03.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260831_192/1788165272978eS096_JPEG/%EC%A0%95%EA%B8%B0%EA%B5%AC%EB%8F%85_%EC%83%81%EC%84%B8_04.jpg?type=w848"
+  ]
+ },
+ {
+  "id": "namusairo-828",
+  "evidenceGrade": "B",
+  "roastery": "나무사이로",
+  "productName": "디카프리오",
+  "productUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+  "isSoldOut": false,
+  "current": {
+   "id": "namusairo-828",
+   "roasterName": "나무사이로",
+   "productName": "디카프리오",
+   "productUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/namusairo-828-a67928aa.json",
+   "raw": {
+    "origin": "Mexico",
+    "process": "워시드 디카페인 Washed - MWP Decaf Origin Select",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초콜릿",
+     "캐러멜",
+     "꿀",
+     "구운향"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "카카오",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "카라멜",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "군밤",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "꿀 Cacao",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "caramel",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "roasted chestnuts",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "honey",
+      "sourceUrl": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "멕시코",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "멕시코",
+    "process": "워시드",
+    "variety": "티피카",
+    "region": "디카프리오",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초콜릿",
+     "캐러멜",
+     "꿀",
+     "구운향"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/namusairo-828-a67928aa.json",
+  "detailText": "",
+  "rawTexts": [
+   {
+    "url": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+    "text": "디카프리오 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 디카프리오\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 디카프리오 \n 원산지 \n Mexico \n 지 역 \n 베라크루스, 오아하카, 치아파스 Veracruz, Oaxaca, Chiapas \n 가공소 \n 데스카맥스 Descamex \n 고 도 \n 1000 ― 1800m \n 품 종 \n 버본, 티피카, 문도노보 Bourbon, Typica, Mundo Novo \n 가공법 \n 워시드 디카페인 Washed - MWP Decaf Origin Select \n 볶음도 \n Well-done \n 향 미 \n 카카오, 카라멜, 군밤, 꿀 Cacao, caramel, roasted chestnuts, honey \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;16,000 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 할인 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 디카프리오 \n 16000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 4 \n 관련상품 \n 나무사이로가 골라 MWP 가공한 디카페인\n디카프리오는 나무사이로 디카페인 커피입니다.\r\n이번 디카프리오는 베라크루스, 오아하카, 치아파스 등\r\n멕시코 전역의 커피 재배 지역에서 생산하여\r\n혼합한 커피인 크리스탈을 나무사이로가 고른 후\r\n멕시코에서 MWP 공정으로 디카페인 가공했습니다.\r\n Decaf MWP \n멕시코 데스카맥스에서 Mountain Water Process\r\n(사용된 물의 출처인 오리사바 산 Pi co de Orizaba에서 이름이 유래함)\r\n방식으로 생산된 커피.\r\n수용성 카페인 분자는 추출 과정에서\r\n증기와 뜨거운 물에 노출됩니다.\r\n카페인 분자와 각종 향미화합물이 포함된 수용액은\r\n카페인 분자를 포착하는 탄소 필터를 통과하고,\r\n여과된 수용액은 커피에 다시 주입되어\r\n고유한 향기와 풍미를 살립니다.\r\n커피는 다시 조심스럽게 건조됩니다.\r\n 한 잔에 카페인이 얼마나 들어있나요?\n데스카맥스에서 디카페인 공정을 거친 이 원두의 카페인 함량은 0.04%로\r\n원두 20g을 사용하여 40g의 에스프레소를 추출했을 때\r\n에스프레소 한 잔에 들어있을 카페인 함량은 0.008g (8mg) 이하이며,\r\n에스프레소 추출 과정에서 카페인의 용해도(80% 내외 추출 가능)를 고려하면\r\n한 잔의 에스프레소에 들어 있을 것으로 추정되는 카페인은\r\n0.0064g (6.4mg) 정도입니다.\r\n * \r\n미국 FDA와 유럽식품안전청(EFSA)이 공통적으로 제시하는\r\n일반적인 성인의 카페인 섭취 상한선은 하루 기준 400mg 이하 \r\n* \r\n나무사이로 디카페인 커피로 카페인 …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+    "text": "디카프리오 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 디카프리오\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 디카프리오 \n 원산지 \n Mexico \n 지 역 \n 베라크루스, 오아하카, 치아파스 Veracruz, Oaxaca, Chiapas \n 가공소 \n 데스카맥스 Descamex \n 고 도 \n 1000 ― 1800m \n 품 종 \n 버본, 티피카, 문도노보 Bourbon, Typica, Mundo Novo \n 가공법 \n 워시드 디카페인 Washed - MWP Decaf Origin Select \n 볶음도 \n Well-done \n 향 미 \n 카카오, 카라멜, 군밤, 꿀 Cacao, caramel, roasted chestnuts, honey \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;16,000 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 할인 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 디카프리오 \n 16000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 4 \n 관련상품 \n 나무사이로가 골라 MWP 가공한 디카페인\n디카프리오는 나무사이로 디카페인 커피입니다.\r\n이번 디카프리오는 베라크루스, 오아하카, 치아파스 등\r\n멕시코 전역의 커피 재배 지역에서 생산하여\r\n혼합한 커피인 크리스탈을 나무사이로가 고른 후\r\n멕시코에서 MWP 공정으로 디카페인 가공했습니다.\r\n Decaf MWP \n멕시코 데스카맥스에서 Mountain Water Process\r\n(사용된 물의 출처인 오리사바 산 Pi co de Orizaba에서 이름이 유래함)\r\n방식으로 생산된 커피.\r\n수용성 카페인 분자는 추출 과정에서\r\n증기와 뜨거운 물에 노출됩니다.\r\n카페인 분자와 각종 향미화합물이 포함된 수용액은\r\n카페인 분자를 포착하는 탄소 필터를 통과하고,\r\n여과된 수용액은 커피에 다시 주입되어\r\n고유한 향기와 풍미를 살립니다.\r\n커피는 다시 조심스럽게 건조됩니다.\r\n 한 잔에 카페인이 얼마나 들어있나요?\n데스카맥스에서 디카페인 공정을 거친 이 원두의 카페인 함량은 0.04%로\r\n원두 20g을 사용하여 40g의 에스프레소를 추출했을 때\r\n에스프레소 한 잔에 들어있을 카페인 함량은 0.008g (8mg) 이하이며,\r\n에스프레소 추출 과정에서 카페인의 용해도(80% 내외 추출 가능)를 고려하면\r\n한 잔의 에스프레소에 들어 있을 것으로 추정되는 카페인은\r\n0.0064g (6.4mg) 정도입니다.\r\n * \r\n미국 FDA와 유럽식품안전청(EFSA)이 공통적으로 제시하는\r\n일반적인 성인의 카페인 섭취 상한선은 하루 기준 400mg 이하 \r\n* \r\n나무사이로 디카페인 커피로 카페인 …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/디카프리오/828/category/91/display/1/",
+    "text": "디카프리오 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 디카프리오\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 디카프리오 \n 원산지 \n Mexico \n 지 역 \n 베라크루스, 오아하카, 치아파스 Veracruz, Oaxaca, Chiapas \n 가공소 \n 데스카맥스 Descamex \n 고 도 \n 1000 ― 1800m \n 품 종 \n 버본, 티피카, 문도노보 Bourbon, Typica, Mundo Novo \n 가공법 \n 워시드 디카페인 Washed - MWP Decaf Origin Select \n 볶음도 \n Well-done \n 향 미 \n 카카오, 카라멜, 군밤, 꿀 Cacao, caramel, roasted chestnuts, honey \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;16,000 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 할인 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 디카프리오 \n 16000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 4 \n 관련상품 \n 나무사이로가 골라 MWP 가공한 디카페인\n디카프리오는 나무사이로 디카페인 커피입니다.\r\n이번 디카프리오는 베라크루스, 오아하카, 치아파스 등\r\n멕시코 전역의 커피 재배 지역에서 생산하여\r\n혼합한 커피인 크리스탈을 나무사이로가 고른 후\r\n멕시코에서 MWP 공정으로 디카페인 가공했습니다.\r\n Decaf MWP \n멕시코 데스카맥스에서 Mountain Water Process\r\n(사용된 물의 출처인 오리사바 산 Pi co de Orizaba에서 이름이 유래함)\r\n방식으로 생산된 커피.\r\n수용성 카페인 분자는 추출 과정에서\r\n증기와 뜨거운 물에 노출됩니다.\r\n카페인 분자와 각종 향미화합물이 포함된 수용액은\r\n카페인 분자를 포착하는 탄소 필터를 통과하고,\r\n여과된 수용액은 커피에 다시 주입되어\r\n고유한 향기와 풍미를 살립니다.\r\n커피는 다시 조심스럽게 건조됩니다.\r\n 한 잔에 카페인이 얼마나 들어있나요?\n데스카맥스에서 디카페인 공정을 거친 이 원두의 카페인 함량은 0.04%로\r\n원두 20g을 사용하여 40g의 에스프레소를 추출했을 때\r\n에스프레소 한 잔에 들어있을 카페인 함량은 0.008g (8mg) 이하이며,\r\n에스프레소 추출 과정에서 카페인의 용해도(80% 내외 추출 가능)를 고려하면\r\n한 잔의 에스프레소에 들어 있을 것으로 추정되는 카페인은\r\n0.0064g (6.4mg) 정도입니다.\r\n * \r\n미국 FDA와 유럽식품안전청(EFSA)이 공통적으로 제시하는\r\n일반적인 성인의 카페인 섭취 상한선은 하루 기준 400mg 이하 \r\n* \r\n나무사이로 디카페인 커피로 카페인 …(생략)"
+   }
+  ],
+  "ocrNotes": [],
+  "detailImageUrls": [
+   "https://namusairo.com/web/product/medium/202401/3d4ab87286cf2d4cb6cd011202b120c9.png"
+  ]
+ },
+ {
+  "id": "로스터릭-브라질세라도내추럴",
+  "evidenceGrade": "B",
+  "roastery": "로스터릭",
+  "productName": "브라질 세라도 내추럴",
+  "productUrl": "https://smartstore.naver.com/rick/products/12522765985",
+  "isSoldOut": false,
+  "current": {
+   "id": "로스터릭-브라질세라도내추럴",
+   "roasterName": "로스터릭",
+   "productName": "브라질 세라도 내추럴",
+   "productUrl": "https://smartstore.naver.com/rick/products/12522765985",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/로스터릭-브라질세라도내추럴-1db2b00a.json",
+   "raw": {
+    "origin": "로스터릭",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "다크초콜릿",
+     "참깨",
+     "구운빵"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "참깨",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260213_35/17709814926945Kqtb_PNG/20789739520925645_1396247662.png?type=f750_750",
+      "method": "image-model",
+      "process": "내추럴"
+     },
+     {
+      "text": "구운 빵",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260213_35/17709814926945Kqtb_PNG/20789739520925645_1396247662.png?type=f750_750",
+      "method": "image-model",
+      "process": "내추럴"
+     },
+     {
+      "text": "다크 초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260213_35/17709814926945Kqtb_PNG/20789739520925645_1396247662.png?type=f750_750",
+      "method": "image-model",
+      "process": "내추럴"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "브라질",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "브라질",
+    "process": "내추럴",
+    "variety": "",
+    "region": "세라도",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "참깨",
+     "구운빵",
+     "다크초콜릿"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/로스터릭-브라질세라도내추럴-1db2b00a.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"복숭아, 살구, 자두, 꿀, 꽃향\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"부드러운 산미와 단맛\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"깔끔한 여운\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"참깨\",\n    \"group\": \"\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"구운 빵\",\n    \"group\": \"\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"다크 초콜릿\",\n    \"group\": \"\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260213_35/17709814926945Kqtb_PNG/20789739520925645_1396247662.png?type=f80_80",
+   "https://shop-phinf.pstatic.net/20260213_35/17709814926945Kqtb_PNG/20789739520925645_1396247662.png?type=f750_750"
+  ]
+ },
+ {
+  "id": "terarosa-100543",
+  "evidenceGrade": "B",
+  "roastery": "테라로사",
+  "productName": "[9월 KING콩] 에티오피아 리무 아가로 토착종 워시드",
+  "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100543",
+  "isSoldOut": false,
+  "current": {
+   "id": "terarosa-100543",
+   "roasterName": "테라로사",
+   "productName": "[9월 KING콩] 에티오피아 리무 아가로 토착종 워시드",
+   "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100543",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/terarosa-100543-c9569f19.json",
+   "raw": {
+    "origin": "Ethiopia · Limmu Agaro",
+    "process": "Washed",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "살구",
+     "리치",
+     "홍차",
+     "허브"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "Black Tea",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "Apricot",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "Lychee",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "Herbs",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "Crisp Finish",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "홍차",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "살구",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "리치",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "허브",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     },
+     {
+      "text": "깔끔한 여운",
+      "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+      "method": "image-model",
+      "process": "Washed"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "리무 아가로 토착종",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "홍차",
+     "살구",
+     "리치",
+     "허브"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/terarosa-100543-c9569f19.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"Black Tea, Apricot, Lychee, Herbs, Crisp Finish\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"홍차, 살구, 리치, 허브, 깔끔한 여운\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Black Tea, Apricot, Lychee, Herbs, Crisp Finish\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+   "https://www.terarosa.com/UpImg/item/detail/20260831080907_1788163747839_Soj9LEBh_u.webp"
+  ]
+ },
+ {
+  "id": "coffeelibre-8031",
+  "evidenceGrade": "B",
+  "roastery": "커피리브레",
+  "productName": "달그림자 블렌드 원두 200g",
+  "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%AC%EA%B7%B8%EB%A6%BC%EC%9E%90%20%EB%B8%94%EB%A0%8C%EB%93%9C%20%EC%9B%90%EB%91%90",
+  "isSoldOut": false,
+  "current": {
+   "id": "coffeelibre-8031",
+   "roasterName": "커피리브레",
+   "productName": "달그림자 블렌드 원두 200g",
+   "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%AC%EA%B7%B8%EB%A6%BC%EC%9E%90%20%EB%B8%94%EB%A0%8C%EB%93%9C%20%EC%9B%90%EB%91%90",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/coffeelibre-8031-39f63ef7.json",
+   "raw": {
+    "origin": "'https://coffeelibre.kr',",
+    "process": "Blend",
+    "variety": null,
+    "roastLevel": "Dark",
+    "tastingNotes": [
+     "블랙커런트",
+     "라즈베리",
+     "밀크초콜릿",
+     "캐러멜"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "블랙커런트",
+      "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260826/94999914a41fc57bb66a31e8190e24f1.jpg",
+      "method": "image-model",
+      "group": "달그림자 블렌드"
+     },
+     {
+      "text": "라즈베리",
+      "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260826/94999914a41fc57bb66a31e8190e24f1.jpg",
+      "method": "image-model",
+      "group": "달그림자 블렌드"
+     },
+     {
+      "text": "밀크초콜릿",
+      "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260826/94999914a41fc57bb66a31e8190e24f1.jpg",
+      "method": "image-model",
+      "group": "달그림자 블렌드"
+     },
+     {
+      "text": "캐러멜",
+      "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260826/94999914a41fc57bb66a31e8190e24f1.jpg",
+      "method": "image-model",
+      "group": "달그림자 블렌드"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "블렌드",
+    "process": "블렌드",
+    "variety": "",
+    "region": "",
+    "roastLevel": "Dark",
+    "tastingNotes": [
+     "블랙커런트",
+     "라즈베리",
+     "밀크초콜릿",
+     "캐러멜"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/coffeelibre-8031-39f63ef7.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"블랙커런트\",\n    \"group\": \"달그림자 블렌드\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"라즈베리\",\n    \"group\": \"달그림자 블렌드\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"밀크초콜릿\",\n    \"group\": \"달그림자 블렌드\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"캐러멜\",\n    \"group\": \"달그림자 블렌드\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://coffeelibre.kr/web/upload/NNEditor/20260826/94999914a41fc57bb66a31e8190e24f1.jpg",
+   "https://coffeelibre.kr/web/product/medium/202608/855a6c2c876f570c393c0ea444761761.png"
+  ]
+ },
+ {
+  "id": "aerycoffee-11529645422",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 핀카 데보라 아이리스 이스테이트 애프터글로우 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11529645422",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-11529645422",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 파나마 핀카 데보라 아이리스 이스테이트 애프터글로우 내추럴",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11529645422",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/aerycoffee-11529645422-94044b9e.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "복숭아",
+     "플로럴"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "refined floral aroma with a warm",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250321_171/1742539415671ndMWF_JPEG/90208240446271989_1457890544.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "sweet hint of peach",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250321_171/1742539415671ndMWF_JPEG/90208240446271989_1457890544.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "세련된 꽃 향기와 기분 좋은 복숭아의 은근한 단맛",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250321_171/1742539415671ndMWF_JPEG/90208240446271989_1457890544.jpg?type=f750_750",
+      "method": "image-model",
+      "process": "NATURAL"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "파나마",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "파나마",
+    "process": "내추럴",
+    "variety": "",
+    "region": "핀카 데보라 아이리스 이스테이트 애프터글로우",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "플로럴",
+     "복숭아"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-11529645422-94044b9e.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"refined floral aroma with a warm, sweet hint of peach\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"세련된 꽃 향기와 기분 좋은 복숭아의 은근한 단맛\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20250321_171/1742539415671ndMWF_JPEG/90208240446271989_1457890544.jpg?type=f750_750",
+   "https://shop-phinf.pstatic.net/20250321_171/1742539415671ndMWF_JPEG/90208240446271989_1457890544.jpg?type=f80_80"
+  ]
+ },
+ {
+  "id": "cafedoan-9985295831",
+  "evidenceGrade": "B",
+  "roastery": "카페도안",
+  "productName": "HEART ROASTERS 하트 로스터스 케냐 냐위라 AA 풀리 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/9985295831",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-9985295831",
+   "roasterName": "카페도안",
+   "productName": "HEART ROASTERS 하트 로스터스 케냐 냐위라 AA 풀리 워시드",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/9985295831",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/cafedoan-9985295831-80dbac4b.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "블랙커런트",
+     "장미",
+     "당밀"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "black currant",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260430_168/17775237811989tMbr_PNG/111656601307646926_842244601.png?type=f750_750",
+      "method": "image-model",
+      "process": "Fully washed"
+     },
+     {
+      "text": "rose hips",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260430_168/17775237811989tMbr_PNG/111656601307646926_842244601.png?type=f750_750",
+      "method": "image-model",
+      "process": "Fully washed"
+     },
+     {
+      "text": "molasses",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260430_168/17775237811989tMbr_PNG/111656601307646926_842244601.png?type=f750_750",
+      "method": "image-model",
+      "process": "Fully washed"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "케냐",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "케냐",
+    "process": "워시드",
+    "variety": "",
+    "region": "HEART ERS 하트 로스터스 냐위라 AA 풀리",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "블랙커런트",
+     "장미",
+     "당밀"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-9985295831-80dbac4b.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Earl Grey\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"black currant\",\n    \"group\": \"\",\n    \"process\": \"Fully washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"rose hips\",\n    \"group\": \"\",\n    \"process\": \"Fully washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"molasses\",\n    \"group\": \"\",\n    \"process\": \"Fully washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260430_168/17775237811989tMbr_PNG/111656601307646926_842244601.png?type=f80_80",
+   "https://shop-phinf.pstatic.net/20260430_168/17775237811989tMbr_PNG/111656601307646926_842244601.png?type=f750_750",
+   "https://shop-phinf.pstatic.net/20260430_22/1777523793407mDiTy_PNG/%EB%83%90%EC%9C%84%EB%9D%BC.png?type=w848",
+   "https://shop-phinf.pstatic.net/20260430_14/1777523797200xFYb1_PNG/2_%EC%9D%B4%EC%9C%A0.png?type=w848",
+   "https://shop-phinf.pstatic.net/20260430_236/1777523797218gDmNK_PNG/3_%EB%B8%8C%EB%A3%A8%EC%9E%89%EB%A0%88%EC%8B%9C%ED%94%BC.png?type=w848",
+   "https://shop-phinf.pstatic.net/20260430_142/1777523797371kHHUw_PNG/4_%EB%8F%84%EC%95%88%EB%B8%8C%EB%9E%9C%EB%93%9C.png?type=w848"
+  ]
+ },
+ {
+  "id": "호커스포커스로스터스-조디악블렌드고소한원두",
+  "evidenceGrade": "B",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "조디악 블렌드 고소한 원두",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/7111050623",
+  "isSoldOut": false,
+  "current": {
+   "id": "호커스포커스로스터스-조디악블렌드고소한원두",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "조디악 블렌드 고소한 원두",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/7111050623",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/호커스포커스로스터스-조디악블렌드고소한원두-76dd80e6.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "블렌드",
+    "process": "블렌드",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/호커스포커스로스터스-조디악블렌드고소한원두-76dd80e6.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20241230_80/1735562788691J4EWq_PNG/5830371712774289_1956140614.png?type=f80_80"
+  ]
+ },
+ {
+  "id": "루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피",
+  "evidenceGrade": "B",
+  "roastery": "루비아 커피",
+  "productName": "콜롬비아 엘 파라이소 리치피치 다크 로스트 가향 커피",
+  "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12137911142",
+  "isSoldOut": false,
+  "current": {
+   "id": "루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피",
+   "roasterName": "루비아 커피",
+   "productName": "콜롬비아 엘 파라이소 리치피치 다크 로스트 가향 커피",
+   "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12137911142",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피-ee30df44.json",
+   "raw": {
+    "origin": "루비아 커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "콜롬비아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "콜롬비아",
+    "process": "",
+    "variety": "",
+    "region": "엘 파라이소 리치피치 가향",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피-ee30df44.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[]"
+   },
+   {
+    "method": null,
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20241112_107/17314007509331rLFm_PNG/02_(1).png?type=w848",
+   "https://shop-phinf.pstatic.net/20241112_296/1731400531481os09A_PNG/05.png?type=w848",
+   "https://shop-phinf.pstatic.net/20250715_123/17525576666677j5RO_PNG/RUBIA_%EB%B0%B0%EB%84%88%EC%9D%B4%EB%AF%B8%EC%A7%80.png?type=w848",
+   "https://shop-phinf.pstatic.net/20250722_40/1753151749611YLCiv_PNG/%EC%BD%9C%EB%A1%AC%EB%B9%84%EC%95%84_%EC%97%98_%ED%8C%8C%EB%9D%BC%EC%9D%B4%EC%86%8C_%EB%A6%AC%EC%B9%98__%ED%94%BC%EC%B9%98_%EB%8B%A4%ED%81%AC%EB%A1%9C%EC%8A%A4%ED%8A%B8.png?type=w848",
+   "https://shop-phinf.pstatic.net/20250722_77/1753151363500iKKmW_PNG/87284164965549746_806168683.png?type=f80_80"
+  ]
+ },
+ {
+  "id": "fillout-13622523775",
+  "evidenceGrade": "B",
+  "roastery": "필아웃커피",
+  "productName": "브라질 파젠다 엄 옐로우버번 내추럴 원두",
+  "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13622523775",
+  "isSoldOut": false,
+  "current": {
+   "id": "fillout-13622523775",
+   "roasterName": "필아웃커피",
+   "productName": "브라질 파젠다 엄 옐로우버번 내추럴 원두",
+   "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13622523775",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/fillout-13622523775-3a8baa1d.json",
+   "raw": {
+    "origin": "필아웃커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초콜릿",
+     "캐러멜",
+     "견과류"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "견과류",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260612_90/1781233343810J1Smu_JPEG/%EB%B8%8C%EB%9D%BC%EC%A7%88_%ED%8C%8C%EC%A0%A0%EB%8B%A4%EC%97%84.jpg?type=w848",
+      "method": "image-model",
+      "group": "브라질 파젠다 엄 옐로우 버번 내추럴",
+      "process": "내추럴"
+     },
+     {
+      "text": "초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260612_90/1781233343810J1Smu_JPEG/%EB%B8%8C%EB%9D%BC%EC%A7%88_%ED%8C%8C%EC%A0%A0%EB%8B%A4%EC%97%84.jpg?type=w848",
+      "method": "image-model",
+      "group": "브라질 파젠다 엄 옐로우 버번 내추럴",
+      "process": "내추럴"
+     },
+     {
+      "text": "카라멜",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260612_90/1781233343810J1Smu_JPEG/%EB%B8%8C%EB%9D%BC%EC%A7%88_%ED%8C%8C%EC%A0%A0%EB%8B%A4%EC%97%84.jpg?type=w848",
+      "method": "image-model",
+      "group": "브라질 파젠다 엄 옐로우 버번 내추럴",
+      "process": "내추럴"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "브라질",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "브라질",
+    "process": "내추럴",
+    "variety": "버번",
+    "region": "파젠다 엄 옐로우",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "견과류",
+     "초콜릿",
+     "캐러멜"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/fillout-13622523775-3a8baa1d.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"견과류\",\n    \"group\": \"브라질 파젠다 엄 옐로우 버번 내추럴\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"초콜릿\",\n    \"group\": \"브라질 파젠다 엄 옐로우 버번 내추럴\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"카라멜\",\n    \"group\": \"브라질 파젠다 엄 옐로우 버번 내추럴\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260612_263/1781233327075uaEj3_JPEG/13204948720897523_1291944844.jpg?type=f80_80",
+   "https://shop-phinf.pstatic.net/20260612_90/1781233343810J1Smu_JPEG/%EB%B8%8C%EB%9D%BC%EC%A7%88_%ED%8C%8C%EC%A0%A0%EB%8B%A4%EC%97%84.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260608_299/1780850560089yuTzI_JPEG/%ED%91%B8%ED%84%B0_01.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260608_52/1780850560121FGJbw_JPEG/%ED%91%B8%ED%84%B0_02.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260608_234/1780850560136DC37B_JPEG/%ED%91%B8%ED%84%B0_03.jpg?type=w848"
+  ]
+ },
+ {
+  "id": "namusairo-183",
+  "evidenceGrade": "B",
+  "roastery": "나무사이로",
+  "productName": "위",
+  "productUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+  "isSoldOut": false,
+  "current": {
+   "id": "namusairo-183",
+   "roasterName": "나무사이로",
+   "productName": "위",
+   "productUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/namusairo-183-760d91e3.json",
+   "raw": {
+    "origin": "Guatemala · Ethiopia",
+    "process": "확인 필요",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "복숭아",
+     "천도복숭아",
+     "자두",
+     "바닐라",
+     "부드러움"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "자두",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "천도복숭아",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "바닐라",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "부드러운 질감 Plum",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "peach",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "vanilla",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "soft texture",
+      "sourceUrl": "https://namusairo.com/product/위/183/category/91/display/1/",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "과테말라",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "과테말라",
+    "process": "",
+    "variety": "",
+    "region": "위",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "자두",
+     "천도복숭아",
+     "바닐라",
+     "부드러움",
+     "복숭아"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/namusairo-183-760d91e3.json",
+  "detailText": "",
+  "rawTexts": [
+   {
+    "url": "https://namusairo.com/product/위/183/category/91/display/1/",
+    "text": "위 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 위\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 위 \n 원산지 \n Guatemala · Ethiopia \n 볶음도 \n Medium \n 향 미 \n 자두, 천도복숭아, 바닐라, 부드러운 질감 Plum, peach, vanilla, soft texture \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;15,500 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,550) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;775) 할인 \n 5회 결제 시 : 10%(&#8361;1,550) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 위 \n 15500 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 34 \n 관련상품 \n 우리, 나무사이로\n과테말라와 에티오피아 커피를 블렌딩한 이 커피는\r\n나무사이로 하우스 블렌드 1호입니다.\r\n초창기에는 과테말라 안티구아와 에티오피아 이르가체프의 조합으로\r\n나무사이로의 나무 를 따서 나무커피 라 불렀고,\r\n지금은 과테말라 우에우에테낭고 와이칸과\r\n에티오피아 달고단 워시드 커피를 블렌딩하여\r\n와이칸Wakan과 에티오피아Ethiopia의 앞자리를 딴\r\n 위WE 로 다시 이름지었습니다.\r\n과테말라의 고소함과\r\n에티오피아의 향기로움을 적절히 배합하여\r\n복숭아의 향긋함과 부드러운 감촉이 특징으로,\r\n우리가 오랫동안 좋아해 온 향미를 지니고 있습니다.\r\n위 블렌드는 우리의 시작입니다.\r\n BREWING GUIDE\r\n BREWING Hario V60 \n 원두량 \r\n HOT \r\n 20g \n ICE \r\n 21g \n 비율 \r\n HOT \r\n 원두1 : 물16 (온수 320g) \n ICE \r\n원두1 : 물10 (온수 210g)\r\n *서버에 얼음 충분히 채우기\n 추출시간 \r\n HOT \r\n 2’20” ~ 2’50” 내외 \n ICE \r\n 2’00” 내외 \n 추출온도 \r\n88 ~ 96℃ 내외\r\n 라이트 94℃\r\n 미디엄 92℃\r\n 다크 90℃\r\n 분쇄도 \r\n950㎛ 내외 (+-50㎛)\r\n 말코닉EK43 \r\n 10 ~ 13 \n 코만단테C40 \r\n 21 ~ 27clicks \n HOT \r\n ① 온수 50g으로 30초 뜸들이기 \n ② 향미 · 클린컵 중심 \r\n40초 간격 2회 물붓기 (140-130g), 총 2’20” 내외 \n ② 단맛 · 바디감 중심 \r\n30초 간격 3회 물붓기 (100-90-80g), 총 2’50” 내외 \n ICE \r\n ① 온수 60g으로 30초 뜸들이기 \n ② 30초 간격 3회 물붓기 (50-50-50g), 총 …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/위/183/category/91/display/1/",
+    "text": "위 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 위\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 위 \n 원산지 \n Guatemala · Ethiopia \n 볶음도 \n Medium \n 향 미 \n 자두, 천도복숭아, 바닐라, 부드러운 질감 Plum, peach, vanilla, soft texture \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;15,500 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,550) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;775) 할인 \n 5회 결제 시 : 10%(&#8361;1,550) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 위 \n 15500 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 34 \n 관련상품 \n 우리, 나무사이로\n과테말라와 에티오피아 커피를 블렌딩한 이 커피는\r\n나무사이로 하우스 블렌드 1호입니다.\r\n초창기에는 과테말라 안티구아와 에티오피아 이르가체프의 조합으로\r\n나무사이로의 나무 를 따서 나무커피 라 불렀고,\r\n지금은 과테말라 우에우에테낭고 와이칸과\r\n에티오피아 달고단 워시드 커피를 블렌딩하여\r\n와이칸Wakan과 에티오피아Ethiopia의 앞자리를 딴\r\n 위WE 로 다시 이름지었습니다.\r\n과테말라의 고소함과\r\n에티오피아의 향기로움을 적절히 배합하여\r\n복숭아의 향긋함과 부드러운 감촉이 특징으로,\r\n우리가 오랫동안 좋아해 온 향미를 지니고 있습니다.\r\n위 블렌드는 우리의 시작입니다.\r\n BREWING GUIDE\r\n BREWING Hario V60 \n 원두량 \r\n HOT \r\n 20g \n ICE \r\n 21g \n 비율 \r\n HOT \r\n 원두1 : 물16 (온수 320g) \n ICE \r\n원두1 : 물10 (온수 210g)\r\n *서버에 얼음 충분히 채우기\n 추출시간 \r\n HOT \r\n 2’20” ~ 2’50” 내외 \n ICE \r\n 2’00” 내외 \n 추출온도 \r\n88 ~ 96℃ 내외\r\n 라이트 94℃\r\n 미디엄 92℃\r\n 다크 90℃\r\n 분쇄도 \r\n950㎛ 내외 (+-50㎛)\r\n 말코닉EK43 \r\n 10 ~ 13 \n 코만단테C40 \r\n 21 ~ 27clicks \n HOT \r\n ① 온수 50g으로 30초 뜸들이기 \n ② 향미 · 클린컵 중심 \r\n40초 간격 2회 물붓기 (140-130g), 총 2’20” 내외 \n ② 단맛 · 바디감 중심 \r\n30초 간격 3회 물붓기 (100-90-80g), 총 2’50” 내외 \n ICE \r\n ① 온수 60g으로 30초 뜸들이기 \n ② 30초 간격 3회 물붓기 (50-50-50g), 총 …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/위/183/category/91/display/1/",
+    "text": "위 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 위\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 위 \n 원산지 \n Guatemala · Ethiopia \n 볶음도 \n Medium \n 향 미 \n 자두, 천도복숭아, 바닐라, 부드러운 질감 Plum, peach, vanilla, soft texture \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;15,500 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,550) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;775) 할인 \n 5회 결제 시 : 10%(&#8361;1,550) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 위 \n 15500 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 34 \n 관련상품 \n 우리, 나무사이로\n과테말라와 에티오피아 커피를 블렌딩한 이 커피는\r\n나무사이로 하우스 블렌드 1호입니다.\r\n초창기에는 과테말라 안티구아와 에티오피아 이르가체프의 조합으로\r\n나무사이로의 나무 를 따서 나무커피 라 불렀고,\r\n지금은 과테말라 우에우에테낭고 와이칸과\r\n에티오피아 달고단 워시드 커피를 블렌딩하여\r\n와이칸Wakan과 에티오피아Ethiopia의 앞자리를 딴\r\n 위WE 로 다시 이름지었습니다.\r\n과테말라의 고소함과\r\n에티오피아의 향기로움을 적절히 배합하여\r\n복숭아의 향긋함과 부드러운 감촉이 특징으로,\r\n우리가 오랫동안 좋아해 온 향미를 지니고 있습니다.\r\n위 블렌드는 우리의 시작입니다.\r\n BREWING GUIDE\r\n BREWING Hario V60 \n 원두량 \r\n HOT \r\n 20g \n ICE \r\n 21g \n 비율 \r\n HOT \r\n 원두1 : 물16 (온수 320g) \n ICE \r\n원두1 : 물10 (온수 210g)\r\n *서버에 얼음 충분히 채우기\n 추출시간 \r\n HOT \r\n 2’20” ~ 2’50” 내외 \n ICE \r\n 2’00” 내외 \n 추출온도 \r\n88 ~ 96℃ 내외\r\n 라이트 94℃\r\n 미디엄 92℃\r\n 다크 90℃\r\n 분쇄도 \r\n950㎛ 내외 (+-50㎛)\r\n 말코닉EK43 \r\n 10 ~ 13 \n 코만단테C40 \r\n 21 ~ 27clicks \n HOT \r\n ① 온수 50g으로 30초 뜸들이기 \n ② 향미 · 클린컵 중심 \r\n40초 간격 2회 물붓기 (140-130g), 총 2’20” 내외 \n ② 단맛 · 바디감 중심 \r\n30초 간격 3회 물붓기 (100-90-80g), 총 2’50” 내외 \n ICE \r\n ① 온수 60g으로 30초 뜸들이기 \n ② 30초 간격 3회 물붓기 (50-50-50g), 총 …(생략)"
+   }
+  ],
+  "ocrNotes": [],
+  "detailImageUrls": [
+   "https://namusairo.com/web/product/medium/202309/78f159f2acdbca3686e305746518e2ff.png"
+  ]
+ },
+ {
+  "id": "로스터릭-파나마보케테팔미라워시드중강배전",
+  "evidenceGrade": "B",
+  "roastery": "로스터릭",
+  "productName": "파나마 보케테 팔미라 워시드 중강배전",
+  "productUrl": "https://smartstore.naver.com/rick/products/12522816818",
+  "isSoldOut": false,
+  "current": {
+   "id": "로스터릭-파나마보케테팔미라워시드중강배전",
+   "roasterName": "로스터릭",
+   "productName": "파나마 보케테 팔미라 워시드 중강배전",
+   "productUrl": "https://smartstore.naver.com/rick/products/12522816818",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/로스터릭-파나마보케테팔미라워시드중강배전-d3c425c8.json",
+   "raw": {
+    "origin": "로스터릭",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초코무스",
+     "달고나",
+     "바닐라"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "바닐라",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260213_140/1770981882296mnaeg_PNG/23694765363064674_1051144011.png?type=f640",
+      "method": "image-model",
+      "process": "워시드"
+     },
+     {
+      "text": "초코무스",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260213_140/1770981882296mnaeg_PNG/23694765363064674_1051144011.png?type=f640",
+      "method": "image-model",
+      "process": "워시드"
+     },
+     {
+      "text": "달고나",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260213_140/1770981882296mnaeg_PNG/23694765363064674_1051144011.png?type=f640",
+      "method": "image-model",
+      "process": "워시드"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "파나마",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "파나마",
+    "process": "워시드",
+    "variety": "",
+    "region": "보케테 팔미라",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "바닐라",
+     "초코무스",
+     "달고나"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/로스터릭-파나마보케테팔미라워시드중강배전-d3c425c8.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"바닐라\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"초코무스\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"달고나\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260213_140/1770981882296mnaeg_PNG/23694765363064674_1051144011.png?type=f640"
+  ]
+ },
+ {
+  "id": "aerycoffee-13422447505",
+  "evidenceGrade": "C",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에콰도르 라 파파야 티피카 메호라도 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13422447505",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-13422447505",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 에콰도르 라 파파야 티피카 메호라도 내추럴",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/13422447505",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/aerycoffee-13422447505-d2286d1e.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에콰도르",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에콰도르",
+    "process": "내추럴",
+    "variety": "티피카",
+    "region": "라 파파야 메호라도",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-13422447505-d2286d1e.json"
+ },
+ {
+  "id": "cafedoan-12769087298",
+  "evidenceGrade": "A",
+  "roastery": "카페도안",
+  "productName": "LUNA 루나 Ethiopia Bekele Yutute Natural",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/12769087298",
+  "isSoldOut": true,
+  "current": {
+   "id": "cafedoan-12769087298",
+   "roasterName": "카페도안",
+   "productName": "LUNA 루나 Ethiopia Bekele Yutute Natural",
+   "productUrl": "https://smartstore.naver.com/doanselectshop/products/12769087298",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/cafedoan-12769087298-a5f6af30.json",
+   "raw": {
+    "origin": "카페도안",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "포도"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "락틱이 엮인 달콤하고 보랏빛 커피. 포도",
+      "sourceUrl": "https://smartstore.naver.com/doanselectshop/products/12769087298",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "내추럴",
+    "variety": "",
+    "region": "LUNA 루나 Bekele Yutute",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "포도"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/cafedoan-12769087298-a5f6af30.json",
+  "detailText": "Roast Date - 12/10 에티오피아 베켈레 유투테, 내추럴 Ethiopia Bekele Yutute, Natural 용량 250g CUP NOTE 락틱이 엮인 달콤하고 보랏빛 커피. 포도, 카카오 & 크림 그리고 라일락의 플로럴. INFORMATION 2024년 컵 오브 엑설런스 4위를 차지한 생산자 베켈레 유투테 Bekele Yutute가 시다마 Sidama 벤사 Bensa 지역의 자신의 농장에서 재배한 74158 품종입니다. 전통 내추럴 방식으로 가공했으며, 체리 전체를 아프리칸 베드에서 건조해 효모가 천천히 작용하며 ",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Earl Grey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20251203_278/1764740572150DSOR3_PNG/2525576290041057_219664872.png?type=f80_80"
+  ]
+ },
+ {
+  "id": "호커스포커스로스터스-긱블렌드고소한원두",
+  "evidenceGrade": "B",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "긱 블렌드 고소한 원두",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/5660868687",
+  "isSoldOut": false,
+  "current": {
+   "id": "호커스포커스로스터스-긱블렌드고소한원두",
+   "roasterName": "호커스포커스 로스터스",
+   "productName": "긱 블렌드 고소한 원두",
+   "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/5660868687",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/호커스포커스로스터스-긱블렌드고소한원두-3631d723.json",
+   "raw": {
+    "origin": "호커스포커스 로스터스",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "블렌드",
+    "process": "블렌드",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/호커스포커스로스터스-긱블렌드고소한원두-3631d723.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20241230_104/17355632187010Yn7e_PNG/10046885729478508_1209813189.png?type=f80_80"
+  ]
+ },
+ {
+  "id": "루비아커피-다크브라운",
+  "evidenceGrade": "A",
+  "roastery": "루비아 커피",
+  "productName": "다크브라운",
+  "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+  "isSoldOut": false,
+  "current": {
+   "id": "루비아커피-다크브라운",
+   "roasterName": "루비아 커피",
+   "productName": "다크브라운",
+   "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "A",
+   "evidenceFile": "products/루비아커피-다크브라운-f23da5a2.json",
+   "raw": {
+    "origin": "루비아 커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초콜릿",
+     "견과류",
+     "부드러움"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+      "method": "image-model",
+      "group": "DARK BROWN"
+     },
+     {
+      "text": "견과류",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+      "method": "image-model",
+      "group": "DARK BROWN"
+     },
+     {
+      "text": "깊고 진한 풍미",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+      "method": "image-model",
+      "group": "DARK BROWN"
+     },
+     {
+      "text": "초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+      "method": "image-model",
+      "group": "DARK BROWN"
+     },
+     {
+      "text": "견과류",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+      "method": "image-model",
+      "group": "DARK BROWN"
+     },
+     {
+      "text": "깊고 진한 풍미",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+      "method": "image-model",
+      "group": "DARK BROWN"
+     },
+     {
+      "text": "초콜릿",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+      "method": "image-model",
+      "group": "Taste Note"
+     },
+     {
+      "text": "부드러움",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+      "method": "image-model",
+      "group": "Taste Note"
+     },
+     {
+      "text": "깔끔한 뒷맛",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+      "method": "image-model",
+      "group": "Taste Note"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "",
+    "process": "",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "초콜릿",
+     "견과류",
+     "부드러움"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/루비아커피-다크브라운-f23da5a2.json",
+  "detailText": "부드럽고 고소한 루비아의 베스트 셀러 다크 브라운을 만나보세요. 인스타를 통해 루비아의 다양한 소식을 만나 보세요.",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"초콜릿\",\n    \"group\": \"DARK BROWN\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"견과류\",\n    \"group\": \"DARK BROWN\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"깊고 진한 풍미\",\n    \"group\": \"DARK BROWN\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"초콜릿\",\n    \"group\": \"DARK BROWN\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"견과류\",\n    \"group\": \"DARK BROWN\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"깊고 진한 풍미\",\n    \"group\": \"DARK BROWN\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"초콜릿\",\n    \"group\": \"Taste Note\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"부드러움\",\n    \"group\": \"Taste Note\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"깔끔한 뒷맛\",\n    \"group\": \"Taste Note\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
+   "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+   "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+   "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750"
+  ]
+ },
+ {
+  "id": "fillout-13684417070",
+  "evidenceGrade": "B",
+  "roastery": "필아웃커피",
+  "productName": "콜롬비아 엘 레나세르 카투라 피베리 원두",
+  "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13684417070",
+  "isSoldOut": false,
+  "current": {
+   "id": "fillout-13684417070",
+   "roasterName": "필아웃커피",
+   "productName": "콜롬비아 엘 레나세르 카투라 피베리 원두",
+   "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13684417070",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/fillout-13684417070-29ea682e.json",
+   "raw": {
+    "origin": "필아웃커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "열대과일",
+     "초콜릿"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "열대과일",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260727_24/1785131941849ux093_JPEG/%EC%BD%9C%EB%A1%AC%EB%B9%84%EC%95%84_%EC%B9%B4%ED%88%AC%EB%9D%BC%ED%94%BC%EB%B2%A0%EB%A6%AC.jpg?type=w848",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "카카오",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260727_24/1785131941849ux093_JPEG/%EC%BD%9C%EB%A1%AC%EB%B9%84%EC%95%84_%EC%B9%B4%ED%88%AC%EB%9D%BC%ED%94%BC%EB%B2%A0%EB%A6%AC.jpg?type=w848",
+      "method": "image-model",
+      "process": "NATURAL"
+     },
+     {
+      "text": "달콤함",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20260727_24/1785131941849ux093_JPEG/%EC%BD%9C%EB%A1%AC%EB%B9%84%EC%95%84_%EC%B9%B4%ED%88%AC%EB%9D%BC%ED%94%BC%EB%B2%A0%EB%A6%AC.jpg?type=w848",
+      "method": "image-model",
+      "process": "NATURAL"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "콜롬비아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "콜롬비아",
+    "process": "",
+    "variety": "카투라 / 피베리",
+    "region": "엘 레나세르",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "열대과일",
+     "초콜릿"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/fillout-13684417070-29ea682e.json",
+  "detailText": "",
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "method": null,
+    "output": "[]"
+   },
+   {
+    "method": null,
+    "output": "[\n  {\n    \"text\": \"열대과일\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"카카오\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"달콤함\",\n    \"group\": \"\",\n    \"process\": \"NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [
+   "https://shop-phinf.pstatic.net/20260604_111/1780550676097jOMAO_JPEG/1911127203561705_1378554170.jpg?type=f80_80",
+   "https://shop-phinf.pstatic.net/20260727_24/1785131941849ux093_JPEG/%EC%BD%9C%EB%A1%AC%EB%B9%84%EC%95%84_%EC%B9%B4%ED%88%AC%EB%9D%BC%ED%94%BC%EB%B2%A0%EB%A6%AC.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260727_199/1785131923114WDVdv_JPEG/%ED%91%B8%ED%84%B0_01.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260727_166/17851319230845vDSl_JPEG/%ED%91%B8%ED%84%B0_02.jpg?type=w848",
+   "https://shop-phinf.pstatic.net/20260727_178/1785131923126hB8nS_JPEG/%ED%91%B8%ED%84%B0_03.jpg?type=w848"
+  ]
+ },
+ {
+  "id": "namusairo-763",
+  "evidenceGrade": "B",
+  "roastery": "나무사이로",
+  "productName": "프렌치",
+  "productUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+  "isSoldOut": false,
+  "current": {
+   "id": "namusairo-763",
+   "roasterName": "나무사이로",
+   "productName": "프렌치",
+   "productUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/namusairo-763-fc06e0a5.json",
+   "raw": {
+    "origin": "Guatemala · India · Nicaragua · Ethiopia",
+    "process": "확인 필요",
+    "variety": null,
+    "roastLevel": "Dark",
+    "tastingNotes": [
+     "다크초콜릿",
+     "브라운슈가",
+     "구운향",
+     "볶은아몬드",
+     "부드러움"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "다크초콜릿",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "초코브라우니",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "볶은 아몬드",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "흑당",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "버터처럼 부드럽다 Dark chocolate",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "chocolate brownie",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "roasted almonds",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "brown sugar",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     },
+     {
+      "text": "buttery smooth",
+      "sourceUrl": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "과테말라",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "과테말라",
+    "process": "",
+    "variety": "",
+    "region": "프렌치",
+    "roastLevel": "Dark",
+    "tastingNotes": [
+     "다크초콜릿",
+     "볶은아몬드",
+     "구운향",
+     "브라운슈가",
+     "부드러움"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/namusairo-763-fc06e0a5.json",
+  "detailText": "",
+  "rawTexts": [
+   {
+    "url": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+    "text": "프렌치 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 프렌치\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 프렌치 \n 원산지 \n Guatemala · India · Nicaragua · Ethiopia \n 볶음도 \n French \n 향 미 \n 다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다 Dark chocolate, chocolate brownie, roasted almonds, brown sugar, buttery smooth \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;13,000 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,300) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;650) 할인 \n 5회 결제 시 : 10%(&#8361;1,300) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 프렌치 \n 13000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 2 \n 관련상품 \n 깊고 묵직한 커피,\r\n 빠지면 헤어나오지 못하는\n 진한 볶음도의 커피, 프렌치는\r\n 매우 손님이 많은 커피바를 위해 특별히 만들어졌다.\r\n 긴 시간 커피를 안정적으로 내리기 위해서는 꽤 많은 변수를 관리해야 한다.\r\n 진지하고 치열한 삶의 현장에서도 분명한 매력을 발산하는,\r\n 오랜 기간 갈고 다듬은 커피.\r\n BREWING GUIDE\r\n BREWING Hario V60 \n 원두량 \r\n HOT \r\n 20g \n ICE \r\n 21g \n 비율 \r\n HOT \r\n 원두1 : 물16 (온수 320g) \n ICE \r\n원두1 : 물10 (온수 210g)\r\n *서버에 얼음 충분히 채우기\n 추출시간 \r\n HOT \r\n 2’20” ~ 2’50” 내외 \n ICE \r\n 2’00” 내외 \n 추출온도 \r\n88 ~ 96℃ 내외\r\n 라이트 94℃\r\n 미디엄 92℃\r\n 다크 90℃\r\n 분쇄도 \r\n950㎛ 내외 (+-50㎛)\r\n 말코닉EK43 \r\n 10 ~ 13 \n 코만단테C40 \r\n 21 ~ 27clicks \n HOT \r\n ① 온수 50g으로 30초 뜸들이기 \n ② 향미 · 클린컵 중심 \r\n40초 간격 2회 물붓기 (140-130g), 총 2’20” 내외 \n ② 단맛 · 바디감 중심 \r\n30초 간격 3회 물붓기 (100-90-80g), 총 2’50” 내외 \n ICE \r\n ① 온수 60g으로 30초 뜸들이기 \n ② 30초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외\r\n○ 배전도에 따라 온수 온도(±2℃)를 선택하세요.\r\n온도가 높을수록 바디감이 커집니다.\r\n○ 푸어링 간격을 늘리면 바…(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+    "text": "프렌치 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 프렌치\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 프렌치 \n 원산지 \n Guatemala · India · Nicaragua · Ethiopia \n 볶음도 \n French \n 향 미 \n 다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다 Dark chocolate, chocolate brownie, roasted almonds, brown sugar, buttery smooth \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;13,000 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,300) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;650) 할인 \n 5회 결제 시 : 10%(&#8361;1,300) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 프렌치 \n 13000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 2 \n 관련상품 \n 깊고 묵직한 커피,\r\n 빠지면 헤어나오지 못하는\n 진한 볶음도의 커피, 프렌치는\r\n 매우 손님이 많은 커피바를 위해 특별히 만들어졌다.\r\n 긴 시간 커피를 안정적으로 내리기 위해서는 꽤 많은 변수를 관리해야 한다.\r\n 진지하고 치열한 삶의 현장에서도 분명한 매력을 발산하는,\r\n 오랜 기간 갈고 다듬은 커피.\r\n BREWING GUIDE\r\n BREWING Hario V60 \n 원두량 \r\n HOT \r\n 20g \n ICE \r\n 21g \n 비율 \r\n HOT \r\n 원두1 : 물16 (온수 320g) \n ICE \r\n원두1 : 물10 (온수 210g)\r\n *서버에 얼음 충분히 채우기\n 추출시간 \r\n HOT \r\n 2’20” ~ 2’50” 내외 \n ICE \r\n 2’00” 내외 \n 추출온도 \r\n88 ~ 96℃ 내외\r\n 라이트 94℃\r\n 미디엄 92℃\r\n 다크 90℃\r\n 분쇄도 \r\n950㎛ 내외 (+-50㎛)\r\n 말코닉EK43 \r\n 10 ~ 13 \n 코만단테C40 \r\n 21 ~ 27clicks \n HOT \r\n ① 온수 50g으로 30초 뜸들이기 \n ② 향미 · 클린컵 중심 \r\n40초 간격 2회 물붓기 (140-130g), 총 2’20” 내외 \n ② 단맛 · 바디감 중심 \r\n30초 간격 3회 물붓기 (100-90-80g), 총 2’50” 내외 \n ICE \r\n ① 온수 60g으로 30초 뜸들이기 \n ② 30초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외\r\n○ 배전도에 따라 온수 온도(±2℃)를 선택하세요.\r\n온도가 높을수록 바디감이 커집니다.\r\n○ 푸어링 간격을 늘리면 바…(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/프렌치/763/category/91/display/1/",
+    "text": "프렌치 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 프렌치\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 프렌치 \n 원산지 \n Guatemala · India · Nicaragua · Ethiopia \n 볶음도 \n French \n 향 미 \n 다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다 Dark chocolate, chocolate brownie, roasted almonds, brown sugar, buttery smooth \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;13,000 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,300) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;650) 할인 \n 5회 결제 시 : 10%(&#8361;1,300) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 프렌치 \n 13000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 2 \n 관련상품 \n 깊고 묵직한 커피,\r\n 빠지면 헤어나오지 못하는\n 진한 볶음도의 커피, 프렌치는\r\n 매우 손님이 많은 커피바를 위해 특별히 만들어졌다.\r\n 긴 시간 커피를 안정적으로 내리기 위해서는 꽤 많은 변수를 관리해야 한다.\r\n 진지하고 치열한 삶의 현장에서도 분명한 매력을 발산하는,\r\n 오랜 기간 갈고 다듬은 커피.\r\n BREWING GUIDE\r\n BREWING Hario V60 \n 원두량 \r\n HOT \r\n 20g \n ICE \r\n 21g \n 비율 \r\n HOT \r\n 원두1 : 물16 (온수 320g) \n ICE \r\n원두1 : 물10 (온수 210g)\r\n *서버에 얼음 충분히 채우기\n 추출시간 \r\n HOT \r\n 2’20” ~ 2’50” 내외 \n ICE \r\n 2’00” 내외 \n 추출온도 \r\n88 ~ 96℃ 내외\r\n 라이트 94℃\r\n 미디엄 92℃\r\n 다크 90℃\r\n 분쇄도 \r\n950㎛ 내외 (+-50㎛)\r\n 말코닉EK43 \r\n 10 ~ 13 \n 코만단테C40 \r\n 21 ~ 27clicks \n HOT \r\n ① 온수 50g으로 30초 뜸들이기 \n ② 향미 · 클린컵 중심 \r\n40초 간격 2회 물붓기 (140-130g), 총 2’20” 내외 \n ② 단맛 · 바디감 중심 \r\n30초 간격 3회 물붓기 (100-90-80g), 총 2’50” 내외 \n ICE \r\n ① 온수 60g으로 30초 뜸들이기 \n ② 30초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외\r\n○ 배전도에 따라 온수 온도(±2℃)를 선택하세요.\r\n온도가 높을수록 바디감이 커집니다.\r\n○ 푸어링 간격을 늘리면 바…(생략)"
+   }
+  ],
+  "ocrNotes": [],
+  "detailImageUrls": [
+   "https://namusairo.com/web/product/medium/202606/abf1fec44fd5940db6dd656fdde20f79.png"
+  ]
+ }
+]

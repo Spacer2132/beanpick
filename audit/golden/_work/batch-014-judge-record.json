@@ -1,0 +1,367 @@
+{
+ "judge": [
+  {
+   "id": "cafedoan-13094366167",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": "함벨라",
+   "raw": "함벨라/Hambela",
+   "confidence": "HIGH",
+   "evidence": "본문 '에티오피아 함벨라 Ethiopia Hambela' (남서부 구지 Guji 지역 하로 소르사 Haro Sorsa 언급)",
+   "evidenceSource": "audit-input/products/cafedoan-13094366167-88855363.json#evidence.detailCache.detailText",
+   "note": "A는 유통사(글리터 트레이딩) 문장의 지역(구지 Guji)을 해당 커피의 산지로 오귀속. 상품명·본문 첫머리가 '에티오피아 함벨라, 내추럴'로 직접 귀속하므로 함벨라가 우선 (배치 내 상품명 지역 우선 관례: 키린야가·따라주·예가체프)."
+  },
+  {
+   "id": "lubia-11575853258",
+   "field": "tastingNotes",
+   "verdict": "B",
+   "value": [
+    "헤이즐넛",
+    "바닐라",
+    "밀크초콜릿",
+    "구운아몬드"
+   ],
+   "raw": [
+    "헤이즐넛",
+    "바닐라",
+    "초콜릿",
+    "밀크 초콜릿",
+    "구운 아몬드"
+   ],
+   "confidence": "HIGH",
+   "evidence": "본문 '컵노트 헤이즐넛 바닐라 초콜릿 … 바닐라 그리고 밀크 초콜릿과 구운 아몬드' ('고소한'·'부드러운'은 질감 서술로 value 제외)",
+   "evidenceSource": "audit-input/products/lubia-11575853258-860d870c.json#evidence.detailCache.detailText",
+   "evidenceKind": "text_confirmed",
+   "note": "본문 서술문이 컵노트의 '초콜릿'을 '밀크 초콜릿'으로 1:1 풀어씀(헤이즐넛→고소한 향미, 바닐라→바닐라, 초콜릿→밀크 초콜릿, +구운 아몬드) — 동일 지시체이므로 분리 기재 시 double-count. 앱(current)도 단일 '밀크초콜릿'으로 추출."
+  },
+  {
+   "id": "fillout-13684407826",
+   "field": "producer",
+   "verdict": "A",
+   "value": "넬손 임바치",
+   "raw": "넬손 임바치",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '넬손 임바치' — 생산자명으로 추정 (current region도 동일 인식)",
+   "evidenceSource": "audit-input/products/fillout-13684407826-c6e8db18.json#snapshotRecord.productName",
+   "note": "상품명 '콜롬비아 넬손 임바치 파카마라 내추럴 원두'의 [원산지][이름][품종][가공] 구조에서 생산자 위치 + current farm도 동일 인식. B의 '구분 불가'는 과도한 보수성 (batch-011 히메네즈 선례: 상품명 구조로 판단, MEDIUM 표시)."
+  },
+  {
+   "id": "namusairo-1114",
+   "field": "producer",
+   "verdict": "A",
+   "value": null,
+   "raw": "가디오 시코 · 무가야",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'가디오 시코 · 무가야'는 가공소(워싱스테이션) — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations",
+   "note": "원문이 '가공소 가디오 시코 · 무가야'로 명시 — 가공소(워싱스테이션)는 생산자가 아니므로 제외 (배치 내 일관 기준). B의 인용('가공소 …')이 스스로를 반박."
+  },
+  {
+   "id": "namusairo-1114",
+   "field": "process",
+   "verdict": "A",
+   "value": "워시드 · 캐스크 숙성",
+   "raw": "워시드·풀리워시드, 캐스크 숙성 Washed · Fully Washed, Cask Aging",
+   "confidence": "HIGH",
+   "evidence": "원문 '가공법' 명시 — current의 '워시드'만 표기는 '캐스크 숙성' 누락",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations",
+   "note": "원문 '가공법 워시드·풀리워시드, 캐스크 숙성' 명시. B의 raw에도 '캐스크 숙성'이 있으나 value에서 탈락 — 정보 손실 (batch-013 선례)."
+  },
+  {
+   "id": "namusairo-1114",
+   "field": "variety",
+   "verdict": "B",
+   "value": [
+    "74100",
+    "74112",
+    "SL28",
+    "SL34",
+    "Ruiru11",
+    "Blue Mountain"
+   ],
+   "raw": [
+    "74100",
+    "74112",
+    "Ethiopia Heirloom",
+    "SL28",
+    "SL34",
+    "Ruiru11",
+    "Blue Mountain"
+   ],
+   "confidence": "HIGH",
+   "evidence": "기본 정보 '품종 74100, 74112, Ethiopia Heirloom · SL28, SL34, Ruiru11, Blue Mountain' ('Ethiopia Heirloom'은 일반명으로 value 제외)",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations",
+   "note": "'Ethiopia Heirloom'은 에티오피아 토착종 총칭의 일반명으로 품종이 아님 — regression-rules §4('자생종·다품종 같은 일반명은 품종이 아니다') 적용."
+  },
+  {
+   "id": "cafedoan-7633322126",
+   "field": "producer",
+   "verdict": "A",
+   "value": "레티 베르무데스",
+   "raw": "Letty Bermudez",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 'Letty Bermudez' — 생산자명으로 추정 (current region 'MANHATTAN 맨해튼 Letty Bermudez'도 동일 인식)",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#snapshotRecord.productName",
+   "note": "상품명 'MANHATTAN 맨해튼 Colombia Letty Bermudez'의 [로스터 라인][원산지][생산자] 구조에서 생산자 위치 + current region도 동일 인식 (batch-011 히메네즈/핀카 데보라 선례)."
+  },
+  {
+   "id": "cafedoan-7633322126",
+   "field": "process",
+   "verdict": "B",
+   "value": "더블퍼먼테이션 열충격",
+   "raw": "DOUBLE FERMENTATION THERMAL SHOCK",
+   "confidence": "MEDIUM",
+   "evidence": "OCR 'DOUBLE FERMENTATION THERMAL SHOCK' (OCR 단독 근거; Jasmine/Peach/Honey/Black Tea 블록은 오염 의심으로 인용 제외)",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#evidence.ocr",
+   "note": "f80_80의 process='Washed'는 §9.1 오염 의심 블록(Jasmine/Peach/Honey/Black Tea)과 결합된 출력이므로 인용 제외 — 잔여 OCR 근거는 'DOUBLE FERMENTATION THERMAL SHOCK' 단일. A의 충돌 판단은 오염 블록을 진성 근거로 본 오판."
+  },
+  {
+   "id": "cafedoan-7633322126",
+   "field": "tastingNotes",
+   "verdict": "B",
+   "value": [
+    "haribo peach",
+    "milky oolong",
+    "mango"
+   ],
+   "raw": [
+    "haribo peach",
+    "milky oolong",
+    "mango",
+    "sticky mouthfeel"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 'haribo peach, milky oolong, mango' ('sticky mouthfeel'은 질감 서술로 value 제외; Jasmine/Peach/Honey/Black Tea 블록은 오염 의심으로 인용 제외)",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#evidence.ocr",
+   "evidenceKind": "current_echo",
+   "note": "f80_80의 Jasmine/Peach/Black Tea/Honey 블록은 §9.1 오염 의심으로 인용 제외 → f750_750 단독 근거(haribo peach, milky oolong, mango). 'sticky mouthfeel'은 질감 서술로 value 제외. A의 CASE 3/UNKNOWN은 오염 블록을 진성 충돌로 취급한 오판."
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": "예가체프 코케",
+   "raw": "예가체프 코케",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 예가체프 코케 …'",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#productName",
+   "note": "케벨레/로컬리티는 지역의 하위 단위로 originRegion 포함 정당. A의 '코케 제외' 논거는 producer 필드 기준(워싱스테이션 제외)이었으며 region에는 적용되지 않음."
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+   "field": "process",
+   "verdict": "B",
+   "value": "내추럴",
+   "raw": "허니 G1 내추럴",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '허니 G1 내추럴' + OCR process='내추럴' — 상품명 내 '허니'와 충돌하므로 MEDIUM",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#productName",
+   "note": "상품명 내 '허니'와 '내추럴' 자기모순 — 제품 테이스팅 이미지의 OCR process='내추럴'이 해소 근거. A의 '내추럴 · 허니' 병기는 모순된 가공을 함께 단정한 것."
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": [
+    "꽃향기",
+    "딸기",
+    "복숭아",
+    "꿀"
+   ],
+   "raw": [
+    "꽃향기, 딸기, 복숭아, 꿀"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "별도 이미지 OCR(꽃향기·딸기·복숭아·꿀) 단독 근거 — current는 꿀 누락. 동일 이미지 해상도 변형 간 충돌(f140 vs f750_750)의 Black Tea는 충돌 이미지 단독이므로 제외",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#evidence.ocr",
+   "evidenceKind": "current_echo",
+   "note": "동일 이미지(879727109)의 f140[Peach, Floral, Black Tea, Honey]↔f750_750[딸기, 복숭아] 정면 충돌 → CASE 3으로 해당 이미지 OCR 사용 불가 (batch-011 선례). 별도 이미지(1962571789)의 '꽃향기, 딸기, 복숭아, 꿀 (내추럴)'만 유효. B는 충돌 이미지의 Black Tea를 병합한 오판."
+  },
+  {
+   "id": "namusairo-1123",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": [
+    "밀크초콜릿",
+    "땅콩카라멜",
+    "오렌지",
+    "향신료",
+    "흑설탕",
+    "쌉쌀함",
+    "바닐라",
+    "피스타치오",
+    "크림브륄레",
+    "다크초콜릿",
+    "초코브라우니",
+    "볶은아몬드",
+    "흑당"
+   ],
+   "raw": [
+    "밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤 쌉쌀",
+    "바닐라, 피스타치오, 크림브륄레, 밀크초콜릿",
+    "다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다"
+   ],
+   "confidence": "HIGH",
+   "evidence": "본문 3종 제품 향미 행 명시 — '버터처럼 부드럽다'는 질감 서술 제외·raw 보존. current의 '밀크초콜릿·바닐라' 2종만 표기는 나머지 누락",
+   "evidenceSource": "audit-input/products/namusairo-1123-ac2529c4.json#evidence.rawObservations",
+   "evidenceKind": "text_confirmed",
+   "note": "'달콤 쌉쌀'의 '쌉쌀함'은 쓴맛 서술로 노트에 포함 — batch-012 QA 확정 ('쌉쌀함은 쓴맛 서술로 포함'). 쓴맛은 기본 미각이지 질감·강도 서술이 아님. '버터처럼 부드럽다'는 질감 서술로 제외·raw 보존."
+  },
+  {
+   "id": "cafedoan-13095256178",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": "우일라 아세베도",
+   "raw": "우일라 Huila 아세베도 Acevedo",
+   "confidence": "HIGH",
+   "evidence": "본문 '콜롬비아 Colombia 우일라 Huila 아세베도 Acevedo에서 핀카 라스 플로레스 Finca Las Flores를 세웠습니다'",
+   "evidenceSource": "audit-input/products/cafedoan-13095256178-e123c964.json#evidence.detailCache.detailText",
+   "note": "본문 '콜롬비아 우일라 Huila 아세베도 Acevedo에서 핀카 라스 플로레스 Finca Las Flores를 세웠습니다' — 도(우일라)와 시(아세베도)를 함께 명시하므로 둘 다 보존. A의 '우일라'만 채택은 정보 손실 (batch-013 선례)."
+  },
+  {
+   "id": "cafedoan-13095256178",
+   "field": "variety",
+   "verdict": "B",
+   "value": [
+    "시드라",
+    "콜롬비아"
+   ],
+   "raw": [
+    "Sidra",
+    "콜롬비아 품종 (Colombia varietal)"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "상품명 'Las Flores Sidra' + 본문 '이 커피는 콜롬비아 품종 (Colombia varietal)으로' ('콜롬비아 품종'은 품종명/일반명 양의 가능 → MEDIUM)",
+   "evidenceSource": "audit-input/products/cafedoan-13095256178-e123c964.json#evidence.detailCache.detailText",
+   "note": "본문 '이 커피는 콜롬비아 품종 (Colombia varietal)으로' 명시 — 국가명이지만 품종으로 기재됨. A는 동일 배치 Sweet Valley에서 '콜롬비아 품종'을 인정해놓고 여기서는 누락 (배치 내 불일치). 품종명/일반명 양의성으로 MEDIUM."
+  },
+  {
+   "id": "hocuspocus-13707039145",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": "키리냐가",
+   "raw": "키리냐가",
+   "confidence": "HIGH",
+   "evidence": "상품명 '케냐 키린야가 캄완기 AA TOP Washed'",
+   "evidenceSource": "audit-input/products/hocuspocus-13707039145-8e7a2262.json#productName",
+   "note": "상품명 '케냐 키린야가 캄완기 AA TOP Washed'의 원문 표기는 '키린야가' — A의 '키리냐가'는 표기 변형. golden은 원문 표기를 따름."
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케g2워시드미디엄로스트",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": "예가체프 코케",
+   "raw": "예가체프 코케",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 예가체프 코케 …'",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케g2워시드미디엄로스트-cf5543eb.json#productName",
+   "note": "10번 항목과 동일 — 케벨레/로컬리티는 지역 하위 단위로 originRegion 포함 정당."
+  },
+  {
+   "id": "fillout-13622422334",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문(상품명) 확인 — '베이트 알알'은 지역명으로 확인 불가",
+   "evidenceSource": "audit-input/products/fillout-13622422334-b72fab9d.json#productName",
+   "note": "'베이트 알알'은 상품명 [원산지][이름][가공] 구조상 생산자(농장) 위치이지 지역이 아님 — 지역으로 확인 불가. A의 region 승격은 상품명→originRegion 추론 FALSE_POSITIVE 패턴. producer 필드는 불일치 대상이 아니므로 region만 판정."
+  },
+  {
+   "id": "namusairo-41",
+   "field": "producer",
+   "verdict": "A",
+   "value": "여러 소농들",
+   "raw": "여러 소농들 Smallholders",
+   "confidence": "MEDIUM",
+   "evidence": "원문 '농 장 여러 소농들 Smallholders' (current region도 '여러 소농들')",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations",
+   "note": "원문 '농 장 여러 소농들 Smallholders' 명시 — batch-011 선례(과도한 보수성 지양: 원문이 답한 값은 MEDIUM으로 채택). 고유명사가 아닌 서술이므로 HIGH가 아닌 MEDIUM."
+  },
+  {
+   "id": "namusairo-41",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": [
+    "산미",
+    "카카오",
+    "다크초콜릿"
+   ],
+   "raw": [
+    "기분좋은 산미, 카카오, 다크초콜릿, 깨끗하고 싱싱하다 Pleasant Acidity, Cacao, Dark Chocolate, Clean and Fresh"
+   ],
+   "confidence": "HIGH",
+   "evidence": "원문 '향 미' 명시 — current의 '신선'은 '깨끗하고 싱싱하다' 질감 서술의 오분류, '산미' 누락",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations",
+   "evidenceKind": "text_confirmed",
+   "note": "'기분좋은 산미'의 '산미'는 기본 미각(커핑 속성)으로 노트에 포함 — '기분좋은'은 수식어만 탈락. BeanPick 정규화 어휘에도 '달콤한 산미' 존재. B는 '은은하게 퍼지는 바닐라'→바닐라(수식어 탈락)와 불일치. '깨끗하고 싱싱하다'는 질감 서술로 제외·raw 보존."
+  },
+  {
+   "id": "hocuspocus-13713119523",
+   "field": "producer",
+   "verdict": "A",
+   "value": "엘 테소로",
+   "raw": "엘 테소로",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 테소로' — 농장명으로 추정 (current region도 동일 인식)",
+   "evidenceSource": "audit-input/products/hocuspocus-13713119523-4a2c63f6.json#snapshotRecord.productName",
+   "note": "상품명 '콜롬비아 엘 테소로 시드라 내추럴 (헌터스 컬렉션)'의 [원산지][이름][품종][가공] 구조에서 생산자 위치 (batch-011 히메네즈 선례: MEDIUM 채택)."
+  },
+  {
+   "id": "namusairo-1126",
+   "field": "producer",
+   "verdict": "A",
+   "value": "705여 소농",
+   "raw": "705여 소농",
+   "confidence": "MEDIUM",
+   "evidence": "원문 '농 장 705여 소농' (소농 집단 표현 — current region도 '실속형.게뎁 무산소'에는 생산자 없음)",
+   "evidenceSource": "audit-input/products/namusairo-1126-1d92dfd6.json#evidence.rawObservations",
+   "note": "원문에 '가공소 게뎁 Gedeb'와 '농 부 705여 소농 Smallholders'가 별도 행 — B의 '게뎁'은 가공소이므로 producer에서 제외 (A가 1114 가디오 시코·13094366167 트레이더에 적용한 배치 내 일관 기준). '농 부' 행의 '705여 소농'을 MEDIUM으로 채택."
+  },
+  {
+   "id": "cafedoan-13635190651",
+   "field": "producer",
+   "verdict": "A",
+   "value": "엘 칼리체",
+   "raw": "엘 칼리체",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 칼리체' — 농장명으로 추정 (current region도 동일 인식, batch-012 엘 파라이소 선례)",
+   "evidenceSource": "audit-input/products/cafedoan-13635190651-7bc33290.json#snapshotRecord.productName",
+   "note": "상품명 '온두라스 엘 칼리체 워시드'의 [원산지][이름][가공] 구조에서 생산자 위치 (batch-012 엘 파라이소 선례, batch-011 히메네즈 선례)."
+  },
+  {
+   "id": "namusairo-41",
+   "field": "roast",
+   "verdict": "C",
+   "value": null,
+   "raw": "Well-done",
+   "confidence": "HIGH",
+   "mappingStatus": "UNMAPPED_LABEL",
+   "evidence": "원문 'Well-done' — 5단계 enum 매핑표에 없는 라벨 (enum 억지 매핑 금지)",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations",
+   "note": "특별 지시 확정 — 매핑표에 없는 라벨은 UNMAPPED_LABEL로, value=null·confidence=HIGH (regression-rules §5.1). 정확도 통계에서 별도 범주로 집계."
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케g2워시드미디엄로스트",
+   "field": "tastingNotes",
+   "verdict": "C",
+   "value": [
+    "꽃향기",
+    "복숭아",
+    "갈색설탕"
+   ],
+   "raw": [
+    "꽃향기",
+    "복숭아",
+    "깔끔함",
+    "갈색설탕"
+   ],
+   "confidence": "MEDIUM",
+   "evidenceKind": "current_echo",
+   "evidence": "f750_750 단독 OCR 근거: '꽃향기, 복숭아, 깔끔함 (Washed)'·'꽃향기, 복숭아, 갈색설탕 (Washed)' — '깔끔함'은 질감 서술로 value 제외. f80_80의 Jasmine/Peach/Honey/Black Tea 블록은 §9.1 오염 의심 블록으로 인용 제외 (기존 'f80_80↔f750_750 교차 블록 상호 보강' 인용 삭제)",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케g2워시드미디엄로스트-cf5543eb.json#evidence.ocr",
+   "note": "[2] 교차 블록 인용 정정 — A/B가 값에서 일치하나 evidence의 교차 보강 인용을 삭제하고 f750_750 단독 근거로 재평가. 값 유지, 근거 정정. disagreements에는 미포함."
+  }
+ ]
+}
