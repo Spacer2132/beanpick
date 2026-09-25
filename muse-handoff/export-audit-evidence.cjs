@@ -253,6 +253,7 @@ function main() {
 
   const coverage = { total: products.length, detailCache: 0, detailText: 0, detailImages: 0, rawObservation: 0, ocrAny: 0, noEvidenceBeyondSnapshot: 0 };
   const perProduct = [];
+  const usedFileNames = new Set();
 
   for (const product of products) {
     const evidence = { detailCache: null, rawObservations: [], ocr: [] };
@@ -316,7 +317,12 @@ function main() {
     const hasEvidence = Boolean(evidence.detailCache || evidence.rawObservations.length || evidence.ocr.length);
     if (!hasEvidence) coverage.noEvidenceBeyondSnapshot += 1;
 
-    const safeId = String(product.id).replace(/[^a-z0-9_-]+/gi, '_');
+    // 한글 ID가 있다(예: '아이덴티티커피랩-키치블렌드'). 한글을 지우면 여러 상품이 한 파일로 덮어써지므로
+    // 글자는 살리고 ID 해시를 붙여 항상 상품당 파일 하나가 되게 한다.
+    const readable = String(product.id).replace(/[^\p{L}\p{N}_-]+/gu, '_').slice(0, 80);
+    const safeId = `${readable}-${crypto.createHash('sha1').update(String(product.id)).digest('hex').slice(0, 8)}`;
+    if (usedFileNames.has(safeId)) throw new Error(`상품 파일 이름 충돌: ${product.id}`);
+    usedFileNames.add(safeId);
     fs.writeFileSync(
       path.join(OUT_DIR, 'products', `${safeId}.json`),
       `${JSON.stringify({ id: product.id, snapshotRecord: product, evidence }, null, 2)}\n`,
@@ -361,6 +367,8 @@ function main() {
     coverage,
     products: perProduct,
   };
+  // 증거와 짝이 맞는 기준 스냅샷을 함께 넣는다. (레포의 docs/products.json은 자동 게시로 계속 바뀐다)
+  fs.writeFileSync(path.join(OUT_DIR, 'snapshot-products.json'), snapshotRaw, 'utf8');
   fs.writeFileSync(path.join(OUT_DIR, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
 
   const totalBytes = fs.readdirSync(path.join(OUT_DIR, 'products'))
