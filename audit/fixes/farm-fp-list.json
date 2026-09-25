@@ -1,0 +1,566 @@
+[
+ {
+  "id": "identity-13700316596",
+  "inferredFarm": "코토와 던칸 마라고지페",
+  "productName": "파나마 코토와 던칸 마라고지페 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "아이덴티티커피랩-콜롬비아엑셀소디카페인마운틴워터",
+  "inferredFarm": "엑셀소 디카페인 마운틴 워터",
+  "productName": "콜롬비아 엑셀소 디카페인 마운틴 워터",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "identity-13760156284",
+  "inferredFarm": "다테하 컬렉션",
+  "productName": "브라질 다테하 버번 컬렉션",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13648554316",
+  "inferredFarm": "ONYX 오닉스 에드워드 산도발 치로소",
+  "productName": "ONYX 오닉스 콜롬비아 에드워드 산도발 치로소 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13647777127",
+  "inferredFarm": "라 노리아 로트 4",
+  "productName": "에콰도르 라 노리아 게이샤 워시드 로트 4",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13647238261",
+  "inferredFarm": "라 시리아 로트 3",
+  "productName": "콜롬비아 라 시리아 게이샤 워시드 로트 3",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13627490056",
+  "inferredFarm": "Solberg Hansen 솔벅 한센 카멜리아스",
+  "productName": "Solberg & Hansen 솔벅 & 한센 과테말라 카멜리아스 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13627489275",
+  "inferredFarm": "Solberg Hansen 솔벅 한센 히메네즈",
+  "productName": "Solberg & Hansen 솔벅 & 한센 페루 히메네즈 게이샤 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13627487496",
+  "inferredFarm": "Solberg Hansen 솔벅 한센 코네솔",
+  "productName": "Solberg & Hansen 솔벅 & 한센 브라질 코네솔 내추럴 [프루티 써머 커피]",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-13094366167",
+  "inferredFarm": "NOMAD 노마드 Hambela",
+  "productName": "NOMAD COFFEE 노마드 커피 Ethiopia Hambela Natural",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-12994609419",
+  "inferredFarm": "HEART ERS 하트 로스터스 게르바 도고 소두 풀리",
+  "productName": "HEART ROASTERS 하트 로스터스 에티오피아 게르바 도고 소두 풀리 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-12769121036",
+  "inferredFarm": "LUNA 루나 Elto Bona Zuria",
+  "productName": "LUNA 루나 Ethiopia Elto Bona Zuria Washed",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-12747134803",
+  "inferredFarm": "NOMAD 노마드 Mathare-ini",
+  "productName": "NOMAD COFFEE 노마드 커피 Kenya Mathare-ini Washed",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-12746989802",
+  "inferredFarm": "NOMAD 노마드 Abebe Hewiso",
+  "productName": "NOMAD COFFEE 노마드 커피 Ethiopia Abebe Hewiso Natural",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-12007318426",
+  "inferredFarm": "Solberg Hansen 솔벅 한센 루키라",
+  "productName": "Solberg & Hansen 솔벅 & 한센 케냐 루키라 워시드 [프루티 써머 커피]",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-11696788154",
+  "inferredFarm": "NOMAD 노마드 Filter Burundi Gahahe",
+  "productName": "NOMAD COFFEE 노마드 커피 Filter Burundi Gahahe Washed",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-11446555211",
+  "inferredFarm": "Solberg Hansen 솔벅 한센 라 트리니다드",
+  "productName": "Solberg & Hansen 솔벅 & 한센 콜롬비아 라 트리니다드 게이샤 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-10838004944",
+  "inferredFarm": "MANHATTAN 맨해튼 Kegwa AA",
+  "productName": "MANHATTAN 맨해튼 Kenya Kegwa AA Washed",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-9628182790",
+  "inferredFarm": "Solberg Hansen 솔벅 한센 타데",
+  "productName": "Solberg & Hansen 솔벅 & 한센 에티오피아 타데 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-7632387865",
+  "inferredFarm": "MANHATTAN 맨해튼 Shoondisa",
+  "productName": "MANHATTAN 맨해튼 Ethiopia Shoondisa Natural",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "cafedoan-7576023321",
+  "inferredFarm": "Tim Wendelboe 팀 웬들보 에체모",
+  "productName": "Tim Wendelboe 팀 웬들보 에티오피아 에체모 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-13639350218",
+  "inferredFarm": "예가체프 첼베사",
+  "productName": "에티오피아 예가체프 첼베사 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-13639352375",
+  "inferredFarm": "예가체프 워르카 사카로 G1",
+  "productName": "에티오피아 예가체프 워르카 사카로 G1 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "호커스포커스로스터스-에티오피아케라모워시드디카페인",
+  "inferredFarm": "케라모 디카페인",
+  "productName": "에티오피아 케라모 워시드 디카페인",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-13070042675",
+  "inferredFarm": "엘 네그로",
+  "productName": "온두라스 엘 네그로 파카마라 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-12301405254",
+  "inferredFarm": "니에리 힐 AA TOP",
+  "productName": "케냐 니에리 힐 AA TOP 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-12134209835",
+  "inferredFarm": "비스타 헤르모사",
+  "productName": "과테말라 비스타 헤르모사 게이샤 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-11858888892",
+  "inferredFarm": "탄자니아 아카시아 힐스 AA",
+  "productName": "탄자니아 아카시아 힐스 AA 게이샤 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-5935682761",
+  "inferredFarm": "로꼬시리즈 피나콜라다",
+  "productName": "콜롬비아 로꼬시리즈 피나콜라다",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-13753415504",
+  "inferredFarm": "호커스포커스 X 모닝 게뎁 게쉬 모디파이드",
+  "productName": "호커스포커스 X 모닝커피 에티오피아 게뎁 게쉬 모디파이드 허니",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-13707039145",
+  "inferredFarm": "키린야가 캄완기 AA TOP",
+  "productName": "케냐 키린야가 캄완기 AA TOP Washed",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-13587104702",
+  "inferredFarm": "시다마 벤사 하마쇼 G1",
+  "productName": "에티오피아 시다마 벤사 하마쇼 G1 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-12854598699",
+  "inferredFarm": "아르투로 파즈 카물리안 애너로빅",
+  "productName": "온두라스 아르투로 파즈 카물리안 애너로빅 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-12523553689",
+  "inferredFarm": "세로아줄 레드",
+  "productName": "온두라스 세로아줄 레드 카투아이 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-11858895090",
+  "inferredFarm": "탄자니아 템보 SL-28 AA 풀리",
+  "productName": "탄자니아 템보 SL-28 AA 풀리 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "hocuspocus-11755848790",
+  "inferredFarm": "다테하 리저브 펄프드",
+  "productName": "브라질 다테하 리저브 펄프드 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13673422137",
+  "inferredFarm": "로스 파티오스 베리 코퍼먼티드",
+  "productName": "콜롬비아 로스 파티오스 베리 코퍼먼티드 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13622501957",
+  "inferredFarm": "베이트 야신 알케미 XI",
+  "productName": "예멘 베이트 야신 알케미 XI 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13761048456",
+  "inferredFarm": "문가리아 헤비",
+  "productName": "케냐 문가리아 내추럴 헤비 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13752509968",
+  "inferredFarm": "비자 카로리나",
+  "productName": "콜롬비아 비자 카로리나 핑크버번 워시드 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13694340587",
+  "inferredFarm": "키아무구모",
+  "productName": "케냐 키아무구모 워시드 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13684423041",
+  "inferredFarm": "알로",
+  "productName": "에티오피아 알로 무산소 워시드 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13684402543",
+  "inferredFarm": "챕상거 하이",
+  "productName": "케냐 챕상거 내추럴 하이 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13684351661",
+  "inferredFarm": "게뎁 초르소",
+  "productName": "에티오피아 게뎁 초르소 워시드 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "fillout-13622422334",
+  "inferredFarm": "베이트 알알",
+  "productName": "예멘 베이트 알알 무산소 내추럴 원두",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "malik-10852914901",
+  "inferredFarm": "뚱구리 AA 풀리",
+  "productName": "케냐 뚱구리 SL28 SL34 AA 풀리 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-100-에티오피아스칼렛",
+  "inferredFarm": "100% 스칼렛",
+  "productName": "100% 에티오피아 스칼렛",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-과테말라안티구아shbep워시드미디엄로스트",
+  "inferredFarm": "안티구아 SHB EP",
+  "productName": "과테말라 안티구아 SHB EP 워시드 미디엄 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트",
+  "inferredFarm": "네시아 수마트라 만델링 G1 길링 바사",
+  "productName": "인도네시아 수마트라 만델링 G1 길링 바사 (웻 훌) 미디엄 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-브라질ny2세하도파인컵내추럴미디엄로스트",
+  "inferredFarm": "NY2 세하도 파인컵",
+  "productName": "브라질 NY2 세하도 파인컵 내추럴 미디엄 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-코스타리카shbep따라주워시드미디엄로스트",
+  "inferredFarm": "SHB EP 따라주",
+  "productName": "코스타리카 SHB EP 따라주 워시드 미디엄 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "lubia-9867970184",
+  "inferredFarm": "세로아줄",
+  "productName": "콜롬비아 세로아줄 게이샤 내추럴 라이트 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+  "inferredFarm": "예가체프 코케 허니 G1",
+  "productName": "에티오피아 예가체프 코케 허니 G1 내추럴 라이트 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "루비아커피-에티오피아예가체프코케g2워시드미디엄로스트",
+  "inferredFarm": "예가체프 코케 G2",
+  "productName": "에티오피아 예가체프 코케 G2 워시드 미디엄 로스트",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13753081358",
+  "inferredFarm": "에스메랄다 포르톤 7NB",
+  "productName": "[에어리커피] 파나마 에스메랄다 포르톤 7NB 게이샤 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13753077888",
+  "inferredFarm": "에스메랄다 마리오 아바호 6FB 콜드룸",
+  "productName": "[에어리커피] 파나마 에스메랄다 마리오 아바호 6FB 콜드룸 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13753055877",
+  "inferredFarm": "야쿠리 메호라도 TUEX",
+  "productName": "[에어리커피] 에콰도르 야쿠리 티피카 메호라도 TUEX 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13753050878",
+  "inferredFarm": "반코 타라투 74110 74112",
+  "productName": "[에어리커피] 에티오피아 반코 타라투 74110 74112 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13753047172",
+  "inferredFarm": "고구구 74110 74112 74158",
+  "productName": "[에어리커피] 에티오피아 고구구 74110 74112 74158 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13732855146",
+  "inferredFarm": "루그마파타 메호라도",
+  "productName": "[에어리커피] 에콰도르 루그마파타 티피카 메호라도 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13728205556",
+  "inferredFarm": "레리다 아멜리아",
+  "productName": "[에어리커피] 파나마 레리다 아멜리아 게이샤 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13695069429",
+  "inferredFarm": "카리미쿠이",
+  "productName": "[에어리커피] 케냐 카리미쿠이 SL28 SL34 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13694885280",
+  "inferredFarm": "알티에리 알레사 DFM",
+  "productName": "[에어리커피] 파나마 알티에리 알레사 게이샤 DFM 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13678433195",
+  "inferredFarm": "에스메랄다 푼다도르 4WB",
+  "productName": "[에어리커피] 파나마 에스메랄다 푼다도르 4WB 게이샤 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-13666847700",
+  "inferredFarm": "알티에리 로라",
+  "productName": "[에어리커피] 파나마 알티에리 로라 카투아이 ASD 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11941856461",
+  "inferredFarm": "잔슨 언에어로빅 836",
+  "productName": "[에어리커피] 파나마 잔슨 게이샤 언에어로빅 내추럴 836",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11941853371",
+  "inferredFarm": "잔슨 985",
+  "productName": "[에어리커피] 파나마 잔슨 게이샤 워시드 985",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11913046530",
+  "inferredFarm": "지와 AB",
+  "productName": "[에어리커피] 케냐 지와 AB 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11884752616",
+  "inferredFarm": "고로",
+  "productName": "[에어리커피] 에티오피아 고로 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11750844082",
+  "inferredFarm": "라 노리아 그린",
+  "productName": "[에어리커피] 에콰도르 라 노리아 그린 게샤 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11744816665",
+  "inferredFarm": "첼베사 디카페인",
+  "productName": "[에어리커피] 에티오피아 첼베사 디카페인 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11621294001",
+  "inferredFarm": "단체",
+  "productName": "[에어리커피] 에티오피아 단체 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11529658658",
+  "inferredFarm": "엘 디비소 아히 언에어로빅",
+  "productName": "[에어리커피] 콜롬비아 엘 디비소 아히 버번 언에어로빅 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11368425385",
+  "inferredFarm": "라 에스메랄다 하라미요",
+  "productName": "[에어리커피] 파나마 라 에스메랄다 하라미요 게이샤 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "aerycoffee-11368384812",
+  "inferredFarm": "물루게타 문타샤",
+  "productName": "[에어리커피] 에티오피아 물루게타 문타샤 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "toch-12166525780",
+  "inferredFarm": "디카페인 - 우일라 피탈리토 디카페인 슈가케인 EA",
+  "productName": "디카페인 - 콜롬비아 우일라 피탈리토 디카페인 슈가케인 EA",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "terarosa-100543",
+  "inferredFarm": "리무 아가로 토착종",
+  "productName": "[9월 KING콩] 에티오피아 리무 아가로 토착종 워시드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-30",
+  "inferredFarm": "여러 소농들",
+  "productName": "날아올라",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-1114",
+  "inferredFarm": "그리니",
+  "productName": "그리니",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-828",
+  "inferredFarm": "디카프리오",
+  "productName": "디카프리오",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-763",
+  "inferredFarm": "프렌치",
+  "productName": "프렌치",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-345",
+  "inferredFarm": "여러 소농들",
+  "productName": "브릴리",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-42",
+  "inferredFarm": "여러 소농들",
+  "productName": "와이칸 다크",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-29",
+  "inferredFarm": "풍요로운 땅",
+  "productName": "풍요로운 땅",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-28",
+  "inferredFarm": "다크우드",
+  "productName": "다크우드",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-27",
+  "inferredFarm": "숲",
+  "productName": "숲",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "namusairo-1146",
+  "inferredFarm": "벤티 넨카 · 게뎁 · 여러 소농들",
+  "productName": "숨,결",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "로스터릭-에티오피아벤사곤조베벨라이네바리소내추럴",
+  "inferredFarm": "벤사 곤조베 벨라이네 바리소",
+  "productName": "에티오피아 벤사 곤조베 벨라이네 바리소 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "로스터릭-에티오피아카라모마테마티오스언에어로빅내추럴",
+  "inferredFarm": "카라모 마테 마티오스 언에어로빅",
+  "productName": "에티오피아 카라모 마테 마티오스 언에어로빅 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "로스터릭-브라질세라도내추럴",
+  "inferredFarm": "세라도",
+  "productName": "브라질 세라도 내추럴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "로스터릭-에티오피아예가체프아리차g1워시드중강배전",
+  "inferredFarm": "예가체프 아리차 G1",
+  "productName": "에티오피아 예가체프 아리차 G1 워시드 중강배전",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "coffee502-11",
+  "inferredFarm": "GENTLE 젠틀",
+  "productName": "GENTLE 젠틀",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "coffee502-12",
+  "inferredFarm": "WELCOME 웰컴",
+  "productName": "WELCOME 웰컴",
+  "goldenConfidence": "SOURCE_MISSING"
+ },
+ {
+  "id": "deepbluelake-573",
+  "inferredFarm": "에피오피아 구지 라로 보다",
+  "productName": "Single Origin 에피오피아 구지 라로 보다 워시드 (로스팅 9월 20일)",
+  "goldenConfidence": "SOURCE_MISSING"
+ }
+]

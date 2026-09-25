@@ -50,7 +50,6 @@ const COUNTRY_ALIASES = [
   '예멘',
   'thailand',
   '태국',
-  { label: '샴페인', group: 'body', aliases: ['champagne', '샴페인'] },
 ];
 
 const NON_TASTE_ALIASES = [
@@ -92,7 +91,6 @@ const NON_TASTE_ALIASES = [
   '자동',
   'black',
   '블랙',
-  { label: '샴페인', group: 'body', aliases: ['champagne', '샴페인'] },
 ];
 
 const NOTE_RULES = [
