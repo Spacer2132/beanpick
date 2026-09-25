@@ -1,0 +1,281 @@
+{
+ "judge": [
+  {
+   "id": "aerycoffee-11529645422",
+   "field": "producer",
+   "verdict": "B",
+   "value": "핀카 데보라",
+   "raw": "핀카 데보라",
+   "confidence": "HIGH",
+   "evidence": "상품명 '파나마 핀카 데보라 아이리스 이스테이트 애프터글로우 내추럴' — '핀카(농장)' 명시로 핀카 데보라는 농장명. '아이리스 이스테이트'의 역할은 원문에서 구분 불가",
+   "evidenceSource": "audit-input/products/aerycoffee-11529645422-94044b9e.json#evidence.productName",
+   "note": "B 채택. '핀카' 명시로 농장임이 확실한 '핀카 데보라'만 채택하고, '아이리스 이스테이트'의 역할은 원문에서 구분 불가하여 제외."
+  },
+  {
+   "id": "cafedoan-12769087298",
+   "field": "tastingNotes",
+   "verdict": "B",
+   "value": [
+    "포도",
+    "카카오",
+    "크림",
+    "라일락"
+   ],
+   "raw": [
+    "포도",
+    "카카오",
+    "크림",
+    "라일락",
+    "락틱",
+    "달콤함",
+    "보랏빛"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText CUP NOTE '락틱이 엮인 달콤하고 보랏빛 커피. 포도, 카카오 & 크림 그리고 라일락의 플로럴' 명시. '락틱·달콤함·보랏빛'은 질감·강도·색상 서술로 raw에만 보존. OCR 오염 의심 블록(Peach/Jasmine/Earl Grey/Honey)은 인용 제외",
+   "evidenceSource": "audit-input/products/cafedoan-12769087298-a5f6af30.json#evidence.detailCache.detailText",
+   "note": "B 채택. detailText CUP NOTE에 4개 노트 명시 — A의 'current 미반영이라 제외'는 golden이 원문이 아닌 current를 따르는 오류."
+  },
+  {
+   "id": "cafedoan-13627489275",
+   "field": "tastingNotes",
+   "verdict": "B",
+   "value": [
+    "꽃",
+    "복숭아",
+    "시트러스"
+   ],
+   "raw": [
+    "Floral og kompleks. Fersken og sitrustoner."
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 노르웨이어 블록 'Floral og kompleks. Fersken og sitrustoner.'(꽃·복숭아·시트러스). 'kompleks'(복합적)는 강도 서술로 제외",
+   "evidenceSource": "audit-input/products/cafedoan-13627489275-b4e97a49.json#evidence.ocr",
+   "evidenceKind": "current_echo",
+   "note": "B 채택. A가 인용한 Jasmine/Peach/Honey/Black Tea 블록은 regression-rules §9.1의 교차 반복 오염 의심 블록으로 golden 근거 사용 금지."
+  },
+  {
+   "id": "cafedoan-9985295831",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '케냐 냐위라 AA 풀리 워시드'의 '냐위라'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/cafedoan-9985295831-80dbac4b.json#evidence.productName",
+   "note": "B 채택. 국가명 뒤 단일 토큰만으로는 역할 구분 불가 — 억지 판단 금지."
+  },
+  {
+   "id": "fillout-13684417070",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '콜롬비아 엘 레나세르 카투라 피베리 원두'의 '엘 레나세르'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.productName",
+   "note": "B 채택. A의 '농장명 판단'은 원문 근거 없는 추론."
+  },
+  {
+   "id": "fillout-13684417070",
+   "field": "process",
+   "verdict": "B",
+   "value": "Natural",
+   "raw": "NATURAL",
+   "confidence": "LOW",
+   "evidence": "OCR 구조화 추출의 process 필드 'NATURAL' (단일 블록, 이미지 원문 미확인). 상품명·본문에 가공 언급 없음",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.ocr",
+   "note": "B 채택. 단일 OCR 근거라 LOW. 근거 자체는 존재하므로 SOURCE_MISSING이 아님."
+  },
+  {
+   "id": "fillout-13684417070",
+   "field": "variety",
+   "verdict": "B",
+   "value": "카투라",
+   "raw": "카투라 피베리",
+   "confidence": "HIGH",
+   "evidence": "상품명 '카투라 피베리' — 피베리는 선별 등급으로 품종값에서 제외",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.productName",
+   "note": "B 채택. 피베리(peaberry)는 원두 형태 선별 등급이지 품종이 아님."
+  },
+  {
+   "id": "fillout-13684417070",
+   "field": "tastingNotes",
+   "verdict": "B",
+   "value": [
+    "열대과일",
+    "카카오"
+   ],
+   "raw": [
+    "열대과일",
+    "카카오",
+    "달콤함"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 1개 유효 블록 '열대과일, 카카오, 달콤함' (process NATURAL). '달콤함'은 강도 서술로 raw에만 보존",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.ocr",
+   "evidenceKind": "current_echo",
+   "note": "B 채택. A의 '초콜릿'은 증거에 없는 노트 — 제공된 OCR 출력 2건 중 1건은 빈 배열이고, 유효 블록은 '열대과일, 카카오, 달콤함' 1개뿐."
+  },
+  {
+   "id": "namusairo-183",
+   "field": "status",
+   "verdict": "B",
+   "value": "active",
+   "raw": "active",
+   "confidence": "MEDIUM",
+   "evidence": "isSoldOut=False (수집 플래그). 원문의 'SOLD OUT'은 장바구니/바로구매하기 버튼 영역의 DOM 템플릿 라벨",
+   "evidenceSource": "collector_flag",
+   "note": "B 채택. 정확도 통계 제외. A가 인용한 'b2 선례'는 오인용 — b2는 품절 언급 자체가 없었고(→UNKNOWN), b3에서 DOM 'SOLD OUT'이 구매 버튼 라벨임을 확인하고 active 판정 (PHASE-1-INTERIM-1.md)."
+  },
+  {
+   "id": "namusairo-183",
+   "field": "originRegion",
+   "verdict": "B",
+   "value": [
+    "우에우에테낭고"
+   ],
+   "raw": "우에우에테낭고",
+   "confidence": "HIGH",
+   "evidence": "본문 '과테말라 우에우에테낭고 와이칸' — 우에우에테낭고는 과테말라 커피 산지(지역)명. '에티오피아 달고단'의 달고단은 역할 구분 불가로 제외",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations",
+   "note": "B 채택. '달고단'이 지역인지 농장/로트명인지 원문에서 구분 불가 — 억지 판단 금지."
+  },
+  {
+   "id": "namusairo-183",
+   "field": "producer",
+   "verdict": "B",
+   "value": "와이칸",
+   "raw": "와이칸",
+   "confidence": "MEDIUM",
+   "evidence": "본문 '과테말라 우에우에테낭고 와이칸' — 지역명 뒤의 블렌드 구성 성분명으로 농장/생산자로 판단. 본문에서 '와이칸Wakan'을 구성명으로 명명",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations",
+   "note": "B 채택. 지역명+성분명 패턴은 본 배치의 팔미라(A/B 합의) 선례와 동일."
+  },
+  {
+   "id": "namusairo-763",
+   "field": "status",
+   "verdict": "B",
+   "value": "active",
+   "raw": "active",
+   "confidence": "MEDIUM",
+   "evidence": "isSoldOut=False (수집 플래그). 원문의 'SOLD OUT'은 장바구니/바로구매하기 버튼 영역의 DOM 템플릿 라벨",
+   "evidenceSource": "collector_flag",
+   "note": "B 채택. 정확도 통계 제외. 원문의 'SOLD OUT'은 구매 버튼 영역의 DOM 템플릿 라벨 (b3에서 동일 패턴을 버튼 라벨로 확인)."
+  },
+  {
+   "id": "namusairo-763",
+   "field": "roast",
+   "verdict": "B",
+   "value": null,
+   "raw": "French",
+   "confidence": "HIGH",
+   "mappingStatus": "UNMAPPED_LABEL",
+   "evidence": "원문 '볶음도 French' — 5단계 enum 매핑표에 없는 라벨 (enum 억지 매핑 금지)",
+   "evidenceSource": "audit-input/products/namusairo-763-fc06e0a5.json#evidence.rawObservations",
+   "note": "B 채택. UNMAPPED_LABEL 일반 규칙 적용 — 'French'는 5단계 enum 매핑표(Dark=강배전/다크 로스트/다크/Dark)에 없는 라벨."
+  },
+  {
+   "id": "namusairo-828",
+   "field": "status",
+   "verdict": "B",
+   "value": "active",
+   "raw": "active",
+   "confidence": "MEDIUM",
+   "evidence": "isSoldOut=False (수집 플래그). 원문의 'SOLD OUT'은 장바구니/바로구매하기 버튼 영역의 DOM 템플릿 라벨",
+   "evidenceSource": "collector_flag",
+   "note": "B 채택. 정확도 통계 제외. 원문의 'SOLD OUT'은 구매 버튼 영역의 DOM 템플릿 라벨 (b3에서 동일 패턴을 버튼 라벨로 확인)."
+  },
+  {
+   "id": "namusairo-828",
+   "field": "producer",
+   "verdict": "A",
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'데스카맥스 Descamex'는 디카페인 가공소이지 생산자가 아님 — 원문에 생산자(농장) 정보 없음",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations",
+   "note": "A 채택. 원문이 스스로 '가공소'라 밝힌 주체(데스카맥스 Descamex, 디카페인 가공 시설)를 생산자로 올릴 수 없음."
+  },
+  {
+   "id": "namusairo-828",
+   "field": "variety",
+   "verdict": "B",
+   "value": [
+    "버본",
+    "티피카",
+    "문도노보"
+   ],
+   "raw": [
+    "버본, 티피카, 문도노보",
+    "Bourbon, Typica, Mundo Novo"
+   ],
+   "confidence": "HIGH",
+   "evidence": "원문 '품 종 버본, 티피카, 문도노보 Bourbon, Typica, Mundo Novo' 명시",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations",
+   "note": "B 채택. A의 'current displayed와 일치하는 항목만 채택'은 golden이 원문이 아닌 current를 따르는 오류."
+  },
+  {
+   "id": "namusairo-828",
+   "field": "roast",
+   "verdict": "C",
+   "value": null,
+   "raw": "Well-done",
+   "confidence": "HIGH",
+   "mappingStatus": "UNMAPPED_LABEL",
+   "evidence": "원문 '볶음도 Well-done' — 5단계 enum 매핑표에 없는 라벨 (enum 억지 매핑 금지)",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations",
+   "note": "특별 지시 확정값 (A/B 무관). A/B 모두 value=null이었으나 A는 raw 누락."
+  },
+  {
+   "id": "terarosa-100020",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": [
+    "건과일",
+    "시트러스"
+   ],
+   "raw": [
+    "말린 과일의 풍미와",
+    "짙은 단맛의 여운이 남는 커피",
+    "Dried Fruits",
+    "Sweet Acidity",
+    "Soft",
+    "Long Aftertaste",
+    "말린 과일",
+    "시트러스",
+    "긴 여운",
+    "잘 익은 과일의 산미",
+    "농축된 단맛",
+    "부드러운 촉감",
+    "깊은 여운"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 노트 반복 블록에서 '말린 과일, 시트러스, 긴 여운' 확인. '긴 여운'은 여운 서술로 raw에만 보존. '짙은 단맛/부드러운 촉감/Sweet Acidity/Soft' 등 질감·강도 서술은 value 제외·raw 보존",
+   "evidenceSource": "audit-input/products/terarosa-100020-89e4091d.json#evidence.ocr",
+   "evidenceKind": "current_echo",
+   "note": "A 채택. B가 value에 포함한 '긴 여운'은 여운 서술이라 제외 — B 본인이 본 배치 terarosa-100543·로스터릭-브라질세라도내추럴에서는 제외한 기준과 일치시킴. '말린 과일'은 앱 정규화 어휘 '건과일'로 표기."
+  },
+  {
+   "id": "루비아커피-콜롬비아라스알마스워시드다크로스트",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '콜롬비아 라스 알마스 워시드 다크 로스트'의 '라스 알마스'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아라스알마스워시드다크로스트-9e7c6fb1.json#evidence.productName",
+   "note": "B 채택. 국가명 뒤 단일 토큰만으로는 역할 구분 불가."
+  },
+  {
+   "id": "루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '콜롬비아 엘 파라이소 리치피치 다크 로스트 가향 커피'의 '엘 파라이소'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피-ee30df44.json#evidence.productName",
+   "note": "B 채택. 유명 농장이라는 배경지식은 원문 근거가 아님."
+  }
+ ]
+}

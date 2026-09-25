@@ -1,0 +1,383 @@
+{
+ "aerycoffee-12249797713": {
+  "id": "aerycoffee-12249797713",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 케냐 뚱구리 AB 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/12249797713",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": null,
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "current": {
+   "id": "aerycoffee-12249797713",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 케냐 뚱구리 AB 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/12249797713",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/aerycoffee-12249797713-08f99f6a.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "케냐",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "케냐",
+    "process": "워시드",
+    "variety": "",
+    "region": "뚱구리 AB",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "coffeelibre-7374": {
+  "id": "coffeelibre-7374",
+  "roastery": "커피리브레",
+  "productName": "[골드문트] [디카페인] 에티오피아 예가체프 할로 베리티 내추럴",
+  "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84%20%EC%98%88%EA%B0%80%EC%B2%B4%ED%94%84%20%ED%95%A0%EB%A1%9C%20%EB%B2%A0%EB%A6%AC%ED%8B%B0%20%EB%82%B4%EC%B6%94%EB%9F%B4",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": null,
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "current": {
+   "id": "coffeelibre-7374",
+   "roasterName": "커피리브레",
+   "productName": "[골드문트] [디카페인] 에티오피아 예가체프 할로 베리티 내추럴",
+   "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84%20%EC%98%88%EA%B0%80%EC%B2%B4%ED%94%84%20%ED%95%A0%EB%A1%9C%20%EB%B2%A0%EB%A6%AC%ED%8B%B0%20%EB%82%B4%EC%B6%94%EB%9F%B4",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/coffeelibre-7374-eb59350d.json",
+   "raw": {
+    "origin": "'https://coffeelibre.kr',",
+    "process": "내추럴 & 마운틴워터 디카페인",
+    "variety": null,
+    "roastLevel": "Light",
+    "tastingNotes": [
+     "복숭아",
+     "포도",
+     "플로럴",
+     "캐러멜"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "플로럴",
+      "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+      "method": "detail-text"
+     },
+     {
+      "text": "복숭아",
+      "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+      "method": "detail-text"
+     },
+     {
+      "text": "포도",
+      "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+      "method": "detail-text"
+     },
+     {
+      "text": "캐러멜",
+      "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "내추럴",
+    "variety": "",
+    "region": "예가체프 할로 베리티",
+    "roastLevel": "Light",
+    "tastingNotes": [
+     "플로럴",
+     "복숭아",
+     "포도",
+     "캐러멜"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "momos-7380": {
+  "id": "momos-7380",
+  "roastery": "모모스커피",
+  "productName": "원두 부산 1kg 대용량",
+  "productUrl": "https://momos.co.kr/shop_view/7380",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": null,
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "current": {
+   "id": "momos-7380",
+   "roasterName": "모모스커피",
+   "productName": "원두 부산 1kg 대용량",
+   "productUrl": "https://momos.co.kr/shop_view/7380",
+   "isSoldOut": false,
+   "smartstore": false,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/momos-7380-af961c29.json",
+   "raw": {
+    "origin": "확인 필요",
+    "process": "확인 필요",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "건과일",
+     "캐러멜",
+     "허브"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "로스티드 넛",
+      "sourceUrl": "https://momos.co.kr/shop_view/7380",
+      "method": "detail-text"
+     },
+     {
+      "text": "캐러멜",
+      "sourceUrl": "https://momos.co.kr/shop_view/7380",
+      "method": "detail-text"
+     },
+     {
+      "text": "건과일류",
+      "sourceUrl": "https://momos.co.kr/shop_view/7380",
+      "method": "detail-text"
+     },
+     {
+      "text": "허브",
+      "sourceUrl": "https://momos.co.kr/shop_view/7380",
+      "method": "detail-text"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "",
+    "process": "",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "캐러멜",
+     "건과일",
+     "허브"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ }
+}

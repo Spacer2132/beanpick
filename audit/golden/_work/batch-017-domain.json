@@ -1,0 +1,12 @@
+{
+ "corrections": [
+  {
+   "id": "cafedoan-11754693192",
+   "field": "producer",
+   "before": "Finca Santa Teresa",
+   "after": "산타 테레사",
+   "reason": "정규화값에서 역할 표기(Finca) 제거 + 한글 표기 통일 (b16 'Finca Buena Vista'→'부에나 비스타' 선례)"
+  }
+ ],
+ "note": "도메인 리뷰: 게이샤=품종, 치로소·메호라도·모카=품종(원문 명시), 74110/74112·74158·SL28/SL34=품종, 무산소=가공 수식어, 모디파이드 허니→허니, 게쉬→게이샤(MEDIUM, 품종 자리 표기). 수정 1건(정규화 표기)."
+}

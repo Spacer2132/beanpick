@@ -1,0 +1,471 @@
+[
+ {
+  "id": "aerycoffee-11529645422",
+  "field": "producer",
+  "A": {
+   "value": "핀카 데보라 아이리스 이스테이트",
+   "raw": "핀카 데보라 아이리스 이스테이트",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '파나마 핀카 데보라 아이리스 이스테이트 애프터글로우 내추럴' — 농장명 전체를 생산자로 채택",
+   "evidenceSource": "audit-input/products/aerycoffee-11529645422-94044b9e.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "핀카 데보라",
+   "raw": "핀카 데보라",
+   "confidence": "HIGH",
+   "evidence": "상품명 중 '핀카 데보라' — '핀카(농장)' 명시",
+   "evidenceSource": "audit-input/products/aerycoffee-11529645422-94044b9e.json#evidence.productName"
+  }
+ },
+ {
+  "id": "cafedoan-12769087298",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "포도"
+   ],
+   "raw": [
+    "포도"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "current displayed '포도' 채택 — OCR 이미지 노트(Peach·Jasmine·Earl Grey·Honey)는 본문 CUP NOTE와 상충하여 제외, 본문의 카카오·크림·라일락은 current 미반영이라 제외",
+   "evidenceSource": "audit-input/products/cafedoan-12769087298-a5f6af30.json#evidence.ocr"
+  },
+  "B": {
+   "value": [
+    "포도",
+    "카카오",
+    "크림",
+    "라일락"
+   ],
+   "raw": [
+    "포도",
+    "카카오",
+    "크림",
+    "라일락",
+    "락틱",
+    "달콤함",
+    "보랏빛"
+   ],
+   "confidence": "HIGH",
+   "evidence": "상세 텍스트 CUP NOTE '포도, 카카오 & 크림 그리고 라일락의 플로럴' — 명시. '락틱이 엮인 달콤하고 보랏빛'은 질감·강도·색상 서술로 value 제외·raw 보존. OCR 'Peach/Jasmine/Earl Grey/Honey' 블록은 오염 의심 블록으로 인용 제외",
+   "evidenceSource": "audit-input/products/cafedoan-12769087298-a5f6af30.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "cafedoan-13627489275",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "자스민",
+    "복숭아",
+    "꿀",
+    "홍차"
+   ],
+   "raw": [
+    "Jasmine",
+    "Peach",
+    "Honey",
+    "Black Tea",
+    "Floral og kompleks. Fersken og sitrustoner."
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 추출 (2개 이미지): 'Jasmine, Peach, Honey, Black Tea' / 'Floral og kompleks. Fersken og sitrustoner.'(노르웨이어 문장, 노트 추출 불가) — 이미지 모델 추출이므로 HIGH 불가",
+   "evidenceSource": "audit-input/products/cafedoan-13627489275-b4e97a49.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "꽃",
+    "복숭아",
+    "시트러스"
+   ],
+   "raw": [
+    "Floral og kompleks. Fersken og sitrustoner."
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 노르웨이어 블록 'Floral og kompleks. Fersken og sitrustoner.'(꽃, 복숭아, 시트러스). 'kompleks'(복합적)는 강도 서술로 제외. 'Jasmine/Peach/Honey/Black Tea' 블록은 오염 의심 블록으로 인용 제외",
+   "evidenceSource": "audit-input/products/cafedoan-13627489275-b4e97a49.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "cafedoan-9985295831",
+  "field": "producer",
+  "A": {
+   "value": "냐위라",
+   "raw": "냐위라",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '케냐 냐위라 AA 풀리 워시드' — 냐위라는 농장명으로 판단",
+   "evidenceSource": "audit-input/products/cafedoan-9985295831-80dbac4b.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명의 '냐위라'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/cafedoan-9985295831-80dbac4b.json#evidence.productName"
+  }
+ },
+ {
+  "id": "fillout-13684417070",
+  "field": "producer",
+  "A": {
+   "value": "엘 레나세르",
+   "raw": "엘 레나세르",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '콜롬비아 엘 레나세르 카투라 피베리' — 엘 레나세르는 농장명으로 판단",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명의 '엘 레나세르'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.productName"
+  }
+ },
+ {
+  "id": "fillout-13684417070",
+  "field": "process",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 가공방식 정보 없음",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.ocr"
+  },
+  "B": {
+   "value": "Natural",
+   "raw": "NATURAL",
+   "confidence": "LOW",
+   "evidence": "OCR 노트 블록의 process 필드 'NATURAL' (단일 OCR 근거, 이미지 원문 미확인)",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.ocr"
+  }
+ },
+ {
+  "id": "fillout-13684417070",
+  "field": "variety",
+  "A": {
+   "value": "카투라 / 피베리",
+   "raw": "카투라 피베리",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '카투라 피베리' — current displayed '카투라 / 피베리'와 동일 표기 채택",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "카투라",
+   "raw": "카투라",
+   "confidence": "HIGH",
+   "evidence": "상품명 '카투라' — 품종 명시 ('피베리'는 선별 등급으로 제외)",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.productName"
+  }
+ },
+ {
+  "id": "fillout-13684417070",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "열대과일",
+    "카카오",
+    "초콜릿"
+   ],
+   "raw": [
+    "열대과일",
+    "카카오",
+    "달콤함",
+    "초콜릿"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 추출 (2개 이미지): '열대과일, 카카오, 달콤함' / '열대과일, 초콜릿, 카카오' — '달콤함'은 강도 서술로 raw에만 보존. 이미지 모델 추출이므로 HIGH 불가",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "열대과일",
+    "카카오"
+   ],
+   "raw": [
+    "열대과일",
+    "카카오",
+    "달콤함"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 노트 블록 (process 'NATURAL'). '달콤함'은 강도 서술로 value 제외·raw 보존",
+   "evidenceSource": "audit-input/products/fillout-13684417070-29ea682e.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "namusairo-183",
+  "field": "status",
+  "A": {
+   "value": "soldout",
+   "raw": "SOLD OUT",
+   "confidence": "HIGH",
+   "evidence": "본문 내 \"SOLD OUT\" 표기 (current isSoldOut=false와 불일치하나 원문 우선 — batch-002 namusairo-1135 선례)",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "active",
+   "raw": "active",
+   "confidence": "MEDIUM",
+   "evidence": "isSoldOut=False (수집 플래그). 페이지 원문의 'SOLD OUT' 문구는 장바구니/바로구매하기 버튼과 함께 노출되는 템플릿 UI 라벨로 판단하여 반대 증거로 보지 않음",
+   "evidenceSource": "collector_flag"
+  }
+ },
+ {
+  "id": "namusairo-183",
+  "field": "originRegion",
+  "A": {
+   "value": "우에우에테낭고 · 달고단",
+   "raw": "우에우에테낭고 · 달고단",
+   "confidence": "HIGH",
+   "evidence": "본문 '과테말라 우에우에테낭고 와이칸과 에티오피아 달고단 워시드 커피를 블렌딩'",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": [
+    "우에우에테낭고"
+   ],
+   "raw": "우에우에테낭고",
+   "confidence": "HIGH",
+   "evidence": "원문 '과테말라 우에우에테낭고 와이칸' — 우에우에테낭고는 과테말라 커피 산지(지역)명. 에티오피아 측 '달고단'은 농장/지역 구분 불가로 제외",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-183",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "본문 '우에우에테낭고 와이칸' — 와이칸이 농장명인지 블렌드 구성명인지 불확실",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "와이칸",
+   "raw": "와이칸 (Wakan)",
+   "confidence": "MEDIUM",
+   "evidence": "원문 '과테말라 우에우에테낭고 와이칸' — 지역명 뒤의 성분명으로 농장/생산자로 판단 (단독 명칭이라 HIGH 불가)",
+   "evidenceSource": "audit-input/products/namusairo-183-760d91e3.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-763",
+  "field": "status",
+  "A": {
+   "value": "soldout",
+   "raw": "SOLD OUT",
+   "confidence": "HIGH",
+   "evidence": "본문 내 \"SOLD OUT\" 표기 (current isSoldOut=false와 불일치하나 원문 우선 — batch-002 namusairo-1135 선례)",
+   "evidenceSource": "audit-input/products/namusairo-763-fc06e0a5.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "active",
+   "raw": "active",
+   "confidence": "MEDIUM",
+   "evidence": "isSoldOut=False (수집 플래그). 페이지 원문의 'SOLD OUT' 문구는 장바구니/바로구매하기 버튼과 함께 노출되는 템플릿 UI 라벨로 판단하여 반대 증거로 보지 않음",
+   "evidenceSource": "collector_flag"
+  }
+ },
+ {
+  "id": "namusairo-763",
+  "field": "roast",
+  "A": {
+   "value": "Dark",
+   "raw": "French",
+   "confidence": "HIGH",
+   "evidence": "rawObs '볶음도 French' — French roast → Dark 매핑",
+   "evidenceSource": "audit-input/products/namusairo-763-fc06e0a5.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": null,
+   "raw": "French",
+   "confidence": "HIGH",
+   "mappingStatus": "UNMAPPED_LABEL",
+   "evidence": "원문 '볶음도 French' — 5단계 enum 매핑표에 없는 라벨",
+   "evidenceSource": "audit-input/products/namusairo-763-fc06e0a5.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-828",
+  "field": "status",
+  "A": {
+   "value": "soldout",
+   "raw": "SOLD OUT",
+   "confidence": "HIGH",
+   "evidence": "본문 내 \"SOLD OUT\" 표기 (current isSoldOut=false와 불일치하나 원문 우선 — batch-002 namusairo-1135 선례)",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "active",
+   "raw": "active",
+   "confidence": "MEDIUM",
+   "evidence": "isSoldOut=False (수집 플래그). 페이지 원문의 'SOLD OUT' 문구는 장바구니/바로구매하기 버튼과 함께 노출되는 템플릿 UI 라벨로 판단하여 반대 증거로 보지 않음",
+   "evidenceSource": "collector_flag"
+  }
+ },
+ {
+  "id": "namusairo-828",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'데스카맥스 Descamex'는 디카페인 가공소이지 생산자가 아님 — 원문에 생산자(농장) 정보 없음",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "데스카맥스",
+   "raw": "데스카맥스 Descamex",
+   "confidence": "HIGH",
+   "evidence": "원문 '가공소 데스카맥스 Descamex'",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-828",
+  "field": "variety",
+  "A": {
+   "value": [
+    "티피카"
+   ],
+   "raw": [
+    "티피카"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "원문 품종 행 '버본, 티피카, 문도노보' 중 current displayed '티피카'와 일치하는 항목만 채택",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": [
+    "버본",
+    "티피카",
+    "문도노보"
+   ],
+   "raw": [
+    "버본, 티피카, 문도노보",
+    "Bourbon, Typica, Mundo Novo"
+   ],
+   "confidence": "HIGH",
+   "evidence": "원문 '품 종 버본, 티피카, 문도노보 Bourbon, Typica, Mundo Novo'",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-828",
+  "field": "roast",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "rawObs '볶음도 Well-done' — 5단계 enum 매핑표에 없는 라벨이라 변환 불가 (사용자 결정 필요)",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": null,
+   "raw": "Well-done",
+   "confidence": "HIGH",
+   "mappingStatus": "UNMAPPED_LABEL",
+   "evidence": "원문 '볶음도 Well-done' — 5단계 enum 매핑표에 없는 라벨",
+   "evidenceSource": "audit-input/products/namusairo-828-a67928aa.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "terarosa-100020",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "건과일",
+    "시트러스"
+   ],
+   "raw": [
+    "말린 과일의 풍미와",
+    "짙은 단맛의 여운이 남는 커피",
+    "Dried Fruits",
+    "Sweet Acidity",
+    "Soft",
+    "Long Aftertaste",
+    "말린 과일",
+    "시트러스",
+    "긴 여운",
+    "잘 익은 과일의 산미",
+    "농축된 단맛",
+    "부드러운 촉감",
+    "깊은 여운"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR '말린 과일' → current '건과일' 표기 채택 (동일 의미). 여운·산미·촉감 서술은 raw에만 보존",
+   "evidenceSource": "audit-input/products/terarosa-100020-89e4091d.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "말린 과일",
+    "시트러스",
+    "긴 여운"
+   ],
+   "raw": [
+    "말린 과일의 풍미와",
+    "짙은 단맛의 여운이 남는 커피",
+    "Dried Fruits",
+    "Sweet Acidity",
+    "Soft",
+    "Long Aftertaste",
+    "말린 과일",
+    "시트러스",
+    "긴 여운",
+    "Dried Fruits",
+    "Citrus",
+    "Long Aftertaste",
+    "잘 익은 과일의 산미",
+    "농축된 단맛",
+    "부드러운 촉감",
+    "깊은 여운"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 노트 4개 블록에서 '말린 과일, 시트러스, 긴 여운' 반복 확인. '짙은 단맛/부드러운 촉감/Sweet Acidity/Soft' 등 질감·강도 서술은 value에서 제외하고 raw에만 보존",
+   "evidenceSource": "audit-input/products/terarosa-100020-89e4091d.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "루비아커피-콜롬비아라스알마스워시드다크로스트",
+  "field": "producer",
+  "A": {
+   "value": "라스 알마스",
+   "raw": "라스 알마스",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '콜롬비아 라스 알마스 워시드' — 라스 알마스는 농장명으로 판단",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아라스알마스워시드다크로스트-9e7c6fb1.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명의 '라스 알마스'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아라스알마스워시드다크로스트-9e7c6fb1.json#evidence.productName"
+  }
+ },
+ {
+  "id": "루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피",
+  "field": "producer",
+  "A": {
+   "value": "엘 파라이소",
+   "raw": "엘 파라이소",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '콜롬비아 엘 파라이소 리치피치' — 엘 파라이소는 농장명으로 판단",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피-ee30df44.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명의 '엘 파라이소'가 생산자·농장·지역 중 무엇인지 이름만으로 구분 불가",
+   "evidenceSource": "audit-input/products/루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피-ee30df44.json#evidence.productName"
+  }
+ }
+]

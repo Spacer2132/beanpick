@@ -1,0 +1,23 @@
+{
+ "batch": 15,
+ "reviewedAt": "2026-09-25",
+ "qaReversals": 0,
+ "autoChecks": {
+  "textureWords": {
+   "found": 0,
+   "fixed": 0
+  },
+  "processContamination": {
+   "found": 0,
+   "fixed": 0
+  },
+  "evidenceKindMissing": {
+   "found": 0,
+   "fixed": 0
+  }
+ },
+ "manualQA": {
+  "checked": "A/B 판정 20건 + Judge 1건 + domain 12항목 전수 대조. status: 원문 내 'SOLD OUT' 표기 전수 확인 — 충돌 없음 (isSoldOut 플래그 유지). HIGH 판정 전부 원문 명시 근거 확인. '가향'(플레이버드)은 가공이 아닌 향 첨가로 process 제외 타당. '알로'는 '부라 몰케'(스테이션)와 병기되어 지역 레벨 표기로 유지.",
+  "issues": []
+ }
+}

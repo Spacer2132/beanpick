@@ -1,0 +1,229 @@
+{
+ "judge": [
+  {
+   "id": "cafedoan-11754610521",
+   "field": "producer",
+   "verdict": "B",
+   "value": "FST",
+   "raw": "FST",
+   "confidence": "HIGH",
+   "evidence": "원문 'FST 팀은 … 뛰어난 게이샤 Geisha 재배로도 잘 알려져 있습니다. … 이번에 소개할 게이샤 Geisha는 FST의 아름다운 ‘에스트리비 Estribi’ 구역에서 재배된 것'",
+   "evidenceSource": "audit-input/products/cafedoan-11754610521-6efb46fa.json#evidence.detailCache.detailText",
+   "note": "detailText 'FST의 아름다운 에스트리비 구역에서 재배' — FST가 농장이고 에스트리비는 그 구역. A의 상품명 기반 '아라셀리 에스트리비'는 구역명을 생산자로 승격한 오판."
+  },
+  {
+   "id": "cafedoan-7632387865",
+   "field": "originRegion",
+   "verdict": "A",
+   "value": null,
+   "raw": "Shoondisa",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'Shoondisa'는 워싱스테이션명 — 지역 승격 금지",
+   "evidenceSource": "audit-input/products/cafedoan-7632387865-0aaa1e62.json#snapshotRecord.productName",
+   "note": "'Shoondisa'는 워싱스테이션명으로 보이며 지역 승격 근거 없음 (초르소 선례). B도 증거에서 '상품명만으로 확정 불가'를 인정하면서 값을 둔 것은 모순."
+  },
+  {
+   "id": "cafedoan-7632387865",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": null,
+   "raw": [
+    "Peach, Jasmine, Earl Grey, Honey (이미지 f80_80)",
+    "berry compote, strawberry juice, white sugar, round mouthfeel (이미지 f750_750)"
+   ],
+   "confidence": "UNKNOWN",
+   "evidence": "동일 이미지의 해상도 변형 간 OCR 정면 충돌 — 원문 이미지 없이는 해결 불가 → CASE 3. current의 '딸기'(strawberry juice 유래 추정)는 충돌한 OCR에서 온 것으로 원문 확정 불가하여 미채택",
+   "evidenceSource": "audit-input/products/cafedoan-7632387865-0aaa1e62.json#evidence.ocr",
+   "note": "동일 이미지의 해상도 변형 간 OCR 정면 충돌(f80_80 'Peach/Jasmine/Earl Grey/Honey' vs f750_750 'berry compote…') → CASE 3/UNKNOWN. B의 §9.1 인용 f80_80 폐기는 어느 쪽이 오염인지 가정하는 것으로, 원문 이미지 없이는 판단 불가."
+  },
+  {
+   "id": "fillout-13622467203",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '엘 엔칸토'가 농장일 가능성 있으나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/fillout-13622467203-bd7ee90f.json#productName",
+   "note": "상품명 '엘 엔칸토' 토큰만으로 생산자·농장·지역 구분 불가 — 무비판 승격 금지. A의 MEDIUM은 복수 증거 조합 기준에 미달 (엘 파라이소 선례의 적용 범위는 QA/도메인 리뷰어 재확인 요망)."
+  },
+  {
+   "id": "fillout-13732632561",
+   "field": "variety",
+   "verdict": "A",
+   "value": null,
+   "raw": "엑셀사",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "상품명 '엑셀사'는 커피 종(species, 리베리카 계열)이지 품종(variety)이 아님 — §4 '자생종·다품종 같은 일반명은 품종이 아니다' 유추 적용",
+   "evidenceSource": "audit-input/products/fillout-13732632561-6d9a976d.json#snapshotRecord.productName",
+   "note": "'엑셀사'는 커피 종(species, 리베리카 계열)이지 품종(variety)이 아님 — §4 '자생종·다품종 같은 일반명은 품종이 아니다' 유추 적용."
+  },
+  {
+   "id": "hocuspocus-10781774331",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '벨라 알레한드리아'가 농장일 가능성 있으나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/hocuspocus-10781774331-a7ff0e77.json#productName",
+   "note": "상품명 '벨라 알레한드리아' 토큰만으로 생산자 확정 불가 — 무비판 승격 금지 (fillout-13622467203과 동일 사유)."
+  },
+  {
+   "id": "hocuspocus-10781774331",
+   "field": "process",
+   "verdict": "B",
+   "value": "Anaerobic Washed",
+   "raw": "애너로빅 워시드",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '…게이샤 애너로빅 워시드' — 무산소(애너로빅)는 가공 수식어이므로 워시드와 결합",
+   "evidenceSource": "audit-input/products/hocuspocus-10781774331-a7ff0e77.json#productName",
+   "note": "원문 '애너로빅 워시드' — §3 수식어 결합 예시('워시드 무산소') 및 표준값 '무산소 내추럴'과 대칭되게 애너로빅 수식어 유지. A의 '워시드'만은 가공 정보 손실. (B 값 'Anaerobic Washed' = 한글 정규화 '무산소 워시드'와 동일)"
+  },
+  {
+   "id": "namusairo-1136",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": [
+    "베르가못",
+    "라임"
+   ],
+   "raw": [
+    "베르가못",
+    "라임",
+    "게샤 플레이버",
+    "클래식"
+   ],
+   "confidence": "HIGH",
+   "evidence": "원문 '향 미 베르가못, 라임, 게샤 플레이버, 클래식' — '게샤 플레이버'는 품종 언급, '클래식'은 스타일 서술로 노트에서 제외·raw 보존",
+   "evidenceSource": "audit-input/products/namusairo-1136-ba721afb.json#evidence.rawObservations",
+   "note": "원문 '게샤 플레이버'는 품종 언급, '클래식'은 스타일 서술 — 테이스팅 노트가 아님. B의 '게샤 플레이버' 포함은 품종→노트 오분류."
+  },
+  {
+   "id": "namusairo-1146",
+   "field": "producer",
+   "verdict": "A",
+   "value": null,
+   "raw": "벤티 넨카 · 게뎁 · 여러 소농들",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "벤티 넨카/게뎁은 워싱스테이션명, 여러 소농들은 일반명 — 특정 생산자가 아니므로 제외 (초르소 선례)",
+   "evidenceSource": "audit-input/products/namusairo-1146-0ed2bd94.json#evidence.rawObservations",
+   "note": "'벤티 넨카·게뎁'은 워싱스테이션명, '여러 소농들'은 일반명 — 특정 생산자 없음 (초르소 선례). B의 '벤티 넨카' 채택은 스테이션명 승격."
+  },
+  {
+   "id": "namusairo-1146",
+   "field": "variety",
+   "verdict": "A",
+   "value": "74100 · 74112 · 월리쇼 · 쿠루메 · 데가 · JARC 74110 · 티피카 · 카투라 · 버본 · 카투아이 · 파체",
+   "raw": "74100, 74112, Ethiopia Heirloom · Wolisho, Kurume, Dega, JARC 74110 · Typica, Caturra, Bourbon, Catuai, Paches",
+   "confidence": "HIGH",
+   "evidence": "원문 '품 종' 행 — 'Ethiopia Heirloom'은 자생종 계열 일반명이므로 제외 (§4). current는 버번/카투라 2종만 있으나 원문 우선",
+   "evidenceSource": "audit-input/products/namusairo-1146-0ed2bd94.json#evidence.rawObservations",
+   "note": "'Ethiopia Heirloom'은 자생종 계열 일반명 — §4에 따라 품종에서 제외. B의 포함은 일반명 오분류."
+  },
+  {
+   "id": "namusairo-42",
+   "field": "productType",
+   "verdict": "B",
+   "value": "blend",
+   "raw": "blend",
+   "confidence": "HIGH",
+   "evidence": "원문 '…품종 생두를 조화롭게 블렌딩한 커피' — 블렌드 명시",
+   "evidenceSource": "audit-input/products/namusairo-42-1f9bda5e.json#evidence.rawObservations",
+   "note": "원문 '티피카·카투라·버본·카투아이·파체 품종 생두를 조화롭게 블렌딩한 커피' — 블렌드 명시 (§9). A의 single은 원산지 단일만 보고 블렌드 명시를 놓친 오판."
+  },
+  {
+   "id": "루비아커피-과테말라세이바풀리워시드다크로스트",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '세이바'가 농장일 가능성 있으나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라세이바풀리워시드다크로스트-4294e0c7.json#productName",
+   "note": "상품명 '세이바' 토큰만으로 생산자 확정 불가 — 무비판 승격 금지."
+  },
+  {
+   "id": "루비아커피-과테말라엘소코로파카마라워시드라이트로스트",
+   "field": "producer",
+   "verdict": "B",
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명 '엘 소코로'가 농장일 가능성 있으나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드라이트로스트-90b33c19.json#productName",
+   "note": "상품명 '엘 소코로' 토큰만으로 생산자 확정 불가 — 무비판 승격 금지."
+  },
+  {
+   "id": "루비아커피-과테말라엘소코로파카마라워시드라이트로스트",
+   "field": "tastingNotes",
+   "verdict": "A",
+   "value": null,
+   "raw": [
+    "Blueberry, Strawberry, Floral, Sweet, Clean (이미지A f80_80)",
+    "블루베리, 카라멜, 시럽 (이미지A f750_750)",
+    "자몽, 블루베리, 캐러멜, 시럽 (이미지B f750_750)"
+   ],
+   "confidence": "UNKNOWN",
+   "evidence": "동일 이미지(A)의 해상도 변형 간 OCR 정면 충돌 → CASE 3. current의 노트(블루베리·캐러멜·자몽)는 충돌한 OCR에서 온 것으로 원문 확정 불가하여 미채택",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드라이트로스트-90b33c19.json#evidence.ocr",
+   "note": "동일 이미지(A)의 해상도 변형 간 OCR 정면 충돌 → CASE 3/UNKNOWN. B는 충돌하는 OCR 출력을 선별 병합(Blueberry+카라멜·시럽+자몽)한 것으로 근거 없음."
+  },
+  {
+   "id": "루비아커피-브라질ny2세하도파인컵내추럴미디엄로스트",
+   "field": "process",
+   "verdict": "B",
+   "value": "Natural",
+   "raw": "내추럴",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '…파인컵 내추럴 미디엄 로스트'. OCR 이미지 카드의 process 필드는 'Pupled Natural'(오타)로 표기되나 상품명 원문 우선",
+   "evidenceSource": "audit-input/products/루비아커피-브라질ny2세하도파인컵내추럴미디엄로스트-e69c226d.json#productName",
+   "note": "§9 process는 상품명·본문에 명시된 것만 인정 — OCR process 필드의 'Pupled Natural'(오타)은 독립 근거가 아님. 상품명 '내추럴' 명시 우선."
+  },
+  {
+   "id": "namusairo-345",
+   "field": "roast",
+   "verdict": "C",
+   "value": null,
+   "raw": "Well-done",
+   "confidence": "HIGH",
+   "evidence": "원문 '볶음도 Well-done' — 5단계 enum 매핑표에 없는 라벨 (enum 억지 매핑 금지)",
+   "evidenceSource": "audit-input/products/namusairo-345-31503f41.json#evidence.rawObservations",
+   "note": "특별 지시에 따라 확정 — 원문 '볶음도 Well-done'은 5단계 enum 매핑표에 없는 라벨이므로 value null + UNMAPPED_LABEL (§5.1). B의 HIGH·UNMAPPED_LABEL 표기가 규칙에 부합하고, A의 SOURCE_MISSING은 confidence 표기 오류.",
+   "mappingStatus": "UNMAPPED_LABEL"
+  },
+  {
+   "id": "namusairo-1136",
+   "field": "status",
+   "verdict": "A",
+   "value": "soldout",
+   "raw": "SOLD OUT",
+   "confidence": "HIGH",
+   "evidence": "본문 내 'SOLD OUT' 표기 — isSoldOut=false와 충돌하나 원문 우선",
+   "evidenceSource": "audit-input/products/namusairo-1136-ba721afb.json#evidence.rawObservations",
+   "note": "정확도 통계 제외. 본문 구매 버튼 영역 'SOLD OUT' 표기 — isSoldOut=false와 충돌하나 원문 우선 (프로토콜 §9 예시, namusairo-522 선례). B의 '전 페이지 템플릿 문구' 가설은 증거 내 교차 검증 불가."
+  },
+  {
+   "id": "namusairo-345",
+   "field": "status",
+   "verdict": "A",
+   "value": "soldout",
+   "raw": "SOLD OUT",
+   "confidence": "HIGH",
+   "evidence": "본문 내 'SOLD OUT' 표기 — isSoldOut=false와 충돌하나 원문 우선 (namusairo-522 선례)",
+   "evidenceSource": "audit-input/products/namusairo-345-31503f41.json#evidence.rawObservations",
+   "note": "정확도 통계 제외. 본문 구매 버튼 영역 'SOLD OUT' 표기 — isSoldOut=false와 충돌하나 원문 우선 (프로토콜 §9 예시, namusairo-522 선례). B의 '전 페이지 템플릿 문구' 가설은 증거 내 교차 검증 불가."
+  },
+  {
+   "id": "namusairo-42",
+   "field": "status",
+   "verdict": "A",
+   "value": "soldout",
+   "raw": "SOLD OUT",
+   "confidence": "HIGH",
+   "evidence": "본문 내 'SOLD OUT' 표기 — isSoldOut=false와 충돌하나 원문 우선",
+   "evidenceSource": "audit-input/products/namusairo-42-1f9bda5e.json#evidence.rawObservations",
+   "note": "정확도 통계 제외. 본문 구매 버튼 영역 'SOLD OUT' 표기 — isSoldOut=false와 충돌하나 원문 우선 (프로토콜 §9 예시). B의 '전 페이지 템플릿 문구' 가설은 증거 내 교차 검증 불가."
+  }
+ ]
+}

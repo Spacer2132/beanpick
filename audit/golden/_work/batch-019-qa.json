@@ -1,0 +1,10 @@
+{
+ "reviewedAt": "2026-09-26T00:50:00+09:00",
+ "reversals": [],
+ "notes": [
+  "A/B 9필드 완전 일치 — Judge 생략.",
+  "roast: 상품명 '다크 블렌드'의 '다크'를 로스팅 단계로 승격하지 않음 (A/B 모두 SOURCE_MISSING) — 이름에서 로스팅 추정 금지 원칙 준수.",
+  "tastingNotes [다크초콜릿, 견과류] MEDIUM + current_echo: 동일 이미지 OCR 2건(영문/한글) 단독 근거, '쌉싸름한 단맛'·'균형감' 질감어 제외·raw 보존.",
+  "process: OCR process 빈 값 → SOURCE_MISSING (앱의 process='블렌드'는 유형이지 가공 아님)."
+ ]
+}

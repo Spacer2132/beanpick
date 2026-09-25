@@ -1,0 +1,214 @@
+[
+ {
+  "id": "aerycoffee-13753081358",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 에스메랄다 포르톤 7NB 게이샤 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13753081358",
+  "isSoldOut": false,
+  "evidenceFile": "products/aerycoffee-13753081358-2727bad7.json",
+  "detailText": "로스팅 머신 : 로링 S15 로스팅일 : 26.09.21 권장 추출일 : 26.10.12 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 162,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11529658658",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 콜롬비아 엘 디비소 아히 버번 언에어로빅 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11529658658",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-11529658658-dd7b1e65.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250321_201/1742539347778pDYTD_JPEG/76672133902202442_1052380592.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"tropical fruit flavors\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"chocolate\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"열대과일의 플레이버\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"초콜릿의 조화\",\n    \"group\": \"\",\n    \"process\": \"ANAEROBIC NATURAL\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11750844082",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에콰도르 라 노리아 그린 게샤 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11750844082",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-11750844082-7a29fc1f.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250422_290/1745308729800403r1_JPEG/1128660921843557_452969862.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"bright shine muscat flavors\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"delicate jasmine aromatics\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"신선한 샤인머스캣 플레이버와 자스민향 아로마\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13728205556",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 레리다 아멜리아 게이샤 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13728205556",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-13728205556-573c4e0f.json",
+  "detailText": "[마지막 배치] 로스팅 머신 : 로링 S15 로스팅일 : 26.08.29 권장 추출일 : 26.09.19 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 171,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13678433195",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 에스메랄다 푼다도르 4WB 게이샤 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13678433195",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-13678433195-418f669d.json",
+  "detailText": "로스팅 머신 : 스트롱 홀드 S8X 로스팅일 : 26.08.05 권장 추출일 : 26.08.26 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 166,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13753077888",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 에스메랄다 마리오 아바호 6FB 콜드룸 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13753077888",
+  "isSoldOut": false,
+  "evidenceFile": "products/aerycoffee-13753077888-55a18579.json",
+  "detailText": "로스팅 머신 : 로링 S15 로스팅일 : 26.09.14 권장 추출일 : 26.10.05 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 162,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11368425385",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 라 에스메랄다 하라미요 게이샤 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11368425385",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-11368425385-a8c7d0cd.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250321_58/1742539522752obnxx_JPEG/52014650753837700_1787880744.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"delicate jasmine notes with pleasant acidity\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"우아하고 섬세한 자스민의 향기와 기분 좋은 산도감\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13753055877",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에콰도르 야쿠리 티피카 메호라도 TUEX 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13753055877",
+  "isSoldOut": false,
+  "evidenceFile": "products/aerycoffee-13753055877-d63b708b.json",
+  "detailText": "로스팅 머신 : 로링 S15 로스팅일 : 26.09.14 권장 추출일 : 26.10.05 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 162,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13732855146",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에콰도르 루그마파타 티피카 메호라도 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13732855146",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-13732855146-db10020e.json",
+  "detailText": "[마지막 배치] 로스팅 머신 : 로링 S15 로스팅일 : 2026.08.29 권장 추출일 : 2026.09.19 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 175,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11913046530",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 케냐 지와 AB 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11913046530",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-11913046530-20ee9fef.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250601_235/17487829540858eByB_JPEG/6608431893809509_1127381487.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"vibrant blackcurrant jam acidity and sweetness\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"블랙커런트 잼의 생동감 있는 산도와 단맛의 조화로운 균형감\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11621294001",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 단체 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11621294001",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-11621294001-2f17f090.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250321_116/1742539213924cTYEe_JPEG/10890467725758118_1345176160.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"A clean and vibrant flavor reminiscent of peach tea\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"복숭아티와 얼그레이를 연상시키는 깨끗하고 향기 넘치는 향미\",\n    \"group\": \"\",\n    \"process\": \"WASHED\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-13666847700",
+  "evidenceGrade": "A",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 알티에리 로라 카투아이 ASD 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13666847700",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-13666847700-95f8fe4e.json",
+  "detailText": "[마지막 배치] 로스팅 머신 : 로링 S15 로스팅일 : 2026.08.29 권장 추출일 : 2026.09.19 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 재고 상황에 따라 더 최근 로스팅된 배치로 변경될 수 있습니다. 구매 시 참고 부탁드립니다 :-)",
+  "detailTextFullLen": 175,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11744816665",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 첼베사 디카페인 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11744816665",
+  "isSoldOut": true,
+  "evidenceFile": "products/aerycoffee-11744816665-318a48c1.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250421_200/1745203094524uz1CV_JPEG/54905908365949171_867734758.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"delicate floral aroma\",\n    \"group\": \"\",\n    \"process\": \"WASHED & MOUNTAIN WATER DECAFFEINE\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"gentle acidity\",\n    \"group\": \"\",\n    \"process\": \"WASHED & MOUNTAIN WATER DECAFFEINE\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"부드러운 꽃 향기\",\n    \"group\": \"\",\n    \"process\": \"WASHED & MOUNTAIN WATER DECAFFEINE\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"잔잔한 산도감이 매력적인 디카페인\",\n    \"group\": \"\",\n    \"process\": \"WASHED & MOUNTAIN WATER DECAFFEINE\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ }
+]

@@ -1,0 +1,499 @@
+[
+ {
+  "pid": "toch-12280895272",
+  "field": "producer",
+  "a": {
+   "value": "하시엔다 코페이 Don KS",
+   "raw": "하시엔다 코페이 Don KS",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '하시엔다 코페이 Don KS' 표기(농장명, 생산자 추정)",
+   "evidenceSource": "audit-input/products/products/toch-12280895272-20859fd2.json#productName"
+  },
+  "b": {
+   "value": "하시엔다 코페이",
+   "raw": "하시엔다 코페이",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 하시엔다 코페이 …' — '하시엔다(Hacienda)'는 농장 명칭",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#toch-12280895272.productName"
+  }
+ },
+ {
+  "pid": "deepbluelake-577",
+  "field": "producer",
+  "a": {
+   "value": "엘 보스케",
+   "raw": "엘 보스케",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '엘 보스케' 표기(농장명 추정)",
+   "evidenceSource": "audit-input/products/products/deepbluelake-577-97d41d96.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 표기 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#deepbluelake-577.rawTexts[0]"
+  }
+ },
+ {
+  "pid": "identity-13760156284",
+  "field": "productType",
+  "a": {
+   "value": "single",
+   "raw": "브라질 다테하 버번",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '브라질 다테하 버번 컬렉션' — 단일 산지/농장 명시 ('Single Origin' 라벨은 없음)",
+   "evidenceSource": "audit-input/products/products/identity-13760156284-18e17600.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "상품명 '브라질 다테하 버번 컬렉션'만 존재 — 유형(원두/세트 등) 확인 불가",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#identity-13760156284.productName"
+  }
+ },
+ {
+  "pid": "identity-13760156284",
+  "field": "producer",
+  "a": {
+   "value": "다테하",
+   "raw": "다테하",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '다테하' 표기(농장명 추정)",
+   "evidenceSource": "audit-input/products/products/identity-13760156284-18e17600.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 표기 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#identity-13760156284.productName"
+  }
+ },
+ {
+  "pid": "히떼로스터리-낙성대",
+  "field": "originCountry",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 구성(과테말라·인도네시아·코스타리카)으로 단일 국가 없음",
+   "evidenceSource": "audit-input/products/products/히떼로스터리-낙성대-e3cd626e.json#evidence.detailCache.detailText"
+  },
+  "b": {
+   "value": "과테말라, 인도네시아, 코스타리카",
+   "raw": "Guatemala, Indonesia, Costa Rica",
+   "confidence": "HIGH",
+   "evidence": "블렌드 구성 3종 산지 명시 (Guatemala / Indonesia / Costa Rica)",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#히떼로스터리-낙성대.detailText"
+  }
+ },
+ {
+  "pid": "coffee502-121",
+  "field": "originCountry",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 구성(콜롬비아·에티오피아)으로 단일 국가 없음 — 본문 'Bleding Info 콜롬비아, 에티오피아'",
+   "evidenceSource": "audit-input/products/products/coffee502-121-8bfa1aff.json#evidence.rawObservations[0].text"
+  },
+  "b": {
+   "value": "콜롬비아, 에티오피아",
+   "raw": "콜롬비아, 에티오피아",
+   "confidence": "HIGH",
+   "evidence": "'Bleding Info: 콜롬비아, 에티오피아' — 블렌드 구성 산지",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#coffee502-121.rawTexts[0]"
+  }
+ },
+ {
+  "pid": "werk-545",
+  "field": "process",
+  "a": {
+   "value": "워시드",
+   "raw": "워시드",
+   "confidence": "MEDIUM",
+   "evidence": "ocrNotes[0].output의 process '워시드, 디카페 E.A Washed, Decaf E.A' — 이미지 OCR 추출(독립 증거 아님)이므로 MEDIUM; 'E.A'는 디카페인 처리 방식 (productType=decaf)",
+   "evidenceSource": "audit-input/products/products/werk-545-66a19f2c.json#evidence.ocr[0].output"
+  },
+  "b": {
+   "value": "E.A",
+   "raw": "E.A",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 디카페인 E.A …' — E.A(Ethyl Acetate)는 디카페인 가공법. OCR process '워시드, 디카페 E.A'는 이미지 추출(MEDIUM)에 그쳐 미채택",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#werk-545.productName"
+  }
+ },
+ {
+  "pid": "cafedoan-13648670059",
+  "field": "originRegion",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 행정 지역명 없음 — '첼베사'는 워싱스테이션",
+   "evidenceSource": "audit-input/products/products/cafedoan-13648670059-fef52fab.json#productName"
+  },
+  "b": {
+   "value": "첼베사",
+   "raw": "첼베사",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 에티오피아 첼베사 …' — 첼베사(Chelbesa)는 에티오피아의 지명",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#cafedoan-13648670059.productName"
+  }
+ },
+ {
+  "pid": "cafedoan-13648670059",
+  "field": "producer",
+  "a": {
+   "value": "첼베사",
+   "raw": "첼베사",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '첼베사' 표기(워싱스테이션명, 생산자 추정)",
+   "evidenceSource": "audit-input/products/products/cafedoan-13648670059-fef52fab.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 표기 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#cafedoan-13648670059.productName"
+  }
+ },
+ {
+  "pid": "hocuspocus-13070042675",
+  "field": "producer",
+  "a": {
+   "value": "엘 네그로",
+   "raw": "엘 네그로",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '엘 네그로' 표기(농장명 추정)",
+   "evidenceSource": "audit-input/products/products/hocuspocus-13070042675-3b03a73a.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 표기 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#hocuspocus-13070042675.productName"
+  }
+ },
+ {
+  "pid": "루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트",
+  "field": "originRegion",
+  "a": {
+   "value": "예가체프",
+   "raw": "예가체프",
+   "confidence": "HIGH",
+   "evidence": "상품명에 '예가체프' 명시 (지역명)",
+   "evidenceSource": "audit-input/products/products/루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트-7b7b0a2f.json#productName"
+  },
+  "b": {
+   "value": "예가체프 할로 베리티",
+   "raw": "예가체프 할로 베리티",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 예가체프 할로 베리티 …' — 예가체프(지역) + 할로 베리티(가공소)",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트.productName"
+  }
+ },
+ {
+  "pid": "루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트",
+  "field": "producer",
+  "a": {
+   "value": "할로 베리티",
+   "raw": "할로 베리티",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '할로 베리티' 표기(워싱스테이션명, 생산자 추정)",
+   "evidenceSource": "audit-input/products/products/루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트-7b7b0a2f.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 표기 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트.productName"
+  }
+ },
+ {
+  "pid": "fillout-13637035667",
+  "field": "producer",
+  "a": {
+   "value": "라 루쿠마",
+   "raw": "라 루쿠마",
+   "confidence": "MEDIUM",
+   "evidence": "상품명에 '라 루쿠마' 표기(농장명 추정)",
+   "evidenceSource": "audit-input/products/products/fillout-13637035667-dfa57cd0.json#productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 표기 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#fillout-13637035667.productName"
+  }
+ },
+ {
+  "pid": "로스터릭-에티오피아벤사곤조베벨라이네바리소내추럴",
+  "field": "tastingNotes",
+  "a": {
+   "value": [
+    "딸기",
+    "블루베리",
+    "사탕후미"
+   ],
+   "raw": [
+    "딸기",
+    "블루베리",
+    "사탕 후미"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR output: 딸기/블루베리/'사탕 후미'(process=내추럴). OCR 전용 증거이므로 MEDIUM. '사탕 후미'는 후미(aftertaste) 서술 포함이나 향미 기술로 포함",
+   "evidenceSource": "audit-input/products/로스터릭-에티오피아벤사곤조베벨라이네바리소내추럴-d108d2a9.json#evidence.ocr[0].output"
+  },
+  "b": {
+   "value": [
+    "딸기",
+    "블루베리",
+    "사탕"
+   ],
+   "raw": [
+    "딸기",
+    "블루베리",
+    "사탕 후미"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR(gemini): '딸기', '블루베리', '사탕 후미' — '후미'는 여운 표기로 '사탕'만 노트 채택. 모델 추출값이므로 최대 MEDIUM",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#로스터릭-에티오피아벤사곤조베벨라이네바리소내추럴.ocrNotes[0]"
+  }
+ },
+ {
+  "pid": "coffeejg-13685877332",
+  "field": "tastingNotes",
+  "a": {
+   "value": [
+    "오렌지",
+    "마카다미아",
+    "캐러멜",
+    "그린티",
+    "아삼티"
+   ],
+   "raw": [
+    "Orange",
+    "Macadamia",
+    "Caramel",
+    "Green Tea",
+    "Assam Tea"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR(동일 이미지 2회 추출, 내용 동일 — 한 건은 빈 출력 []이라 충돌 아님): Orange, Macadamia, Caramel, Green Tea, Assam Tea. OCR 전용 증거이므로 MEDIUM",
+   "evidenceSource": "audit-input/products/coffeejg-13685877332-4ea128e7.json#evidence.ocr[1].output"
+  },
+  "b": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "OCR_CONFLICT: 동일 이미지의 OCR 2건 중 1건은 빈 결과([]), 1건은 5개 노트(Orange, Macadamia, Caramel, Green Tea, Assam Tea) — 원문 이미지 없이는 해결 불가",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#coffeejg-13685877332.ocrNotes[0]"
+  }
+ },
+ {
+  "pid": "toch-12166525780",
+  "field": "process",
+  "a": {
+   "value": "디카페인 슈가케인 EA",
+   "raw": "디카페인 슈가케인 EA",
+   "confidence": "HIGH",
+   "evidence": "상품명 '…디카페인 슈가케인 EA' — 슈가케인 EA=디카페인 가공법",
+   "evidenceSource": "audit-input/products/toch-12166525780-7e9fd74d.json#snapshotRecord.productName"
+  },
+  "b": {
+   "value": "슈가케인 EA",
+   "raw": "슈가케인 EA",
+   "confidence": "HIGH",
+   "evidence": "상품명 '슈가케인 EA' — 디카페인 가공법(Sugarcane EA)",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#toch-12166525780.productName"
+  }
+ },
+ {
+  "pid": "아이덴티티커피랩-콜롬비아엑셀소디카페인마운틴워터",
+  "field": "process",
+  "a": {
+   "value": "디카페인 마운틴 워터",
+   "raw": "디카페인 마운틴 워터",
+   "confidence": "HIGH",
+   "evidence": "상품명 '…디카페인 마운틴 워터' — 마운틴 워터=디카페인 가공법",
+   "evidenceSource": "audit-input/products/아이덴티티커피랩-콜롬비아엑셀소디카페인마운틴워터-83ace073.json#snapshotRecord.productName"
+  },
+  "b": {
+   "value": "마운틴 워터",
+   "raw": "마운틴 워터",
+   "confidence": "HIGH",
+   "evidence": "상품명 '마운틴 워터' — 디카페인 가공법",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#아이덴티티커피랩-콜롬비아엑셀소디카페인마운틴워터.productName"
+  }
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "originCountry",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "블렌드 구성 산지 복수(Brazil×2·Tanzania, detailText 기준) — 단일 국가 판정 불가. OCR_CONFLICT: OCR의 블렌드 구성(Brazil Dunas Do Cafe·Indonesia Bener Meriah Wet Hulled)이 detailText(…Casa Blend·Tanzania Acacia Hills…)와 충돌",
+   "evidenceSource": "audit-input/products/히떼로스터리-굿데이다크-21bee56d.json#evidence.detailCache.detailText"
+  },
+  "b": {
+   "value": "브라질 · 탄자니아",
+   "raw": "Brazil, Tanzania",
+   "confidence": "HIGH",
+   "evidence": "detailText 블렌드 구성: 'Brazil Fazenda Sitio Terra Boa Pulped Natural / Brazil Casa Blend Natural / Tanzania Acacia Hills Kent AA Fully Washed'",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#히떼로스터리-굿데이다크.detailText"
+  }
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "producer",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "블렌드 복수 농장 구성 — 단일 생산자 판정 불가",
+   "evidenceSource": "audit-input/products/히떼로스터리-굿데이다크-21bee56d.json#evidence.detailCache.detailText"
+  },
+  "b": {
+   "value": "Fazenda Sitio Terra Boa · Casa Blend · Acacia Hills",
+   "raw": "Fazenda Sitio Terra Boa, Casa Blend, Acacia Hills",
+   "confidence": "HIGH",
+   "evidence": "detailText 블렌드 구성에 명시된 농장명 — 단, OCR의 구성 표기('Brazil Dunas Do Cafe Natural', 'Indonesia Bener Meriah Keybeans Wet Hulled')와 상이 → detailText 우선",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#히떼로스터리-굿데이다크.detailText"
+  }
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "process",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "구성별 가공 상이(Pulped Natural·Natural·Fully Washed, detailText 기준) — 단일 가공 판정 불가. OCR_CONFLICT: OCR 구성과 충돌",
+   "evidenceSource": "audit-input/products/히떼로스터리-굿데이다크-21bee56d.json#evidence.detailCache.detailText"
+  },
+  "b": {
+   "value": "펄프드 내추럴 · 내추럴 · 워시드",
+   "raw": "Pulped Natural, Natural, Fully Washed",
+   "confidence": "HIGH",
+   "evidence": "detailText 블렌드 구성: 'Pulped Natural', 'Natural', 'Fully Washed' — 구성별 상이",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#히떼로스터리-굿데이다크.detailText"
+  }
+ },
+ {
+  "pid": "히떼로스터리-굿데이다크",
+  "field": "variety",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문 확인했으나 품종 정보 없음",
+   "evidenceSource": "audit-input/products/히떼로스터리-굿데이다크-21bee56d.json#evidence.detailCache.detailText"
+  },
+  "b": {
+   "value": "Kent",
+   "raw": "Kent",
+   "confidence": "HIGH",
+   "evidence": "detailText 'Tanzania Acacia Hills Kent AA Fully Washed'",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#히떼로스터리-굿데이다크.detailText"
+  }
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "originCountry",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "옵션 5종의 블렌드 구성 산지가 각각 상이(브라질·과테말라·콜롬비아 / 콜롬비아·케냐·에티오피아 / 콜롬비아·에티오피아 / 콜롬비아·과테말라·에티오피아 / 에티오피아) — 단일 국가 판정 불가",
+   "evidenceSource": "audit-input/products/coffee502-93-cf13eaea.json#evidence.rawObservations[0].text"
+  },
+  "b": {
+   "value": "브라질 · 과테말라 · 콜롬비아 · 케냐 · 에티오피아",
+   "raw": "브라질, 과테말라, 콜롬비아 / 콜롬비아, 케냐, 에티오피아 / 콜롬비아, 에티오피아",
+   "confidence": "HIGH",
+   "evidence": "본문 블렌드 구성: '블렌드 | 브라질, 과테말라, 콜롬비아'(클래식), '블렌드 | 콜롬비아, 케냐, 에티오피아'(워커스), '블렌드 | 콜롬비아, 에티오피아'(블루스) — 젠틀·웰컴 구성은 텍스트 절단으로 미확인",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#coffee502-93.rawTexts[0]"
+  }
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "roast",
+  "a": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "옵션별 로스팅 상이(중강배전/강배전/중배전/중약배전) — 단일 로스팅 판정 불가",
+   "evidenceSource": "audit-input/products/coffee502-93-cf13eaea.json#evidence.rawObservations[0].text"
+  },
+  "b": {
+   "value": "Medium-Dark · Dark · Medium",
+   "raw": "중강배전, 강배전, 중배전",
+   "confidence": "MEDIUM",
+   "evidence": "본문: 클래식 '로스팅 | 중강배전', 워커스 '로스팅 | 강배전', 블루스 '로스팅 | 중배전' — 5종 중 3종만 확인(젠틀·웰컴 텍스트 절단), 구성별 상이",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#coffee502-93.rawTexts[0]"
+  }
+ },
+ {
+  "pid": "coffee502-93",
+  "field": "tastingNotes",
+  "a": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "옵션 5종 컵노트가 각각 상이(클래식: 토스트·구운견과·초콜릿 / 워커스: 다크초콜릿·카카오·블랙슈가 / 블루스: 감귤·베리·초콜릿 / 젠틀: 시트러스·캐러멜·'좋은 밸런스'(밸런스 서술은 노트 아님) / 웰컴: 플로럴·열대과일·베리류·캔디같은단맛) — 단일 노트 판정 불가",
+   "evidenceSource": "audit-input/products/coffee502-93-cf13eaea.json#evidence.rawObservations[0].text"
+  },
+  "b": {
+   "value": [
+    "토스트",
+    "구운견과",
+    "초콜릿",
+    "다크초콜릿",
+    "카카오",
+    "블랙슈가",
+    "감귤",
+    "베리"
+   ],
+   "raw": [
+    "토스트",
+    "구운 견과",
+    "초콜릿",
+    "다크 초콜릿",
+    "카카오",
+    "블랙 슈가",
+    "감귤",
+    "베리",
+    "초콜"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "본문 컵노트: 클래식 '토스트, 구운 견과, 초콜릿', 워커스 '다크 초콜릿, 카카오, 블랙 슈가', 블루스 '감귤, 베리, 초콜'('초콜'→초콜릿 정규화) — 젠틀·웰컴은 텍스트 절단으로 미확인",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#coffee502-93.rawTexts[0]"
+  }
+ },
+ {
+  "pid": "werk-562",
+  "field": "producer",
+  "a": {
+   "value": "와이칸",
+   "raw": "와이칸",
+   "confidence": "LOW",
+   "evidence": "상품명 '베르크 과테말라 와이칸' 내 '와이칸' — 농장명으로 보이나 원문 명시 없음",
+   "evidenceSource": "audit-input/products/werk-562-01493085.json#snapshotRecord.productName"
+  },
+  "b": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 정보 없음",
+   "evidenceSource": "audit/golden/batch-008-evidence.json#werk-562.rawTexts[0]"
+  }
+ }
+]

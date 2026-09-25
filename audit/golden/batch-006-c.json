@@ -1,0 +1,302 @@
+{
+ "hocuspocus-13691084701": {
+  "id": "hocuspocus-13691084701",
+  "roastery": null,
+  "productName": "백차",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13691084701",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "커피리브레-노서프라이즈": {
+  "id": "커피리브레-노서프라이즈",
+  "roastery": null,
+  "productName": "노서프라이즈",
+  "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "momos-3058": {
+  "id": "momos-3058",
+  "roastery": null,
+  "productName": "원두 부산",
+  "productUrl": "https://momos.co.kr/shop_view/3058",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "hocuspocus-13027403263": {
+  "id": "hocuspocus-13027403263",
+  "roastery": null,
+  "productName": "에티오피아 시다마 보체사 워시드",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13027403263",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ }
+}

@@ -1,0 +1,446 @@
+{
+ "aerycoffee-13629628089": {
+  "id": "aerycoffee-13629628089",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 첼베사 워시드",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "hocuspocus-8691406057": {
+  "id": "hocuspocus-8691406057",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "HOCUS POCUS ROASTERS 후드티",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "커피리브레-배드블러드": {
+  "id": "커피리브레-배드블러드",
+  "roastery": "커피리브레",
+  "productName": "배드블러드",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "momos-3658": {
+  "id": "momos-3658",
+  "roastery": "모모스커피",
+  "productName": "원두 므쵸베리",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "aerycoffee-13647143492": {
+  "id": "aerycoffee-13647143492",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 핀카 소피아 에센스 콜렉션 콜리브리 게이샤 워시드 FS8925",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ },
+ "루비아커피-스트로베리초콜릿케이크": {
+  "id": "루비아커피-스트로베리초콜릿케이크",
+  "roastery": "루비아 커피",
+  "productName": "스트로베리 초콜릿 케이크",
+  "evidenceGrade": "C",
+  "golden": {
+   "productType": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "process": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "UNKNOWN",
+    "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+    "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false"
+   }
+  },
+  "review": {
+   "note": "C-grade mechanical: no evidence, skipped independent review"
+  }
+ }
+}

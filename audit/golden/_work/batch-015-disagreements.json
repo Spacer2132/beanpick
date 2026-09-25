@@ -1,0 +1,661 @@
+[
+ {
+  "id": "aerycoffee-13728207048",
+  "field": "originRegion",
+  "A": {
+   "value": null,
+   "raw": "[에어리커피] 파나마 레리다 레리다 에스테이트 게이샤 워시드",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'레리다 에스테이트'는 농장 표기 — 지역 승격 금지",
+   "evidenceSource": "audit-input/products/aerycoffee-13728207048-5360e707.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "상품명 '파나마 레리다'",
+   "evidenceSource": "audit-input/products/aerycoffee-13728207048-5360e707.json#productName",
+   "raw": "레리다",
+   "value": "레리다"
+  }
+ },
+ {
+  "id": "aerycoffee-13728207048",
+  "field": "producer",
+  "A": {
+   "value": "레리다 에스테이트",
+   "raw": "레리다 에스테이트",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '레리다 에스테이트' — 농장명 추정",
+   "evidenceSource": "audit-input/products/aerycoffee-13728207048-5360e707.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "상품명 '레리다 에스테이트' ('에스테이트' 명시 = 농장)",
+   "evidenceSource": "audit-input/products/aerycoffee-13728207048-5360e707.json#productName",
+   "raw": "레리다 에스테이트",
+   "value": "레리다 에스테이트"
+  }
+ },
+ {
+  "id": "aerycoffee-13753086459",
+  "field": "originRegion",
+  "A": {
+   "value": null,
+   "raw": "[에어리커피] 파나마 레리다 에스플렌도로사 게이샤 OX 허니",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'레리다 에스플렌도로사'는 농장 표기 — 지역 승격 금지",
+   "evidenceSource": "audit-input/products/aerycoffee-13753086459-7a05238d.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "상품명 '파나마 레리다'",
+   "evidenceSource": "audit-input/products/aerycoffee-13753086459-7a05238d.json#productName",
+   "raw": "레리다",
+   "value": "레리다"
+  }
+ },
+ {
+  "id": "aerycoffee-13753086459",
+  "field": "producer",
+  "A": {
+   "value": "레리다 에스플렌도로사",
+   "raw": "레리다 에스플렌도로사",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '레리다 에스플렌도로사' — 농장명 추정",
+   "evidenceSource": "audit-input/products/aerycoffee-13753086459-7a05238d.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '에스플렌도로사' 표기 있으나 이름만으로 생산자·농장·로트명·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/aerycoffee-13753086459-7a05238d.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "cafedoan-11696788154",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "NOMAD COFFEE 노마드 커피 Filter Burundi Gahahe Washed",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'NOMAD COFFEE'는 수입 브랜드, '가하헤'는 워싱스테이션 — 생산자(농장/농부)가 아니므로 제외",
+   "evidenceSource": "audit-input/products/cafedoan-11696788154-bce2ae1b.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "본문 '워시드 가하헤 스테이션 Washed Ga…' (가공스테이션 명시)",
+   "evidenceSource": "audit-input/products/cafedoan-11696788154-bce2ae1b.json#evidence.detailCache.detailText",
+   "raw": "가하헤",
+   "value": "가하헤"
+  }
+ },
+ {
+  "id": "cafedoan-12747134803",
+  "field": "originRegion",
+  "A": {
+   "value": null,
+   "raw": "NOMAD COFFEE 노마드 커피 Kenya Mathare-ini Washed",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'마타레이니'는 워싱스테이션 추정 — 지역 승격 금지",
+   "evidenceSource": "audit-input/products/cafedoan-12747134803-7de78113.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "LOW",
+   "evidence": "본문 말미 '애프터테이스트는 무랑가 Muran' — 원문이 300자에서 잘려 불완전함",
+   "evidenceSource": "audit-input/products/cafedoan-12747134803-7de78113.json#evidence.detailCache.detailText",
+   "raw": "무랑가",
+   "value": "무랑가"
+  }
+ },
+ {
+  "id": "cafedoan-12747134803",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "NOMAD COFFEE 노마드 커피 Kenya Mathare-ini Washed",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'마타레이니'는 워싱스테이션 추정, 'NOMAD COFFEE'는 수입 브랜드 — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/cafedoan-12747134803-7de78113.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "MEDIUM",
+   "evidence": "상품명 'Kenya Mathare-ini Washed'; 본문 '케냐 마타레이니' (가공소명으로 판단, 명시적 '스테이션' 표기는 본문 300자 잘림 구간에 있을 가능성)",
+   "evidenceSource": "audit-input/products/cafedoan-12747134803-7de78113.json#productName",
+   "raw": "Mathare-ini",
+   "value": "마타레이니"
+  }
+ },
+ {
+  "id": "cafedoan-12747134803",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "노란 자두",
+    "히비스커스",
+    "꿀"
+   ],
+   "raw": [
+    "노란 자두",
+    "히비스커스",
+    "꿀"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText CUP NOTE '노란 자두, 히비스커스, 꿀' 명시 — OCR(CIRUELA AMARILLA/FLOR DE JAMAICA/MIEL) 교차 확인. 원문 '쥬시한'은 질감 서술로 value 제외",
+   "evidenceSource": "audit-input/products/cafedoan-12747134803-7de78113.json#evidence.detailCache.detailText, audit-input/products/cafedoan-12747134803-7de78113.json#evidence.ocr",
+   "evidenceKind": "text_confirmed"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "본문 'CUP NOTE 노란 자두, 히비스커스, 꿀'; 본문 '70퍼센트 다크 초콜릿이 바디와 깊이를 부여합니다', '온도가 내려가면 시럽에 절인 복숭아와 넥타린의 뉘앙스'; '시럽 같은 캐릭터'는 질감 서술이라 value에서 제외, raw에 보존",
+   "evidenceSource": "audit-input/products/cafedoan-12747134803-7de78113.json#evidence.detailCache.detailText",
+   "raw": [
+    "노란 자두",
+    "히비스커스",
+    "꿀",
+    "70퍼센트 다크 초콜릿",
+    "시럽에 절인 복숭아",
+    "넥타린",
+    "시럽 같은 캐릭터"
+   ],
+   "value": [
+    "노란 자두",
+    "히비스커스",
+    "꿀",
+    "다크 초콜릿",
+    "복숭아",
+    "넥타린"
+   ]
+  }
+ },
+ {
+  "id": "cafedoan-12769121036",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "LUNA 루나 Ethiopia Elto Bona Zuria Washed",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'엘토 커피'는 가공 스테이션 (detailText '엘토 커피 Elto Coffee 가공 스테이션') — 생산자가 아님",
+   "evidenceSource": "audit-input/products/cafedoan-12769121036-9d239084.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "본문 '시다마 Sidama 보나 주리아 Bona Zuria의 엘토 커피 Elto Coffee 가공 스테이션에 전달합니다'",
+   "evidenceSource": "audit-input/products/cafedoan-12769121036-9d239084.json#evidence.detailCache.detailText",
+   "raw": "엘토 커피 Elto Coffee",
+   "value": "엘토 커피"
+  }
+ },
+ {
+  "id": "cafedoan-12769121036",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "센차",
+    "살구",
+    "청포도",
+    "플로럴",
+    "향신료",
+    "얼그레이",
+    "꿀"
+   ],
+   "raw": [
+    "센차 같은 우아함",
+    "살구",
+    "청포도",
+    "플로럴 같은 섬세한 과일",
+    "약간의 향신료 터치",
+    "Earl Grey",
+    "Honey"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText CUP NOTE '센차 같은 우아함, 살구, 청포도, 플로럴 같은 섬세한 과일, 약간의 향신료 터치' 명시 — OCR(Peach/Jasmine/Earl Grey/Honey) 교차 확인",
+   "evidenceSource": "audit-input/products/cafedoan-12769121036-9d239084.json#evidence.detailCache.detailText, audit-input/products/cafedoan-12769121036-9d239084.json#evidence.ocr",
+   "evidenceKind": "text_confirmed"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "본문 'CUP NOTE 센차 같은 우아함, 살구, 청포도, 플로럴 같은 섬세한 과일'; '센차 같은 우아함'·'섬세한 과일'·'향신료 터치'는 질감·강도 서술이라 제외. OCR의 Peach/Jasmine/Earl Grey/Honey 블록은 오염 의심 교차 반복 블록이므로 인용에서 제외",
+   "evidenceSource": "audit-input/products/cafedoan-12769121036-9d239084.json#evidence.detailCache.detailText",
+   "raw": [
+    "살구",
+    "청포도",
+    "플로럴"
+   ],
+   "value": [
+    "살구",
+    "청포도",
+    "플로럴"
+   ]
+  }
+ },
+ {
+  "id": "cafedoan-13627487496",
+  "field": "tastingNotes",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "current.raw.tastingNoteEvidence(image-model, f80_80)의 4종 노트(Peach/Jasmine/Earl Grey/Honey)가 §3 evidence.ocr의 빈 출력([])과 정면 충돌 — 동일 이미지의 모델 추출 결과가 엇갈려 원문 이미지 없이는 해결 불가 → CASE 3/UNKNOWN. current의 복숭아·자스민·꿀은 충돌 OCR에서 온 것으로 신뢰 불가",
+   "evidenceSource": "audit-input/products/cafedoan-13627487496-215bf2a8.json#evidence.ocr, current.raw.tastingNoteEvidence"
+  },
+  "B": {
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문(상품명·OCR)을 확인했으나 테이스팅 노트 정보 없음 (OCR 출력 빈 배열)",
+   "evidenceSource": "audit-input/products/cafedoan-13627487496-215bf2a8.json#evidence.ocr",
+   "raw": [],
+   "value": []
+  }
+ },
+ {
+  "id": "cafedoan-13635190498",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "르완다 기셰케 내추럴",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'기셰케'는 워싱스테이션 — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/cafedoan-13635190498-058ac45d.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '기셰케' 표기 있으나 이름만으로 생산자·가공소·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/cafedoan-13635190498-058ac45d.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "cafedoan-13635190498",
+  "field": "tastingNotes",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "동일 이미지 해상도 변형 간 OCR 정면 충돌 (f80_80: Jasmine/Peach/Earl Grey/Honey vs f750_750: Cola/Cherry/Wild flowers) — 상호 배타적 집합, 원문 이미지 없이 해결 불가 → CASE 3/UNKNOWN",
+   "evidenceSource": "audit-input/products/cafedoan-13635190498-058ac45d.json#evidence.ocr"
+  },
+  "B": {
+   "confidence": "MEDIUM",
+   "evidence": "OCR 단독(이미지2): Cola/Cherry/Wild flowers (process Natural process). OCR 이미지1의 Jasmine/Peach/Earl Grey/Honey 블록은 오염 의심 교차 반복 블록이므로 인용에서 제외",
+   "evidenceKind": "current_echo",
+   "evidenceSource": "audit-input/products/cafedoan-13635190498-058ac45d.json#evidence.ocr",
+   "raw": [
+    "Cola",
+    "Cherry",
+    "Wild flowers"
+   ],
+   "value": [
+    "Cola",
+    "Cherry",
+    "Wild flowers"
+   ]
+  }
+ },
+ {
+  "id": "fillout-13684414219",
+  "field": "producer",
+  "A": {
+   "value": "엘 티그리",
+   "raw": "엘 티그리",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 티그리' — 농장명 추정",
+   "evidenceSource": "audit-input/products/fillout-13684414219-aca93777.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '엘 티그리' 표기 있으나 이름만으로 생산자·농장·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/fillout-13684414219-aca93777.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "fillout-13684414219",
+  "field": "variety",
+  "A": {
+   "value": "치로소",
+   "raw": "치로소",
+   "confidence": "HIGH",
+   "evidence": "상품명 '치로소' 명시 — 실존 품종",
+   "evidenceSource": "audit-input/products/fillout-13684414219-aca93777.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 품종 표기 없음 ('치로소'를 품종으로 단정할 원문 근거 없음)",
+   "evidenceSource": "audit-input/products/fillout-13684414219-aca93777.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "hocuspocus-10398762993",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "에티오피아 예가체프 게뎁 할로 워시드",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'게뎁'은 지역(게뎁 존), '할로'는 스테이션 표기 — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/hocuspocus-10398762993-6124467e.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '게뎁 할로' 표기 있으나 이름만으로 생산자·농장·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-10398762993-6124467e.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "hocuspocus-13587119731",
+  "field": "producer",
+  "A": {
+   "value": "마운트 토투마스",
+   "raw": "마운트 토투마스",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '마운트 토투마스' — 농장명 추정",
+   "evidenceSource": "audit-input/products/hocuspocus-13587119731-8a2dd292.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '마운트 토투마스' 표기 있으나 이름만으로 생산자·농장·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-13587119731-8a2dd292.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "hocuspocus-13639357309",
+  "field": "originRegion",
+  "A": {
+   "value": "알로 · 시다마",
+   "raw": "알로 시다마",
+   "confidence": "HIGH",
+   "evidence": "상품명 '알로 시다마' 명시 — '부라 몰케'는 스테이션/케벨레",
+   "evidenceSource": "audit-input/products/hocuspocus-13639357309-510474aa.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "상품명 '시다마'",
+   "evidenceSource": "audit-input/products/hocuspocus-13639357309-510474aa.json#productName",
+   "raw": "시다마",
+   "value": "시다마"
+  }
+ },
+ {
+  "id": "hocuspocus-13639357309",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "에티오피아 알로 시다마 부라 몰케 허니 G1",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'부라 몰케'는 스테이션/케벨레 — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/hocuspocus-13639357309-510474aa.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '부라 몰케' 표기 있으나 이름만으로 생산자·농장·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/hocuspocus-13639357309-510474aa.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "루비아커피-과테말라엘소코로파카마라워시드다크로스트",
+  "field": "producer",
+  "A": {
+   "value": "엘 소코로",
+   "raw": "엘 소코로",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 소코로' — 농장명 추정",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드다크로스트-8475a710.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '엘 소코로' 표기 있으나 이름만으로 생산자·농장·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드다크로스트-8475a710.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "루비아커피-과테말라엘소코로파카마라워시드다크로스트",
+  "field": "variety",
+  "A": {
+   "value": "파카마라",
+   "raw": "파카마라",
+   "confidence": "HIGH",
+   "evidence": "상품명 '파카마라' 명시",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드다크로스트-8475a710.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '파카마라' (품종명 표기 패턴이나 원문에 '품종' 명시 없음)",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드다크로스트-8475a710.json#productName",
+   "raw": "파카마라",
+   "value": "파카마라"
+  }
+ },
+ {
+  "id": "루비아커피-과테말라엘소코로파카마라워시드다크로스트",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "초콜릿",
+    "캐러멜"
+   ],
+   "raw": [
+    "초콜릿",
+    "캐러멜"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "동일 이미지 해상도 변형 간 부분 충돌 — 초콜릿계(밀크초콜릿/초콜릿)·캐러멜(카라멜/캐러멜) 교차확인 유지, 자몽 vs 시트러스는 상호 배타적이라 제외; '시러피'는 질감어로 value 제외·raw 보존",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드다크로스트-8475a710.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "confidence": "MEDIUM",
+   "evidence": "OCR 단독: 자몽/밀크 초콜릿/카라멜, 초콜릿/캐러멜/시트러스/시러피; '시러피'는 질감 서술이라 value에서 제외, raw에 보존",
+   "evidenceKind": "current_echo",
+   "evidenceSource": "audit-input/products/루비아커피-과테말라엘소코로파카마라워시드다크로스트-8475a710.json#evidence.ocr",
+   "raw": [
+    "자몽",
+    "밀크 초콜릿",
+    "카라멜",
+    "초콜릿",
+    "캐러멜",
+    "시트러스",
+    "시러피"
+   ],
+   "value": [
+    "자몽",
+    "밀크 초콜릿",
+    "카라멜",
+    "초콜릿",
+    "시트러스"
+   ]
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아구지벤티넨카내추럴스위스워터디카페인라이트로스트",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "에티오피아 구지 벤티 넨카 내추럴 스위스 워터 디카페인 라이트 로스트",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'벤티 넨카'는 워싱스테이션 — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아구지벤티넨카내추럴스위스워터디카페인라이트로스트-df4393b5.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '벤티 넨카' 표기 있으나 이름만으로 생산자·가공소·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아구지벤티넨카내추럴스위스워터디카페인라이트로스트-df4393b5.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아구지하로와추g1워시드라이트로스트",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "에티오피아 구지 하로 와추 G1 워시드 라이트 로스트",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'하로 와추'는 워싱스테이션 — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아구지하로와추g1워시드라이트로스트-c1612bcf.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '하로 와추' 표기 있으나 이름만으로 가공소·지역을 구분할 수 없음",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아구지하로와추g1워시드라이트로스트-c1612bcf.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아구지하로와추g1워시드라이트로스트",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "홍차",
+    "복숭아",
+    "베리",
+    "베르가못"
+   ],
+   "raw": [
+    "홍차",
+    "복숭아",
+    "베리류 달콤함",
+    "베르가못"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "서로 다른 이미지의 OCR 노트 병합 — '베리류 달콤함'의 '달콤함'은 질감 서술로 value 제외·raw 보존",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아구지하로와추g1워시드라이트로스트-c1612bcf.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "confidence": "MEDIUM",
+   "evidence": "OCR 단독: 홍차/복숭아/베리류 달콤함, 홍차/복숭아/베르가못/달콤함; '달콤함'은 질감·강도 서술이라 value에서 제외, raw에 보존",
+   "evidenceKind": "current_echo",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아구지하로와추g1워시드라이트로스트-c1612bcf.json#evidence.ocr",
+   "raw": [
+    "홍차",
+    "복숭아",
+    "베리류 달콤함",
+    "베르가못",
+    "달콤함"
+   ],
+   "value": [
+    "홍차",
+    "복숭아",
+    "베르가못"
+   ]
+  }
+ },
+ {
+  "id": "루비아커피-케냐키리냐가키이aatop워시드다크로스트",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "케냐 키리냐가 키이 AA TOP 워시드 다크 로스트",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'키이'는 워싱스테이션/팩토리, 'AA TOP'은 등급 — 생산자가 아님",
+   "evidenceSource": "audit-input/products/루비아커피-케냐키리냐가키이aatop워시드다크로스트-a096b7ab.json#snapshotRecord.productName"
+  },
+  "B": {
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '키이' 표기 있으나 이름만으로 가공소·지역을 구분할 수 없음 ('AA TOP'은 등급, 생산자 아님)",
+   "evidenceSource": "audit-input/products/루비아커피-케냐키리냐가키이aatop워시드다크로스트-a096b7ab.json#productName",
+   "raw": null,
+   "value": null
+  }
+ },
+ {
+  "id": "루비아커피-케냐키리냐가키이aatop워시드다크로스트",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "꽃향기",
+    "복숭아",
+    "블랙베리",
+    "초콜릿",
+    "캐러멜",
+    "자몽"
+   ],
+   "raw": [
+    "꽃향기",
+    "복숭아",
+    "블랙베리",
+    "초콜릿",
+    "캐러멜",
+    "자몽"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "동일 이미지(A) 해상도 변형 간 부분 충돌 — 꽃향기=Jasmine·복숭아=Peach 교차확인 유지, Honey/Black Tea vs 블루베리/말린과일은 상호 배타적이라 제외; 별도 이미지(B) 노트 병합",
+   "evidenceSource": "audit-input/products/루비아커피-케냐키리냐가키이aatop워시드다크로스트-a096b7ab.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "confidence": "MEDIUM",
+   "evidence": "OCR 단독: 꽃향기/복숭아/블루베리/말린과일 (process Washed), 블랙베리/초콜릿/캐러멜/자몽 (process 워시드). OCR 이미지1의 Jasmine/Peach/Honey/Black Tea 블록은 오염 의심 교차 반복 블록이므로 인용에서 제외",
+   "evidenceKind": "current_echo",
+   "evidenceSource": "audit-input/products/루비아커피-케냐키리냐가키이aatop워시드다크로스트-a096b7ab.json#evidence.ocr",
+   "raw": [
+    "꽃향기",
+    "복숭아",
+    "블루베리",
+    "말린과일",
+    "블랙베리",
+    "초콜릿",
+    "캐러멜",
+    "자몽"
+   ],
+   "value": [
+    "꽃향기",
+    "복숭아",
+    "블루베리",
+    "말린과일",
+    "블랙베리",
+    "초콜릿",
+    "캐러멜",
+    "자몽"
+   ]
+  }
+ },
+ {
+  "id": "루비아커피-헤이즐넛브라운다크로스트플레이버드블렌드커피",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "헤이즐넛",
+    "바닐라",
+    "밀크초콜릿",
+    "아몬드"
+   ],
+   "raw": [
+    "헤이즐넛",
+    "바닐라",
+    "밀크 초콜릿",
+    "구운 아몬드"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText CUP NOTE '헤이즐넛 바닐라 초콜릿' 명시 + 본문 '헤이즐넛, 바닐라, 밀크 초콜릿, 구운 아몬드' — OCR 교차 확인",
+   "evidenceSource": "audit-input/products/루비아커피-헤이즐넛브라운다크로스트플레이버드블렌드커피-46fd93b4.json#evidence.detailCache.detailText, audit-input/products/루비아커피-헤이즐넛브라운다크로스트플레이버드블렌드커피-46fd93b4.json#evidence.ocr",
+   "evidenceKind": "text_confirmed"
+  },
+  "B": {
+   "confidence": "HIGH",
+   "evidence": "본문 '컵노트 헤이즐넛 바닐라 초콜릿' (OCR도 동일: 헤이즐넛/바닐라/초콜릿)",
+   "evidenceSource": "audit-input/products/루비아커피-헤이즐넛브라운다크로스트플레이버드블렌드커피-46fd93b4.json#evidence.detailCache.detailText",
+   "raw": [
+    "헤이즐넛",
+    "바닐라",
+    "초콜릿"
+   ],
+   "value": [
+    "헤이즐넛",
+    "바닐라",
+    "초콜릿"
+   ]
+  }
+ }
+]

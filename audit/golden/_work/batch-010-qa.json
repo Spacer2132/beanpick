@@ -1,0 +1,112 @@
+{
+ "말릭커피-모닝블렌드": {
+  "reversals": [],
+  "note": "productType=blend HIGH(상품명 '모닝블렌드' 인용) 정상. 나머지 null 필드 전부 SOURCE_MISSING으로 원문 확인 기록. 되돌림 없음."
+ },
+ "coffeejg-13735236794": {
+  "reversals": [],
+  "note": "blend HIGH 인용 정상. tastingNotes 3종 MEDIUM(OCR 단일, HIGH 미부여) 정상. 되돌림 없음."
+ },
+ "toch-12459923606": {
+  "reversals": [],
+  "note": "originCountry=에티오피아·process=내추럴 HIGH(상품명 인용) 정상. originRegion/producer는 이름 조각('바샤 베켈레 바다갈로') 분류 불가 → UNKNOWN 유지(모호 토큰, 배치 관례). 되돌림 없음."
+ },
+ "deepbluelake-537": {
+  "reversals": [],
+  "note": "'블랜딩' HIGH 인용 정상. tastingNotes 5종 MEDIUM(OCR 단일; 영문 중복 제외) 정상. status는 SOLD OUT 버튼 템플릿 판단으로 collector_flag MEDIUM — QA 되돌림 대상 아님. roast는 '로스팅 9월 18일'=일자이므로 null/SOURCE_MISSING 정상. 되돌림 없음."
+ },
+ "cafedoan-11382400626": {
+  "reversals": [],
+  "note": "originCountry=케냐 HIGH(상품명 'Kenya') 정상. Gatomboya는 지역/생산자 구분 불가 → UNKNOWN 유지. status=soldout collector_flag MEDIUM. 되돌림 없음."
+ },
+ "hocuspocus-13587115570": {
+  "reversals": [],
+  "note": "originCountry=파나마·variety=카투아이(품종) HIGH, 상품명 인용 정상. '마운트 토투마스' 분류 불가 → UNKNOWN 유지. 되돌림 없음."
+ },
+ "루비아커피-워터멜론수박맛라이트로스트커피원두": {
+  "reversals": [
+   {
+    "field": "productType",
+    "before": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "상품명 '워터멜론 수박맛 라이트 로스트 커피원두'에 유형·산지 명시 없음",
+     "evidenceSource": "audit-input/products/루비아커피-워터멜론수박맛라이트로스트커피원두-0d259a1f.json#productName"
+    },
+    "after": {
+     "value": null,
+     "raw": null,
+     "confidence": "SOURCE_MISSING",
+     "evidence": "상품명 '워터멜론 수박맛 라이트 로스트 커피원두'에 유형·산지 명시 없음",
+     "evidenceSource": "audit-input/products/루비아커피-워터멜론수박맛라이트로스트커피원두-0d259a1f.json#productName"
+    },
+    "reason": "confidence 규칙 위반: 상품명(detailText·rawTexts·OCR 모두 비어 있어 상품명이 유일한 원문)을 전부 확인했고 유형 정보만 없음 → SOURCE_MISSING(원문 확인했으나 정보 없음)이 정확. UNKNOWN은 증거 부족에만 사용."
+   }
+  ],
+  "note": "roast=Light HIGH('라이트 로스트' 명시, 5단계 매핑) 정상. tastingNotes=[수박] HIGH — 상품명 '수박맛' 인용이 주장과 직접 관련 있어 rule 1 되돌림 아님. productType만 UNKNOWN→SOURCE_MISSING 되돌림."
+ },
+ "fillout-13684419805": {
+  "reversals": [],
+  "note": "originCountry=콜롬비아·process=내추럴·variety=핑크 버번 HIGH, 상품명 인용 정상. '엘 미라도르' 분류 불가 → UNKNOWN 유지. 되돌림 없음."
+ },
+ "namusairo-1134": {
+  "reversals": [],
+  "note": "rawTexts[0]의 원산지/지역/농부/가공법/품종/볶음도/향미 행 전부 HIGH 인용 정상(원문 대조 완료). '섬세하다'는 질감 서술 제외 적절. 되돌림 없음."
+ },
+ "로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니": {
+  "reversals": [],
+  "note": "originRegion=안티구아 HIGH(도메인: 안티구아=지역) 정상. process=블랙허니 HIGH 정상. tastingNotes는 OCR 2건 정면충돌(원문 대조 완료) → CASE 3/UNKNOWN 유지. producer=핀카메디나(MEDIUM 추론)는 Judge가 UNKNOWN으로 해소 — 유지. 되돌림 없음."
+ },
+ "terarosa-100531": {
+  "reversals": [],
+  "note": "blend HIGH 인용 정상. tastingNotes 3종 MEDIUM(OCR; '부드러운 질감'·'견과류의 여운' 서술 제외 적절) 정상. 되돌림 없음."
+ },
+ "malik-5812664708": {
+  "reversals": [],
+  "note": "originRegion=Gedeo,Gedeb,Yirgach·process=더블 퍼먼테이션 워시드 HIGH, detailText 인용 정상(원문 대조 완료). '로스팅 프로파일 변경'은 배전도 라벨 아님 → roast null/SOURCE_MISSING 정상. producer '반코 타라투' 분류 불가 → UNKNOWN 유지. 되돌림 없음."
+ },
+ "coffeejg-13668970051": {
+  "reversals": [],
+  "note": "originCountry=에티오피아·originRegion=구지(도메인: 구지=지역)·process=내추럴 HIGH 정상. tastingNotes 5종 MEDIUM(OCR, process=Natural 일치) 정상. 되돌림 없음."
+ },
+ "cafedoan-11382383124": {
+  "reversals": [],
+  "note": "originCountry=에티오피아·originRegion=예가체프(도메인: 예가체프=지역)·process=워시드 HIGH, 상품명 인용 정상. 'Banko Gotiti' 분류 불가 → UNKNOWN 유지. 되돌림 없음."
+ },
+ "루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트": {
+  "reversals": [],
+  "note": "process=내추럴·variety=게이샤(품종)·roast=Light HIGH, 상품명 인용 정상. tastingNotes 3종 MEDIUM(OCR 2회 동일; '달콤함' 제외 적절). '아바야'는 지역 단정 불가 → originRegion UNKNOWN 유지. 되돌림 없음."
+ },
+ "fillout-13622307018": {
+  "reversals": [
+   {
+    "field": "productType",
+    "before": {
+     "value": null,
+     "raw": null,
+     "confidence": "UNKNOWN",
+     "evidence": "상품명 '칵테일 게이트 원두'에 유형·산지 명시 없음",
+     "evidenceSource": "audit-input/products/fillout-13622307018-e93bfad3.json#productName"
+    },
+    "after": {
+     "value": null,
+     "raw": null,
+     "confidence": "SOURCE_MISSING",
+     "evidence": "상품명 '칵테일 게이트 원두'에 유형·산지 명시 없음",
+     "evidenceSource": "audit-input/products/fillout-13622307018-e93bfad3.json#productName"
+    },
+    "reason": "confidence 규칙 위반: 상품명 '칵테일 게이트 원두'·OCR을 전부 확인했고 유형 정보만 없음(수집 고정값 origin/process/roastLevel은 증거 아님) → SOURCE_MISSING이 정확."
+   }
+  ],
+  "note": "process='코퍼먼티드, 워시드' MEDIUM(OCR process 필드, 원문 대조 완료; HIGH 미부여) 정상. tastingNotes 3종 MEDIUM 정상. roast '확인 필요' → null/SOURCE_MISSING 정상. productType만 UNKNOWN→SOURCE_MISSING 되돌림."
+ },
+ "namusairo-1127": {
+  "reversals": [],
+  "note": "rawTexts[0]의 원산지/지역/농장/가공법/품종(74110, 74112 — '에티오피아 고유품종' 일반명 제외 적절)/볶음도/향미 행 전부 HIGH 인용 정상(원문 대조 완료). 되돌림 없음."
+ },
+ "로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴": {
+  "reversals": [],
+  "note": "process=내추럴 HIGH 정상. tastingNotes는 OCR 2건 정면충돌(원문 대조 완료) → CASE 3/UNKNOWN 유지. variety '74158'은 품종 라벨 없어 Judge의 UNKNOWN 유지가 적절(품종 생성 금지). 되돌림 없음."
+ }
+}

@@ -1,0 +1,554 @@
+[
+ {
+  "id": "cafedoan-13094366167",
+  "field": "originRegion",
+  "A": {
+   "value": "구지",
+   "raw": "구지 Guji",
+   "confidence": "HIGH",
+   "evidence": "detailText '에티오피아 남서부 구지 Guji 지역의 하로 소르사' 명시",
+   "evidenceSource": "audit-input/products/cafedoan-13094366167-88855363.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": "함벨라",
+   "raw": "함벨라/Hambela",
+   "confidence": "HIGH",
+   "evidence": "본문 '에티오피아 함벨라 Ethiopia Hambela' (남서부 구지 Guji 지역 하로 소르사 Haro Sorsa 언급)",
+   "evidenceSource": "audit-input/products/cafedoan-13094366167-88855363.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "lubia-11575853258",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "헤이즐넛",
+    "바닐라",
+    "초콜릿",
+    "밀크초콜릿",
+    "구운아몬드"
+   ],
+   "raw": [
+    "헤이즐넛, 바닐라, 초콜릿 (컵노트)",
+    "밀크 초콜릿, 구운 아몬드"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText '컵노트 헤이즐넛 바닐라 초콜릿' + '밀크 초콜릿과 구운 아몬드' 명시 — current 노트와 일치",
+   "evidenceSource": "audit-input/products/lubia-11575853258-860d870c.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": [
+    "헤이즐넛",
+    "바닐라",
+    "밀크초콜릿",
+    "구운아몬드"
+   ],
+   "raw": [
+    "헤이즐넛",
+    "바닐라",
+    "초콜릿",
+    "밀크 초콜릿",
+    "구운 아몬드"
+   ],
+   "confidence": "HIGH",
+   "evidence": "본문 '컵노트 헤이즐넛 바닐라 초콜릿 … 바닐라 그리고 밀크 초콜릿과 구운 아몬드' ('고소한'·'부드러운'은 질감 서술로 value 제외)",
+   "evidenceSource": "audit-input/products/lubia-11575853258-860d870c.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "fillout-13684407826",
+  "field": "producer",
+  "A": {
+   "value": "넬손 임바치",
+   "raw": "넬손 임바치",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '넬손 임바치' — 생산자명으로 추정 (current region도 동일 인식)",
+   "evidenceSource": "audit-input/products/fillout-13684407826-c6e8db18.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '넬손 임바치' 표기이나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/fillout-13684407826-c6e8db18.json#productName"
+  }
+ },
+ {
+  "id": "namusairo-1114",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": "가디오 시코 · 무가야",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'가디오 시코 · 무가야'는 가공소(워싱스테이션) — 생산자가 아니므로 제외",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "가디오 시코 · 무가야",
+   "raw": "가디오 시코 · 무가야 Gadio Siko · Mugaya",
+   "confidence": "HIGH",
+   "evidence": "기본 정보 '가공소 가디오 시코 · 무가야 Gadio Siko · Mugaya'",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-1114",
+  "field": "process",
+  "A": {
+   "value": "워시드 · 캐스크 숙성",
+   "raw": "워시드·풀리워시드, 캐스크 숙성 Washed · Fully Washed, Cask Aging",
+   "confidence": "HIGH",
+   "evidence": "원문 '가공법' 명시 — current의 '워시드'만 표기는 '캐스크 숙성' 누락",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "워시드",
+   "raw": "워시드·풀리워시드, 캐스크 숙성 (Washed · Fully Washed, Cask Aging)",
+   "confidence": "HIGH",
+   "evidence": "기본 정보 '가공법 워시드·풀리워시드, 캐스크 숙성 Washed · Fully Washed, Cask Aging'",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-1114",
+  "field": "variety",
+  "A": {
+   "value": "74100 · 74112 · Ethiopia Heirloom · SL28 · SL34 · Ruiru11 · Blue Mountain",
+   "raw": "74100, 74112, Ethiopia Heirloom · SL28, SL34, Ruiru11, Blue Mountain",
+   "confidence": "HIGH",
+   "evidence": "원문 '품 종' 명시 — current의 'SL28 / SL34'만 표기는 성분 누락",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": [
+    "74100",
+    "74112",
+    "SL28",
+    "SL34",
+    "Ruiru11",
+    "Blue Mountain"
+   ],
+   "raw": [
+    "74100",
+    "74112",
+    "Ethiopia Heirloom",
+    "SL28",
+    "SL34",
+    "Ruiru11",
+    "Blue Mountain"
+   ],
+   "confidence": "HIGH",
+   "evidence": "기본 정보 '품종 74100, 74112, Ethiopia Heirloom · SL28, SL34, Ruiru11, Blue Mountain' ('Ethiopia Heirloom'은 일반명으로 value 제외)",
+   "evidenceSource": "audit-input/products/namusairo-1114-4db25dd1.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "cafedoan-7633322126",
+  "field": "producer",
+  "A": {
+   "value": "레티 베르무데스",
+   "raw": "Letty Bermudez",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 'Letty Bermudez' — 생산자명으로 추정 (current region 'MANHATTAN 맨해튼 Letty Bermudez'도 동일 인식)",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 'Letty Bermudez' 표기이나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#productName"
+  }
+ },
+ {
+  "id": "cafedoan-7633322126",
+  "field": "process",
+  "A": {
+   "value": null,
+   "raw": "MANHATTAN 맨해튼 Colombia Letty Bermudez",
+   "confidence": "SOURCE_MISSING",
+   "evidence": "상품명 가공 명시 없음 — 동일 이미지 OCR process 태그 충돌(Washed vs DOUBLE FERMENTATION THERMAL SHOCK)이라 사용 불가",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#snapshotRecord.productName, audit-input/products/cafedoan-7633322126-57fd2dc4.json#evidence.ocr"
+  },
+  "B": {
+   "value": "더블퍼먼테이션 열충격",
+   "raw": "DOUBLE FERMENTATION THERMAL SHOCK",
+   "confidence": "MEDIUM",
+   "evidence": "OCR 'DOUBLE FERMENTATION THERMAL SHOCK' (OCR 단독 근거; Jasmine/Peach/Honey/Black Tea 블록은 오염 의심으로 인용 제외)",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#evidence.ocr"
+  }
+ },
+ {
+  "id": "cafedoan-7633322126",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "동일 이미지 해상도 변형 간 OCR 정면 충돌 (f80_80: Jasmine/Peach/Black Tea/Honey vs f750_750: haribo peach/milky oolong/mango/sticky mouthfeel) — 원문 이미지 없이 해결 불가 → CASE 3/UNKNOWN. current의 복숭아·망고는 충돌 OCR에서 온 것으로 신뢰 불가",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#evidence.ocr"
+  },
+  "B": {
+   "value": [
+    "haribo peach",
+    "milky oolong",
+    "mango"
+   ],
+   "raw": [
+    "haribo peach",
+    "milky oolong",
+    "mango",
+    "sticky mouthfeel"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 'haribo peach, milky oolong, mango' ('sticky mouthfeel'은 질감 서술로 value 제외; Jasmine/Peach/Honey/Black Tea 블록은 오염 의심으로 인용 제외)",
+   "evidenceSource": "audit-input/products/cafedoan-7633322126-57fd2dc4.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+  "field": "originRegion",
+  "A": {
+   "value": "예가체프",
+   "raw": "예가체프",
+   "confidence": "HIGH",
+   "evidence": "상품명 '예가체프' (도메인 규칙: 예가체프=지역)",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "예가체프 코케",
+   "raw": "예가체프 코케",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 예가체프 코케 …'",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#productName"
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+  "field": "process",
+  "A": {
+   "value": "내추럴 · 허니",
+   "raw": "허니 G1 내추럴",
+   "confidence": "HIGH",
+   "evidence": "상품명 '허니 … 내추럴' 둘 다 명시 — current의 '내추럴'만 표기는 '허니' 누락",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "내추럴",
+   "raw": "허니 G1 내추럴",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '허니 G1 내추럴' + OCR process='내추럴' — 상품명 내 '허니'와 충돌하므로 MEDIUM",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#productName"
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "꽃향기",
+    "딸기",
+    "복숭아",
+    "꿀"
+   ],
+   "raw": [
+    "꽃향기, 딸기, 복숭아, 꿀"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "별도 이미지 OCR(꽃향기·딸기·복숭아·꿀) 단독 근거 — current는 꿀 누락. 동일 이미지 해상도 변형 간 충돌(f140 vs f750_750)의 Black Tea는 충돌 이미지 단독이므로 제외",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  },
+  "B": {
+   "value": [
+    "복숭아",
+    "꽃향기",
+    "블랙티",
+    "꿀",
+    "딸기"
+   ],
+   "raw": [
+    "Peach",
+    "Floral",
+    "Black Tea",
+    "Honey",
+    "꽃향기",
+    "딸기",
+    "복숭아",
+    "꿀"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 단독: 'Peach, Floral, Black Tea, Honey' + '꽃향기, 딸기, 복숭아, 꿀 (내추럴)'",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트-a6e5a6e5.json#evidence.ocr",
+   "evidenceKind": "current_echo"
+  }
+ },
+ {
+  "id": "namusairo-1123",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "밀크초콜릿",
+    "땅콩카라멜",
+    "오렌지",
+    "향신료",
+    "흑설탕",
+    "쌉쌀함",
+    "바닐라",
+    "피스타치오",
+    "크림브륄레",
+    "다크초콜릿",
+    "초코브라우니",
+    "볶은아몬드",
+    "흑당"
+   ],
+   "raw": [
+    "밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤 쌉쌀",
+    "바닐라, 피스타치오, 크림브륄레, 밀크초콜릿",
+    "다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다"
+   ],
+   "confidence": "HIGH",
+   "evidence": "본문 3종 제품 향미 행 명시 — '버터처럼 부드럽다'는 질감 서술 제외·raw 보존. current의 '밀크초콜릿·바닐라' 2종만 표기는 나머지 누락",
+   "evidenceSource": "audit-input/products/namusairo-1123-ac2529c4.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": [
+    "밀크초콜릿",
+    "땅콩카라멜",
+    "오렌지",
+    "향신료",
+    "흑설탕",
+    "바닐라",
+    "피스타치오",
+    "크림브륄레",
+    "다크초콜릿",
+    "초코브라우니",
+    "볶은아몬드",
+    "흑당"
+   ],
+   "raw": [
+    "밀크초콜릿",
+    "땅콩카라멜",
+    "오렌지",
+    "향신료",
+    "흑설탕",
+    "달콤 쌉쌀",
+    "바닐라",
+    "피스타치오",
+    "크림브륄레",
+    "밀크초콜릿",
+    "다크초콜릿",
+    "초코브라우니",
+    "볶은 아몬드",
+    "흑당",
+    "버터처럼 부드럽다"
+   ],
+   "confidence": "HIGH",
+   "evidence": "본문: 풍요로운 땅 '밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤 쌉쌀' / 브릴리 '바닐라, 피스타치오, 크림브륄레, 밀크초콜릿' / 프렌치 '다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다' ('달콤 쌉쌀'·'버터처럼 부드럽다'는 질감·강도 서술로 value 제외)",
+   "evidenceSource": "audit-input/products/namusairo-1123-ac2529c4.json#evidence.rawObservations",
+   "evidenceKind": "text_confirmed"
+  }
+ },
+ {
+  "id": "cafedoan-13095256178",
+  "field": "originRegion",
+  "A": {
+   "value": "우일라",
+   "raw": "우일라 Huila",
+   "confidence": "HIGH",
+   "evidence": "detailText '콜롬비아 Colombia 우일라 Huila 아세베도 Acevedo' 명시",
+   "evidenceSource": "audit-input/products/cafedoan-13095256178-e123c964.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": "우일라 아세베도",
+   "raw": "우일라 Huila 아세베도 Acevedo",
+   "confidence": "HIGH",
+   "evidence": "본문 '콜롬비아 Colombia 우일라 Huila 아세베도 Acevedo에서 핀카 라스 플로레스 Finca Las Flores를 세웠습니다'",
+   "evidenceSource": "audit-input/products/cafedoan-13095256178-e123c964.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "cafedoan-13095256178",
+  "field": "variety",
+  "A": {
+   "value": "시드라",
+   "raw": "Sidra",
+   "confidence": "HIGH",
+   "evidence": "상품명 'Sidra' 명시 (current variety도 '시드라'로 일치)",
+   "evidenceSource": "audit-input/products/cafedoan-13095256178-e123c964.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": [
+    "시드라",
+    "콜롬비아"
+   ],
+   "raw": [
+    "Sidra",
+    "콜롬비아 품종 (Colombia varietal)"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "상품명 'Las Flores Sidra' + 본문 '이 커피는 콜롬비아 품종 (Colombia varietal)으로' ('콜롬비아 품종'은 품종명/일반명 양의 가능 → MEDIUM)",
+   "evidenceSource": "audit-input/products/cafedoan-13095256178-e123c964.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "hocuspocus-13707039145",
+  "field": "originRegion",
+  "A": {
+   "value": "키린야가",
+   "raw": "키린야가",
+   "confidence": "HIGH",
+   "evidence": "상품명 '키린야가' 명시",
+   "evidenceSource": "audit-input/products/hocuspocus-13707039145-8e7a2262.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "키리냐가",
+   "raw": "키리냐가",
+   "confidence": "HIGH",
+   "evidence": "상품명 '케냐 키린야가 캄완기 AA TOP Washed'",
+   "evidenceSource": "audit-input/products/hocuspocus-13707039145-8e7a2262.json#productName"
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아예가체프코케g2워시드미디엄로스트",
+  "field": "originRegion",
+  "A": {
+   "value": "예가체프",
+   "raw": "예가체프",
+   "confidence": "HIGH",
+   "evidence": "상품명 '예가체프' (도메인 규칙: 예가체프=지역)",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케g2워시드미디엄로스트-cf5543eb.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": "예가체프 코케",
+   "raw": "예가체프 코케",
+   "confidence": "HIGH",
+   "evidence": "상품명 '… 예가체프 코케 …'",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아예가체프코케g2워시드미디엄로스트-cf5543eb.json#productName"
+  }
+ },
+ {
+  "id": "fillout-13622422334",
+  "field": "originRegion",
+  "A": {
+   "value": "베이트 알알",
+   "raw": "베이트 알알",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '베이트 알알' — 예멘 지역명 추정 (상품명 기반은 MEDIUM)",
+   "evidenceSource": "audit-input/products/fillout-13622422334-b72fab9d.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문(상품명) 확인 — '베이트 알알'은 지역명으로 확인 불가",
+   "evidenceSource": "audit-input/products/fillout-13622422334-b72fab9d.json#productName"
+  }
+ },
+ {
+  "id": "namusairo-41",
+  "field": "producer",
+  "A": {
+   "value": "여러 소농들",
+   "raw": "여러 소농들 Smallholders",
+   "confidence": "MEDIUM",
+   "evidence": "원문 '농 장 여러 소농들 Smallholders' (current region도 '여러 소농들')",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "기본 정보 '농장 여러 소농들 Smallholders' — 일반 서술로 생산자명 없음",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "namusairo-41",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "산미",
+    "카카오",
+    "다크초콜릿"
+   ],
+   "raw": [
+    "기분좋은 산미, 카카오, 다크초콜릿, 깨끗하고 싱싱하다 Pleasant Acidity, Cacao, Dark Chocolate, Clean and Fresh"
+   ],
+   "confidence": "HIGH",
+   "evidence": "원문 '향 미' 명시 — current의 '신선'은 '깨끗하고 싱싱하다' 질감 서술의 오분류, '산미' 누락",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": [
+    "카카오",
+    "다크초콜릿"
+   ],
+   "raw": [
+    "기분좋은 산미",
+    "카카오",
+    "다크초콜릿",
+    "깨끗하고 싱싱하다"
+   ],
+   "confidence": "HIGH",
+   "evidence": "기본 정보 '향미 기분좋은 산미, 카카오, 다크초콜릿, 깨끗하고 싱싱하다 (Pleasant Acidity, Cacao, Dark Chocolate, Clean and Fresh)' ('기분좋은 산미'·'깨끗하고 싱싱하다'는 서술로 value 제외)",
+   "evidenceSource": "audit-input/products/namusairo-41-abe706fa.json#evidence.rawObservations",
+   "evidenceKind": "text_confirmed"
+  }
+ },
+ {
+  "id": "hocuspocus-13713119523",
+  "field": "producer",
+  "A": {
+   "value": "엘 테소로",
+   "raw": "엘 테소로",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 테소로' — 농장명으로 추정 (current region도 동일 인식)",
+   "evidenceSource": "audit-input/products/hocuspocus-13713119523-4a2c63f6.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '엘 테소로' 표기이나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/hocuspocus-13713119523-5c60ffd4.json#productName"
+  }
+ },
+ {
+  "id": "namusairo-1126",
+  "field": "producer",
+  "A": {
+   "value": "705여 소농",
+   "raw": "705여 소농",
+   "confidence": "MEDIUM",
+   "evidence": "원문 '농 장 705여 소농' (소농 집단 표현 — current region도 '실속형.게뎁 무산소'에는 생산자 없음)",
+   "evidenceSource": "audit-input/products/namusairo-1126-1d92dfd6.json#evidence.rawObservations"
+  },
+  "B": {
+   "value": "게뎁",
+   "raw": "게뎁 Gedeb",
+   "confidence": "HIGH",
+   "evidence": "기본 정보 '가공소 게뎁 Gedeb'",
+   "evidenceSource": "audit-input/products/namusairo-1126-78fb06ce.json#evidence.rawObservations"
+  }
+ },
+ {
+  "id": "cafedoan-13635190651",
+  "field": "producer",
+  "A": {
+   "value": "엘 칼리체",
+   "raw": "엘 칼리체",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '엘 칼리체' — 농장명으로 추정 (current region도 동일 인식, batch-012 엘 파라이소 선례)",
+   "evidenceSource": "audit-input/products/cafedoan-13635190651-7bc33290.json#snapshotRecord.productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명에 '엘 칼리체' 표기이나 이름만으로 생산자·농장·지역 구분 불가",
+   "evidenceSource": "audit-input/products/cafedoan-13635190651-7bc33290.json#productName"
+  }
+ }
+]
