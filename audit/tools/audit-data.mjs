@@ -70,12 +70,13 @@ function producerMatch(golden, farm) {
 function fieldsEqual(field, goldenVal, dispVal, goldenRec) {
   switch (field) {
     case 'tastingNotes': {
-      let comp = goldenRec.comparable;
-      if (!comp) {
-        const raw = goldenRec.raw ?? goldenVal;
-        const list = Array.isArray(raw) ? raw : raw == null ? [] : [raw];
-        comp = normalizeTastingNotes(list, { limit: Infinity, explicitEvidence: true });
-      }
+      // comparable은 정규화기 버전에 종속된 파생 캐시이므로 항상 현재 정규화기로
+      // golden raw에서 다시 계산한다. golden에 캐시된 comparable은 구 사전 기준이라
+      // 새 alias가 복구한 노트를 오판한다(구 정규화기에서는 재계산 결과가 캐시와
+      // 454건 전부 일치함을 확인 — 기존 리포트 수치에 영향 없음).
+      const raw = goldenRec.raw ?? goldenVal;
+      const list = Array.isArray(raw) ? raw : raw == null ? [] : [raw];
+      const comp = normalizeTastingNotes(list, { limit: Infinity, explicitEvidence: true });
       const c = new Set(comp), d = new Set(Array.isArray(dispVal) ? dispVal : []);
       if (c.size !== d.size) return false;
       for (const x of c) if (!d.has(x)) return false;
