@@ -1,0 +1,117 @@
+# BeanPick Phase 1 감사 최종 보고서 (FINAL)
+
+작성: 2026-09-26. 브랜치: `muse/audit-final` (감사) / `muse/fix-display` (수정).
+모든 수치는 `audit/tools/`의 스크립트로 계산됨. 손으로 적은 숫자 없음.
+
+---
+
+## 1. 완료/미완료 체크리스트
+
+| 항목 | 상태 | 비고 |
+|---|---|---|
+| PART A (감사 파이프라인) | ✅ 완료 | `muse/audit-golden` → 검증 후 `muse/audit-final`로 이관, golden 브랜치 삭제 |
+| A1 SOURCE_MISSING 채점 반전 수정 | ✅ | `audit/tools/audit-data.mjs` |
+| A2 current_echo 정확도 제외·비교 포함 | ✅ | |
+| A3 `npm run audit:test` 12개 검증 | ✅ | |
+| A4 리포트 3종 재생성 | ✅ | 정확도·재현율·FALSE_POSITIVE |
+| A5 12문항 PHASE-1-FINAL.md §8 추가 | ✅ | |
+| A6 `verify-phase1.mjs` 6개 검증 | ✅ | 단, current_echo 표시 누락 7건 (§5 막힌 항목) |
+| PART B (브랜치 정리) | ✅ 완료 | B2/B3 통과 후 원격 `muse/audit-golden` 삭제 |
+| PART C FIX-1 (tasting-note alias) | ✅ 완료 | Reviewer 승인, 커밋 2ee50c4 |
+| PART C FIX-2 (farm 찌꺼기 억제) | 진행 중 | 아래 §4 참조 |
+| PART D FIX-3 설계 (OCR 로스팅) | ✅ 문서만 | `audit/fixes/FIX-3-design.md`, 구현 안 함 |
+| PART D FIX-4 설계 (overlap dedup) | ✅ 문서만 | `audit/fixes/FIX-4-design.md`, 구현 안 함 |
+| PART D D3 보고 (CI 누락·.js/.cjs 중복) | ✅ 문서만 | `audit/fixes/CI-gaps-and-duplication-risk.md` |
+
+---
+
+## 2. 핵심 수치
+
+### (a) 정확도 — golden 값 있을 때 앱 표시 일치율 (A4 재생성)
+
+| 필드 | Correct | 분모 | 정확도 |
+|---|---|---|---|
+| originCountry | 305 | 352 | 86.6% |
+| process | 235 | 350 | 67.1% |
+| producer | 126 | 303 | 41.6% |
+| roast | 190 | 325 | 58.5% |
+| tastingNotes | 258 | 330 | 78.2% |
+| variety | 255 | 341 | 74.8% |
+
+### (b) 재현율 — golden HIGH/MEDIUM 값 중 앱 표시 존재율
+
+| 필드 | 표시됨 | 분모 | 재현율 |
+|---|---|---|---|
+| originCountry | 247 | 274 | 90.1% |
+| process | 190 | 237 | 80.2% |
+| producer | 46 | 85 | 54.1% |
+| roast | 5 | 73 | 6.8% |
+| tastingNotes | 50 | 94 | 53.2% |
+| variety | 66 | 126 | 52.4% |
+
+### (c) FALSE_POSITIVE — golden 값 없는데 앱이 표시한 경우
+
+| 필드 | FP | 분모 |
+|---|---|---|
+| originCountry | 3 | 39 |
+| process | 28 | 68 |
+| producer | 95→72† | 134 |
+| roast | 1 | 162 |
+| tastingNotes | 2 | 84 |
+| variety | 1 | 119 |
+
+\* A4 측정 시점(상품 461건)과 FIX-1 후 재측정(상품 462건, NEW 28→29) 간 상품 집합 변경에 따른 차이. producer 표시 로직은 FIX-1에서 바뀌지 않음.
+† FIX-2 적용 후 72 (직접 측정, stash 전후 코드 비교).
+
+### 12문항 요약 (A5, PHASE-1-FINAL.md §8)
+
+1. CASE 1 실제 데이터 오류 **557** (PARSER_MISS 169, FALSE_POSITIVE 220, NORMALIZATION_ERROR 31, FIELD_MAPPING_ERROR 23, NOT_IMPLEMENTED 102)
+2. CASE 2 원문 정보 없음 **606필드**
+3. Parser 놓침 **169**
+4. OCR_CONFLICT **16** (전부 판정불가)
+5. NOT_IMPLEMENTED **152** (수집 고정값, 채널별 전용 처리)
+6. EVIDENCE_UNAVAILABLE **641필드**
+7~10. 위 (a)(b) 표
+11. 문제 최다 로스터리: **나무사이로 102건**, 카페도안 96, 루비아 커피 74, 에어리커피 66
+12. **정규화 사전 alias 추가 — 소규모 코드 변경** (→ FIX-1로 구현됨)
+
+---
+
+## 3. FIX-1 · FIX-2 전후 비교 요약
+
+### FIX-1 (tasting-note alias 추가, 커밋 2ee50c4, Reviewer 승인)
+- 변경: `src/services/tastingNotes.js`·`.cjs` NOTE_RULES에 alias 56개 + 신규 라벨 43개 (양쪽 동일, export 외 diff 0). 서술형·질감어 제외.
+- 도구 변경: `audit-data.mjs`의 tastingNotes comparable을 현재 정규화기로 항상 재계산 (구 사전 하 454건 일치 검증).
+- 시뮬레이션 (`simulate-renormalize.mjs`, 발행 경로와 동일 조건 `{limit: 5, explicitEvidence: true}`):
+  - **복구 21건** (golden 커버 18 + current_echo 3), 사라진 값 0, 맞다가 틀려진 값 0, 새 FP 0 → exit 0
+  - **시뮬레이션 추정치** — 실제 발행 후 확정 필요
+- 검증: 8개 스위트 전부 통과 + `audit:test` ALL PASS. Reviewer 독립 재현으로 승인 (`audit/fixes/FIX-1.md` §8).
+
+### FIX-2 (inferFarmName 찌꺼기 표시 억제, 커밋 89e9cd1, Reviewer 승인)
+- 변경: `src/services/coreFeatures.js`에 `INFERRED_FARM_JUNK_PATTERNS` 12종 + `isInferredFarmJunk()` 추가. `formatProductDisplayInfo`의 fallback을 `detailFarm || (junk ? '' : inferredFarm)`로 변경. `product.farm` 상세값 우선은 구조적으로 보장, `inferFarmName` 시그니처 불변.
+- 직접 측정 (stash 전후 코드 비교, 시뮬레이션 아님, `audit/tools/compare-grade-reports.mjs`):
+  - **producer Correct 80→102 (+22), FALSE_POSITIVE 94→72 (−22)**, Wrong/Missing 변화 0
+  - 22건 전부 FALSE_POSITIVE→Correct(빈 표시=true negative). Correct→Wrong 0, Correct→Missing 0.
+  - producer 외 5개 필드 등급 변화 0. `product.farm` 있는 상품의 표시 변경 0건.
+- 잔여 72건은 표면 패턴으로 안전 분리가 원천 불가능함을 증명 (예: FP 'NOMAD 노마드 Abebe Hewiso' vs 정답 'NOMAD 노마드 Timbuyacu' 표면 동일, '여러 소농들' 역설). 권장 후속: 수집 단계에서 `product.farm` 확보 (FIX-3 계열).
+- 알려진 한계: 찌꺼기 토큰 포함 복합 문자열 전체 blank라 golden 미커버 3건(centercoffee-417 'Kotowa Las Brujas Lot 26-124' 등)의 실제 농장명 표시도 함께 억제. 등급 영향 없음.
+- 검증: 8개 스위트 전부 통과 + `audit:test` ALL PASS. Reviewer 독립 재현으로 승인 (`audit/fixes/FIX-2.md` §7).
+
+---
+
+## 4. 사람이 해야 할 일
+
+1. **실제 발행 후 FIX-1 수치 확정**: 시뮬레이션은 추정치. 발행 후 `npm run audit:data -- docs/products.json` 재실행으로 복구 21건 확인.
+2. **FIX-3 (OCR 로스팅 추출) 구현 여부 결정**: 설계는 `audit/fixes/FIX-3-design.md`에 있음. Gemini 프롬프트 변경 + 캐시 버전 상향(`source-notes-v5`) + 202건 재OCR 필요. roast 재현율 6.8%의 가장 큰 레버.
+3. **FIX-4 (b) '카카오' 라벨 분리 여부 결정**: (a) 'Assam Tea'→'홍차'는 FIX-1 유형으로 바로 가능. (b)는 canonical 어휘 변경이라 결정 필요.
+4. **CI에 map:test·contract:test 추가**: `publish-iphone-snapshot.yml`에서 누락 (D3 보고서).
+5. **tastingNotes.js/.cjs 단일 소스화 또는 동기화 가드**: 수동 동기화는 깨지기 쉬움 (D3 보고서).
+6. **§5 막힌 항목 확인**: current_echo 표시 누락 7건의 원인(정규화기가 raw 증거 텍스트를 전부 버림) — 수집 파이프라인 문제로 별도 트래킹 필요.
+
+---
+
+## 5. 막힌 항목
+
+1. **current_echo 표시 누락 7건** (A6): golden에 값이 있는데 앱 표시가 비어 있음. tastingNotes 5건 (cafedoan-13627488760, fillout-13684412338, cafedoan-9628182790, 루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트, cafedoan-13627490056), process 1건 (fillout-8427587166), roast 1건 (fillout-5265856262). 원인: 리뷰어가 raw 증거 텍스트를 echo했는데 정규화기가 전부 버려 표시가 빔. 수집/표시 파이프라인의 문제로, 이번 배치 스코프 밖.
+2. **FIX-1 시뮬레이션 한계**: `simulate-renormalize.mjs`는 발행 시점을 가정한 추정치. 실제 발행 시 `preservePreviousTastingNotes` 등의 상호작용으로 수치가 달라질 수 있음.
+3. **FIX-3/FIX-4 미구현**: 설계만 완료. 구현 시 별도 승인 필요 (특히 FIX-3은 Gemini API 호출·비용 발생).
