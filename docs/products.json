@@ -1,5 +1,5 @@
 {
-  "publishedAt": "2026-09-25T03:03:49.728Z",
+  "publishedAt": "2026-09-25T05:03:34.428Z",
   "count": 461,
   "products": [
     {
@@ -7138,9 +7138,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-25T03:03:49.728Z"
+      "acidityScore": 0.9,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684419805",
@@ -7241,9 +7240,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-25T03:03:49.728Z"
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684414219",
@@ -7304,9 +7302,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-25T03:03:49.728Z"
+      "acidityScore": 0.9333333333333332,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684412338",
@@ -7343,7 +7340,29 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "100g",
-      "tastingNoteEvidence": [],
+      "tastingNoteEvidence": [
+        {
+          "text": "자스민",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        },
+        {
+          "text": "핵과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        },
+        {
+          "text": "사과",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        }
+      ],
       "unitPriceLabel": "",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
@@ -9417,143 +9436,219 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "루비아커피-100-에티오피아스칼렛",
+      "id": "루비아커피-클래식이탈리안스타일피렌체",
       "roasterName": "루비아 커피",
-      "productName": "100% 에티오피아 스칼렛",
+      "productName": "클래식 이탈리안 스타일 피렌체",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 17000,
+      "price": 13000,
       "weight": 200,
       "score": 88,
       "tastingNotes": [
-        "블랙커런트",
-        "블루베리",
-        "열대과일",
-        "플로럴",
-        "다크초콜릿"
+        "초콜릿",
+        "캐러멜",
+        "견과류",
+        "아몬드",
+        "몰트"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": true,
       "lastCheckedAt": "방금",
       "checkedMinutesAgo": 0,
-      "tastingNoteEvidence": [
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "블랙커런트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "플로럴",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "꽃향기",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        }
-      ],
       "priceOptions": [
         {
-          "id": "200g-17000",
-          "price": 17000,
-          "originalPrice": 18000,
+          "id": "200g-13000",
+          "price": 13000,
+          "originalPrice": 14000,
           "weight": 200,
-          "priceLabel": "17,000원",
+          "priceLabel": "13,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "8,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084252336",
-          "originalPriceLabel": "18,000원",
-          "discountRate": 0.05555555555555555,
-          "discountLabel": "5% 할인"
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
+          "originalPriceLabel": "14,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
         },
         {
-          "id": "500g-34000",
-          "price": 34000,
-          "originalPrice": 36000,
+          "id": "500g-25000",
+          "price": 25000,
+          "originalPrice": 26000,
           "weight": 500,
-          "priceLabel": "34,000원",
+          "priceLabel": "25,000원",
           "weightLabel": "500g",
-          "unitPriceLabel": "6,800원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306840350",
-          "originalPriceLabel": "36,000원",
-          "discountRate": 0.05555555555555555,
-          "discountLabel": "5% 할인"
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
+          "originalPriceLabel": "26,000원",
+          "discountRate": 0.038461538461538464,
+          "discountLabel": "3% 할인"
         },
         {
-          "id": "1kg-47000",
-          "price": 47000,
-          "originalPrice": 50000,
+          "id": "1kg-34000",
+          "price": 34000,
+          "originalPrice": 38000,
           "weight": 1000,
-          "priceLabel": "47,000원",
+          "priceLabel": "34,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "4,700원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
-          "originalPriceLabel": "50,000원",
-          "discountRate": 0.06,
+          "unitPriceLabel": "3,400원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+          "originalPriceLabel": "38,000원",
+          "discountRate": 0.10526315789473684,
+          "discountLabel": "10% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "몰트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "구운디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "부드러운",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "아몬드",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceLabel": "13,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.10526315789473684,
+      "acidityScore": -0.8400000000000001,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-시에나",
+      "roasterName": "루비아 커피",
+      "productName": "시에나",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 15000,
+      "weight": 200,
+      "score": 87,
+      "tastingNotes": [
+        "초콜릿",
+        "바닐라",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "priceOptions": [
+        {
+          "id": "200g-15000",
+          "price": 15000,
+          "originalPrice": 16000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084225944",
+          "originalPriceLabel": "16,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "500g-30000",
+          "price": 30000,
+          "originalPrice": 32000,
+          "weight": 500,
+          "priceLabel": "30,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306975007",
+          "originalPriceLabel": "32,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "1kg-42000",
+          "price": 42000,
+          "originalPrice": 45000,
+          "weight": 1000,
+          "priceLabel": "42,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,200원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
+          "originalPriceLabel": "45,000원",
+          "discountRate": 0.06666666666666667,
           "discountLabel": "6% 할인"
         }
       ],
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "17,000원",
+      "tastingNoteEvidence": [
+        {
+          "text": "#달콤한 바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한 커피의 맛과 부드러운 바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceLabel": "15,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.06,
-      "acidityScore": 0.6399999999999999,
+      "discountRate": 0.06666666666666667,
+      "acidityScore": -0.7333333333333334,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -9566,7 +9661,7 @@
       "roastLevel": "확인 필요",
       "price": 14000,
       "weight": 200,
-      "score": 87,
+      "score": 86,
       "tastingNotes": [
         "초콜릿",
         "견과류",
@@ -9574,11 +9669,49 @@
       ],
       "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f140",
       "isSoldOut": false,
-      "isNew": true,
+      "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
+      "checkedMinutesAgo": 2,
+      "tastingNoteEvidence": [
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "부드러움",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "깔끔한 뒷맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "깊고 진한 풍미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        }
+      ],
       "priceOptions": [
         {
           "id": "200g-14000",
@@ -9623,62 +9756,6 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        },
-        {
-          "text": "부드러움",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        },
-        {
-          "text": "깔끔한 뒷맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        }
-      ],
       "priceLabel": "14,000원",
       "unitPriceLabel": "",
       "discountRate": 0.07142857142857142,
@@ -9695,7 +9772,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 86,
+      "score": 85,
       "tastingNotes": [
         "다크초콜릿",
         "견과류"
@@ -9706,8 +9783,28 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
+      "checkedMinutesAgo": 3,
       "tastingNoteEvidence": [
+        {
+          "text": "디카페인",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
         {
           "text": "꽃",
           "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
@@ -9731,26 +9828,6 @@
           "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
           "method": "image-model",
           "group": "Tasting Note"
-        },
-        {
-          "text": "디카페인",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
         },
         {
           "text": "다크초콜릿",
@@ -9820,202 +9897,67 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "id": "루비아커피-100-에티오피아스칼렛",
       "roasterName": "루비아 커피",
-      "productName": "클래식 이탈리안 스타일 피렌체",
+      "productName": "100% 에티오피아 스칼렛",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 13000,
+      "price": 17000,
       "weight": 200,
       "score": 79,
       "tastingNotes": [
-        "초콜릿",
-        "캐러멜",
-        "견과류",
-        "아몬드",
-        "몰트"
+        "블랙커런트",
+        "블루베리",
+        "열대과일",
+        "플로럴",
+        "다크초콜릿"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
       "checkedMinutesAgo": 9,
       "priceOptions": [
         {
-          "id": "200g-13000",
-          "price": 13000,
-          "originalPrice": 14000,
+          "id": "200g-17000",
+          "price": 17000,
+          "originalPrice": 18000,
           "weight": 200,
-          "priceLabel": "13,000원",
+          "priceLabel": "17,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
-          "originalPriceLabel": "14,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
+          "unitPriceLabel": "8,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084252336",
+          "originalPriceLabel": "18,000원",
+          "discountRate": 0.05555555555555555,
+          "discountLabel": "5% 할인"
         },
         {
-          "id": "500g-25000",
-          "price": 25000,
-          "originalPrice": 26000,
-          "weight": 500,
-          "priceLabel": "25,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
-          "originalPriceLabel": "26,000원",
-          "discountRate": 0.038461538461538464,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-34000",
+          "id": "500g-34000",
           "price": 34000,
-          "originalPrice": 38000,
-          "weight": 1000,
-          "priceLabel": "34,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,400원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-          "originalPriceLabel": "38,000원",
-          "discountRate": 0.10526315789473684,
-          "discountLabel": "10% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "굿바디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "구운디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "부드러운",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "아몬드",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "카라멜",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceLabel": "13,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.10526315789473684,
-      "acidityScore": -0.8400000000000001,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-시에나",
-      "roasterName": "루비아 커피",
-      "productName": "시에나",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 200,
-      "score": 77,
-      "tastingNotes": [
-        "초콜릿",
-        "바닐라",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 11,
-      "priceOptions": [
-        {
-          "id": "200g-15000",
-          "price": 15000,
-          "originalPrice": 16000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084225944",
-          "originalPriceLabel": "16,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-30000",
-          "price": 30000,
-          "originalPrice": 32000,
+          "originalPrice": 36000,
           "weight": 500,
-          "priceLabel": "30,000원",
+          "priceLabel": "34,000원",
           "weightLabel": "500g",
-          "unitPriceLabel": "6,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306975007",
-          "originalPriceLabel": "32,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
+          "unitPriceLabel": "6,800원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306840350",
+          "originalPriceLabel": "36,000원",
+          "discountRate": 0.05555555555555555,
+          "discountLabel": "5% 할인"
         },
         {
-          "id": "1kg-42000",
-          "price": 42000,
-          "originalPrice": 45000,
+          "id": "1kg-47000",
+          "price": 47000,
+          "originalPrice": 50000,
           "weight": 1000,
-          "priceLabel": "42,000원",
+          "priceLabel": "47,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "4,200원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
-          "originalPriceLabel": "45,000원",
-          "discountRate": 0.06666666666666667,
+          "unitPriceLabel": "4,700원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
+          "originalPriceLabel": "50,000원",
+          "discountRate": 0.06,
           "discountLabel": "6% 할인"
         }
       ],
@@ -10024,55 +9966,74 @@
       "weightLabel": "200g / 500g / 1kg",
       "tastingNoteEvidence": [
         {
-          "text": "#달콤한 바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "text": "꽃향기",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "플로럴",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "#바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "#견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
           "method": "image-model"
         },
         {
           "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "깔끔한 커피의 맛과 부드러운 바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
+          "text": "블루베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "블랙커런트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "베리류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
         }
       ],
-      "priceLabel": "15,000원",
+      "priceLabel": "17,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.06666666666666667,
-      "acidityScore": -0.7333333333333334,
+      "discountRate": 0.06,
+      "acidityScore": 0.6399999999999999,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -10085,7 +10046,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 76,
+      "score": 77,
       "tastingNotes": [
         "캐러멜",
         "견과류"
@@ -10096,7 +10057,7 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 12,
+      "checkedMinutesAgo": 11,
       "tastingNoteEvidence": [
         {
           "text": "견과류",
@@ -10204,7 +10165,7 @@
       "price": 49000,
       "originalPrice": 52000,
       "weight": 1000,
-      "score": 73,
+      "score": 74,
       "tastingNotes": [
         "밀크초콜릿",
         "바닐라",
@@ -10217,7 +10178,7 @@
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 15,
+      "checkedMinutesAgo": 14,
       "priceOptionsComplete": false,
       "priceOptionsStatus": "failed",
       "tastingNoteEvidence": [
@@ -10240,7 +10201,7 @@
       "roastLevel": "확인 필요",
       "price": 18000,
       "weight": 200,
-      "score": 72,
+      "score": 73,
       "tastingNotes": [
         "밀크초콜릿",
         "바닐라",
@@ -10253,7 +10214,7 @@
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 16,
+      "checkedMinutesAgo": 15,
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "tastingNoteEvidence": [
@@ -15730,10 +15691,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831080907_1788163747839_Soj9LEBh_u.webp",
       "isSoldOut": false,
       "isNew": true,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.9333333333333332,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100576",
@@ -15820,10 +15784,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831083303_1788165183412_0Hb0rE51Oq.webp",
       "isSoldOut": false,
       "isNew": true,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100499",
@@ -15850,10 +15817,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821083103_1787301063815_MbxUzf8vas.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100531",
@@ -15928,11 +15898,14 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260820052929_1787203769479_0zEInVhm8h.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-23T03:03:30.431Z"
+      "tastingNotesPreservedAt": "2026-09-23T03:03:30.431Z",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100520",
@@ -15959,10 +15932,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063103_1787293863785_3Lc5vZz_kt.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100502",
@@ -15996,10 +15972,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063354_1787294034225_Sc3_t7Q_5K.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100521",
@@ -16026,10 +16005,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063016_1787293816037_5YPX60OBlu.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100506",
@@ -16063,10 +16045,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063228_1787293948641_UjaxSd9duQ.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100037",
@@ -16093,10 +16078,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064146_1787294506353_RVpq5csBjI.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100446",
@@ -16124,10 +16112,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063730_1787294250054_8Tot1ci2Hg.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100448",
@@ -16154,10 +16145,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063618_1787294178314_D2s3Nbr_Pd.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100020",
@@ -16282,10 +16276,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.5,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100018",
@@ -16317,10 +16314,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064306_1787294586948_TMjJ5LsZ19.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100019",
@@ -16351,10 +16351,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064232_1787294552976_AcO7iUYDDY.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "terarosa-100017",
@@ -16382,10 +16385,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20250614090724_1749892044111_MkRoI4NSs7.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
+      "checkedMinutesAgo": 120,
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-09-25T03:03:49.728Z"
     },
     {
       "id": "centercoffee-418",
@@ -22784,8 +22790,6 @@
           "process": "내추럴"
         }
       ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
       "priceLabel": "22,000원",
       "unitPriceLabel": "",
       "priceOptions": [
@@ -22815,6 +22819,8 @@
         }
       ],
       "weightLabel": "220g / 500g",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 2
@@ -27086,8 +27092,8 @@
     "preservedRoasterProductCount": 0,
     "preservedDiscountCount": 1,
     "preservedOfficialDetailCount": 1,
-    "preservedTastingNoteCount": 11,
-    "staleProductCount": 0,
+    "preservedTastingNoteCount": 8,
+    "staleProductCount": 15,
     "collectionRuns": [
       {
         "sourceId": "identity",
@@ -27162,9 +27168,9 @@
       {
         "sourceId": "terarosa",
         "roasterName": "테라로사",
-        "status": "complete",
+        "status": "failed",
         "itemCount": 15,
-        "usedFallback": false
+        "usedFallback": true
       },
       {
         "sourceId": "centercoffee",
