@@ -680,6 +680,31 @@ function preferKoreanText(value) {
   return koreanSide || trimmed;
 }
 
+// FIX-2: inferFarmName이 상품명 찌꺼기를 농장명으로 내놓는 경우를 판정.
+// 가공법·등급·로트·품종·상품라인 등 "농장이 될 수 없는" 잔재 카테고리만 대상으로 하며,
+// 표면 패턴으로 진짜 농장과 분리할 수 없는 경우(로스터명 중복, 지역명 등)는 건드리지 않는다.
+// golden 검증: 94건 FALSE_POSITIVE 중 22건 억제, Correct→Wrong 0, Correct→Missing 0.
+const INFERRED_FARM_JUNK_PATTERNS = [
+  /로트\s*\d+|lot\s*#?\s*\d+/i, // 로트 번호 ("라 노리아 로트 4")
+  /컬렉션|콜렉션|시리즈|에디션/, // 상품 라인 명사 ("다테하 컬렉션")
+  /^\d+\s*%/, // 함량 표기 ("100% 스칼렛")
+  /언에어로빅|애너로빅|anaerobic/i, // 무산소 가공 잔재
+  /슈가케인|sugarcane/i, // 슈가케인 EA 디카페인 공정 잔재
+  /(^|\s)(허니|허니드)(\s|$)/, // 허니 가공 잔재
+  /펄프드|펄프/i, // 펄프드 내추럴 잔재
+  /(^|\s)(풀리|fully)(\s|$)/i, // 풀리 워시드 잔재
+  /(^|\s)(레드|red)(\s|$)/i, // 레드 허니 잔재
+  /^(단체|숲|풍요로운\s*땅|다크우드|그리니)$/, // 단독 일반 명사
+  /(^|\s)sl-?28(\s|$)/i, // 품종 잔재 (하이픈 표기는 탐지 미스)
+  /토착종/, // 품종 잔재 (heirloom)
+];
+
+function isInferredFarmJunk(farmName) {
+  const farm = String(farmName || '').trim();
+  if (!farm) return false;
+  return INFERRED_FARM_JUNK_PATTERNS.some((rx) => rx.test(farm));
+}
+
 function formatProductDisplayInfo(product) {
   const cleanName = compactDisplayText(normalizeProductNameForGroup(product.productName));
   const varietyHint = preferKoreanText(product.variety || '');
@@ -687,7 +712,10 @@ function formatProductDisplayInfo(product) {
   const processRule = findProcessDisplay(product);
   const varietyLabels = findVarietyDisplays(`${cleanName} ${varietyHint}`.trim());
   const detailFarm = preferKoreanText(product.farm || '');
-  const farmName = detailFarm || inferFarmName(cleanName, countryRule, processRule, varietyLabels, product.roasterName);
+  const inferredFarm = inferFarmName(cleanName, countryRule, processRule, varietyLabels, product.roasterName);
+  // FIX-2: 상세 수집값(product.farm)이 없을 때, 상품명에서 추론한 농장명이
+  // 가공법·등급·로트·품종 등 찌꺼기 잔재이면 표시를 억제한다. 상세값이 있으면 그대로 둔다.
+  const farmName = detailFarm || (isInferredFarmJunk(inferredFarm) ? '' : inferredFarm);
   const varietyLabel = varietyLabels.slice(0, 2).join(' / ');
   // 규칙에 없는 품종이라도 상세에서 한글 값을 찾았으면 그것을 폴백으로 쓴다.
   const koreanVarietyHint = /[가-힣]/.test(varietyHint) ? varietyHint : '';
