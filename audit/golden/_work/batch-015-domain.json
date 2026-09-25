@@ -1,0 +1,79 @@
+{
+ "batch": 15,
+ "reviewedAt": "2026-09-25",
+ "corrections": 0,
+ "checks": [
+  {
+   "id": "aerycoffee-13753086459, aerycoffee-13728207048",
+   "field": "variety",
+   "result": "pass",
+   "findings": "게이샤 품종 표기 타당"
+  },
+  {
+   "id": "루비아커피-과테말라엘소코로파카마라워시드다크로스트",
+   "field": "variety",
+   "result": "pass",
+   "findings": "파카마라 품종 표기 타당"
+  },
+  {
+   "id": "hocuspocus-13587119731",
+   "field": "variety",
+   "result": "pass",
+   "findings": "카투아이 품종 표기 타당"
+  },
+  {
+   "id": "fillout-13684414219",
+   "field": "variety",
+   "result": "pass",
+   "findings": "'치로소'는 콜롬비아 실존 품종(Chiroso) — 품종 표기 타당"
+  },
+  {
+   "id": "cafedoan-12769121036",
+   "field": "variety",
+   "result": "pass",
+   "findings": "74158은 에티오피아 JARC 품종 번호 — detailText 명시로 HIGH 타당"
+  },
+  {
+   "id": "multiple",
+   "field": "originRegion",
+   "result": "pass",
+   "findings": "구지·예가체프·키리냐가·안티구아 지역 표기 타당. '알로'는 '부라 몰케'(스테이션)와 병기되어 지역 레벨 표기 타당"
+  },
+  {
+   "id": "cafedoan-12769121036",
+   "field": "originRegion",
+   "result": "pass",
+   "findings": "시다마는 에티오피아 대표 산지 — detailText 명시 HIGH 타당"
+  },
+  {
+   "id": "fillout-13684423041",
+   "field": "process",
+   "result": "pass",
+   "findings": "'무산소 워시드' — 무산소(애너로빅)는 가공 수식어 결합 표기 타당"
+  },
+  {
+   "id": "루비아커피-에티오피아구지벤티넨카내추럴스위스워터디카페인라이트로스트",
+   "field": "decafMethod",
+   "result": "pass",
+   "findings": "스위스 워터=디카페인 가공법 — process(내추럴)와 분리 타당"
+  },
+  {
+   "id": "multiple",
+   "field": "producer",
+   "result": "pass",
+   "findings": "벤티 넨카·하로 와추·가하헤·기셰케·엘토·부라 몰케의 스테이션 판단으로 producer 제외 타당. '마타레이니'는 -ini 접미 케냐 워싱스테이션 추정으로 제외 타당"
+  },
+  {
+   "id": "multiple",
+   "field": "producer",
+   "result": "pass",
+   "findings": "레리다 에스플렌도로사·레리다 에스테이트·엘 소코로·엘 티그리·마운트 토투마스의 농장명 추정(MEDIUM) 타당"
+  },
+  {
+   "id": "multiple",
+   "field": "roast",
+   "result": "pass",
+   "findings": "미디엄 로스트→Medium, 다크 로스트→Dark, 라이트 로스트→Light 매핑 타당"
+  }
+ ]
+}

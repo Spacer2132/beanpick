@@ -1,0 +1,928 @@
+{
+ "aerycoffee-13753081358": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 파나마 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#productName"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "파나마",
+    "raw": "파나마",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '에스메랄다'는 농장/에스테이트/핀카/하시엔다 역할 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '에스메랄다'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#productName"
+   },
+   "process": {
+    "value": "내추럴",
+    "raw": "내추럴",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '내추럴' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#productName"
+   },
+   "variety": {
+    "value": "게이샤",
+    "raw": "게이샤",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '게이샤' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 로스팅 머신·로스팅일·권장 추출일만 기재, 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753081358-2727bad7.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-11529658658": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 콜롬비아 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "콜롬비아",
+    "raw": "콜롬비아",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '콜롬비아' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '엘 디비소'는 지역 표기 없이 농장명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '엘 디비소'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#productName"
+   },
+   "process": {
+    "value": "무산소 내추럴",
+    "raw": "언에어로빅 내추럴",
+    "confidence": "HIGH",
+    "evidence": "상품명에 '언에어로빅 내추럴' 명시(언에어로빅=애너로빅=무산소), OCR의 ANAEROBIC NATURAL과 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#productName"
+   },
+   "variety": {
+    "value": "아히 버번",
+    "raw": "아히 버번",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '아히 버번' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트 없음, 관측 없음, OCR에 로스팅 단계 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#evidence.ocr"
+   },
+   "tastingNotes": {
+    "value": [
+     "열대과일",
+     "초콜릿"
+    ],
+    "raw": [
+     "tropical fruit flavors",
+     "chocolate",
+     "열대과일의 플레이버",
+     "초콜릿의 조화"
+    ],
+    "confidence": "MEDIUM",
+    "evidence": "OCR(BeanPick 추출값)에만 등장한 노트 — '플레이버'·'조화'는 서술어로 보고 제외, 상세 텍스트·관측에는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11529658658-dd7b1e65.json#evidence.ocr",
+    "evidenceKind": "current_echo"
+   }
+  }
+ },
+ "aerycoffee-11750844082": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 에콰도르 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "에콰도르",
+    "raw": "에콰도르",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '에콰도르' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '라 노리아'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '라 노리아'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시, OCR의 WASHED와 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#productName"
+   },
+   "variety": {
+    "value": "게이샤",
+    "raw": "그린 게샤",
+    "confidence": "HIGH",
+    "evidence": "상품명 '그린 게샤'의 게샤는 게이샤 표기 차이; '그린'은 로트 명칭으로 보고 품종에서 제외",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트 없음, 관측 없음, OCR에 로스팅 단계 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#evidence.ocr"
+   },
+   "tastingNotes": {
+    "value": [
+     "샤인머스캣",
+     "자스민"
+    ],
+    "raw": [
+     "bright shine muscat flavors",
+     "delicate jasmine aromatics",
+     "신선한 샤인머스캣 플레이버와 자스민향 아로마"
+    ],
+    "confidence": "MEDIUM",
+    "evidence": "OCR(BeanPick 추출값)에만 등장한 노트 — '신선한'·'delicate'·'플레이버'·'아로마'는 강도/서술어로 보고 제외, 상세 텍스트·관측에는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11750844082-7a29fc1f.json#evidence.ocr",
+    "evidenceKind": "current_echo"
+   }
+  }
+ },
+ "aerycoffee-13728205556": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 파나마 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "파나마",
+    "raw": "파나마",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '레리다'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '레리다'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#productName"
+   },
+   "process": {
+    "value": "내추럴",
+    "raw": "내추럴",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '내추럴' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#productName"
+   },
+   "variety": {
+    "value": "게이샤",
+    "raw": "게이샤",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '게이샤' 명시('아멜리아'는 로트명)",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 '[마지막 배치] 로스팅 머신·로스팅일·권장 추출일'만 기재, 로스팅 단계 표기 없음 — '[마지막 배치]'는 품절 안내가 아님",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13728205556-573c4e0f.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-13678433195": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 파나마 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "파나마",
+    "raw": "파나마",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '에스메랄다'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '에스메랄다'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#productName"
+   },
+   "variety": {
+    "value": "게이샤",
+    "raw": "게이샤",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '게이샤' 명시('푼다도르 4WB'는 로트명)",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 로스팅 머신·로스팅일·권장 추출일만 기재, 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13678433195-418f669d.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-13753077888": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 파나마 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#productName"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "파나마",
+    "raw": "파나마",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '에스메랄다'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '에스메랄다'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시('콜드룸'은 로트 명칭으로 보고 가공에서 제외)",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#productName"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·상세 텍스트·관측·OCR 확인했으나 품종 언급 없음('마리오 아바호 6FB 콜드룸'은 로트 명칭)",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 로스팅 머신·로스팅일·권장 추출일만 기재, 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753077888-55a18579.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-11368425385": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 파나마 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "파나마",
+    "raw": "파나마",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '라 에스메랄다'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '라 에스메랄다'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시, OCR의 WASHED와 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#productName"
+   },
+   "variety": {
+    "value": "게이샤",
+    "raw": "게이샤",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '게이샤' 명시('하라미요'는 로트명)",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트 없음, 관측 없음, OCR에 로스팅 단계 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#evidence.ocr"
+   },
+   "tastingNotes": {
+    "value": [
+     "자스민",
+     "산도"
+    ],
+    "raw": [
+     "delicate jasmine notes with pleasant acidity",
+     "우아하고 섬세한 자스민의 향기와 기분 좋은 산도감"
+    ],
+    "confidence": "MEDIUM",
+    "evidence": "OCR(BeanPick 추출값)에만 등장한 노트 — 'delicate'·'섬세한'·'기분 좋은'·'산도감'은 서술 강도로 보고 제외하고 핵심 맛 표현만 채택, 상세 텍스트·관측에는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11368425385-a8c7d0cd.json#evidence.ocr",
+    "evidenceKind": "current_echo"
+   }
+  }
+ },
+ "aerycoffee-13753055877": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 에콰도르 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#productName"
+   },
+   "status": {
+    "value": "active",
+    "raw": "active",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=False (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "에콰도르",
+    "raw": "에콰도르",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '에콰도르' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '야쿠리'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '야쿠리'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#productName"
+   },
+   "process": {
+    "value": "내추럴",
+    "raw": "내추럴",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '내추럴' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#productName"
+   },
+   "variety": {
+    "value": "티피카 메호라도",
+    "raw": "티피카 메호라도",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '티피카 메호라도'(Typica Mejorado) 명시, 'TUEX'는 로트명",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 로스팅 머신·로스팅일·권장 추출일만 기재, 로스팅 단계 표기 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13753055877-d63b708b.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-13732855146": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 에콰도르 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "에콰도르",
+    "raw": "에콰도르",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '에콰도르' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '루그마파타'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '루그마파타'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#productName"
+   },
+   "variety": {
+    "value": "티피카 메호라도",
+    "raw": "티피카 메호라도",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '티피카 메호라도'(Typica Mejorado) 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 '[마지막 배치] 로스팅 머신·로스팅일·권장 추출일'만 기재, 로스팅 단계 표기 없음 — '[마지막 배치]'는 품절 안내가 아님",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13732855146-db10020e.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-11913046530": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 케냐 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "케냐",
+    "raw": "케냐",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '케냐' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '지와'는 지역 표기 없이 세척소/등급 표기로만 등장('AB'는 등급, 지역 아님)",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '지와'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시, OCR의 WASHED와 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#productName"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·상세 텍스트·관측·OCR 확인했으나 품종 언급 없음('AB'는 등급 표기)",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트 없음, 관측 없음, OCR에 로스팅 단계 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#evidence.ocr"
+   },
+   "tastingNotes": {
+    "value": [
+     "블랙커런트잼",
+     "산도",
+     "단맛"
+    ],
+    "raw": [
+     "vibrant blackcurrant jam acidity and sweetness",
+     "블랙커런트 잼의 생동감 있는 산도와 단맛의 조화로운 균형감"
+    ],
+    "confidence": "MEDIUM",
+    "evidence": "OCR(BeanPick 추출값)에만 등장한 노트 — '생동감 있는'·'조화로운 균형감'은 강도/서술어로 보고 제외, 상세 텍스트·관측에는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11913046530-20ee9fef.json#evidence.ocr",
+    "evidenceKind": "current_echo"
+   }
+  }
+ },
+ "aerycoffee-11621294001": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 에티오피아 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "에티오피아",
+    "raw": "에티오피아",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '에티오피아' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '단체'는 지역 표기 없이 단체명/브랜드 요소로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '단체'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시, OCR의 WASHED와 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#productName"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·상세 텍스트·관측·OCR 확인했으나 품종 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트 없음, 관측 없음, OCR에 로스팅 단계 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#evidence.ocr"
+   },
+   "tastingNotes": {
+    "value": [
+     "복숭아티",
+     "얼그레이"
+    ],
+    "raw": [
+     "A clean and vibrant flavor reminiscent of peach tea",
+     "복숭아티와 얼그레이를 연상시키는 깨끗하고 향기 넘치는 향미"
+    ],
+    "confidence": "MEDIUM",
+    "evidence": "OCR(BeanPick 추출값)에만 등장한 노트 — '깨끗하고'·'향기 넘치는'·'연상시키는'은 서술어로 보고 제외, 상세 텍스트·관측에는 없음. 로스터리 교차 반복 블록 5개에는 해당하지 않는 단독 조합",
+    "evidenceSource": "audit-input/products/aerycoffee-11621294001-2f17f090.json#evidence.ocr",
+    "evidenceKind": "current_echo"
+   }
+  }
+ },
+ "aerycoffee-13666847700": {
+  "golden": {
+   "productType": {
+    "value": "single",
+    "raw": "single",
+    "confidence": "HIGH",
+    "evidence": "상품명에 파나마 단일 산지만 표기되고 블렌드·디카페인 표기가 없다",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "파나마",
+    "raw": "파나마",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '파나마' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '알티에리 로라'는 지역 표기 없이 에스테이트명으로만 등장",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '알티에리 로라'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#productName"
+   },
+   "process": {
+    "value": "내추럴",
+    "raw": "내추럴",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '내추럴' 명시('ASD'는 로트 명칭)",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#productName"
+   },
+   "variety": {
+    "value": "카투아이",
+    "raw": "카투아이",
+    "confidence": "HIGH",
+    "evidence": "상품명에 품종 '카투아이' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트는 '[마지막 배치] 로스팅 머신·로스팅일·권장 추출일'만 기재, 로스팅 단계 표기 없음 — '[마지막 배치]'는 품절 안내가 아님",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#evidence.detailCache.detailText"
+   },
+   "tastingNotes": {
+    "value": [],
+    "raw": [],
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트·관측·OCR 어느 곳에도 컵노트 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-13666847700-95f8fe4e.json#evidence.detailCache.detailText"
+   }
+  }
+ },
+ "aerycoffee-11744816665": {
+  "golden": {
+   "productType": {
+    "value": "decaf",
+    "raw": "디카페인",
+    "confidence": "HIGH",
+    "evidence": "상품명에 '디카페인' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#productName"
+   },
+   "status": {
+    "value": "soldout",
+    "raw": "soldout",
+    "confidence": "MEDIUM",
+    "evidence": "isSoldOut=True (수집 플래그)",
+    "evidenceSource": "collector_flag"
+   },
+   "originCountry": {
+    "value": "에티오피아",
+    "raw": "에티오피아",
+    "confidence": "HIGH",
+    "evidence": "상품명에 국가명 '에티오피아' 명시",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#productName"
+   },
+   "originRegion": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '첼베사'는 지역 표기 없이 산지명으로만 등장, 역할 표기 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#productName"
+   },
+   "producer": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "원문 확인 — '첼베사'에 농장/에스테이트 역할 표기가 없어 생산자로 기록하지 않음",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#productName"
+   },
+   "process": {
+    "value": "워시드",
+    "raw": "워시드",
+    "confidence": "HIGH",
+    "evidence": "상품명에 가공 '워시드' 명시, OCR의 WASHED와 일치(마운틴 워터는 decafMethod로 분리)",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#productName"
+   },
+   "decafMethod": {
+    "value": "Mountain Water",
+    "raw": "MOUNTAIN WATER DECAFFEINE",
+    "confidence": "MEDIUM",
+    "evidence": "OCR의 process='WASHED & MOUNTAIN WATER DECAFFEINE'에 가공법 명시, 상품명의 '디카페인'과 일치",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#evidence.ocr"
+   },
+   "variety": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상품명·상세 텍스트·관측·OCR 확인했으나 품종 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#productName"
+   },
+   "roast": {
+    "value": null,
+    "raw": null,
+    "confidence": "SOURCE_MISSING",
+    "evidence": "상세 텍스트 없음, 관측 없음, OCR에 로스팅 단계 언급 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#evidence.ocr"
+   },
+   "tastingNotes": {
+    "value": [
+     "꽃향기",
+     "산도"
+    ],
+    "raw": [
+     "delicate floral aroma",
+     "gentle acidity",
+     "부드러운 꽃 향기",
+     "잔잔한 산도감이 매력적인 디카페인"
+    ],
+    "confidence": "MEDIUM",
+    "evidence": "OCR(BeanPick 추출값)에만 등장한 노트 — '부드러운'·'delicate'·'gentle'·'잔잔한'·'매력적인'은 질감/강도 서술어로 보고 제외, 상세 텍스트·관측에는 없음",
+    "evidenceSource": "audit-input/products/aerycoffee-11744816665-318a48c1.json#evidence.ocr",
+    "evidenceKind": "current_echo"
+   }
+  }
+ }
+}

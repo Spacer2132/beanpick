@@ -1,0 +1,350 @@
+[
+ {
+  "id": "fillout-13651112917",
+  "field": "originRegion",
+  "A": {
+   "value": "로스 코네조스",
+   "raw": "로스 코네조스",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 성분 '로스 코네조스' — 농장명으로 추정되나 지역/농장 역할 명시 없음",
+   "evidenceSource": "audit-input/products/fillout-13651112917-6393be82.json#productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "로스 코네조스는 농장명으로 보이며 지역 명시 없음",
+   "evidenceSource": "audit-input/products/fillout-13651112917-6393be82.json#productName"
+  }
+ },
+ {
+  "id": "fillout-13651112917",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'로스 코네조스'는 농장명으로 추정되나 '생산자'로 명시되지 않음",
+   "evidenceSource": "audit-input/products/fillout-13651112917-6393be82.json#productName"
+  },
+  "B": {
+   "value": "로스 코네조스",
+   "raw": "로스 코네조스",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 패턴 '과테말라 로스 코네조스'(국가-농장 순)에 근거한 추론, 생산자 명시 행 없음",
+   "evidenceSource": "audit-input/products/fillout-13651112917-6393be82.json#productName"
+  }
+ },
+ {
+  "id": "namusairo-1132",
+  "field": "variety",
+  "A": {
+   "value": [
+    "SL28",
+    "SL34",
+    "Batian",
+    "Ruiru 11"
+   ],
+   "raw": [
+    "SL28",
+    "SL34",
+    "Batian",
+    "Ruiru 11"
+   ],
+   "confidence": "HIGH",
+   "evidence": "원문 '품 종 SL28, SL34, Batian, Ruiru 11'",
+   "evidenceSource": "audit-input/products/namusairo-1132-985bfa25.json#evidence.rawObservations[].text"
+  },
+  "B": {
+   "value": "SL28, SL34, Batian, Ruiru 11",
+   "raw": "SL28, SL34, Batian, Ruiru 11",
+   "confidence": "HIGH",
+   "evidence": "품종: SL28, SL34, Batian, Ruiru 11",
+   "evidenceSource": "audit-input/products/namusairo-1132-985bfa25.json#evidence.rawObservations[].text"
+  }
+ },
+ {
+  "id": "로스터릭-과테말라shb워시드",
+  "field": "tastingNotes",
+  "A": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "gemini OCR 출력 2개 정면 충돌 (출력1: 복숭아·자두·살구·꿀 / 출력2: 자두·마카다미아·캐러멜) — 원본 이미지 없이 해결 불가 (OCR_CONFLICT/CASE 3)",
+   "evidenceSource": "audit-input/products/로스터릭-과테말라shb워시드-3f0017df.json#evidence.ocr[].output"
+  },
+  "B": {
+   "value": [
+    "자두"
+   ],
+   "raw": [
+    "자두"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR 2건이 '자두'에서만 교차 확인 (복숭아·살구·꿀·마카다미아·캐러멜은 단일 OCR에만 등장해 제외)",
+   "evidenceSource": "audit-input/products/로스터릭-과테말라shb워시드-3f0017df.json#evidence.ocr[].output"
+  }
+ },
+ {
+  "id": "identity-13700316596",
+  "field": "originRegion",
+  "A": {
+   "value": "코토와",
+   "raw": "코토와",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 성분 '코토와' — 농장명·던칸(생산자 가문) 추정되나 역할 명시 없음",
+   "evidenceSource": "audit-input/products/identity-13700316596-bd2de6c8.json#productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "코토와는 농장명으로 보이며 지역 명시 없음",
+   "evidenceSource": "audit-input/products/identity-13700316596-bd2de6c8.json#productName"
+  }
+ },
+ {
+  "id": "identity-13700316596",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'코토와 던칸'은 농장/가문명으로 추정되나 '생산자'로 명시되지 않음",
+   "evidenceSource": "audit-input/products/identity-13700316596-bd2de6c8.json#productName"
+  },
+  "B": {
+   "value": "코토와 던칸",
+   "raw": "코토와 던칸",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 패턴 '파나마 코토와 던칸'(국가-농장/생산자 순)에 근거한 추론, 생산자 명시 행 없음",
+   "evidenceSource": "audit-input/products/identity-13700316596-bd2de6c8.json#productName"
+  }
+ },
+ {
+  "id": "identity-13700316596",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "라즈베리",
+    "수박",
+    "아몬드",
+    "다크체리"
+   ],
+   "raw": [
+    "Raspberry",
+    "Watermelon",
+    "Almond",
+    "Dark cherry"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "gemini OCR 단일 출력 (다른 3개 출력은 빈 배열 — 충돌 아님). 독립 증거 아님(최대 MEDIUM)",
+   "evidenceSource": "audit-input/products/identity-13700316596-bd2de6c8.json#evidence.ocr[].output"
+  },
+  "B": {
+   "value": [
+    "Raspberry",
+    "Watermelon",
+    "Almond",
+    "Dark cherry"
+   ],
+   "raw": [
+    "Raspberry",
+    "Watermelon",
+    "Almond",
+    "Dark cherry"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR: Raspberry, Watermelon, Almond, Dark cherry (OCR 단독 근거이므로 MEDIUM)",
+   "evidenceSource": "audit-input/products/identity-13700316596-bd2de6c8.json#evidence.ocr[].output"
+  }
+ },
+ {
+  "id": "coffee502-154",
+  "field": "originRegion",
+  "A": {
+   "value": "하마쇼, 벤사, 시다마",
+   "raw": "Hamasho, Bensa, Sidama",
+   "confidence": "HIGH",
+   "evidence": "상세정보 '지 역 Hamasho, Bensa, Sidama'",
+   "evidenceSource": "audit-input/products/coffee502-154-ed84ed2e.json#evidence.rawObservations[].text"
+  },
+  "B": {
+   "value": "시다마 벤사 하마쇼",
+   "raw": "Hamasho, Bensa, Sidama",
+   "confidence": "HIGH",
+   "evidence": "지역: Hamasho, Bensa, Sidama",
+   "evidenceSource": "audit-input/products/coffee502-154-ed84ed2e.json#evidence.rawObservations[].text"
+  }
+ },
+ {
+  "id": "werk-568",
+  "field": "process",
+  "A": {
+   "value": "워시드",
+   "raw": "워시드 Washed",
+   "confidence": "MEDIUM",
+   "evidence": "gemini OCR notes의 process 필드 '워시드 Washed'만 근거 — 독립 증거 아님(최대 MEDIUM)",
+   "evidenceSource": "audit-input/products/werk-568-836d0bff.json#evidence.ocr[].output"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "상품명·본문에 가공 명시 없음 (OCR의 process 필드만으로는 판정 불가)",
+   "evidenceSource": "audit-input/products/werk-568-836d0bff.json#evidence.rawObservations[].text"
+  }
+ },
+ {
+  "id": "centercoffee-267",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "Fruity",
+    "캐러멜"
+   ],
+   "raw": [
+    "Fruity",
+    "Caramel"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "gemini OCR 'Fruity, Juicy, Caramel' — 'Juicy/쥬시'는 질감 서술로 제외. 독립 증거 아님(최대 MEDIUM)",
+   "evidenceSource": "audit-input/products/centercoffee-267-04599d34.json#evidence.ocr[].output"
+  },
+  "B": {
+   "value": [
+    "캐러멜"
+   ],
+   "raw": [
+    "Caramel"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR: Fruity, Juicy, Caramel ('Fruity'·'Juicy'는 질감·일반 서술로 제외, OCR 단독 근거이므로 MEDIUM)",
+   "evidenceSource": "audit-input/products/centercoffee-267-04599d34.json#evidence.ocr[].output"
+  }
+ },
+ {
+  "id": "aerycoffee-13753059608",
+  "field": "variety",
+  "A": {
+   "value": "엘로우 카투아이",
+   "raw": "엘로우 카투아이",
+   "confidence": "HIGH",
+   "evidence": "상품명 '파나마 밤비토 엘로우 카투아이 내추럴'",
+   "evidenceSource": "audit-input/products/aerycoffee-13753059608-0ca968ea.json#productName"
+  },
+  "B": {
+   "value": "옐로우 카투아이",
+   "raw": "엘로우 카투아이",
+   "confidence": "HIGH",
+   "evidence": "상품명: [에어리커피] 파나마 밤비토 엘로우 카투아이 내추럴",
+   "evidenceSource": "audit-input/products/aerycoffee-13753059608-0ca968ea.json#productName"
+  }
+ },
+ {
+  "id": "cafedoan-12844590637",
+  "field": "originRegion",
+  "A": {
+   "value": "우일라, 산타 마리아",
+   "raw": "우일라 Huila 산타 마리아 Santa María",
+   "confidence": "HIGH",
+   "evidence": "detailText '콜롬비아 Colombia 우일라 Huila 산타 마리아 Santa María에 위치한 핀카 코스타 리카 Finca Costa Rica'",
+   "evidenceSource": "audit-input/products/cafedoan-12844590637-95374aa3.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": "우일라",
+   "raw": "우일라 Huila 산타 마리아 Santa María",
+   "confidence": "HIGH",
+   "evidence": "콜롬비아 Colombia 우일라 Huila 산타 마리아 Santa María에 위치한 핀카 코스타 리카",
+   "evidenceSource": "audit-input/products/cafedoan-12844590637-95374aa3.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "cafedoan-12844590637",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "라즈베리",
+    "노란 자두",
+    "레몬 버베나",
+    "쿨한 향신료"
+   ],
+   "raw": [
+    "라즈베리",
+    "노란 자두",
+    "레몬 버베나",
+    "쿨한 향신료"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText 'CUP NOTE 라즈베리, 노란 자두, 레몬 버베나, 쿨한 향신료' 명시 — gemini OCR 출력(White Peach·Earl Grey·Honey)과 상충하므로 원문(detailText) 우선",
+   "evidenceSource": "audit-input/products/cafedoan-12844590637-95374aa3.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": [
+    "라즈베리",
+    "노란 자두",
+    "레몬 버베나",
+    "향신료"
+   ],
+   "raw": [
+    "라즈베리",
+    "노란 자두",
+    "레몬 버베나",
+    "향신료"
+   ],
+   "confidence": "HIGH",
+   "evidence": "CUP NOTE 라즈베리, 노란 자두, 레몬 버베나, 쿨한 향신료 ('쿨한'은 수식어로 제외, 본문 명시이므로 OCR 출력은 무시)",
+   "evidenceSource": "audit-input/products/cafedoan-12844590637-95374aa3.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "루비아커피-시즈널블렌드너티브리즈미디엄로스트",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "견과류",
+    "고소함",
+    "캐러멜"
+   ],
+   "raw": [
+    "견과류",
+    "고소함",
+    "캐러멜"
+   ],
+   "confidence": "HIGH",
+   "evidence": "detailText '볶은 견과류를 떠올리게 하는 너티한 향과 고소함... 캐러멜의 은은한 단맛' (gemini OCR 2개 출력도 견과류·고소함·캐러멜 공통 확인; '가을'·'가공'은 OCR 노이즈로 제외)",
+   "evidenceSource": "audit-input/products/루비아커피-시즈널블렌드너티브리즈미디엄로스트-3bde806e.json#evidence.detailCache.detailText"
+  },
+  "B": {
+   "value": [
+    "견과류",
+    "캐러멜"
+   ],
+   "raw": [
+    "견과류",
+    "캐러멜"
+   ],
+   "confidence": "HIGH",
+   "evidence": "첫 모금에서는 볶은 견과류를 떠올리게 하는 너티한 향과 ... 이어지는 캐러멜의 은은한 단맛이 부드럽게 이어집니다 (OCR도 견과류·캐러멜 교차 확인, '고소함'은 질감 서술로 제외)",
+   "evidenceSource": "audit-input/products/루비아커피-시즈널블렌드너티브리즈미디엄로스트-3bde806e.json#evidence.detailCache.detailText"
+  }
+ },
+ {
+  "id": "namusairo-1137",
+  "field": "productType",
+  "A": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "원문 '원산지 Colombia' — 단일 산지 명시",
+   "evidenceSource": "audit-input/products/namusairo-1137-093bd9ed.json#evidence.rawObservations[].text"
+  },
+  "B": {
+   "value": "blend",
+   "raw": "Bolivar Blend",
+   "confidence": "HIGH",
+   "evidence": "농장: Bolivar Blend + 본문: 인근 농가들과의 긴밀한 협력 관계는 블렌딩 작업을 원활하게 하며",
+   "evidenceSource": "audit-input/products/namusairo-1137-093bd9ed.json#evidence.rawObservations[].text"
+  }
+ }
+]

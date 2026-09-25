@@ -1,0 +1,4811 @@
+{
+ "batch": 2,
+ "ids": [
+  "fillout-5310169256",
+  "namusairo-1135",
+  "로스터릭-콜롬비아엘포르베니르카투라플로럴",
+  "terarosa-100018",
+  "coffeelibre-8144",
+  "momos-4876",
+  "malik-11068505354",
+  "coffeejg-10794029959",
+  "toch-12315205053",
+  "deepbluelake-571",
+  "identity-13718237904",
+  "히떼로스터리-콜롬비아엑셀소디카페인",
+  "coffee502-9",
+  "werk-572",
+  "fritz-91",
+  "centercoffee-408",
+  "헬카페-강배전블렌드커피",
+  "aerycoffee-13655518934",
+  "cafedoan-12900247002",
+  "호커스포커스로스터스-라퓨타블렌드산미있는원두",
+  "루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트",
+  "fillout-13684373989",
+  "namusairo-1096",
+  "로스터릭-콜롬비아엘포르베니르리치",
+  "terarosa-100576"
+ ],
+ "snapshot": {
+  "sha256": "ac7739a73376f125a8a200796391a128b206a4da50582fbfa8e350723e6d0b81",
+  "repoHead": "88fad74faad43b8a1e8abf6ef7676c62ed0a9f09",
+  "count": 454
+ },
+ "summary": {
+  "total": 25,
+  "cMechanical": 4,
+  "reviewed": 21,
+  "disagreements": 50,
+  "disagreementsExclStatus": 48,
+  "disagreementRateExclStatus": 0.2857,
+  "unknownFieldCount": 111,
+  "unknownFieldRate": 0.4933,
+  "unknownFieldCountExclC": 79,
+  "sourceMissingFieldCount": 2,
+  "sourceMissingFieldRate": 0.0089,
+  "unmappedLabelFieldCount": 0,
+  "mismatchCountExclStatus": 84,
+  "failureReasonDistributionExclStatus": {
+   "NOT_IMPLEMENTED": 23,
+   "UNKNOWN": 40,
+   "PARSER_MISS": 15,
+   "FALSE_POSITIVE": 3,
+   "FIELD_MAPPING_ERROR": 1,
+   "NORMALIZATION_ERROR": 2
+  },
+  "statusExcludedFromAccuracy": true,
+  "qaReversals": 1,
+  "domainCorrections": 1,
+  "topMisjudgments": [
+   "namusairo-1135 tastingNotes (Reviewer B): 원문 '꽃향기 가득'의 강도 수식어 '가득'을 노트로 포함 → QA가 '꽃향기'로 수정 (배치 내 '잘 익은 사과'→'사과' 선례와 동일 규칙)",
+   "fillout-13684373989 originRegion/producer: 상품명 '케냐 키앙고이'에서 A는 키앙고이=농장(LOW), B는 키앙고이=지역(HIGH)으로 정반대 해석 → Judge가 근거 부족으로 둘 다 UNKNOWN",
+   "malik-11068505354 process: 병합 '내추럴 + 마운틴 워터 디카페인' vs 배치 내 타 상품 컨벤션('디카페인'은 productType 영역) → 도메인 리뷰가 '내추럴 + 마운틴 워터'로 정합화"
+  ],
+  "revisionNotes": "schema-rev1: originRegion/productType diff → NOT_DISPLAYED_FIELD; producer diff = golden.producer vs displayed farm(농장 행); confidence에 SOURCE_MISSING 추가; status = collector_flag/MEDIUM (정확도 통계 제외); 칠린블렌드 tastingNotes → OCR_CONFLICT/CASE 3; roast 5단계 enum + raw 보존; golden 전 필드에 raw(원문 표기) 병기; 2026-09-25: 사람 검증 6건 반영(3건 golden 정정) + SOURCE_MISSING 기준 강화 재검사(679건 중 455건→UNKNOWN) [INTERIM-5 2026-09-25] status 템플릿 라벨 오판정 정정: 구매 버튼 영역 'SOLD OUT' 템플릿을 근거로 한 soldout HIGH → active MEDIUM/collector_flag (regression-rules §9.2).",
+  "mismatchCount": 84,
+  "tastingNotesRecomputed": "2026-09-26 §6.1 집합 비교 재계산"
+ },
+ "products": [
+  {
+   "id": "fillout-5310169256",
+   "roastery": "필아웃커피",
+   "productName": "필디카프 고소한 디카페인 블렌드 원두",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "decaf",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"필디카프 고소한 디카페인 블렌드 원두\" — \"디카페인\" 명시",
+     "evidenceSource": "audit-input/products/fillout-5310169256-d08c5e0a.json#snapshotRecord.productName",
+     "raw": "decaf"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원천 origin=필아웃커피(로스터리명 — 수집 고정값, 증거 아님). 상품명·본문에 국가 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음 ('확인 필요'는 정보 없음) [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): OCR 출력 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "캐러멜",
+      "초콜릿",
+      "Creamy"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes[0].output: \"CARAMEL\", \"CHOCOLATE\", \"CREAMY\" — 모델이 뽑은 노트 목록이라 독립 증거가 아니므로 MEDIUM 상한. 원문(추출) 주 표기가 영어이므로 영어 표기 유지.",
+     "evidenceSource": "audit-input/products/fillout-5310169256-d08c5e0a.json#evidence.ocr[0].output",
+     "raw": [
+      "Caramel",
+      "Chocolate",
+      "Creamy"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "초콜릿",
+      "캐러멜",
+      "크리미"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "필아웃커피",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "초콜릿",
+      "캐러멜",
+      "크리미"
+     ],
+     "displayed": [
+      "캐러멜",
+      "초콜릿",
+      "크리미"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 (순서만 다름) — matched 3건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "namusairo-1135",
+   "roastery": "나무사이로",
+   "productName": "라레세르바 카투라 치로소",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "원산지 \"Colombia\" 단일 산지 명시",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "single"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "구매 버튼 영역 템플릿 라벨('SOLD OUT' (결제예정금액 안내·장바구니·바로구매하기와 동일 영역))은 status 근거로 사용 불가 (regression-rules §9.2). isSoldOut=false (수집 플래그) → active. [2026-09-25 INTERIM-5 정정: 기존 '원문 우선' soldout HIGH 오판정]",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "콜롬비아",
+     "confidence": "HIGH",
+     "evidence": "기본 정보 \"원산지 \\n Colombia\"",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "콜롬비아"
+    },
+    "originRegion": {
+     "value": "안티오키아 볼리바르",
+     "confidence": "HIGH",
+     "evidence": "원문 \"지 역 \\n 안티오키아 볼리바르 Bolívar, Antioquia\" — 원문 표기 순서 그대로.",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "안티오키아 볼리바르"
+    },
+    "producer": {
+     "value": "라 레세르바 (Finca La Reserva)",
+     "confidence": "HIGH",
+     "evidence": "원문 \"농 장 \\n 라 레세르바 Finca La Reserva\" — 원문 순서(한글 우선) 유지.",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "라 레세르바 (Finca La Reserva)"
+    },
+    "process": {
+     "value": "무산소 허니 + 레몬잎",
+     "confidence": "HIGH",
+     "evidence": "\"가공법 \\n 무산소 허니 + 레몬잎 Anaerobic Honey + Lemon Leaves\" (\"무산소\"는 가공 수식어이므로 허니와 함께 표기)",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "무산소 허니 + 레몬잎"
+    },
+    "variety": {
+     "value": "카투라 치로소",
+     "confidence": "HIGH",
+     "evidence": "\"품 종 \\n 카투라 치로소 Caturra Chiroso\"",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "카투라 치로소"
+    },
+    "roast": {
+     "value": "Medium",
+     "confidence": "HIGH",
+     "evidence": "\"볶음도 \\n Medium\"",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": "Medium"
+    },
+    "tastingNotes": {
+     "value": [
+      "꽃향기",
+      "복숭아",
+      "허브",
+      "코코넛",
+      "사탕"
+     ],
+     "confidence": "HIGH",
+     "evidence": "원문 \"향 미 \\n 꽃향기 가득, 복숭아, 허브, 코코넛, 사탕, 맛있다 Floral, Peach, Herb, Coconut, Candy, Very Delicious\" (batch2_evidence.json namusairo-1135 rawTexts, detail-text)",
+     "evidenceSource": "audit-input/products/namusairo-1135-91f47443.json#evidence.rawObservations[0].text",
+     "raw": [
+      "꽃향기",
+      "복숭아",
+      "허브",
+      "코코넛",
+      "사탕"
+     ],
+     "comparable": [
+      "복숭아",
+      "코코넛",
+      "허브"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "꽃향기",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      },
+      {
+       "note": "사탕",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Colombia",
+     "displayed": "콜롬비아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "무산소 허니 + 레몬잎 Anaerobic Honey + Lemon Leaves",
+     "displayed": "허니"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "카투라"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "복숭아",
+      "플로럴",
+      "코코넛",
+      "허브"
+     ],
+     "displayed": [
+      "복숭아",
+      "허브",
+      "코코넛",
+      "플로럴"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "'농장' 행에 생산자명 표시"
+    },
+    "process": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "variety": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "roast": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 1,
+     "failureReason": "FALSE_POSITIVE",
+     "note": "golden 외 표시: 플로럴"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "1 reversal applied",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "로스터릭-콜롬비아엘포르베니르카투라플로럴",
+   "roastery": "로스터릭",
+   "productName": "콜롬비아 엘 포르베니르 카투라 플로럴",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "로스터릭",
+     "displayed": "콜롬비아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "카투라"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "terarosa-100018",
+   "roastery": "테라로사",
+   "productName": "어센틱 에스프레소 블렌드",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"어센틱 에스프레소 블렌드\" — \"블렌드\" 명시",
+     "evidenceSource": "audit-input/products/terarosa-100018-64e75529.json#snapshotRecord.productName",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "사과",
+      "캐러멜"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes[0].output: \"잘 익은 사과의 산뜻한 산미, 달콤한 캐러멜 향과 깔끔한 여운의 에스프레소&드립 겸용 커피\" — \"잘 익은/산뜻한/달콤한\"은 노트가 아닌 수식어라 제외. OCR 전용 증거이므로 MEDIUM.",
+     "evidenceSource": "audit-input/products/terarosa-100018-64e75529.json#evidence.ocr[0].output",
+     "raw": [
+      "사과",
+      "캐러멜"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "사과",
+      "캐러멜"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Blend",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Blend",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "사과",
+      "캐러멜"
+     ],
+     "displayed": [
+      "사과",
+      "캐러멜"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 2건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "coffeelibre-8144",
+   "roastery": "커피리브레",
+   "productName": "[골드문트] 온두라스 엘 파이사헤 파카마라",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "'https://coffeelibre.kr',",
+     "displayed": "온두라스"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "워시드",
+     "displayed": "워시드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "파카마라"
+    },
+    "roast": {
+     "raw": "Light",
+     "displayed": "Light"
+    },
+    "tastingNotes": {
+     "raw": [
+      "자두",
+      "청포도",
+      "크랜베리"
+     ],
+     "displayed": [
+      "청포도",
+      "크랜베리",
+      "자두"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "momos-4876",
+   "roastery": "모모스커피",
+   "productName": "원두 에티오피아 구지 우라가 시코 내추럴 디카페인",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "status": {
+     "value": "soldout",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=True (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "soldout"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "soldout",
+     "displayed": "soldout"
+    },
+    "originCountry": {
+     "raw": "Blend",
+     "displayed": "에티오피아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Blend",
+     "displayed": "내추럴"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "라즈베리",
+      "체리",
+      "홍차",
+      "화이트 초콜릿",
+      "바닐라"
+     ],
+     "displayed": [
+      "체리",
+      "라즈베리",
+      "홍차",
+      "바닐라",
+      "화이트 초콜릿"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "malik-11068505354",
+   "roastery": "말릭커피",
+   "productName": "에티오피아 구지 샤키소 타데 GG 쿠루메 내추럴 마운틴 워터 디카페인",
+   "evidenceGrade": "A",
+   "golden": {
+    "productType": {
+     "value": "decaf",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 내추럴 마운틴 워터 디카페인\" — \"디카페인\" 명시",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#snapshotRecord.productName",
+     "raw": "decaf"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "에티오피아",
+     "confidence": "HIGH",
+     "evidence": "detailText \"국가:Ethiopia\"",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#evidence.detailCache.detailText",
+     "raw": "에티오피아"
+    },
+    "originRegion": {
+     "value": "구지, 샤키소",
+     "confidence": "HIGH",
+     "evidence": "원문 \"지역: Shakiso, Guji, Oromia\" + 상품명 \"에티오피아 구지 샤키소 ...\" — 표기 차이(\"구지 샤키소\" vs \"구지, 샤키소\")는 복수 지역 콤마 구분 표기로 통일.",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#evidence.detailCache.detailText",
+     "raw": "구지, 샤키소"
+    },
+    "producer": {
+     "value": "Tade GG Highland Forest C",
+     "confidence": "HIGH",
+     "evidence": "원문 \"농장: Tade GG Highland Forest C\" — 원문 그대로. B의 \"(타데 GG)\"는 농장 필드 원문에 없는 부가 표기.",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#evidence.detailCache.detailText",
+     "raw": "Tade GG Highland Forest C"
+    },
+    "process": {
+     "value": "내추럴",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"에티오피아 구지 샤키소 타데 GG 쿠루메 내추럴 마운틴 워터 디카페인\" / 병합 productType=\"decaf\" (HIGH) [도메인 규칙 정정 2026-09-25] 디카페인 가공법 분리 → decafMethod. 상품명 '에티오피아 구지 샤키소 타데 GG 쿠루메 내추럴 마운틴 워터 디카페인'",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#snapshotRecord.productName, audit-input/products/malik-11068505354-9fc9a309.json#evidence.detailCache.detailText",
+     "raw": "내추럴"
+    },
+    "variety": {
+     "value": "쿠루메",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 쿠루메 …\" + detailText \"Kurume\"",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#snapshotRecord.productName",
+     "raw": "쿠루메"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "MEDIUM",
+     "evidence": "detailText(국가/지역/농장 안내 전문)와 ocrNotes 출력([]) 모두에 테이스팅 노트 없음 — 텍스트 증거는 있으나 노트가 없으므로 []. 부재 주장이라 MEDIUM 상한.",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#evidence.detailCache.detailText",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    },
+    "decafMethod": {
+     "value": "Mountain Water",
+     "raw": "마운틴 워터",
+     "confidence": "HIGH",
+     "evidence": "디카페인 가공법 (process에서 분리). 상품명 '에티오피아 구지 샤키소 타데 GG 쿠루메 내추럴 마운틴 워터 디카페인'",
+     "evidenceSource": "audit-input/products/malik-11068505354-9fc9a309.json#snapshotRecord.productName, audit-input/products/malik-11068505354-9fc9a309.json#evidence.detailCache.detailText"
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "말릭커피",
+     "displayed": "에티오피아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "내추럴"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": false,
+     "case": 2,
+     "failureReason": "FIELD_MAPPING_ERROR",
+     "note": "원문 생산자 'Tade GG Highland Forest C' vs '농장' 행 '구지 샤키소 타데 GG 쿠루메 마운틴 워터 디카페인' — farm은 상품명 기반 추론"
+    },
+    "process": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "variety": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 0건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "1 correction applied"
+   }
+  },
+  {
+   "id": "coffeejg-10794029959",
+   "roastery": "커피정경 로스터리",
+   "productName": "배합커피#1 소로",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"배합커피#1 소로\" — \"배합\"=블렌드 명시",
+     "evidenceSource": "audit-input/products/coffeejg-10794029959-01964e1e.json#snapshotRecord.productName",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원천 origin=커피정경 로스터리(로스터리명 — 증거 아님). 상품명에 국가 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "Strawberry Jam",
+      "오렌지",
+      "브라운슈가",
+      "아몬드",
+      "밀크초콜릿"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes[0].output 영문 노트 목록 — 원문(추출) 주 표기가 영어이므로 영어 유지. OCR 전용 증거라 MEDIUM.",
+     "evidenceSource": "audit-input/products/coffeejg-10794029959-01964e1e.json#evidence.ocr[0].output",
+     "raw": [
+      "Strawberry Jam",
+      "Orange",
+      "Brown Sugar",
+      "Almond",
+      "Milk Chocolate"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "오렌지",
+      "딸기",
+      "밀크초콜릿",
+      "브라운슈가",
+      "아몬드"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "커피정경 로스터리",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "오렌지",
+      "딸기",
+      "밀크초콜릿",
+      "브라운슈가",
+      "아몬드"
+     ],
+     "displayed": [
+      "딸기",
+      "오렌지",
+      "브라운슈가",
+      "아몬드",
+      "밀크초콜릿"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 (순서만 다름) — matched 5건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "toch-12315205053",
+   "roastery": "토치 커피",
+   "productName": "에티오피아 에사야스 바리소 싱글 팜 모디파이드 워시드",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 싱글 팜 …\" — \"싱글 팜\" 명시",
+     "evidenceSource": "audit-input/products/toch-12315205053-aa7851b1.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "에티오피아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"에티오피아 에사야스 바리소 싱글 팜 모디파이드 워시드\"",
+     "evidenceSource": "audit-input/products/toch-12315205053-aa7851b1.json#snapshotRecord.productName",
+     "raw": "에티오피아"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "\"에사야스 바리소\"는 농장명으로 해석(producer). 지역 명시 없음 [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): 상세이미지 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": "에사야스 바리소",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 에사야스 바리소 싱글 팜 …\" — \"싱글 팜\"이므로 고유명사는 농장명",
+     "evidenceSource": "audit-input/products/toch-12315205053-aa7851b1.json#snapshotRecord.productName",
+     "raw": "에사야스 바리소"
+    },
+    "process": {
+     "value": "모디파이드 워시드",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 모디파이드 워시드\"",
+     "evidenceSource": "audit-input/products/toch-12315205053-aa7851b1.json#snapshotRecord.productName",
+     "raw": "모디파이드 워시드"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "텍스트 증거(detailText·rawTexts) 자체가 없음. 상세 이미지 2건은 열람 불가(OCR 미스 확정 아님) — 이미지에만 있을 법한 정보는 텍스트 증거 없이 판단 불가.",
+     "evidenceSource": "evidence.detailImageUrls 2건 (열람 불가)",
+     "raw": null,
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "토치 커피",
+     "displayed": "에티오피아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "워시드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "'농장' 행에 생산자명 표시"
+    },
+    "process": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "deepbluelake-571",
+   "roastery": "딥블루레이크",
+   "productName": "디카페인 콜롬비아 엑셀소 티피카",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "decaf",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"디카페인 콜롬비아 엑셀소 티피카\" — \"디카페인\" 명시",
+     "evidenceSource": "audit-input/products/deepbluelake-571-ec1a2afa.json#snapshotRecord.productName",
+     "raw": "decaf"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "구매 버튼 영역 템플릿 라벨('SOLD OUT' (BUY NOW·ADD TO CART·WISH LIST와 동일 영역))은 status 근거로 사용 불가 (regression-rules §9.2). isSoldOut=false (수집 플래그) → active. [2026-09-25 INTERIM-5 정정: 기존 '원문 우선' soldout HIGH 오판정]",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "콜롬비아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 콜롬비아 …\"",
+     "evidenceSource": "audit-input/products/deepbluelake-571-ec1a2afa.json#snapshotRecord.productName",
+     "raw": "콜롬비아"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "\"엑셀소\"는 스크린사이즈 등급이지 지역이 아님. 지역 명시 없음 [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): OCR 출력, 원문 텍스트(rawObservations) 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "SOURCE_MISSING",
+     "evidence": "ocrNotes[0].output의 \"process\": \"마운틴워터 Process\" — 원문 텍스트에 가공 명시 없고 OCR 전용 증거이므로 MEDIUM. \"디카페인\"은 productType 영역이라 process에 미포함. [도메인 규칙 정정 2026-09-25] 디카페인 가공법 분리 → decafMethod. OCR '마운틴워터 Process'는 디카페인 가공법. 원문 텍스트에 본래 가공(워시드/내추럴 등) 명시 없음",
+     "evidenceSource": "audit-input/products/deepbluelake-571-ec1a2afa.json#evidence.ocr[0].output",
+     "raw": null
+    },
+    "variety": {
+     "value": "티피카",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 티피카\"",
+     "evidenceSource": "audit-input/products/deepbluelake-571-ec1a2afa.json#snapshotRecord.productName",
+     "raw": "티피카"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "포도",
+      "구운견과류",
+      "당밀",
+      "흑설탕"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes 모델 추출: \"포도, 구운 견과류, 당밀, 흑설탕\" (이미지 원문이 아닌 모델 추출이므로 HIGH 불가)",
+     "evidenceSource": "audit-input/products/deepbluelake-571-ec1a2afa.json#evidence.ocr[0].output",
+     "raw": [
+      "포도",
+      "구운 견과류",
+      "당밀",
+      "흑설탕"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "포도",
+      "당밀",
+      "견과류"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "흑설탕",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    },
+    "decafMethod": {
+     "value": "Mountain Water",
+     "raw": "마운틴워터",
+     "confidence": "MEDIUM",
+     "evidence": "디카페인 가공법 (process에서 분리). OCR '마운틴워터 Process'는 디카페인 가공법. 원문 텍스트에 본래 가공(워시드/내추럴 등) 명시 없음",
+     "evidenceSource": "audit-input/products/deepbluelake-571-ec1a2afa.json#evidence.ocr[0].output"
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Colombia",
+     "displayed": "콜롬비아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "확인 필요",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "티피카"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "포도",
+      "당밀",
+      "브라운슈가",
+      "구운향",
+      "견과류"
+     ],
+     "displayed": [
+      "포도",
+      "견과류",
+      "당밀",
+      "구운향",
+      "브라운슈가"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "variety": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 1,
+     "failureReason": "FALSE_POSITIVE",
+     "note": "golden 외 표시: 구운향, 브라운슈가"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "identity-13718237904",
+   "roastery": "아이덴티티 커피랩",
+   "productName": "에티오피아 바샤 베켈레 마타란초 내추럴",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"에티오피아 바샤 베켈레 마타란초 내추럴\" — 단일 산지",
+     "evidenceSource": "audit-input/products/identity-13718237904-f9821e01.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "에티오피아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"에티오피아 …\"",
+     "evidenceSource": "audit-input/products/identity-13718237904-f9821e01.json#snapshotRecord.productName",
+     "raw": "에티오피아"
+    },
+    "originRegion": {
+     "value": "마타란초",
+     "confidence": "LOW",
+     "evidence": "상품명 \"… 바샤 베켈레 마타란초 …\" 내 지명으로 해석 — 확정 근거 없음",
+     "evidenceSource": "audit-input/products/identity-13718237904-f9821e01.json#snapshotRecord.productName",
+     "raw": "마타란초"
+    },
+    "producer": {
+     "value": "바샤 베켈레",
+     "confidence": "LOW",
+     "evidence": "상품명 내 고유명사 \"바샤 베켈레\"를 워싱스테이션/농장명으로 해석 — 확정 근거 없음",
+     "evidenceSource": "audit-input/products/identity-13718237904-f9821e01.json#snapshotRecord.productName",
+     "raw": "바샤 베켈레"
+    },
+    "process": {
+     "value": "내추럴",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 내추럴\"",
+     "evidenceSource": "audit-input/products/identity-13718237904-f9821e01.json#snapshotRecord.productName",
+     "raw": "내추럴"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "Green grape",
+      "Strawberry candy",
+      "Tropical fruits",
+      "Red cherry"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes 출력 영문 노트 — 원문(추출) 주 표기가 영어이므로 영어 유지. OCR 전용 증거라 MEDIUM.",
+     "evidenceSource": "audit-input/products/identity-13718237904-f9821e01.json#evidence.ocr",
+     "raw": [
+      "Green grape",
+      "Strawberry candy",
+      "Tropical fruits",
+      "Red cherry"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "딸기",
+      "체리",
+      "열대과일",
+      "청포도"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "아이덴티티 커피랩",
+     "displayed": "에티오피아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "내추럴"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "딸기",
+      "체리",
+      "열대과일",
+      "청포도"
+     ],
+     "displayed": [
+      "청포도",
+      "딸기",
+      "열대과일",
+      "체리"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "'농장' 행에 생산자명 표시"
+    },
+    "process": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 (순서만 다름) — matched 4건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "히떼로스터리-콜롬비아엑셀소디카페인",
+   "roastery": "히떼 로스터리",
+   "productName": "콜롬비아 엑셀소 디카페인",
+   "evidenceGrade": "A",
+   "golden": {
+    "productType": {
+     "value": "decaf",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"콜롬비아 엑셀소 디카페인\" — \"디카페인\" 명시",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#snapshotRecord.productName",
+     "raw": "decaf"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "콜롬비아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"콜롬비아 …\"",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#snapshotRecord.productName",
+     "raw": "콜롬비아"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "\"엑셀소\"는 등급이지 지역이 아님. 지역 명시 없음 [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): detailText, OCR 출력 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "SOURCE_MISSING",
+     "evidence": "원문 \"프로세싱: Mountain Water Process\" — 디카페인 제품의 가공법을 원문이 명시. \"디카페인\"은 productType이라 process에 미포함. [도메인 규칙 정정 2026-09-25] 디카페인 가공법 분리 → decafMethod. 원문 '프로세싱: Mountain Water Process' — 디카페인 가공법. 본래 가공은 원문에 없음",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#evidence.detailCache.detailText",
+     "raw": null
+    },
+    "variety": {
+     "value": "티피카",
+     "confidence": "HIGH",
+     "evidence": "detailText \"품종: Typica\"",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#evidence.detailCache.detailText",
+     "raw": "티피카"
+    },
+    "roast": {
+     "value": "Medium-Dark",
+     "confidence": "HIGH",
+     "evidence": "원문 \"배전도: 미디움 다크 로스트\" — Medium-Dark는 매핑값이므로 MEDIUM 상한. B의 Dark는 원문 표현에서 멀어짐. [사용자 결정 2026-09-25: roast 5단계 enum, 미디움 다크 로스트=Medium-Dark, HIGH]",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#evidence.detailCache.detailText",
+     "raw": "미디움 다크 로스트"
+    },
+    "tastingNotes": {
+     "value": [
+      "오렌지",
+      "구운아몬드",
+      "밀크초콜릿"
+     ],
+     "confidence": "HIGH",
+     "evidence": "detailText \"노트: 오렌지, 구운아몬드, 밀크초콜릿\" (ocrNotes의 Blueberry/Strawberry 등은 별도 이미지의 모델 추출이므로 detailText 우선)",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#evidence.detailCache.detailText",
+     "raw": [
+      "오렌지",
+      "구운아몬드",
+      "밀크초콜릿"
+     ],
+     "comparable": [
+      "오렌지",
+      "밀크초콜릿",
+      "아몬드"
+     ],
+     "droppedByNormalizer": []
+    },
+    "decafMethod": {
+     "value": "Mountain Water",
+     "raw": "마운틴워터",
+     "confidence": "HIGH",
+     "evidence": "디카페인 가공법 (process에서 분리). 원문 '프로세싱: Mountain Water Process' — 디카페인 가공법. 본래 가공은 원문에 없음",
+     "evidenceSource": "audit-input/products/히떼로스터리-콜롬비아엑셀소디카페인-1578b5be.json#evidence.detailCache.detailText"
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "히떼 로스터리",
+     "displayed": "콜롬비아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "시트러스",
+      "밀크초콜릿",
+      "캐러멜"
+     ],
+     "displayed": [
+      "시트러스",
+      "밀크초콜릿",
+      "캐러멜"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "variety": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "roast": {
+     "match": false,
+     "case": 1,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "원문 '미디움 다크 로스트' → Medium-Dark이나 표시 '확인 필요'"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 1,
+     "failureReason": "NORMALIZATION_ERROR",
+     "note": "누락: 아몬드, 오렌지 / 추가: 시트러스, 캐러멜"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "coffee502-9",
+   "roastery": "502커피로스터스",
+   "productName": "CLASSIC 클래식",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "상세 본문 \"익숙함이 좋은 분들을 위한 블렌드\"",
+     "evidenceSource": "audit-input/products/coffee502-9-b7624a8c.json#evidence.rawObservations[0].text",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "구매 버튼 영역 템플릿 라벨('SOLD OUT' (결제예정금액 안내·바로구매하기·장바구니 담기와 동일 영역))은 status 근거로 사용 불가 (regression-rules §9.2). isSoldOut=false (수집 플래그) → active. [2026-09-25 INTERIM-5 정정: 기존 '원문 우선' soldout HIGH 오판정]",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "브라질, 과테말라, 콜롬비아",
+     "confidence": "HIGH",
+     "evidence": "원문 \"Bleding Info \\n 브라질, 과테말라, 콜롬비아\" — 복수 국가가 명시된 블렌드이므로 콤마 구분으로 전부 기록.",
+     "evidenceSource": "audit-input/products/coffee502-9-b7624a8c.json#evidence.rawObservations[0].text",
+     "raw": "브라질, 과테말라, 콜롬비아"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "\"Blend\"는 가공이 아님. 가공 명시 없음 [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): 원문 텍스트(rawObservations) 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": "Medium-Dark",
+     "confidence": "HIGH",
+     "evidence": "원문 \"로스팅 \\n 중강배전\" — Medium-Dark는 매핑값이므로 MEDIUM 상한. [사용자 결정 2026-09-25: roast 5단계 enum, 중강배전=Medium-Dark, HIGH]",
+     "evidenceSource": "audit-input/products/coffee502-9-b7624a8c.json#evidence.rawObservations[0].text",
+     "raw": "중강배전"
+    },
+    "tastingNotes": {
+     "value": [
+      "토스트",
+      "구운견과",
+      "초콜릿"
+     ],
+     "confidence": "HIGH",
+     "evidence": "\"Tasting Notes \\n 토스트, 구운 견과, 초콜릿\"",
+     "evidenceSource": "audit-input/products/coffee502-9-b7624a8c.json#evidence.rawObservations[0].text",
+     "raw": [
+      "토스트",
+      "구운 견과",
+      "초콜릿"
+     ],
+     "comparable": [
+      "초콜릿",
+      "견과류"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "토스트",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Blend",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Blend",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "초콜릿",
+      "견과류"
+     ],
+     "displayed": [
+      "견과류",
+      "초콜릿"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "원문 '중강배전' → Medium-Dark이나 표시 '확인 필요'"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 (순서만 다름) — matched 2건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "werk-572",
+   "roastery": "베르크커피",
+   "productName": "베르크 론리 베이비 블렌드",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"베르크 론리 베이비 블렌드\" + \"2026년 베르크의 가을 시즈널 블렌드\" — \"블렌드\" 명시",
+     "evidenceSource": "audit-input/products/werk-572-f6f94e6b.json#evidence.rawObservations[0].text",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "구매 버튼 영역 템플릿 라벨('SOLD OUT' (장바구니 담기·바로 구매하기·예약주문과 동일 영역))은 status 근거로 사용 불가 (regression-rules §9.2). isSoldOut=false (수집 플래그) → active. [2026-09-25 INTERIM-5 정정: 기존 '원문 우선' soldout HIGH 오판정]",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음 (블렌드, 구성 산지 미표기) [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): OCR 출력, 원문 텍스트(rawObservations) 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "홍옥",
+      "시나몬",
+      "호두"
+     ],
+     "confidence": "HIGH",
+     "evidence": "\"상품간략설명 \\n 2026년 베르크의 가을 시즈널 블렌드\\n홍옥, 시나몬, 호두\" (rawTexts 1차 증거; ocrNotes 일치)",
+     "evidenceSource": "audit-input/products/werk-572-f6f94e6b.json#evidence.rawObservations[0].text",
+     "raw": [
+      "홍옥",
+      "시나몬",
+      "호두"
+     ],
+     "comparable": [
+      "호두"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "홍옥",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      },
+      {
+       "note": "시나몬",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Blend",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Blend",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "호두"
+     ],
+     "displayed": [
+      "호두"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 1건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "fritz-91",
+   "roastery": "프릳츠 커피 컴퍼니",
+   "productName": "[프릳츠] 올드독 200g",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "other",
+     "confidence": "LOW",
+     "evidence": "원문에 제품 유형 명시 없음 (쇼핑몰 메뉴의 \"블렌드\" 카테고리는 제품 특정 아님) — 유형 근거가 없으면 other.",
+     "evidenceSource": "audit-input/products/fritz-91-3ee05331.json#evidence.rawObservations[0].text",
+     "raw": "other"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "MEDIUM",
+     "evidence": "원문 \"상세정보 \\n 달콤 쌉싸름한 향미와 \\n묵직한 바디를 즐길 수 있는\" — \"달콤 쌉싸름한\", \"묵직한 바디\"는 노트가 아닌 수식어라 제외. 텍스트 증거는 있으나 노트가 없으므로 [].",
+     "evidenceSource": "audit-input/products/fritz-91-3ee05331.json#evidence.rawObservations[0].text",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "확인 필요",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "확인 필요",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 0건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "centercoffee-408",
+   "roastery": "센터커피",
+   "productName": "Ethiopia Yirgacheffe Banko Taratu Washed",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"Ethiopia Yirgacheffe Banko Taratu Washed\" — 단일 산지",
+     "evidenceSource": "audit-input/products/centercoffee-408-eb35b02e.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "에티오피아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"Ethiopia …\"",
+     "evidenceSource": "audit-input/products/centercoffee-408-eb35b02e.json#snapshotRecord.productName",
+     "raw": "에티오피아"
+    },
+    "originRegion": {
+     "value": "예가체프",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… Yirgacheffe …\"",
+     "evidenceSource": "audit-input/products/centercoffee-408-eb35b02e.json#snapshotRecord.productName",
+     "raw": "예가체프"
+    },
+    "producer": {
+     "value": "Banko Taratu",
+     "confidence": "LOW",
+     "evidence": "상품명 내 고유명사 \"Banko Taratu\"를 워싱스테이션으로 해석 — 확정 근거 없음",
+     "evidenceSource": "audit-input/products/centercoffee-408-eb35b02e.json#snapshotRecord.productName",
+     "raw": "Banko Taratu"
+    },
+    "process": {
+     "value": "워시드",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"Ethiopia Yirgacheffe Banko Taratu Washed\" + ocrNotes \"process\": \"WASHED\" — 한/영 동일값은 한글 우선으로 통일.",
+     "evidenceSource": "audit-input/products/centercoffee-408-eb35b02e.json#snapshotRecord.productName + audit-input/products/centercoffee-408-eb35b02e.json#evidence.ocr[0].output",
+     "raw": "워시드"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "자스민",
+      "천도복숭아",
+      "레몬"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes[0].output: \"JASMINE\", \"NECTARINE\", \"LEMON\" — 원문(추출) 주 표기가 영어이므로 영어 유지. OCR 전용 증거라 MEDIUM.",
+     "evidenceSource": "audit-input/products/centercoffee-408-eb35b02e.json#evidence.ocr[0].output",
+     "raw": [
+      "Jasmine",
+      "Nectarine",
+      "Lemon"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "레몬",
+      "천도복숭아",
+      "자스민"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Ethiopia",
+     "displayed": "에티오피아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Washed",
+     "displayed": "워시드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "레몬",
+      "천도복숭아",
+      "자스민"
+     ],
+     "displayed": [
+      "자스민",
+      "천도복숭아",
+      "레몬"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "'농장' 행에 생산자명 표시"
+    },
+    "process": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 (순서만 다름) — matched 3건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "헬카페-강배전블렌드커피",
+   "roastery": "헬카페",
+   "productName": "강배전 블렌드 커피",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"강배전 블렌드 커피\" + 본문 \"이탈리안 블렌드를 만들었습니다\" — \"블렌드\" 명시",
+     "evidenceSource": "audit-input/products/헬카페-강배전블렌드커피-64e793ed.json#evidence.rawObservations[0].text",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음 (블렌드, 구성 산지 미표기) [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): 원문 텍스트(rawObservations) 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": "Dark",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"강배전 블렌드 커피\" — \"강배전\"=Dark 명시",
+     "evidenceSource": "audit-input/products/헬카페-강배전블렌드커피-64e793ed.json#snapshotRecord.productName",
+     "raw": "강배전"
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "MEDIUM",
+     "evidence": "rawTexts(상품 페이지 전문)에 테이스팅 노트 없음 — 텍스트 증거는 있으나 노트가 없으므로 []. 부재 주장이라 MEDIUM 상한.",
+     "evidenceSource": "audit-input/products/헬카페-강배전블렌드커피-64e793ed.json#evidence.rawObservations[0].text",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Blend",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Blend",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "Dark",
+     "displayed": "Dark"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 0건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "aerycoffee-13655518934",
+   "roastery": "에어리커피",
+   "productName": "[에어리커피] 파나마 에스메랄다 게이샤 트라피체 3NB",
+   "evidenceGrade": "A",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"[에어리커피] 파나마 에스메랄다 게이샤 트라피체 3NB\" — 단일 산지",
+     "evidenceSource": "audit-input/products/aerycoffee-13655518934-332c06c7.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "soldout",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=True (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "soldout"
+    },
+    "originCountry": {
+     "value": "파나마",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"파나마 …\"",
+     "evidenceSource": "audit-input/products/aerycoffee-13655518934-332c06c7.json#snapshotRecord.productName",
+     "raw": "파나마"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": "에스메랄다",
+     "confidence": "LOW",
+     "evidence": "상품명 내 고유명사 \"에스메랄다\"를 농장명으로 해석 — 확정 근거 없음",
+     "evidenceSource": "audit-input/products/aerycoffee-13655518934-332c06c7.json#snapshotRecord.productName",
+     "raw": "에스메랄다"
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": "게이샤",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 게이샤 …\"",
+     "evidenceSource": "audit-input/products/aerycoffee-13655518934-332c06c7.json#snapshotRecord.productName",
+     "raw": "게이샤"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "MEDIUM",
+     "evidence": "detailText(로스팅 안내)에 테이스팅 노트 없음 — 텍스트 증거는 있으나 노트가 없으므로 [].",
+     "evidenceSource": "audit-input/products/aerycoffee-13655518934-332c06c7.json#evidence.detailCache.detailText",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "soldout",
+     "displayed": "soldout"
+    },
+    "originCountry": {
+     "raw": "에어리커피",
+     "displayed": "파나마"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "게이샤"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "'농장' 행에 생산자명 표시"
+    },
+    "process": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "variety": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 0건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "cafedoan-12900247002",
+   "roastery": "카페도안",
+   "productName": "Anomalous 아노말러스 Mexico Carolina Herrera Geisha Natural",
+   "evidenceGrade": "A",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… Mexico Carolina Herrera Geisha Natural\" — 단일 산지",
+     "evidenceSource": "audit-input/products/cafedoan-12900247002-ece42fcf.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "soldout",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=True (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "soldout"
+    },
+    "originCountry": {
+     "value": "멕시코",
+     "confidence": "HIGH",
+     "evidence": "detailText \"멕시코 캐롤라이나 에레라 게샤\" / \"Mexico Carolina Herrera Gesha\"",
+     "evidenceSource": "audit-input/products/cafedoan-12900247002-ece42fcf.json#evidence.detailCache.detailText",
+     "raw": "멕시코"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": "캐롤라이나 에레라 (Carolina Herrera)",
+     "confidence": "MEDIUM",
+     "evidence": "detailText \"멕시코 캐롤라이나 에레라 게샤, 내추럴 Mexico Carolina Herrera Gesha, Natural\" — 원문 순서(한글 우선) 유지. 인물명(생산자)을 농장 필드로 해석한 것이므로 MEDIUM.",
+     "evidenceSource": "audit-input/products/cafedoan-12900247002-ece42fcf.json#evidence.detailCache.detailText",
+     "raw": "캐롤라이나 에레라 (Carolina Herrera)"
+    },
+    "process": {
+     "value": "내추럴",
+     "confidence": "HIGH",
+     "evidence": "detailText \"내추럴 … Natural\"",
+     "evidenceSource": "audit-input/products/cafedoan-12900247002-ece42fcf.json#evidence.detailCache.detailText",
+     "raw": "내추럴"
+    },
+    "variety": {
+     "value": "게이샤",
+     "confidence": "HIGH",
+     "evidence": "detailText \"게샤 … Geisha/Gesha\"",
+     "evidenceSource": "audit-input/products/cafedoan-12900247002-ece42fcf.json#evidence.detailCache.detailText",
+     "raw": "게이샤"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "멜론",
+      "핑크구아바",
+      "허니서클"
+     ],
+     "confidence": "HIGH",
+     "evidence": "detailText \"CUP NOTE 멜론, 핑크 구아바, 허니서클\"",
+     "evidenceSource": "audit-input/products/cafedoan-12900247002-ece42fcf.json#evidence.detailCache.detailText",
+     "raw": [
+      "멜론",
+      "핑크 구아바",
+      "허니서클"
+     ],
+     "comparable": [
+      "멜론",
+      "구아바"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "허니서클",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "soldout",
+     "displayed": "soldout"
+    },
+    "originCountry": {
+     "raw": "카페도안",
+     "displayed": "멕시코"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "내추럴"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "게이샤"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "멜론",
+      "구아바"
+     ],
+     "displayed": [
+      "멜론",
+      "구아바"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "'농장' 행에 생산자명 표시"
+    },
+    "process": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "variety": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 — matched 2건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "호커스포커스로스터스-라퓨타블렌드산미있는원두",
+   "roastery": "호커스포커스 로스터스",
+   "productName": "라퓨타 블렌드 산미있는 원두",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"라퓨타 블렌드 산미있는 원두\" — \"블렌드\" 명시",
+     "evidenceSource": "audit-input/products/호커스포커스로스터스-라퓨타블렌드산미있는원두-bfa0e151.json#snapshotRecord.productName",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "텍스트 증거(detailText·rawTexts) 자체가 없음. ocrNotes 출력 []만으로 원문 노트 부재를 단정할 수 없음 — 판단 불가.",
+     "evidenceSource": "audit-input/products/호커스포커스로스터스-라퓨타블렌드산미있는원두-bfa0e151.json#evidence.ocr[0].output",
+     "raw": null,
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "호커스포커스 로스터스",
+     "displayed": ""
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트",
+   "roastery": "루비아 커피",
+   "productName": "콜롬비아 후일라 수프리모 EP 워시드 미디엄 로스트",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 단일 산지 \"콜롬비아 …\"",
+     "evidenceSource": "audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "콜롬비아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"콜롬비아 …\"",
+     "evidenceSource": "audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#snapshotRecord.productName",
+     "raw": "콜롬비아"
+    },
+    "originRegion": {
+     "value": "후일라",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 후일라 …\" (\"수프리모 EP\"는 등급이지 지역이 아님)",
+     "evidenceSource": "audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#snapshotRecord.productName",
+     "raw": "후일라"
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": "워시드",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"... 워시드 ...\" + ocrNotes \"process\": \"Washed\" — 한/영 동일값은 한글 우선으로 통일.",
+     "evidenceSource": "audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#snapshotRecord.productName + audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#evidence.ocr[0].output",
+     "raw": "워시드"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": "Medium",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… 미디엄 로스트\"",
+     "evidenceSource": "audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#snapshotRecord.productName",
+     "raw": "미디엄 로스트"
+    },
+    "tastingNotes": {
+     "value": [
+      "바닐라",
+      "밀크초콜릿",
+      "아몬드"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes 출력: \"바닐라\", \"밀크 초콜릿\", \"아몬드\", \"고소한 맛\" — \"고소한 맛\"은 노트가 아닌 수식어라 제외. 원문(추출) 주 표기가 한글이므로 한글 유지.",
+     "evidenceSource": "audit-input/products/루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트-7011ba68.json#evidence.ocr[0].output",
+     "raw": [
+      "바닐라",
+      "밀크 초콜릿",
+      "아몬드"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "밀크초콜릿",
+      "바닐라",
+      "아몬드"
+     ],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "루비아 커피",
+     "displayed": "콜롬비아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "워시드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "밀크초콜릿",
+      "바닐라",
+      "볶은아몬드"
+     ],
+     "displayed": [
+      "바닐라",
+      "밀크초콜릿",
+      "볶은아몬드"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 1,
+     "failureReason": "NORMALIZATION_ERROR",
+     "note": "누락: 아몬드 / 추가: 볶은아몬드"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "fillout-13684373989",
+   "roastery": "필아웃커피",
+   "productName": "케냐 키앙고이 SL28 워시드 원두",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "single",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"케냐 키앙고이 SL28 워시드 원두\" — 단일 산지",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#snapshotRecord.productName",
+     "raw": "single"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "케냐",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"케냐 …\"",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#snapshotRecord.productName",
+     "raw": "케냐"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "유일한 증거가 상품명 \"케냐 키앙고이 SL28 워시드 원두\"뿐 — \"키앙고이\"가 지역인지 농장/워싱스테이션인지 원문에서 판단 불가. 억지로 고르지 않음.",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#snapshotRecord.productName",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "유일한 증거가 상품명 \"케냐 키앙고이 SL28 워시드 원두\"뿐 — 농장 여부 판단 불가. 억지로 고르지 않음.",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#snapshotRecord.productName",
+     "raw": null
+    },
+    "process": {
+     "value": "워시드",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"케냐 키앙고이 SL28 워시드 원두\" — 원문에 한글 \"워시드\" 명시.",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#snapshotRecord.productName",
+     "raw": "워시드"
+    },
+    "variety": {
+     "value": "SL28",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"… SL28 …\"",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#snapshotRecord.productName",
+     "raw": "SL28"
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "텍스트 증거(detailText·rawTexts) 자체가 없음. ocrNotes 출력 []만으로 원문 노트 부재를 단정할 수 없음 — 판단 불가.",
+     "evidenceSource": "audit-input/products/fillout-13684373989-40e55ec8.json#evidence.ocr[0].output",
+     "raw": null,
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "필아웃커피",
+     "displayed": "케냐"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": "워시드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": "SL28"
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "variety": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "namusairo-1096",
+   "roastery": "나무사이로",
+   "productName": "실속형.녹음",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": "blend",
+     "confidence": "HIGH",
+     "evidence": "\"원산지 \\n Guatemala · Kenya · Mexico\" 복수 산지 + \"자기가 분명한 셋을 섞었습니다\" — 블렌드 명시",
+     "evidenceSource": "audit-input/products/namusairo-1096-e3f46c5b.json#evidence.rawObservations[0].text",
+     "raw": "blend"
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "구매 버튼 영역 템플릿 라벨('SOLD OUT' (결제예정금액 안내·장바구니·바로구매하기와 동일 영역))은 status 근거로 사용 불가 (regression-rules §9.2). isSoldOut=false (수집 플래그) → active. [2026-09-25 INTERIM-5 정정: 기존 '원문 우선' soldout HIGH 오판정]",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "과테말라, 케냐, 멕시코",
+     "confidence": "HIGH",
+     "evidence": "원문 \"원산지 \\n Guatemala · Kenya · Mexico\" — 복수 국가가 명시된 블렌드이므로 콤마 구분으로 전부 기록.",
+     "evidenceSource": "audit-input/products/namusairo-1096-e3f46c5b.json#evidence.rawObservations[0].text",
+     "raw": "과테말라, 케냐, 멕시코"
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "\"Blend\"는 가공이 아님. 가공 명시 없음 [재분류 2026-09-25] SOURCE_MISSING 기준 강화(해당 필드의 원문 전부 확인 시에만 허용): OCR 출력, 원문 텍스트(rawObservations) 미확인 상태에서 판정 → UNKNOWN(EVIDENCE_UNAVAILABLE).",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": "Dark",
+     "confidence": "HIGH",
+     "evidence": "\"볶음도 \\n Dark\"",
+     "evidenceSource": "audit-input/products/namusairo-1096-e3f46c5b.json#evidence.rawObservations[0].text",
+     "raw": "Dark"
+    },
+    "tastingNotes": {
+     "value": [
+      "건자두",
+      "카카오",
+      "당밀"
+     ],
+     "confidence": "HIGH",
+     "evidence": "\"향 미 \\n 건자두, 카카오, 당밀, 묵직하다\" — \"묵직하다\"는 질감 표현으로 제외",
+     "evidenceSource": "audit-input/products/namusairo-1096-e3f46c5b.json#evidence.rawObservations[0].text",
+     "raw": [
+      "건자두",
+      "카카오",
+      "당밀"
+     ],
+     "comparable": [
+      "초콜릿",
+      "당밀"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "건자두",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Guatemala · Kenya · Mexico",
+     "displayed": "케냐"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "Blend",
+     "displayed": "블렌드"
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "말린자두",
+      "초콜릿",
+      "당밀",
+      "묵직"
+     ],
+     "displayed": [
+      "초콜릿",
+      "당밀",
+      "말린자두",
+      "묵직"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "tastingNotes": {
+     "match": false,
+     "case": 1,
+     "failureReason": "FALSE_POSITIVE",
+     "note": "golden 외 표시: 말린자두, 묵직"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  },
+  {
+   "id": "로스터릭-콜롬비아엘포르베니르리치",
+   "roastery": "로스터릭",
+   "productName": "콜롬비아 엘 포르베니르 리치",
+   "evidenceGrade": "C",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "originRegion": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "process": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [],
+     "confidence": "UNKNOWN",
+     "evidence": "제공된 증거 없음 (스냅샷만 존재)",
+     "evidenceSource": "manifest: hasEvidenceBeyondSnapshot=false",
+     "raw": [],
+     "comparable": [],
+     "droppedByNormalizer": []
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "로스터릭",
+     "displayed": "콜롬비아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [],
+     "displayed": []
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": null,
+     "failureReason": "NOT_IMPLEMENTED",
+     "note": "스마트스토어 수집 단계 미구현 — 원천(수집값)에도 정보 없음"
+    },
+    "tastingNotes": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden UNKNOWN — 판정 불가"
+    }
+   },
+   "review": {
+    "note": "C-grade mechanical: no evidence, skipped independent review"
+   }
+  },
+  {
+   "id": "terarosa-100576",
+   "roastery": "테라로사",
+   "productName": "[9월 S.O.S] 에티오피아 스페셜",
+   "evidenceGrade": "B",
+   "golden": {
+    "productType": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 텍스트 없음. OCR 노트에 2개 산지 그룹(\"에티오피아 예가체페 아리차\"/\"에티오피아 리무 아가로\")이 보이나 블렌드인지 세트 구성인지 판단 불가 — 추측 금지.",
+     "evidenceSource": "audit-input/products/terarosa-100576-f89a0012.json#evidence.ocr[0].output",
+     "raw": null
+    },
+    "status": {
+     "value": "active",
+     "confidence": "MEDIUM",
+     "evidence": "isSoldOut=False (수집 플래그)",
+     "evidenceSource": "collector_flag",
+     "raw": "active"
+    },
+    "originCountry": {
+     "value": "에티오피아",
+     "confidence": "HIGH",
+     "evidence": "상품명 \"[9월 S.O.S] 에티오피아 스페셜\"",
+     "evidenceSource": "audit-input/products/terarosa-100576-f89a0012.json#snapshotRecord.productName",
+     "raw": "에티오피아"
+    },
+    "originRegion": {
+     "value": "예가체페 아리차, 리무 아가로",
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes 그룹: \"에티오피아 예가체페 아리차\", \"에티오피아 리무 아가로\" — 복수 지역은 콤마 구분 표기로 통일 (\"에티오피아\"는 국가라 지역 필드에서 제외). OCR 전용 증거라 MEDIUM.",
+     "evidenceSource": "audit-input/products/terarosa-100576-f89a0012.json#evidence.ocr[0].output",
+     "raw": "예가체페 아리차, 리무 아가로"
+    },
+    "producer": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "process": {
+     "value": "워시드",
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes \"process\": \"워시드\" — 원문(추출) 주 표기가 한글이므로 한글 유지. OCR 전용 증거라 MEDIUM.",
+     "evidenceSource": "audit-input/products/terarosa-100576-f89a0012.json#evidence.ocr[0].output",
+     "raw": "워시드"
+    },
+    "variety": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 증거 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "roast": {
+     "value": null,
+     "confidence": "UNKNOWN",
+     "evidence": "원문 명시 없음",
+     "evidenceSource": "",
+     "raw": null
+    },
+    "tastingNotes": {
+     "value": [
+      "오렌지",
+      "Coffee Blossom",
+      "블랙티",
+      "살구",
+      "리치",
+      "허브"
+     ],
+     "confidence": "MEDIUM",
+     "evidence": "ocrNotes: \"Orange, Coffee Blossom, Sweet, Fragrant Finish\" / \"Black Tea, Apricot, Lychee, Herbs, Crisp Finish\" — \"Sweet\", \"Fragrant Finish\", \"Crisp Finish\"는 노트가 아닌 수식어라 제외. 원문(추출) 주 표기가 영어이므로 영어 유지.",
+     "evidenceSource": "audit-input/products/terarosa-100576-f89a0012.json#evidence.ocr[0].output",
+     "raw": [
+      "Orange",
+      "Coffee Blossom",
+      "Black Tea",
+      "Apricot",
+      "Lychee",
+      "Herbs"
+     ],
+     "evidenceKind": "current_echo",
+     "comparable": [
+      "오렌지",
+      "살구",
+      "리치",
+      "홍차"
+     ],
+     "droppedByNormalizer": [
+      {
+       "note": "Coffee Blossom",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      },
+      {
+       "note": "Herbs",
+       "mappedTo": [],
+       "reason": "dictionary-miss"
+      }
+     ]
+    }
+   },
+   "current": {
+    "productType": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "status": {
+     "raw": "active",
+     "displayed": "active"
+    },
+    "originCountry": {
+     "raw": "Ethiopia",
+     "displayed": "에티오피아"
+    },
+    "originRegion": {
+     "raw": null,
+     "displayed": "NOT_DISPLAYED"
+    },
+    "producer": {
+     "raw": null,
+     "displayed": null
+    },
+    "process": {
+     "raw": "확인 필요",
+     "displayed": ""
+    },
+    "variety": {
+     "raw": null,
+     "displayed": ""
+    },
+    "roast": {
+     "raw": "확인 필요",
+     "displayed": "확인 필요"
+    },
+    "tastingNotes": {
+     "raw": [
+      "오렌지",
+      "살구",
+      "리치",
+      "홍차"
+     ],
+     "displayed": [
+      "오렌지",
+      "홍차",
+      "살구",
+      "리치"
+     ]
+    }
+   },
+   "diff": {
+    "productType": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "status": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "수집 플래그 기준 — 정확도 통계에서 제외"
+    },
+    "originCountry": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": ""
+    },
+    "originRegion": {
+     "match": null,
+     "case": null,
+     "failureReason": "NOT_DISPLAYED_FIELD",
+     "note": "앱에 해당 표시 없음"
+    },
+    "producer": {
+     "match": null,
+     "case": 3,
+     "failureReason": "EVIDENCE_UNAVAILABLE",
+     "note": "golden 미확정 — 판정 불가"
+    },
+    "process": {
+     "match": false,
+     "case": 1,
+     "failureReason": "PARSER_MISS",
+     "note": "값 불일치 — 원문 대조 필요"
+    },
+    "variety": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "roast": {
+     "match": false,
+     "case": 3,
+     "failureReason": "UNKNOWN",
+     "note": "Golden UNKNOWN — 판정 불가"
+    },
+    "tastingNotes": {
+     "match": true,
+     "case": null,
+     "failureReason": null,
+     "note": "집합 일치 (순서만 다름) — matched 4건"
+    }
+   },
+   "review": {
+    "reviewerA": "independent review (current visible)",
+    "reviewerB": "independent review (current blind, shuffled order)",
+    "judge": "applied to 50 disagreed field judgments (A:29/B:13/THIRD:3/NONE:0/UNKNOWN:5)",
+    "qualityAudit": "passed, no reversal",
+    "domainReview": "passed, no correction"
+   }
+  }
+ ]
+}

@@ -1,0 +1,842 @@
+{
+  "snapshot": {
+    "publishedAt": "2026-09-21T07:03:57.981Z",
+    "count": 454,
+    "productsLength": 454,
+    "quality": {
+      "total": 459,
+      "cleanCount": 454,
+      "excludedCount": 5,
+      "flaggedCount": 2,
+      "invalidOptionCount": 0,
+      "excluded": [
+        {
+          "id": "fillout-13622584403",
+          "roasterName": "필아웃커피",
+          "productName": "에티오피아 알로 옥션랏 문쉐도우 내추럴 원두",
+          "price": 13500,
+          "weight": 15,
+          "per100": null,
+          "reasons": [
+            "용량 15g이 정상 범위(30~2000g)를 벗어남"
+          ]
+        },
+        {
+          "id": "malik-13027488633",
+          "roasterName": "말릭커피",
+          "productName": "..",
+          "price": 792000,
+          "weight": 200,
+          "per100": null,
+          "reasons": [
+            "가격 792000원이 정상 범위(1000~500000원)를 벗어남"
+          ]
+        },
+        {
+          "id": "lubia-13751499766",
+          "roasterName": "루비아 커피",
+          "productName": "파나마 블랙 문 치로소 언에어로빅 내추럴 #6 라이트 로스트",
+          "price": 9000,
+          "weight": 18,
+          "per100": null,
+          "reasons": [
+            "용량 18g이 정상 범위(30~2000g)를 벗어남"
+          ]
+        },
+        {
+          "id": "aerycoffee-12954024415",
+          "roasterName": "에어리커피",
+          "productName": "[에어리커피] 파나마 핀카 소피아 BDA 게이샤 내추럴",
+          "price": 40000,
+          "weight": 20,
+          "per100": null,
+          "reasons": [
+            "용량 20g이 정상 범위(30~2000g)를 벗어남"
+          ]
+        },
+        {
+          "id": "aerycoffee-12350312581",
+          "roasterName": "에어리커피",
+          "productName": "[에어리커피] 파나마 핀카 데보라 아포칼립스 코지 퍼먼테이션 내추럴",
+          "price": 34000,
+          "weight": 20,
+          "per100": null,
+          "reasons": [
+            "용량 20g이 정상 범위(30~2000g)를 벗어남"
+          ]
+        }
+      ],
+      "flagged": [
+        {
+          "id": "cafedoan-11382491273",
+          "roasterName": "카페도안",
+          "productName": "ROSE COFFEE 로즈 커피 Panama Longboard MMGN #35 Geisha Natural",
+          "price": 137000,
+          "weight": 35,
+          "per100": 391429,
+          "reasons": [
+            "100g당 가격 391429원이 일반적인 범위(500~150000원)를 벗어나 확인 필요"
+          ]
+        },
+        {
+          "id": "aerycoffee-13629620974",
+          "roasterName": "에어리커피",
+          "productName": "[에어리커피] 파나마 핀카 소피아 헤리티지 컬렉션 토르카자 게이샤 워시드 FS10210425",
+          "price": 60000,
+          "weight": 30,
+          "per100": 200000,
+          "reasons": [
+            "100g당 가격 200000원이 일반적인 범위(500~150000원)를 벗어나 확인 필요"
+          ]
+        }
+      ],
+      "optionExcluded": [],
+      "preservedRoasters": [],
+      "preservedRoasterProductCount": 0,
+      "preservedDiscountCount": 0,
+      "preservedOfficialDetailCount": 4,
+      "preservedTastingNoteCount": 13,
+      "staleProductCount": 15,
+      "collectionRuns": [
+        {
+          "sourceId": "identity",
+          "roasterName": "아이덴티티 커피랩",
+          "status": "complete",
+          "itemCount": 18,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "cafedoan",
+          "roasterName": "카페도안",
+          "status": "complete",
+          "itemCount": 53,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "hocuspocus",
+          "roasterName": "호커스포커스 로스터스",
+          "status": "complete",
+          "itemCount": 63,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "hitte",
+          "roasterName": "히떼 로스터리",
+          "status": "complete",
+          "itemCount": 38,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "fillout",
+          "roasterName": "필아웃커피",
+          "status": "complete",
+          "itemCount": 33,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "malik",
+          "roasterName": "말릭커피",
+          "status": "complete",
+          "itemCount": 18,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "lubia",
+          "roasterName": "루비아 커피",
+          "status": "complete",
+          "itemCount": 95,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "coffeejg",
+          "roasterName": "커피정경 로스터리",
+          "status": "complete",
+          "itemCount": 14,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "aerycoffee",
+          "roasterName": "에어리커피",
+          "status": "complete",
+          "itemCount": 86,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "toch",
+          "roasterName": "토치 커피",
+          "status": "complete",
+          "itemCount": 12,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "terarosa",
+          "roasterName": "테라로사",
+          "status": "failed",
+          "itemCount": 15,
+          "usedFallback": true
+        },
+        {
+          "sourceId": "centercoffee",
+          "roasterName": "센터커피",
+          "status": "complete",
+          "itemCount": 8,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "hellcafe",
+          "roasterName": "헬카페",
+          "status": "complete",
+          "itemCount": 7,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "coffeelibre",
+          "roasterName": "커피리브레",
+          "status": "complete",
+          "itemCount": 20,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "namusairo",
+          "roasterName": "나무사이로",
+          "status": "complete",
+          "itemCount": 29,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "deepbluelake",
+          "roasterName": "딥블루레이크",
+          "status": "complete",
+          "itemCount": 12,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "roasterick",
+          "roasterName": "로스터릭",
+          "status": "complete",
+          "itemCount": 34,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "coffee502",
+          "roasterName": "502커피로스터스",
+          "status": "complete",
+          "itemCount": 11,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "fritz",
+          "roasterName": "프릳츠 커피 컴퍼니",
+          "status": "complete",
+          "itemCount": 9,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "momos",
+          "roasterName": "모모스커피",
+          "status": "complete",
+          "itemCount": 14,
+          "usedFallback": false
+        },
+        {
+          "sourceId": "werk",
+          "roasterName": "베르크커피",
+          "status": "complete",
+          "itemCount": 10,
+          "usedFallback": false
+        }
+      ]
+    }
+  },
+  "totals": {
+    "total": 454,
+    "soldOut": 154,
+    "active": 300,
+    "smartstore": 328,
+    "official": 126,
+    "roasteries": 21,
+    "decaf": 28
+  },
+  "productTypes": {
+    "blend": 59,
+    "single": 314,
+    "decaf": 28,
+    "other": 53
+  },
+  "productTypesActive": {
+    "blend": 55,
+    "single": 171,
+    "decaf": 26,
+    "other": 48
+  },
+  "fieldsRaw": {
+    "originMissing": 328,
+    "originBlankOnly": 454,
+    "originEqualsRoaster": 0,
+    "processMissing": 328,
+    "varietyMissing": 420,
+    "roastMissing_confirmNeeded": 427,
+    "roastLevelValues": {
+      "확인 필요": 427,
+      "Dark": 13,
+      "Light": 10,
+      "Medium": 4
+    },
+    "notesMissing": 188
+  },
+  "fieldsDisplayed": {
+    "originMissing": 114,
+    "originMissingExclBlend": 58,
+    "processMissing": 103,
+    "varietyMissing": 324,
+    "roastMissing": 427,
+    "notesMissing": 188,
+    "notesMissingActive": 98,
+    "notesMissingActiveByRoastery": {
+      "아이덴티티 커피랩": 2,
+      "호커스포커스 로스터스": 35,
+      "필아웃커피": 13,
+      "말릭커피": 8,
+      "루비아 커피": 4,
+      "에어리커피": 8,
+      "토치 커피": 6,
+      "센터커피": 2,
+      "헬카페": 2,
+      "커피리브레": 6,
+      "딥블루레이크": 1,
+      "로스터릭": 3,
+      "프릳츠 커피 컴퍼니": 3,
+      "모모스커피": 5
+    },
+    "notesMissingRawActive": 98
+  },
+  "roasteries": [
+    {
+      "roastery": "에어리커피",
+      "total": 82,
+      "active": 9,
+      "smartstore": 82,
+      "official": 0,
+      "missingOriginRaw": 82,
+      "missingOriginDisp": 1,
+      "missingProcessRaw": 82,
+      "missingProcessDisp": 5,
+      "missingVarietyRaw": 82,
+      "missingRoast": 82,
+      "missingNotesRaw": 69,
+      "missingNotesDisp": 69,
+      "missingNotesDispActive": 8,
+      "types": {
+        "single": 79,
+        "blend": 2,
+        "decaf": 1
+      },
+      "soldOut": 73,
+      "missingVarietyDisp": 31
+    },
+    {
+      "roastery": "카페도안",
+      "total": 53,
+      "active": 0,
+      "smartstore": 53,
+      "official": 0,
+      "missingOriginRaw": 53,
+      "missingOriginDisp": 2,
+      "missingProcessRaw": 53,
+      "missingProcessDisp": 8,
+      "missingVarietyRaw": 53,
+      "missingRoast": 53,
+      "missingNotesRaw": 12,
+      "missingNotesDisp": 12,
+      "missingNotesDispActive": 0,
+      "types": {
+        "single": 51,
+        "other": 1,
+        "blend": 1
+      },
+      "soldOut": 53,
+      "missingVarietyDisp": 42
+    },
+    {
+      "roastery": "호커스포커스 로스터스",
+      "total": 48,
+      "active": 37,
+      "smartstore": 48,
+      "official": 0,
+      "missingOriginRaw": 48,
+      "missingOriginDisp": 14,
+      "missingProcessRaw": 48,
+      "missingProcessDisp": 15,
+      "missingVarietyRaw": 48,
+      "missingRoast": 48,
+      "missingNotesRaw": 44,
+      "missingNotesDisp": 44,
+      "missingNotesDispActive": 35,
+      "types": {
+        "single": 32,
+        "blend": 4,
+        "decaf": 2,
+        "other": 10
+      },
+      "soldOut": 11,
+      "missingVarietyDisp": 34
+    },
+    {
+      "roastery": "루비아 커피",
+      "total": 36,
+      "active": 31,
+      "smartstore": 36,
+      "official": 0,
+      "missingOriginRaw": 36,
+      "missingOriginDisp": 10,
+      "missingProcessRaw": 36,
+      "missingProcessDisp": 10,
+      "missingVarietyRaw": 36,
+      "missingRoast": 36,
+      "missingNotesRaw": 5,
+      "missingNotesDisp": 5,
+      "missingNotesDispActive": 4,
+      "types": {
+        "single": 24,
+        "other": 5,
+        "decaf": 3,
+        "blend": 4
+      },
+      "soldOut": 5,
+      "missingVarietyDisp": 32
+    },
+    {
+      "roastery": "필아웃커피",
+      "total": 32,
+      "active": 31,
+      "smartstore": 32,
+      "official": 0,
+      "missingOriginRaw": 32,
+      "missingOriginDisp": 8,
+      "missingProcessRaw": 32,
+      "missingProcessDisp": 10,
+      "missingVarietyRaw": 32,
+      "missingRoast": 32,
+      "missingNotesRaw": 14,
+      "missingNotesDisp": 14,
+      "missingNotesDispActive": 13,
+      "types": {
+        "other": 4,
+        "single": 23,
+        "decaf": 3,
+        "blend": 2
+      },
+      "soldOut": 1,
+      "missingVarietyDisp": 22
+    },
+    {
+      "roastery": "나무사이로",
+      "total": 29,
+      "active": 28,
+      "smartstore": 0,
+      "official": 29,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 2,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 7,
+      "missingVarietyRaw": 9,
+      "missingRoast": 26,
+      "missingNotesRaw": 0,
+      "missingNotesDisp": 0,
+      "missingNotesDispActive": 0,
+      "types": {
+        "single": 24,
+        "other": 2,
+        "blend": 2,
+        "decaf": 1
+      },
+      "soldOut": 1,
+      "missingVarietyDisp": 14
+    },
+    {
+      "roastery": "로스터릭",
+      "total": 17,
+      "active": 17,
+      "smartstore": 17,
+      "official": 0,
+      "missingOriginRaw": 17,
+      "missingOriginDisp": 3,
+      "missingProcessRaw": 17,
+      "missingProcessDisp": 3,
+      "missingVarietyRaw": 17,
+      "missingRoast": 17,
+      "missingNotesRaw": 3,
+      "missingNotesDisp": 3,
+      "missingNotesDispActive": 3,
+      "types": {
+        "blend": 3,
+        "single": 13,
+        "decaf": 1
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 16
+    },
+    {
+      "roastery": "테라로사",
+      "total": 15,
+      "active": 15,
+      "smartstore": 0,
+      "official": 15,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 5,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 4,
+      "missingVarietyRaw": 15,
+      "missingRoast": 15,
+      "missingNotesRaw": 0,
+      "missingNotesDisp": 0,
+      "missingNotesDispActive": 0,
+      "types": {
+        "single": 7,
+        "blend": 5,
+        "decaf": 3
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 14
+    },
+    {
+      "roastery": "커피리브레",
+      "total": 15,
+      "active": 15,
+      "smartstore": 0,
+      "official": 15,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 7,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 5,
+      "missingVarietyRaw": 7,
+      "missingRoast": 0,
+      "missingNotesRaw": 6,
+      "missingNotesDisp": 6,
+      "missingNotesDispActive": 6,
+      "types": {
+        "single": 7,
+        "decaf": 1,
+        "blend": 2,
+        "other": 5
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 9
+    },
+    {
+      "roastery": "모모스커피",
+      "total": 14,
+      "active": 13,
+      "smartstore": 0,
+      "official": 14,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 8,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 8,
+      "missingVarietyRaw": 14,
+      "missingRoast": 14,
+      "missingNotesRaw": 5,
+      "missingNotesDisp": 5,
+      "missingNotesDispActive": 5,
+      "types": {
+        "single": 5,
+        "other": 8,
+        "decaf": 1
+      },
+      "soldOut": 1,
+      "missingVarietyDisp": 13
+    },
+    {
+      "roastery": "말릭커피",
+      "total": 13,
+      "active": 8,
+      "smartstore": 13,
+      "official": 0,
+      "missingOriginRaw": 13,
+      "missingOriginDisp": 5,
+      "missingProcessRaw": 13,
+      "missingProcessDisp": 0,
+      "missingVarietyRaw": 13,
+      "missingRoast": 13,
+      "missingNotesRaw": 11,
+      "missingNotesDisp": 11,
+      "missingNotesDispActive": 8,
+      "types": {
+        "decaf": 1,
+        "blend": 5,
+        "single": 7
+      },
+      "soldOut": 5,
+      "missingVarietyDisp": 10
+    },
+    {
+      "roastery": "커피정경 로스터리",
+      "total": 13,
+      "active": 12,
+      "smartstore": 13,
+      "official": 0,
+      "missingOriginRaw": 13,
+      "missingOriginDisp": 5,
+      "missingProcessRaw": 13,
+      "missingProcessDisp": 5,
+      "missingVarietyRaw": 13,
+      "missingRoast": 13,
+      "missingNotesRaw": 0,
+      "missingNotesDisp": 0,
+      "missingNotesDispActive": 0,
+      "types": {
+        "other": 4,
+        "blend": 1,
+        "single": 7,
+        "decaf": 1
+      },
+      "soldOut": 1,
+      "missingVarietyDisp": 11
+    },
+    {
+      "roastery": "토치 커피",
+      "total": 12,
+      "active": 10,
+      "smartstore": 12,
+      "official": 0,
+      "missingOriginRaw": 12,
+      "missingOriginDisp": 4,
+      "missingProcessRaw": 12,
+      "missingProcessDisp": 1,
+      "missingVarietyRaw": 12,
+      "missingRoast": 12,
+      "missingNotesRaw": 8,
+      "missingNotesDisp": 8,
+      "missingNotesDispActive": 6,
+      "types": {
+        "blend": 4,
+        "single": 7,
+        "decaf": 1
+      },
+      "soldOut": 2,
+      "missingVarietyDisp": 10
+    },
+    {
+      "roastery": "딥블루레이크",
+      "total": 12,
+      "active": 12,
+      "smartstore": 0,
+      "official": 12,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 8,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 1,
+      "missingVarietyRaw": 12,
+      "missingRoast": 12,
+      "missingNotesRaw": 1,
+      "missingNotesDisp": 1,
+      "missingNotesDispActive": 1,
+      "types": {
+        "single": 3,
+        "blend": 7,
+        "other": 1,
+        "decaf": 1
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 10
+    },
+    {
+      "roastery": "아이덴티티 커피랩",
+      "total": 11,
+      "active": 11,
+      "smartstore": 11,
+      "official": 0,
+      "missingOriginRaw": 11,
+      "missingOriginDisp": 3,
+      "missingProcessRaw": 11,
+      "missingProcessDisp": 2,
+      "missingVarietyRaw": 11,
+      "missingRoast": 11,
+      "missingNotesRaw": 2,
+      "missingNotesDisp": 2,
+      "missingNotesDispActive": 2,
+      "types": {
+        "blend": 3,
+        "single": 7,
+        "decaf": 1
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 9
+    },
+    {
+      "roastery": "히떼 로스터리",
+      "total": 11,
+      "active": 11,
+      "smartstore": 11,
+      "official": 0,
+      "missingOriginRaw": 11,
+      "missingOriginDisp": 8,
+      "missingProcessRaw": 11,
+      "missingProcessDisp": 6,
+      "missingVarietyRaw": 11,
+      "missingRoast": 11,
+      "missingNotesRaw": 0,
+      "missingNotesDisp": 0,
+      "missingNotesDispActive": 0,
+      "types": {
+        "other": 5,
+        "decaf": 1,
+        "blend": 3,
+        "single": 2
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 11
+    },
+    {
+      "roastery": "502커피로스터스",
+      "total": 11,
+      "active": 11,
+      "smartstore": 0,
+      "official": 11,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 5,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 3,
+      "missingVarietyRaw": 7,
+      "missingRoast": 4,
+      "missingNotesRaw": 0,
+      "missingNotesDisp": 0,
+      "missingNotesDispActive": 0,
+      "types": {
+        "blend": 3,
+        "single": 5,
+        "other": 1,
+        "decaf": 2
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 9
+    },
+    {
+      "roastery": "베르크커피",
+      "total": 10,
+      "active": 10,
+      "smartstore": 0,
+      "official": 10,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 3,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 3,
+      "missingVarietyRaw": 10,
+      "missingRoast": 9,
+      "missingNotesRaw": 0,
+      "missingNotesDisp": 0,
+      "missingNotesDispActive": 0,
+      "types": {
+        "blend": 3,
+        "single": 6,
+        "decaf": 1
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 9
+    },
+    {
+      "roastery": "프릳츠 커피 컴퍼니",
+      "total": 9,
+      "active": 9,
+      "smartstore": 0,
+      "official": 9,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 7,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 5,
+      "missingVarietyRaw": 7,
+      "missingRoast": 9,
+      "missingNotesRaw": 3,
+      "missingNotesDisp": 3,
+      "missingNotesDispActive": 3,
+      "types": {
+        "other": 6,
+        "decaf": 1,
+        "single": 2
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 9
+    },
+    {
+      "roastery": "센터커피",
+      "total": 8,
+      "active": 8,
+      "smartstore": 0,
+      "official": 8,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 3,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 1,
+      "missingVarietyRaw": 8,
+      "missingRoast": 8,
+      "missingNotesRaw": 2,
+      "missingNotesDisp": 2,
+      "missingNotesDispActive": 2,
+      "types": {
+        "single": 3,
+        "blend": 3,
+        "decaf": 2
+      },
+      "soldOut": 0,
+      "missingVarietyDisp": 6
+    },
+    {
+      "roastery": "헬카페",
+      "total": 3,
+      "active": 2,
+      "smartstore": 0,
+      "official": 3,
+      "missingOriginRaw": 0,
+      "missingOriginDisp": 3,
+      "missingProcessRaw": 0,
+      "missingProcessDisp": 1,
+      "missingVarietyRaw": 3,
+      "missingRoast": 2,
+      "missingNotesRaw": 3,
+      "missingNotesDisp": 3,
+      "missingNotesDispActive": 2,
+      "types": {
+        "blend": 2,
+        "other": 1
+      },
+      "soldOut": 1,
+      "missingVarietyDisp": 3
+    }
+  ],
+  "missingOriginDispByRoastery": {
+    "아이덴티티 커피랩": 3,
+    "카페도안": 2,
+    "호커스포커스 로스터스": 14,
+    "히떼 로스터리": 8,
+    "필아웃커피": 8,
+    "말릭커피": 5,
+    "루비아 커피": 10,
+    "커피정경 로스터리": 5,
+    "에어리커피": 1,
+    "토치 커피": 4,
+    "테라로사": 5,
+    "센터커피": 3,
+    "헬카페": 3,
+    "커피리브레": 7,
+    "나무사이로": 2,
+    "딥블루레이크": 8,
+    "로스터릭": 3,
+    "502커피로스터스": 5,
+    "프릳츠 커피 컴퍼니": 7,
+    "모모스커피": 8,
+    "베르크커피": 3
+  },
+  "methodNotes": {
+    "rawOriginMissing": "origin이 빈 문자열/공백 또는 roasterName과 동일하면 미판별(수집 단계 고정값)",
+    "rawProcessMissing": "process가 빈 문자열/공백",
+    "rawVarietyMissing": "variety 필드가 빈 문자열/공백",
+    "rawRoastMissing": "roastLevel이 확인 필요 또는 빈 문자열",
+    "rawNotesMissing": "tastingNotes 배열이 비어 있음",
+    "dispOriginMissing": "getProductCountryLabel(product)===\"\" (국가 라벨 없음)",
+    "dispOriginExclBlend": "위에서 상품명/원천필드에 blend/블렌드가 없는 상품만",
+    "dispProcessMissing": "getProductProcessLabel(product)===\"\" (상품명+process에서 규칙 매칭 없음)",
+    "dispVarietyMissing": "formatProductDisplayInfo(product).variety===\"\" (품종 규칙+한글 폴백 포함)",
+    "dispRoastMissing": "roastLevel이 확인 필요 또는 빈 문자열(앱은 roastLevel을 그대로 표시, 필터로 \"확인 필요\"를 제거)",
+    "dispNotesMissing": "getDisplayTastingNotes(product).length===0 (normalize+evidence 인식 포함, 실제 렌더 함수)"
+  }
+}

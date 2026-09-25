@@ -1,0 +1,210 @@
+[
+ {
+  "id": "aerycoffee-13284270515",
+  "evidenceGrade": "C",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 파나마 핀카 데보라 에니그마 CM 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/13284270515",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-13284270515",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 파나마 핀카 데보라 에니그마 CM 내추럴",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/13284270515",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/aerycoffee-13284270515-3cd5f90c.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "파나마",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "파나마",
+    "process": "내추럴",
+    "variety": "",
+    "region": "핀카 데보라 에니그마 CM",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-13284270515-3cd5f90c.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11751559981",
+  "evidenceGrade": "C",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 타미루 알로 74158 모스토 언에어로빅 내추럴",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11751559981",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-11751559981",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 에티오피아 타미루 알로 74158 모스토 언에어로빅 내추럴",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11751559981",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/aerycoffee-11751559981-d4e28152.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "내추럴",
+    "variety": "",
+    "region": "타미루 알로 74158 모스토 언에어로빅",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-11751559981-d4e28152.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-12350471217",
+  "evidenceGrade": "C",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 에티오피아 알로 스카이프로젝트 이터니티 74158 워시드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/12350471217",
+  "isSoldOut": true,
+  "current": {
+   "id": "aerycoffee-12350471217",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 에티오피아 알로 스카이프로젝트 이터니티 74158 워시드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/12350471217",
+   "isSoldOut": true,
+   "smartstore": true,
+   "evidenceGrade": "C",
+   "evidenceFile": "products/aerycoffee-12350471217-03c7a2bd.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "tastingNoteEvidence": [],
+    "type": null,
+    "status": "soldout"
+   },
+   "displayed": {
+    "originCountry": "에티오피아",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "에티오피아",
+    "process": "워시드",
+    "variety": "",
+    "region": "알로 스카이프로젝트 이터니티 74158",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [],
+    "type": "NOT_DISPLAYED",
+    "status": "soldout"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-12350471217-03c7a2bd.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": []
+ },
+ {
+  "id": "aerycoffee-11368676360",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 다크 블렌드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11368676360",
+  "isSoldOut": false,
+  "current": {
+   "id": "aerycoffee-11368676360",
+   "roasterName": "에어리커피",
+   "productName": "[에어리커피] 다크 블렌드",
+   "productUrl": "https://smartstore.naver.com/aerycoffee/products/11368676360",
+   "isSoldOut": false,
+   "smartstore": true,
+   "evidenceGrade": "B",
+   "evidenceFile": "products/aerycoffee-11368676360-5544a0ab.json",
+   "raw": {
+    "origin": "에어리커피",
+    "process": "",
+    "variety": null,
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "다크초콜릿",
+     "견과류"
+    ],
+    "tastingNoteEvidence": [
+     {
+      "text": "bittersweet dark chocolate balanced with a nutty softness",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250321_21/1742541054735eV5Oa_JPEG/76673840863924002_19566527.jpg?type=f750_750",
+      "method": "image-model",
+      "group": "DARK"
+     },
+     {
+      "text": "다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감",
+      "sourceUrl": "https://shop-phinf.pstatic.net/20250321_21/1742541054735eV5Oa_JPEG/76673840863924002_19566527.jpg?type=f750_750",
+      "method": "image-model",
+      "group": "DARK"
+     }
+    ],
+    "type": null,
+    "status": "active"
+   },
+   "displayed": {
+    "originCountry": "",
+    "originRegion": "NOT_DISPLAYED",
+    "originLabel": "블렌드",
+    "process": "블렌드",
+    "variety": "",
+    "region": "",
+    "roastLevel": "확인 필요",
+    "tastingNotes": [
+     "다크초콜릿",
+     "견과류"
+    ],
+    "type": "NOT_DISPLAYED",
+    "status": "active"
+   }
+  },
+  "evidenceFile": "products/aerycoffee-11368676360-5544a0ab.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250321_21/1742541054735eV5Oa_JPEG/76673840863924002_19566527.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"bittersweet dark chocolate balanced with a nutty softness\",\n    \"group\": \"DARK\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감\",\n    \"group\": \"DARK\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ }
+]

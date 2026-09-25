@@ -1,0 +1,115 @@
+{
+ "judge": [
+  {
+   "confidence": "MEDIUM",
+   "evidence": "productName '워터멜론 수박맛 라이트 로스트 커피원두'에서 수박 향미 명시. detailText 비어있고 ocrNotes 없음",
+   "evidenceSource": "products/루비아커피-워터멜론수박맛라이트로스트커피원두-0d259a1f.json#productName",
+   "field": "tastingNotes",
+   "id": "루비아커피-워터멜론수박맛라이트로스트커피원두",
+   "note": "value는 A=B 동일 집합. 불일치는 raw 표기('수박' vs '수박맛')와 confidence(HIGH vs MEDIUM). 표기 규칙상 '수박' 채택(raw '수박맛'은 플레이버 컨셉 서술, 정규화 값은 동일). confidence는 productName 단일 근거이므로 MEDIUM으로 하향(A의 HIGH 미채택).",
+   "raw": [
+    "수박"
+   ],
+   "value": [
+    "수박"
+   ],
+   "verdict": "A"
+  },
+  {
+   "confidence": "UNKNOWN",
+   "evidence": "productName '과테말라 안티구아 핀카메디나 산 로렌조 엘 쿠보 SHB 블랙허니' — detailText 비어있고 ocrNotes에 생산자 정보 없음",
+   "evidenceSource": "products/로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니-4515dfd9.json#productName",
+   "field": "producer",
+   "id": "로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니",
+   "note": "이름만으로 생산자/가공소/지역 구분 불가 → UNKNOWN. '핀카=농장'이라는 일반 지식만으로 '핀카메디나' 문자열을 생산자명으로 확정할 수 없음('산 로렌조 엘 쿠보'가 농장명일 가능성 배제 불가). rev1 규칙: 이름만으로 구분 불가면 UNKNOWN.",
+   "raw": null,
+   "value": null,
+   "verdict": "B"
+  },
+  {
+   "confidence": "UNKNOWN",
+   "evidence": "원본 product JSON evidence.ocr[0].imageUrl = '...336853764.png?type=f80_80' (OCR ① 복숭아/살구/자스민/꿀…), evidence.ocr[1].imageUrl = '...336853764.png?type=f750_750' (OCR ② 리치/민트/오렌지 시럽, process=블랙허니) — 동일 이미지의 해상도 변형 2종이 정면 충돌",
+   "evidenceSource": "audit-input/products/로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니-4515dfd9.json#evidence.ocr",
+   "field": "tastingNotes",
+   "id": "로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니",
+   "note": "원본 확인 결과 동일 이미지(f80_80 썸네일 vs f750_750 대형) 충돌이 맞음 → OCR_CONFLICT, CASE 3, UNKNOWN 확정. B의 'process 메타데이터 일치 채택'은 CASE 3 원칙 위반. gemini OCR은 독립 증거가 아니기도 함.",
+   "raw": null,
+   "value": null,
+   "verdict": "A"
+  },
+  {
+   "confidence": "MEDIUM",
+   "evidence": "ocrNotes[0].output: '밤, 구운 피칸, 황설탕, 부드러운 질감, 고소한 견과류의 여운' / 'Chestnut, Roasted Pecan, Brown Sugar, Round, Nutty Finish' — 단일 이미지(해상도만 다름)",
+   "evidenceSource": "products/terarosa-100531-ce3c5076.json#evidence.ocrNotes[0].output",
+   "field": "tastingNotes",
+   "id": "terarosa-100531",
+   "note": "'고소한 견과류의 여운'/'Nutty Finish'는 여운(aftertaste) 서술이므로 노트가 아님 — A가 정당하게 제외. B의 '브라운슈가'='황설탕'은 표기 차이(정규화 동일)이나 '견과류' 추가가 오판. gemini OCR 독립 증거 아님 → MEDIUM.",
+   "raw": [
+    "밤",
+    "구운 피칸",
+    "황설탕"
+   ],
+   "value": [
+    "밤",
+    "구운 피칸",
+    "황설탕"
+   ],
+   "verdict": "A"
+  },
+  {
+   "confidence": "HIGH",
+   "evidence": "detailText: '…Ethiopia Banko Taratu Double Fermentation Washed 지역 Gedeo, Gedeb, Yirgach' — 세 토큰 완결 명시",
+   "evidenceSource": "products/malik-5812664708-14bbb2fe.json#evidence.detailText",
+   "field": "originRegion",
+   "id": "malik-5812664708",
+   "note": "B의 '세 번째 토큰이 중간에 잘려 있어 제외' 주장은 사실 오류 — 원문에 '지역 Gedeo, Gedeb, Yirgach' 세 토큰이 온전히 기재됨. 원문 영문 표기 유지. evidenceGrade A detail-text 근거.",
+   "raw": "Gedeo, Gedeb, Yirgach",
+   "value": "Gedeo, Gedeb, Yirgach",
+   "verdict": "A"
+  },
+  {
+   "confidence": "SOURCE_MISSING",
+   "evidence": "productName '에티오피아 아바야 게이샤 G1 내추럴 라이트 로스트'에 생산자 정보 없음. detailText 비어있고 ocrNotes 3건 모두 노트/꽃향기·딸기·꿀·달콤함만 포함, 생산자 언급 없음",
+   "evidenceSource": "products/루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트-d7c3148f.json#productName",
+   "field": "producer",
+   "id": "루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트",
+   "note": "원문을 확인했으나 생산자 정보 자체가 없음 → SOURCE_MISSING. B의 UNKNOWN은 '구분 불가' 사유로 다름(원문에 정보 없음이 아니라 판정 불가 상황 아님).",
+   "raw": null,
+   "value": null,
+   "verdict": "A"
+  },
+  {
+   "confidence": "MEDIUM",
+   "evidence": "ocrNotes[0].output: '코코넛 / 레몬 / 수박', process='코퍼먼티드, 워시드'",
+   "evidenceSource": "products/fillout-13622307018-e93bfad3.json#evidence.ocrNotes[0].output",
+   "field": "process",
+   "id": "fillout-13622307018",
+   "note": "A('코퍼먼티드 워시드')와 B('코퍼먼티드, 워시드')는 구분자 차이만 있는 동일 값(회귀 규칙 §1) → 적절한 표기인 원문 OCR 표기 '코퍼먼티드, 워시드' 채택. gemini OCR 독립 증거 아님 → MEDIUM.",
+   "raw": "코퍼먼티드, 워시드",
+   "value": "코퍼먼티드, 워시드",
+   "verdict": "B"
+  },
+  {
+   "confidence": "UNKNOWN",
+   "evidence": "productName '에티오피아 아르베고나 물루게타 문타샤 74158 내추럴' — '74158' 토큰 존재하나 품종 라벨 없음. detailText 비어있고 ocrNotes에 품종 언급 없음",
+   "evidenceSource": "products/로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴-d29e12d5.json#productName",
+   "field": "variety",
+   "id": "로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴",
+   "note": "토큰이 원문에 있으나 '품 종' 라벨 없이 품종으로 단정 불가(namusairo-1127처럼 라벨이 있으면 채택 가능). 지역명(문타샤)을 품종으로 승격할 수 없고, 74158이 로트번호·표식일 가능성 배제 불가 → UNKNOWN. B의 HIGH는 과신.",
+   "raw": null,
+   "value": null,
+   "verdict": "A"
+  },
+  {
+   "confidence": "UNKNOWN",
+   "evidence": "원본 product JSON evidence.ocr[0].imageUrl = '...1769555367.png?type=f80_80' (OCR ① 복숭아/얼그레이/자스민/꿀…), evidence.ocr[1].imageUrl = '...1769555367.png?type=f750_750' (OCR ② 딸기/복숭아/장미, process=내추럴) — 동일 이미지의 해상도 변형 2종이 정면 충돌",
+   "evidenceSource": "audit-input/products/로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴-d29e12d5.json#evidence.ocr",
+   "field": "tastingNotes",
+   "id": "로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴",
+   "note": "원본 확인 결과 동일 이미지(f80_80 썸네일 vs f750_750 대형) 충돌이 맞음 → OCR_CONFLICT, CASE 3, UNKNOWN 확정. B의 'process 메타데이터 일치 채택'은 CASE 3 원칙 위반. gemini OCR은 독립 증거가 아니기도 함.",
+   "raw": null,
+   "value": null,
+   "verdict": "A"
+  }
+ ]
+}

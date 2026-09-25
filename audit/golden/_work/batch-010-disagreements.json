@@ -1,0 +1,206 @@
+[
+ {
+  "id": "루비아커피-워터멜론수박맛라이트로스트커피원두",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "수박"
+   ],
+   "raw": [
+    "수박"
+   ],
+   "confidence": "HIGH",
+   "evidence": "상품명 '워터멜론 수박맛 라이트 로스트 커피원두'에서 수박 향미 명시",
+   "evidenceSource": "audit-input/products/루비아커피-워터멜론수박맛라이트로스트커피원두-0d259a1f.json#productName"
+  },
+  "B": {
+   "value": [
+    "수박"
+   ],
+   "raw": [
+    "수박맛"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '워터멜론 수박맛...' — 향미 서술이나 플레이버 컨셉일 수 있어 MEDIUM",
+   "evidenceSource": "products/루비아커피-워터멜론수박맛라이트로스트커피원두-0d259a1f.json#productName"
+  }
+ },
+ {
+  "id": "로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니",
+  "field": "producer",
+  "A": {
+   "value": "핀카메디나",
+   "raw": "핀카메디나",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '... 핀카메디나 산 로렌조 엘 쿠보 ...' (핀카=농장)",
+   "evidenceSource": "audit-input/products/로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니-4515dfd9.json#productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "'핀카메디나 산 로렌조 엘 쿠보'는 상품명만으로 생산자/가공소/지역 구분 불가",
+   "evidenceSource": "products/로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니-4515dfd9.json#productName"
+  }
+ },
+ {
+  "id": "로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니",
+  "field": "tastingNotes",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "OCR 두 건 정면 충돌 — ① '복숭아, 살구, 자스민, 꿀 / 베리류, 꽃향기, 달콤한 과일의 산미 / 부드러운 바디감과 여운, 깔끔한 뒷맛과 은은한 단맛, 균형 잡힌 밸런스와 풍부한 향미' ② '리치, 민트, 오렌지 시럽' (process=블랙허니); 원문 이미지 없이는 해결 불가 → CASE 3",
+   "evidenceSource": "audit-input/products/로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니-4515dfd9.json#evidence.ocrNotes"
+  },
+  "B": {
+   "value": [
+    "리치",
+    "민트",
+    "오렌지"
+   ],
+   "raw": [
+    "리치",
+    "민트",
+    "오렌지 시럽"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR(2번째 이미지, process='블랙허니'가 상품명과 일치): '리치, 민트, 오렌지 시럽'. ※ 1번째 이미지 OCR은 '복숭아, 살구, 자스민, 꿀, 베리류, 꽃향기'로 상이 — 이미지 간 불일치 존재",
+   "evidenceSource": "products/로스터릭-과테말라안티구아핀카메디나산로렌조엘쿠보shb블랙허니-4515dfd9.json#ocrNotes[1].output"
+  }
+ },
+ {
+  "id": "terarosa-100531",
+  "field": "tastingNotes",
+  "A": {
+   "value": [
+    "밤",
+    "구운 피칸",
+    "황설탕"
+   ],
+   "raw": [
+    "밤",
+    "구운 피칸",
+    "황설탕"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR(단일): '밤, 구운 피칸, 황설탕, 부드러운 질감, 고소한 견과류의 여운' — '부드러운 질감'은 질감 서술, '고소한 견과류의 여운'은 여운 서술로 제외; 이미지 모델 추출이므로 HIGH 불가",
+   "evidenceSource": "audit-input/products/terarosa-100531-ce3c5076.json#evidence.ocrNotes"
+  },
+  "B": {
+   "value": [
+    "밤",
+    "구운 피칸",
+    "브라운슈가",
+    "견과류"
+   ],
+   "raw": [
+    "밤",
+    "구운 피칸",
+    "황설탕",
+    "고소한 견과류의 여운"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR(3개 이미지 동일): '밤, 구운 피칸, 황설탕, 부드러운 질감, 고소한 견과류의 여운' 중 '부드러운 질감'은 질감 서술이라 제외 (gemini OCR — 독립 증거 아님)",
+   "evidenceSource": "products/terarosa-100531-ce3c5076.json#ocrNotes[0].output"
+  }
+ },
+ {
+  "id": "malik-5812664708",
+  "field": "originRegion",
+  "A": {
+   "value": "Gedeo, Gedeb, Yirgach",
+   "raw": "Gedeo, Gedeb, Yirgach",
+   "confidence": "HIGH",
+   "evidence": "detailText '지역 Gedeo, Gedeb, Yirgach'",
+   "evidenceSource": "audit-input/products/malik-5812664708-14bbb2fe.json#evidence.detailText"
+  },
+  "B": {
+   "value": "게데오, 게뎁",
+   "raw": "Gedeo, Gedeb, Yirgach",
+   "confidence": "MEDIUM",
+   "evidence": "detailText '지역 Gedeo, Gedeb, Yirgach' — 세 번째 토큰이 중간에 잘려 있어 제외",
+   "evidenceSource": "products/malik-5812664708-14bbb2fe.json#detailText"
+  }
+ },
+ {
+  "id": "루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트",
+  "field": "producer",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문에 생산자 정보 없음",
+   "evidenceSource": "audit-input/products/루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트-d7c3148f.json#productName"
+  },
+  "B": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "상품명만으로 생산자/가공소 구분 불가",
+   "evidenceSource": "products/루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트-d7c3148f.json#productName"
+  }
+ },
+ {
+  "id": "fillout-13622307018",
+  "field": "process",
+  "A": {
+   "value": "코퍼먼티드 워시드",
+   "raw": "코퍼먼티드, 워시드",
+   "confidence": "MEDIUM",
+   "evidence": "OCR process 필드: '코퍼먼티드, 워시드' — 이미지 모델 추출이므로 HIGH 불가",
+   "evidenceSource": "audit-input/products/fillout-13622307018-e93bfad3.json#evidence.ocrNotes"
+  },
+  "B": {
+   "value": "코퍼먼티드, 워시드",
+   "raw": "코퍼먼티드, 워시드",
+   "confidence": "MEDIUM",
+   "evidence": "OCR process='코퍼먼티드, 워시드' (gemini OCR — 독립 증거 아님)",
+   "evidenceSource": "products/fillout-13622307018-e93bfad3.json#ocrNotes[0].output"
+  }
+ },
+ {
+  "id": "로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴",
+  "field": "variety",
+  "A": {
+   "value": null,
+   "raw": "74158",
+   "confidence": "UNKNOWN",
+   "evidence": "'74158'이 품종 번호일 수 있으나 품종 라벨 없음, 이름만으로 단정 불가",
+   "evidenceSource": "audit-input/products/로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴-d29e12d5.json#productName"
+  },
+  "B": {
+   "value": "74158",
+   "raw": "74158",
+   "confidence": "HIGH",
+   "evidence": "상품명 '...문타샤 74158 내추럴'",
+   "evidenceSource": "products/로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴-d29e12d5.json#productName"
+  }
+ },
+ {
+  "id": "로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴",
+  "field": "tastingNotes",
+  "A": {
+   "value": null,
+   "raw": null,
+   "confidence": "UNKNOWN",
+   "evidence": "OCR 두 건 정면 충돌 — ① '복숭아, 얼그레이, 자스민, 꿀 / 깔끔한 산미, 부드러운 목넘김' ② '딸기, 복숭아, 장미' (process=내추럴); 원문 이미지 없이는 해결 불가 → CASE 3",
+   "evidenceSource": "audit-input/products/로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴-d29e12d5.json#evidence.ocrNotes"
+  },
+  "B": {
+   "value": [
+    "딸기",
+    "복숭아",
+    "장미"
+   ],
+   "raw": [
+    "딸기",
+    "복숭아",
+    "장미"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "OCR(2번째 이미지, process='내추럴'이 상품명과 일치): '딸기, 복숭아, 장미'. ※ 1번째 이미지 OCR은 '복숭아, 얼그레이, 자스민, 꿀'로 상이 — 이미지 간 불일치 존재",
+   "evidenceSource": "products/로스터릭-에티오피아아르베고나물루게타문타샤74158내추럴-d29e12d5.json#ocrNotes[1].output"
+  }
+ }
+]

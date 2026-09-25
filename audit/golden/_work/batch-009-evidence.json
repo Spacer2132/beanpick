@@ -1,0 +1,403 @@
+{
+ "cafedoan-13627475142": {
+  "id": "cafedoan-13627475142",
+  "roastery": "카페도안",
+  "productName": "Tim Wendelboe 팀 웬들보 온두라스 핀카 엘 푸엔테 바티안 워시드",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13627475142",
+  "isSoldOut": true,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Earl Grey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"Red fruits\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"plum\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"floral\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/cafedoan-13627475142-6459509c.json"
+ },
+ "루비아커피-케냐키리냐가키이aatop워시드라이트로스트": {
+  "id": "루비아커피-케냐키리냐가키이aatop워시드라이트로스트",
+  "roastery": "루비아 커피",
+  "productName": "케냐 키리냐가 키이 AA TOP 워시드 라이트 로스트",
+  "productUrl": "https://smartstore.naver.com/rubiacoffee/products/13685120303",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"복숭아\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"자스민\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"얼그레이\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"꿀\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"블랙커런트\",\n    \"group\": \"note\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"자몽\",\n    \"group\": \"note\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"토마토\",\n    \"group\": \"note\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"사탕\",\n    \"group\": \"note\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"블랙커런트\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"자몽\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"토마토\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"시럽\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/루비아커피-케냐키리냐가키이aatop워시드라이트로스트-3586fedb.json"
+ },
+ "fillout-13715333410": {
+  "id": "fillout-13715333410",
+  "roastery": "필아웃커피",
+  "productName": "에티오피아 바샤 베켈레 내추럴 원두",
+  "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13715333410",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/fillout-13715333410-4bfc4a76.json"
+ },
+ "namusairo-854": {
+  "id": "namusairo-854",
+  "roastery": "나무사이로",
+  "productName": "PiCK! 숲",
+  "productUrl": "https://namusairo.com/product/pick-숲/854/category/91/display/1/",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [
+   {
+    "url": "https://namusairo.com/product/pick-숲/854/category/91/display/1/",
+    "text": "PiCK! 숲 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n PiCK! 숲\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n PiCK! 숲 \n 용 량 \n 200g x 3 \n 판매가 \n &#8361;48,000 \n 기간할인 \n &#8361;43,200 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 할인 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g x 3 \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n PiCK! 숲 \n 48000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 0 \n 나무사이로 PiCK! 숲 세트\n숲 시리즈 3종을 더 좋은 가격에 만나는 PiCK! 숲 세트\r\n숲, 다크우드, 녹음 입니다.\r\n 숲\r\nWoods\n마치 숲에 들어온 듯\r\n달고나의 달콤 쌉싸름한 맛, 레몬, 민트의 싱그러운 느낌이 조화를 이룹니다.\r\n깊고 묵직하고 달콤하고 시원한 숲 속 공기를 상상해 보세요.\r\n 볶은 땅콩, 향신료, 코코아, 레몬, 고소 달달 쌉쌀한 커피 \r\n 다크우드\r\nDarkwood\n데이빗 달링의 Dark Wood를 들으며 마시는 에스프레소 한잔 -\r\n다크우드 블렌드는 첼로 선율처럼 묵직하면서도 매끄럽고\r\n오랫동안 입안을 맴도는 여운이 있는 커피입니다.\r\n 베리, 초콜릿, 농밀한 단맛, 감칠맛, 복합적 \r\n 녹음\r\nVerdant Deep\n초록이 깊어가고 공기가 짙어지는,\r\n녹음 綠陰의 계절을 앞두고\r\n봄에서 여름을 지나는 사월에서 구월까지\r\n일렁이는 나무 그늘 아래에서 마시면 좋을 커피를 만들었습니다.\r\n 건자두, 카카오, 당밀, 묵직하다 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 0 \n 상품결제정보\n ○ 무통장 입금은 시스템상 자동확인 됩니다. 주문시 기입한 입금자명과 실제 입금자명이 다를 경우 결제완료 처리가 안되어 출고가 지연될 수 있습니다. \r\n예) 주문시 입금자명 홍길동 -> 입금시 입금자명 홍길동(카페) : 자동입금확인 불가 \r\n지출증빙관련\n○ 현재 부가가치세법에 따라 신용카드 매출전표/지출증빙 현금영수증은 세금계산서를 대체하며, 주문서 작성 시 신청 가능하며, 결제완료 후 매출전표와 현금영수증은 마이페이지 -> 주문내역조회에서 출력하실 수 있습니다.\n○ 세금계산서는 주문 시 결제수단을 실시간 계좌이체, 무통장 입금으로 선택하시면 신청하실 수 있습니다. \n 배송정보\n 배송 방법 : 택배\n 배송 지역 : 전국\n 배송 비용 : &#8361;3,000\n 배송 기간 : 2일 ~ 5일\n 배송 안내 : \n ○ 월 - 목 택배발송 / 금토일공휴일명절 택배발송 없음 \r\n○ 자정까지 결제완료된 주문은 익일 발송합니다.\r\n ○ Tip! 수요일까지 주문하시면 해당 주 발송합니다.\r\n ○ 5만원 이상 무료배송\r\n ○ 제주, 도서 …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/pick-숲/854/category/91/display/1/",
+    "text": "PiCK! 숲 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n PiCK! 숲\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n PiCK! 숲 \n 용 량 \n 200g x 3 \n 판매가 \n &#8361;48,000 \n 기간할인 \n &#8361;43,200 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 할인 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g x 3 \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n PiCK! 숲 \n 48000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 0 \n 나무사이로 PiCK! 숲 세트\n숲 시리즈 3종을 더 좋은 가격에 만나는 PiCK! 숲 세트\r\n숲, 다크우드, 녹음 입니다.\r\n 숲\r\nWoods\n마치 숲에 들어온 듯\r\n달고나의 달콤 쌉싸름한 맛, 레몬, 민트의 싱그러운 느낌이 조화를 이룹니다.\r\n깊고 묵직하고 달콤하고 시원한 숲 속 공기를 상상해 보세요.\r\n 볶은 땅콩, 향신료, 코코아, 레몬, 고소 달달 쌉쌀한 커피 \r\n 다크우드\r\nDarkwood\n데이빗 달링의 Dark Wood를 들으며 마시는 에스프레소 한잔 -\r\n다크우드 블렌드는 첼로 선율처럼 묵직하면서도 매끄럽고\r\n오랫동안 입안을 맴도는 여운이 있는 커피입니다.\r\n 베리, 초콜릿, 농밀한 단맛, 감칠맛, 복합적 \r\n 녹음\r\nVerdant Deep\n초록이 깊어가고 공기가 짙어지는,\r\n녹음 綠陰의 계절을 앞두고\r\n봄에서 여름을 지나는 사월에서 구월까지\r\n일렁이는 나무 그늘 아래에서 마시면 좋을 커피를 만들었습니다.\r\n 건자두, 카카오, 당밀, 묵직하다 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 0 \n 상품결제정보\n ○ 무통장 입금은 시스템상 자동확인 됩니다. 주문시 기입한 입금자명과 실제 입금자명이 다를 경우 결제완료 처리가 안되어 출고가 지연될 수 있습니다. \r\n예) 주문시 입금자명 홍길동 -> 입금시 입금자명 홍길동(카페) : 자동입금확인 불가 \r\n지출증빙관련\n○ 현재 부가가치세법에 따라 신용카드 매출전표/지출증빙 현금영수증은 세금계산서를 대체하며, 주문서 작성 시 신청 가능하며, 결제완료 후 매출전표와 현금영수증은 마이페이지 -> 주문내역조회에서 출력하실 수 있습니다.\n○ 세금계산서는 주문 시 결제수단을 실시간 계좌이체, 무통장 입금으로 선택하시면 신청하실 수 있습니다. \n 배송정보\n 배송 방법 : 택배\n 배송 지역 : 전국\n 배송 비용 : &#8361;3,000\n 배송 기간 : 2일 ~ 5일\n 배송 안내 : \n ○ 월 - 목 택배발송 / 금토일공휴일명절 택배발송 없음 \r\n○ 자정까지 결제완료된 주문은 익일 발송합니다.\r\n ○ Tip! 수요일까지 주문하시면 해당 주 발송합니다.\r\n ○ 5만원 이상 무료배송\r\n ○ 제주, 도서 …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/pick-숲/854/category/91/display/1/",
+    "text": "PiCK! 숲 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n PiCK! 숲\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n PiCK! 숲 \n 용 량 \n 200g x 3 \n 판매가 \n &#8361;48,000 \n 기간할인 \n &#8361;43,200 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 할인 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g x 3 \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n PiCK! 숲 \n 48000 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 0 \n 나무사이로 PiCK! 숲 세트\n숲 시리즈 3종을 더 좋은 가격에 만나는 PiCK! 숲 세트\r\n숲, 다크우드, 녹음 입니다.\r\n 숲\r\nWoods\n마치 숲에 들어온 듯\r\n달고나의 달콤 쌉싸름한 맛, 레몬, 민트의 싱그러운 느낌이 조화를 이룹니다.\r\n깊고 묵직하고 달콤하고 시원한 숲 속 공기를 상상해 보세요.\r\n 볶은 땅콩, 향신료, 코코아, 레몬, 고소 달달 쌉쌀한 커피 \r\n 다크우드\r\nDarkwood\n데이빗 달링의 Dark Wood를 들으며 마시는 에스프레소 한잔 -\r\n다크우드 블렌드는 첼로 선율처럼 묵직하면서도 매끄럽고\r\n오랫동안 입안을 맴도는 여운이 있는 커피입니다.\r\n 베리, 초콜릿, 농밀한 단맛, 감칠맛, 복합적 \r\n 녹음\r\nVerdant Deep\n초록이 깊어가고 공기가 짙어지는,\r\n녹음 綠陰의 계절을 앞두고\r\n봄에서 여름을 지나는 사월에서 구월까지\r\n일렁이는 나무 그늘 아래에서 마시면 좋을 커피를 만들었습니다.\r\n 건자두, 카카오, 당밀, 묵직하다 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 0 \n 상품결제정보\n ○ 무통장 입금은 시스템상 자동확인 됩니다. 주문시 기입한 입금자명과 실제 입금자명이 다를 경우 결제완료 처리가 안되어 출고가 지연될 수 있습니다. \r\n예) 주문시 입금자명 홍길동 -> 입금시 입금자명 홍길동(카페) : 자동입금확인 불가 \r\n지출증빙관련\n○ 현재 부가가치세법에 따라 신용카드 매출전표/지출증빙 현금영수증은 세금계산서를 대체하며, 주문서 작성 시 신청 가능하며, 결제완료 후 매출전표와 현금영수증은 마이페이지 -> 주문내역조회에서 출력하실 수 있습니다.\n○ 세금계산서는 주문 시 결제수단을 실시간 계좌이체, 무통장 입금으로 선택하시면 신청하실 수 있습니다. \n 배송정보\n 배송 방법 : 택배\n 배송 지역 : 전국\n 배송 비용 : &#8361;3,000\n 배송 기간 : 2일 ~ 5일\n 배송 안내 : \n ○ 월 - 목 택배발송 / 금토일공휴일명절 택배발송 없음 \r\n○ 자정까지 결제완료된 주문은 익일 발송합니다.\r\n ○ Tip! 수요일까지 주문하시면 해당 주 발송합니다.\r\n ○ 5만원 이상 무료배송\r\n ○ 제주, 도서 …(생략)"
+   }
+  ],
+  "ocrNotes": [],
+  "detailImageUrls": [],
+  "evidenceFile": "products/namusairo-854-97869f14.json"
+ },
+ "로스터릭-에티오피아구지함벨라비샨푸구쿠루메내추럴": {
+  "id": "로스터릭-에티오피아구지함벨라비샨푸구쿠루메내추럴",
+  "roastery": "로스터릭",
+  "productName": "에티오피아 구지 함벨라 비샨 푸구 쿠루메 내추럴",
+  "productUrl": "https://smartstore.naver.com/rick/products/13727232125",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"복숭아, 자두, 꿀, 꽃향기\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"딸기\",\n    \"group\": \"\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"열대과일\",\n    \"group\": \"\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"블루베리\",\n    \"group\": \"\",\n    \"process\": \"내추럴\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/로스터릭-에티오피아구지함벨라비샨푸구쿠루메내추럴-8d4a39f5.json"
+ },
+ "terarosa-100520": {
+  "id": "terarosa-100520",
+  "roastery": "테라로사",
+  "productName": "르완다 냐비라시 아르세니 부르봉 워시드",
+  "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100520",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"살구잼의 달콤한 풍미와 블러드 오렌지의 산뜻한 산미가 밀도감 있게 느껴지는 커피\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/terarosa-100520-83bc3d2b.json"
+ },
+ "malik-10830376405": {
+  "id": "malik-10830376405",
+  "roastery": "말릭커피",
+  "productName": "에티오피아 노르딕 어프로치 워르카 사카로 워시드",
+  "productUrl": "https://smartstore.naver.com/undercrema/products/10830376405",
+  "isSoldOut": false,
+  "detailText": "*참고사항 로스팅 프로파일에 수정이 있었습니다. 추출시 커피와 물의 비율을 1:15, 1:16, 1:17로 추출후에 물에 희석하지 않으셔도 맛있게 드실 수 있도록 로스팅 프로파일을 변경했습니다. 에티오피아 노르딕 어프로치 워르카 사카로 워시드 200g Ethiopia Gedeo Gedeb Worka Sakaro Wolisho, Dega Washed 국가 - Ethiopia 지역- Worka Sakaro, Gedeb, Gedeo 워싱스테이션 - Worka Sakaro 고도 - 1,800~2,200m 품종- Wolisho, Dega 가",
+  "detailTextLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": [],
+  "evidenceFile": "products/malik-10830376405-a7c1ba12.json"
+ },
+ "coffeejg-12287750188": {
+  "id": "coffeejg-12287750188",
+  "roastery": "커피정경 로스터리",
+  "productName": "배합커피#3 플뤼겔혼",
+  "productUrl": "https://smartstore.naver.com/coffeejg/products/12287750188",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"Violet\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Orange\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Lychee\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Passion Fruit\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/coffeejg-12287750188-561b6ce5.json"
+ },
+ "toch-11523901330": {
+  "id": "toch-11523901330",
+  "roastery": "토치 커피",
+  "productName": "케냐 윈드러시 AB 워시드",
+  "productUrl": "https://smartstore.naver.com/toch/products/11523901330",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/toch-11523901330-2623cdbc.json"
+ },
+ "deepbluelake-578": {
+  "id": "deepbluelake-578",
+  "roastery": "딥블루레이크",
+  "productName": "Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 19일)",
+  "productUrl": "https://dblcoffee.com/product/detail.html?product_no=578&cate_no=24&display_group=1",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [
+   {
+    "url": "https://dblcoffee.com/product/detail.html?product_no=578&cate_no=24&display_group=1",
+    "text": "딥블루레이크커피&로스터스 \n 전체상품목록 바로가기 \n 본문 바로가기 \n LOGIN\n / \n JOIN\n / \n CART(0)\n / \n MYPAGE \n / \n ORDER \n SHOP \n BREW RECIPE \n WHOLESALE \n Q&A \n coffee () \n merchandise () \n 현재 위치 \n 홈 \n SHOP \n SHOP \n [] Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일)\n (해외배송 가능상품) \n 기본 정보 \n 상품명 \n Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일) \n 판매가 \n 30,000원 \n 수량 \n 상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 100g 500g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- whole bean grinding bean 에스프레소 grinding bean 모카포트 grinding bean 커피 메이커 grinding bean 핸드드립(칼리타) grinding bena 핸드드립(하리오) grinding bena 프렌치 프레스 \n (최소주문수량 1개 이상 / 최대주문수량 0개 이하 )\n 사이즈 가이드 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일) \n 30000 (   ) \n 총 상품금액 (수량) : 0 (0개) \n BUY NOW \n ADD TO CART \n SOLD OUT \n WISH LIST \n SNS 상품홍보 \n SNS 상품홍보 \n 이벤트 \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n DETAIL\n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n REVIEW\n 상품의 사용후기를 적어주세요.\n 게시물이 없습니다\n WRITE \n LIST \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n Q&A\n 상품에 대해 궁금한 점을 해결해 드립니다.\n 게시물이 없습니다\n WRITE \n LIST \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n 상품결제정보\n 고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다. 확인과정에서 도난 카드의 사용이나 타인 명의의 주문등\r\n 정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다. \n 무통장 입금은 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다. \n 주문시 입력한 입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며 입금되지\r\n 않은 주문은 자동취소 됩니다. \n 배송정보\n 배송 방법 : 택배\n 배송 지역 : 전국지역\n 배송 비용 : 2,800원\n 배송 기간 : 3일 ~ 7일\n 배송 안내 : - 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.\n 고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.\n 교환 및 반품정보\n 교환 및 반품이 가능한 경우 \n- 상품을 공급 받으신 날로부터 7일이내 단, 가전제품의\n 경우 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우에는 교환/반품이 불가능합니다.\n- 공급받으신 상품 및 용역의 내용이 표시.광고 내용과\n 다르거나 다르게 이행된 경우에는 공급받은 날로부터 3월이내, 그사실을 알게 된 날로부터 30일이내\n 교환 및 반품이 불가능한 경우 \n- 고객님의 책임 있는 사유로 상품등이 멸실 또는 훼손된 경우. 단, 상품의 내용을 확인하기 위하여\n 포장 등을 훼손한 경우는 제외\n- 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우\n (예 : 가전제품, 식품, 음반 등, 단 액정화면이 부착된 노트북, LCD모니터, 디지털 카메라 등의 불…(생략)"
+   },
+   {
+    "url": "https://dblcoffee.com/product/detail.html?product_no=578&cate_no=24&display_group=1",
+    "text": "딥블루레이크커피&로스터스 \n 전체상품목록 바로가기 \n 본문 바로가기 \n LOGIN\n / \n JOIN\n / \n CART(0)\n / \n MYPAGE \n / \n ORDER \n SHOP \n BREW RECIPE \n WHOLESALE \n Q&A \n coffee () \n merchandise () \n 현재 위치 \n 홈 \n SHOP \n SHOP \n [] Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일)\n (해외배송 가능상품) \n 기본 정보 \n 상품명 \n Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일) \n 판매가 \n 30,000원 \n 수량 \n 상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 100g 500g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- whole bean grinding bean 에스프레소 grinding bean 모카포트 grinding bean 커피 메이커 grinding bean 핸드드립(칼리타) grinding bena 핸드드립(하리오) grinding bena 프렌치 프레스 \n (최소주문수량 1개 이상 / 최대주문수량 0개 이하 )\n 사이즈 가이드 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일) \n 30000 (   ) \n 총 상품금액 (수량) : 0 (0개) \n BUY NOW \n ADD TO CART \n SOLD OUT \n WISH LIST \n SNS 상품홍보 \n SNS 상품홍보 \n 이벤트 \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n DETAIL\n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n REVIEW\n 상품의 사용후기를 적어주세요.\n 게시물이 없습니다\n WRITE \n LIST \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n Q&A\n 상품에 대해 궁금한 점을 해결해 드립니다.\n 게시물이 없습니다\n WRITE \n LIST \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n 상품결제정보\n 고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다. 확인과정에서 도난 카드의 사용이나 타인 명의의 주문등\r\n 정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다. \n 무통장 입금은 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다. \n 주문시 입력한 입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며 입금되지\r\n 않은 주문은 자동취소 됩니다. \n 배송정보\n 배송 방법 : 택배\n 배송 지역 : 전국지역\n 배송 비용 : 2,800원\n 배송 기간 : 3일 ~ 7일\n 배송 안내 : - 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.\n 고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.\n 교환 및 반품정보\n 교환 및 반품이 가능한 경우 \n- 상품을 공급 받으신 날로부터 7일이내 단, 가전제품의\n 경우 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우에는 교환/반품이 불가능합니다.\n- 공급받으신 상품 및 용역의 내용이 표시.광고 내용과\n 다르거나 다르게 이행된 경우에는 공급받은 날로부터 3월이내, 그사실을 알게 된 날로부터 30일이내\n 교환 및 반품이 불가능한 경우 \n- 고객님의 책임 있는 사유로 상품등이 멸실 또는 훼손된 경우. 단, 상품의 내용을 확인하기 위하여\n 포장 등을 훼손한 경우는 제외\n- 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우\n (예 : 가전제품, 식품, 음반 등, 단 액정화면이 부착된 노트북, LCD모니터, 디지털 카메라 등의 불…(생략)"
+   },
+   {
+    "url": "https://dblcoffee.com/product/detail.html?product_no=578&cate_no=24&display_group=1",
+    "text": "딥블루레이크커피&로스터스 \n 전체상품목록 바로가기 \n 본문 바로가기 \n LOGIN\n / \n JOIN\n / \n CART(0)\n / \n MYPAGE \n / \n ORDER \n SHOP \n BREW RECIPE \n WHOLESALE \n Q&A \n coffee () \n merchandise () \n 현재 위치 \n 홈 \n SHOP \n SHOP \n [] Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일)\n (해외배송 가능상품) \n 기본 정보 \n 상품명 \n Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일) \n 판매가 \n 30,000원 \n 수량 \n 상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 100g 500g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- whole bean grinding bean 에스프레소 grinding bean 모카포트 grinding bean 커피 메이커 grinding bean 핸드드립(칼리타) grinding bena 핸드드립(하리오) grinding bena 프렌치 프레스 \n (최소주문수량 1개 이상 / 최대주문수량 0개 이하 )\n 사이즈 가이드 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 21일) \n 30000 (   ) \n 총 상품금액 (수량) : 0 (0개) \n BUY NOW \n ADD TO CART \n SOLD OUT \n WISH LIST \n SNS 상품홍보 \n SNS 상품홍보 \n 이벤트 \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n DETAIL\n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n REVIEW\n 상품의 사용후기를 적어주세요.\n 게시물이 없습니다\n WRITE \n LIST \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n Q&A\n 상품에 대해 궁금한 점을 해결해 드립니다.\n 게시물이 없습니다\n WRITE \n LIST \n 상품상세정보 \n 상품구매안내 \n 상품사용후기 \n 상품Q&A \n 관련상품 \n 상품결제정보\n 고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다. 확인과정에서 도난 카드의 사용이나 타인 명의의 주문등\r\n 정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다. \n 무통장 입금은 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다. \n 주문시 입력한 입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며 입금되지\r\n 않은 주문은 자동취소 됩니다. \n 배송정보\n 배송 방법 : 택배\n 배송 지역 : 전국지역\n 배송 비용 : 2,800원\n 배송 기간 : 3일 ~ 7일\n 배송 안내 : - 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.\n 고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.\n 교환 및 반품정보\n 교환 및 반품이 가능한 경우 \n- 상품을 공급 받으신 날로부터 7일이내 단, 가전제품의\n 경우 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우에는 교환/반품이 불가능합니다.\n- 공급받으신 상품 및 용역의 내용이 표시.광고 내용과\n 다르거나 다르게 이행된 경우에는 공급받은 날로부터 3월이내, 그사실을 알게 된 날로부터 30일이내\n 교환 및 반품이 불가능한 경우 \n- 고객님의 책임 있는 사유로 상품등이 멸실 또는 훼손된 경우. 단, 상품의 내용을 확인하기 위하여\n 포장 등을 훼손한 경우는 제외\n- 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우\n (예 : 가전제품, 식품, 음반 등, 단 액정화면이 부착된 노트북, LCD모니터, 디지털 카메라 등의 불…(생략)"
+   }
+  ],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"장미꽃잎, 망고, 패션프루트, 아삼블랙티, 바닐라\",\n    \"group\": \"\",\n    \"process\": \"White Honey CM\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Rose petals, mango, passion fruit, Assam black tea, vanilla\",\n    \"group\": \"\",\n    \"process\": \"White Honey CM\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/deepbluelake-578-667e51bd.json"
+ },
+ "아이덴티티커피랩-키치블렌드": {
+  "id": "아이덴티티커피랩-키치블렌드",
+  "roastery": "아이덴티티 커피랩",
+  "productName": "키치 블렌드",
+  "productUrl": "https://smartstore.naver.com/identity_coffeelab/products/8562826807",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"Peach\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Jasmine\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Earl Grey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Honey\",\n    \"group\": \"\",\n    \"process\": \"Washed\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "model": null,
+    "output": "[]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"Popcorn\",\n    \"group\": \"No.3 Kitsch\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Dark chocolate\",\n    \"group\": \"No.3 Kitsch\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Smoke\",\n    \"group\": \"No.3 Kitsch\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/아이덴티티커피랩-키치블렌드-cdaf4315.json"
+ },
+ "히떼로스터리-봄방학블렌드": {
+  "id": "히떼로스터리-봄방학블렌드",
+  "roastery": "히떼 로스터리",
+  "productName": "봄방학 블렌드",
+  "productUrl": "https://smartstore.naver.com/hytteroastery/products/11559107183",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"복숭아\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"자스민\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"얼그레이\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"꿀\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"Lavender\",\n    \"group\": \"Spring Vacation Blend\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Cherry\",\n    \"group\": \"Spring Vacation Blend\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Apple Mango\",\n    \"group\": \"Spring Vacation Blend\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"Bubblagum\",\n    \"group\": \"Spring Vacation Blend\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/히떼로스터리-봄방학블렌드-3f9410ab.json"
+ },
+ "coffee502-12": {
+  "id": "coffee502-12",
+  "roastery": "502커피로스터스",
+  "productName": "WELCOME 웰컴",
+  "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [
+   {
+    "url": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+    "text": "502 COFFEE ROASTERS | WELCOME 웰컴 - 화사한 산미와 맑은 단맛의 중약배전 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 40,000원 이상 구매시 무료 배송 / 신규 가입 시 3,000원 적립금 / 주문 금액 2% 적립\n 오늘 하루 보지 않기\n 닫기\n 회원가입\n 로그인\n 주문조회\n 최근본상품\n 고객센터\n 이용안내 FAQ \n 원두 블렌드 \n 싱글오리진 \n 대용량 원두 \n 디카페인 원두 \n 간편커피 드립백 \n 콜드브루 \n 캡슐커피 \n 파우더커피 \n 상품 굿즈 \n 커피용품 \n 기프트 \n 정기구독 \n 도매몰 도매상품 \n 개인 결제창 \n 납품문의 \n 0 \n 회원가입\n + 3000원 쿠폰\n 로그인\n 주문조회\n 최근본상품\n 원두 \n 블렌드 \n 싱글오리진 \n 대용량 원두 \n 디카페인 원두 \n 간편커피 \n 드립백 \n 콜드브루 \n 캡슐커피 \n 파우더커피 \n 상품 \n 굿즈 \n 커피용품 \n 기프트 \n 정기구독 \n 도매몰 \n 도매상품 \n 개인 결제창 \n 납품문의 \n 고객센터\n 펼침\n 이용안내 FAQ \n 1:1 문의\n 닫기\n 031-942-0502 \n뒤로가기 \n 현재 위치 \n 홈 \n 원두 \n 상품상세 정보\n WELCOME 웰컴\n (해외배송 가능상품) \n 기본 정보 \n 상품명 \n WELCOME 웰컴 \n 설명 \n 화사한 산미와 과일의 향미, 맑고 깨끗한 단맛 \n 로스팅 \n 중약배전 \n 소비자가 \n 18,000원 \n 판매가 \n 16,200원 \n 배송방법 \n 택배 \n 배송비 \n 3,000원 (40,000원 이상 구매 시 무료) \n 월 렌탈 금액 \n 월 원\n ( 개월 기준) \n 개월 / 월 원\n 정기결제 \n 구매방법 \n 정기배송 할인 \n 1회구매 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n 상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g 500g (+16,200원) \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) \n 옵션선택 \n (최소주문수량 1개 이상 / 최대주문수량 0개 이하 )\n 사이즈 가이드 \n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n WELCOME 웰컴 \n 수량증가 \n 수량감소 \n 16200 (   ) \n 옵션 정보 \n TOTAL (QUANTITY) 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 바로 구매하기 예약주문 REGULAR DELIVERY \n 장바구니 담기 \n 위시리스트 \n SOLD OUT \n 위시리스트 \n 대량구매문의 \n 바로 구매하기 예약주문 REGULAR DELIVERY \n 장바구니 담기 \n SOLD OUT \n 위시리스트 \n EVENT\n 게시글 신고하기\n 신고사유\n 관련없는 내용 \n 욕설/비방 \n 개인정보유출 \n 광고/홍보글 \n 기타 \n 신고해주신 내용은 쇼핑몰 운영자의 검토 후 내부 운영 정책에 의해 처리가 진행됩니다.\n 신고 \n 취소 \n 닫기 \n 상세정보 \n 배송/교환/환불 안내 \n 상세정보 \n 배송/교환/환불 안내 \n WELCOME 웰컴 \n 계절은 담은 웰컴 \r\n 잘 익은 과일들이 연상되는 화사한 산미와 캔디 같은 깨끗한 단맛이 조화를 이룹니다.\r\n Bleding Info\n 에티오피아\n Roasting Point\n 중약배전\n Tasting Notes\n 플로럴, 열대과일, 베리류, 캔디 같은 단맛\n Acidity\n ■■■■□\n Sweetness\n ■■■■■\n Body\n ■■□□□\n 자연이 주는 선물 같은\n웰컴은 시즌별 최상의 생두를 선정하여 커피가 가진 본연의 산미와 깨끗한 단맛을 표현합니다.\r\n 에티오피아 커피를 베이스로 블렌딩하여 화사한 산미를 즐기시는 분께 추천드립니다.\r\n 입안 가득 퍼지는 꽃향기와 기분 좋은 과일의 산미가 생동감을 전합니다.\r\n 깨끗한 단맛과 홍차의 은은한 여운을 즐기세요.\n[주문 및 배송 안내]\r\n 월-금 택배 발송합니다.\n 오전 9시 이전 주문…(생략)"
+   },
+   {
+    "url": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+    "text": "502 COFFEE ROASTERS | WELCOME 웰컴 - 화사한 산미와 맑은 단맛의 중약배전 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 40,000원 이상 구매시 무료 배송 / 신규 가입 시 3,000원 적립금 / 주문 금액 2% 적립\n 오늘 하루 보지 않기\n 닫기\n 회원가입\n 로그인\n 주문조회\n 최근본상품\n 고객센터\n 이용안내 FAQ \n 원두 블렌드 \n 싱글오리진 \n 대용량 원두 \n 디카페인 원두 \n 간편커피 드립백 \n 콜드브루 \n 캡슐커피 \n 파우더커피 \n 상품 굿즈 \n 커피용품 \n 기프트 \n 정기구독 \n 도매몰 도매상품 \n 개인 결제창 \n 납품문의 \n 0 \n 회원가입\n + 3000원 쿠폰\n 로그인\n 주문조회\n 최근본상품\n 원두 \n 블렌드 \n 싱글오리진 \n 대용량 원두 \n 디카페인 원두 \n 간편커피 \n 드립백 \n 콜드브루 \n 캡슐커피 \n 파우더커피 \n 상품 \n 굿즈 \n 커피용품 \n 기프트 \n 정기구독 \n 도매몰 \n 도매상품 \n 개인 결제창 \n 납품문의 \n 고객센터\n 펼침\n 이용안내 FAQ \n 1:1 문의\n 닫기\n 031-942-0502 \n뒤로가기 \n 현재 위치 \n 홈 \n 원두 \n 상품상세 정보\n WELCOME 웰컴\n (해외배송 가능상품) \n 기본 정보 \n 상품명 \n WELCOME 웰컴 \n 설명 \n 화사한 산미와 과일의 향미, 맑고 깨끗한 단맛 \n 로스팅 \n 중약배전 \n 소비자가 \n 18,000원 \n 판매가 \n 16,200원 \n 배송방법 \n 택배 \n 배송비 \n 3,000원 (40,000원 이상 구매 시 무료) \n 월 렌탈 금액 \n 월 원\n ( 개월 기준) \n 개월 / 월 원\n 정기결제 \n 구매방법 \n 정기배송 할인 \n 1회구매 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n 상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g 500g (+16,200원) \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) \n 옵션선택 \n (최소주문수량 1개 이상 / 최대주문수량 0개 이하 )\n 사이즈 가이드 \n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n WELCOME 웰컴 \n 수량증가 \n 수량감소 \n 16200 (   ) \n 옵션 정보 \n TOTAL (QUANTITY) 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 바로 구매하기 예약주문 REGULAR DELIVERY \n 장바구니 담기 \n 위시리스트 \n SOLD OUT \n 위시리스트 \n 대량구매문의 \n 바로 구매하기 예약주문 REGULAR DELIVERY \n 장바구니 담기 \n SOLD OUT \n 위시리스트 \n EVENT\n 게시글 신고하기\n 신고사유\n 관련없는 내용 \n 욕설/비방 \n 개인정보유출 \n 광고/홍보글 \n 기타 \n 신고해주신 내용은 쇼핑몰 운영자의 검토 후 내부 운영 정책에 의해 처리가 진행됩니다.\n 신고 \n 취소 \n 닫기 \n 상세정보 \n 배송/교환/환불 안내 \n 상세정보 \n 배송/교환/환불 안내 \n WELCOME 웰컴 \n 계절은 담은 웰컴 \r\n 잘 익은 과일들이 연상되는 화사한 산미와 캔디 같은 깨끗한 단맛이 조화를 이룹니다.\r\n Bleding Info\n 에티오피아\n Roasting Point\n 중약배전\n Tasting Notes\n 플로럴, 열대과일, 베리류, 캔디 같은 단맛\n Acidity\n ■■■■□\n Sweetness\n ■■■■■\n Body\n ■■□□□\n 자연이 주는 선물 같은\n웰컴은 시즌별 최상의 생두를 선정하여 커피가 가진 본연의 산미와 깨끗한 단맛을 표현합니다.\r\n 에티오피아 커피를 베이스로 블렌딩하여 화사한 산미를 즐기시는 분께 추천드립니다.\r\n 입안 가득 퍼지는 꽃향기와 기분 좋은 과일의 산미가 생동감을 전합니다.\r\n 깨끗한 단맛과 홍차의 은은한 여운을 즐기세요.\n[주문 및 배송 안내]\r\n 월-금 택배 발송합니다.\n 오전 9시 이전 주문…(생략)"
+   },
+   {
+    "url": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+    "text": "502 COFFEE ROASTERS | WELCOME 웰컴 - 화사한 산미와 맑은 단맛의 중약배전 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 40,000원 이상 구매시 무료 배송 / 신규 가입 시 3,000원 적립금 / 주문 금액 2% 적립\n 오늘 하루 보지 않기\n 닫기\n 회원가입\n 로그인\n 주문조회\n 최근본상품\n 고객센터\n 이용안내 FAQ \n 원두 블렌드 \n 싱글오리진 \n 대용량 원두 \n 디카페인 원두 \n 간편커피 드립백 \n 콜드브루 \n 캡슐커피 \n 파우더커피 \n 상품 굿즈 \n 커피용품 \n 기프트 \n 정기구독 \n 도매몰 도매상품 \n 개인 결제창 \n 납품문의 \n 0 \n 회원가입\n + 3000원 쿠폰\n 로그인\n 주문조회\n 최근본상품\n 원두 \n 블렌드 \n 싱글오리진 \n 대용량 원두 \n 디카페인 원두 \n 간편커피 \n 드립백 \n 콜드브루 \n 캡슐커피 \n 파우더커피 \n 상품 \n 굿즈 \n 커피용품 \n 기프트 \n 정기구독 \n 도매몰 \n 도매상품 \n 개인 결제창 \n 납품문의 \n 고객센터\n 펼침\n 이용안내 FAQ \n 1:1 문의\n 닫기\n 031-942-0502 \n뒤로가기 \n 현재 위치 \n 홈 \n 원두 \n 상품상세 정보\n WELCOME 웰컴\n (해외배송 가능상품) \n 기본 정보 \n 상품명 \n WELCOME 웰컴 \n 설명 \n 화사한 산미와 과일의 향미, 맑고 깨끗한 단맛 \n 로스팅 \n 중약배전 \n 소비자가 \n 18,000원 \n 판매가 \n 16,200원 \n 배송방법 \n 택배 \n 배송비 \n 3,000원 (40,000원 이상 구매 시 무료) \n 월 렌탈 금액 \n 월 원\n ( 개월 기준) \n 개월 / 월 원\n 정기결제 \n 구매방법 \n 정기배송 할인 \n 1회구매 \n 배송주기 \n 정기배송 할인 save \n 결제 시 : 할인 \n 상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g 500g (+16,200원) \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) \n 옵션선택 \n (최소주문수량 1개 이상 / 최대주문수량 0개 이하 )\n 사이즈 가이드 \n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n WELCOME 웰컴 \n 수량증가 \n 수량감소 \n 16200 (   ) \n 옵션 정보 \n TOTAL (QUANTITY) 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 바로 구매하기 예약주문 REGULAR DELIVERY \n 장바구니 담기 \n 위시리스트 \n SOLD OUT \n 위시리스트 \n 대량구매문의 \n 바로 구매하기 예약주문 REGULAR DELIVERY \n 장바구니 담기 \n SOLD OUT \n 위시리스트 \n EVENT\n 게시글 신고하기\n 신고사유\n 관련없는 내용 \n 욕설/비방 \n 개인정보유출 \n 광고/홍보글 \n 기타 \n 신고해주신 내용은 쇼핑몰 운영자의 검토 후 내부 운영 정책에 의해 처리가 진행됩니다.\n 신고 \n 취소 \n 닫기 \n 상세정보 \n 배송/교환/환불 안내 \n 상세정보 \n 배송/교환/환불 안내 \n WELCOME 웰컴 \n 계절은 담은 웰컴 \r\n 잘 익은 과일들이 연상되는 화사한 산미와 캔디 같은 깨끗한 단맛이 조화를 이룹니다.\r\n Bleding Info\n 에티오피아\n Roasting Point\n 중약배전\n Tasting Notes\n 플로럴, 열대과일, 베리류, 캔디 같은 단맛\n Acidity\n ■■■■□\n Sweetness\n ■■■■■\n Body\n ■■□□□\n 자연이 주는 선물 같은\n웰컴은 시즌별 최상의 생두를 선정하여 커피가 가진 본연의 산미와 깨끗한 단맛을 표현합니다.\r\n 에티오피아 커피를 베이스로 블렌딩하여 화사한 산미를 즐기시는 분께 추천드립니다.\r\n 입안 가득 퍼지는 꽃향기와 기분 좋은 과일의 산미가 생동감을 전합니다.\r\n 깨끗한 단맛과 홍차의 은은한 여운을 즐기세요.\n[주문 및 배송 안내]\r\n 월-금 택배 발송합니다.\n 오전 9시 이전 주문…(생략)"
+   }
+  ],
+  "ocrNotes": [],
+  "detailImageUrls": [],
+  "evidenceFile": "products/coffee502-12-a4373d79.json"
+ },
+ "cafedoan-13094420210": {
+  "id": "cafedoan-13094420210",
+  "roastery": "카페도안",
+  "productName": "NOMAD COFFEE 노마드 커피 Kenya Kathima Washed",
+  "productUrl": "https://smartstore.naver.com/doanselectshop/products/13094420210",
+  "isSoldOut": true,
+  "detailText": "Roast Date - 2/24 케냐 카티마, 워시드 Kenya Kathima, Washed CUP NOTE 유자, 노란 키위, 건살구 INFORMATION 카티마 팩토리 Kathima Factory는 케냐 Kenya 마운트 케냐 Mount Kenya 동쪽, 엠부 Embu 지역 마냐타 Manyata에 위치해 있으며, 2,200명 이상의 소규모 농가가 함께하는 탐바나 농민 협동조합 Thambana Farmers Cooperative Society에 속해 있습니다. 이 지역은 해발이 높고 화산 토양이 비옥해, 밝은 산미와 향이 풍부한 ",
+  "detailTextLen": 300,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[]"
+   },
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"YUZU\",\n    \"group\": \"\",\n    \"process\": \"LAVADO\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"KIWI AMARILLO\",\n    \"group\": \"\",\n    \"process\": \"LAVADO\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"OREJONES\",\n    \"group\": \"\",\n    \"process\": \"LAVADO\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/cafedoan-13094420210-41595bf4.json"
+ },
+ "hocuspocus-13691082903": {
+  "id": "hocuspocus-13691082903",
+  "roastery": "호커스포커스 로스터스",
+  "productName": "평형",
+  "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13691082903",
+  "isSoldOut": true,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [],
+  "detailImageUrls": [],
+  "evidenceFile": "products/hocuspocus-13691082903-5e82be7e.json"
+ },
+ "fillout-13684402543": {
+  "id": "fillout-13684402543",
+  "roastery": "필아웃커피",
+  "productName": "케냐 챕상거 내추럴 하이 원두",
+  "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13684402543",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/fillout-13684402543-2ba0840e.json"
+ },
+ "namusairo-29": {
+  "id": "namusairo-29",
+  "roastery": "나무사이로",
+  "productName": "풍요로운 땅",
+  "productUrl": "https://namusairo.com/product/풍요로운-땅/29/category/91/display/1/",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [
+   {
+    "url": "https://namusairo.com/product/풍요로운-땅/29/category/91/display/1/",
+    "text": "풍요로운 땅 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 풍요로운 땅\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 풍요로운 땅 \n 원산지 \n Brazil · Colombia · Guatemala \n 볶음도 \n Dark \n 향 미 \n 밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤 쌉쌀하다 Milk chocolate, peanut caramel, orange, spice, brown sugar, bittersweet \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;13,500 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,350) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;675) 할인 \n 5회 결제 시 : 10%(&#8361;1,350) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 풍요로운 땅 \n 13500 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 14 \n 관련상품 \n 커피가 우리의 삶을 진정, 풍요롭게 할 수 있을까? \n 나무사이로를 일궈오며 내내 품어온 물음입니다.\r\n 한 잔의 커피로 우리의 일상이 풍요로워지기를 소망하는 마음으로\r\n이 블렌딩을 만들었습니다.\r\n 커피의 어원에 대한 여러 가설 중 커피의 원산지인\r\n에티오피아 카파Kaffa지역 이름에서 따왔다는 이야기가 있습니다.\r\n 에티오피아어로 Ka는 신을 의미하고 Afa는 만물이 소생하는 땅을 의미하지요.\r\n곧 ‘신이 주신 풍요로운 땅’입니다.\r\n 나무가 숲이 되고 울창한 숲을 지나 어두운 숲을 빠져나와\r\n저 산 너머 풍요로운 땅, 커피의 시원을 발견하게 됩니다.\r\n 한 잔의 커피로 우리의 일상이 풍요로워지는 곳. 우리가 다다를 곳입니다.\r\n 풍요로운 땅 블렌드는 누구나 편안히 마실 수 있는 커피로,\r\n달콤쌉싸름하고 입 안 마무리는 시원합니다.\r\n Land of Plenty, one of Namusairo’s best selling blends,\r\n is milk chocolaty, nutty, savory and sweet with low acidity and a refreshing finish.\r\n It is easy to brew with any types of equipment,\r\n and you’ll find it very clean and likeable, something you can enjoy everyday.\r\n We’re really happy that we can supply this coffee throughout the year to our customers\r\n …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/풍요로운-땅/29/category/91/display/1/",
+    "text": "풍요로운 땅 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 풍요로운 땅\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 풍요로운 땅 \n 원산지 \n Brazil · Colombia · Guatemala \n 볶음도 \n Dark \n 향 미 \n 밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤 쌉쌀하다 Milk chocolate, peanut caramel, orange, spice, brown sugar, bittersweet \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;13,500 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,350) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;675) 할인 \n 5회 결제 시 : 10%(&#8361;1,350) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 풍요로운 땅 \n 13500 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 14 \n 관련상품 \n 커피가 우리의 삶을 진정, 풍요롭게 할 수 있을까? \n 나무사이로를 일궈오며 내내 품어온 물음입니다.\r\n 한 잔의 커피로 우리의 일상이 풍요로워지기를 소망하는 마음으로\r\n이 블렌딩을 만들었습니다.\r\n 커피의 어원에 대한 여러 가설 중 커피의 원산지인\r\n에티오피아 카파Kaffa지역 이름에서 따왔다는 이야기가 있습니다.\r\n 에티오피아어로 Ka는 신을 의미하고 Afa는 만물이 소생하는 땅을 의미하지요.\r\n곧 ‘신이 주신 풍요로운 땅’입니다.\r\n 나무가 숲이 되고 울창한 숲을 지나 어두운 숲을 빠져나와\r\n저 산 너머 풍요로운 땅, 커피의 시원을 발견하게 됩니다.\r\n 한 잔의 커피로 우리의 일상이 풍요로워지는 곳. 우리가 다다를 곳입니다.\r\n 풍요로운 땅 블렌드는 누구나 편안히 마실 수 있는 커피로,\r\n달콤쌉싸름하고 입 안 마무리는 시원합니다.\r\n Land of Plenty, one of Namusairo’s best selling blends,\r\n is milk chocolaty, nutty, savory and sweet with low acidity and a refreshing finish.\r\n It is easy to brew with any types of equipment,\r\n and you’ll find it very clean and likeable, something you can enjoy everyday.\r\n We’re really happy that we can supply this coffee throughout the year to our customers\r\n …(생략)"
+   },
+   {
+    "url": "https://namusairo.com/product/풍요로운-땅/29/category/91/display/1/",
+    "text": "풍요로운 땅 - 나무사이로 \n 전체상품목록 바로가기 \n 본문 바로가기 \n 추석맞이 선물전 \n COFFEE 상품보기 \n SUBSCRIPTION 상품보기 \n MD 상품보기 \n BUSINESS 상품보기 \n NAMUSAIRO \n 본사 / 팩토리 / 카페 \n 역사 \n 보도 \n 아카이브 \n GREEN \n 로그인 \n 회원가입 \n 상품 Q&A \n 0 \n English\n pick \n 언제나 \n 봄의 제전 \n 버라이어티 \n 디카프 \n 검색 \n 풍요로운 땅\n (해외배송 가능상품) \n 확대보기 \n 추천메일 보내기 \n 상품조르기 \n 대량구매문의 \n 좋아요 \n 기본 정보 \n 상품명 \n 풍요로운 땅 \n 원산지 \n Brazil · Colombia · Guatemala \n 볶음도 \n Dark \n 향 미 \n 밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤 쌉쌀하다 Milk chocolate, peanut caramel, orange, spice, brown sugar, bittersweet \n 용 량 \n 200g \n 제조일 \n 매일 (월화수목) \n 판매가 \n &#8361;13,500 \n 배송비 \n &#8361;3,000 (&#8361;50,000 이상 구매 시 무료) \n 수량 \n 정기결제 \n 구매방법 \n 1회구매 \n 정기배송(회원전용) 최대 10%(&#8361;1,350) 할인 \n 배송주기 \n [필수] 배송주기를 선택해 주세요. \n 1주 \n 2주 \n 3주 \n 정기배송 할인 save \n 2회 결제 시 : 5%(&#8361;675) 할인 \n 5회 결제 시 : 10%(&#8361;1,350) 할인 \n >상품 옵션 \n 용량 \n - [필수] 옵션을 선택해 주세요 - ------------------- 200g \n 분쇄도 \n - [필수] 옵션을 선택해 주세요 - ------------------- 0 갈지않음 1 에스프레소 2 모카포트 3 콜드브루 4 에어로프레스 6 커피메이커 7 핸드드립 9 프렌치프레스 \n 옵션선택 \n 수량을 선택해주세요.\n 위 옵션선택 박스를 선택하시면 아래에 상품이 추가됩니다.\n 상품 목록 \n 상품명 \n 상품수 \n 가격 \n 풍요로운 땅 \n 13500 (   ) \n 옵션 정보 \n 0 (0개) \n 할인가가 적용된 최종 결제예정금액은 주문 시 확인할 수 있습니다.\n SOLD OUT \n 장바구니 \n 관심상품 \n 바로구매하기 \n 예약주문하기 \n 정기배송 \n 무이자 할부혜택\n 이벤트 \n 상품상세정보 \n 이용안내 \n 구매후기 0 \n 질문답변 14 \n 관련상품 \n 커피가 우리의 삶을 진정, 풍요롭게 할 수 있을까? \n 나무사이로를 일궈오며 내내 품어온 물음입니다.\r\n 한 잔의 커피로 우리의 일상이 풍요로워지기를 소망하는 마음으로\r\n이 블렌딩을 만들었습니다.\r\n 커피의 어원에 대한 여러 가설 중 커피의 원산지인\r\n에티오피아 카파Kaffa지역 이름에서 따왔다는 이야기가 있습니다.\r\n 에티오피아어로 Ka는 신을 의미하고 Afa는 만물이 소생하는 땅을 의미하지요.\r\n곧 ‘신이 주신 풍요로운 땅’입니다.\r\n 나무가 숲이 되고 울창한 숲을 지나 어두운 숲을 빠져나와\r\n저 산 너머 풍요로운 땅, 커피의 시원을 발견하게 됩니다.\r\n 한 잔의 커피로 우리의 일상이 풍요로워지는 곳. 우리가 다다를 곳입니다.\r\n 풍요로운 땅 블렌드는 누구나 편안히 마실 수 있는 커피로,\r\n달콤쌉싸름하고 입 안 마무리는 시원합니다.\r\n Land of Plenty, one of Namusairo’s best selling blends,\r\n is milk chocolaty, nutty, savory and sweet with low acidity and a refreshing finish.\r\n It is easy to brew with any types of equipment,\r\n and you’ll find it very clean and likeable, something you can enjoy everyday.\r\n We’re really happy that we can supply this coffee throughout the year to our customers\r\n …(생략)"
+   }
+  ],
+  "ocrNotes": [],
+  "detailImageUrls": [],
+  "evidenceFile": "products/namusairo-29-683c38e0.json"
+ },
+ "로스터릭-에티오피아구지함벨라g1워시드": {
+  "id": "로스터릭-에티오피아구지함벨라g1워시드",
+  "roastery": "로스터릭",
+  "productName": "에티오피아 구지 함벨라 G1 워시드",
+  "productUrl": "https://smartstore.naver.com/rick/products/13759985503",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"복숭아\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"배\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"밀크 초콜릿\",\n    \"group\": \"\",\n    \"process\": \"워시드\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/로스터릭-에티오피아구지함벨라g1워시드-227f05f9.json"
+ },
+ "terarosa-100446": {
+  "id": "terarosa-100446",
+  "roastery": "테라로사",
+  "productName": "에티오피아 슬리피 캣 디카페인",
+  "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100446",
+  "isSoldOut": false,
+  "detailText": "",
+  "detailTextLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "model": null,
+    "output": "[\n  {\n    \"text\": \"신선한 블루베리의 향과 밀크초콜릿의 부드러운 단맛이 어우러진 디카페인 커피\",\n    \"group\": \"\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": [],
+  "evidenceFile": "products/terarosa-100446-1c253497.json"
+ }
+}

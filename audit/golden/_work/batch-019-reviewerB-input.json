@@ -1,0 +1,21 @@
+[
+ {
+  "id": "aerycoffee-11368676360",
+  "evidenceGrade": "B",
+  "roastery": "에어리커피",
+  "productName": "[에어리커피] 다크 블렌드",
+  "productUrl": "https://smartstore.naver.com/aerycoffee/products/11368676360",
+  "isSoldOut": false,
+  "evidenceFile": "products/aerycoffee-11368676360-5544a0ab.json",
+  "detailText": "",
+  "detailTextFullLen": 0,
+  "rawTexts": [],
+  "ocrNotes": [
+   {
+    "imageUrl": "https://shop-phinf.pstatic.net/20250321_21/1742541054735eV5Oa_JPEG/76673840863924002_19566527.jpg?type=f750_750",
+    "output": "[\n  {\n    \"text\": \"bittersweet dark chocolate balanced with a nutty softness\",\n    \"group\": \"DARK\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  },\n  {\n    \"text\": \"다크초콜릿의 쌉싸름한 단맛과 견과류의 고소함의 균형감\",\n    \"group\": \"DARK\",\n    \"process\": \"\",\n    \"scope\": \"product\"\n  }\n]"
+   }
+  ],
+  "detailImageUrls": []
+ }
+]

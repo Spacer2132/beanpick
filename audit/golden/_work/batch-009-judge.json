@@ -1,0 +1,672 @@
+[
+ {
+  "id": "cafedoan-13627475142",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 'Tim Wendelboe 팀 웬들보 온두라스 핀카 엘 푸엔테 바티안 워시드' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13627475142.productName"
+  },
+  "note": "value 동일(single), confidence만 상이 — 원문에 단일 산지 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "cafedoan-13627475142",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'핀카 엘 푸엔테'는 농장명(finca=농장)으로 지역이 아님 — 상품명→originRegion 추론 금지(배치1-8 선례).",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13627475142.productName"
+  },
+  "note": "A가 농장명을 지역으로 오분류. 원문에 지역 표기 없음."
+ },
+ {
+  "id": "cafedoan-13627475142",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": "핀카 엘 푸엔테",
+   "raw": "핀카 엘 푸엔테",
+   "confidence": "HIGH",
+   "evidence": "상품명 '…온두라스 핀카 엘 푸엔테 바티안 워시드' — 핀카(농장) 엘 푸엔테가 생산 농장. 선두 'Tim Wendelboe 팀 웬들보'는 로스터 브랜드(노르웨이 로스터리)로 producer가 아님.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13627475142.productName"
+  },
+  "note": "A는 로스터 브랜드를 생산자로 오인. B의 농장 식별이 원문 구조에 부합."
+ },
+ {
+  "id": "cafedoan-13627475142",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "OCR 정면 충돌: 출력1 [Peach, Jasmine, Earl Grey, Honey] vs 출력2 [Red fruits, plum, floral] — 모두 scope=product·Washed, 원본 이미지 없이 판별 불가.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13627475142.ocrNotes"
+  },
+  "note": "A의 오염 패턴 제외 논리(출력1은 배치 내 반복 등장)는 그럴듯하나, 지시된 OCR 충돌 규칙(CASE 3/UNKNOWN)을 따른다.",
+  "ocrConflict": true
+ },
+ {
+  "id": "루비아커피-케냐키리냐가키이aatop워시드라이트로스트",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '케냐 키리냐가 키이 AA TOP 워시드 라이트 로스트' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#루비아커피-케냐키리냐가키이aatop워시드라이트로스트.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "루비아커피-케냐키리냐가키이aatop워시드라이트로스트",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "OCR 정면 충돌: 출력1 [복숭아, 자스민, 얼그레이, 꿀] vs 출력2 [블랙커런트, 자몽, 토마토, 사탕] vs 출력3 [블랙커런트, 자몽, 토마토, 시럽] — 원본 이미지 없이 판별 불가.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#루비아커피-케냐키리냐가키이aatop워시드라이트로스트.ocrNotes"
+  },
+  "note": "출력2·3이 3개 노트에 일치해 A의 제외 논리가 유력하나, 지시된 OCR 충돌 규칙을 따른다.",
+  "ocrConflict": true
+ },
+ {
+  "id": "fillout-13715333410",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '에티오피아 바샤 베켈레 내추럴 원두' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#fillout-13715333410.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "namusairo-854",
+  "field": "originCountry",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "3종 세트(숲·다크우드·녹음) 상품 — 원문에 구성품별 원산지 표기 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#namusairo-854.rawTexts"
+  },
+  "note": "원문 확인했으나 단일 국가 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "namusairo-854",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "3종 세트 상품 — 원문에 지역 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#namusairo-854.rawTexts"
+  },
+  "note": "원문 확인했으나 지역 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "namusairo-854",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "세트 상품으로 상품 단위 노트 목록이 원문에 없음 — 구성품(숲·다크우드·녹음)별 개별 노트만 존재하므로 병합하지 않음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#namusairo-854.rawTexts"
+  },
+  "note": "A의 구성품 노트 병합(9개)은 서로 다른 커피의 노트를 한 상품에 귀속시키는 오귀속. 상품 단위 목록 부재 → SOURCE_MISSING."
+ },
+ {
+  "id": "로스터릭-에티오피아구지함벨라비샨푸구쿠루메내추럴",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '에티오피아 구지 함벨라 비샨 푸구 쿠루메 내추럴' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#로스터릭-에티오피아구지함벨라비샨푸구쿠루메내추럴.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "terarosa-100520",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '르완다 냐비라시 아르세니 부르봉 워시드' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#terarosa-100520.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "terarosa-100520",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": "아르세니",
+   "raw": "아르세니",
+   "confidence": "HIGH",
+   "evidence": "상품명 '르완다 냐비라시 아르세니 부르봉 워시드'에 인명 '아르세니' 명시.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#terarosa-100520.productName"
+  },
+  "note": "value 동일 — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "malik-10830376405",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '에티오피아 노르딕 어프로치 워르카 사카로 워시드' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#malik-10830376405.productName"
+  },
+  "note": "value 동일(single) — detailText 단일 산지 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "malik-10830376405",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": "Worka Sakaro, Gedeb, Gedeo",
+   "raw": "Worka Sakaro, Gedeb, Gedeo",
+   "confidence": "HIGH",
+   "evidence": "detailText '지역- Worka Sakaro, Gedeb, Gedeo' — 원문의 지역 표기 전체.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#malik-10830376405.detailText"
+  },
+  "note": "A가 워싱스테이션명(Worka Sakaro)만으로 지역을 축소. 원문 지역 표기 전체를 채택."
+ },
+ {
+  "id": "malik-10830376405",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": "Worka Sakaro",
+   "raw": "Worka Sakaro",
+   "confidence": "HIGH",
+   "evidence": "detailText '워싱스테이션 - Worka Sakaro' 명시.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#malik-10830376405.detailText"
+  },
+  "note": "value 동일(한/영) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "coffeejg-12287750188",
+  "field": "originCountry",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "상품명 '배합커피#3 플뤼겔혼'(배합=블렌드). OCR에는 테이스팅 노트만 있고 국가 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#coffeejg-12287750188.productName"
+  },
+  "note": "원문 확인했으나 국가 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "coffeejg-12287750188",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문(상품명·OCR)에서 지역 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#coffeejg-12287750188.ocrNotes"
+  },
+  "note": "원문 확인했으나 지역 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "toch-11523901330",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '케냐 윈드러시 AB 워시드' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#toch-11523901330.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "toch-11523901330",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'윈드러시'가 지역인지 농장/팩토리인지 원문에서 확인 불가 — 상품명→지역 추론 금지.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#toch-11523901330.productName"
+  },
+  "note": "A의 상품명→지역 추론은 배치1-8 FALSE_POSITIVE 선례에 해당."
+ },
+ {
+  "id": "toch-11523901330",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": "윈드러시",
+   "raw": "윈드러시",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 '케냐 윈드러시 AB 워시드' 구조(국가+농장/팩토리+등급+가공)에서 '윈드러시'는 농장 슬롯 — 강한 추론.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#toch-11523901330.productName"
+  },
+  "note": "A·B 모두 '윈드러시'를 에스테이트명으로 인정. 지역 필드 배치는 추론 금지 규칙 위반이므로, 생산자 필드(구조 추론, MEDIUM)가 정합."
+ },
+ {
+  "id": "deepbluelake-578",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'엘 플레이서'는 농장명으로 보이며 지역 표기 없음 — 상품명→지역 추론 금지.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#deepbluelake-578.productName"
+  },
+  "note": "A의 상품명→지역 추론은 FALSE_POSITIVE 선례에 해당."
+ },
+ {
+  "id": "deepbluelake-578",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": "엘 플레이서",
+   "raw": "엘 플레이서",
+   "confidence": "MEDIUM",
+   "evidence": "상품명 'Single Origin 콜롬비아 엘 플레이서 게이샤 허니 (로스팅 9월 19일)' 구조(Single Origin+국가+농장+품종+가공)에서 '엘 플레이서'는 농장 슬롯 — 강한 추론.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#deepbluelake-578.productName"
+  },
+  "note": "A의 SOURCE_MISSING보다 B의 구조 추론(MEDIUM)이 원문 구조에 정합."
+ },
+ {
+  "id": "아이덴티티커피랩-키치블렌드",
+  "field": "originCountry",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품 — 원문(상품명·OCR 출력)에서 국가 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#아이덴티티커피랩-키치블렌드.ocrNotes"
+  },
+  "note": "원문 확인했으나 국가 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "아이덴티티커피랩-키치블렌드",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품 — 원문에서 지역 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#아이덴티티커피랩-키치블렌드.ocrNotes"
+  },
+  "note": "원문 확인했으나 지역 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "아이덴티티커피랩-키치블렌드",
+  "field": "process",
+  "verdict": "A",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "원문 확인 — 가공방식 정보 없음. 상품 고유 OCR 추출(group 'No.3 Kitsch')의 process도 빈 값. 'Washed' 표기는 배치 오염 패턴 출력(출력1)에만 등장.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#아이덴티티커피랩-키치블렌드.ocrNotes"
+  },
+  "note": "B의 Washed 근거는 오염 의심 출력에만 있어 채택 불가. 상품 고유 추출의 process는 빈 값."
+ },
+ {
+  "id": "아이덴티티커피랩-키치블렌드",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "OCR 정면 충돌: 출력1 [Peach, Jasmine, Earl Grey, Honey] vs 출력3 [Popcorn, Dark chocolate, Smoke](group 'No.3 Kitsch') — 모두 scope=product, 원본 이미지 없이 판별 불가.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#아이덴티티커피랩-키치블렌드.ocrNotes"
+  },
+  "note": "A의 오염 제외 논리는 그럴듯하나 지시된 OCR 충돌 규칙을 따른다.",
+  "ocrConflict": true
+ },
+ {
+  "id": "히떼로스터리-봄방학블렌드",
+  "field": "originCountry",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품 — 원문에서 국가 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#히떼로스터리-봄방학블렌드.ocrNotes"
+  },
+  "note": "원문 확인했으나 국가 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "히떼로스터리-봄방학블렌드",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품 — 원문에서 지역 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#히떼로스터리-봄방학블렌드.ocrNotes"
+  },
+  "note": "원문 확인했으나 지역 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "히떼로스터리-봄방학블렌드",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [],
+   "raw": [],
+   "confidence": "UNKNOWN",
+   "evidence": "OCR 정면 충돌: 출력1 [복숭아, 자스민, 얼그레이, 꿀] vs 출력2 [Lavender, Cherry, Apple Mango, Bubblagum](group 'Spring Vacation Blend') — 모두 scope=product, 원본 이미지 없이 판별 불가.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#히떼로스터리-봄방학블렌드.ocrNotes"
+  },
+  "note": "A의 오염 제외 논리는 그럴듯하나 지시된 OCR 충돌 규칙을 따른다.",
+  "ocrConflict": true
+ },
+ {
+  "id": "coffee502-12",
+  "field": "originCountry",
+  "verdict": "SOURCE_MISSING",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품('에티오피아 커피를 베이스로 블렌딩') — 베이스 산지를 제품 필드로 승격 불가(batch5 선례). 원문에 단일 국가 표기 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#coffee502-12.rawTexts"
+  },
+  "note": "B의 '에티오피아' 채택은 블렌드 성분→원산지 승격 오판 선례에 해당. 원문 확인했으나 단일 국가 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "coffee502-12",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품 — 원문에서 지역 정보 없음(국가만 명시).",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#coffee502-12.rawTexts"
+  },
+  "note": "원문 확인했으나 지역 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "coffee502-12",
+  "field": "tastingNotes",
+  "verdict": "A",
+  "golden": {
+   "value": [
+    "플로럴",
+    "열대과일",
+    "베리류"
+   ],
+   "raw": [
+    "플로럴",
+    "열대과일",
+    "베리류"
+   ],
+   "confidence": "HIGH",
+   "evidence": "상세 'Tasting Notes / 플로럴, 열대과일, 베리류, 캔디 같은 단맛' 명시 — '캔디 같은 단맛'은 단맛 강도 서술로 노트가 아님.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#coffee502-12.rawTexts"
+  },
+  "note": "'캔디 같은 단맛'은 강도 서술(회귀규칙 §6: 질감·강도 서술은 노트가 아님) — B의 '캔디' 추가는 오분류."
+ },
+ {
+  "id": "cafedoan-13094420210",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 'NOMAD COFFEE 노마드 커피 Kenya Kathima Washed' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13094420210.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "cafedoan-13094420210",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": "마냐타, 엠부",
+   "raw": "엠부 지역 마냐타",
+   "confidence": "HIGH",
+   "evidence": "detailText '마운트 케냐 동쪽, 엠부 지역 마냐타에 위치' — '카티마'는 팩토리명으로 지역이 아님.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13094420210.detailText"
+  },
+  "note": "A가 팩토리명(카티마)을 지역으로 오분류. 원문의 지역 표기를 채택."
+ },
+ {
+  "id": "cafedoan-13094420210",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": "카티마 팩토리",
+   "raw": "Kathima Factory",
+   "confidence": "HIGH",
+   "evidence": "detailText '카티마 팩토리 Kathima Factory' 명시.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#cafedoan-13094420210.detailText"
+  },
+  "note": "value 동일 — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 유형 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 유형 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "originCountry",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 국가 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 국가 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 지역 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 지역 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "producer",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 생산자 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 생산자 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "process",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 가공 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 가공 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "variety",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 품종 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 품종 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "roast",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 로스팅 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 로스팅 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "hocuspocus-13691082903",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [],
+   "raw": [],
+   "confidence": "SOURCE_MISSING",
+   "evidence": "제공된 증거(상품명 '평형'のみ)에 정보 없음 — 원문 확인.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#hocuspocus-13691082903.productName"
+  },
+  "note": "상품명 '평형'만으로는 노트 판단 불가. 원문 확인했으나 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "fillout-13684402543",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '케냐 챕상거 내추럴 하이 원두' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#fillout-13684402543.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "fillout-13684402543",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "'챕상거'가 지역인지 팩토리인지 원문에서 확인 불가 — 상품명→지역 추론 금지.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#fillout-13684402543.productName"
+  },
+  "note": "A의 상품명→지역 추론은 FALSE_POSITIVE 선례에 해당."
+ },
+ {
+  "id": "namusairo-29",
+  "field": "originCountry",
+  "verdict": "SOURCE_MISSING",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품(원산지 Brazil·Colombia·Guatemala 표기) — 구성 성분 국가를 제품 필드로 승격 불가(batch5 선례). 원문에 단일 국가 표기 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#namusairo-29.rawTexts"
+  },
+  "note": "B의 3개국 채택은 블렌드 성분→원산지 승격 오판 선례에 해당. 원문 확인했으나 단일 국가 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "namusairo-29",
+  "field": "originRegion",
+  "verdict": "B",
+  "golden": {
+   "value": null,
+   "raw": null,
+   "confidence": "SOURCE_MISSING",
+   "evidence": "블렌드 상품 — 원문에서 지역 정보 없음.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#namusairo-29.rawTexts"
+  },
+  "note": "원문 확인했으나 지역 정보 없음 → SOURCE_MISSING."
+ },
+ {
+  "id": "로스터릭-에티오피아구지함벨라g1워시드",
+  "field": "productType",
+  "verdict": "B",
+  "golden": {
+   "value": "single",
+   "raw": "single",
+   "confidence": "HIGH",
+   "evidence": "상품명 '에티오피아 구지 함벨라 G1 워시드' — 단일 산지 표기, 블렌드 언급 없음 (원문 명시)",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#로스터릭-에티오피아구지함벨라g1워시드.productName"
+  },
+  "note": "value 동일(single) — 원문 명시이므로 HIGH로 통일."
+ },
+ {
+  "id": "로스터릭-에티오피아구지함벨라g1워시드",
+  "field": "tastingNotes",
+  "verdict": "B",
+  "golden": {
+   "value": [
+    "복숭아",
+    "배",
+    "밀크초콜릿"
+   ],
+   "raw": [
+    "복숭아",
+    "배",
+    "밀크 초콜릿"
+   ],
+   "confidence": "MEDIUM",
+   "evidence": "단일 OCR 출력(모델 추출값, 이미지 원문 아님) — '밀크 초콜릿'은 정규화 규칙(한글 토큰 내부 공백 제거)상 '밀크초콜릿'과 동일.",
+   "evidenceSource": "audit/golden/_work/batch-009-evidence.json#로스터릭-에티오피아구지함벨라g1워시드.ocrNotes"
+  },
+  "note": "value 의미 동일(정규화 규칙 적용) — B의 정규화 표기(밀크초콜릿)+raw 보존 형태를 채택."
+ }
+]

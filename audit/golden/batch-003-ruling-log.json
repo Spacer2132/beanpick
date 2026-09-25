@@ -1,0 +1,838 @@
+{
+ "커피리브레-버티고": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "A",
+   "note": "A/B 모두 같은 OCR 근거. 이미지 원문 표기는 \"Chocolate & Nuts\" 단일 문구이나 tastingNotes 리스트 관행상 &로 분리된 개별 노트 표기(A) 채택. 모델 추출 근거이므로 최대 MEDIUM."
+  }
+ },
+ "malik-5266435381": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "THIRD",
+   "note": "A(\"함벨라, 예가체프\")와 B(\"Hambela · Yirgacheffe\")는 구분자·언어 표기 차이만 있는 동일값. 데이터셋 관용 표기(한글+' · ')로 합성한 제3의 표기 채택."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "B",
+   "note": "A가 누락한 '샴페인'이 원문에 명시됨(\"샴페인을 마시는듯한 느낌\"). '꽃 향'은 원문 표기 그대로 유지."
+  }
+ },
+ "coffeejg-10793450163": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "B",
+   "note": "A의 'Medium'은 중강배전→Medium 매핑 추론 포함. 원문에 없는 값을 만들지 않기 위해 원문 표기 그대로 기록."
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "toch-6650495962": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "deepbluelake-559": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "A",
+   "note": "충돌 명시: 페이지에 'SOLD OUT' 표기가 있으나 구매 버튼(BUY NOW/ADD TO CART)과 함께 추출된 템플릿 버튼 라벨이며, '품절' 상태 표시는 없음. 수집기 isSoldOut=false가 일관되므로 더 신뢰할 만한 근거 쪽(active)으로 판정."
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "A",
+   "note": "게뎁(Gedeb)은 예가체프 내 행정구역(워레다)으로 지역 명칭에 해당. 초르소는 최하위 명칭(워싱스테이션급)으로 region에서 제외. B의 '예가체프'만은 원문 정보 손실."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "아이덴티티커피랩-칠린블렌드": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "히떼로스터리-콜롬비아후일라루시타니아-2by구스타보피게로아워시드": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "coffee502-184": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "A",
+   "note": "상세 원문이 지역을 Gedeb로 명시. 상품명도 예가체프 게뎁까지 기재."
+  },
+  "producer": {
+   "ruling": "A",
+   "note": "원문이 생산자로 명시. B는 근거 없는 null."
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "A",
+   "note": "원문 명시. 데이터셋 관용 한글 표기(쿠루메)로 기록. B는 근거 없는 null."
+  },
+  "roast": {
+   "ruling": "B",
+   "note": "A의 'Medium'은 Light~Medium 사이 표기를 Medium으로 매핑한 추론. 원문 표기 그대로 기록."
+  },
+  "tastingNotes": {
+   "ruling": "A",
+   "note": "원문이 Tasting Notes로 명시. B는 근거 없는 빈 목록."
+  }
+ },
+ "werk-161": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "B",
+   "note": "A(\"브라질, 온두라스, 에티오피아\")와 B는 구분자 차이만 있는 동일값. 데이터셋 관용 ' · ' 표기 채택. 모델 추출 근거이므로 MEDIUM."
+  },
+  "originRegion": {
+   "ruling": "B",
+   "note": "A/B 동일값의 구분자 차이 → ' · ' 표기 채택. 모델 추출 근거이므로 MEDIUM."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "THIRD",
+   "note": "제품 단위 가공 명시는 없고 성분별 가공만 존재(A 주장)하나, 데이터셋 관용상 블렌드 제품의 process는 '블렌드'로 기록(블렌드 제품 38/39가 process='블렌드'). B의 성분별 가공 나열은 관용과 불일치."
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "fritz-1290": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "centercoffee-133": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "A",
+   "note": "원문이 Yirgacheffe Worka까지 명시하므로 구체 지역 유지. B의 'Yirgacheffe'만은 정보 손실. 상세 원문(rawObservations/detailText) 부재이나 상품명은 명시적 근거."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "hellcafe-60": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "aerycoffee-13666861088": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "B",
+   "note": "'알티에리 알레'는 농장/생산자 성격으로 보이나 원문에서 지역으로 명시되지 않아 region 확정 불가. 게이샤는 품종."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "cafedoan-12007318426": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "hocuspocus-5935682761": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "루비아커피-클래식이탈리안스타일피렌체": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "A",
+   "note": "'굿바디'는 바디감 표현이라 flavor note에서 제외(데이터셋 tastingNotes 102종 중 바디 표현 전무). '구운디'는 원문 표기 유지. 모델 추출 근거이므로 MEDIUM."
+  }
+ },
+ "fillout-13741415128": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "A",
+   "note": "콰미의 성격(워싱스테이션/지역 하위명)을 확정할 상세 근거가 없어 B의 '콰미 제외'는 추론. 원문 전체 명칭을 기록."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "namusairo-1090": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "A",
+   "note": "충돌 명시: 'SOLD OUT'은 구매 버튼들과 함께 추출된 템플릿 버튼 라벨이며 '품절' 표시 없음. 수집기 isSoldOut=false가 더 신뢰할 만하므로 active."
+  },
+  "originCountry": {
+   "ruling": "B",
+   "note": "A(\"콜롬비아, 에티오피아\")와 B는 구분자 차이만 있는 동일값. 데이터셋 관용 ' · ' 표기 채택."
+  },
+  "originRegion": {
+   "ruling": "B",
+   "note": "원문이 지역 필드로 명시. A의 '옴블리곤'은 품종 필드(\"품 종 Ombligon · ...\")에 있어 지역이 아님."
+  },
+  "producer": {
+   "ruling": "B",
+   "note": "원문이 농장 필드로 명시(producer로 매핑). A는 근거 없는 null."
+  },
+  "process": {
+   "ruling": "B",
+   "note": "원문 명시. 데이터셋 관용 한글 표기(워시드=Washed)로 기록. A는 근거 없는 null."
+  },
+  "variety": {
+   "ruling": "B",
+   "note": "옴블리곤이 원문에서 품종으로 명시됨. A는 근거 없는 null."
+  },
+  "roast": {
+   "ruling": "B",
+   "note": "원문 명시. A는 근거 없는 null."
+  },
+  "tastingNotes": {
+   "ruling": "B",
+   "note": "전용 향미 필드 기준. ver.3 서술문의 추가 노트(라즈베리 사탕·초콜릿·마카다미아·버터)는 마케팅 서술형으로 제외 — 지역/농장/품종/가공법/볶음도도 동일 구조화 블록 기준으로 판정한 것과 일관."
+  }
+ },
+ "로스터릭-사계블랜드": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "terarosa-100499": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "A",
+   "note": "아리차까지 명시된 구체 지역. 표기는 데이터셋 관용 '예가체프' 사용(제품명은 '예가체페')."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "B",
+   "note": "'토착종'은 품종명으로 부적절하므로 기록하지 않음. 유효한 품종 정보 부재."
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "B",
+   "note": "'꽃내음'은 원문 표기 그대로. 서술형 문장의 모델 추출(해석 포함)이므로 MEDIUM."
+  }
+ },
+ "malik-5266393857": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "B",
+   "note": "마일드 블렌드의 전체 구성이 미공개 — 아티틀란은 교체된 일부 성분에 불과하므로 region 확정 불가. 억지 선택 금지."
+  },
+  "producer": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ },
+ "coffeejg-13658727081": {
+  "productType": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "status": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originCountry": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "originRegion": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "producer": {
+   "ruling": "B",
+   "note": "'팜즈(Farms)'가 명칭에 포함된 농장명으로 producer 기록(게이샤는 품종). 상세 원문 부재로 MEDIUM."
+  },
+  "process": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "variety": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "roast": {
+   "ruling": "AGREE",
+   "note": ""
+  },
+  "tastingNotes": {
+   "ruling": "AGREE",
+   "note": ""
+  }
+ }
+}

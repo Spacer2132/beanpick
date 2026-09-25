@@ -1,0 +1,122 @@
+{
+ "reversals": [
+  {
+   "id": "cafedoan-11446555211",
+   "field": "originRegion",
+   "before": {
+    "value": "라 트리니다드",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "Finca La Trinidad(콜롬비아 우일라)의 농장명. 원문에 지역 표기 없음"
+  },
+  {
+   "id": "hocuspocus-12134209835",
+   "field": "originRegion",
+   "before": {
+    "value": "비스타 헤르모사",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "Vista Hermosa(과테말라 안티구아)의 농장명. 원문에 지역 표기 없음"
+  },
+  {
+   "id": "aerycoffee-11941856461",
+   "field": "originRegion",
+   "before": {
+    "value": "잔슨",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "Hacienda Janson(파나마)의 농장명. 원문에 지역 표기 없음"
+  },
+  {
+   "id": "cafedoan-13627490056",
+   "field": "originRegion",
+   "before": {
+    "value": "카멜리아스",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "Finca Las Camelias(과테말라)의 농장명. 원문에 지역 표기 없음"
+  },
+  {
+   "id": "hocuspocus-11755848790",
+   "field": "originRegion",
+   "before": {
+    "value": "다테하",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "Daterra Estate(브라질 세하두)의 농장명. 원문에 지역 표기 없음"
+  },
+  {
+   "id": "cafedoan-13647777127",
+   "field": "originRegion",
+   "before": {
+    "value": "라 노리아",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "농장명으로 보이며 원문에 지역 표기 없음"
+  },
+  {
+   "id": "cafedoan-13647238261",
+   "field": "originRegion",
+   "before": {
+    "value": "라 시리아",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "Finca La Siria(콜롬비아 우일라)의 농장명. 원문에 지역 표기 없음"
+  },
+  {
+   "id": "cafedoan-11382415813",
+   "field": "originRegion",
+   "before": {
+    "value": "부에나 비스타",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "원문에 'Finca Buena Vista'로 농장임이 명시됨. 농장은 지역이 아님"
+  },
+  {
+   "id": "cafedoan-11754458202",
+   "field": "originRegion",
+   "before": {
+    "value": "산타 루치아",
+    "confidence": "HIGH"
+   },
+   "after": {
+    "value": null,
+    "confidence": "SOURCE_MISSING"
+   },
+   "reason": "원문에 'Santa Lucia 농장'으로 농장임이 명시됨. 농장은 지역이 아님"
+  }
+ ],
+ "note": "수동 QA: 에스테이트명을 originRegion HIGH로 승격한 9건 되돌림. 나머지 필드 이상 없음."
+}

@@ -1,0 +1,82 @@
+{
+ "terarosa-100020": {
+  "corrections": [],
+  "note": "도메인 이상 없음."
+ },
+ "cafedoan-13627489275": {
+  "corrections": [],
+  "note": "게이샤=품종 ✓. 히메네즈는 생산자 위치 — 지역 아님 ✓."
+ },
+ "루비아커피-콜롬비아라스알마스워시드다크로스트": {
+  "corrections": [],
+  "note": "라스 알마스는 농장명 — 지역 아님 ✓."
+ },
+ "fillout-13737330771": {
+  "corrections": [],
+  "note": "도메인 이상 없음."
+ },
+ "namusairo-828": {
+  "corrections": [],
+  "note": "마운틴 워터(MWP)=디카페인 가공법 → decafMethod 분리 ✓. 버번/티피카/문도노보 품종 ✓. 데스카맥스는 가공소(생산자 아님) ✓."
+ },
+ "로스터릭-브라질세라도내추럴": {
+  "corrections": [],
+  "note": "세라도=지역 ✓."
+ },
+ "terarosa-100543": {
+  "corrections": [],
+  "note": "리무 아가로=지역 ✓. 토착종≠품종 ✓."
+ },
+ "coffeelibre-8031": {
+  "corrections": [],
+  "note": "도메인 이상 없음."
+ },
+ "aerycoffee-11529645422": {
+  "corrections": [],
+  "note": "핀카 데보라는 농장명 — 지역 아님 ✓."
+ },
+ "cafedoan-9985295831": {
+  "corrections": [],
+  "note": "풀리 워시드=fully washed → 워시드 ✓. AA는 등급(품종 아님) ✓."
+ },
+ "호커스포커스로스터스-조디악블렌드고소한원두": {
+  "corrections": [],
+  "note": "도메인 이상 없음."
+ },
+ "루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피": {
+  "corrections": [],
+  "note": "엘 파라이소는 농장명 — 지역 아님 ✓."
+ },
+ "fillout-13622523775": {
+  "corrections": [],
+  "note": "파젠다 엄은 농장명 — 지역 아님 ✓. 옐로우버번=Yellow Bourbon ✓."
+ },
+ "namusairo-183": {
+  "corrections": [],
+  "note": "우에우에테낭고·달고단=지역 ✓."
+ },
+ "로스터릭-파나마보케테팔미라워시드중강배전": {
+  "corrections": [],
+  "note": "보케테=지역, 팔미라=농장 ✓."
+ },
+ "cafedoan-12769087298": {
+  "corrections": [],
+  "note": "시다마·벤사=지역, 베켈레 유투테=생산자, 74158=품종 ✓."
+ },
+ "호커스포커스로스터스-긱블렌드고소한원두": {
+  "corrections": [],
+  "note": "도메인 이상 없음."
+ },
+ "루비아커피-다크브라운": {
+  "corrections": [],
+  "note": "도메인 이상 없음."
+ },
+ "fillout-13684417070": {
+  "corrections": [],
+  "note": "엘 레나세르는 농장명 — 지역 아님 ✓. 카투라=품종, 피베리=선별 등급 ✓."
+ },
+ "namusairo-763": {
+  "corrections": [],
+  "note": "French roast → Dark 매핑 (5단계 enum 내 가장 근접). 도메인 이상 없음."
+ }
+}
