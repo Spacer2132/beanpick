@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 // BeanPick 데이터 회귀 감사 도구.
-// 사용: node audit/tools/audit-data.mjs [products.json] [--before old-products.json]
+// 사용: node audit/tools/audit-data.mjs [products.json] [--before old-products.json] [--renormalize-golden | --write-golden]
 //   products.json 기본값: docs/products.json
 // - 수집기를 실행하지 않는다. 앱 표시 함수(coreFeatures/tastingNotes) import만 사용.
 // - golden(audit/golden-products.json)과 현재 표시값을 비교해 필드별 Correct/Wrong/Missing 출력.
 // - --before: 이전 products.json과 비교해 복구된 값 / 사라진 값 / 맞다가 틀려진 값 / 바뀐 상품 목록 출력.
 //   회귀(사라진 값 + 맞다가 틀려진 값)가 1건 이상이면 exit 1.
+// - --renormalize-golden: 정규화 사전을 의도적으로 바꾼 뒤, golden comparable을 현재 정규화기로 다시 계산해
+//   변경분(추가/소실)을 보고한다. 소실이 1건 이상이면 exit 1. --write-golden은 소실 0일 때만 golden에 저장한다.
+//   소실이 "초콜릿→다크초콜릿"처럼 더 구체적인 노트로 바뀐 것뿐임을 사람이 확인했으면 --accept-lost로 수용한다.
+//   기본 실행은 golden에 고정된 comparable로 비교한다.
 // - golden에 없는 ID → NEW, golden에만 있는 ID → GONE (회귀 아님).
 // - evidenceKind=current_echo golden 필드는 Correct/Wrong/Missing 집계에서 제외하고,
 //   "사라짐" 감지(이전에 표시되던 값이 사라짐)에만 사용한다.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -25,8 +29,14 @@ const GOLDEN_PATH = join(ROOT, 'audit/golden-products.json');
 const args = process.argv.slice(2);
 let productsPath = join(ROOT, 'docs/products.json');
 let beforePath = null;
+let renormalize = false;
+let writeGolden = false;
+let acceptLost = false;
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--before') beforePath = resolve(args[++i]);
+  else if (args[i] === '--renormalize-golden') renormalize = true;
+  else if (args[i] === '--write-golden') { renormalize = true; writeGolden = true; }
+  else if (args[i] === '--accept-lost') acceptLost = true;
   else if (!args[i].startsWith('--')) productsPath = resolve(args[i]);
 }
 
@@ -67,16 +77,37 @@ function producerMatch(golden, farm) {
   return words.some((w) => f.includes(normKey(w)));
 }
 
+function comparableOf(goldenRec, goldenVal = goldenRec.value) {
+  const raw = goldenRec.raw ?? goldenVal;
+  const list = Array.isArray(raw) ? raw : raw == null ? [] : [raw];
+  return normalizeTastingNotes(list, { limit: Infinity, explicitEvidence: true });
+}
+
+// 현재 정규화기로 golden comparable을 다시 계산해 고정값과 비교한다.
+// 새로 표현 가능해진 노트(added)는 사전 확장의 정상 결과이고,
+// 고정값에 있던 노트가 사라지면(lost) 정규화기가 원문 노트를 버리게 된 것이므로 회귀다.
+function renormalizeGolden(golden) {
+  const changes = [];
+  for (const [id, rec] of Object.entries(golden)) {
+    const tn = rec.golden?.tastingNotes;
+    if (!tn || !Array.isArray(tn.comparable)) continue;
+    const next = comparableOf(tn);
+    const prev = new Set(tn.comparable), now = new Set(next);
+    const added = next.filter((x) => !prev.has(x));
+    const lost = tn.comparable.filter((x) => !now.has(x));
+    if (added.length || lost.length) changes.push({ id, added, lost, next });
+  }
+  return changes;
+}
+
 function fieldsEqual(field, goldenVal, dispVal, goldenRec) {
   switch (field) {
     case 'tastingNotes': {
-      // comparable은 정규화기 버전에 종속된 파생 캐시이므로 항상 현재 정규화기로
-      // golden raw에서 다시 계산한다. golden에 캐시된 comparable은 구 사전 기준이라
-      // 새 alias가 복구한 노트를 오판한다(구 정규화기에서는 재계산 결과가 캐시와
-      // 454건 전부 일치함을 확인 — 기존 리포트 수치에 영향 없음).
-      const raw = goldenRec.raw ?? goldenVal;
-      const list = Array.isArray(raw) ? raw : raw == null ? [] : [raw];
-      const comp = normalizeTastingNotes(list, { limit: Infinity, explicitEvidence: true });
+      // golden에 고정 저장된 comparable과 비교한다. 매번 현재 정규화기로 다시 계산하면
+      // 정규화기가 노트를 버리는 회귀가 golden 쪽에서도 똑같이 사라져 잡히지 않는다.
+      // 사전을 의도적으로 바꿨을 때는 --renormalize-golden 으로 변경분을 검토하고
+      // --write-golden 으로 갱신한다.
+      const comp = goldenRec.comparable ?? comparableOf(goldenRec, goldenVal);
       const c = new Set(comp), d = new Set(Array.isArray(dispVal) ? dispVal : []);
       if (c.size !== d.size) return false;
       for (const x of c) if (!d.has(x)) return false;
@@ -117,8 +148,15 @@ function gradeProduct(golden, disp) {
 
 function main() {
   if (!existsSync(GOLDEN_PATH)) { console.error('golden 없음: ' + GOLDEN_PATH); process.exit(2); }
-  const golden = JSON.parse(readFileSync(GOLDEN_PATH, 'utf8')).products;
+  const goldenFile = JSON.parse(readFileSync(GOLDEN_PATH, 'utf8'));
+  const golden = goldenFile.products;
   const now = loadProducts(productsPath);
+
+  let renorm = null;
+  if (renormalize) {
+    renorm = renormalizeGolden(golden);
+    for (const c of renorm) golden[c.id].golden.tastingNotes.comparable = c.next;
+  }
 
   const stats = {};
   for (const f of FIELDS) stats[f] = { Correct: 0, Wrong: 0, Missing: 0, FALSE_POSITIVE: 0, Skip: 0 };
@@ -152,6 +190,32 @@ function main() {
   }
 
   let exitCode = 0;
+  if (renorm) {
+    const lost = renorm.filter((c) => c.lost.length);
+    const added = renorm.filter((c) => c.added.length);
+    L.push('');
+    L.push('## golden comparable 재정규화 (--renormalize-golden)');
+    L.push(`- 변경 상품: ${renorm.length} (노트 추가 ${added.length}, 노트 소실 ${lost.length})`);
+    L.push('- 추가는 사전 확장의 정상 결과다. 소실은 정규화기가 원문 노트를 버리게 된 것이므로 회귀로 본다.');
+    if (lost.length) {
+      L.push('', `### golden 노트 소실 (${lost.length}) — 회귀`);
+      for (const c of lost) L.push(`- ${c.id}: -${c.lost.join(', ')}${c.added.length ? ` / +${c.added.join(', ')}` : ''}`);
+      if (!acceptLost) exitCode = 1;
+      else L.push('', `- --accept-lost: 소실 ${lost.length}건을 사람이 검토해 수용함 (회귀로 세지 않음)`);
+    }
+    if (added.length) {
+      L.push('', `### golden 노트 추가 (${added.length})`);
+      for (const c of added.filter((x) => !x.lost.length)) L.push(`- ${c.id}: +${c.added.join(', ')}`);
+    }
+    if (writeGolden) {
+      if (lost.length && !acceptLost) {
+        L.push('', '- --write-golden 거부: 노트 소실이 있어 golden을 갱신하지 않았다. 검토 후 --accept-lost를 함께 주면 갱신한다.');
+      } else {
+        writeFileSync(GOLDEN_PATH, JSON.stringify(goldenFile, null, 1)); // 원본과 같은 1칸 들여쓰기·끝 줄바꿈 없음
+        L.push('', `- --write-golden: golden comparable ${renorm.length}건 갱신 완료 (${GOLDEN_PATH})`);
+      }
+    }
+  }
   if (beforePath) {
     const before = loadProducts(beforePath);
     const recovered = [], disappeared = [], newlyWrong = [], newFP = [], fixedFP = [], changed = new Set();
@@ -217,4 +281,4 @@ const invokedAsScript = (() => {
 if (invokedAsScript) main();
 
 // 테스트(audit/tools/test-audit-data.mjs)에서 사용
-export { gradeProduct, displayedOf, isBlank, fieldsEqual, FIELDS };
+export { gradeProduct, displayedOf, isBlank, fieldsEqual, renormalizeGolden, FIELDS };

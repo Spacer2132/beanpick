@@ -156,7 +156,9 @@
      ],
      "comparable": [
       "복숭아",
+      "감귤",
       "자스민",
+      "얼그레이",
       "꿀"
      ],
      "droppedByNormalizer": [
@@ -329,6 +331,7 @@
      "comparable": [
       "블루베리",
       "자두",
+      "플로럴",
       "꿀"
      ],
      "droppedByNormalizer": [
@@ -505,7 +508,8 @@
      ],
      "comparable": [
       "천도복숭아",
-      "베르가못"
+      "베르가못",
+      "로즈마리"
      ],
      "droppedByNormalizer": [
       {
@@ -685,6 +689,7 @@
      ],
      "evidenceKind": "current_echo",
      "comparable": [
+      "호박",
       "호두",
       "긴 여운"
      ],
@@ -1000,6 +1005,9 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "복숭아",
+      "망고스틴",
+      "금귤",
+      "바이올렛",
       "오렌지꽃"
      ],
      "droppedByNormalizer": [
@@ -1458,7 +1466,8 @@
       "블랙 슈가"
      ],
      "comparable": [
-      "다크초콜릿"
+      "다크초콜릿",
+      "브라운슈가"
      ],
      "droppedByNormalizer": [
       {
@@ -1555,6 +1564,7 @@
      ],
      "comparable": [
       "건포도",
+      "말린자두",
       "초콜릿"
      ],
      "droppedByNormalizer": [
@@ -2273,6 +2283,7 @@
      ],
      "comparable": [
       "복숭아",
+      "플로럴",
       "코코넛",
       "허브"
      ],
@@ -2920,6 +2931,7 @@
      "comparable": [
       "포도",
       "당밀",
+      "브라운슈가",
       "견과류"
      ],
      "droppedByNormalizer": [
@@ -3198,7 +3210,8 @@
      ],
      "comparable": [
       "초콜릿",
-      "견과류"
+      "견과류",
+      "구운빵"
      ],
      "droppedByNormalizer": [
       {
@@ -3287,6 +3300,8 @@
       "호두"
      ],
      "comparable": [
+      "사과",
+      "계피",
       "호두"
      ],
      "droppedByNormalizer": [
@@ -3687,7 +3702,8 @@
      ],
      "comparable": [
       "멜론",
-      "구아바"
+      "구아바",
+      "꿀풀"
      ],
      "droppedByNormalizer": [
       {
@@ -4008,6 +4024,7 @@
       "당밀"
      ],
      "comparable": [
+      "말린자두",
       "초콜릿",
       "당밀"
      ],
@@ -4181,7 +4198,9 @@
       "오렌지",
       "살구",
       "리치",
-      "홍차"
+      "홍차",
+      "커피꽃",
+      "허브"
      ],
      "droppedByNormalizer": [
       {
@@ -4437,7 +4456,9 @@
      "comparable": [
       "딸기",
       "라즈베리",
-      "포도"
+      "포도",
+      "플로럴",
+      "샴페인"
      ],
      "droppedByNormalizer": [
       {
@@ -4737,7 +4758,8 @@
       "사과",
       "살구",
       "청포도",
-      "베르가못"
+      "베르가못",
+      "아카시아"
      ],
      "droppedByNormalizer": [
       {
@@ -5162,6 +5184,8 @@
       "마일드한 커피"
      ],
      "comparable": [
+      "감귤",
+      "시럽",
       "캐슈넛"
      ],
      "droppedByNormalizer": [
@@ -5828,7 +5852,8 @@
      "comparable": [
       "체리",
       "파인애플",
-      "쥬시"
+      "쥬시",
+      "벚꽃"
      ],
      "droppedByNormalizer": [
       {
@@ -6011,7 +6036,8 @@
      ],
      "evidenceKind": "current_echo",
      "comparable": [
-      "오렌지"
+      "오렌지",
+      "플로럴"
      ],
      "droppedByNormalizer": [
       {
@@ -6326,7 +6352,9 @@
      "comparable": [
       "자두",
       "자스민",
-      "차"
+      "차",
+      "목련",
+      "연유"
      ],
      "droppedByNormalizer": [
       {
@@ -6583,6 +6611,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "청사과",
+      "감귤",
       "플로럴",
       "꿀"
      ],
@@ -6678,7 +6707,8 @@
      "comparable": [
       "오렌지",
       "딸기",
-      "적포도"
+      "적포도",
+      "아카시아"
      ],
      "droppedByNormalizer": [
       {
@@ -6947,7 +6977,8 @@
      "comparable": [
       "레몬",
       "라즈베리",
-      "자두"
+      "자두",
+      "홍차"
      ],
      "droppedByNormalizer": [
       {
@@ -7200,7 +7231,11 @@
       "modne kirsebær"
      ],
      "evidenceKind": "current_echo",
-     "comparable": [],
+     "comparable": [
+      "체리",
+      "초콜릿",
+      "캐러멜"
+     ],
      "droppedByNormalizer": [
       {
        "note": "Karamell",
@@ -7382,7 +7417,9 @@
      "comparable": [
       "블루베리",
       "복숭아",
+      "플로럴",
       "자스민",
+      "얼그레이",
       "꿀"
      ],
      "droppedByNormalizer": [
@@ -7484,6 +7521,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "사과",
+      "핵과류",
       "자스민"
      ],
      "droppedByNormalizer": [
@@ -7577,7 +7615,10 @@
       "루바브"
      ],
      "comparable": [
-      "딸기"
+      "딸기",
+      "살구",
+      "패션프루트",
+      "루바브"
      ],
      "droppedByNormalizer": [
       {
@@ -7680,7 +7721,8 @@
      ],
      "evidenceKind": "current_echo",
      "comparable": [
-      "라즈베리"
+      "라즈베리",
+      "멜론"
      ],
      "droppedByNormalizer": [
       {
@@ -8011,7 +8053,9 @@
      "comparable": [
       "복숭아",
       "살구",
+      "감귤",
       "플로럴",
+      "사탕수수",
       "견과류"
      ],
      "droppedByNormalizer": [
@@ -8113,7 +8157,8 @@
      "comparable": [
       "밀크초콜릿",
       "브라운슈가",
-      "아몬드"
+      "아몬드",
+      "오트"
      ],
      "droppedByNormalizer": [
       {
@@ -8214,7 +8259,8 @@
       "블루베리",
       "포도",
       "쥬시",
-      "크랜베리"
+      "크랜베리",
+      "석류"
      ],
      "droppedByNormalizer": [
       {
@@ -8717,7 +8763,9 @@
       "루이보스 티의 여운"
      ],
      "comparable": [
-      "청사과"
+      "청사과",
+      "감귤",
+      "사탕수수"
      ],
      "droppedByNormalizer": [
       {
@@ -9385,6 +9433,7 @@
      ],
      "evidenceKind": "current_echo",
      "comparable": [
+      "감귤",
       "캐러멜",
       "호박"
      ],
@@ -9726,7 +9775,9 @@
       "무화과",
       "캐러멜",
       "둘세데레체",
-      "바닐라"
+      "바닐라",
+      "토피",
+      "사탕수수"
      ],
      "droppedByNormalizer": [
       {
@@ -9828,7 +9879,8 @@
       "복숭아",
       "포도",
       "라벤더",
-      "백차"
+      "백차",
+      "얼그레이"
      ],
      "droppedByNormalizer": [
       {
@@ -9992,6 +10044,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "블루베리",
+      "검은딸기",
       "다크초콜릿"
      ],
      "droppedByNormalizer": [
@@ -10085,7 +10138,9 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "라임",
-      "복숭아"
+      "복숭아",
+      "감귤",
+      "사탕수수"
      ],
      "droppedByNormalizer": [
       {
@@ -10443,7 +10498,8 @@
      ],
      "comparable": [
       "베리",
-      "천도복숭아"
+      "천도복숭아",
+      "레모네이드"
      ],
      "droppedByNormalizer": [
       {
@@ -10865,7 +10921,9 @@
      "evidenceSource": "audit-input/products/루비아커피-에티오피아구지하로와추g1워시드다크로스트-1dfaa6b9.json#evidence.ocr[].output",
      "evidenceKind": "current_echo",
      "comparable": [
-      "복숭아"
+      "복숭아",
+      "플로럴",
+      "얼그레이"
      ],
      "droppedByNormalizer": [
       {
@@ -10961,6 +11019,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "사과",
+      "핵과류",
       "자스민"
      ],
      "droppedByNormalizer": [
@@ -11528,6 +11587,9 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "복숭아",
+      "망고스틴",
+      "금귤",
+      "바이올렛",
       "오렌지꽃"
      ],
      "droppedByNormalizer": [
@@ -11733,7 +11795,8 @@
       "파인애플",
       "자두",
       "포도",
-      "패션프루트"
+      "패션프루트",
+      "유칼립투스"
      ],
      "droppedByNormalizer": [
       {
@@ -11827,6 +11890,7 @@
      "comparable": [
       "라즈베리",
       "체리",
+      "수박",
       "아몬드"
      ],
      "droppedByNormalizer": [
@@ -11990,6 +12054,7 @@
      "evidenceSource": "audit-input/products/coffee502-154-ed84ed2e.json#evidence.rawObservations[].text",
      "comparable": [
       "파인애플",
+      "감귤",
       "와이니"
      ],
      "droppedByNormalizer": [
@@ -12424,7 +12489,8 @@
      "comparable": [
       "레몬",
       "라즈베리",
-      "자두"
+      "자두",
+      "스파이스"
      ],
      "droppedByNormalizer": [
       {
@@ -12751,7 +12817,9 @@
      "evidence": "원문 '향 미 딸기잼, 건자두, 포도, 와이니, 농밀하다 Strawberry Jam, Prunes, Grapes, Winey, Deep' — '농밀하다/Deep'는 질감·강도 서술로 제외",
      "evidenceSource": "audit-input/products/namusairo-1137-093bd9ed.json#evidence.rawObservations[].text",
      "comparable": [
+      "딸기",
       "포도",
+      "말린자두",
       "와이니"
      ],
      "droppedByNormalizer": [
@@ -13249,7 +13317,9 @@
      "comparable": [
       "살구",
       "열대과일",
-      "자두"
+      "자두",
+      "스타프룻",
+      "솜사탕"
      ],
      "droppedByNormalizer": [
       {
@@ -13426,8 +13496,9 @@
      "evidenceSource": "audit-input/products/deepbluelake-536-c9fb3adc.json#evidence.ocr[].output",
      "evidenceKind": "current_echo",
      "comparable": [
-      "초콜릿",
-      "땅콩"
+      "다크초콜릿",
+      "땅콩",
+      "옥수수"
      ],
      "droppedByNormalizer": [
       {
@@ -13526,6 +13597,7 @@
      "comparable": [
       "딸기",
       "멜론",
+      "키위",
       "라벤더"
      ],
      "droppedByNormalizer": [
@@ -13692,7 +13764,8 @@
      "comparable": [
       "블루베리",
       "복숭아",
-      "포도"
+      "포도",
+      "사탕수수"
      ],
      "droppedByNormalizer": [
       {
@@ -13789,6 +13862,7 @@
      "evidenceSource": "audit-input/products/werk-575-3852b7ea.json#evidence.rawObservations[0].text",
      "comparable": [
       "블루베리",
+      "복숭아",
       "망고"
      ],
      "droppedByNormalizer": [
@@ -14112,6 +14186,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "청사과",
+      "레몬그라스",
       "플로럴"
      ],
      "droppedByNormalizer": [
@@ -14279,6 +14354,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "블랙커런트",
+      "아카시아",
       "초콜릿",
       "캐러멜"
      ],
@@ -14452,6 +14528,7 @@
      "evidence": "기본 정보 '향 미 자스민, 복합적, 엘더베리, 샬롯, 달다' — '복합적'·'달다'는 질감/강도 서술로 제외",
      "evidenceSource": "audit-input/products/namusairo-30-114d36e8.json#evidence.rawObservations[0].text",
      "comparable": [
+      "엘더베리",
       "자스민"
      ],
      "droppedByNormalizer": [
@@ -14852,7 +14929,8 @@
      "comparable": [
       "딸기",
       "라즈베리",
-      "포도"
+      "포도",
+      "플로럴"
      ],
      "droppedByNormalizer": [
       {
@@ -15095,7 +15173,8 @@
       "복숭아",
       "살구",
       "자두",
-      "플로럴"
+      "플로럴",
+      "사탕수수"
      ],
      "droppedByNormalizer": [
       {
@@ -15339,7 +15418,9 @@
      "evidence": "본문 'Tasting Notes 감귤, 베리, 초콜렛' 명시",
      "evidenceSource": "audit-input/products/coffee502-121-8bfa1aff.json#evidence.rawObservations[0].text",
      "comparable": [
-      "베리"
+      "베리",
+      "감귤",
+      "다크초콜릿"
      ],
      "droppedByNormalizer": [
       {
@@ -15433,7 +15514,8 @@
      "evidence": "rawTexts '상품간략설명 블랙 : 다크 초콜릿, 카카오, 군고구마' 명시; OCR(다크 초콜릿, 카카오, 군고구마) 일치",
      "evidenceSource": "audit-input/products/werk-545-66a19f2c.json#evidence.rawObservations[0].text",
      "comparable": [
-      "다크초콜릿"
+      "다크초콜릿",
+      "군고구마"
      ],
      "droppedByNormalizer": [
       {
@@ -15536,7 +15618,9 @@
      "evidence": "본문 'Flavor Notes: 체리, 감귤, 흑당, 여운이 긴 커피' 명시 — '여운이 긴 커피'는 질감·지속 서술이라 제외",
      "evidenceSource": "audit-input/products/fritz-1202-851ac327.json#evidence.rawObservations[0].text",
      "comparable": [
-      "체리"
+      "체리",
+      "감귤",
+      "브라운슈가"
      ],
      "droppedByNormalizer": [
       {
@@ -15866,7 +15950,8 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "블루베리",
-      "복숭아"
+      "복숭아",
+      "플로럴"
      ],
      "droppedByNormalizer": [
       {
@@ -15962,6 +16047,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "시트러스",
+      "자스민",
       "허브"
      ],
      "droppedByNormalizer": [
@@ -16063,7 +16149,9 @@
      "comparable": [
       "베리",
       "포도",
-      "구아바"
+      "구아바",
+      "카다몬",
+      "타마린드"
      ],
      "droppedByNormalizer": [
       {
@@ -16247,7 +16335,8 @@
      "evidenceSource": "audit-input/products/terarosa-100521-81d780a8.json#evidence.ocr[0].output",
      "evidenceKind": "current_echo",
      "comparable": [
-      "자두"
+      "자두",
+      "블랙체리"
      ],
      "droppedByNormalizer": [
       {
@@ -16494,7 +16583,8 @@
      "comparable": [
       "시트러스",
       "블랙커런트",
-      "살구"
+      "살구",
+      "사탕수수"
      ],
      "droppedByNormalizer": [
       {
@@ -16589,6 +16679,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "오렌지",
+      "홍차",
       "녹차",
       "캐러멜",
       "마카다미아"
@@ -16766,7 +16857,8 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "말린자두",
-      "초콜릿"
+      "검은딸기",
+      "다크초콜릿"
      ],
      "droppedByNormalizer": [
       {
@@ -16865,8 +16957,8 @@
      "comparable": [
       "오렌지",
       "브라운슈가",
-      "구운향",
-      "견과류"
+      "견과류",
+      "군밤"
      ],
      "droppedByNormalizer": []
     },
@@ -16954,7 +17046,8 @@
      "evidence": "detailText: '노트: 다크 카카오, 흑설탕' — '풀 바디'는 질감 서술이라 제외. OCR(Dark Cacao, Brown Sugar)과 일치",
      "evidenceSource": "audit-input/products/히떼로스터리-굿데이다크-21bee56d.json#evidence.detailCache.detailText",
      "comparable": [
-      "초콜릿"
+      "초콜릿",
+      "브라운슈가"
      ],
      "droppedByNormalizer": [
       {
@@ -17055,8 +17148,11 @@
      "evidenceSource": "audit/golden/batch-008-evidence.json#coffee502-93.rawTexts[0]",
      "comparable": [
       "베리",
+      "감귤",
       "다크초콜릿",
-      "견과류"
+      "브라운슈가",
+      "견과류",
+      "구운빵"
      ],
      "droppedByNormalizer": [
       {
@@ -17769,7 +17865,8 @@
      "evidenceSource": "audit-input/products/terarosa-100520-83bc3d2b.json#evidence.ocr[0].output",
      "evidenceKind": "current_echo",
      "comparable": [
-      "오렌지"
+      "오렌지",
+      "살구"
      ],
      "droppedByNormalizer": [
       {
@@ -18085,7 +18182,8 @@
       "오렌지",
       "복숭아",
       "리치",
-      "패션프루트"
+      "패션프루트",
+      "바이올렛"
      ],
      "droppedByNormalizer": [
       {
@@ -18254,6 +18352,8 @@
      "comparable": [
       "망고",
       "패션프루트",
+      "홍차",
+      "장미",
       "바닐라"
      ],
      "droppedByNormalizer": [
@@ -18652,7 +18752,9 @@
      "evidence": "detailText 'CUP NOTE 유자, 노란 키위, 건살구' 명시",
      "evidenceSource": "audit-input/products/cafedoan-13094420210-41595bf4.json#evidence.detailCache.detailText",
      "comparable": [
-      "유자"
+      "살구",
+      "유자",
+      "키위"
      ],
      "droppedByNormalizer": [
       {
@@ -18970,8 +19072,10 @@
      "evidenceSource": "audit-input/products/namusairo-29-683c38e0.json#evidence.rawObservations[0].text",
      "comparable": [
       "오렌지",
+      "스파이스",
       "밀크초콜릿",
-      "캐러멜"
+      "캐러멜",
+      "브라운슈가"
      ],
      "droppedByNormalizer": [
       {
@@ -19455,7 +19559,9 @@
      "evidenceSource": "audit-input/products/coffeejg-13735236794-ade3f421.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
-      "라즈베리"
+      "라즈베리",
+      "검은딸기",
+      "브라운슈가"
      ],
      "droppedByNormalizer": [
       {
@@ -19627,7 +19733,8 @@
      "evidenceSource": "audit-input/products/deepbluelake-537-815fe03c.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
-      "초콜릿",
+      "검은딸기",
+      "다크초콜릿",
       "호두"
      ],
      "droppedByNormalizer": [
@@ -19939,7 +20046,9 @@
      "raw": [
       "수박"
      ],
-     "comparable": [],
+     "comparable": [
+      "수박"
+     ],
      "droppedByNormalizer": [
       {
        "note": "수박",
@@ -20265,7 +20374,9 @@
      "evidenceSource": "audit-input/products/terarosa-100531-ce3c5076.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
-      "피칸"
+      "브라운슈가",
+      "피칸",
+      "군밤"
      ],
      "droppedByNormalizer": [
       {
@@ -20586,7 +20697,8 @@
       "오렌지",
       "베리",
       "복숭아",
-      "포도"
+      "포도",
+      "라일락"
      ],
      "droppedByNormalizer": [
       {
@@ -20896,6 +21008,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "딸기",
+      "플로럴",
       "꿀"
      ],
      "droppedByNormalizer": [
@@ -20987,6 +21100,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "레몬",
+      "수박",
       "코코넛"
      ],
      "droppedByNormalizer": [
@@ -21082,7 +21196,9 @@
      "comparable": [
       "베리",
       "포도",
-      "구아바"
+      "구아바",
+      "카다몬",
+      "타마린드"
      ],
      "droppedByNormalizer": [
       {
@@ -21926,7 +22042,8 @@
      "comparable": [
       "초콜릿",
       "캐러멜",
-      "꿀"
+      "꿀",
+      "군밤"
      ],
      "droppedByNormalizer": [
       {
@@ -22031,6 +22148,7 @@
       "복숭아",
       "살구",
       "자두",
+      "플로럴",
       "다크초콜릿",
       "꿀",
       "참깨",
@@ -22988,7 +23106,10 @@
      "evidenceSource": "audit-input/products/cafedoan-12769087298-a5f6af30.json#evidence.detailCache.detailText",
      "comparable": [
       "포도",
-      "초콜릿"
+      "라일락",
+      "초콜릿",
+      "요구르트",
+      "크리미"
      ],
      "droppedByNormalizer": [
       {
@@ -23363,6 +23484,7 @@
      "evidenceSource": "audit-input/products/namusairo-763-fc06e0a5.json#evidence.rawObservations",
      "comparable": [
       "다크초콜릿",
+      "브라운슈가",
       "볶은아몬드"
      ],
      "droppedByNormalizer": [
@@ -23631,7 +23753,11 @@
      "evidence": "OCR 단독 근거 (노르웨이어 노트) — 동일 이미지 URL의 빈 OCR 출력과 노트 출력은 상충 아님",
      "evidenceSource": "audit-input/products/cafedoan-9628182790-3b34271e.json#evidence.ocr",
      "evidenceKind": "current_echo",
-     "comparable": [],
+     "comparable": [
+      "시트러스",
+      "핵과류",
+      "베르가못"
+     ],
      "droppedByNormalizer": [
       {
        "note": "Sitrus",
@@ -23894,7 +24020,8 @@
      "evidenceSource": "audit-input/products/fillout-8427587166-d38c2955.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
-      "사과"
+      "사과",
+      "계피"
      ],
      "droppedByNormalizer": []
     }
@@ -23975,6 +24102,7 @@
      "evidence": "향 미 '건자두, 카카오, 당밀, 묵직하다' — '묵직하다'(heavy)는 질감 서술이므로 value 제외·raw 보존; OCR 이미지 노트도 본문과 일치(text_confirmed)",
      "evidenceSource": "audit-input/products/namusairo-1093-8a149a0f.json#evidence.rawObservations, audit-input/products/namusairo-1093-8a149a0f.json#evidence.ocr",
      "comparable": [
+      "말린자두",
       "초콜릿",
       "당밀"
      ],
@@ -24132,7 +24260,9 @@
      "evidenceSource": "audit-input/products/cafedoan-5027185632-965de986.json#input.ocrNotes",
      "evidenceKind": "current_echo",
      "comparable": [
-      "체리"
+      "체리",
+      "초콜릿",
+      "크리미"
      ],
      "droppedByNormalizer": [
       {
@@ -24373,7 +24503,9 @@
      "evidenceSource": "audit-input/products/fillout-13673422137-2901674a.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
-      "딸기"
+      "딸기",
+      "검은딸기",
+      "석류"
      ],
      "droppedByNormalizer": [
       {
@@ -24468,6 +24600,7 @@
      "evidenceSource": "audit-input/products/namusairo-27-b4874945.json#evidence.rawObservations",
      "comparable": [
       "레몬",
+      "스파이스",
       "초콜릿",
       "땅콩"
      ],
@@ -24787,7 +24920,8 @@
      "comparable": [
       "블루베리",
       "복숭아",
-      "적포도"
+      "적포도",
+      "플로럴"
      ],
      "droppedByNormalizer": [
       {
@@ -25264,6 +25398,7 @@
      "comparable": [
       "베리",
       "열대과일",
+      "플로럴",
       "초콜릿"
      ],
      "droppedByNormalizer": [
@@ -25581,6 +25716,7 @@
       "딸기",
       "복숭아",
       "자스민",
+      "얼그레이",
       "꿀"
      ],
      "droppedByNormalizer": []
@@ -25737,7 +25873,8 @@
       "블루베리",
       "딸기",
       "플로럴",
-      "캐러멜"
+      "캐러멜",
+      "시럽"
      ],
      "droppedByNormalizer": []
     }
@@ -26062,7 +26199,8 @@
      "evidenceSource": "audit-input/products/cafedoan-11754610521-6efb46fa.json#evidence.detailCache.detailText",
      "comparable": [
       "레몬",
-      "멜론"
+      "멜론",
+      "플로럴"
      ],
      "droppedByNormalizer": [
       {
@@ -26405,7 +26543,9 @@
      "evidenceSource": "audit-input/products/namusairo-345-31503f41.json#evidence.rawObservations",
      "comparable": [
       "밀크초콜릿",
-      "바닐라"
+      "바닐라",
+      "크림브륄레",
+      "피스타치오"
      ],
      "droppedByNormalizer": [
       {
@@ -26573,6 +26713,7 @@
      "evidenceSource": "audit-input/products/cafedoan-13246237051-b911254c.json#evidence.detailCache.detailText",
      "comparable": [
       "자두",
+      "토피",
       "견과류"
      ],
      "droppedByNormalizer": [
@@ -26667,7 +26808,8 @@
      "comparable": [
       "포도",
       "브라운슈가",
-      "호두"
+      "호두",
+      "옥수수"
      ],
      "droppedByNormalizer": [
       {
@@ -27444,6 +27586,7 @@
      "evidence": "원문 '향 미' 행 — '깨끗하고 달다'는 서술이므로 value 제외·raw 보존. current의 '캐러멜'은 솔티드카라멜 정규화, '체리'는 블랙체리 정규화로 보이나 '잼' 누락 — 원문 우선",
      "evidenceSource": "audit-input/products/namusairo-42-1f9bda5e.json#evidence.rawObservations",
      "comparable": [
+      "블랙체리",
       "다크초콜릿",
       "캐러멜"
      ],
@@ -28120,7 +28263,8 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "복숭아",
-      "망고"
+      "망고",
+      "우롱차"
      ],
      "droppedByNormalizer": [
       {
@@ -28289,6 +28433,7 @@
      "comparable": [
       "딸기",
       "복숭아",
+      "플로럴",
       "꿀"
      ],
      "droppedByNormalizer": []
@@ -28457,11 +28602,15 @@
      "evidenceKind": "text_confirmed",
      "comparable": [
       "오렌지",
+      "스파이스",
       "다크초콜릿",
       "밀크초콜릿",
       "캐러멜",
+      "브라운슈가",
       "바닐라",
-      "볶은아몬드"
+      "크림브륄레",
+      "볶은아몬드",
+      "피스타치오"
      ],
      "droppedByNormalizer": []
     }
@@ -28789,6 +28938,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "복숭아",
+      "플로럴",
       "브라운슈가"
      ],
      "droppedByNormalizer": [
@@ -29456,7 +29606,8 @@
       "딸기",
       "살구",
       "청량감",
-      "패션프루트"
+      "패션프루트",
+      "루바브"
      ],
      "droppedByNormalizer": []
     }
@@ -30035,7 +30186,8 @@
      "comparable": [
       "살구",
       "청포도",
-      "플로럴"
+      "플로럴",
+      "스파이스"
      ],
      "droppedByNormalizer": [
       {
@@ -30453,6 +30605,7 @@
      "evidenceKind": "text_confirmed",
      "comparable": [
       "복숭아",
+      "천도복숭아",
       "자두",
       "히비스커스",
       "다크초콜릿",
@@ -30716,6 +30869,7 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "오렌지",
+      "핵과류",
       "홍차"
      ],
      "droppedByNormalizer": [
@@ -31182,7 +31336,8 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "체리",
-      "플로럴"
+      "플로럴",
+      "콜라"
      ],
      "droppedByNormalizer": [
       {
@@ -31277,7 +31432,8 @@
       "복숭아",
       "포도",
       "자스민",
-      "차"
+      "차",
+      "얼그레이"
      ],
      "droppedByNormalizer": []
     }
@@ -31375,6 +31531,8 @@
       "블루베리",
       "복숭아",
       "건과일",
+      "검은딸기",
+      "플로럴",
       "초콜릿",
       "캐러멜"
      ],
@@ -31545,6 +31703,7 @@
      "evidenceKind": "text_confirmed",
      "comparable": [
       "파인애플",
+      "감귤",
       "플로럴"
      ],
      "droppedByNormalizer": [
@@ -31708,7 +31867,7 @@
      "evidenceSource": "audit-input/products/루비아커피-과테말라안티구아shbep워시드미디엄로스트-2302b05f.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
-      "초콜릿",
+      "밀크초콜릿",
       "캐러멜"
      ],
      "droppedByNormalizer": [
@@ -31875,8 +32034,10 @@
       "홍차"
      ],
      "comparable": [
+      "레몬",
       "멜론",
-      "플로럴"
+      "플로럴",
+      "홍차"
      ],
      "droppedByNormalizer": [
       {
@@ -32051,7 +32212,8 @@
      ],
      "comparable": [
       "복숭아",
-      "열대과일"
+      "열대과일",
+      "수박"
      ],
      "droppedByNormalizer": [
       {
@@ -32369,7 +32531,8 @@
       "플로럴"
      ],
      "comparable": [
-      "열대과일"
+      "열대과일",
+      "플로럴"
      ],
      "droppedByNormalizer": [
       {
@@ -32458,7 +32621,10 @@
       "콜라",
       "레드 리코리스"
      ],
-     "comparable": [],
+     "comparable": [
+      "리코리스",
+      "콜라"
+     ],
      "droppedByNormalizer": [
       {
        "note": "락 캔디",
@@ -32716,7 +32882,11 @@
       "자두",
       "초콜릿"
      ],
-     "comparable": [],
+     "comparable": [
+      "체리",
+      "자두",
+      "초콜릿"
+     ],
      "droppedByNormalizer": [
       {
        "note": "Kirsebær",
@@ -33185,7 +33355,9 @@
       "비파"
      ],
      "comparable": [
-      "배"
+      "배",
+      "비파",
+      "캐모마일"
      ],
      "droppedByNormalizer": [
       {
@@ -33427,7 +33599,8 @@
      ],
      "comparable": [
       "오렌지",
-      "파인애플"
+      "파인애플",
+      "머랭"
      ],
      "droppedByNormalizer": [
       {
@@ -33664,7 +33837,8 @@
      ],
      "comparable": [
       "복숭아",
-      "베르가못"
+      "베르가못",
+      "금목서"
      ],
      "droppedByNormalizer": [
       {
@@ -34388,7 +34562,8 @@
      "evidenceKind": "current_echo",
      "comparable": [
       "체리",
-      "사과"
+      "사과",
+      "캐모마일"
      ],
      "droppedByNormalizer": [
       {
@@ -34628,7 +34803,8 @@
      "comparable": [
       "오렌지",
       "사과",
-      "대추야자"
+      "대추야자",
+      "감"
      ],
      "droppedByNormalizer": [
       {
@@ -34869,7 +35045,10 @@
      "evidenceKind": "text_confirmed",
      "comparable": [
       "베리",
-      "플로럴"
+      "플로럴",
+      "태피",
+      "요구르트",
+      "크리미"
      ],
      "droppedByNormalizer": [
       {
@@ -35443,6 +35622,7 @@
      "evidenceSource": "audit-input/products/cafedoan-7576023321-611ccbd9.json#evidence.ocr",
      "evidenceKind": "current_echo",
      "comparable": [
+      "핵과류",
       "플로럴",
       "백차"
      ],
@@ -37225,7 +37405,8 @@
      ],
      "comparable": [
       "복숭아",
-      "차"
+      "차",
+      "얼그레이"
      ],
      "droppedByNormalizer": []
     }

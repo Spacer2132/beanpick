@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// audit-data.mjs 자체 테스트. 5개 검증을 모두 통과해야 exit 0, 하나라도 실패하면 exit 1.
+// audit-data.mjs 자체 테스트. 7개 검증을 모두 통과해야 exit 0, 하나라도 실패하면 exit 1.
 // 사용: npm run audit:test
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { gradeProduct, displayedOf } from './audit-data.mjs';
+import { gradeProduct, displayedOf, fieldsEqual, renormalizeGolden } from './audit-data.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const TMP = '/tmp/audit-data-test';
@@ -143,6 +143,28 @@ for (const p of products) {
     check('(5) 5건 모두 사라진 값 감지', allEcho,
       `감지 ${echoIds.filter((id) => disappeared.has(id)).length}/5`);
   }
+}
+
+// (6) 기본 비교는 golden에 고정된 comparable을 쓴다 (현재 정규화기로 다시 계산하지 않음)
+{
+  const rec = { value: ['다크초콜릿'], raw: ['다크초콜릿'], comparable: ['다크초콜릿', '고정값전용노트'] };
+  check('(6) 고정 comparable과 비교 — 표시에 없는 고정 노트는 불일치',
+    fieldsEqual('tastingNotes', rec.value, ['다크초콜릿'], rec) === false);
+  check('(6) 고정 comparable과 비교 — 고정값과 같으면 일치',
+    fieldsEqual('tastingNotes', rec.value, ['고정값전용노트', '다크초콜릿'], rec) === true);
+}
+
+// (7) --renormalize-golden: 원문 노트가 정규화기에서 사라지면 lost(회귀), 새로 표현되면 added
+{
+  const fake = {
+    lostCase: { golden: { tastingNotes: { raw: ['다크초콜릿'], comparable: ['다크초콜릿', '고정값전용노트'] } } },
+    sameCase: { golden: { tastingNotes: { raw: ['다크초콜릿'], comparable: ['다크초콜릿'] } } },
+  };
+  const changes = renormalizeGolden(fake);
+  const lost = changes.find((c) => c.id === 'lostCase');
+  check('(7) 정규화 후 사라진 golden 노트를 lost로 보고', Boolean(lost && lost.lost.includes('고정값전용노트')),
+    JSON.stringify(changes));
+  check('(7) 변화 없는 레코드는 보고하지 않음', !changes.some((c) => c.id === 'sameCase'));
 }
 
 console.log(failures === 0 ? 'ALL PASS' : `${failures} FAILURES`);

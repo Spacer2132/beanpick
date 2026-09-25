@@ -126,6 +126,15 @@ comparable·displayed 모두 없음 → 불일치로 잡히지 않음.
 
 `current_echo` 필드는 이 통계에서도 제외 (§9).
 
+### 6.3 golden comparable 고정 (2026-09-26 개정)
+
+- 기본 비교는 golden에 **저장된** `comparable`을 쓴다. 현재 정규화기로 매번 다시 계산하지 않는다.
+  매번 다시 계산하면 정규화기가 원문 노트를 버리는 회귀가 golden 쪽에서도 똑같이 사라져 잡히지 않는다.
+- 정규화 사전을 의도적으로 바꿨으면:
+  1. `npm run audit:data -- --renormalize-golden` 으로 golden comparable 변경분을 확인한다. 소실(lost)이 있으면 exit 1.
+  2. 소실이 "초콜릿→다크초콜릿"처럼 더 구체적인 노트로 바뀐 것뿐인지 사람이 확인한다.
+  3. `npm run audit:data -- --write-golden [--accept-lost]` 로 golden을 갱신하고, 검토 내역을 커밋 메시지나 문서에 남긴다.
+
 ## 7. 생산자 vs '농장' 행 (producer)
 
 `golden.producer`와 `displayed.region`(= `formatProductDisplayInfo().farm`, 앱의 '농장' 행)을 비교.

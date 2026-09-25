@@ -1,5 +1,7 @@
 # FIX-2 — inferFarmName 상품명 찌꺼기 표시 억제
 
+> **상태: 반려 — 코드 미반영.** 최신 스냅샷 462건 기준 농장 표시 42건이 사라지며 실제 농장명(라 노리아 로트 4, Kotowa Las Brujas Lot 26-124, 핀카 소피아 등)이 포함된다. 억제 규칙에 특정 상품명이 하드코딩돼 있다. 근거는 `audit/fixes/CLAUDE-REVIEW.md` §3.
+
 ## 1. 변경 요약
 `src/services/coreFeatures.js`에 `isInferredFarmJunk()` 판정 함수 1개 + `INFERRED_FARM_JUNK_PATTERNS` 12종을 추가하고,
 `formatProductDisplayInfo`의 farm fallback을 다음으로 변경 (최소 변경, `inferFarmName` 시그니처·반환 불변):
