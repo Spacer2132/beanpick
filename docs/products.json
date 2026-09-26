@@ -1,5 +1,5 @@
 {
-  "publishedAt": "2026-09-26T07:04:23.926Z",
+  "publishedAt": "2026-09-26T07:55:13.962Z",
   "count": 462,
   "products": [
     {
@@ -4519,7 +4519,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/12301405254",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250825_90/17561208826357vwUo_JPEG/10735800621072368_686892556.jpg?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250825_90/17561208826357vwUo_JPEG/10735800621072368_686892556.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -4541,7 +4541,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11909344709",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250531_156/1748687006610ljRLI_JPEG/29318329432244212_2035171759.jpg?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250531_156/1748687006610ljRLI_JPEG/29318329432244212_2035171759.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -4568,7 +4568,7 @@
       ],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11858895090",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250819_242/1755571751534PhcJ6_JPEG/82065057337304493_1956124130.jpg?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250819_242/1755571751534PhcJ6_JPEG/82065057337304493_1956124130.jpg?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -4615,7 +4615,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/11840045264",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250514_162/1747213968326JvQ61_JPEG/22832045784358527_1641374763.jpg?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250514_162/1747213968326JvQ61_JPEG/22832045784358527_1641374763.jpg?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -6295,24 +6295,6 @@
           "group": "MEDIUM DARK"
         }
       ],
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "weightLabel": "200g",
-          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/5265856262",
-          "priceLabel": "14,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "7,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g",
-      "unitPriceLabel": "",
       "acidityScore": -0.7333333333333334,
       "acidityScoreSource": "tastingNotes"
     },
@@ -6867,8 +6849,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.9,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-26T07:55:13.962Z"
     },
     {
       "id": "fillout-13684419805",
@@ -6969,8 +6952,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-26T07:55:13.962Z"
     },
     {
       "id": "fillout-13684414219",
@@ -7032,8 +7016,9 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 0.95,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-26T07:55:13.962Z"
     },
     {
       "id": "fillout-13684412338",
@@ -7070,29 +7055,7 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "100g",
-      "tastingNoteEvidence": [
-        {
-          "text": "자스민",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
-          "method": "image-model",
-          "process": "무산소 내추럴",
-          "reviewReason": "process-conflict"
-        },
-        {
-          "text": "핵과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
-          "method": "image-model",
-          "process": "무산소 내추럴",
-          "reviewReason": "process-conflict"
-        },
-        {
-          "text": "사과",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
-          "method": "image-model",
-          "process": "무산소 내추럴",
-          "reviewReason": "process-conflict"
-        }
-      ],
+      "tastingNoteEvidence": [],
       "unitPriceLabel": "",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
@@ -7802,24 +7765,6 @@
           "group": "Medium Dark"
         }
       ],
-      "priceOptions": [
-        {
-          "id": "200g-18000",
-          "price": 18000,
-          "weight": 200,
-          "weightLabel": "200g",
-          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/8259237237",
-          "priceLabel": "18,000원",
-          "originalPriceLabel": "",
-          "unitPriceLabel": "9,000원/100g",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g",
-      "unitPriceLabel": "",
       "acidityScore": -0.6333333333333333,
       "acidityScoreSource": "tastingNotes"
     },
@@ -9526,21 +9471,23 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "루비아커피-다크브라운",
+      "id": "루비아커피-클래식이탈리안스타일피렌체",
       "roasterName": "루비아 커피",
-      "productName": "다크브라운",
+      "productName": "클래식 이탈리안 스타일 피렌체",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 14000,
+      "price": 13000,
       "weight": 200,
       "score": 88,
       "tastingNotes": [
         "초콜릿",
+        "캐러멜",
         "견과류",
-        "부드러움"
+        "아몬드",
+        "몰트"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
       "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
       "isSoldOut": false,
@@ -9549,43 +9496,43 @@
       "checkedMinutesAgo": 0,
       "priceOptions": [
         {
-          "id": "200g-14000",
-          "price": 14000,
-          "originalPrice": 15000,
+          "id": "200g-13000",
+          "price": 13000,
+          "originalPrice": 14000,
           "weight": 200,
-          "priceLabel": "14,000원",
+          "priceLabel": "13,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991396210",
-          "originalPriceLabel": "15,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "originalPrice": 30000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307000967",
-          "originalPriceLabel": "30,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "1kg-39000",
-          "price": 39000,
-          "originalPrice": 42000,
-          "weight": 1000,
-          "priceLabel": "39,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,900원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
-          "originalPriceLabel": "42,000원",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
+          "originalPriceLabel": "14,000원",
           "discountRate": 0.07142857142857142,
           "discountLabel": "7% 할인"
+        },
+        {
+          "id": "500g-25000",
+          "price": 25000,
+          "originalPrice": 26000,
+          "weight": 500,
+          "priceLabel": "25,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
+          "originalPriceLabel": "26,000원",
+          "discountRate": 0.038461538461538464,
+          "discountLabel": "3% 할인"
+        },
+        {
+          "id": "1kg-34000",
+          "price": 34000,
+          "originalPrice": 38000,
+          "weight": 1000,
+          "priceLabel": "34,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,400원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+          "originalPriceLabel": "38,000원",
+          "discountRate": 0.10526315789473684,
+          "discountLabel": "10% 할인"
         }
       ],
       "priceOptionsComplete": false,
@@ -9593,46 +9540,183 @@
       "weightLabel": "200g / 500g / 1kg",
       "tastingNoteEvidence": [
         {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "몰트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
           "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "구운디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "부드러운",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "아몬드",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceLabel": "13,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.10526315789473684,
+      "acidityScore": -0.8400000000000001,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-블루문디카페인",
+      "roasterName": "루비아 커피",
+      "productName": "블루문 디카페인",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 16000,
+      "weight": 200,
+      "score": 87,
+      "tastingNotes": [
+        "다크초콜릿",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "tastingNoteEvidence": [
+        {
+          "text": "꽃",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
           "method": "image-model",
-          "group": "DARK BROWN"
+          "group": "Tasting Note"
+        },
+        {
+          "text": "산미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "단맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "디카페인",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
         },
         {
           "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
         },
         {
           "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
         },
         {
-          "text": "부드러움",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
         },
         {
-          "text": "깔끔한 뒷맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
         }
       ],
-      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "200g-16000",
+          "price": 16000,
+          "originalPrice": 17000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5990987020",
+          "originalPriceLabel": "17,000원",
+          "discountRate": 0.058823529411764705,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "500g-33000",
+          "price": 33000,
+          "originalPrice": 35000,
+          "weight": 500,
+          "priceLabel": "33,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306896060",
+          "originalPriceLabel": "35,000원",
+          "discountRate": 0.05714285714285714,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "originalPrice": 48000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
+          "originalPriceLabel": "48,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "16,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.07142857142857142,
-      "acidityScore": -0.7000000000000001,
+      "discountRate": 0.0625,
+      "acidityScore": -0.8,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -9645,7 +9729,7 @@
       "roastLevel": "확인 필요",
       "price": 15000,
       "weight": 200,
-      "score": 87,
+      "score": 86,
       "tastingNotes": [
         "초콜릿",
         "바닐라",
@@ -9655,9 +9739,9 @@
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
       "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
-      "isNew": true,
+      "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
+      "checkedMinutesAgo": 2,
       "priceLabel": "15,000원",
       "unitPriceLabel": "",
       "discountRate": 0.06666666666666667,
@@ -9757,119 +9841,113 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "id": "루비아커피-다크브라운",
       "roasterName": "루비아 커피",
-      "productName": "클래식 이탈리안 스타일 피렌체",
+      "productName": "다크브라운",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 13000,
+      "price": 14000,
       "weight": 200,
-      "score": 86,
+      "score": 83,
       "tastingNotes": [
         "초콜릿",
-        "캐러멜",
         "견과류",
-        "아몬드",
-        "몰트"
+        "부드러움"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f140",
+      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "tastingNoteEvidence": [
-        {
-          "text": "부드러운",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "아몬드",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "카라멜",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "구운디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
+      "checkedMinutesAgo": 5,
       "priceOptions": [
         {
-          "id": "200g-13000",
-          "price": 13000,
-          "originalPrice": 14000,
+          "id": "200g-14000",
+          "price": 14000,
+          "originalPrice": 15000,
           "weight": 200,
-          "priceLabel": "13,000원",
+          "priceLabel": "14,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
-          "originalPriceLabel": "14,000원",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991396210",
+          "originalPriceLabel": "15,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "originalPrice": 30000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307000967",
+          "originalPriceLabel": "30,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "1kg-39000",
+          "price": 39000,
+          "originalPrice": 42000,
+          "weight": 1000,
+          "priceLabel": "39,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,900원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+          "originalPriceLabel": "42,000원",
           "discountRate": 0.07142857142857142,
           "discountLabel": "7% 할인"
-        },
-        {
-          "id": "500g-25000",
-          "price": 25000,
-          "originalPrice": 26000,
-          "weight": 500,
-          "priceLabel": "25,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
-          "originalPriceLabel": "26,000원",
-          "discountRate": 0.038461538461538464,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-34000",
-          "price": 34000,
-          "originalPrice": 38000,
-          "weight": 1000,
-          "priceLabel": "34,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,400원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-          "originalPriceLabel": "38,000원",
-          "discountRate": 0.10526315789473684,
-          "discountLabel": "10% 할인"
         }
       ],
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "13,000원",
+      "tastingNoteEvidence": [
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "깊고 진한 풍미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "부드러움",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "깔끔한 뒷맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        }
+      ],
+      "priceLabel": "14,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.10526315789473684,
-      "acidityScore": -0.8400000000000001,
+      "discountRate": 0.07142857142857142,
+      "acidityScore": -0.7000000000000001,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -9882,7 +9960,7 @@
       "roastLevel": "확인 필요",
       "price": 17000,
       "weight": 200,
-      "score": 85,
+      "score": 79,
       "tastingNotes": [
         "블랙커런트",
         "블루베리",
@@ -9892,11 +9970,57 @@
       ],
       "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f140",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 3,
+      "checkedMinutesAgo": 9,
+      "tastingNoteEvidence": [
+        {
+          "text": "꽃향기",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "블루베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "블랙커런트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "베리류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
       "priceOptions": [
         {
           "id": "200g-17000",
@@ -9941,209 +10065,10 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "꽃향기",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "플로럴",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "블랙커런트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "베리류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
       "priceLabel": "17,000원",
       "unitPriceLabel": "",
       "discountRate": 0.06,
       "acidityScore": 0.6399999999999999,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-블루문디카페인",
-      "roasterName": "루비아 커피",
-      "productName": "블루문 디카페인",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 16000,
-      "weight": 200,
-      "score": 84,
-      "tastingNotes": [
-        "다크초콜릿",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 4,
-      "tastingNoteEvidence": [
-        {
-          "text": "꽃",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "산미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "단맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "디카페인",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-16000",
-          "price": 16000,
-          "originalPrice": 17000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5990987020",
-          "originalPriceLabel": "17,000원",
-          "discountRate": 0.058823529411764705,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "500g-33000",
-          "price": 33000,
-          "originalPrice": 35000,
-          "weight": 500,
-          "priceLabel": "33,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306896060",
-          "originalPriceLabel": "35,000원",
-          "discountRate": 0.05714285714285714,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "originalPrice": 48000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
-          "originalPriceLabel": "48,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "16,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.0625,
-      "acidityScore": -0.8,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -10156,7 +10081,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 78,
+      "score": 77,
       "tastingNotes": [
         "캐러멜",
         "견과류"
@@ -10167,7 +10092,7 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 10,
+      "checkedMinutesAgo": 11,
       "tastingNoteEvidence": [
         {
           "text": "견과류",
@@ -10275,7 +10200,7 @@
       "price": 49000,
       "originalPrice": 52000,
       "weight": 1000,
-      "score": 75,
+      "score": 74,
       "tastingNotes": [
         "밀크초콜릿",
         "바닐라",
@@ -10288,7 +10213,7 @@
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 13,
+      "checkedMinutesAgo": 14,
       "priceOptionsComplete": false,
       "priceOptionsStatus": "failed",
       "tastingNoteEvidence": [
@@ -10311,7 +10236,7 @@
       "roastLevel": "확인 필요",
       "price": 18000,
       "weight": 200,
-      "score": 74,
+      "score": 73,
       "tastingNotes": [
         "밀크초콜릿",
         "바닐라",
@@ -10324,7 +10249,7 @@
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 14,
+      "checkedMinutesAgo": 15,
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "tastingNoteEvidence": [
@@ -15736,795 +15661,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "terarosa-100543",
-      "roasterName": "테라로사",
-      "productName": "[9월 KING콩] 에티오피아 리무 아가로 토착종 워시드",
-      "origin": "Ethiopia · Limmu Agaro",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 35000,
-      "weight": 250,
-      "score": 87,
-      "tastingNotes": [
-        "살구",
-        "리치",
-        "홍차",
-        "허브"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "Black Tea",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Apricot",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Lychee",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Herbs",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Crisp Finish",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "홍차",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "살구",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "리치",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "허브",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "깔끔한 여운",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100543",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831080907_1788163747839_Soj9LEBh_u.webp",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.9333333333333332,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100576",
-      "roasterName": "테라로사",
-      "productName": "[9월 S.O.S] 에티오피아 스페셜",
-      "origin": "Ethiopia",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 36000,
-      "weight": 150,
-      "score": 87,
-      "tastingNotes": [
-        "오렌지",
-        "살구",
-        "리치",
-        "홍차",
-        "커피꽃"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "Orange",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 예가체페 아리차",
-          "process": "워시드"
-        },
-        {
-          "text": "Coffee Blossom",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 예가체페 아리차",
-          "process": "워시드"
-        },
-        {
-          "text": "Sweet",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 예가체페 아리차",
-          "process": "워시드"
-        },
-        {
-          "text": "Fragrant Finish",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 예가체페 아리차",
-          "process": "워시드"
-        },
-        {
-          "text": "Black Tea",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 리무 아가로",
-          "process": "워시드"
-        },
-        {
-          "text": "Apricot",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 리무 아가로",
-          "process": "워시드"
-        },
-        {
-          "text": "Lychee",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 리무 아가로",
-          "process": "워시드"
-        },
-        {
-          "text": "Herbs",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 리무 아가로",
-          "process": "워시드"
-        },
-        {
-          "text": "Crisp Finish",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
-          "method": "image-model",
-          "group": "에티오피아 리무 아가로",
-          "process": "워시드"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100576",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831083303_1788165183412_0Hb0rE51Oq.webp",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100499",
-      "roasterName": "테라로사",
-      "productName": "에티오피아 예가체페 아리차 토착종 워시드",
-      "origin": "Ethiopia · Yirgacheffe Aricha",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 29500,
-      "weight": 250,
-      "score": 87,
-      "tastingNotes": [
-        "오렌지",
-        "플로럴"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "오렌지의 산뜻한 산미와 은은한 꽃내음이 향긋하게 어우러지는 매력적인 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821083101_1787301061091_5K90R42s5a.png",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100499",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821083103_1787301063815_MbxUzf8vas.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100531",
-      "roasterName": "테라로사",
-      "productName": "[26년 추석] 보름달 블렌드 & 드리퍼 세트",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 28500,
-      "weight": 250,
-      "score": 86,
-      "tastingNotes": [
-        "브라운슈가",
-        "구운향",
-        "견과류",
-        "피칸",
-        "부드러움"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "Chestnut",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Roasted Pecan",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Brown Sugar",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Round",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Nutty Finish",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "밤",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "구운 피칸",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "황설탕",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "부드러운 질감",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        },
-        {
-          "text": "고소한 견과류의 여운",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100531",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260820052929_1787203769479_0zEInVhm8h.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-23T03:03:30.431Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100520",
-      "roasterName": "테라로사",
-      "productName": "르완다 냐비라시 아르세니 부르봉 워시드",
-      "origin": "Rwanda · Nyabirasi Arsene",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 25000,
-      "weight": 250,
-      "score": 82,
-      "tastingNotes": [
-        "오렌지",
-        "살구"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "살구잼의 달콤한 풍미와 블러드 오렌지의 산뜻한 산미가 밀도감 있게 느껴지는 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063059_1787293859710_MgCGVO5PAU.png",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100520",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063103_1787293863785_3Lc5vZz_kt.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100502",
-      "roasterName": "테라로사",
-      "productName": "페루 아마조나스 코프밤 다품종 워시드",
-      "origin": "Peru · Amazonas Coopbam",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 29000,
-      "weight": 250,
-      "score": 83,
-      "tastingNotes": [
-        "사과",
-        "버터스카치"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "버터스카치의 부드러운 단맛과",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063350_1787294030220_ZI7aghBTJ7.png",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "사과의 산뜻한 산미가 어우러진 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063350_1787294030220_ZI7aghBTJ7.png",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100502",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063354_1787294034225_Sc3_t7Q_5K.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100521",
-      "roasterName": "테라로사",
-      "productName": "코스타리카 치리포 리카르도 카투아이 허니",
-      "origin": "Costa Rica · Chirrip",
-      "process": "Honey",
-      "roastLevel": "확인 필요",
-      "price": 27500,
-      "weight": 250,
-      "score": 84,
-      "tastingNotes": [
-        "자두",
-        "블랙체리"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙체리의 짙은 풍미와 농익은 자두의 응축된 단맛이 밀도감 있게 돋보이는 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063013_1787293813008_GMSeg4d6uB.png",
-          "method": "image-model",
-          "process": "Honey"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100521",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063016_1787293816037_5YPX60OBlu.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100506",
-      "roasterName": "테라로사",
-      "productName": "브라질 산투안토니우 엔리케 부르봉 펄프드 내추럴",
-      "origin": "Brazil · Santo Ant",
-      "process": "Pulped Natural",
-      "roastLevel": "확인 필요",
-      "price": 25000,
-      "weight": 250,
-      "score": 85,
-      "tastingNotes": [
-        "밀크초콜릿",
-        "헤이즐넛"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "밀크초콜릿의 부드러운 단맛과 헤이즐넛의 고소함",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063226_1787293946036_7udWhfIleL.png",
-          "method": "image-model",
-          "process": "Pulped Natural"
-        },
-        {
-          "text": "깔끔한 여운이 인상적인 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063226_1787293946036_7udWhfIleL.png",
-          "method": "image-model",
-          "process": "Pulped Natural"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100506",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063228_1787293948641_UjaxSd9duQ.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100037",
-      "roasterName": "테라로사",
-      "productName": "콜롬비아 슬리피 캣 디카페인",
-      "origin": "Colombia · Sleepy Cat",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 27500,
-      "weight": 250,
-      "score": 86,
-      "tastingNotes": [
-        "오렌지",
-        "캐슈넛"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "오렌지 향과 고소한 캐슈넛의 풍미가 조화로운 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064143_1787294503612_M0rBZDZbmb.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100037",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064146_1787294506353_RVpq5csBjI.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100446",
-      "roasterName": "테라로사",
-      "productName": "에티오피아 슬리피 캣 디카페인",
-      "origin": "Ethiopia · Sleepy Cat",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 29000,
-      "weight": 250,
-      "score": 87,
-      "tastingNotes": [
-        "블루베리",
-        "밀크초콜릿",
-        "신선"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "신선한 블루베리의 향과 밀크초콜릿의 부드러운 단맛이 어우러진 디카페인 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063727_1787294247346_cOWz83N4Y7.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100446",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063730_1787294250054_8Tot1ci2Hg.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100448",
-      "roasterName": "테라로사",
-      "productName": "브라질 슬리피 캣 디카페인",
-      "origin": "Brazil · Sleepy Cat",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 27500,
-      "weight": 250,
-      "score": 83,
-      "tastingNotes": [
-        "호박",
-        "호두",
-        "긴 여운"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "잘 익은 단호박의 단맛과 호두의 고소함이 더해져 긴 여운이 느껴지는 디카페인 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063615_1787294175604_kWUeJCKZsU.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100448",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063618_1787294178314_D2s3Nbr_Pd.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.7000000000000001,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100020",
-      "roasterName": "테라로사",
-      "productName": "강릉 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 24000,
-      "weight": 250,
-      "score": 84,
-      "tastingNotes": [
-        "시트러스",
-        "건과일",
-        "달콤한 산미",
-        "부드러움",
-        "긴 여운"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "말린 과일의 풍미와",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
-          "method": "image-model"
-        },
-        {
-          "text": "짙은 단맛의 여운이 남는 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Dried Fruits",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Sweet Acidity",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Soft",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Long Aftertaste",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "말린 과일",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "시트러스",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "긴 여운",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Citrus",
-          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
-          "method": "image-model"
-        },
-        {
-          "text": "말린 과일의 풍미와",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
-          "method": "image-model"
-        },
-        {
-          "text": "짙은 단맛의 여운이 남는 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
-          "method": "image-model"
-        },
-        {
-          "text": "잘 익은 과일의 산미",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "농축된 단맛",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "부드러운 촉감",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "깊은 여운",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Dried Fruits",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Sweet Acidity",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Soft",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Long Aftertaste",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100020",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.5,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100018",
-      "roasterName": "테라로사",
-      "productName": "어센틱 에스프레소 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 23000,
-      "weight": 250,
-      "score": 85,
-      "tastingNotes": [
-        "사과",
-        "캐러멜"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "잘 익은 사과의 산뜻한 산미",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064303_1787294584000_2bGcF1mCIo.png",
-          "method": "image-model"
-        },
-        {
-          "text": "달콤한 캐러멜 향과 깔끔한 여운의 에스프레소&드립 겸용 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064303_1787294584000_2bGcF1mCIo.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100018",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064306_1787294586948_TMjJ5LsZ19.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100019",
-      "roasterName": "테라로사",
-      "productName": "하우스 드립 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 24000,
-      "weight": 250,
-      "score": 86,
-      "tastingNotes": [
-        "견과류"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "스페셜티 커피의 깊고 풍부한 향과 견과류의 고소함",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064230_1787294550354_48fekULz70.png",
-          "method": "image-model"
-        },
-        {
-          "text": "과일의 단맛이 조화로운 드립용 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064230_1787294550354_48fekULz70.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100019",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064232_1787294552976_AcO7iUYDDY.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
-      "id": "terarosa-100017",
-      "roasterName": "테라로사",
-      "productName": "에스프레소 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 48000,
-      "weight": 250,
-      "score": 82,
-      "tastingNotes": [
-        "다크초콜릿",
-        "부드러움",
-        "묵직"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "다크초콜릿의 묵직한 풍미와 부드러운 질감이 느껴지는 커피",
-          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20250614090720_1749892040209_AAovTRV4oO.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100017",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20250614090724_1749892044111_MkRoI4NSs7.webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
-    },
-    {
       "id": "centercoffee-418",
       "roasterName": "센터커피",
       "productName": "Colombia Diwan El Mirador Pink Bourbon Washed",
@@ -17085,144 +16221,749 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "헬카페-밸런스블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "밸런스 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
+      "id": "terarosa-100543",
+      "roasterName": "테라로사",
+      "productName": "[9월 KING콩] 에티오피아 리무 아가로 토착종 워시드",
+      "origin": "Ethiopia · Limmu Agaro",
+      "process": "Washed",
       "roastLevel": "확인 필요",
-      "price": 13000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "13,000원",
-      "priceOptions": [
+      "price": 35000,
+      "weight": 250,
+      "score": 87,
+      "tastingNotes": [
+        "살구",
+        "리치",
+        "홍차",
+        "허브"
+      ],
+      "tastingNoteEvidence": [
         {
-          "id": "200g-13000",
-          "price": 13000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
+          "text": "Black Tea",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
         },
         {
-          "id": "1kg-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "헬카페-강배전블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "강배전 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "Dark",
-      "price": 14000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "14,000원",
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
+          "text": "Apricot",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
         },
         {
-          "id": "1kg-52000",
-          "price": 52000,
-          "weight": 1000,
-          "priceLabel": "52,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,200원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
+          "text": "Lychee",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Herbs",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Crisp Finish",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "홍차",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "살구",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "리치",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "허브",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "깔끔한 여운",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788163774361425/1788163774361425.png",
+          "method": "image-model",
+          "process": "Washed"
         }
       ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100543",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831080907_1788163747839_Soj9LEBh_u.webp",
       "isSoldOut": false,
-      "isNew": false,
+      "isNew": true,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
+      "acidityScore": 0.9333333333333332,
+      "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "hellcafe-60",
-      "roasterName": "헬카페",
-      "productName": "헬카페 클래식 커피 1kg",
-      "origin": "확인 필요",
+      "id": "terarosa-100576",
+      "roasterName": "테라로사",
+      "productName": "[9월 S.O.S] 에티오피아 스페셜",
+      "origin": "Ethiopia",
       "process": "확인 필요",
       "roastLevel": "확인 필요",
-      "price": 208000,
-      "weight": 1000,
-      "priceOptionsComplete": false,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
-      "isSoldOut": true,
+      "price": 36000,
+      "weight": 150,
+      "score": 87,
+      "tastingNotes": [
+        "오렌지",
+        "살구",
+        "리치",
+        "홍차",
+        "커피꽃"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "Orange",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 예가체페 아리차",
+          "process": "워시드"
+        },
+        {
+          "text": "Coffee Blossom",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 예가체페 아리차",
+          "process": "워시드"
+        },
+        {
+          "text": "Sweet",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 예가체페 아리차",
+          "process": "워시드"
+        },
+        {
+          "text": "Fragrant Finish",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 예가체페 아리차",
+          "process": "워시드"
+        },
+        {
+          "text": "Black Tea",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 리무 아가로",
+          "process": "워시드"
+        },
+        {
+          "text": "Apricot",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 리무 아가로",
+          "process": "워시드"
+        },
+        {
+          "text": "Lychee",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 리무 아가로",
+          "process": "워시드"
+        },
+        {
+          "text": "Herbs",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 리무 아가로",
+          "process": "워시드"
+        },
+        {
+          "text": "Crisp Finish",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1788165272051822/1788165272051822.png",
+          "method": "image-model",
+          "group": "에티오피아 리무 아가로",
+          "process": "워시드"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100576",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831083303_1788165183412_0Hb0rE51Oq.webp",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100499",
+      "roasterName": "테라로사",
+      "productName": "에티오피아 예가체페 아리차 토착종 워시드",
+      "origin": "Ethiopia · Yirgacheffe Aricha",
+      "process": "Washed",
+      "roastLevel": "확인 필요",
+      "price": 29500,
+      "weight": 250,
+      "score": 87,
+      "tastingNotes": [
+        "오렌지",
+        "플로럴"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "오렌지의 산뜻한 산미와 은은한 꽃내음이 향긋하게 어우러지는 매력적인 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821083101_1787301061091_5K90R42s5a.png",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100499",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821083103_1787301063815_MbxUzf8vas.webp",
+      "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100531",
+      "roasterName": "테라로사",
+      "productName": "[26년 추석] 보름달 블렌드 & 드리퍼 세트",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 28500,
+      "weight": 250,
+      "score": 86,
+      "tastingNotes": [
+        "브라운슈가",
+        "구운향",
+        "견과류",
+        "피칸",
+        "부드러움"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "Chestnut",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Roasted Pecan",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Brown Sugar",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Round",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Nutty Finish",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "밤",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "구운 피칸",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "황설탕",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "부드러운 질감",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        },
+        {
+          "text": "고소한 견과류의 여운",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787891517773971/1787891517773971.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100531",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260820052929_1787203769479_0zEInVhm8h.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-23T03:03:30.431Z"
+    },
+    {
+      "id": "terarosa-100520",
+      "roasterName": "테라로사",
+      "productName": "르완다 냐비라시 아르세니 부르봉 워시드",
+      "origin": "Rwanda · Nyabirasi Arsene",
+      "process": "Washed",
+      "roastLevel": "확인 필요",
+      "price": 25000,
+      "weight": 250,
+      "score": 82,
+      "tastingNotes": [
+        "오렌지",
+        "살구"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "살구잼의 달콤한 풍미와 블러드 오렌지의 산뜻한 산미가 밀도감 있게 느껴지는 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063059_1787293859710_MgCGVO5PAU.png",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100520",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821063059_1787293859710_MgCGVO5PAU.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-26T07:55:13.962Z"
+    },
+    {
+      "id": "terarosa-100502",
+      "roasterName": "테라로사",
+      "productName": "페루 아마조나스 코프밤 다품종 워시드",
+      "origin": "Peru · Amazonas Coopbam",
+      "process": "Washed",
+      "roastLevel": "확인 필요",
+      "price": 29000,
+      "weight": 250,
+      "score": 83,
+      "tastingNotes": [
+        "사과",
+        "버터스카치"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "버터스카치의 부드러운 단맛과",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063350_1787294030220_ZI7aghBTJ7.png",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "사과의 산뜻한 산미가 어우러진 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063350_1787294030220_ZI7aghBTJ7.png",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100502",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063354_1787294034225_Sc3_t7Q_5K.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100521",
+      "roasterName": "테라로사",
+      "productName": "코스타리카 치리포 리카르도 카투아이 허니",
+      "origin": "Costa Rica · Chirrip",
+      "process": "Honey",
+      "roastLevel": "확인 필요",
+      "price": 27500,
+      "weight": 250,
+      "score": 84,
+      "tastingNotes": [
+        "자두",
+        "블랙체리"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "블랙체리의 짙은 풍미와 농익은 자두의 응축된 단맛이 밀도감 있게 돋보이는 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063013_1787293813008_GMSeg4d6uB.png",
+          "method": "image-model",
+          "process": "Honey"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100521",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821063013_1787293813008_GMSeg4d6uB.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-26T07:55:13.962Z"
+    },
+    {
+      "id": "terarosa-100506",
+      "roasterName": "테라로사",
+      "productName": "브라질 산투안토니우 엔리케 부르봉 펄프드 내추럴",
+      "origin": "Brazil · Santo Ant",
+      "process": "Pulped Natural",
+      "roastLevel": "확인 필요",
+      "price": 25000,
+      "weight": 250,
+      "score": 85,
+      "tastingNotes": [
+        "밀크초콜릿",
+        "헤이즐넛"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "밀크초콜릿의 부드러운 단맛과 헤이즐넛의 고소함",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063226_1787293946036_7udWhfIleL.png",
+          "method": "image-model",
+          "process": "Pulped Natural"
+        },
+        {
+          "text": "깔끔한 여운이 인상적인 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063226_1787293946036_7udWhfIleL.png",
+          "method": "image-model",
+          "process": "Pulped Natural"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100506",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063228_1787293948641_UjaxSd9duQ.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100037",
+      "roasterName": "테라로사",
+      "productName": "콜롬비아 슬리피 캣 디카페인",
+      "origin": "Colombia · Sleepy Cat",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 27500,
+      "weight": 250,
+      "score": 86,
+      "tastingNotes": [
+        "오렌지",
+        "캐슈넛"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "오렌지 향과 고소한 캐슈넛의 풍미가 조화로운 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064143_1787294503612_M0rBZDZbmb.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100037",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064146_1787294506353_RVpq5csBjI.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": 0,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100446",
+      "roasterName": "테라로사",
+      "productName": "에티오피아 슬리피 캣 디카페인",
+      "origin": "Ethiopia · Sleepy Cat",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 29000,
+      "weight": 250,
+      "score": 87,
+      "tastingNotes": [
+        "블루베리",
+        "밀크초콜릿",
+        "신선"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "신선한 블루베리의 향과 밀크초콜릿의 부드러운 단맛이 어우러진 디카페인 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063727_1787294247346_cOWz83N4Y7.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100446",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063730_1787294250054_8Tot1ci2Hg.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100448",
+      "roasterName": "테라로사",
+      "productName": "브라질 슬리피 캣 디카페인",
+      "origin": "Brazil · Sleepy Cat",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 27500,
+      "weight": 250,
+      "score": 83,
+      "tastingNotes": [
+        "호박",
+        "호두",
+        "긴 여운"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "잘 익은 단호박의 단맛과 호두의 고소함이 더해져 긴 여운이 느껴지는 디카페인 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821063615_1787294175604_kWUeJCKZsU.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100448",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063618_1787294178314_D2s3Nbr_Pd.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": -0.7000000000000001,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100020",
+      "roasterName": "테라로사",
+      "productName": "강릉 블렌드",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 24000,
+      "weight": 250,
+      "score": 84,
+      "tastingNotes": [
+        "시트러스",
+        "건과일",
+        "달콤한 산미",
+        "부드러움",
+        "긴 여운"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "말린 과일의 풍미와",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
+          "method": "image-model"
+        },
+        {
+          "text": "짙은 단맛의 여운이 남는 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Dried Fruits",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Sweet Acidity",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Soft",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Long Aftertaste",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "말린 과일",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "시트러스",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "긴 여운",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Citrus",
+          "sourceUrl": "https://m.terarosa.com/AttEdit/smart_editor/202608/1787295075039498/1787295075039498.png",
+          "method": "image-model"
+        },
+        {
+          "text": "말린 과일의 풍미와",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
+          "method": "image-model"
+        },
+        {
+          "text": "짙은 단맛의 여운이 남는 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.png",
+          "method": "image-model"
+        },
+        {
+          "text": "잘 익은 과일의 산미",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "농축된 단맛",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "부드러운 촉감",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "깊은 여운",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Dried Fruits",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Sweet Acidity",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Soft",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Long Aftertaste",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/detail/20251209060240_1765260160385_keYMtUc2WU.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100020",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": 0.5,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100018",
+      "roasterName": "테라로사",
+      "productName": "어센틱 에스프레소 블렌드",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 23000,
+      "weight": 250,
+      "score": 85,
+      "tastingNotes": [
+        "사과",
+        "캐러멜"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "잘 익은 사과의 산뜻한 산미",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064303_1787294584000_2bGcF1mCIo.png",
+          "method": "image-model"
+        },
+        {
+          "text": "달콤한 캐러멜 향과 깔끔한 여운의 에스프레소&드립 겸용 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064303_1787294584000_2bGcF1mCIo.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100018",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064306_1787294586948_TMjJ5LsZ19.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100019",
+      "roasterName": "테라로사",
+      "productName": "하우스 드립 블렌드",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 24000,
+      "weight": 250,
+      "score": 86,
+      "tastingNotes": [
+        "견과류"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "스페셜티 커피의 깊고 풍부한 향과 견과류의 고소함",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064230_1787294550354_48fekULz70.png",
+          "method": "image-model"
+        },
+        {
+          "text": "과일의 단맛이 조화로운 드립용 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20260821064230_1787294550354_48fekULz70.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100019",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064232_1787294552976_AcO7iUYDDY.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "terarosa-100017",
+      "roasterName": "테라로사",
+      "productName": "에스프레소 블렌드",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 48000,
+      "weight": 250,
+      "score": 82,
+      "tastingNotes": [
+        "다크초콜릿",
+        "부드러움",
+        "묵직"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "다크초콜릿의 묵직한 풍미와 부드러운 질감이 느껴지는 커피",
+          "sourceUrl": "https://www.terarosa.com/UpImg/item/list/20250614090720_1749892040209_AAovTRV4oO.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100017",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20250614090724_1749892044111_MkRoI4NSs7.webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "acidityScore": -0.6,
       "acidityScoreSource": "tastingNotes"
     },
     {
@@ -18110,6 +17851,147 @@
       "acidityScore": 0.19999999999999998,
       "acidityScoreSource": "tastingNotes",
       "officialDetailPreservedAt": "2026-09-23T09:32:57.156Z"
+    },
+    {
+      "id": "헬카페-밸런스블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "밸런스 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "13,000원",
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "헬카페-강배전블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "강배전 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Dark",
+      "price": 14000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-52000",
+          "price": 52000,
+          "weight": 1000,
+          "priceLabel": "52,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,200원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "hellcafe-60",
+      "roasterName": "헬카페",
+      "productName": "헬카페 클래식 커피 1kg",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 208000,
+      "weight": 1000,
+      "priceOptionsComplete": false,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "namusairo-658",
@@ -25002,8 +24884,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/b0b8d47b869e30d4a331b84d7c56479c.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25013,7 +24895,7 @@
       "acidityScore": 0.175,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-161",
@@ -25132,8 +25014,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/7e9685b488c1e3d79c73688ed4c0c2d8.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25143,7 +25025,7 @@
       "acidityScore": -0.175,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-170",
@@ -25233,8 +25115,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202601/d6cdd2d70ef1c1157579a2dff6f13bb7.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25244,7 +25126,7 @@
       "acidityScore": -0.8666666666666667,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-570",
@@ -25332,8 +25214,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/539033a1682fdfcac58b53ded7ef9055.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25343,7 +25225,7 @@
       "acidityScore": 0.9333333333333332,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-575",
@@ -25443,8 +25325,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202609/f719c29cab861e1e54b6f86bfff95927.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25454,7 +25336,7 @@
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-577",
@@ -25542,8 +25424,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202609/aa5c03eddefd89200efba5dd0592beb0.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25553,7 +25435,7 @@
       "acidityScore": -0.4,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-568",
@@ -25641,8 +25523,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/0186bd55d5e10eda2ce85c3425cb0c4a.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25652,7 +25534,7 @@
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-560",
@@ -25762,8 +25644,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/e777cedfd3a5bde0e486a5222a2eb396.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25773,7 +25655,7 @@
       "acidityScore": 0.6799999999999999,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-558",
@@ -25861,8 +25743,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/df1c924297ea2581e05cc4ca97a00a5b.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25872,7 +25754,7 @@
       "acidityScore": 0.6,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "werk-545",
@@ -25959,8 +25841,8 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202606/221270565f7742f63f8142187c49a071.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 2시간 전 정보",
-      "checkedMinutesAgo": 120,
+      "lastCheckedAt": "갱신 실패 · 51분 전 정보",
+      "checkedMinutesAgo": 51,
       "variety": "",
       "farm": "",
       "blendComposition": [],
@@ -25970,7 +25852,7 @@
       "acidityScore": -0.8,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-26T05:04:10.356Z"
+      "lastObservedAt": "2026-09-26T07:04:23.926Z"
     },
     {
       "id": "fritz-2099",
@@ -27001,8 +26883,9 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": -0.09999999999999998,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-26T07:55:13.962Z"
     },
     {
       "id": "momos-3658",
@@ -27083,9 +26966,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.4666666666666666,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-26T05:04:10.356Z"
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-7381",
@@ -27142,9 +27024,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.4666666666666666,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-25T17:42:53.952Z"
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-7375",
@@ -27277,9 +27158,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-25T10:55:25.758Z"
+      "acidityScore": 0.31999999999999995,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-4183",
@@ -27359,9 +27239,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.10000000000000003,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-26T07:04:23.926Z"
+      "acidityScore": 0.31999999999999995,
+      "acidityScoreSource": "tastingNotes"
     }
   ],
   "quality": {
@@ -27445,8 +27324,8 @@
     "preservedRoasterProductCount": 0,
     "preservedDiscountCount": 1,
     "preservedOfficialDetailCount": 1,
-    "preservedTastingNoteCount": 11,
-    "staleProductCount": 25,
+    "preservedTastingNoteCount": 13,
+    "staleProductCount": 10,
     "collectionRuns": [
       {
         "sourceId": "identity",
@@ -27519,13 +27398,6 @@
         "usedFallback": false
       },
       {
-        "sourceId": "terarosa",
-        "roasterName": "테라로사",
-        "status": "failed",
-        "itemCount": 15,
-        "usedFallback": true
-      },
-      {
         "sourceId": "centercoffee",
         "roasterName": "센터커피",
         "status": "complete",
@@ -27533,10 +27405,10 @@
         "usedFallback": false
       },
       {
-        "sourceId": "hellcafe",
-        "roasterName": "헬카페",
+        "sourceId": "terarosa",
+        "roasterName": "테라로사",
         "status": "complete",
-        "itemCount": 7,
+        "itemCount": 15,
         "usedFallback": false
       },
       {
@@ -27544,6 +27416,13 @@
         "roasterName": "커피리브레",
         "status": "complete",
         "itemCount": 20,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "hellcafe",
+        "roasterName": "헬카페",
+        "status": "complete",
+        "itemCount": 7,
         "usedFallback": false
       },
       {
