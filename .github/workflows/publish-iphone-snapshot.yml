@@ -57,6 +57,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # 네트워크 없이 도는 테스트만 둔다. officialmall:test는 실제 쇼핑몰에 접속하므로
+      # 사이트 하나가 내려가도 게시가 멈출 수 있어 여기서 제외한다(로컬 npm run verify에서만 실행).
       - name: Run safety tests
         run: |
           npm run tasting-notes:test
@@ -65,6 +67,9 @@ jobs:
           npm run iphone-webapp:test
           npm run history:test
           npm run safety-guards:test
+          npm run map:test
+          npm run contract:test
+          npm run smartstore:test
 
       - name: Build app
         run: npm run build
