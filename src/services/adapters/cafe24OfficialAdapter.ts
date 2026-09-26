@@ -289,6 +289,7 @@ type Cafe24DetailInfo = {
   origin?: string;
   variety?: string;
   process?: string;
+  roastLevel?: string;
   tastingNotes?: string;
   tastingNoteEvidence?: BeanProduct['tastingNoteEvidence'];
   region?: string;
@@ -407,6 +408,18 @@ function isLikelyBeanProduct(productName: string, config: Cafe24SourceConfig) {
   return beanSignals.some((word) => name.includes(word)) || COUNTRY_LABELS.some(([, aliases]) => aliases.some((alias) => name.includes(alias.toLowerCase())));
 }
 
+// 기존 목록 단계 판정을 그대로 두고, 그 판정이 '확인 필요'일 때만 상세의 로스팅 표기로 채운다 (FIX-3).
+function inferListRoastLevel(combinedText: string, detailRoastLevel?: string) {
+  const listLevel = /약배전|light/i.test(combinedText)
+    ? 'Light'
+    : /강배전|dark/i.test(combinedText)
+      ? 'Dark'
+      : /중배전|medium/i.test(combinedText)
+        ? 'Medium'
+        : '확인 필요';
+  return listLevel === '확인 필요' && detailRoastLevel ? detailRoastLevel : listLevel;
+}
+
 export function parseCafe24Products(html: string, config: Cafe24SourceConfig): BeanProduct[] {
   return extractProductBlocks(html)
     .map((match, index) => {
@@ -456,13 +469,7 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         productName,
         origin: detail?.origin || inferOrigin(combinedText),
         process: detail?.process || inferProcessFromName(productName, combinedText),
-        roastLevel: /약배전|light/i.test(combinedText)
-          ? 'Light'
-          : /강배전|dark/i.test(combinedText)
-            ? 'Dark'
-            : /중배전|medium/i.test(combinedText)
-              ? 'Medium'
-              : '확인 필요',
+        roastLevel: inferListRoastLevel(combinedText, detail?.roastLevel),
         price,
         originalPrice,
         weight: representativeOption?.weight || detail?.weight || inferWeight(`${productName} ${description}`.trim(), config.defaultWeight),
@@ -545,13 +552,7 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
         productName,
         origin: detail?.origin || inferOrigin(combinedText),
         process: detail?.process || inferProcessFromName(productName, combinedText),
-        roastLevel: /약배전|light/i.test(combinedText)
-          ? 'Light'
-          : /강배전|dark/i.test(combinedText)
-            ? 'Dark'
-            : /중배전|medium/i.test(combinedText)
-              ? 'Medium'
-              : '확인 필요',
+        roastLevel: inferListRoastLevel(combinedText, detail?.roastLevel),
         price,
         originalPrice: originalPrice > price ? originalPrice : undefined,
         weight: representativeOption?.weight || detail?.weight || inferWeight(combinedText, config.defaultWeight),

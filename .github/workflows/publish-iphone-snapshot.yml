@@ -70,6 +70,7 @@ jobs:
           npm run map:test
           npm run contract:test
           npm run smartstore:test
+          npm run roast:test
 
       - name: Build app
         run: npm run build

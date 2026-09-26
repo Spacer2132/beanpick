@@ -1,0 +1,1354 @@
+{
+ "generatedAt": "2026-09-26T11:37:34.470Z",
+ "patterns": [
+  {
+   "pattern": "다크",
+   "count": 404,
+   "productCount": 53,
+   "sampleProducts": [
+    {
+     "id": "aerycoffee-11368676360",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "[에어리커피] 다크 블렌드"
+    },
+    {
+     "id": "cafedoan-12747134803",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "커피입니다. 컵에서는 자두가 산뜻함과 밝은 산미를 더해주며, 70퍼센트 다크 초콜릿이 바디와 깊이를 부여합니다. 온도가 내려가면 시럽에 절인 복숭아"
+    },
+    {
+     "id": "coffee502-10",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "502 COFFEE ROASTERS | WORKERS 워커스 - 다크 초콜릿의 짙은 단맛 전체상품목록 바로가기 본문 바로가기 40"
+    },
+    {
+     "id": "coffee502-93",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "| 콜롬비아, 케냐, 에티오피아 로스팅 | 강배전 컵노트 | 다크 초콜릿, 카카오, 블랙 슈가 BLUES 블루스 블렌드 | 콜롬비"
+    },
+    {
+     "id": "deepbluelake-146",
+     "fields": [
+      "productName",
+      "rawObservations",
+      "docs.productName"
+     ],
+     "context": "다크딥 블랜딩"
+    }
+   ]
+  },
+  {
+   "pattern": "미디엄",
+   "count": 256,
+   "productCount": 35,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) "
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) "
+    },
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) "
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) "
+    },
+    {
+     "id": "namusairo-1114",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "shed · Fully Washed, Cask Aging 볶음도 미디엄 Medium 향 미 천도복숭아, 체리, 가죽, 오키, 은은하게 "
+    }
+   ]
+  },
+  {
+   "pattern": "프렌치",
+   "count": 233,
+   "productCount": 69,
+   "sampleProducts": [
+    {
+     "id": "coffee502-10",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) 옵션선택 (최소주문수량 1개 이상 / 최대주문"
+    },
+    {
+     "id": "coffee502-11",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) 옵션선택 (최소주문수량 1개 이상 / 최대주문"
+    },
+    {
+     "id": "coffee502-12",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) 옵션선택 (최소주문수량 1개 이상 / 최대주문"
+    },
+    {
+     "id": "coffee502-121",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) 옵션선택 (최소주문수량 1개 이상 / 최대주문"
+    },
+    {
+     "id": "coffee502-13",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중간분쇄) 프렌치프레스 (굵은분쇄) 옵션선택 (최소주문수량 1개 이상 / 최대주문"
+    }
+   ]
+  },
+  {
+   "pattern": "모카포트",
+   "count": 216,
+   "productCount": 69,
+   "sampleProducts": [
+    {
+     "id": "coffee502-10",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "---------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중"
+    },
+    {
+     "id": "coffee502-11",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "---------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중"
+    },
+    {
+     "id": "coffee502-12",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "---------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중"
+    },
+    {
+     "id": "coffee502-121",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "---------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중"
+    },
+    {
+     "id": "coffee502-13",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "---------------- 홀빈 (분쇄안함) 에스프레소 (가는분쇄) 모카포트 (가는분쇄) 콜드브루 (가는분쇄) 커피메이커 (중간분쇄) 핸드드립 (중"
+    }
+   ]
+  },
+  {
+   "pattern": "라이트",
+   "count": 186,
+   "productCount": 38,
+   "sampleProducts": [
+    {
+     "id": "lubia-9867970184",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "콜롬비아 세로아줄 게이샤 내추럴 라이트 로스트"
+    },
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 "
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 "
+    },
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 "
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 "
+    }
+   ]
+  },
+  {
+   "pattern": "볶음도",
+   "count": 87,
+   "productCount": 26,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "oom 가공법 무산소 내추럴 Anaerobic Natural 볶음도 Medium 향 미 구아바, 베리, 포도, 카다멈, 타마린드"
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 가공법 Natural Fermentation · Washed 볶음도 Medium 향 미 벚꽃, 체리, 파인애플, 쥬시 Cherr"
+    },
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "녹음 원산지 Guatemala · Kenya · Mexico 볶음도 Dark 향 미 건자두, 카카오, 당밀, 묵직하다 prune"
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "녹음 원산지 Guatemala · Kenya · Mexico 볶음도 Dark 향 미 건자두, 카카오, 당밀, 묵직하다 prune"
+    },
+    {
+     "id": "namusairo-1114",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 숙성 Washed · Fully Washed, Cask Aging 볶음도 미디엄 Medium 향 미 천도복숭아, 체리, 가죽, 오키,"
+    }
+   ]
+  },
+  {
+   "pattern": "배전도",
+   "count": 87,
+   "productCount": 33,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "0초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외 ○ 배전도에 따라 온수 온도(±2℃)를 선택하세요. 온도가 높을수록 바디감이 커"
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "0초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외 ○ 배전도에 따라 온수 온도(±2℃)를 선택하세요. 온도가 높을수록 바디감이 커"
+    },
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "0초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외 ○ 배전도에 따라 온수 온도(±2℃)를 선택하세요. 온도가 높을수록 바디감이 커"
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "0초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외 ○ 배전도에 따라 온수 온도(±2℃)를 선택하세요. 온도가 높을수록 바디감이 커"
+    },
+    {
+     "id": "namusairo-1114",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "0초 간격 3회 물붓기 (50-50-50g), 총 2’10” 내외 ○ 배전도에 따라 온수 온도(±2℃)를 선택하세요. 온도가 높을수록 바디감이 커"
+    }
+   ]
+  },
+  {
+   "pattern": "볶음",
+   "count": 87,
+   "productCount": 26,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "oom 가공법 무산소 내추럴 Anaerobic Natural 볶음도 Medium 향 미 구아바, 베리, 포도, 카다멈, 타마린"
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 가공법 Natural Fermentation · Washed 볶음도 Medium 향 미 벚꽃, 체리, 파인애플, 쥬시 Cher"
+    },
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "녹음 원산지 Guatemala · Kenya · Mexico 볶음도 Dark 향 미 건자두, 카카오, 당밀, 묵직하다 prun"
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "녹음 원산지 Guatemala · Kenya · Mexico 볶음도 Dark 향 미 건자두, 카카오, 당밀, 묵직하다 prun"
+    },
+    {
+     "id": "namusairo-1114",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 숙성 Washed · Fully Washed, Cask Aging 볶음도 미디엄 Medium 향 미 천도복숭아, 체리, 가죽, 오키"
+    }
+   ]
+  },
+  {
+   "pattern": "웰던",
+   "count": 81,
+   "productCount": 26,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "니다. ESPRESSO 원두량 다크 20g 미디엄~웰던 21g 추출시간 24”~ 32” 내외 추출온도 9"
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "니다. ESPRESSO 원두량 다크 20g 미디엄~웰던 21g 추출시간 24”~ 32” 내외 추출온도 9"
+    },
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "니다. ESPRESSO 원두량 다크 20g 미디엄~웰던 21g 추출시간 24”~ 32” 내외 추출온도 9"
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "니다. ESPRESSO 원두량 다크 20g 미디엄~웰던 21g 추출시간 24”~ 32” 내외 추출온도 9"
+    },
+    {
+     "id": "namusairo-1114",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "니다. ESPRESSO 원두량 다크 20g 미디엄~웰던 21g 추출시간 24”~ 32” 내외 추출온도 9"
+    }
+   ]
+  },
+  {
+   "pattern": "강배전",
+   "count": 64,
+   "productCount": 13,
+   "sampleProducts": [
+    {
+     "id": "coffee502-10",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 설명 다크 초콜릿의 짙은 단맛과 기분 좋은 쓴맛 로스팅 강배전 소비자가 16,000원 판매가 14,400원 배송방법"
+    },
+    {
+     "id": "coffee502-13",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 필로우 설명 달콤하고 부드러운 질감의 디카페인 로스팅 중강배전 소비자가 18,000원 판매가 16,200원 배송방법"
+    },
+    {
+     "id": "coffee502-9",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "래식 설명 견과류의 고소한 향미와 라운드함 질감 로스팅 중강배전 소비자가 14,000원 판매가 12,600원 배송방법"
+    },
+    {
+     "id": "coffee502-93",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "C 클래식 블렌드 | 브라질, 과테말라, 콜롬비아 로스팅 | 중강배전 컵노트 | 토스트, 구운 견과, 초콜릿 WORKERS 워커스 "
+    },
+    {
+     "id": "coffeejg-10793450163",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": " 원두입니다. 묵직한 바디감과 안정적인 단맛이 오래 남는, 달콤고소한 중강배전 블렌드입니다."
+    }
+   ]
+  },
+  {
+   "pattern": "로스팅\\s*후",
+   "count": 59,
+   "productCount": 21,
+   "sampleProducts": [
+    {
+     "id": "fritz-1202",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "국 EMS로 발송됩니다. 교환/반품/환불 프릳츠의 모든 원두 제품은 로스팅 후 7일 이내에 판매합니다. 아래와 같은 경우 교환/반품/환불이 불가능하오"
+    },
+    {
+     "id": "fritz-1290",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "(주말/공휴일 제외) 교환/반품/환불 프릳츠의 모든 원두 제품은 로스팅 후 7일 이내에 판매합니다. 아래와 같은 경우 교환/반품/환불이 불가능"
+    },
+    {
+     "id": "fritz-2099",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "EMS로 발송됩니다. 교환/반품/환불 프릳츠의 모든 원두 제품은 로스팅 후 7일 이내에 판매합니다. 아래와 같은 경우 교환/반품/환불이 불가능"
+    },
+    {
+     "id": "fritz-2177",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "EMS로 발송됩니다. 교환/반품/환불 프릳츠의 모든 원두 제품은 로스팅 후 7일 이내에 판매합니다. 아래와 같은 경우 교환/반품/환불이 불가능하오"
+    },
+    {
+     "id": "fritz-2213",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "(주말/공휴일 제외) 교환/반품/환불 프릳츠의 모든 원두 제품은 로스팅 후 7일 이내에 판매합니다. 아래와 같은 경우 교환/반품/환불이 불가능"
+    }
+   ]
+  },
+  {
+   "pattern": "다크\\s*초콜릿",
+   "count": 44,
+   "productCount": 10,
+   "sampleProducts": [
+    {
+     "id": "cafedoan-12747134803",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "커피입니다. 컵에서는 자두가 산뜻함과 밝은 산미를 더해주며, 70퍼센트 다크 초콜릿이 바디와 깊이를 부여합니다. 온도가 내려가면 시럽에 절인 복숭아와 넥타"
+    },
+    {
+     "id": "coffee502-10",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "502 COFFEE ROASTERS | WORKERS 워커스 - 다크 초콜릿의 짙은 단맛 전체상품목록 바로가기 본문 바로가기 40,000"
+    },
+    {
+     "id": "coffee502-93",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "| 콜롬비아, 케냐, 에티오피아 로스팅 | 강배전 컵노트 | 다크 초콜릿, 카카오, 블랙 슈가 BLUES 블루스 블렌드 | 콜롬비아, 에"
+    },
+    {
+     "id": "namusairo-1123",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "치열한 삶의 현장에서도 분명한 매력을 발산하는 깊고 묵직한 블렌드 다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다 상품상세정보"
+    },
+    {
+     "id": "namusairo-41",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 볶음도 Well-done 향 미 기분좋은 산미, 카카오, 다크초콜릿, 깨끗하고 싱싱하다 Pleasant Acidity, Cacao, Dar"
+    }
+   ]
+  },
+  {
+   "pattern": "\\bmedium\\b",
+   "count": 42,
+   "productCount": 14,
+   "sampleProducts": [
+    {
+     "id": "coffee502-178",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "Halo Beriti Natural 용량 200g 로스팅 Medium 소비자가 19,000원 판매가 17,100원 배송방법"
+    },
+    {
+     "id": "coffee502-182",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " Geisha 용량 100g, 200g 로스팅 Light Medium 판매가 21,000원 배송방법 택배 배송비 3,0"
+    },
+    {
+     "id": "coffee502-184",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "Chorso Washed 용량 200g 로스팅 Light Medium 소비자가 22,000원 판매가 19,800원 배송방법"
+    },
+    {
+     "id": "namusairo-1039",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "가공법 무산소 내추럴 Anaerobic Natural 볶음도 Medium 향 미 구아바, 베리, 포도, 카다멈, 타마린드 Guava, B"
+    },
+    {
+     "id": "namusairo-1090",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " Natural Fermentation · Washed 볶음도 Medium 향 미 벚꽃, 체리, 파인애플, 쥬시 Cherry Blossom"
+    }
+   ]
+  },
+  {
+   "pattern": "다크우드",
+   "count": 38,
+   "productCount": 4,
+   "sampleProducts": [
+    {
+     "id": "namusairo-28",
+     "fields": [
+      "productName",
+      "rawObservations",
+      "docs.productName"
+     ],
+     "context": "다크우드"
+    },
+    {
+     "id": "namusairo-29",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "0 프렌치 &#8361;13,000 &#8361;13,000 다크우드 &#8361;15,000 &#8361;15,000 회사소개 "
+    },
+    {
+     "id": "namusairo-42",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "칸 10개입 &#8361;11,000 &#8361;11,000 다크우드 &#8361;15,000 &#8361;15,000 회사소개 "
+    },
+    {
+     "id": "namusairo-854",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "트 숲 시리즈 3종을 더 좋은 가격에 만나는 PiCK! 숲 세트 숲, 다크우드, 녹음 입니다. 숲 Woods 마치 숲에 들어온 듯 달고나의 달"
+    }
+   ]
+  },
+  {
+   "pattern": "로스팅일",
+   "count": 38,
+   "productCount": 19,
+   "sampleProducts": [
+    {
+     "id": "aerycoffee-13651407006",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "로스팅 머신 : 로링 S15 로스팅일 : 2026.07.11 권장 추출일 : 2026.08.01 이후 - 현"
+    },
+    {
+     "id": "aerycoffee-13655518934",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "로스팅 머신 : 스트롱 홀드 S8X 로스팅일 : 26.07.11 권장 추출일 : 26.08.01 이후 - 현재 안내"
+    },
+    {
+     "id": "aerycoffee-13666847700",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "[마지막 배치] 로스팅 머신 : 로링 S15 로스팅일 : 2026.08.29 권장 추출일 : 2026.09.19 이후 - 현"
+    },
+    {
+     "id": "aerycoffee-13666855026",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "로스팅 머신 : 스트롱 홀드 S8X 로스팅일 : 26.07.23 권장 추출일 : 26.08.13 이후 - 현재 안내"
+    },
+    {
+     "id": "aerycoffee-13666861088",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "로스팅 머신 : 로링 S15 로스팅일 : 26.08.24 권장 추출일 : 26.09.14 이후 - 현재 안내"
+    }
+   ]
+  },
+  {
+   "pattern": "중강배전",
+   "count": 36,
+   "productCount": 9,
+   "sampleProducts": [
+    {
+     "id": "coffee502-13",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "W 필로우 설명 달콤하고 부드러운 질감의 디카페인 로스팅 중강배전 소비자가 18,000원 판매가 16,200원 배송방법"
+    },
+    {
+     "id": "coffee502-9",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "클래식 설명 견과류의 고소한 향미와 라운드함 질감 로스팅 중강배전 소비자가 14,000원 판매가 12,600원 배송방법"
+    },
+    {
+     "id": "coffee502-93",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "IC 클래식 블렌드 | 브라질, 과테말라, 콜롬비아 로스팅 | 중강배전 컵노트 | 토스트, 구운 견과, 초콜릿 WORKERS 워커스 "
+    },
+    {
+     "id": "coffeejg-10793450163",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "드 원두입니다. 묵직한 바디감과 안정적인 단맛이 오래 남는, 달콤고소한 중강배전 블렌드입니다."
+    },
+    {
+     "id": "coffeelibre-8138",
+     "fields": [
+      "productName"
+     ],
+     "context": "[싱글오리진] 콜롬비아 나리뇨 엘 타블론 레이트 하비스트 [중강배전]"
+    }
+   ]
+  },
+  {
+   "pattern": "\\bdark\\b",
+   "count": 36,
+   "productCount": 9,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1093",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "산지 Guatemala · Kenya · Mexico 볶음도 Dark 향 미 건자두, 카카오, 당밀, 묵직하다 prune, cacao"
+    },
+    {
+     "id": "namusairo-1096",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "산지 Guatemala · Kenya · Mexico 볶음도 Dark 향 미 건자두, 카카오, 당밀, 묵직하다 prune, cacao"
+    },
+    {
+     "id": "namusairo-1146",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "robic Natural · Fully Washed 볶음도 다크 Dark 향 미 블루베리, 시트러스, 브라운슈가, 버터스카치, 풍부하고 "
+    },
+    {
+     "id": "namusairo-28",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "우드 원산지 Ethiopia · Guatemala 볶음도 Dark 향 미 베리, 초콜릿, 농밀한 단맛, 감칠맛, 복합적 Berry"
+    },
+    {
+     "id": "namusairo-29",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " Brazil · Colombia · Guatemala 볶음도 Dark 향 미 밀크초콜릿, 땅콩카라멜, 오렌지, 향신료, 흑설탕, 달콤"
+    }
+   ]
+  },
+  {
+   "pattern": "로스팅\\s*날짜",
+   "count": 30,
+   "productCount": 10,
+   "sampleProducts": [
+    {
+     "id": "werk-161",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 베르크 검색 (평일 9:00 - 18:00 / 주말, 공휴일 휴무) 로스팅 날짜는 변경 가능한가요? 로스팅 후 7일 이내의 신선한 원두로 발송됩니다."
+    },
+    {
+     "id": "werk-170",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 베르크 검색 (평일 9:00 - 18:00 / 주말, 공휴일 휴무) 로스팅 날짜는 변경 가능한가요? 로스팅 후 7일 이내의 신선한 원두로 발송됩니다."
+    },
+    {
+     "id": "werk-545",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 베르크 검색 (평일 9:00 - 18:00 / 주말, 공휴일 휴무) 로스팅 날짜는 변경 가능한가요? 로스팅 후 7일 이내의 신선한 원두로 발송됩니다."
+    },
+    {
+     "id": "werk-558",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 베르크 검색 (평일 9:00 - 18:00 / 주말, 공휴일 휴무) 로스팅 날짜는 변경 가능한가요? 로스팅 후 7일 이내의 신선한 원두로 발송됩니다."
+    },
+    {
+     "id": "werk-560",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 베르크 검색 (평일 9:00 - 18:00 / 주말, 공휴일 휴무) 로스팅 날짜는 변경 가능한가요? 로스팅 후 7일 이내의 신선한 원두로 발송됩니다."
+    }
+   ]
+  },
+  {
+   "pattern": "약배전",
+   "count": 29,
+   "productCount": 8,
+   "sampleProducts": [
+    {
+     "id": "coffee502-12",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "ROASTERS | WELCOME 웰컴 - 화사한 산미와 맑은 단맛의 중약배전 전체상품목록 바로가기 본문 바로가기 40,000원 이상 구매"
+    },
+    {
+     "id": "coffee502-154",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "sa Hamasho Natural 용량 200g 로스팅 중약배전 소비자가 22,000원 판매가 18,700원 배송방법"
+    },
+    {
+     "id": "coffee502-178",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 온전히 간직한, 에티오피아 디카페인 Roasting Point 중약배전 Tasting Notes 복숭아, 포도, 블루베리, 사탕수수 지역"
+    },
+    {
+     "id": "coffee502-182",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "iso92만의 특별함을 경험해보세요. Roasting Point 중약배전 Tasting Notes 로즈, 엘더플라워, 피치, 망고스틴 지역"
+    },
+    {
+     "id": "coffee502-184",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "떨어지는 클래식한 워시드 에티오피아. Roasting Point 중약배전 Tasting Notes 베르가못, 라벤더, 청포도, 살구, 레몬 "
+    }
+   ]
+  },
+  {
+   "pattern": "중약배전",
+   "count": 27,
+   "productCount": 6,
+   "sampleProducts": [
+    {
+     "id": "coffee502-12",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " ROASTERS | WELCOME 웰컴 - 화사한 산미와 맑은 단맛의 중약배전 전체상품목록 바로가기 본문 바로가기 40,000원 이상 구매"
+    },
+    {
+     "id": "coffee502-154",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "nsa Hamasho Natural 용량 200g 로스팅 중약배전 소비자가 22,000원 판매가 18,700원 배송방법"
+    },
+    {
+     "id": "coffee502-178",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "를 온전히 간직한, 에티오피아 디카페인 Roasting Point 중약배전 Tasting Notes 복숭아, 포도, 블루베리, 사탕수수 지역"
+    },
+    {
+     "id": "coffee502-182",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "diso92만의 특별함을 경험해보세요. Roasting Point 중약배전 Tasting Notes 로즈, 엘더플라워, 피치, 망고스틴 지역"
+    },
+    {
+     "id": "coffee502-184",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 떨어지는 클래식한 워시드 에티오피아. Roasting Point 중약배전 Tasting Notes 베르가못, 라벤더, 청포도, 살구, 레몬 "
+    }
+   ]
+  },
+  {
+   "pattern": "라이트\\s*로스트",
+   "count": 24,
+   "productCount": 12,
+   "sampleProducts": [
+    {
+     "id": "lubia-9867970184",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "콜롬비아 세로아줄 게이샤 내추럴 라이트 로스트"
+    },
+    {
+     "id": "루비아커피-과테말라엘소코로파카마라워시드라이트로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "과테말라 엘 소코로 파카마라 워시드 라이트 로스트"
+    },
+    {
+     "id": "루비아커피-에티오피아구지벤티넨카내추럴스위스워터디카페인라이트로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "에티오피아 구지 벤티 넨카 내추럴 스위스 워터 디카페인 라이트 로스트"
+    },
+    {
+     "id": "루비아커피-에티오피아구지하로와추g1워시드라이트로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "에티오피아 구지 하로 와추 G1 워시드 라이트 로스트"
+    },
+    {
+     "id": "루비아커피-에티오피아시다모벤사봄베g1내추럴라이트로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "에티오피아 시다모 벤사 봄베 G1 내추럴 라이트 로스트"
+    }
+   ]
+  },
+  {
+   "pattern": "로스팅\\s*일자",
+   "count": 22,
+   "productCount": 20,
+   "sampleProducts": [
+    {
+     "id": "aerycoffee-13651407006",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": ".07.11 권장 추출일 : 2026.08.01 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 "
+    },
+    {
+     "id": "aerycoffee-13655518934",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "26.07.11 권장 추출일 : 26.08.01 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 "
+    },
+    {
+     "id": "aerycoffee-13666847700",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": ".08.29 권장 추출일 : 2026.09.19 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 "
+    },
+    {
+     "id": "aerycoffee-13666855026",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "26.07.23 권장 추출일 : 26.08.13 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 "
+    },
+    {
+     "id": "aerycoffee-13666861088",
+     "fields": [
+      "detailCache.detailText"
+     ],
+     "context": "26.08.24 권장 추출일 : 26.09.14 이후 - 현재 안내되는 로스팅일자는 가장 먼저 로스팅된 재고를 기준으로 작성되며, 실제 출고되는 원두는 "
+    }
+   ]
+  },
+  {
+   "pattern": "다크\\s*로스트",
+   "count": 20,
+   "productCount": 12,
+   "sampleProducts": [
+    {
+     "id": "lubia-11575853258",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "[마지막상품] 헤이즐넛 브라운 다크 로스트 플레이버드 블렌드 커피"
+    },
+    {
+     "id": "루비아커피-과테말라세이바풀리워시드다크로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "과테말라 세이바 풀리 워시드 다크 로스트"
+    },
+    {
+     "id": "루비아커피-과테말라엘소코로파카마라워시드다크로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "과테말라 엘 소코로 파카마라 워시드 다크 로스트"
+    },
+    {
+     "id": "루비아커피-에티오피아구지하로와추g1워시드다크로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "에티오피아 구지 하로 와추 G1 워시드 다크 로스트"
+    },
+    {
+     "id": "루비아커피-케냐키리냐가키이aatop워시드다크로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "케냐 키리냐가 키이 AA TOP 워시드 다크 로스트"
+    }
+   ]
+  },
+  {
+   "pattern": "중배전",
+   "count": 18,
+   "productCount": 3,
+   "sampleProducts": [
+    {
+     "id": "coffee502-11",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 젠틀 설명 은은한 산미, 캐러멜의 단맛과 밸런스 로스팅 중배전 소비자가 16,000원 판매가 14,400원 배송방법"
+    },
+    {
+     "id": "coffee502-121",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 설명 과일 초콜릿을 입에 머금은 듯한 여운의 커피 로스팅 중배전 소비자가 16,000원 판매가 14,400원 배송방법"
+    },
+    {
+     "id": "coffee502-93",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " BLUES 블루스 블렌드 | 콜롬비아, 에티오피아 로스팅 | 중배전 컵노트 | 감귤, 베리, 초콜릿 GENTLE 젠틀 블렌드 "
+    }
+   ]
+  },
+  {
+   "pattern": "미디엄\\s*로스트",
+   "count": 18,
+   "productCount": 9,
+   "sampleProducts": [
+    {
+     "id": "루비아커피-과테말라안티구아shbep워시드미디엄로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "과테말라 안티구아 SHB EP 워시드 미디엄 로스트"
+    },
+    {
+     "id": "루비아커피-브라질ny2세하도파인컵내추럴미디엄로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "브라질 NY2 세하도 파인컵 내추럴 미디엄 로스트"
+    },
+    {
+     "id": "루비아커피-시즈널블렌드너티브리즈미디엄로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "시즈널 블렌드 너티 브리즈 미디엄 로스트"
+    },
+    {
+     "id": "루비아커피-에티오피아예가체프코케g2워시드미디엄로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "에티오피아 예가체프 코케 G2 워시드 미디엄 로스트"
+    },
+    {
+     "id": "루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "인도네시아 수마트라 만델링 G1 길링 바사 (웻 훌) 미디엄 로스트"
+    }
+   ]
+  },
+  {
+   "pattern": "\\blight\\b",
+   "count": 18,
+   "productCount": 6,
+   "sampleProducts": [
+    {
+     "id": "coffee502-182",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "aiso92 Geisha 용량 100g, 200g 로스팅 Light Medium 판매가 21,000원 배송방법 택배 배송"
+    },
+    {
+     "id": "coffee502-184",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "Gedeb Chorso Washed 용량 200g 로스팅 Light Medium 소비자가 22,000원 판매가 19,800원"
+    },
+    {
+     "id": "namusairo-1136",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "종 게샤 Gesha 가공법 워시드 Washed 볶음도 Light 향 미 베르가못, 라임, 게샤 플레이버, 클래식 Bergamot"
+    },
+    {
+     "id": "namusairo-28",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "이 있는 커피입니다. 농밀한 단맛이 특징입니다. A ray of light shining in the dark BREWING GUIDE B"
+    },
+    {
+     "id": "namusairo-30",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "Heirloom 가공법 워시드 Washed 볶음도 라이트 Light 향 미 자스민, 복합적, 엘더베리, 샬롯, 달다 Jasmine,"
+    }
+   ]
+  },
+  {
+   "pattern": "well[\\s-]*done",
+   "count": 15,
+   "productCount": 5,
+   "sampleProducts": [
+    {
+     "id": "namusairo-27",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "명 숲 원산지 Ethiopia · Brazil 볶음도 Well-done 향 미 볶은 땅콩, 향신료, 코코아, 레몬, 고소 달달 쌉쌀한 "
+    },
+    {
+     "id": "namusairo-345",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "low Bourbon 가공법 내추럴 Natural 볶음도 Well-done 향 미 바닐라, 피스타치오, 크림브륄레, 밀크초콜릿 Vanill"
+    },
+    {
+     "id": "namusairo-41",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "ai, Paches 가공법 Fully Washed 볶음도 Well-done 향 미 기분좋은 산미, 카카오, 다크초콜릿, 깨끗하고 싱싱하다 "
+    },
+    {
+     "id": "namusairo-522",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "ountain 가공법 Fully Washed 볶음도 웰던 Well-done 향 미 발렌시아 오렌지, 카라멜, 밀크초콜릿, 달다 Valenc"
+    },
+    {
+     "id": "namusairo-828",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "ashed - MWP Decaf Origin Select 볶음도 Well-done 향 미 카카오, 카라멜, 군밤, 꿀 Cacao, caramel,"
+    }
+   ]
+  },
+  {
+   "pattern": "다크초콜릿",
+   "count": 9,
+   "productCount": 3,
+   "sampleProducts": [
+    {
+     "id": "namusairo-1123",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "치열한 삶의 현장에서도 분명한 매력을 발산하는 깊고 묵직한 블렌드 다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다 상품상세정보"
+    },
+    {
+     "id": "namusairo-41",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 볶음도 Well-done 향 미 기분좋은 산미, 카카오, 다크초콜릿, 깨끗하고 싱싱하다 Pleasant Acidity, Cacao, Dar"
+    },
+    {
+     "id": "namusairo-763",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "ragua · Ethiopia 볶음도 French 향 미 다크초콜릿, 초코브라우니, 볶은 아몬드, 흑당, 버터처럼 부드럽다 Dark cho"
+    }
+   ]
+  },
+  {
+   "pattern": "시나몬",
+   "count": 8,
+   "productCount": 2,
+   "sampleProducts": [
+    {
+     "id": "fillout-8427587166",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "시나몬 게이트 원두"
+    },
+    {
+     "id": "werk-572",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": "렌드 상품간략설명 2026년 베르크의 가을 시즈널 블렌드 홍옥, 시나몬, 호두 더보기 배송정보 배송 방법 : 택배 배송 지역 : 전"
+    }
+   ]
+  },
+  {
+   "pattern": "이탈리안",
+   "count": 5,
+   "productCount": 2,
+   "sampleProducts": [
+    {
+     "id": "루비아커피-클래식이탈리안스타일피렌체",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "클래식 이탈리안 스타일 피렌체"
+    },
+    {
+     "id": "헬카페-강배전블렌드커피",
+     "fields": [
+      "rawObservations"
+     ],
+     "context": " 블렌드 커피 1kg (해외배송 가능상품) 서늘하고 깔끔한 느낌의 이탈리안 블렌드를 만들었습니다. 배전도를 올리고, 클린컵과 단맛이 좋은 생두를 "
+    }
+   ]
+  },
+  {
+   "pattern": "필디카프",
+   "count": 4,
+   "productCount": 2,
+   "sampleProducts": [
+    {
+     "id": "fillout-5310169256",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "필디카프 고소한 디카페인 블렌드 원두"
+    },
+    {
+     "id": "fillout-8259237237",
+     "fields": [
+      "productName",
+      "docs.productName"
+     ],
+     "context": "필디카프 다크 고소한 디카페인 블렌드 원두"
+    }
+   ]
+  },
+  {
+   "pattern": "미디엄\\s*다크\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "light\\s*roast",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "medium\\s*roast",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "medium-dark\\s*roast",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "medium\\s*dark\\s*roast",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "dark\\s*roast",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "medium[\\s-]*light",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "medium[\\s-]*dark",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "시나몬\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "시티\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "풀\\s*시티",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "프렌치\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "이탈리안\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "비엔나",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "필터\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "에스프레소\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "더치\\s*로스트",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "다크체리",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "다크\\s*체리",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  },
+  {
+   "pattern": "라이트\\s*바디",
+   "count": 0,
+   "productCount": 0,
+   "sampleProducts": []
+  }
+ ]
+}

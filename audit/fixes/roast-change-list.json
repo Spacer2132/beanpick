@@ -1,0 +1,539 @@
+{
+ "generatedAt": "2026-09-26T11:50:34.263Z",
+ "note": "before=구 표시(p.roastLevel), after=신 표시(getDisplayRoastLevel)+4c 시뮬레이션 저장값. 4c는 시뮬레이션 추정치.",
+ "total": 462,
+ "changed": 59,
+ "changes": [
+  {
+   "id": "히떼로스터리-콜롬비아엑셀소디카페인",
+   "productName": "콜롬비아 엑셀소 디카페인",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "Medium-Dark",
+   "simFilled": true,
+   "evidence": "상세: son 2026-09-19T16:08:01.149Z success \" 콜롬비아 엑셀소 디카페인 \" 배전도: 미디움 다크 로스트 노트: 오렌지, 구운아몬드, 밀크초콜릿 원두 정보 품종: Typica 프로세싱: Mountain W"
+  },
+  {
+   "id": "히떼로스터리-포스트업",
+   "productName": "포스트업",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세: e1fcdcded.json 2026-09-19T16:08:00.707Z success \"포스트업\" 배전도: 다크 로스트 노트: 카카오, 베리, 풀바디 블렌드 구성: Indonesia Bener Meriah Keybeans We"
+  },
+  {
+   "id": "히떼로스터리-리볼브",
+   "productName": "리볼브",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 3540e52c.json 2026-09-19T10:40:07.631Z success \" 리볼브 \" 배전도: 미디움 노트: 헤이즐넛, 밀크초콜렛, 블러드 오렌지 블렌드 구성: Brazil Fazenda Passeio Pul"
+  },
+  {
+   "id": "히떼로스터리-굿데이다크",
+   "productName": "굿데이 다크",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세: 1a9a3.json 2026-09-20T07:00:23.425Z success \" 굿데이 다크 \" 배전도: 다크 로스트 노트: 다크 카카오, 흑설탕, 풀 바디 블렌드 구성: Brazil Fazenda Sitio Terra Bo"
+  },
+  {
+   "id": "히떼로스터리-굿데이",
+   "productName": "굿데이",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "Medium-Dark",
+   "simFilled": true,
+   "evidence": "상세: 423ee6b8.json 2026-09-20T07:00:25.276Z success \" 굿데이 \" 배전도: 미디움 다크 로스트 노트: 구운 아몬드, 카카오, 좋은 균형감 블렌드 구성: Brazil Fazenda Sitio Te"
+  },
+  {
+   "id": "루비아커피-시즈널블렌드너티브리즈미디엄로스트",
+   "productName": "시즈널 블렌드 너티 브리즈 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 시즈널 블렌드 너티 브리즈 미디엄 로스트"
+  },
+  {
+   "id": "lubia-11575853258",
+   "productName": "[마지막상품] 헤이즐넛 브라운 다크 로스트 플레이버드 블렌드 커피",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세: 특별한 경험을 선사했던 캐러멜 브라운에 이어 보다 고소하고 부드러운 단맛을 극대화한 블렌드로 탄생했습니다. 다크 로스팅 된 가향 커피와 클래식 커피의 완벽한 밸런스를 통해 데일리 하면서도 특별한 경험을 즐기실 수 있습니"
+  },
+  {
+   "id": "루비아커피-헤이즐넛브라운다크로스트플레이버드블렌드커피",
+   "productName": "헤이즐넛 브라운 다크 로스트 플레이버드 블렌드 커피",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세: 특별한 경험을 선사했던 캐러멜 브라운에 이어 보다 고소하고 부드러운 단맛을 극대화한 블렌드로 탄생했습니다. 다크 로스팅 된 가향 커피와 클래식 커피의 완벽한 밸런스를 통해 데일리 하면서도 특별한 경험을 즐기실 수 있습니"
+  },
+  {
+   "id": "루비아커피-파푸아뉴기니블루마운틴100-워시드미디엄로스트",
+   "productName": "파푸아뉴기니 블루마운틴 100% 워시드 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 파푸아뉴기니 블루마운틴 100% 워시드 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-과테말라안티구아shbep워시드미디엄로스트",
+   "productName": "과테말라 안티구아 SHB EP 워시드 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 과테말라 안티구아 SHB EP 워시드 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-인도네시아수마트라만델링g1길링바사-웻훌-미디엄로스트",
+   "productName": "인도네시아 수마트라 만델링 G1 길링 바사 (웻 훌) 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 인도네시아 수마트라 만델링 G1 길링 바사 (웻 훌) 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-브라질ny2세하도파인컵내추럴미디엄로스트",
+   "productName": "브라질 NY2 세하도 파인컵 내추럴 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 브라질 NY2 세하도 파인컵 내추럴 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-코스타리카shbep따라주워시드미디엄로스트",
+   "productName": "코스타리카 SHB EP 따라주 워시드 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 코스타리카 SHB EP 따라주 워시드 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아아바야게이샤g1내추럴라이트로스트",
+   "productName": "에티오피아 아바야 게이샤 G1 내추럴 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 아바야 게이샤 G1 내추럴 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아구지하로와추g1워시드라이트로스트",
+   "productName": "에티오피아 구지 하로 와추 G1 워시드 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 구지 하로 와추 G1 워시드 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프할로베리티내추럴디카페인라이트로스트",
+   "productName": "에티오피아 예가체프 할로 베리티 내추럴 디카페인 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 예가체프 할로 베리티 내추럴 디카페인 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아시다모벤사봄베g1내추럴라이트로스트",
+   "productName": "에티오피아 시다모 벤사 봄베 G1 내추럴 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 시다모 벤사 봄베 G1 내추럴 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-과테말라세이바풀리워시드다크로스트",
+   "productName": "과테말라 세이바 풀리 워시드 다크 로스트",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 과테말라 세이바 풀리 워시드 다크 로스트"
+  },
+  {
+   "id": "루비아커피-워터멜론수박맛라이트로스트커피원두",
+   "productName": "워터멜론 수박맛 라이트 로스트 커피원두",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 워터멜론 수박맛 라이트 로스트 커피원두"
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프아리차g1워시드라이트로스트",
+   "productName": "에티오피아 예가체프 아리차 G1 워시드 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 예가체프 아리차 G1 워시드 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-콜롬비아후일라수프리모ep워시드미디엄로스트",
+   "productName": "콜롬비아 후일라 수프리모 EP 워시드 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 콜롬비아 후일라 수프리모 EP 워시드 미디엄 로스트"
+  },
+  {
+   "id": "lubia-9867970184",
+   "productName": "콜롬비아 세로아줄 게이샤 내추럴 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 콜롬비아 세로아줄 게이샤 내추럴 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-과테말라엘소코로파카마라워시드다크로스트",
+   "productName": "과테말라 엘 소코로 파카마라 워시드 다크 로스트",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 과테말라 엘 소코로 파카마라 워시드 다크 로스트"
+  },
+  {
+   "id": "루비아커피-과테말라엘소코로파카마라워시드라이트로스트",
+   "productName": "과테말라 엘 소코로 파카마라 워시드 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 과테말라 엘 소코로 파카마라 워시드 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케허니g1내추럴라이트로스트",
+   "productName": "에티오피아 예가체프 코케 허니 G1 내추럴 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 예가체프 코케 허니 G1 내추럴 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-케냐키리냐가키이aatop워시드라이트로스트",
+   "productName": "케냐 키리냐가 키이 AA TOP 워시드 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 케냐 키리냐가 키이 AA TOP 워시드 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-케냐키리냐가키이aatop워시드다크로스트",
+   "productName": "케냐 키리냐가 키이 AA TOP 워시드 다크 로스트",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 케냐 키리냐가 키이 AA TOP 워시드 다크 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아구지하로와추g1워시드다크로스트",
+   "productName": "에티오피아 구지 하로 와추 G1 워시드 다크 로스트",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 구지 하로 와추 G1 워시드 다크 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아구지벤티넨카내추럴스위스워터디카페인라이트로스트",
+   "productName": "에티오피아 구지 벤티 넨카 내추럴 스위스 워터 디카페인 라이트 로스트",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 구지 벤티 넨카 내추럴 스위스 워터 디카페인 라이트 로스트"
+  },
+  {
+   "id": "루비아커피-에티오피아예가체프코케g2워시드미디엄로스트",
+   "productName": "에티오피아 예가체프 코케 G2 워시드 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 예가체프 코케 G2 워시드 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-케냐aa풀리워시드미디엄로스트",
+   "productName": "케냐 AA 풀리 워시드 미디엄 로스트",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 케냐 AA 풀리 워시드 미디엄 로스트"
+  },
+  {
+   "id": "루비아커피-콜롬비아엘파라이소리치피치다크로스트가향커피",
+   "productName": "콜롬비아 엘 파라이소 리치피치 다크 로스트 가향 커피",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 콜롬비아 엘 파라이소 리치피치 다크 로스트 가향 커피"
+  },
+  {
+   "id": "루비아커피-콜롬비아라스알마스워시드다크로스트",
+   "productName": "콜롬비아 라스 알마스 워시드 다크 로스트",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 콜롬비아 라스 알마스 워시드 다크 로스트"
+  },
+  {
+   "id": "루비아커피-콜롬비아엘파라이소리치피치라이트로스트가향커피",
+   "productName": "콜롬비아 엘 파라이소 리치피치 라이트 로스트 가향커피",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 콜롬비아 엘 파라이소 리치피치 라이트 로스트 가향커피"
+  },
+  {
+   "id": "coffeejg-10793450163",
+   "productName": "배합커피#2 경주",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "Medium-Dark",
+   "simFilled": true,
+   "evidence": "상세: 는 커피정경의 두 번째 시그니처 블렌드 원두입니다. 묵직한 바디감과 안정적인 단맛이 오래 남는, 달콤고소한 중강배전 블렌드입니다. "
+  },
+  {
+   "id": "로스터릭-파나마보케테팔미라워시드중강배전",
+   "productName": "파나마 보케테 팔미라 워시드 중강배전",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 파나마 보케테 팔미라 워시드 중강배전"
+  },
+  {
+   "id": "로스터릭-에티오피아예가체프아리차g1워시드중강배전",
+   "productName": "에티오피아 예가체프 아리차 G1 워시드 중강배전",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "확인 필요",
+   "simFilled": false,
+   "evidence": "상품명: 에티오피아 예가체프 아리차 G1 워시드 중강배전"
+  },
+  {
+   "id": "namusairo-658",
+   "productName": "[추석맞이] 내가 좋아하는 너는 언제나",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "Light",
+   "simFilled": true,
+   "evidence": "상세: 법 무산소 워시드 Multi-stage Fermentation, Double Washed 볶음도 라이트 Light 향 미 베르가못, 천도복숭아, 로즈마리, 매끌매끌 Bergamot, nectarine, "
+  },
+  {
+   "id": "namusairo-484",
+   "productName": "봄의 제전",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-30",
+   "productName": "날아올라",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "Light",
+   "simFilled": true,
+   "evidence": "상세: pia Heirloom · Ethiopia Heirloom 가공법 워시드 Washed 볶음도 라이트 Light 향 미 자스민, 복합적, 엘더베리, 샬롯, 달다 Jasmine, Complex, Elde"
+  },
+  {
+   "id": "namusairo-1137",
+   "productName": "볼리바르 내추럴",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1136",
+   "productName": "라에스메랄다 게샤",
+   "before": "(표시 없음)",
+   "after": "Light",
+   "storedAfter": "Light",
+   "simFilled": true,
+   "evidence": "상세:  2’20” ~ 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 "
+  },
+  {
+   "id": "namusairo-1135",
+   "productName": "라레세르바 카투라 치로소",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1134",
+   "productName": "실속형.기티투 AB",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1132",
+   "productName": "기티투 AB",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1127",
+   "productName": "실속형.우라가 무산소",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1124",
+   "productName": "게뎁 무산소",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1114",
+   "productName": "그리니",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 워시드·풀리워시드, 캐스크 숙성 Washed · Fully Washed, Cask Aging 볶음도 미디엄 Medium 향 미 천도복숭아, 체리, 가죽, 오키, 은은하게 퍼지는 바닐라 Nectarine, C"
+  },
+  {
+   "id": "namusairo-1096",
+   "productName": "실속형.녹음",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세:  ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 코만단테C40 "
+  },
+  {
+   "id": "namusairo-1093",
+   "productName": "녹음",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세:  ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 코만단테C40 "
+  },
+  {
+   "id": "namusairo-1090",
+   "productName": "피크닉",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-1039",
+   "productName": "우라가 무산소",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-183",
+   "productName": "위",
+   "before": "(표시 없음)",
+   "after": "Medium",
+   "storedAfter": "Medium",
+   "simFilled": true,
+   "evidence": "상세: 2’50” 내외 ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 "
+  },
+  {
+   "id": "namusairo-29",
+   "productName": "풍요로운 땅",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세:  ICE 2’00” 내외 추출온도 88 ~ 96℃ 내외 라이트 94℃ 미디엄 92℃ 다크 90℃ 분쇄도 950㎛ 내외 (+-50㎛) 말코닉EK43 10 ~ 13 코만단테C40 "
+  },
+  {
+   "id": "namusairo-28",
+   "productName": "다크우드",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세: 다크우드 - 나무사이로 전체상품목록 바로가기 본문 바로가기 추석맞이 선물전 COFFEE 상품보기 "
+  },
+  {
+   "id": "namusairo-1146",
+   "productName": "숨,결",
+   "before": "(표시 없음)",
+   "after": "Dark",
+   "storedAfter": "Dark",
+   "simFilled": true,
+   "evidence": "상세:  가공법 Natural · Anaerobic Natural · Fully Washed 볶음도 다크 Dark 향 미 블루베리, 시트러스, 브라운슈가, 버터스카치, 풍부하고 편안한 Blueberry, "
+  },
+  {
+   "id": "coffee502-9",
+   "productName": "CLASSIC 클래식",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "Medium-Dark",
+   "simFilled": true,
+   "evidence": "상세:  정보 상품명 CLASSIC 클래식 설명 견과류의 고소한 향미와 라운드함 질감 로스팅 중강배전 소비자가 14,000원 판매가 12,600원 배송방법 택배 배송비 3,000원"
+  },
+  {
+   "id": "coffee502-12",
+   "productName": "WELCOME 웰컴",
+   "before": "(표시 없음)",
+   "after": "Medium-Light",
+   "storedAfter": "Medium-Light",
+   "simFilled": true,
+   "evidence": "상세: 502 COFFEE ROASTERS | WELCOME 웰컴 - 화사한 산미와 맑은 단맛의 중약배전 전체상품목록 바로가기 본문 바로가기 40,000원 이상 구매시 무료 배송 / 신규 가입 시 3,"
+  },
+  {
+   "id": "coffee502-13",
+   "productName": "[디카페인] PILLOW 필로우",
+   "before": "(표시 없음)",
+   "after": "Medium-Dark",
+   "storedAfter": "Medium-Dark",
+   "simFilled": true,
+   "evidence": "상세:  상품명 [디카페인] PILLOW 필로우 설명 달콤하고 부드러운 질감의 디카페인 로스팅 중강배전 소비자가 18,000원 판매가 16,200원 배송방법 택배 배송비 3,000원"
+  }
+ ]
+}
