@@ -289,6 +289,7 @@ type Cafe24DetailInfo = {
   origin?: string;
   variety?: string;
   process?: string;
+  roastLevel?: string;
   tastingNotes?: string;
   tastingNoteEvidence?: BeanProduct['tastingNoteEvidence'];
   region?: string;
@@ -456,13 +457,14 @@ export function parseCafe24Products(html: string, config: Cafe24SourceConfig): B
         productName,
         origin: detail?.origin || inferOrigin(combinedText),
         process: detail?.process || inferProcessFromName(productName, combinedText),
-        roastLevel: /약배전|light/i.test(combinedText)
-          ? 'Light'
-          : /강배전|dark/i.test(combinedText)
-            ? 'Dark'
-            : /중배전|medium/i.test(combinedText)
-              ? 'Medium'
-              : '확인 필요',
+        roastLevel: detail?.roastLevel
+          || (/약배전|light/i.test(combinedText)
+            ? 'Light'
+            : /강배전|dark/i.test(combinedText)
+              ? 'Dark'
+              : /중배전|medium/i.test(combinedText)
+                ? 'Medium'
+                : '확인 필요'),
         price,
         originalPrice,
         weight: representativeOption?.weight || detail?.weight || inferWeight(`${productName} ${description}`.trim(), config.defaultWeight),
@@ -545,13 +547,14 @@ export function parseImwebProducts(html: string, config: Cafe24SourceConfig): Be
         productName,
         origin: detail?.origin || inferOrigin(combinedText),
         process: detail?.process || inferProcessFromName(productName, combinedText),
-        roastLevel: /약배전|light/i.test(combinedText)
-          ? 'Light'
-          : /강배전|dark/i.test(combinedText)
-            ? 'Dark'
-            : /중배전|medium/i.test(combinedText)
-              ? 'Medium'
-              : '확인 필요',
+        roastLevel: detail?.roastLevel
+          || (/약배전|light/i.test(combinedText)
+            ? 'Light'
+            : /강배전|dark/i.test(combinedText)
+              ? 'Dark'
+              : /중배전|medium/i.test(combinedText)
+                ? 'Medium'
+                : '확인 필요'),
         price,
         originalPrice: originalPrice > price ? originalPrice : undefined,
         weight: representativeOption?.weight || detail?.weight || inferWeight(combinedText, config.defaultWeight),

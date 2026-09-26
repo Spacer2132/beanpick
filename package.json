@@ -13,6 +13,7 @@
     "package:portable": "node scripts/package-portable.cjs",
     "officialmall:test": "node scripts/test-official-mall.cjs",
     "tasting-notes:test": "node scripts/test-tasting-notes.cjs",
+    "roast:test": "node scripts/test-roast-level.cjs",
     "smartstore:test": "node scripts/test-smartstore-search.cjs",
     "core-features:test": "node scripts/test-core-features.cjs",
     "history:test": "node scripts/test-history.cjs",

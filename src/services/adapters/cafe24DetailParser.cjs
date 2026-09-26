@@ -1,4 +1,5 @@
 const tastingNotesUtil = require('../tastingNotes.cjs');
+const { extractRoastLevel } = require('../roastLevel.cjs');
 
 function stripHtmlText(value) {
   return String(value || '')
@@ -472,8 +473,12 @@ function extractMetaDescription(html) {
 function parseCafe24DetailInfo(html) {
   const lines = htmlToLines(html);
   const divTableInfo = readDivTableInfo(html);
-  
+  const description = extractMetaDescription(html);
+  // FIX-3: 상세 텍스트에서 로스팅 추출 (없으면 빈 문자열 — 호출자가 '확인 필요' 기본값 처리)
+  const roastLevel = extractRoastLevel(`${description || ''}\n${lines.join('\n')}`);
+
   return {
+    roastLevel,
     origin: readDetailRow(html, ['원산지', 'origin'])
       || findLabeledLine(lines, ['원산지', '국가', 'Origin', 'Nation', 'Country'])
       || getValueFromDivTable(divTableInfo, ['원산지', 'origin', '국가', 'Origin', 'Nation', 'Country']),
@@ -495,7 +500,7 @@ function parseCafe24DetailInfo(html) {
       || getValueFromDivTable(divTableInfo, ['농장명', '농장', 'farm', 'Farm']),
     weight: extractDetailWeight(html),
     priceOptions: extractCafe24PriceOptions(html),
-    description: extractMetaDescription(html),
+    description,
     tasteScale: extractTasteScale(lines),
   };
 }

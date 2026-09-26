@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const { extractTastingNoteEvidence, mergeTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
+const { extractRoastLevel, isRoastLevelUnknown } = require('../src/services/roastLevel.cjs');
 const {
   COMPLETENESS,
   combineListCompleteness,
@@ -956,6 +957,11 @@ async function enrichSmartStoreProductsWithDetailInfo(source, products) {
     if (!detailInfo) return product;
 
     let nextProduct = applySmartStoreDetailInfo(product, detailInfo);
+    // FIX-3: 상세 텍스트에서 로스팅 추출. '확인 필요'/빈 값일 때만 채우고 기존 값은 유지.
+    if (isRoastLevelUnknown(nextProduct.roastLevel) && detailInfo.detailText) {
+      const detailRoast = extractRoastLevel(detailInfo.detailText);
+      if (detailRoast) nextProduct = { ...nextProduct, roastLevel: detailRoast };
+    }
     const evidence = extractTastingNoteEvidence(detailInfo.detailText, product.productUrl);
     if (detailInfo.detailHtml || detailInfo.detailImageUrls?.length) {
       const maxImages = nextProduct.tastingNotes.length <= 1 ? 4 : 0;

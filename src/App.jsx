@@ -5,6 +5,7 @@ import { normalizeCafe24Pages } from './services/adapters/cafe24OfficialAdapter.
 import { normalizeMomosPages } from './services/adapters/momosOfficialAdapter.ts';
 import { OFFICIAL_MALL_CONFIGS } from './services/adapters/officialMallConfigs.ts';
 import { enrichTerarosaProducts, normalizeTerarosaApiRows, parseTerarosaHtmlProducts } from './services/adapters/terarosaOfficialAdapter.ts';
+import { getDisplayRoastLevel } from './services/roastLevel.js';
 import {
   createPriceOptions,
   filterDiscountProducts,
@@ -216,7 +217,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) 
     ['가공방식', displayInfo.process || product.process],
     ['품종', displayInfo.variety],
     ['농장', displayInfo.farm],
-    ['로스팅', product.roastLevel],
+    ['로스팅', getDisplayRoastLevel(product)],
   ].filter(([, value]) => Boolean(value));
 
   return (
