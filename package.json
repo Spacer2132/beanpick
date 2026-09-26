@@ -13,6 +13,7 @@
     "package:portable": "node scripts/package-portable.cjs",
     "officialmall:test": "node scripts/test-official-mall.cjs",
     "tasting-notes:test": "node scripts/test-tasting-notes.cjs",
+    "roast:test": "node scripts/test-roast-level.cjs",
     "smartstore:test": "node scripts/test-smartstore-search.cjs",
     "core-features:test": "node scripts/test-core-features.cjs",
     "history:test": "node scripts/test-history.cjs",
@@ -29,7 +30,7 @@
     "compare:prices": "node scripts/compare-detail-prices.cjs",
     "compare:migration": "node scripts/compare-contract-migration.cjs",
     "baseline:collect": "node scripts/collect-baseline.cjs",
-    "verify": "npm.cmd run tasting-notes:test && npm.cmd run map:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run safety-guards:test && npm.cmd run contract:test && npm.cmd run build && npm.cmd run package:portable"
+    "verify": "npm.cmd run tasting-notes:test && npm.cmd run roast:test && npm.cmd run map:test && npm.cmd run officialmall:test && npm.cmd run smartstore:test && npm.cmd run core-features:test && npm.cmd run history:test && npm.cmd run iphone-webapp:test && npm.cmd run dataquality:test && npm.cmd run safety-guards:test && npm.cmd run contract:test && npm.cmd run build && npm.cmd run package:portable"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
