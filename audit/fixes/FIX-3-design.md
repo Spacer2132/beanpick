@@ -1,5 +1,16 @@
 # FIX-3 설계 — 상세 이미지 OCR에 로스팅 추출 추가 (구현 금지, 설계만)
 
+## 2026-09-26 갱신 — 1단계(텍스트 기반) 완료 후 잔여 분석
+
+1단계 (`src/services/roastLevel.js`, 상품명 표시 보완 + 상세 텍스트 수집) 결과 (시뮬레이션 추정치):
+- roast Correct 161→220 (+59), Missing 62→3 (−59), Wrong 5→5, FALSE_POSITIVE 1→1. 맞다가 틀려진 값 0, 사라진 값 0, 새 FP 0.
+- golden HIGH/MEDIUM 80건 중 1단계 후에도 Missing인 3건:
+  1. `커피정경로스터리-배합커피-4율무` — 근거가 상세 **이미지** ('다크 로스트', 사람 검증). OCR 2단계 대상.
+  2. `로스터릭-콜롬비아e-a디카페인` — 근거가 상세 **이미지** ('중강배전', 사람 검증). OCR 2단계 대상.
+  3. `coffee502-93` — 5종 블렌드, 구성별 로스팅 상이(클래식 중강배전/워커스 강배전/블루스 중배전). 대표값 없음 → 규칙상 비움이 정답. OCR 대상 아님.
+- audit-input 보유 상품 중 1단계 후에도 표시 없고, 상세 이미지는 있으나 상세 텍스트에 로스팅 표현이 없는 상품: **57건** → OCR 2단계 후보군.
+  (산출: `python3` 인라인 집계 — detailImageUrls 보유 + 상세 텍스트에 배전/볶음도/로스팅/로스트 표현 없음.)
+
 ## 배경
 - roast 재현율 6.8% (5/73, `audit/tools/regen-reports.py`). golden에 HIGH/MEDIUM roast 값이 있는데도 앱이 "확인 필요"로 두는 경우가 대부분.
 - 원인 분포 (answer-12q.py): roast match=False 135건 중 NOT_IMPLEMENTED 75, PARSER_MISS 23, FALSE_POSITIVE 13, FIELD_MAPPING_ERROR 4.
@@ -19,7 +30,7 @@
 
 ## 캐시 버전 영향
 - OCR 캐시 키에 prompt version(`source-notes-v4`) + model이 포함되므로, 프롬프트 변경 시 버전 상향(`source-notes-v5`) 필요.
-- 재OCR 대상: golden 454건 중 gemini/OCR 근거 상품 202건 (산출 스크립트 인라인 집계). 전체 상품 기준으로는 detailImageUrls 보유 상품 전체가 대상.
+- 재OCR 대상 (2026-09-26 갱신): 1단계 후 잔여 기준 — golden 이미지 근거 2건 + 텍스트에 로스팅 표현 없는 이미지 보유 57건 = **약 59건**. 기존 추정치 202건(golden OCR 근거 전체)은 1단계 텍스트 추출로 대부분 해소되어 축소됨.
 - 기존 `source-notes-v4` 캐시는 보존되므로 롤백 가능.
 
 ## Gemini 호출 증가량 추정
@@ -27,10 +38,18 @@
 - 단, 캐시 버전 상향으로 202건(골든 기준)의 재OCR 1회성 호출 발생. 타임아웃 변경 없음 (20000ms 유지).
 
 ## 검증 계획 (구현 시)
-1. 프롬프트 변경 후 `source-notes-v5`로 202건의 재OCR을 별도 캐시에 저장 (기존 캐시 보존).
-2. roast 추출 성공률 측정: golden roast HIGH/MEDIUM 73건 중 OCR roast로 복구되는 건수.
+1. 프롬프트 변경 후 `source-notes-v5`로 재OCR 대상(약 59건)의 재OCR을 별도 캐시에 저장 (기존 캐시 보존).
+2. roast 추출 성공률 측정: golden roast HIGH/MEDIUM 80건 중 OCR roast로 복구되는 건수 (1단계 후 잔여 3건 중 이미지 근거 2건이 핵심).
 3. `npm run audit:data -- <재발행 products.json> --before docs/products.json` 로 "맞다가 틀려진 값" 0건 확인.
 4. 오추출(false positive) 샘플 수동 점검 20건: 이미지 내 "로스팅"과 무관한 텍스트(예: "로스팅 날짜")를 roast로 오인하지 않는지.
+
+## 날짜 문구 오탐 방지 (프롬프트에 명시)
+- 제외: "로스팅 날짜/일자/일", "로스팅 후 N일/개월", "제조일자", 유통기한. 날짜·기간 표현은 배전도가 아니다.
+- 제외: 컵노트 영역의 "다크 초콜릿/다크 체리", "라이트 바디" — 맛 표현이지 배전도가 아니다.
+- 제외: 라인명·색상 ("다크우드", "다크 브라운", "필디카프 다크").
+- 복수 표기("라이트/다크 선택")는 단일 값으로 정하지 말고 빈 문자열.
+- Well-done 등 5단계 enum(Light/Medium-Light/Medium/Medium-Dark/Dark)에 없는 라벨은 빈 문자열 (추측 금지).
+- 위 규칙은 `src/services/roastLevel.js`의 마스크/모호성 규칙과 동일 — OCR 출력도 이 함수로 정규화하면 일관된다.
 
 ## 위험
 - 이미지 속 "로스팅 일자", "로스팅 후 3일" 같은 문구를 배전도로 오인할 수 있음 → 프롬프트에 "날짜·기간 제외" 명시 필요.

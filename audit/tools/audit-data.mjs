@@ -22,6 +22,7 @@ import {
   formatProductDisplayInfo,
 } from '../../src/services/coreFeatures.js';
 import { getDisplayTastingNotes, normalizeTastingNotes } from '../../src/services/tastingNotes.js';
+import { getDisplayRoastLevel } from '../../src/services/roastLevel.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const GOLDEN_PATH = join(ROOT, 'audit/golden-products.json');
@@ -60,7 +61,7 @@ function displayedOf(p) {
     originCountry: getProductCountryLabel(p) || '',
     process: getProductProcessLabel(p) || '',
     producer: di.farm || '',
-    roast: p.roastLevel ?? '',
+    roast: getDisplayRoastLevel(p) || '',
     tastingNotes: getDisplayTastingNotes(p) || [],
     variety: di.variety || '',
   };
