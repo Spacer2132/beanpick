@@ -1,6 +1,6 @@
 {
-  "publishedAt": "2026-09-29T20:17:05.132Z",
-  "count": 450,
+  "publishedAt": "2026-09-30T00:04:08.389Z",
+  "count": 448,
   "products": [
     {
       "id": "아이덴티티커피랩-미드센추리블렌드",
@@ -2856,7 +2856,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382466105",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_8/1737430180341Ieay5_PNG/28774046651709840_567871600.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_8/1737430180341Ieay5_PNG/28774046651709840_567871600.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -2879,7 +2879,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382415813",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_194/1737429704492OOvGt_PNG/9583841621353952_1612451964.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_194/1737429704492OOvGt_PNG/9583841621353952_1612451964.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -2902,7 +2902,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382400626",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250120_40/1737353659374JaNbs_PNG/71486511512855519_1887501194.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250120_40/1737353659374JaNbs_PNG/71486511512855519_1887501194.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -2925,7 +2925,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382383124",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_45/1737428880272bX4vn_PNG/71561815422177021_288082022.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_45/1737428880272bX4vn_PNG/71561815422177021_288082022.png?type=f750_750",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -6226,6 +6226,24 @@
           "method": "image-model"
         }
       ],
+      "priceOptions": [
+        {
+          "id": "200g-16000",
+          "price": 16000,
+          "weight": 200,
+          "weightLabel": "200g",
+          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/5310178180",
+          "priceLabel": "16,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "8,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g",
+      "unitPriceLabel": "",
       "acidityScore": -0.7333333333333334,
       "acidityScoreSource": "tastingNotes"
     },
@@ -6538,6 +6556,24 @@
           "group": "MEDIUM"
         }
       ],
+      "priceOptions": [
+        {
+          "id": "200g-18000",
+          "price": 18000,
+          "weight": 200,
+          "weightLabel": "200g",
+          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/5310169256",
+          "priceLabel": "18,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "9,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g",
+      "unitPriceLabel": "",
       "acidityScore": -0.5666666666666667,
       "acidityScoreSource": "tastingNotes"
     },
@@ -6949,9 +6985,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-29T20:17:05.132Z"
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684402543",
@@ -7280,9 +7315,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-29T20:17:05.132Z"
+      "acidityScore": 0.9,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684414219",
@@ -7344,9 +7378,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-09-29T20:17:05.132Z"
+      "acidityScore": 0.95,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684412338",
@@ -7383,7 +7416,29 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "100g",
-      "tastingNoteEvidence": [],
+      "tastingNoteEvidence": [
+        {
+          "text": "자스민",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        },
+        {
+          "text": "핵과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        },
+        {
+          "text": "사과",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        }
+      ],
       "unitPriceLabel": "",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
@@ -9446,385 +9501,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "루비아커피-클래식이탈리안스타일피렌체",
-      "roasterName": "루비아 커피",
-      "productName": "클래식 이탈리안 스타일 피렌체",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 13000,
-      "weight": 200,
-      "score": 88,
-      "tastingNotes": [
-        "초콜릿",
-        "캐러멜",
-        "견과류",
-        "아몬드",
-        "몰트"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 0,
-      "priceOptions": [
-        {
-          "id": "200g-13000",
-          "price": 13000,
-          "originalPrice": 14000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
-          "originalPriceLabel": "14,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
-        },
-        {
-          "id": "500g-25000",
-          "price": 25000,
-          "originalPrice": 26000,
-          "weight": 500,
-          "priceLabel": "25,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
-          "originalPriceLabel": "26,000원",
-          "discountRate": 0.038461538461538464,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-34000",
-          "price": 34000,
-          "originalPrice": 38000,
-          "weight": 1000,
-          "priceLabel": "34,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,400원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-          "originalPriceLabel": "38,000원",
-          "discountRate": 0.10526315789473684,
-          "discountLabel": "10% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "구운디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "부드러운",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "아몬드",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "카라멜",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceLabel": "13,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.10526315789473684,
-      "acidityScore": -0.8400000000000001,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-다크브라운",
-      "roasterName": "루비아 커피",
-      "productName": "다크브라운",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 200,
-      "score": 87,
-      "tastingNotes": [
-        "초콜릿",
-        "견과류",
-        "부드러움"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "originalPrice": 15000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991396210",
-          "originalPriceLabel": "15,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "originalPrice": 30000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307000967",
-          "originalPriceLabel": "30,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "1kg-39000",
-          "price": 39000,
-          "originalPrice": 42000,
-          "weight": 1000,
-          "priceLabel": "39,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,900원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
-          "originalPriceLabel": "42,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
-          "method": "image-model",
-          "group": "DARK BROWN"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        },
-        {
-          "text": "부드러움",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        },
-        {
-          "text": "깔끔한 뒷맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
-          "method": "image-model",
-          "group": "Taste Note"
-        }
-      ],
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.07142857142857142,
-      "acidityScore": -0.7000000000000001,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-블루문디카페인",
-      "roasterName": "루비아 커피",
-      "productName": "블루문 디카페인",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 16000,
-      "weight": 200,
-      "score": 86,
-      "tastingNotes": [
-        "다크초콜릿",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "tastingNoteEvidence": [
-        {
-          "text": "꽃",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "산미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "단맛",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
-          "method": "image-model",
-          "group": "Tasting Note"
-        },
-        {
-          "text": "디카페인",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-16000",
-          "price": 16000,
-          "originalPrice": 17000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5990987020",
-          "originalPriceLabel": "17,000원",
-          "discountRate": 0.058823529411764705,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "500g-33000",
-          "price": 33000,
-          "originalPrice": 35000,
-          "weight": 500,
-          "priceLabel": "33,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306896060",
-          "originalPriceLabel": "35,000원",
-          "discountRate": 0.05714285714285714,
-          "discountLabel": "5% 할인"
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "originalPrice": 48000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
-          "originalPriceLabel": "48,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "16,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.0625,
-      "acidityScore": -0.8,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
       "id": "루비아커피-100-에티오피아스칼렛",
       "roasterName": "루비아 커피",
       "productName": "100% 에티오피아 스칼렛",
@@ -9833,7 +9509,7 @@
       "roastLevel": "확인 필요",
       "price": 17000,
       "weight": 200,
-      "score": 84,
+      "score": 88,
       "tastingNotes": [
         "블랙커런트",
         "블루베리",
@@ -9845,9 +9521,9 @@
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
       "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
-      "isNew": false,
+      "isNew": true,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 4,
+      "checkedMinutesAgo": 0,
       "priceOptions": [
         {
           "id": "200g-17000",
@@ -9918,6 +9594,26 @@
           "group": "SCARLET"
         },
         {
+          "text": "플로럴",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_260/1736296821178PGkNI_PNG/20752181912372375_176222029.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
           "text": "블루베리",
           "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
@@ -9954,7 +9650,7 @@
       "roastLevel": "확인 필요",
       "price": 15000,
       "weight": 200,
-      "score": 80,
+      "score": 87,
       "tastingNotes": [
         "초콜릿",
         "바닐라",
@@ -9962,38 +9658,11 @@
       ],
       "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f140",
+      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
-      "isNew": false,
+      "isNew": true,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 8,
-      "tastingNoteEvidence": [
-        {
-          "text": "깔끔한 커피의 맛과 부드러운 바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#달콤한 바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
+      "checkedMinutesAgo": 1,
       "priceOptions": [
         {
           "id": "200g-15000",
@@ -10038,10 +9707,398 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "#달콤한 바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "#초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한 커피의 맛과 부드러운 바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
       "priceLabel": "15,000원",
       "unitPriceLabel": "",
       "discountRate": 0.06666666666666667,
       "acidityScore": -0.7333333333333334,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-블루문디카페인",
+      "roasterName": "루비아 커피",
+      "productName": "블루문 디카페인",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 16000,
+      "weight": 200,
+      "score": 86,
+      "tastingNotes": [
+        "다크초콜릿",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 2,
+      "tastingNoteEvidence": [
+        {
+          "text": "디카페인",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_239/1736296756876mhlxW_PNG/70429697868178096_1161697534.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "꽃",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "산미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "단맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f750_750",
+          "method": "image-model",
+          "group": "Tasting Note"
+        },
+        {
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_101/1736834515472IXwMo_PNG/70967344599608533_445295387.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-16000",
+          "price": 16000,
+          "originalPrice": 17000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5990987020",
+          "originalPriceLabel": "17,000원",
+          "discountRate": 0.058823529411764705,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "500g-33000",
+          "price": 33000,
+          "originalPrice": 35000,
+          "weight": 500,
+          "priceLabel": "33,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306896060",
+          "originalPriceLabel": "35,000원",
+          "discountRate": 0.05714285714285714,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "originalPrice": 48000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991036641",
+          "originalPriceLabel": "48,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "16,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.0625,
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-다크브라운",
+      "roasterName": "루비아 커피",
+      "productName": "다크브라운",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 200,
+      "score": 83,
+      "tastingNotes": [
+        "초콜릿",
+        "견과류",
+        "부드러움"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 5,
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "originalPrice": 15000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5991396210",
+          "originalPriceLabel": "15,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "originalPrice": 30000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307000967",
+          "originalPriceLabel": "30,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "1kg-39000",
+          "price": 39000,
+          "originalPrice": 42000,
+          "weight": 1000,
+          "priceLabel": "39,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,900원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/5972034708",
+          "originalPriceLabel": "42,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "깊고 진한 풍미",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_85/1736833956765wEU0q_PNG/6893446548962691_1106850188.png?type=f750_750",
+          "method": "image-model",
+          "group": "DARK BROWN"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "부드러움",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        },
+        {
+          "text": "깔끔한 뒷맛",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_221/1749451364702XMIqE_PNG/100395233321086208_464783819.png?type=f750_750",
+          "method": "image-model",
+          "group": "Taste Note"
+        }
+      ],
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.07142857142857142,
+      "acidityScore": -0.7000000000000001,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "roasterName": "루비아 커피",
+      "productName": "클래식 이탈리안 스타일 피렌체",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "score": 80,
+      "tastingNotes": [
+        "초콜릿",
+        "캐러멜",
+        "견과류",
+        "아몬드",
+        "몰트"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f140",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 8,
+      "tastingNoteEvidence": [
+        {
+          "text": "부드러운",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "아몬드",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "몰트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "구운디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "originalPrice": 14000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
+          "originalPriceLabel": "14,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
+        },
+        {
+          "id": "500g-25000",
+          "price": 25000,
+          "originalPrice": 26000,
+          "weight": 500,
+          "priceLabel": "25,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
+          "originalPriceLabel": "26,000원",
+          "discountRate": 0.038461538461538464,
+          "discountLabel": "3% 할인"
+        },
+        {
+          "id": "1kg-34000",
+          "price": 34000,
+          "originalPrice": 38000,
+          "weight": 1000,
+          "priceLabel": "34,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,400원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+          "originalPriceLabel": "38,000원",
+          "discountRate": 0.10526315789473684,
+          "discountLabel": "10% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "13,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.10526315789473684,
+      "acidityScore": -0.8400000000000001,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
     },
@@ -15286,13 +15343,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260831080907_1788163747839_Soj9LEBh_u.webp",
       "isSoldOut": false,
       "isNew": true,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.9333333333333332,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100576",
@@ -15379,14 +15436,14 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260831083300_1788165180111_TmJ7C1qnbd.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes",
       "tastingNotesPreservedAt": "2026-09-29T12:34:14.785Z",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100499",
@@ -15414,13 +15471,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821083103_1787301063815_MbxUzf8vas.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100531",
@@ -15500,13 +15557,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260928011911_1790558351413_2oAhocoWZE.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -1,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100520",
@@ -15534,13 +15591,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063103_1787293863785_3Lc5vZz_kt.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100502",
@@ -15574,14 +15631,14 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821063350_1787294030220_ZI7aghBTJ7.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes",
       "tastingNotesPreservedAt": "2026-09-29T12:34:14.785Z",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100521",
@@ -15609,13 +15666,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063016_1787293816037_5YPX60OBlu.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100506",
@@ -15649,13 +15706,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063228_1787293948641_UjaxSd9duQ.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100037",
@@ -15682,13 +15739,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064146_1787294506353_RVpq5csBjI.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100446",
@@ -15716,13 +15773,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063730_1787294250054_8Tot1ci2Hg.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100448",
@@ -15750,13 +15807,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821063618_1787294178314_D2s3Nbr_Pd.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.7000000000000001,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100020",
@@ -15881,13 +15938,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.5,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100018",
@@ -15919,13 +15976,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064306_1787294586948_TMjJ5LsZ19.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.2,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100019",
@@ -15956,13 +16013,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064232_1787294552976_AcO7iUYDDY.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "terarosa-100017",
@@ -15990,947 +16047,13 @@
       "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20250614090724_1749892044111_MkRoI4NSs7.webp",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "갱신 실패 · 3시간 전 정보",
+      "checkedMinutesAgo": 227,
       "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.6,
       "acidityScoreSource": "tastingNotes",
       "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-8162",
-      "roasterName": "커피리브레",
-      "productName": "[Roaster's Pick/골드문트] 코스타리카 엘사르 데 사르세로 산타 루시아 밀레니오 허니",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "허니",
-      "roastLevel": "Light",
-      "price": 19000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 84,
-      "tastingNotes": [
-        "블랙커런트",
-        "체리",
-        "말린자두",
-        "와이니"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "와이니",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "건자두",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "블랙커런트",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "체리",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%BD%94%EC%8A%A4%ED%83%80%EB%A6%AC%EC%B9%B4%20%EC%97%98%EC%82%AC%EB%A5%B4%20%EB%8D%B0%20%EC%82%AC%EB%A5%B4%EC%84%B8%EB%A1%9C%20%EC%82%B0%ED%83%80%20%EB%A3%A8%EC%8B%9C%EC%95%84%20%EB%B0%80%EB%A0%88%EB%8B%88%EC%98%A4%20%ED%97%88%EB%8B%88",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/358b54c2c87c7e760f61a2f8c7a31860.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "밀레니오",
-      "farm": "산타 루시아",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 4,
-        "sweetness": 4,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-8153",
-      "roasterName": "커피리브레",
-      "productName": "[Roaster's Pick/싱글오리진] 온두라스 라스 나랑하스 파라이네마",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "워시드",
-      "roastLevel": "Light",
-      "price": 17000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 85,
-      "tastingNotes": [
-        "오렌지",
-        "복숭아",
-        "자두",
-        "플로럴"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "플로럴",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "복숭아",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "자두",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%98%A8%EB%91%90%EB%9D%BC%EC%8A%A4%20%EB%9D%BC%EC%8A%A4%20%EB%82%98%EB%9E%91%ED%95%98%EC%8A%A4%20%ED%8C%8C%EB%9D%BC%EC%9D%B4%EB%84%A4%EB%A7%88",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/6ff4540e75012a8eda8ba6a106839b8b.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "파라이네마",
-      "farm": "라스 나랑하스",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 3,
-        "sweetness": 3,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-8156",
-      "roasterName": "커피리브레",
-      "productName": "[VoO/싱글오리진] 베트남 푼 엑셀사 무산소 내추럴",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "무산소 내추럴",
-      "roastLevel": "Light",
-      "price": 19000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 86,
-      "tastingNotes": [
-        "베리",
-        "감",
-        "홍차",
-        "와이니"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "와이니",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "감",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "홍차",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%A0%ED%8A%B8%EB%82%A8%20%ED%91%BC%20%EC%97%91%EC%85%80%EC%82%AC%20%EB%AC%B4%EC%82%B0%EC%86%8C%20%EB%82%B4%EC%B6%94%EB%9F%B4",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202402/d1ffab58e1c19caf6065a645293f4ae5.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "엑셀사",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 3,
-        "sweetness": 3,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-7374",
-      "roasterName": "커피리브레",
-      "productName": "[골드문트] [디카페인] 에티오피아 예가체프 할로 베리티 내추럴",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "내추럴 & 마운틴워터 디카페인",
-      "roastLevel": "Light",
-      "price": 19000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 84,
-      "tastingNotes": [
-        "복숭아",
-        "포도",
-        "플로럴",
-        "캐러멜"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "플로럴",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "복숭아",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "포도",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84%20%EC%98%88%EA%B0%80%EC%B2%B4%ED%94%84%20%ED%95%A0%EB%A1%9C%20%EB%B2%A0%EB%A6%AC%ED%8B%B0%20%EB%82%B4%EC%B6%94%EB%9F%B4",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202603/babb372d2aa491e5363c32b98b7684f5.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "에티오피아 토착종",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 4,
-        "sweetness": 4,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-7268",
-      "roasterName": "커피리브레",
-      "productName": "[골드문트] 과테말라 아구아 티비아 게이샤 [강배전]",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "워시드",
-      "roastLevel": "Dark",
-      "price": 30000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 92,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC%20%EC%95%84%EA%B5%AC%EC%95%84%20%ED%8B%B0%EB%B9%84%EC%95%84%20%EA%B2%8C%EC%9D%B4%EC%83%A4",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202601/da05e18d54f42e9ffe83b6054cd8fe0b.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "게이샤",
-      "farm": "아구아 티비아",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-7252",
-      "roasterName": "커피리브레",
-      "productName": "[골드문트] 니카라과 CoE 9위 핀카 리브레 에티오피아 [약배전]",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "워시드",
-      "roastLevel": "Light",
-      "price": 23000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 92,
-      "tastingNotes": [
-        "복숭아",
-        "자두",
-        "건포도",
-        "플로럴"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "플로럴",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "복숭아",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "건포도",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "자두",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%88%EC%B9%B4%EB%9D%BC%EA%B3%BC%20CoE%209%EC%9C%84%20%ED%95%80%EC%B9%B4%20%EB%A6%AC%EB%B8%8C%EB%A0%88%20%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/17a0238e7f17323a5ac92a92e5d240fa.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "에티오피아",
-      "farm": "핀카 리브레",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 4,
-        "sweetness": 4,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-6619",
-      "roasterName": "커피리브레",
-      "productName": "[골드문트] 페루 라 플로르 데 라 팔마 게이샤",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "워시드",
-      "roastLevel": "Light",
-      "price": 26000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 92,
-      "tastingNotes": [
-        "오렌지",
-        "라임",
-        "자스민"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "재스민",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "오렌지블러썸",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "화이트와인",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "라임",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%ED%8E%98%EB%A3%A8%20%EB%9D%BC%20%ED%94%8C%EB%A1%9C%EB%A5%B4%20%EB%8D%B0%20%EB%9D%BC%20%ED%8C%94%EB%A7%88%20%EA%B2%8C%EC%9D%B4%EC%83%A4",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202508/e5ff91def4207677bbb2b99c59286e48.png",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "게이샤",
-      "farm": "라 플로르 데 라 팔마",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 4,
-        "sweetness": 4,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "officialDetailPreservedAt": "2026-09-29T11:12:59.203Z",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "커피리브레-나이트호크",
-      "roasterName": "커피리브레",
-      "productName": "나이트호크",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "Blend",
-      "roastLevel": "Dark",
-      "price": 18000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "18,000원",
-      "priceOptions": [
-        {
-          "id": "200g-18000",
-          "price": 18000,
-          "weight": 200,
-          "priceLabel": "18,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%82%98%EC%9D%B4%ED%8A%B8%ED%98%B8%ED%81%AC",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-58000",
-          "price": 58000,
-          "weight": 1000,
-          "priceLabel": "58,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,800원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%82%98%EC%9D%B4%ED%8A%B8%ED%98%B8%ED%81%AC",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 84,
-      "tastingNotes": [
-        "밀크초콜릿",
-        "메이플시럽",
-        "조청",
-        "크리미"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "조청",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "메이플시럽",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "밀크 초콜릿",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "크리미 바디",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%82%98%EC%9D%B4%ED%8A%B8%ED%98%B8%ED%81%AC",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/989a7a7fe34a75af0951850cb092e14d.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 0,
-        "sweetness": 4,
-        "max": 5
-      },
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": -0.8,
-      "acidityScoreSource": "tasteScale",
-      "groupedProductCount": 2,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "커피리브레-노서프라이즈",
-      "roasterName": "커피리브레",
-      "productName": "노서프라이즈",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "확인 필요",
-      "roastLevel": "Medium",
-      "price": 15000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "15,000원",
-      "priceOptions": [
-        {
-          "id": "200g-15000",
-          "price": 15000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-50000",
-          "price": 50000,
-          "weight": 1000,
-          "priceLabel": "50,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/126cb91acee2d2cbfe53a0e80182cc01.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 3,
-        "sweetness": 3,
-        "max": 5
-      },
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "groupedProductCount": 2,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "커피리브레-다크리브레",
-      "roasterName": "커피리브레",
-      "productName": "다크리브레",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "확인 필요",
-      "roastLevel": "Dark",
-      "price": 15000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "15,000원",
-      "priceOptions": [
-        {
-          "id": "200g-15000",
-          "price": 15000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%A4%ED%81%AC%EB%A6%AC%EB%B8%8C%EB%A0%88",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-50000",
-          "price": 50000,
-          "weight": 1000,
-          "priceLabel": "50,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%A4%ED%81%AC%EB%A6%AC%EB%B8%8C%EB%A0%88",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [
-        "다크초콜릿",
-        "묵직"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "다크 초콜릿과 묵직한 바디",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=794&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%A4%ED%81%AC%EB%A6%AC%EB%B8%8C%EB%A0%88",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/5d40b5ee9641ef51dc1c7ed3703b474c.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 1,
-        "sweetness": 4,
-        "max": 5
-      },
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tasteScale",
-      "groupedProductCount": 2,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "커피리브레-배드블러드",
-      "roasterName": "커피리브레",
-      "productName": "배드블러드",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "확인 필요",
-      "roastLevel": "Light",
-      "price": 17000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "17,000원",
-      "priceOptions": [
-        {
-          "id": "200g-17000",
-          "price": 17000,
-          "weight": 200,
-          "priceLabel": "17,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B0%B0%EB%93%9C%EB%B8%94%EB%9F%AC%EB%93%9C",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-55000",
-          "price": 55000,
-          "weight": 1000,
-          "priceLabel": "55,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B0%B0%EB%93%9C%EB%B8%94%EB%9F%AC%EB%93%9C",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B0%B0%EB%93%9C%EB%B8%94%EB%9F%AC%EB%93%9C",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/47b058dd8de162923ddea6f17384c6fb.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 4,
-        "sweetness": 3,
-        "max": 5
-      },
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": 0.2,
-      "acidityScoreSource": "tasteScale",
-      "groupedProductCount": 2,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "커피리브레-버티고",
-      "roasterName": "커피리브레",
-      "productName": "버티고",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "확인 필요",
-      "roastLevel": "Dark",
-      "price": 13000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "13,000원",
-      "priceOptions": [
-        {
-          "id": "200g-13000",
-          "price": 13000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%84%ED%8B%B0%EA%B3%A0",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%84%ED%8B%B0%EA%B3%A0",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [
-        "초콜릿",
-        "견과류",
-        "묵직"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "Chocolate & Nuts",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=793&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Chocolate & Nuts",
-          "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260928/f98405eb6358b7045609517392b548a7.jpg",
-          "method": "image-model"
-        },
-        {
-          "text": "묵직한 초콜릿과 고소한 너트들의 조합",
-          "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260928/f98405eb6358b7045609517392b548a7.jpg",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%84%ED%8B%B0%EA%B3%A0",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/536ff504695047caa36c62c4f0c6c593.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 0,
-        "sweetness": 4,
-        "max": 5
-      },
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": -0.8,
-      "acidityScoreSource": "tasteScale",
-      "groupedProductCount": 2,
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-498",
-      "roasterName": "커피리브레",
-      "productName": "[대용량 원두] 울서울서울서 1kg",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "확인 필요",
-      "roastLevel": "Dark",
-      "price": 55000,
-      "weight": 1000,
-      "weightLabel": "1kg",
-      "priceLabel": "55,000원",
-      "priceOptions": [
-        {
-          "id": "1000-55000",
-          "price": 55000,
-          "weight": 1000,
-          "priceLabel": "55,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,500원/100g",
-          "productUrl": "https://coffeelibre.kr/product/detail.html?product_no=498&cate_no=47&display_group=1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%9A%B8%EC%84%9C%EC%9A%B8%EC%84%9C%EC%9A%B8%EC%84%9C",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/ecf616842b3fcd0be489912ff20701d4.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 2,
-        "sweetness": 4,
-        "max": 5
-      },
-      "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.4,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-8165",
-      "roasterName": "커피리브레",
-      "productName": "[싱글오리진] 에티오피아 시다모 벤사 무라고 베켈레 카차라 내추럴",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "내추럴",
-      "roastLevel": "Light",
-      "price": 20000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 87,
-      "tastingNotes": [
-        "블루베리",
-        "복숭아",
-        "아카시아"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "아카시아",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "복숭아",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "마시멜로우",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84%20%EC%8B%9C%EB%8B%A4%EB%AA%A8%20%EB%B2%A4%EC%82%AC%20%EB%AC%B4%EB%9D%BC%EA%B3%A0%20%EB%B2%A0%EC%BC%88%EB%A0%88%20%EC%B9%B4%EC%B0%A8%EB%9D%BC%20%EB%82%B4%EC%B6%94%EB%9F%B4",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/ebb2785a9fdb7636d005fda069043f9b.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "74158, 74112, 74110",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 4,
-        "sweetness": 4,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": 0,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "coffeelibre-8159",
-      "roasterName": "커피리브레",
-      "productName": "[싱글오리진] 페루 라 카타라타 [중강배전]",
-      "origin": "'https://coffeelibre.kr',",
-      "process": "워시드",
-      "roastLevel": "Dark",
-      "price": 19000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 88,
-      "tastingNotes": [
-        "말린자두",
-        "블랙체리",
-        "초콜릿",
-        "캐러멜"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "건자두",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "블랙체리",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%ED%8E%98%EB%A3%A8%20%EB%9D%BC%20%EC%B9%B4%ED%83%80%EB%9D%BC%ED%83%80",
-      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/8d6fd05b1ff966f2b2fcb832af8cb463.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
-      "variety": "카투라",
-      "farm": "라 카타라타",
-      "blendComposition": [],
-      "tasteScale": {
-        "acidity": 2,
-        "sweetness": 4,
-        "max": 5
-      },
-      "priceOptionsStatus": "partial",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
-      "acidityScore": -0.4,
-      "acidityScoreSource": "tasteScale",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "lastObservedAt": "2026-09-29T20:17:05.132Z"
     },
     {
       "id": "centercoffee-418",
@@ -17632,6 +16755,895 @@
       "priceOptionsStatus": "partial",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeelibre-8162",
+      "roasterName": "커피리브레",
+      "productName": "[Roaster's Pick/골드문트] 코스타리카 엘사르 데 사르세로 산타 루시아 밀레니오 허니",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "허니",
+      "roastLevel": "Light",
+      "price": 19000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 84,
+      "tastingNotes": [
+        "블랙커런트",
+        "체리",
+        "말린자두",
+        "와이니"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "와이니",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "건자두",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "블랙커런트",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "체리",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8162&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%BD%94%EC%8A%A4%ED%83%80%EB%A6%AC%EC%B9%B4%20%EC%97%98%EC%82%AC%EB%A5%B4%20%EB%8D%B0%20%EC%82%AC%EB%A5%B4%EC%84%B8%EB%A1%9C%20%EC%82%B0%ED%83%80%20%EB%A3%A8%EC%8B%9C%EC%95%84%20%EB%B0%80%EB%A0%88%EB%8B%88%EC%98%A4%20%ED%97%88%EB%8B%88",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/358b54c2c87c7e760f61a2f8c7a31860.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "밀레니오",
+      "farm": "산타 루시아",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 4,
+        "sweetness": 4,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-8153",
+      "roasterName": "커피리브레",
+      "productName": "[Roaster's Pick/싱글오리진] 온두라스 라스 나랑하스 파라이네마",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "워시드",
+      "roastLevel": "Light",
+      "price": 17000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 85,
+      "tastingNotes": [
+        "오렌지",
+        "복숭아",
+        "자두",
+        "플로럴"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "플로럴",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "오렌지",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "자두",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8153&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%98%A8%EB%91%90%EB%9D%BC%EC%8A%A4%20%EB%9D%BC%EC%8A%A4%20%EB%82%98%EB%9E%91%ED%95%98%EC%8A%A4%20%ED%8C%8C%EB%9D%BC%EC%9D%B4%EB%84%A4%EB%A7%88",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/6ff4540e75012a8eda8ba6a106839b8b.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "파라이네마",
+      "farm": "라스 나랑하스",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 3,
+        "sweetness": 3,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-8156",
+      "roasterName": "커피리브레",
+      "productName": "[VoO/싱글오리진] 베트남 푼 엑셀사 무산소 내추럴",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "무산소 내추럴",
+      "roastLevel": "Light",
+      "price": 19000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 86,
+      "tastingNotes": [
+        "베리",
+        "감",
+        "홍차",
+        "와이니"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "와이니",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "감",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "홍차",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8156&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%A0%ED%8A%B8%EB%82%A8%20%ED%91%BC%20%EC%97%91%EC%85%80%EC%82%AC%20%EB%AC%B4%EC%82%B0%EC%86%8C%20%EB%82%B4%EC%B6%94%EB%9F%B4",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202402/d1ffab58e1c19caf6065a645293f4ae5.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "엑셀사",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 3,
+        "sweetness": 3,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-7374",
+      "roasterName": "커피리브레",
+      "productName": "[골드문트] [디카페인] 에티오피아 예가체프 할로 베리티 내추럴",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "내추럴 & 마운틴워터 디카페인",
+      "roastLevel": "Light",
+      "price": 19000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 84,
+      "tastingNotes": [
+        "복숭아",
+        "포도",
+        "플로럴",
+        "캐러멜"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "플로럴",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "포도",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7374&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84%20%EC%98%88%EA%B0%80%EC%B2%B4%ED%94%84%20%ED%95%A0%EB%A1%9C%20%EB%B2%A0%EB%A6%AC%ED%8B%B0%20%EB%82%B4%EC%B6%94%EB%9F%B4",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202603/babb372d2aa491e5363c32b98b7684f5.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "에티오피아 토착종",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 4,
+        "sweetness": 4,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-7268",
+      "roasterName": "커피리브레",
+      "productName": "[골드문트] 과테말라 아구아 티비아 게이샤 [강배전]",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "워시드",
+      "roastLevel": "Dark",
+      "price": 30000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 92,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC%20%EC%95%84%EA%B5%AC%EC%95%84%20%ED%8B%B0%EB%B9%84%EC%95%84%20%EA%B2%8C%EC%9D%B4%EC%83%A4",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202601/da05e18d54f42e9ffe83b6054cd8fe0b.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "게이샤",
+      "farm": "아구아 티비아",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffeelibre-7252",
+      "roasterName": "커피리브레",
+      "productName": "[골드문트] 니카라과 CoE 9위 핀카 리브레 에티오피아 [약배전]",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "워시드",
+      "roastLevel": "Light",
+      "price": 23000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 92,
+      "tastingNotes": [
+        "복숭아",
+        "자두",
+        "건포도",
+        "플로럴"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "플로럴",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "건포도",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "자두",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=7252&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%88%EC%B9%B4%EB%9D%BC%EA%B3%BC%20CoE%209%EC%9C%84%20%ED%95%80%EC%B9%B4%20%EB%A6%AC%EB%B8%8C%EB%A0%88%20%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/17a0238e7f17323a5ac92a92e5d240fa.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "에티오피아",
+      "farm": "핀카 리브레",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 4,
+        "sweetness": 4,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-6619",
+      "roasterName": "커피리브레",
+      "productName": "[골드문트] 페루 라 플로르 데 라 팔마 게이샤",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "워시드",
+      "roastLevel": "Light",
+      "price": 26000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 92,
+      "tastingNotes": [
+        "오렌지",
+        "라임",
+        "자스민"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "재스민",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "오렌지블러썸",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "화이트와인",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "라임",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=6619&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%ED%8E%98%EB%A3%A8%20%EB%9D%BC%20%ED%94%8C%EB%A1%9C%EB%A5%B4%20%EB%8D%B0%20%EB%9D%BC%20%ED%8C%94%EB%A7%88%20%EA%B2%8C%EC%9D%B4%EC%83%A4",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202508/e5ff91def4207677bbb2b99c59286e48.png",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "게이샤",
+      "farm": "라 플로르 데 라 팔마",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 4,
+        "sweetness": 4,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale",
+      "officialDetailPreservedAt": "2026-09-29T11:12:59.203Z"
+    },
+    {
+      "id": "커피리브레-나이트호크",
+      "roasterName": "커피리브레",
+      "productName": "나이트호크",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "Blend",
+      "roastLevel": "Dark",
+      "price": 18000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "18,000원",
+      "priceOptions": [
+        {
+          "id": "200g-18000",
+          "price": 18000,
+          "weight": 200,
+          "priceLabel": "18,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%82%98%EC%9D%B4%ED%8A%B8%ED%98%B8%ED%81%AC",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-58000",
+          "price": 58000,
+          "weight": 1000,
+          "priceLabel": "58,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,800원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%82%98%EC%9D%B4%ED%8A%B8%ED%98%B8%ED%81%AC",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 84,
+      "tastingNotes": [
+        "밀크초콜릿",
+        "메이플시럽",
+        "조청",
+        "크리미"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "조청",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "메이플시럽",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "밀크 초콜릿",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "크리미 바디",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=3176&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%82%98%EC%9D%B4%ED%8A%B8%ED%98%B8%ED%81%AC",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/989a7a7fe34a75af0951850cb092e14d.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 0,
+        "sweetness": 4,
+        "max": 5
+      },
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tasteScale",
+      "groupedProductCount": 2
+    },
+    {
+      "id": "커피리브레-노서프라이즈",
+      "roasterName": "커피리브레",
+      "productName": "노서프라이즈",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "확인 필요",
+      "roastLevel": "Medium",
+      "price": 15000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "15,000원",
+      "priceOptions": [
+        {
+          "id": "200g-15000",
+          "price": 15000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-50000",
+          "price": 50000,
+          "weight": 1000,
+          "priceLabel": "50,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%85%B8%EC%84%9C%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/126cb91acee2d2cbfe53a0e80182cc01.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 3,
+        "sweetness": 3,
+        "max": 5
+      },
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale",
+      "groupedProductCount": 2
+    },
+    {
+      "id": "커피리브레-다크리브레",
+      "roasterName": "커피리브레",
+      "productName": "다크리브레",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "확인 필요",
+      "roastLevel": "Dark",
+      "price": 15000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "15,000원",
+      "priceOptions": [
+        {
+          "id": "200g-15000",
+          "price": 15000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%A4%ED%81%AC%EB%A6%AC%EB%B8%8C%EB%A0%88",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-50000",
+          "price": 50000,
+          "weight": 1000,
+          "priceLabel": "50,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%A4%ED%81%AC%EB%A6%AC%EB%B8%8C%EB%A0%88",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [
+        "다크초콜릿",
+        "묵직"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "다크 초콜릿과 묵직한 바디",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=794&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%8B%A4%ED%81%AC%EB%A6%AC%EB%B8%8C%EB%A0%88",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/5d40b5ee9641ef51dc1c7ed3703b474c.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 1,
+        "sweetness": 4,
+        "max": 5
+      },
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tasteScale",
+      "groupedProductCount": 2
+    },
+    {
+      "id": "커피리브레-배드블러드",
+      "roasterName": "커피리브레",
+      "productName": "배드블러드",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "확인 필요",
+      "roastLevel": "Light",
+      "price": 17000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "17,000원",
+      "priceOptions": [
+        {
+          "id": "200g-17000",
+          "price": 17000,
+          "weight": 200,
+          "priceLabel": "17,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B0%B0%EB%93%9C%EB%B8%94%EB%9F%AC%EB%93%9C",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-55000",
+          "price": 55000,
+          "weight": 1000,
+          "priceLabel": "55,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B0%B0%EB%93%9C%EB%B8%94%EB%9F%AC%EB%93%9C",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B0%B0%EB%93%9C%EB%B8%94%EB%9F%AC%EB%93%9C",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/47b058dd8de162923ddea6f17384c6fb.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 4,
+        "sweetness": 3,
+        "max": 5
+      },
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": 0.2,
+      "acidityScoreSource": "tasteScale",
+      "groupedProductCount": 2
+    },
+    {
+      "id": "커피리브레-버티고",
+      "roasterName": "커피리브레",
+      "productName": "버티고",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "확인 필요",
+      "roastLevel": "Dark",
+      "price": 13000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "13,000원",
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%84%ED%8B%B0%EA%B3%A0",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%84%ED%8B%B0%EA%B3%A0",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [
+        "초콜릿",
+        "견과류",
+        "묵직"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "Chocolate & Nuts",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=793&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Chocolate & Nuts",
+          "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260928/f98405eb6358b7045609517392b548a7.jpg",
+          "method": "image-model"
+        },
+        {
+          "text": "묵직한 초콜릿과 고소한 너트들의 조합",
+          "sourceUrl": "https://coffeelibre.kr/web/upload/NNEditor/20260928/f98405eb6358b7045609517392b548a7.jpg",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EB%B2%84%ED%8B%B0%EA%B3%A0",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/536ff504695047caa36c62c4f0c6c593.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 0,
+        "sweetness": 4,
+        "max": 5
+      },
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": -0.8,
+      "acidityScoreSource": "tasteScale",
+      "groupedProductCount": 2
+    },
+    {
+      "id": "coffeelibre-498",
+      "roasterName": "커피리브레",
+      "productName": "[대용량 원두] 울서울서울서 1kg",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "확인 필요",
+      "roastLevel": "Dark",
+      "price": 55000,
+      "weight": 1000,
+      "weightLabel": "1kg",
+      "priceLabel": "55,000원",
+      "priceOptions": [
+        {
+          "id": "1000-55000",
+          "price": 55000,
+          "weight": 1000,
+          "priceLabel": "55,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,500원/100g",
+          "productUrl": "https://coffeelibre.kr/product/detail.html?product_no=498&cate_no=47&display_group=1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%9A%B8%EC%84%9C%EC%9A%B8%EC%84%9C%EC%9A%B8%EC%84%9C",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202602/ecf616842b3fcd0be489912ff20701d4.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 2,
+        "sweetness": 4,
+        "max": 5
+      },
+      "unitPriceLabel": "",
+      "acidityScore": -0.4,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-8165",
+      "roasterName": "커피리브레",
+      "productName": "[싱글오리진] 에티오피아 시다모 벤사 무라고 베켈레 카차라 내추럴",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "내추럴",
+      "roastLevel": "Light",
+      "price": 20000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 87,
+      "tastingNotes": [
+        "블루베리",
+        "복숭아",
+        "아카시아"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "아카시아",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "블루베리",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "마시멜로우",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8165&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%EC%97%90%ED%8B%B0%EC%98%A4%ED%94%BC%EC%95%84%20%EC%8B%9C%EB%8B%A4%EB%AA%A8%20%EB%B2%A4%EC%82%AC%20%EB%AC%B4%EB%9D%BC%EA%B3%A0%20%EB%B2%A0%EC%BC%88%EB%A0%88%20%EC%B9%B4%EC%B0%A8%EB%9D%BC%20%EB%82%B4%EC%B6%94%EB%9F%B4",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/ebb2785a9fdb7636d005fda069043f9b.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "74158, 74112, 74110",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 4,
+        "sweetness": 4,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0,
+      "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "coffeelibre-8159",
+      "roasterName": "커피리브레",
+      "productName": "[싱글오리진] 페루 라 카타라타 [중강배전]",
+      "origin": "'https://coffeelibre.kr',",
+      "process": "워시드",
+      "roastLevel": "Dark",
+      "price": 19000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 88,
+      "tastingNotes": [
+        "말린자두",
+        "블랙체리",
+        "초콜릿",
+        "캐러멜"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "건자두",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "블랙체리",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://coffeelibre.kr/product/detail.html?product_no=8159&cate_no=47&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://coffeelibre.kr/product/search.html?keyword=%ED%8E%98%EB%A3%A8%20%EB%9D%BC%20%EC%B9%B4%ED%83%80%EB%9D%BC%ED%83%80",
+      "imageUrl": "https://coffeelibre.kr/web/product/medium/202609/8d6fd05b1ff966f2b2fcb832af8cb463.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "카투라",
+      "farm": "라 카타라타",
+      "blendComposition": [],
+      "tasteScale": {
+        "acidity": 2,
+        "sweetness": 4,
+        "max": 5
+      },
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.4,
+      "acidityScoreSource": "tasteScale"
     },
     {
       "id": "namusairo-658",
@@ -20031,7 +20043,7 @@
     {
       "id": "deepbluelake-579",
       "roasterName": "딥블루레이크",
-      "productName": "Single Origin 에티오피아 시다마 두완초 내추럴 (로스팅 9월27일)",
+      "productName": "Single Origin 에티오피아 시다마 두완초 내추럴 (로스팅 9월29일)",
       "origin": "Ethiopia",
       "process": "Natural",
       "roastLevel": "확인 필요",
@@ -20177,7 +20189,7 @@
     {
       "id": "deepbluelake-580",
       "roasterName": "딥블루레이크",
-      "productName": "Single Origin 에콰도르 라스 팔마스 시드라 워시드(로스팅 9월27일)",
+      "productName": "Single Origin 에콰도르 라스 팔마스 시드라 워시드(로스팅 9월29일)",
       "origin": "확인 필요",
       "process": "Washed",
       "roastLevel": "확인 필요",
@@ -21148,7 +21160,7 @@
     {
       "id": "deepbluelake-536",
       "roasterName": "딥블루레이크",
-      "productName": "THE 시리즈 - 더 블랙 블랜딩(로스팅 9월21일)",
+      "productName": "THE 시리즈 - 더 블랙 블랜딩(로스팅 9월28일)",
       "origin": "확인 필요",
       "process": "확인 필요",
       "roastLevel": "확인 필요",
@@ -21816,6 +21828,8 @@
           "process": "언에어로빅 내추럴"
         }
       ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
       "priceLabel": "26,000원",
       "unitPriceLabel": "",
       "priceOptions": [
@@ -21845,8 +21859,6 @@
         }
       ],
       "weightLabel": "220g / 500g",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 2
@@ -24284,18 +24296,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/b0b8d47b869e30d4a331b84d7c56479c.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.175,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-161",
@@ -24414,18 +24423,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/7e9685b488c1e3d79c73688ed4c0c2d8.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.175,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-170",
@@ -24515,18 +24521,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202601/d6cdd2d70ef1c1157579a2dff6f13bb7.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.8666666666666667,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-575",
@@ -24626,18 +24629,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202609/f719c29cab861e1e54b6f86bfff95927.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-577",
@@ -24725,18 +24725,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202609/aa5c03eddefd89200efba5dd0592beb0.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.4,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-568",
@@ -24824,18 +24821,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/0186bd55d5e10eda2ce85c3425cb0c4a.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-560",
@@ -24945,18 +24939,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/e777cedfd3a5bde0e486a5222a2eb396.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.6799999999999999,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-558",
@@ -25044,18 +25035,15 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202608/df1c924297ea2581e05cc4ca97a00a5b.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "werk-545",
@@ -25142,56 +25130,14 @@
       "imageUrl": "https://werk.co.kr/web/product/medium/202606/221270565f7742f63f8142187c49a071.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "갱신 실패 · 7시간 전 정보",
-      "checkedMinutesAgo": 463,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "acidityScore": -0.8,
-      "acidityScoreSource": "tastingNotes",
-      "isStale": true,
-      "lastObservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "momos-7433",
-      "roasterName": "모모스커피",
-      "productName": "원두 파나마 카르멘 게이샤 워시드",
-      "origin": "Panama",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 36000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "36,000원",
-      "priceOptions": [
-        {
-          "id": "100-36000",
-          "price": 36000,
-          "weight": 100,
-          "priceLabel": "36,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "36,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7433",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 92,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/7433",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/9958cec74e55b.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "unitPriceLabel": "",
-      "acidityScore": 0.9,
       "acidityScoreSource": "tastingNotes"
     },
     {
@@ -25232,7 +25178,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 86,
+      "score": 85,
       "tastingNotes": [],
       "tastingNoteEvidence": [],
       "productUrl": "https://momos.co.kr/shop_view/7431",
@@ -25254,8 +25200,36 @@
       "roastLevel": "확인 필요",
       "price": 20000,
       "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 87,
+      "weightLabel": "200g",
+      "priceLabel": "20,000원",
+      "priceOptions": [
+        {
+          "id": "200-20000",
+          "price": 20000,
+          "weight": 200,
+          "priceLabel": "20,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7410",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-40000",
+          "price": 40000,
+          "weight": 500,
+          "priceLabel": "40,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://momos.co.kr/shop_view/7410",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 86,
       "tastingNotes": [
         "베리",
         "자두",
@@ -25295,58 +25269,10 @@
       "isNew": true,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "priceOptions": [
-        {
-          "id": "200-20000",
-          "price": 20000,
-          "weight": 200,
-          "priceLabel": "20,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7410",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-40000",
-          "price": 40000,
-          "weight": 500,
-          "priceLabel": "40,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://momos.co.kr/shop_view/7410",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
+      "unitPriceLabel": "",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
-      "officialDetailPreservedAt": "2026-09-29T12:34:14.785Z",
       "tastingNotesPreservedAt": "2026-09-29T12:34:14.785Z"
-    },
-    {
-      "id": "momos-7407",
-      "roasterName": "모모스커피",
-      "productName": "원두 에티오피아 사포 클래식 워시드",
-      "origin": "Ethiopia",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 100,
-      "priceOptionsComplete": false,
-      "score": 88,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/7407",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/b4a799956b02c.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "acidityScore": 0.9333333333333332,
-      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-2486",
@@ -25398,7 +25324,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 87,
+      "score": 85,
       "tastingNotes": [],
       "tastingNoteEvidence": [],
       "productUrl": "https://momos.co.kr/shop_view/2486",
@@ -25437,7 +25363,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 88,
+      "score": 86,
       "tastingNotes": [],
       "tastingNoteEvidence": [],
       "productUrl": "https://momos.co.kr/shop_view/7378",
@@ -25500,7 +25426,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 85,
+      "score": 87,
       "tastingNotes": [
         "쥬시",
         "감귤",
@@ -25536,7 +25462,8 @@
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-30T00:04:08.389Z"
     },
     {
       "id": "momos-7379",
@@ -25564,7 +25491,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 86,
+      "score": 88,
       "tastingNotes": [
         "쥬시",
         "감귤",
@@ -25612,41 +25539,8 @@
       "roastLevel": "확인 필요",
       "price": 15000,
       "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 87,
-      "tastingNotes": [
-        "건과일",
-        "캐러멜",
-        "허브"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "로스티드 넛",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        },
-        {
-          "text": "건과일류",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        },
-        {
-          "text": "허브",
-          "sourceUrl": "https://momos.co.kr/shop_view/3058",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://momos.co.kr/shop_view/3058",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/0fdf4b7d81888.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "weightLabel": "200g",
+      "priceLabel": "15,000원",
       "priceOptions": [
         {
           "id": "200-15000",
@@ -25685,9 +25579,44 @@
           "discountLabel": ""
         }
       ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [
+        "건과일",
+        "캐러멜",
+        "허브"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "로스티드 넛",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        },
+        {
+          "text": "건과일류",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        },
+        {
+          "text": "허브",
+          "sourceUrl": "https://momos.co.kr/shop_view/3058",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://momos.co.kr/shop_view/3058",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/0fdf4b7d81888.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "unitPriceLabel": "",
       "acidityScore": -0.8,
       "acidityScoreSource": "tastingNotes",
-      "officialDetailPreservedAt": "2026-09-29T12:34:14.785Z",
       "tastingNotesPreservedAt": "2026-09-28T07:04:28.053Z"
     },
     {
@@ -25716,7 +25645,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 88,
+      "score": 86,
       "tastingNotes": [
         "건과일",
         "캐러멜",
@@ -25805,7 +25734,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 85,
+      "score": 87,
       "tastingNotes": [
         "체리",
         "쥬시"
@@ -25863,7 +25792,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 86,
+      "score": 88,
       "tastingNotes": [
         "체리",
         "쥬시"
@@ -25892,8 +25821,9 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": 0.4666666666666666,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-09-30T00:04:08.389Z"
     },
     {
       "id": "momos-7375",
@@ -25921,7 +25851,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 88,
+      "score": 86,
       "tastingNotes": [],
       "tastingNoteEvidence": [],
       "productUrl": "https://momos.co.kr/shop_view/7375",
@@ -25938,8 +25868,8 @@
       "id": "momos-4876",
       "roasterName": "모모스커피",
       "productName": "원두 에티오피아 구지 우라가 시코 내추럴 디카페인",
-      "origin": "Blend",
-      "process": "Blend",
+      "origin": "Ethiopia",
+      "process": "Natural",
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
@@ -26021,7 +25951,7 @@
       ],
       "productUrl": "https://momos.co.kr/shop_view/4876",
       "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/87e03bd47c4a5.png?w=800",
-      "isSoldOut": true,
+      "isSoldOut": false,
       "isNew": true,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
@@ -26031,8 +25961,8 @@
     }
   ],
   "quality": {
-    "total": 455,
-    "cleanCount": 450,
+    "total": 453,
+    "cleanCount": 448,
     "excludedCount": 5,
     "flaggedCount": 2,
     "invalidOptionCount": 0,
@@ -26121,9 +26051,9 @@
     "preservedRoasters": [],
     "preservedRoasterProductCount": 0,
     "preservedDiscountCount": 1,
-    "preservedOfficialDetailCount": 3,
-    "preservedTastingNoteCount": 11,
-    "staleProductCount": 39,
+    "preservedOfficialDetailCount": 1,
+    "preservedTastingNoteCount": 10,
+    "staleProductCount": 15,
     "collectionRuns": [
       {
         "sourceId": "identity",
@@ -26203,13 +26133,6 @@
         "usedFallback": true
       },
       {
-        "sourceId": "coffeelibre",
-        "roasterName": "커피리브레",
-        "status": "failed",
-        "itemCount": 15,
-        "usedFallback": true
-      },
-      {
         "sourceId": "centercoffee",
         "roasterName": "센터커피",
         "status": "complete",
@@ -26221,6 +26144,13 @@
         "roasterName": "헬카페",
         "status": "complete",
         "itemCount": 7,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "coffeelibre",
+        "roasterName": "커피리브레",
+        "status": "complete",
+        "itemCount": 20,
         "usedFallback": false
       },
       {
@@ -26261,15 +26191,15 @@
       {
         "sourceId": "werk",
         "roasterName": "베르크커피",
-        "status": "failed",
+        "status": "complete",
         "itemCount": 9,
-        "usedFallback": true
+        "usedFallback": false
       },
       {
         "sourceId": "momos",
         "roasterName": "모모스커피",
         "status": "complete",
-        "itemCount": 14,
+        "itemCount": 12,
         "usedFallback": false
       }
     ]
