@@ -141,9 +141,9 @@ for (const [text, level] of DETAIL_ROAST) check(`detail-roast:${text}`, extractR
 // ---- .js/.cjs 동일성 (export 구문 외) ----
 const ROOT = join(dirname(__filename), '..');
 const js = readFileSync(join(ROOT, 'src/services/roastLevel.js'), 'utf8')
-  .split('\n').filter((l) => l !== 'export {' && l !== '};').join('\n');
+  .split(/\r?\n/).filter((l) => l !== 'export {' && l !== '};').join('\n');
 const cjs = readFileSync(join(ROOT, 'src/services/roastLevel.cjs'), 'utf8')
-  .split('\n').filter((l) => l !== 'module.exports = {' && l !== '};').join('\n');
+  .split(/\r?\n/).filter((l) => l !== 'module.exports = {' && l !== '};').join('\n');
 check('js-cjs-identical', js === cjs, true);
 
 // ---- .js ESM 로드 확인 ----
