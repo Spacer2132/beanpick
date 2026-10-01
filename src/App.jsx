@@ -36,6 +36,7 @@ import { loadProductCache, saveProductCache } from './services/productHistory.js
 import { getDisplayTastingNotes, getPendingTastingNotes, normalizeTastingNotes } from './services/tastingNotes.js';
 import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
 import { extractProductCountries } from './services/mapCoordinates.js';
+import { STORY_SECTIONS, VARIETY_TIERS, matchVarietyIds } from './data/varietyGuide.js';
 
 const NAV = [
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
@@ -192,7 +193,7 @@ function notifyFavoriteChanges(changes, favoriteIds) {
 }
 
 // 카드를 누르면 열리는 원두 상세 보기 창
-function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) {
+function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, onSelectVariety }) {
   React.useEffect(() => {
     function handleKeyDown(event) {
       if (event.key === 'Escape') onClose();
@@ -240,9 +241,21 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite }) 
             </h2>
             <p className="modal-original-name">{product.productName}</p>
             <dl className="modal-spec">
-              {infoRows.map(([label, value]) => (
-                <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
-              ))}
+              {infoRows.map(([label, value]) => {
+                const varietyId = label === '품종' ? matchVarietyIds(product.variety, value)[0] : null;
+                return (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>
+                      {varietyId ? (
+                        <button className="detail-variety-link" type="button" onClick={() => onSelectVariety(varietyId)}>
+                          {value} <span aria-hidden="true">›</span>
+                        </button>
+                      ) : value}
+                    </dd>
+                  </div>
+                );
+              })}
             </dl>
             {product.blendComposition && product.blendComposition.length > 0 && (
               <div className="bean-blend-info">
@@ -708,6 +721,7 @@ export default function App() {
   const [monitorSummary, setMonitorSummary] = React.useState(() => createMonitorSummary(initialCache?.products ?? mockBeans, roasterySources));
   // 상세 보기로 열어 둔 상품. 데이터가 새로고침돼도 id로 다시 찾는다.
   const [detailProductId, setDetailProductId] = React.useState(null);
+  const [mapEntry, setMapEntry] = React.useState({ varietyId: null, key: 0 });
   const [searchFocused, setSearchFocused] = React.useState(false);
   const loadingRef = React.useRef(false);
   const loadProductsRef = React.useRef(null);
@@ -1115,7 +1129,7 @@ export default function App() {
               type="button"
               role="tab"
               aria-selected={screen === item.id}
-              onClick={() => setScreen(item.id)}
+              onClick={() => { setMapEntry({ varietyId: null, key: Date.now() }); setScreen(item.id); }}
             >
               <span>{item.label}</span>
               {item.badge != null && <em>{item.badge}</em>}
@@ -1131,7 +1145,7 @@ export default function App() {
                 key={item.id}
                 className={`nav-item ${screen === item.id ? 'active' : ''}`}
                 type="button"
-                onClick={() => setScreen(item.id)}
+                onClick={() => { setMapEntry({ varietyId: null, key: Date.now() }); setScreen(item.id); }}
               >
                 <span>{item.label}</span>
                 {item.badge != null && <em>{item.badge}</em>}
@@ -1251,6 +1265,8 @@ export default function App() {
           />
         ) : screen === 'map' ? (
           <MapPage
+            key={mapEntry.key}
+            initialVarietyId={mapEntry.varietyId}
             products={products}
             favoriteIds={favoriteIds}
             onSelectProduct={(product) => setDetailProductId(product.id)}
@@ -1284,6 +1300,11 @@ export default function App() {
           product={detailProduct}
           onClose={() => setDetailProductId(null)}
           onToggleFavorite={handleToggleFavorite}
+          onSelectVariety={(varietyId) => {
+            setDetailProductId(null);
+            setMapEntry({ varietyId, key: Date.now() });
+            setScreen('map');
+          }}
         />
       )}
     </div>
@@ -1291,6 +1312,7 @@ export default function App() {
 }
 
 function MapPage({
+  initialVarietyId,
   products,
   favoriteIds,
   onSelectProduct,
@@ -1302,7 +1324,52 @@ function MapPage({
   const [blendOnly, setBlendOnly] = React.useState(false);
   const [highlightedCountries, setHighlightedCountries] = React.useState([]);
   const [focusedProductId, setFocusedProductId] = React.useState(null);
+  // 상세창 품종 링크로 들어오면 그 품종을 선택한 채로 연다
+  const [mapMode, setMapMode] = React.useState(initialVarietyId ? 'variety' : 'origin');
+  const [selectedVariety, setSelectedVariety] = React.useState(() => {
+    for (const { tier, items } of VARIETY_TIERS) {
+      const item = items.find((i) => i.id === initialVarietyId);
+      if (item) return { ...item, tier };
+    }
+    return null;
+  });
   const listHeadRef = React.useRef(null);
+
+  const varietyIdsByProduct = React.useMemo(() => new Map(products.map((p) => (
+    [p.id, matchVarietyIds(p.variety, formatProductDisplayInfo(p).variety)]
+  ))), [products]);
+  const varietyCounts = React.useMemo(() => {
+    const counts = {};
+    varietyIdsByProduct.forEach((ids) => ids.forEach((id) => { counts[id] = (counts[id] || 0) + 1; }));
+    return counts;
+  }, [varietyIdsByProduct]);
+  const varietyProducts = React.useMemo(() => products.filter((p) => {
+    const ids = varietyIdsByProduct.get(p.id) || [];
+    return selectedVariety ? ids.includes(selectedVariety.id) : ids.length > 0;
+  }), [products, varietyIdsByProduct, selectedVariety]);
+  const listProducts = mapMode === 'variety' ? varietyProducts : null;
+
+  // 빈픽에서는: 선택한 품종의 100g 가격대와 많이 파는 로스터리
+  const varietyStats = React.useMemo(() => {
+    if (!selectedVariety || !varietyProducts.length) return null;
+    const unitPrices = varietyProducts.map((p) => {
+      const options = (p.priceOptions?.length ? p.priceOptions : [p])
+        .filter((o) => Number(o?.price) > 0 && Number(o?.weight) > 0);
+      return options.length ? Math.min(...options.map((o) => (o.price / o.weight) * 100)) : 0;
+    }).filter(Boolean).sort((a, b) => a - b);
+    const roasterCounts = {};
+    varietyProducts.forEach((p) => { roasterCounts[p.roasterName] = (roasterCounts[p.roasterName] || 0) + 1; });
+    const topRoasters = Object.entries(roasterCounts).sort((a, b) => b[1] - a[1]).slice(0, 3);
+    const won = (value) => `${Math.round(value / 100) * 100}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+    return {
+      priceRange: unitPrices.length === 1
+        ? `100g당 ${won(unitPrices[0])}`
+        : unitPrices.length
+        ? `100g당 ${won(unitPrices[0])} ~ ${won(unitPrices[unitPrices.length - 1])} (중간값 ${won(unitPrices[Math.floor(unitPrices.length / 2)])})`
+        : '',
+      topRoasters: topRoasters.map(([name, count]) => `${name} ${count}`).join(' · '),
+    };
+  }, [selectedVariety, varietyProducts]);
 
   // 할인 중인 원두가 있는 생산국 (지도 핀에 표시)
   const discountCountries = React.useMemo(() => {
@@ -1351,7 +1418,7 @@ function MapPage({
   // 필터 변경 시 표시 개수 리셋
   React.useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [selectedCountry, blendOnly]);
+  }, [selectedCountry, blendOnly, mapMode, selectedVariety]);
 
   const handleSelectCountry = (country) => {
     setBlendOnly(false);
@@ -1375,10 +1442,104 @@ function MapPage({
     setFocusedProductId(product.id);
   };
 
-  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const shownProducts = listProducts || filteredProducts;
+  const visibleProducts = shownProducts.slice(0, visibleCount);
 
   return (
     <div className="browse-layout atlas-page">
+      <div className="map-mode-toggle" role="group" aria-label="보기 전환">
+        {[['origin', '산지'], ['variety', '품종']].map(([id, label]) => (
+          <button
+            key={id}
+            type="button"
+            className={mapMode === id ? 'is-active' : ''}
+            aria-pressed={mapMode === id}
+            onClick={() => {
+              setMapMode(id);
+              setSelectedVariety(null);
+              setFocusedProductId(null);
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {mapMode === 'variety' ? (
+        <>
+          <section className="variety-guide" aria-label="빈픽 추천 등급">
+            <div className="variety-guide-head">
+              <h2 className="section-title">빈픽 추천 등급</h2>
+              <span className="variety-guide-note">
+                품종이 표시된 원두 {[...varietyIdsByProduct.values()].filter((ids) => ids.length).length}개 / 전체 {products.length}개 기준
+              </span>
+            </div>
+            {VARIETY_TIERS.map(({ tier, caption, items }) => (
+              <div className="variety-tier" key={tier}>
+                <div className="variety-tier-label">
+                  <strong>{tier}</strong>
+                  <span>{caption}</span>
+                </div>
+                <div className="variety-tier-chips">
+                  {items.map((item) => {
+                    const count = varietyCounts[item.id] || 0;
+                    const active = selectedVariety?.id === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        className={`variety-chip ${active ? 'is-active' : ''} ${count ? '' : 'is-empty'}`}
+                        aria-pressed={active}
+                        onClick={() => setSelectedVariety(active ? null : { ...item, tier })}
+                      >
+                        <span className="variety-chip-name">{item.name}</span>
+                        <span className="variety-chip-ko">{item.ko}</span>
+                        <span className="variety-chip-count">{count ? `판매 ${count}` : '판매 없음'}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </section>
+
+          {selectedVariety && (
+            <div className="origin-story-card">
+              <div className="origin-story-header">
+                <div className="origin-story-title-group">
+                  <span className="variety-story-tier">{selectedVariety.tier}</span>
+                  <div>
+                    <span className="origin-story-name">{selectedVariety.ko}</span>
+                    <span className="origin-story-en"> ({selectedVariety.name})</span>
+                  </div>
+                </div>
+                <span className="origin-story-badge">
+                  {varietyCounts[selectedVariety.id] ? `원두 ${varietyCounts[selectedVariety.id]}종 판매 중` : '현재 판매 없음'}
+                </span>
+              </div>
+              <div className="origin-story-body">
+                <p className="variety-intro">{selectedVariety.note}</p>
+                {STORY_SECTIONS.filter(([key]) => selectedVariety.story?.[key]).map(([key, label]) => (
+                  <div className="variety-story-item" key={key}>
+                    <strong>{label}</strong>
+                    <p>{selectedVariety.story[key]}</p>
+                  </div>
+                ))}
+                {varietyStats && (
+                  <div className="variety-story-item is-beanpick">
+                    <strong>📊 빈픽에서는</strong>
+                    <p>
+                      지금 {varietyCounts[selectedVariety.id]}개 판매 중{varietyStats.priceRange ? ` · ${varietyStats.priceRange}` : ''}
+                      {varietyStats.topRoasters ? <><br />많이 파는 곳: {varietyStats.topRoasters}</> : null}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+      <>
       {/* 1. 상단 세계지도 뷰어 */}
       <WorldCoffeeMap
         products={products}
@@ -1464,13 +1625,17 @@ function MapPage({
           </div>
         </div>
       )}
+      </>
+      )}
 
       {/* 3. 섹션 타이틀 */}
       <div className="section-head atlas-list-head" ref={listHeadRef} tabIndex={-1} style={{ marginBottom: '16px' }}>
         <div>
           <span className="section-eyebrow">원두 목록</span>
           <h2 className="section-title" style={{ fontSize: '18px' }}>
-            {selectedCountry
+            {mapMode === 'variety'
+              ? `${selectedVariety ? selectedVariety.ko : '품종 표시'} 원두 (${shownProducts.length}개)`
+              : selectedCountry
               ? `${selectedCountry} 생산 원두 (${filteredProducts.length}개)`
               : blendOnly
               ? `생산국 미표기 블렌드 (${filteredProducts.length}개)`
@@ -1511,7 +1676,7 @@ function MapPage({
       </div>
 
       {/* 5. 더보기 버튼 */}
-      {visibleProducts.length < filteredProducts.length && (
+      {visibleProducts.length < shownProducts.length && (
         <div style={{ textAlign: 'center', marginTop: '24px', marginBottom: '24px' }}>
           <button
             type="button"
@@ -1519,7 +1684,7 @@ function MapPage({
             style={{ padding: '10px 24px', fontSize: '14px', fontWeight: '600' }}
             onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
           >
-            더 많은 원두 보기 ({visibleProducts.length} / {filteredProducts.length})
+            더 많은 원두 보기 ({visibleProducts.length} / {shownProducts.length})
           </button>
         </div>
       )}
