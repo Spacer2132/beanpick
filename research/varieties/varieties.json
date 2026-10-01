@@ -1,0 +1,1867 @@
+[
+  {
+    "id": "geisha",
+    "intro": {
+      "text": "게이샤는 1930년대 에티오피아 서부 게샤 지역의 커피 숲에서 채집된 에티오피아 토착종으로, 1953년 코스타리카의 CATIE 연구소에 T2722라는 등록 번호로 보존된 뒤 1960년대 녹병 저항성을 이유로 파나마에 도입되었습니다. 나무는 키가 크고 잎 끝이 녹색 또는 청동색을 띠며 콩 크기는 평균 수준이지만, 가지가 약하고 수확량이 낮아 한때는 농가들에게 외면받던 품종이었습니다. 2004년 Best of Panama 대회에서 Hacienda La Esmeralda의 게이샤가 우승해 당시 경매 최고가를 경신하면서 세상에 알려졌고(세계커피연구 카탈로그는 2005년으로 기록), 이후 '울트라 프리미엄 커피'라는 새로운 시장을 연 품종으로 커피 역사에 자리 잡았습니다. 고지대에서 잘 관리될 때 재스민과 복숭아를 연상시키는 섬세한 꽃향기와 차(茶) 같은 맑은 질감이 대표적인 향미입니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "에티오피아 토착종, 1930년대 채집, 탄자니아 Lyamungu 경유, 1953년 CATIE 등록 T2722, 1960년대 파나마 도입",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama"
+        },
+        {
+          "claim": "키가 크고 잎 끝 녹색·청동색, 콩 크기 평균, 수확 잠재력 낮음, 녹병 중간 저항성",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama"
+        },
+        {
+          "claim": "2004년 Best of Panama 우승, 파운드당 21달러로 당시 최고가 경신",
+          "url": "https://www.gcrmag.com/?p=8783",
+          "year": 2004
+        },
+        {
+          "claim": "2004년 대회 출품으로 구매자 인식 변화, 파운드당 21달러 낙찰",
+          "url": "https://thebusinessyear.com/interview/geisha-coffee/",
+          "year": 2004
+        },
+        {
+          "claim": "고지대에서 섬세한 꽃향기·재스민·복숭아 향",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama"
+        }
+      ]
+    },
+    "reputation": {
+      "text": "Best of Panama 경매에서 2004년 파운드당 21달러로 최고가를 경신한 게이샤는 2017년 파운드당 601달러, 2024년 kg당 10,013달러(Lamastus Family Estates의 Elida Geisha Natural, 일본 Saza Coffee 낙찰), 2025년 kg당 30,204달러(Hacienda La Esmeralda 워시드 게이샤, 두바이 바이어 낙찰)로 세계 커피 경매 최고가를 거듭 경신했습니다. 2025년 대회에서는 Hacienda La Esmeralda가 워시드 부문 98점·내추럴 부문 97점을 받아 부문 최고 점수 기록도 세웠습니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "2017년 Best of Panama 최고 득점 커피가 파운드당 601달러 낙찰",
+          "url": "https://dailycoffeenews.com/2024/08/15/best-of-panama-shatters-price-records-with-627-per-pound-average/",
+          "year": 2017
+        },
+        {
+          "claim": "2024년 최고가 kg당 10,013달러(Elida Geisha Natural, Lamastus Family Estates, Saza Coffee 낙찰), 총액 1,383,719달러, 가중평균 파운드당 627.27달러",
+          "url": "https://www.gcrmag.com/?p=42918",
+          "year": 2024
+        },
+        {
+          "claim": "2024년 최고가 파운드당 4,542달러(Saza Coffee 주도 아시아 바이어 컨소시엄), 경매 커피 전부 파운드당 200달러 이상",
+          "url": "https://dailycoffeenews.com/2024/08/15/best-of-panama-shatters-price-records-with-627-per-pound-average/",
+          "year": 2024
+        },
+        {
+          "claim": "2025년 워시드 부문 kg당 30,204달러, 내추럴 부문 2만 달러 이상으로 두 개의 신기록",
+          "url": "https://efs.efeservicios.com/video/panamanian-geisha-coffee-sets-record-selling-30000-kilo/7001492480",
+          "year": 2025
+        },
+        {
+          "claim": "2025년 워시드 98점·내추럴 97점으로 부문 최고 점수, 종합 20점으로 Copa Panamá 2025 수상",
+          "url": "https://www.tridge.com/news/2025-panamas-best-green-coffee-bean-competition-yqrnuu",
+          "year": 2025
+        }
+      ]
+    },
+    "production": {
+      "text": "품종별 정확한 생산량 통계는 공개되어 있지 않아 간접 지표로 가늠합니다. 세계커피연구 카탈로그는 게이샤의 수확 잠재력을 '낮음'으로 평가하고 첫 수확까지 4년이 걸린다고 기록했으며, 파나마 전체가 세계 커피 생산량의 약 0.1%(연간 약 10만 60kg 자루, 2026년 보도된 미국 농무부 집계)에 불과해 절대 생산 규모 자체가 작습니다. Best of Panama 경매에 출품되는 게이샤 로트도 해마다 40개 안팎(2026년 40개)에 그쳐, 최상급 게이샤는 구조적으로 희소한 편입니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "수확 잠재력 낮음, 첫 생산 4년차, 평균 출턴",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama"
+        },
+        {
+          "claim": "파나마는 세계 커피 생산량의 0.1%, 약 10만 60kg 자루 — 미국 농무부 집계(2026년 3/4월호 Global Coffee Report 보도)",
+          "url": "https://www.gcrmag.com/regions-on-the-rise-panama/",
+          "year": 2026
+        },
+        {
+          "claim": "2026년 경매 50개 로트 중 게이샤 40개, 게이샤 로트 전부 kg당 1,500달러 이상",
+          "url": "https://newsroompanama.com/2026/09/24/18000-per-kilo-generating-more-than-3-million-in-sales-at-the-best-of-panama-auction-not-gold-or-silver-it-is-panamanian-coffee/",
+          "year": 2026
+        }
+      ]
+    },
+    "distribution": {
+      "text": "게이샤는 파나마를 비롯해 콜롬비아·코스타리카·에티오피아(475헥타르 규모의 Gesha Village 농장)·말라위 등 아프리카·아시아·미주 여러 나라에서 재배되지만, 세계적 명성을 얻은 최상급 파나마산은 Best of Panama 경매를 통해서만 구할 수 있는 경우가 많습니다. 2026년 9월 경매에서는 게이샤 로트 40개 전부가 kg당 1,500달러 이상에 낙찰되었고 가중평균가는 kg당 4,056달러였으며, 주요 수요는 중국(전체 매출의 38%)·일본·한국·두바이 등 아시아와 중동 바이어들입니다. 일반 소매 시장에서도 고가 품종으로, 그린웰 팜은 자사 코나산 게이샤가 파운드당 100달러에 판매되며 매진된다고 밝히고 있습니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "아프리카·아시아·미주 여러 나라에서 재배, 말라위에서 광범위하게 재배",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama"
+        },
+        {
+          "claim": "에티오피아에 475헥타르 규모의 Gesha Village 농장, 고리 게샤 숲 인근",
+          "url": "https://www.baristamagazine.com/rise-gesha/"
+        },
+        {
+          "claim": "2026년 경매 총액 3,041,940달러, 최고가 kg당 18,004달러(Elida Geisha Torre), 가중평균 kg당 4,055.92달러, 24,544건 입찰",
+          "url": "https://newsroompanama.com/2026/09/24/18000-per-kilo-generating-more-than-3-million-in-sales-at-the-best-of-panama-auction-not-gold-or-silver-it-is-panamanian-coffee/",
+          "year": 2026
+        },
+        {
+          "claim": "2026년 중국 바이어가 20개 로트·매출의 38% 차지, 21개국 83명 입찰",
+          "url": "https://expat-times.com/panama/business-economy/impressive-panama-geisha-auction-tops-3-million-as-elida-lot-sets-record/",
+          "year": 2026
+        },
+        {
+          "claim": "자사 블로그에서 코나산 게이샤 파운드당 100달러 판매·매진 언급(2026년 10월 확인)",
+          "url": "https://www.greenwellfarms.com/blogs/news/wife-appreciation-day",
+          "year": 2026
+        }
+      ]
+    },
+    "specialty": {
+      "text": "World Barista Championship 2024년 우승자 Mikael Jasin은 에스프레소 라운드에 파나마 Finca Deborah의 게이샤를 사용했고, 2025년 우승자 Jack Simpson도 같은 농장의 원두를 사용했으며, 2024년 World Brewers Cup 우승자 Martin Wölfl은 파나마 Finca Maya의 내추럴 아나에로빅 게이샤로 우승했습니다. 업계에서는 파나마산 게이샤가 대회 무대의 '표준 장비'가 되었다는 평가가 나오는 한편, 천정부지 경매가가 업계의 경제적 불평등을 부각한다는 비판도 제기됩니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "2024년 WBC 우승자 Mikael Jasin, 에스프레소 라운드에 파나마 게이샤(Finca Deborah) 사용",
+          "url": "https://www.beanscenemag.com.au/mikael-jasin-crowned-world-barista-champion-2024/",
+          "year": 2024
+        },
+        {
+          "claim": "Finca Deborah의 원두를 WBC 우승자 Jack Simpson(2025)·Mikael Jasin(2024)이 사용",
+          "url": "https://www.gcrmag.com/regions-on-the-rise-panama/",
+          "year": 2025
+        },
+        {
+          "claim": "2024년 World Brewers Cup 우승자 Martin Wölfl, 파나마 Finca Maya의 내추럴 아나에로빅 게이샤 사용",
+          "url": "https://www.beanscenemag.com.au/2024-world-coffee-champions-announced",
+          "year": 2024
+        },
+        {
+          "claim": "최근 WBC 결선에서 파나마산 게이샤가 표준이 되면서 동질화 우려",
+          "url": "https://perfectdailygrind.com/2026/04/how-baristas-can-stand-out-at-competitions/",
+          "year": 2026
+        },
+        {
+          "claim": "게이샤 최고가 기록이 업계의 경제적 불평등을 부각한다는 비판",
+          "url": "https://perfectdailygrind.com/2024/10/world-record-price-for-gesha-coffee-economic-disparity/",
+          "year": 2024
+        }
+      ]
+    },
+    "trivia": {
+      "text": "게이샤는 일본의 게이샤(芸者)와 아무 관계가 없으며, 이름은 에티오피아 서부의 게샤(Gesha) 지역에서 왔으나 1936년 영국 영사관 문서에도 'Geisha coffee area'로 적힐 만큼 초기 표기가 굳어 퍼졌고, 이후 업계에서는 원래 지명에 가까운 'Gesha' 표기를 되살리자는 움직임이 있습니다. 2004년 대회 전 컵핑에서 바이어 Ric Rhinehart가 이 커피를 맛보고 자신의 에티오피아 커피와 뒤섞인 줄 알았을 만큼 파나마답지 않은 향미였고, 낯선 향미 탓에 실격될 뻔했다는 일화도 전해집니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "표기 Geisha·Gesha 혼용, 에티오피아 방언의 정해진 영어 표기 없음, 유전자원 기록에 처음 'Geisha'로 기록, 지역명은 Gesha로 표기",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama"
+        },
+        {
+          "claim": "1936년 영국 영사관 서한에 'Geisha coffee area' 표기, 일본 게이샤와의 연관은 순전한 우연",
+          "url": "https://boquetecoffeetraders.com/blogs/news/gesha-vs-geisha"
+        },
+        {
+          "claim": "Ric Rhinehart가 컵핑 테이블에서 게이샤를 에티오피아 커피와 혼동, 파나마답지 않은 향미로 실격 우려",
+          "url": "https://www.gcrmag.com/?p=8783"
+        }
+      ]
+    }
+  },
+  {
+    "id": "typica",
+    "intro": {
+      "text": "티피카는 아라비카 품종 중 가장 오랜 재배 역사를 가진 품종 중 하나로, 기원은 에티오피아 남서부로 거슬러 올라갑니다. 15~16세기 예멘으로 전해진 뒤 인도를 거쳐 1696년과 1699년 말라바르 연안에서 자바(바타비아)로 보내진 소수의 씨앗이 오늘날 티피카 품종의 시조가 되었습니다. 1706년 자바의 커피 나무 한 그루가 암스테르담 식물원으로 옮겨진 뒤 유럽 식민 교역로를 따라 아메리카 대륙으로 퍼졌고, 1940년대까지 남미와 중미 대부분의 농장은 티피카로 심겨 있었습니다. 나무는 키가 크고 원추형이며 청동색 잎끝과 큰 콩을 지니고, WCR 카탈로그는 수확량 잠재력을 '낮음'·고고도 품질 잠재력을 '우수'로 평가하며 주요 병해(녹병·선충·커피열매병)에 취약하다고 기록합니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "에티오피아→예멘(15~16세기)→인도→자바(1696·1699) 전파, 1706년 자바→암스테르담, 1940년대까지 중남미 대부분 티피카",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/typica"
+        },
+        {
+          "claim": "수확량 잠재력 '낮음', 고고도 품질 잠재력 '우수', 녹병·선충·커피열매병 취약",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/typica"
+        }
+      ]
+    },
+    "reputation": {
+      "text": "2020년 코스타리카 컵 오브 엑설런스에서는 허니 가공 티피카가 90.14점을 받아 2위와 프레지덴셜 어워드를 차지했고, 2021년 첫 에콰도르 컵 오브 엑설런스에서는 '티피카 메호라도' 로트가 1위와 파운드당 97.10달러에 낙찰되었습니다. 또한 자메이카 블루마운틴·하와이 코나 같은 세계적 명성의 커피들이 모두 티피카 계통의 지역 선발종이라는 점도 업계에서의 위상을 보여주는 간접 지표입니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "2020년 코스타리카 COE 티피카 허니 90.14점 2위·프레지덴셜 어워드",
+          "url": "https://www.gcrmag.com/?p=21271",
+          "year": 2020
+        },
+        {
+          "claim": "2021년 첫 에콰도르 COE 1위 티피카 메호라도, 파운드당 97.10달러 낙찰",
+          "url": "https://www.beanscenemag.com.au/inaugural-ecuador-cup-of-excellence-garners-global-recognition/",
+          "year": 2021
+        },
+        {
+          "claim": "블루마운틴·코나·수마트라·크리올로 등은 티피카 계통의 아형(sub-type)",
+          "url": "https://library.sweetmarias.com/glossary/typica/"
+        }
+      ]
+    },
+    "production": {
+      "text": "품종 단위의 생산량·판매량 공식 통계는 존재하지 않으므로, 생산 점유율은 간접 지표로만 판단할 수 있습니다. WCR에 따르면 1940년대까지 남미·중미 커피 농장의 대부분을 차지했으나 낮은 수확량과 주요 병해에 대한 취약성 때문에 점차 대체되어 왔고, 현재는 페루·도미니카공화국·자메이카에 주로 남아 있습니다. 페루에서는 녹병 사태 이후 스페셜티 시장의 품질 수요에 맞춰 티피카(현지명 '나시오날')로 복귀하는 농가가 늘고 있어, 희소성과 품질 가치가 함께 주목받는 품종입니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "1940년대까지 중남미 대부분 티피카였으나 저수확·병해 취약성으로 대체, 현재 페루·도미니카공화국·자메이카에 잔존",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/typica"
+        },
+        {
+          "claim": "페루 농가들이 녹병 이후 티피카(나시오날)·버번 등으로 복귀 중",
+          "url": "https://perfectdailygrind.com/2019/11/a-guide-to-perus-coffee-producing-regional-profiles/",
+          "year": 2019
+        }
+      ]
+    },
+    "distribution": {
+      "text": "현재 티피카의 주요 재배국은 페루·도미니카공화국·자메이카이며(WCR), 하와이·수마트라·과테말라·멕시코 등지에서도 티피카 계통이 지역 이름을 달고 재배됩니다. 품종 단위 국제 시세는 집계되지 않으나, 티피카 계통의 대표 격인 자메이카 블루마운틴은 2025~2026년 온라인 소매 기준 1파운드(약 450g)당 40~60달러대, 프리미엄 등급은 그 이상에 판매되는 등 고가·희소 포지셔닝이 뚜렷합니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "현재 주요 재배국 페루·도미니카공화국·자메이카(자메이카 블루마운틴)",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/typica"
+        },
+        {
+          "claim": "하와이(코나)·수마트라·과테말라 등 티피카 아형 분포",
+          "url": "https://library.sweetmarias.com/glossary/typica/"
+        },
+        {
+          "claim": "자메이카 블루마운틴 소매가 1파운드 40~60달러(표준)·60~80달러 이상(프리미엄)",
+          "url": "https://coffeefrik.com/best-jamaica-blue-mountain-coffee/",
+          "year": 2026
+        }
+      ]
+    },
+    "specialty": {
+      "text": "스페셜티 대회 무대에서 티피카가 주인공이 되는 경우는 드물지만, 코스타리카 COE 2020에서 티피카가 90.14점으로 2위를 차지한 것처럼 좋은 테루아에서 재배된 티피카는 여전히 최상급 점수를 받을 수 있습니다. 스프루지의 로스터 소개에서도 에콰도르산 티피카 내추럴 싱글오리진이 소개되는 등, 로스터들은 티피카를 클래식하고 균형 잡힌 품질의 기준으로 취급하는 편입니다. 월드 바리스타 챔피언십 우승 커피에서의 티피카 사용 여부는 확인하지 못했습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "2020년 코스타리카 COE 티피카 90.14점 2위",
+          "url": "https://www.gcrmag.com/?p=21271",
+          "year": 2020
+        },
+        {
+          "claim": "La Barba Coffee 에콰도르 하시엔다 라 파파야 티피카 내추럴 싱글오리진 소개",
+          "url": "https://sprudge.com/a-fresh-roster-of-fresh-coffees-from-the-sprudge-roasters-village-1332178.html"
+        }
+      ]
+    },
+    "trivia": {
+      "text": "이름 '티피카'는 라틴어로 '전형적인·평범한'이라는 뜻으로, 에티오피아에서 예멘으로 처음 전해진 커피를 묘사하던 말이 품종명이 되었습니다. 아이러니하게도 이 '평범한' 커피가 세계 각지에 퍼지며 블루마운틴(자메이카)·코나(하와이)·수마트라 같은 새로운 이름을 얻어, 소비자들은 같은 품종인지 모르고 마시는 경우가 많습니다. 라틴아메리카에서는 '아라비고(Arabigo)'가 곧 티피카를 가리키는 말로 쓰이는 등, 지역마다 다른 이름 때문에 혼란을 일으키기도 합니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "티피카는 라틴어로 '전형적인·평범한'이라는 뜻",
+          "url": "https://kauaicoffee.com/blogs/insights/why-drinking-typica-coffee-from-kauai-is-far-from-typical"
+        },
+        {
+          "claim": "WCR 티피카 계보에 블루마운틴·수마트라가 별칭으로 기재",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/typica"
+        },
+        {
+          "claim": "라틴아메리카에서 '아라비고'는 티피카를 가리킴",
+          "url": "https://library.sweetmarias.com/glossary/typica/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bourbon",
+    "intro": {
+      "text": "버번은 티피카와 함께 아라비카의 두 대가문을 이룬, 커피 역사상 가장 중요한 품종 중 하나입니다. 1700년대 초 프랑스 선교사들이 예멘에서 가져온 커피를 부르봉섬(현 레위니옹)에 심으면서 섬 이름이 품종명이 되었고, 19세기 중반까지 섬을 떠나지 않다가 1860년경 브라질에 도입된 뒤 중남미 전역으로 퍼졌습니다. 키가 큰 나무에 중간 크기의 둥근 열매가 달리며, 수확량은 중간 수준이고 주요 병해에 약하지만 World Coffee Research는 고지대에서의 컵 품질을 '탁월하다'고 평가합니다. 오늘날 중남미의 버번 재배지는 카투라·카투아이·문도 노보 같은 후손 품종으로 많이 대체되었지만, 엘살바도르·과테말라·온두라스·페루에서는 버번 자체가 여전히 재배됩니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "프랑스 선교사들이 1700년대 초 예멘에서 부르봉섬(현 레위니옹)으로 도입했고 섬 이름이 품종명의 유래",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/bourbon"
+        },
+        {
+          "claim": "19세기 중반까지 섬을 떠나지 않았고 1860년경 브라질에 도입된 뒤 중남미로 확산",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/bourbon"
+        },
+        {
+          "claim": "키 큰 나무·상대적으로 낮은 수확량·주요 병해 취약·뛰어난 컵 품질, 고지대에서 컵 품질 탁월",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/bourbon"
+        },
+        {
+          "claim": "중남미에서 카투라·카투아이·문도 노보로 대체되었으나 엘살바도르·과테말라·온두라스·페루에서 재배 지속",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/bourbon"
+        }
+      ]
+    },
+    "reputation": {
+      "text": "버번은 브라질 Cup of Excellence에서 꾸준히 좋은 성적을 내는 품종입니다. 2017년 브라질 펄프드 내추럴 부문에서는 옐로우 버번(파젠다 봉 자르딩, 가브리엘 누네스)이 92.33점을 받아 파운드당 126.10달러에 낙찰되며 당시 CoE 경매 사상 최고가를 경신했습니다. 2011년 브라질 CoE 우승작도 옐로우 버번(하제냐 농장)이었습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "2017년 브라질 펄프드 내추럴 부문 옐로우 버번(가브리엘 누네스, 파젠다 봉 자르딩) 92.33점, 파운드당 126.10달러로 당시 CoE 경매 최고가",
+          "url": "https://dailycoffeenews.com/2017/11/29/raisin-process-coffee-from-brazil-breaks-cup-of-excellence-price-record-at-126lb/",
+          "year": 2017
+        },
+        {
+          "claim": "2011년 브라질 Cup of Excellence 우승작은 옐로우 버번(하제냐 농장)",
+          "url": "https://blog.londiniumespresso.com/news-just-in-brazilian-yellow-bourbon-rainha-estate-brazilian-cup-of-excellence-2011-winner/",
+          "year": 2011
+        }
+      ]
+    },
+    "production": {
+      "text": "품종별 생산량 통계는 존재하지 않으므로 간접 지표로만 가늠할 수 있습니다. 한 브라질 로스터는 World Coffee Research를 인용해 브라질 커피 재배 면적의 97.55%가 버번·티피카 계통이라고 밝혔고, Perfect Daily Grind는 엘살바도르 생산량의 약 60%가 버번일 것으로 추정된다고 전했습니다. 직접 재배 비중보다 확실한 위상은 유전적 파급력입니다. 오늘날 중남미에서 버번 자체는 카투라·카투아이·문도 노보 같은 후손 품종으로 대체되는 추세이지만, 이들 모두의 조상이 버번이라는 점에서 중남미 아라비카의 상당수는 버번의 후손입니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "브라질 커피 재배 면적의 97.55%가 버번·티피카 계통이라는 주장(로스터 사이트의 WCR 인용)",
+          "url": "https://guentercoffee.com/en/blogs/coffee-knowledge/coffea-arabica-varieties-lexicon"
+        },
+        {
+          "claim": "엘살바도르 커피 생산량의 약 60%가 버번으로 추정",
+          "url": "https://perfectdailygrind.com/2026/03/african-coffee-varieties-el-salvador/",
+          "year": 2026
+        },
+        {
+          "claim": "중남미에서 버번이 카투라·카투아이·문도 노보로 대체되는 추세",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/bourbon"
+        }
+      ]
+    },
+    "distribution": {
+      "text": "주요 생산국은 브라질(세하도·술 지 미나스·모지아나 지역)과 엘살바도르·과테말라·온두라스·페루이며, 르완다·부룬디에서는 버번 마야게즈 계열이 널리 재배됩니다. 옐로우 버번은 브라질을 중심으로 한 스페셜티 싱글 오리진으로 세계 각국 로스터에서 쉽게 구할 수 있고, 소매가는 일반 스페셜티와 비슷한 수준입니다. 다만 품종별 그린빈 국제 시세 통계는 확인하지 못했으므로, 가격대는 2017년 CoE 낙찰가 126.10달러/파운드 같은 경매 기록으로만 가늠할 수 있습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "브라질·엘살바도르·과테말라·온두라스·페루에서 버번 재배, 버번 마야게즈 계열은 르완다·부룬디에서 널리 재배",
+          "url": "https://varieties.worldcoffeeresearch.org/arabica/varieties"
+        },
+        {
+          "claim": "브라질 세하도 미네이루산 옐로우 버번 싱글 오리진이 12온스 15달러부터 판매",
+          "url": "https://www.2tencoffeeroasters.com/single-origin/p/brazil-yellow-bourbon",
+          "year": 2026
+        },
+        {
+          "claim": "2017년 CoE 브라질 펄프드 내추럴 경매에서 옐로우 버번이 파운드당 126.10달러에 낙찰",
+          "url": "https://dailycoffeenews.com/2017/11/29/raisin-process-coffee-from-brazil-breaks-cup-of-excellence-price-record-at-126lb/",
+          "year": 2017
+        }
+      ]
+    },
+    "specialty": {
+      "text": "스페셜티 업계에서 버번은 고지대에서 탁월한 컵 품질을 내는 신뢰받는 품종으로 통합니다. 브라질에서는 옐로우 버번이 Cup of Excellence의 단골 수상 품종(2011년 우승·2017년 경매 최고가)이 되었고, 그린빈 수입사들도 브라질 농장의 옐로우 버번을 스페셜티 로트로 꾸준히 취급합니다. 엘살바도르에서는 파카마라가 CoE를 주도하는 가운데 버번이 생산의 한 축을 맡고 있어, 경매의 주인공보다는 달콤하고 균형 잡힌 기본기로 사랑받는 품종이라는 평가가 어울립니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "버번은 세계에서 가장 문화적·유전적으로 중요한 아라비카 품종 중 하나로 고지대에서 컵 품질 탁월",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/bourbon"
+        },
+        {
+          "claim": "그린빈 수입사가 브라질 농장(파젠다 사맘바이아·파젠다 헤크레이우)의 옐로우 버번을 스페셜티 로트로 취급, 헤크레이우는 CoE 7회 입상",
+          "url": "https://www.cafeimports.com/beanology/pdf/natural--fazenda-recreio--yellow-bourbon-21589"
+        },
+        {
+          "claim": "엘살바도르에서는 파카마라가 CoE를 주도하고 버번이 생산량의 약 60%를 차지",
+          "url": "https://perfectdailygrind.com/2026/03/african-coffee-varieties-el-salvador/",
+          "year": 2026
+        }
+      ]
+    },
+    "trivia": {
+      "text": "커피의 버번과 위스키의 버번은 직접 관계가 없습니다. 커피는 부르봉섬(현 레위니옹)에서, 위스키는 켄터키주 버번 카운티에서 이름을 땄을 뿐이며, 커피는 프랑스식 발음인 '부르-본(boor-BON)'에 가깝게 읽습니다. 또 버번의 돌연변이인 로리나(버번 포인트)는 레위니옹에서 자생한 천연 저카페인 품종으로, 카페인 함량이 일반 아라비카의 절반 이하인 약 0.6~0.8% 수준인 것도 흥미로운 대목입니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "커피의 버번은 부르봉섬에서, 버번 위스키는 켄터키주 버번 카운티에서 유래해 직접 관계 없음",
+          "url": "https://www.homegrounds.co/bourbon-coffee-beans/"
+        },
+        {
+          "claim": "커피 버번은 프랑스식 발음 '부르-본(boor-BON)'에 가깝게 발음",
+          "url": "https://cornercoffeestore.com/what-is-bourbon-coffee/"
+        },
+        {
+          "claim": "로리나(버번 포인트)는 레위니옹에서 자생한 버번의 돌연변이로 천연 저카페인",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        },
+        {
+          "claim": "로리나의 카페인 함량은 약 0.8%로 일반 아라비카(약 1.8%)의 절반 이하",
+          "url": "https://coffeeroast.com/roaster/a-matter-of-concrete/supriyanto-laurina"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sl28",
+    "intro": {
+      "text": "SL28은 1930년대 초 케냐의 Scott Agricultural Laboratories(Scott Labs)에서 선발한 아라비카 품종입니다. 탄자니아 모둘리(Moduli) 지역에서 가뭄에 강한 것으로 확인된 'Tanganyika Drought Resistant' 개체군의 한 개체에서 뽑아낸 것으로 기록되며(Roast Magazine 계열 Daily Coffee News는 1931년 발표, Sweet Maria's 커피 라이브러리는 1935년 선발로 기록), WCR은 가뭄 내성이 강하고 컵 품질 잠재력이 뛰어나지만 주요 병해에는 취약하다고 평가합니다. 유전적으로는 버번 계열에 가까운 것으로 알려져 있으며(Royal Coffee 그린 분석), 붉게 익는 체리와 평균보다 큰 원두가 특징입니다. 블랙커런트를 연상시키는 밝고 와인 같은 산미로 오늘날 케냐 커피의 정체성을 대표하는 품종으로 자리 잡았습니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "SL28은 1930년대 초 케냐 Scott Laboratories에서 선발된 아라비카 품종이며, Tanganyika Drought Resistant 개체군에서 뽑아낸 것으로 기록됨. Daily Coffee News는 1931년 발표, Sweet Maria's는 1935년 선발로 기록",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        },
+        {
+          "claim": "SL28은 1935년 선발, Tanganyika Drought Resistant에서 유래했다는 기록과 A.D. Trench의 탄자니아 탐사 설",
+          "url": "https://library.sweetmarias.com/glossary/sl-28/"
+        },
+        {
+          "claim": "WCR: SL28은 가뭄 내성·뛰어난 컵 품질 잠재력, 주요 병해 취약. 케냐·말라위·우간다·짐바브웨에서 흔함",
+          "url": "https://varieties.worldcoffeeresearch.org/arabica/varieties"
+        },
+        {
+          "claim": "SL28·SL34은 레거시 버번 계열(아마도 티피카 혼재) 개체군에서 선발된 케냐 재배 초기의 품종",
+          "url": "https://royalcoffee.com/product/3427097000022727039/"
+        },
+        {
+          "claim": "붉게 익는 체리, 평균보다 큰 원두, 블랙커런트 등 과일 향미 노트",
+          "url": "https://www.joebyschmo.com/category/coffee/by-varietal/sl-28/"
+        }
+      ]
+    },
+    "reputation": {
+      "text": "SL28은 나이로비 커피 거래소(NCE) 경매의 최상위 AA 등급 로트에 단골로 포함되는 품종입니다. Royal Coffee의 케냐 AA 그린 분석은 '상용 품종'으로 SL28과 SL34을 가장 먼저 언급하고, InterAmerican Coffee(Neumann Kaffee Gruppe)의 케냐 팩트시트도 품종 SL28·등급 AA 조합을 명시합니다. 품종별 경매가 통계는 따로 집계되지 않으므로, SL28의 프리미엄 위상은 AA 로트의 최고가 기록과 품종 포함 빈도 같은 간접 지표로만 확인할 수 있습니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "케냐 AA 로트의 상용 품종으로 SL28·SL34이 가장 오래된 품종으로 언급됨",
+          "url": "https://royalcoffee.com/product/3427097000022727039/"
+        },
+        {
+          "claim": "Mount Kenya Selection 팩트시트: Varieties SL28, Processing Washed, Grade AA",
+          "url": "https://interamericancoffee.de/wp-content/uploads/2024/12/Factsheet_KEN_Mount-Selection.pdf"
+        },
+        {
+          "claim": "NCE 주간 경매에서 AA 등급 로트가 최고가를 기록하는 구조 (Kenya News Agency 보도)",
+          "url": "https://www.kenyanews.go.ke/sh592-million-realized-from-coffee-traded-at-nce-weekly-auction/"
+        }
+      ]
+    },
+    "production": {
+      "text": "품종별 판매량·재배면적 통계는 공개된 바 없으므로, SL28의 생산 규모는 직접 수치로 제시할 수 없습니다. 간접 지표로는 Sweet Maria's 커피 라이브러리의 기록이 있습니다. SL 계열 품종이 한때 케냐 커피의 약 90%를 차지했으나, 내병성 품종인 Ruiru 11과 Batian의 도입 이후 그 비중은 과거만 못하다고 전합니다. WCR은 SL28이 현재 케냐·말라위·우간다·짐바브웨에서 흔히 재배되는 품종이라고 기록합니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "SL 계열이 한때 케냐 커피의 약 90%를 차지했으나 Ruiru 11·Batian 도입 이후 비중 감소",
+          "url": "https://library.sweetmarias.com/glossary/sl-34/"
+        },
+        {
+          "claim": "SL28은 케냐·말라위·우간다·짐바브웨에서 흔히 재배됨",
+          "url": "https://varieties.worldcoffeeresearch.org/arabica/varieties"
+        }
+      ]
+    },
+    "distribution": {
+      "text": "WCR 카탈로그에 따르면 SL28의 주요 재배국은 케냐·말라위·우간다·짐바브웨이며, 이 중 케냐 고지대 농장에 가장 깊이 뿌리내렸습니다. 케냐에는 60~80년 된 SL28 노목도 여전히 높은 수확량을 낸다는 기록이 있고(Helena Coffee), 우간다 르웬조리(Rwenzori) 지역에서도 Scott Lab 계열 품종으로 재배됩니다(Sweet Maria's 우간다 취재). 케냐 싱글오리진을 다루는 스페셜티 로스터 메뉴에서 SL28 표기는 흔히 볼 수 있으나(영국 CoffeeDiff 집계 등 다수 로스터 목록), 품종별 국제 가격 통계는 존재하지 않으며 케냐 생두가는 AA·AB 등 등급 단위로 경매에서 형성됩니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "SL28은 케냐·말라위·우간다·짐바브웨에서 흔히 재배됨",
+          "url": "https://varieties.worldcoffeeresearch.org/arabica/varieties"
+        },
+        {
+          "claim": "케냐에 60~80년 된 SL28 나무가 여전히 높은 수확량을 냄",
+          "url": "https://www.helenacoffee.vn/arabica-coffee-varieties-sl28-coffee-from-vietnam-helena-jsc/"
+        },
+        {
+          "claim": "우간다 르웬조리 지역에서도 Scott Lab 계열 품종(SL28)이 재배됨",
+          "url": "https://library.sweetmarias.com/video-uganda-go-to-the-rwenzoris/"
+        },
+        {
+          "claim": "다수 영국 스페셜티 로스터의 케냐 싱글오리진에 SL28 표기가 빈번함",
+          "url": "https://coffeediff.co.uk/coffee-beans?variety=|SL_28|"
+        }
+      ]
+    },
+    "specialty": {
+      "text": "스페셜티 업계에서 SL28은 '케냐스러운 컵'의 기준으로 통합니다. Royal Coffee 같은 그린 수입사는 케냐 AA 로트의 상용 품종으로 SL28을 가장 먼저 꼽으며, 로스터들은 SL28 로트를 케냐 특유의 블랙커런트·와인 같은 산미를 보여주는 싱글오리진으로 즐겨 사용합니다. 다만 재배자 입장에선 '맛은 좋지만 키우기 어려운' 품종이라, Sweet Maria's는 농가들이 SL28을 병해에는 강하지만 품질이 떨어지는 Ruiru 11로 교체하는 흐름을 지적합니다. 이 품질 대 농학의 긴장이 케냐 스페셜티의 오래된 주제입니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "케냐 AA 로트의 상용 품종으로 SL28·SL34이 가장 오래된 품종",
+          "url": "https://royalcoffee.com/product/3427097000022727039/"
+        },
+        {
+          "claim": "농가들이 SL28을 내병성이 강하지만 품질이 떨어지는 Ruiru 11로 교체하는 흐름",
+          "url": "https://library.sweetmarias.com/coffee-producing-countries/africa/kenya-coffee-overview/"
+        },
+        {
+          "claim": "SL28은 주요 병해에 취약 (스페셜티 선호와 재배 리스크의 근거)",
+          "url": "https://varieties.worldcoffeeresearch.org/arabica/varieties"
+        }
+      ]
+    },
+    "trivia": {
+      "text": "이름의 SL은 Scott Laboratories의 약자로, 이 연구소는 스코틀랜드 교회 선교부의 헨리 스콧(Henry Scott) 박사를 기려 명명된 곳입니다(Sweet Maria's 커피 라이브러리 용어집). 흔한 오해인 '케냐 AA = SL28'은 사실이 아닙니다. AA는 스크린 사이즈(콩 크기) 기준의 등급일 뿐 품종이 아니며, InterAmerican Coffee의 케냐 팩트시트처럼 생두 스펙에는 품종(SL28)과 등급(AA)이 별도 항목으로 표기됩니다. 그래서 AA 로트 안에는 SL28도 들어 있지만, SL34·Ruiru 11·Batian이 섞여 있는 경우도 흔합니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "SL은 Scott Labs의 약자. Scott Agricultural Laboratories는 헨리 스콧 박사를 기려 명명됨",
+          "url": "https://library.sweetmarias.com/glossary/scottish-mission/"
+        },
+        {
+          "claim": "생두 스펙에 품종 SL28과 등급 AA가 별도 항목으로 표기됨",
+          "url": "https://interamericancoffee.de/wp-content/uploads/2024/12/Factsheet_KEN_Mount-Selection.pdf"
+        },
+        {
+          "claim": "케냐 로트의 상용 품종은 SL28·SL34이며 최근 Ruiru 11·Batian도 포함",
+          "url": "https://royalcoffee.com/product/3427097000022727039/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "chiroso",
+    "intro": {
+      "text": "치로소는 콜롬비아 안티오키아주 우라오 지역에서 재배되던 아라비카 품종으로, 치로소·버번 치로소·카투라 치로소 세 품종을 묶어 '치로소 그룹'이라 부릅니다. 나무가 카투라와 닮아 '카투라 치로소'로 알려졌으나, 유전자 분석 결과 카투라·버번과는 무관하고 에티오피아 재래종에 가까운 것으로 밝혀졌습니다. 길쭉한 열매와 생두가 특징이며, 게이샤를 연상시키는 꽃 향과 실키한 질감, 높은 단맛으로 평가받습니다. 2024년 발표된 학술 논문은 치로소 그룹을 '뛰어난 품질과 독특한 컵 프로파일로 세계적으로 유명한' 품종으로 소개했습니다.",
+      "status": "verified",
+      "sources": [
+        {
+          "claim": "우라오(콜롬비아 중부 안데스) 원산의 치로소 그룹 3품종",
+          "url": "https://link.springer.com/article/10.1007/s13562-024-00934-9?error=cookies_not_supported&code=849400a8-edee-4792-bfeb-836dad6102ca",
+          "year": 2024
+        },
+        {
+          "claim": "카투라 치로소는 카투라 돌연변이가 아니라 에티오피아 재래종이며 카투라·버번과 무관(Montagnon et al. 2021)",
+          "url": "https://link.springer.com/article/10.1007/s13562-024-00934-9?error=cookies_not_supported&code=849400a8-edee-4792-bfeb-836dad6102ca",
+          "year": 2024
+        },
+        {
+          "claim": "길쭉한 열매와 생두, 꽃 향·허브·실키한 질감, 게이샤보다 높은 단맛과 바디",
+          "url": "https://perfectdailygrind.com/2024/02/chiroso-up-and-coming-competition-coffee/",
+          "year": 2024
+        },
+        {
+          "claim": "치로소 그룹은 '뛰어난 품질과 독특한 컵 프로파일로 세계적으로 유명'",
+          "url": "https://link.springer.com/article/10.1007/s13562-024-00934-9?error=cookies_not_supported&code=849400a8-edee-4792-bfeb-836dad6102ca",
+          "year": 2024
+        }
+      ]
+    },
+    "reputation": {
+      "text": "치로소는 2014년 콜롬비아 Cup of Excellence에서 카르멘 몬토야의 출품작이 1위(91.31점)를 차지해 경매 최고가인 파운드당 45.70달러를 기록했고, 2020년에는 펠리페 에나오 트리아나의 치로소가 90.03점으로 다시 1위이자 대회 유일의 프레지덴셜 어워드를 받았습니다. 2024년에는 파나마 블랙문 농장의 '컨스텔레이션' 치로소가 Best of Panama 버라이어털 부문 1위(94.13점)를 차지하며 콜롬비아를 넘어선 국제적 명성을 입증했습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "2014년 콜롬비아 CoE 1위 카르멘 몬토야, 91.31점, 경매 최고가 파운드당 45.70달러",
+          "url": "https://www.comunicaffe.com/colombia-coffee-grower-antioquia-sells-coffee-record-price-45-70-per-pound/",
+          "year": 2014
+        },
+        {
+          "claim": "2014년 우승작이 치로소; 우라오 생산자 여러 명이 치로소로 톱10 입상",
+          "url": "https://www.stumptowncoffee.com/blogs/news/lomaverde-chiroso"
+        },
+        {
+          "claim": "2020년 콜롬비아 CoE 1위 펠리페 에나오 트리아나, 치로소, 90.03점, 대회 유일 프레지덴셜 어워드",
+          "url": "https://www.gcrmag.com/first-time-participants-dominate-colombia-cup-of-excellence/",
+          "year": 2020
+        },
+        {
+          "claim": "2024년 Best of Panama 버라이어털 부문 1위, 블랙문 컨스텔레이션 치로소, 94.13점",
+          "url": "https://www.rossocoffeeroasters.com/collections/coffee/products/black-moon-farm-anaerobic-natural-chiroso-lot-24-100g",
+          "year": 2024
+        }
+      ]
+    },
+    "production": {
+      "text": "치로소는 품종별 생산량에 대한 공식 통계가 존재하지 않아, 재배 규모는 간접 지표로만 파악할 수 있습니다. 메데인의 수출업체 페르가미노는 2024년 기준 약 40헥타르에서 치로소를 직접 재배하고 있으며, 2020년 CoE 1위를 차지한 로스 트레스 모스케로스 농장은 약 2만 5천 그루를 보유하고 있습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "페르가미노가 약 40헥타르에서 치로소 직접 재배(2024년 기준)",
+          "url": "https://perfectdailygrind.com/2024/02/chiroso-up-and-coming-competition-coffee/",
+          "year": 2024
+        },
+        {
+          "claim": "로스 트레스 모스케로스 농장 약 25,000그루 보유",
+          "url": "https://samplecoffee.com.au/coffee/los-tres-mosqueteros-chiroso"
+        }
+      ]
+    },
+    "distribution": {
+      "text": "주요 생산국은 콜롬비아(안티오키아 우라오·우일라·톨리마 등)와 파나마(보케테의 블랙문 농장)이며, 국제 시장에는 한정된 프리미엄 로트로 유통됩니다. 2024년 Best of Panama 경매에서 치로소 로트는 kg당 1,630달러에 낙찰되었고, 소매 시장에서도 영국 로스터가 250g에 22파운드, 미국 로스터가 4온스에 25달러에 판매하는 등 일반 스페셜티보다 높은 가격대를 형성하고 있습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "주요 생산지: 콜롬비아 우라오(안티오키아)",
+          "url": "https://www.stumptowncoffee.com/blogs/news/lomaverde-chiroso"
+        },
+        {
+          "claim": "파나마 보케테 블랙문 농장에서 치로소 재배",
+          "url": "https://www.rossocoffeeroasters.com/collections/coffee/products/black-moon-farm-anaerobic-natural-chiroso-lot-24-100g"
+        },
+        {
+          "claim": "2024년 Best of Panama 경매에서 블랙문 컨스텔레이션 치로소 kg당 1,630달러 낙찰",
+          "url": "https://www.gcrmag.com/?p=42918",
+          "year": 2024
+        },
+        {
+          "claim": "영국 로스터 250g에 22파운드 판매(2026년 10월 확인)",
+          "url": "https://coffeediff.co.uk/coffee-beans?roaster=%7Crst218%7C",
+          "year": 2026
+        },
+        {
+          "claim": "미국 로스터 4온스에 25달러 판매(2026년 10월 확인)",
+          "url": "https://hydrangea.coffee/products/chiroso-natural-finca-las-flores",
+          "year": 2026
+        }
+      ]
+    },
+    "specialty": {
+      "text": "2024년 부산 World Barista Championship에서는 캐나다 챔피언 넬슨 푸가 블랙문 농장의 치로소를 사용했고, 2025년에는 이탈리아 바리스타 챔피언 다니엘레 리치가 치로소 내추럴로 우승하는 등 대회 무대에서의 존재감이 커지고 있습니다. 거래 로스터들 사이에서는 인지도가 높지만 핑크 버번만큼 널리 알려지지는 않았고 품질 편차가 크다는 평가도 있어, 업계에서는 '떠오르는 대회용 커피'로 불립니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "2024년 WBC 부산 대회에서 캐나다 챔피언 넬슨 푸가 블랙문 농장 치로소 사용",
+          "url": "https://sprudge.com/2024-world-barista-championship-recap-round-one-day-one-242786.html",
+          "year": 2024
+        },
+        {
+          "claim": "2025년 이탈리아 바리스타 챔피언 다니엘레 리치가 치로소 내추럴로 우승",
+          "url": "https://LOHASBEANS.COM/blogs/news/daniele-ricci-2025-italian-barista-champion",
+          "year": 2025
+        },
+        {
+          "claim": "거래 로스터들 사이에서 인기 높으나 핑크 버번만큼 알려지지 않았고 품질 편차 존재",
+          "url": "https://perfectdailygrind.com/2024/02/chiroso-up-and-coming-competition-coffee/",
+          "year": 2024
+        }
+      ]
+    },
+    "trivia": {
+      "text": "이름의 유래에 대한 설이 여럿입니다. 농민들에 따르면 길쭉한 열매가 콜롬비아 전통 과자 아치라를 닮았다거나 늘어진 셔츠를 뜻하는 속어 '치로'에서 왔다고도 하며, 1980년대 우라오의 한 농부가 잎이 거칠다고 '호하 치로사'라 불렀다는 이야기도 있습니다. 흔한 오해는 '카투라의 돌연변이'라는 것이었으나, 유전자 연구로 카투라와 무관한 에티오피아 재래종 계통임이 밝혀졌습니다.",
+      "status": "weak",
+      "sources": [
+        {
+          "claim": "치로소 이름은 열매 모양이 아치라 과자를 닮았거나 늘어진 셔츠를 뜻하는 '치로'에서 유래했다는 농민들의 설명",
+          "url": "https://link.springer.com/article/10.1007/s13562-024-00934-9?error=cookies_not_supported&code=849400a8-edee-4792-bfeb-836dad6102ca",
+          "year": 2024
+        },
+        {
+          "claim": "치로소는 콜롬비아 시골 속어로 '약간 길쭉한 것'을 뜻함",
+          "url": "https://perfectdailygrind.com/2024/02/chiroso-up-and-coming-competition-coffee/",
+          "year": 2024
+        },
+        {
+          "claim": "1980년대 우라오 농부가 거친 잎을 보고 '호하 치로사'라 불렀다는 이야기",
+          "url": "https://www.roastmasters.com/colombia-lomaverde-chiroso-natural.html"
+        },
+        {
+          "claim": "카투라 돌연변이 설이 유전자 연구로 부정되고 에티오피아 재래종과 연결됨",
+          "url": "https://www.stumptowncoffee.com/blogs/news/lomaverde-chiroso"
+        }
+      ]
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "에콰도르(피친차·로하)와 콜롬비아에서 시드라 롯이 생산·수입된다",
+          "url": "https://www.cafeimports.com/beanology/pdf/finca-la-josefina-sidra-washed-20398"
+        },
+        {
+          "claim": "2021년 에콰도르 CoE 경매에서 20위 하니 Sydra가 파운드당 29달러에 낙찰됐다",
+          "url": "https://www.gcrmag.com/inaugural-ecuador-cup-of-excellence-garners-global-recognition/",
+          "year": 2021
+        }
+      ],
+      "status": "weak",
+      "text": "주요 생산국은 에콰도르(로하·피친차)와 콜롬비아입니다. 국제 유통은 스페셜티 생두 수입사를 통한 마이크로랏 중심이며, 2021년 첫 에콰도르 CoE 경매에서 하니 시드라가 파운드당 29달러에 거래된 기록이 있습니다. 대량 유통되는 품종이 아니라 구하기 쉽지 않은 편입니다."
+    },
+    "id": "sidra",
+    "intro": {
+      "sources": [
+        {
+          "claim": "시드라는 에콰도르 피친차 지방이 기원으로 전해지며, 네슬레 연구시설의 미출시 품종 중 하나였다는 설이 있다",
+          "url": "https://perfectdailygrind.com/2022/10/what-is-sidra-coffee/"
+        },
+        {
+          "claim": "일부 유전자 검사에서는 시드라 시료가 에티오피아 재래종과 유사하다는 결과가 나왔고, WCR은 시드라가 같은 이름으로 불리는 여러 품종일 가능성을 언급했다",
+          "url": "https://perfectdailygrind.com/2022/10/what-is-sidra-coffee/"
+        },
+        {
+          "claim": "시드라는 레드버번과 티피카의 혼합으로 보이며, 티피카 메호라도와 함께 문을 닫은 네슬레 에콰도르 연구부서에서 만들어졌다",
+          "url": "https://cdn.royalcoffee.com/wp-content/uploads/2021/02/05081528/48439-CJ1403-Ecuador-Pichincha-Finca-Cruz-Loma-Typica-Mejorada-and-Sidra-GrainPro.pdf"
+        },
+        {
+          "claim": "시드라는 에콰도르 토착 교배종으로, 버번과 티피카에서 유래했거나 네슬레가 개발한 하이브리드라는 보고가 있다",
+          "url": "https://www.cafeimports.com/beanology/pdf/finca-la-josefina-sidra-washed-20398"
+        }
+      ],
+      "status": "weak",
+      "text": "시드라는 에콰도르 피친차 지방에서 처음 알려진 품종입니다. 현지에서는 레드버번과 티피카의 교배종으로 알려져 왔으며, 지금은 문을 닫은 네슬레의 에콰도르 연구시설에서 개발된 '미출시' 품종 중 하나였다는 설이 전해집니다. 그런데 유전자 검사를 해 본 농가와 로스터들은 시료가 에티오피아 재래종과 가깝다는 결과를 얻기도 했고, World Coffee Research는 시드라가 명확한 유전적 정체성 없이 같은 이름으로 불리는 여러 품종일 가능성을 언급했습니다. 잔에서는 꽃과 노란 과일 향, 높은 단맛이 특징으로 꼽힙니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "시드라는 에콰도르 농장에서 먼저 등장한 뒤 콜롬비아로 퍼졌으며, 현재는 에콰도르와 콜롬비아에서 주로 볼 수 있다",
+          "url": "https://library.sweetmarias.com/glossary/sidra/"
+        }
+      ],
+      "status": "weak",
+      "text": "시드라의 품종별 판매량 통계는 존재하지 않습니다. 재배 규모를 가늠할 간접 지표로는, 에콰도르와 콜롬비아의 일부 농장에서만 재배되는 비교적 새로운 품종이라는 점이 있습니다. 에콰도르 농장에서 먼저 등장한 뒤 콜롬비아로 퍼졌다고 전해집니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2021년 첫 에콰도르 CoE 2위는 내추럴 Sydra(90.21점), 수상작의 30%가 Sydra 품종이었다",
+          "url": "https://www.gcrmag.com/?p=26401",
+          "year": 2021
+        },
+        {
+          "claim": "2021년 에콰도르 CoE 경매에서 20위 하니 Sydra가 파운드당 29달러에 낙찰됐다",
+          "url": "https://www.gcrmag.com/inaugural-ecuador-cup-of-excellence-garners-global-recognition/",
+          "year": 2021
+        }
+      ],
+      "status": "weak",
+      "text": "첫 회 에콰도르 Cup of Excellence(2021년)에서 시드라(당시 표기 'Sydra')는 90.21점으로 2위를 차지했고, 수상작의 30%가 시드라였습니다. 같은 경매에서 20위 하니 시드라는 파운드당 29달러에 낙찰됐습니다. 업계에서는 에콰도르 스페셜티를 대표하는 신예 품종으로 평가받습니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "내추럴 애너로빅 가공의 시드라가 스페셜티 로스터리에서 판매된다",
+          "url": "https://amatterofconcrete.com/product/sidra/"
+        },
+        {
+          "claim": "WCR은 시드라가 명확한 유전적 정체성 없이 같은 이름으로 불리는 여러 품종일 수 있다고 언급했다",
+          "url": "https://perfectdailygrind.com/2022/10/what-is-sidra-coffee/"
+        }
+      ],
+      "status": "weak",
+      "text": "스페셜티 업계에서는 내추럴·애너로빅 같은 실험적 발효 가공과 함께 소개되는 경우가 많아 로스터와 바이어의 관심을 받는 품종입니다. 다만 계통이 확정되지 않아 같은 이름 아래 여러 품종이 섞여 있을 수 있다는 점이 로트별 편차의 요인으로 꼽힙니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "시드라는 네슬레가 개발한 미출시 품종 중 하나였을 것으로 전해지며, 돈 올게르 로헬이 시드라와 티피카 메호라도를 에콰도르 업계에 처음 소개했다",
+          "url": "https://perfectdailygrind.com/2022/10/what-is-sidra-coffee/"
+        },
+        {
+          "claim": "첫 에콰도르 CoE 공식 기록에서 시드라는 'Sydra'로 표기됐다",
+          "url": "https://www.gcrmag.com/?p=26401",
+          "year": 2021
+        }
+      ],
+      "status": "weak",
+      "text": "시드라는 네슬레 연구시설의 '미출시' 품종 중 하나였다는 설이 있으며, 에콰도르 커피 업계에 시드라를 처음 소개한 사람은 돈 올게르 로헬로 전해집니다. 재미있게도 첫 에콰도르 CoE 공식 기록에는 'Sydra'로 표기돼 있어, 철자도 아직 통일되지 않았습니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "유전자 검사 시료에는 콜롬비아 여러 지역과 코스타리카의 핑크버번이 포함됐다",
+          "url": "https://xliiicoffee.com/en/journal/true-origin-of-the-pink-bourbon-coffee-variety/",
+          "year": 2023
+        },
+        {
+          "claim": "콜롬비아 킨디오주 핀카 라 디비사에서 재배한 핑크버번 마이크로랏이 유통된다",
+          "url": "https://www.comunicaffe.com/crimson-cup-coffee-tea-introduces-limited-colombia-pink-bourbon-ef2-micro-lot/"
+        }
+      ],
+      "status": "weak",
+      "text": "주요 생산국은 콜롬비아(우일라·카우카·킨디오)이며, 코스타리카에서도 재배가 보고됐습니다. 국제 유통은 스페셜티 생두 수입사와 로스터리를 통한 마이크로랏 중심이고, 일반 상업 유통에서는 보기 어렵습니다."
+    },
+    "id": "pink-bourbon",
+    "intro": {
+      "sources": [
+        {
+          "claim": "핑크버번은 1980년대 우일라주 아세베도의 산 아돌포 지역에서 처음 나타났으며, 2013년 아로마스 델 수르 팀이 발견했다",
+          "url": "https://perfectdailygrind.com/?p=108352"
+        },
+        {
+          "claim": "2023년 9월 Café Imports와 RD2 Vision의 유전자 검사에서 핑크버번은 버번과 무관하고 에티오피아 재래종 계통일 가능성이 제기됐으나, 과학적으로 검증되지는 않았다",
+          "url": "https://perfectdailygrind.com/?p=108352",
+          "year": 2023
+        },
+        {
+          "claim": "2017년부터 2023년까지의 검사에서 핑크버번 시료들은 버번과 관계가 없고 에티오피아 토착종임이 확인됐다",
+          "url": "https://xliiicoffee.com/en/journal/true-origin-of-the-pink-bourbon-coffee-variety/",
+          "year": 2023
+        }
+      ],
+      "status": "weak",
+      "text": "핑크버번은 콜롬비아 우일라주 남부 산 아돌포(아세베도) 지역에서 1980년대에 처음 목격된 품종입니다. 분홍빛으로 익는 체리 때문에 이름이 붙었고, 오랫동안 레드버번과 옐로버번의 자연 교배종으로 여겨졌습니다. 그러나 2023년 Café Imports가 RD2 Vision과 함께 진행한 유전자 검사에서는 버번과 무관하고 에티오피아 재래종 계통이라는 결과가 나왔고, 이 연구는 아직 과학적으로 검증되지는 않았습니다. 잔에서는 꽃 향과 붉은 과일, 높은 단맛이 특징으로 꼽힙니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "핑크버번은 우일라 남부가 원산지로 여겨지며, 우일라·카우카 등에서 식별·보급됐다",
+          "url": "https://perfectdailygrind.com/?p=108352"
+        },
+        {
+          "claim": "분홍 체리의 균일한 성숙도를 위해 극도로 선별적인 수확이 필요해 재배와 수확 후 관리에 손이 많이 든다",
+          "url": "https://www.zendaspecialtycoffee.com//wp-content/uploads/2026/05/Perfil-de-cafe-Bourbon-Rosado-Natural-1.pdf"
+        }
+      ],
+      "status": "weak",
+      "text": "핑크버번의 품종별 판매량 통계는 존재하지 않습니다. 재배 규모를 가늠할 간접 지표로는, 콜롬비아 우일라·카우카 등 일부 지역에 집중된 희소 품종이라는 점, 그리고 분홍빛 체리를 골라내는 선별 수확에 손이 많이 든다는 점이 있습니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "첫 회 Kenneth Davids Cup에서 JBC의 윌튼 베니테스 핑크버번(콜롬비아)이 97점으로 미국 금메달을 수상했다",
+          "url": "https://www.coffeereview.com/winners-inaugural-kenneth-davids-cup/",
+          "year": 2026
+        },
+        {
+          "claim": "핑크버번은 스페셜티 업계에서 많은 화제를 모은 비교적 새로운 발견의 품종이다",
+          "url": "https://MillCityRoasters.com/blogs/blog/colombia-pink-bourbon"
+        }
+      ],
+      "status": "weak",
+      "text": "핑크버번은 스페셜티 업계에서 주목받는 신예 품종입니다. 2026년 첫 회 Kenneth Davids Cup에서 JBC 커피로스터스의 윌튼 베니테스 핑크버번이 97점으로 미국 금메달을 받았습니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "JBC의 핑크버번은 오존·자외선 살균, 열충격, 효모 투입 애너로빅 발효 등 정교한 가공을 거쳤다",
+          "url": "https://www.coffeereview.com/winners-inaugural-kenneth-davids-cup/",
+          "year": 2026
+        },
+        {
+          "claim": "'핑크버번'이라는 이름을 바꿔야 하는가가 논쟁거리로 다뤄진다",
+          "url": "https://xliiicoffee.com/en/journal/true-origin-of-the-pink-bourbon-coffee-variety/"
+        }
+      ],
+      "status": "weak",
+      "text": "핑크버번은 다단계 발효·애너로빅 같은 실험적 가공의 무대가 되는 경우가 많아, 혁신적인 가공을 선보이려는 생산자와 로스터에게 인기가 있습니다. 다만 '버번'이라는 이름과 달리 버번과 유전적 관련이 없다는 점이 알려지면서, 명칭 자체를 놓고도 업계에서 논쟁이 있습니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "1980년대 녹병이 처음 나타났을 때 병에 저항성이 있고 수확량이 높아 농가들이 자신도 모르게 이 품종을 심기 시작했다",
+          "url": "https://perfectdailygrind.com/?p=108352"
+        },
+        {
+          "claim": "유전자 검사에서 버번과 무관한 것으로 나타나 '핑크버번' 명칭 변경 주장이 제기된다",
+          "url": "https://xliiicoffee.com/en/journal/true-origin-of-the-pink-bourbon-coffee-variety/"
+        }
+      ],
+      "status": "weak",
+      "text": "1980년대 커피 녹병(la roya)이 우일라에 처음 나타났을 때, 병에 강하고 수확량도 좋은 이 품종을 농가들이 자신도 모르게 심기 시작했다는 일화가 전해집니다. 이름은 '핑크버번'이지만 유전자 검사 결과 버번과 무관하다는 점 때문에, 이름을 바꿔야 한다는 주장도 있습니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "파카마라는 엘살바도르에서 주로 재배된다",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/pacamara"
+        },
+        {
+          "claim": "니카라과의 디필토·할라파 산악 지대에서 파카마라가 재배된다",
+          "url": "https://lifeboostcoffee.com/products/pacamara-limited-collection-coffee?variant=39479526981692&nbt=nb%3Amicrosoft%3Ao%3A530606804%3A1363396907510942%3A85212700793934&nb_mt=e&nb_bmt=be&nb_oii=4588811786986347&nb_qs=coffee%20Deals&nb_fii=&nb_lp_ms=&nb_pi=shopify_US_6639898755132_39479526981692&nb_pc=Online&nb_ci=4588811786986347&msclkid=0b1fcf90335a1b728f95a9153be67ab3&utm_source=bing&utm_medium=cpc&utm_campaign=CUS-LEN-SHOPPING_SMART-All%20Products&utm_term=4588811786986347&utm_content=Ad%20group%20%231"
+        },
+        {
+          "claim": "파카마라 공급량은 매우 제한적이다",
+          "url": "https://smokymountainfreshroast.com/products/el-salvador-las-mercedes-pacamara-honey"
+        }
+      ],
+      "status": "weak",
+      "text": "엘살바도르가 주산지이며, 니카라과·온두라스·과테말라 등 중미 이웃 국가에서도 재배됩니다. 국제 유통은 CoE 경매 출품작과 스페셜티 생두 수입사를 통한 마이크로랏 중심입니다. 공급량이 제한적이라는 것이 업계의 공통된 평가입니다."
+    },
+    "id": "pacamara",
+    "intro": {
+      "sources": [
+        {
+          "claim": "파카마라의 계통은 Pacas x Maragogipe이며, 육종가는 Instituto Salvadoreño de Investigaciones del Café (ISIC)이다",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/pacamara"
+        },
+        {
+          "claim": "1958년 ISIC의 교배로 시작해 약 30년의 선발 끝에 1980년대 후반 농가에 보급됐고, 이름은 두 부모 품종의 앞 네 글자에서 왔다",
+          "url": "https://perfectdailygrind.com/2015/11/interview-whats-so-special-about-pacamara/"
+        },
+        {
+          "claim": "파카마라는 유전적으로 불안정해 약 10~15%가 파카스로 회귀하는 것으로 보고된다",
+          "url": "https://ozonecoffee.co.uk/blogs/varietals/coffee-varietal-pacamara"
+        }
+      ],
+      "status": "verified",
+      "text": "파카마라는 1958년 엘살바도르 커피연구소(ISIC)가 파카스와 마라고지페를 교배해 만든 품종으로, 이름은 두 부모 품종의 앞 네 글자씩을 딴 것입니다. 파카스는 버번의 왜성 돌연변이, 마라고지페는 티피카의 돌연변이로, 두 장점을 합치려는 30여 년의 선발 끝에 1980년대 후반 농가에 보급됐습니다. 생두가 매우 크고 나무는 왜성에 가까우며, 유전적으로 불안정해 약 10~15%가 파카스로 회귀한다고 알려져 있습니다. 잔에서는 열대과일·시트러스·꽃 향과 크리미한 질감이 특징으로 꼽힙니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "파카마라는 주로 엘살바도르에서 재배된다",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/pacamara"
+        },
+        {
+          "claim": "파카마라는 재배 비용 증가와 낮은 수확량 때문에 널리 보급되지 못했다",
+          "url": "https://lifeboostcoffee.com/products/pacamara-limited-collection-coffee?variant=39479526981692&nbt=nb%3Amicrosoft%3Ao%3A530606804%3A1363396907510942%3A85212700793934&nb_mt=e&nb_bmt=be&nb_oii=4588811786986347&nb_qs=coffee%20Deals&nb_fii=&nb_lp_ms=&nb_pi=shopify_US_6639898755132_39479526981692&nb_pc=Online&nb_ci=4588811786986347&msclkid=0b1fcf90335a1b728f95a9153be67ab3&utm_source=bing&utm_medium=cpc&utm_campaign=CUS-LEN-SHOPPING_SMART-All%20Products&utm_term=4588811786986347&utm_content=Ad%20group%20%231"
+        }
+      ],
+      "status": "weak",
+      "text": "파카마라의 품종별 판매량 통계는 존재하지 않습니다. 재배 규모를 가늠할 간접 지표로는, 주 재배국이 엘살바도르에 집중돼 있고 수확량 대비 재배 비용이 높아 상업적으로 널리 확산되지는 못했다는 업계 평가가 있습니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "파카마라는 엘살바도르에서 주로 재배되며 높은 컵 품질로 Cup of Excellence를 자주 석권한다",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/pacamara"
+        },
+        {
+          "claim": "2020년 엘살바도르 CoE 1위는 내추럴 애너로빅 파카마라(90.31점)였다",
+          "url": "https://www.beanscenemag.com.au/el-salvador-cup-of-excellence-2020/",
+          "year": 2020
+        },
+        {
+          "claim": "2024년 엘살바도르 CoE 1위는 라 벤디시온의 허니 파카마라(92.00점)였다",
+          "url": "https://gabeecoffee.com/products/el-salvador-cup-of-excellence-2024-winner-score-92",
+          "year": 2024
+        },
+        {
+          "claim": "핀카 라스 메르세데스의 파카마라 허니가 2006년 엘살바도르 CoE 1위를 차지했다",
+          "url": "https://smokymountainfreshroast.com/products/el-salvador-las-mercedes-pacamara-honey",
+          "year": 2006
+        }
+      ],
+      "status": "verified",
+      "text": "World Coffee Research는 파카마라가 엘살바도르에서 주로 재배되며 높은 컵 품질로 Cup of Excellence를 자주 석권한다고 설명합니다. 실제로 엘살바도르 CoE에서 파카마라는 여러 차례 1위를 차지했습니다. 2006년 핀카 라스 메르세데스, 2020년 디비나 프로비덴시아(90.31점), 2024년 라 벤디시온(92.00점)이 대표적입니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "파카마라는 높은 컵 품질로 엘살바도르 Cup of Excellence를 자주 석권한다",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/pacamara"
+        },
+        {
+          "claim": "파카마라는 유전적 변이 때문에 농장별·로트별 편차가 크고, 묘목 선별이 중요하다",
+          "url": "https://ozonecoffee.co.uk/blogs/varietals/coffee-varietal-pacamara"
+        }
+      ],
+      "status": "weak",
+      "text": "파카마라는 엘살바도르 CoE의 단골 우승 품종으로, 스페셜티 바이어들에게 중미의 대표 품종으로 인식됩니다. 다만 유전적 불안정성과 농장·가공에 따른 편차가 커서, 묘목 선별과 로트 선별이 중요하다는 평가도 함께 따릅니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "파카마라는 두 부모 품종의 앞 네 글자씩을 따서 명명됐다",
+          "url": "https://perfectdailygrind.com/2015/11/interview-whats-so-special-about-pacamara/"
+        },
+        {
+          "claim": "파카스 품종은 1956년 산 라파엘 농장에서 페르난도 알베르토 파카스 피게로아가 발견했다",
+          "url": "https://perfectdailygrind.com/2015/11/interview-whats-so-special-about-pacamara/"
+        }
+      ],
+      "status": "weak",
+      "text": "이름 '파카마라'는 부모 품종 파카스(Pacas)와 마라고지페(Maragogipe)의 앞 네 글자를 합친 것으로, 품종명의 유래가 분명한 드문 사례입니다. 파카스는 이 돌연변이를 발견한 파카스 가문의 농장주 이름에서 따왔습니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "모카는 과테말라 수치탄의 Coffea Diversa 보존 프로젝트에서 재배되는 희소 품종이다",
+          "url": "https://hub.belco.fr/api/cafes/012001109400000/fiche_pdf?format=a4&lang=en"
+        },
+        {
+          "claim": "콜롬비아의 스페셜티 생산자들이 모카를 비롯한 희귀 품종을 재배하고 있다",
+          "url": "https://www.baristahustle.com/lesson/cbgc-3-05-old-varieties-and-rarities/"
+        }
+      ],
+      "status": "weak",
+      "text": "주요 생산지는 예멘이며, 그 외에는 과테말라의 커피 보존 농장, 콜롬비아의 일부 농장에서 희소 품종으로 재배됩니다. 국제 유통은 스페셜티 마이크로랏에 한정돼 있어 구하기 어려운 품종입니다."
+    },
+    "id": "mocha",
+    "intro": {
+      "sources": [
+        {
+          "claim": "모카는 버번의 자연 돌연변이로 여겨지며 레위니옹(부르봉섬) 기원설이 있으나, 예멘 기원설도 함께 전해진다",
+          "url": "https://hub.belco.fr/api/cafes/012001109400000/fiche_pdf?format=a4&lang=en"
+        },
+        {
+          "claim": "모카는 예멘에서 재배되는 저수율 왜성 품종으로, 유난히 작은 생두로 알려져 있다",
+          "url": "https://www.baristahustle.com/lesson/cbgc-3-05-old-varieties-and-rarities/"
+        },
+        {
+          "claim": "모카라는 이름은 홍해 연안의 옛 커피 무역항 알마카에서 유래했다",
+          "url": "https://library.sweetmarias.com/glossary/mokha/"
+        }
+      ],
+      "status": "weak",
+      "text": "모카(표기 Mokka)는 버번의 왜성(dwarf) 돌연변이로 여겨지는 소립종 품종입니다. 나무가 작고 체리와 생두가 유난히 둥글고 작으며, 수확량이 적습니다. 기원에 대해서는 레위니옹(옛 부르봉섬)에서 버번의 자연 돌연변이로 생겼다는 설과 예멘 기원설이 함께 전해집니다. 이름은 예멘의 옛 커피 무역항 모카(알마카)에서 따온 것으로 보입니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "모카는 저수율 왜성 품종으로 예멘에서 재배된다",
+          "url": "https://www.baristahustle.com/lesson/cbgc-3-05-old-varieties-and-rarities/"
+        },
+        {
+          "claim": "모카는 과테말라의 커피 유전자 보존 농장(Coffea Diversa)에서 희소 품종으로 재배된다",
+          "url": "https://hub.belco.fr/api/cafes/012001109400000/fiche_pdf?format=a4&lang=en"
+        }
+      ],
+      "status": "weak",
+      "text": "모카의 품종별 판매량 통계는 존재하지 않습니다. 재배 규모를 가늠할 간접 지표로는, 저수율 왜성 품종이라는 점과 예멘 외에는 보존 농장에서만 소량 재배된다는 점이 있습니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "17세기부터 유럽에서 '모카'는 예멘산 커피를 가리키는 통칭으로 쓰였고, 이는 상품을 가리키는 말이지 식물학적 용어가 아니었다",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        }
+      ],
+      "status": "weak",
+      "text": "17세기부터 유럽에서 예멘산 커피를 통칭하는 말로 '모카'가 쓰이면서, 모카-자바 블렌드의 역사 속에 이름이 남았습니다. 다만 품종으로서의 모카가 국제 경매나 대회에서 두각을 나타낸 기록은 확인되지 않습니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "스페셜티 중심의 콜롬비아 생산자들은 이국적이고 희귀한 품종을 새로운 향미의 원천으로 삼고 있으며, 모카가 그 사례로 꼽힌다",
+          "url": "https://www.baristahustle.com/lesson/cbgc-3-05-old-varieties-and-rarities/"
+        }
+      ],
+      "status": "weak",
+      "text": "스페셜티 업계에서는 희소한 옛 품종을 찾는 생산자들이 모카를 복원·재배하는 사례가 있습니다. 콜롬비아의 스페셜티 생산자들이 이국적이고 희귀한 품종의 새로운 향미를 추구하고 있다고 전해집니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "모카항에서는 커피가 재배되지 않았고, '모카'는 항구를 통해 거래된 커피 전체를 가리키는 대용어였다",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        },
+        {
+          "claim": "모카는 예멘산 커피의 옛 무역명이기도 해서 초콜릿 음료 제조법과 혼동되지 않도록 주의가 필요하다",
+          "url": "https://library.sweetmarias.com/glossary/mokha/"
+        }
+      ],
+      "status": "weak",
+      "text": "이름의 유래인 모카항에서는 실제로 커피가 재배된 적이 없다고 합니다. '모카' 커피는 항구를 거쳐 유럽으로 흘러든 예멘산 커피 전체를 가리키는 말이었고, 나중에 초콜릿 음료 이름과 혼동되기도 했습니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "에티오피아 재래종은 지역 재래종과 JARC 품종으로 나뉘며, JARC는 병 저항성과 수확량 향상을 위해 품종을 개발했다",
+          "url": "https://perfectdailygrind.com/2020/10/exploring-ethiopian-heirloom-coffee-varieties-nardos-coffee-export/"
+        },
+        {
+          "claim": "영국 로스터리들이 JARC 74158·74110·74112 품종명을 명시한 에티오피아 커피를 판매한다",
+          "url": "https://coffeediff.co.uk/coffee-beans/?origin=|ETHIOPIA|"
+        }
+      ],
+      "status": "weak",
+      "text": "생산국은 에티오피아가 사실상 유일하며, 예가체프·시다모·게뎁 등 지역 이름으로 유통되는 경우가 많습니다. JARC 선발종(74110·74158 등)은 일부 로스터리에서 품종명을 명시해 판매하기도 합니다."
+    },
+    "id": "ethiopian-landrace",
+    "intro": {
+      "sources": [
+        {
+          "claim": "74110·74112·74158·74165는 1978/79년에 방출된 JARC(짐마 농업연구센터) 선발 품종으로, 커피베리병 저항성 선발 결과물이다",
+          "url": "https://www.arcjournals.org/pdfs/ijfh/v3-i2/3.pdf"
+        },
+        {
+          "claim": "아라비카 커피는 에티오피아가 원산지이다",
+          "url": "https://library.sweetmarias.com/ethiopia-fundamentals/"
+        },
+        {
+          "claim": "에티오피아에는 1만~1만5천 종의 헤어룸 품종이 있을 것으로 추정되며, 대부분은 정식으로 유전자가 규명되지 않았다. 헤어룸은 JARC 품종과 지역 재래종으로 나뉜다",
+          "url": "https://perfectdailygrind.com/2020/10/exploring-ethiopian-heirloom-coffee-varieties-nardos-coffee-export/"
+        }
+      ],
+      "status": "verified",
+      "text": "에티오피아 재래종은 아라비카 커피의 원산지인 에티오피아에서 자생·재배돼 온 토착 품종들을 통칭하는 말입니다. 업계에서는 야생 지역 재래종과 짐마 농업연구센터(JARC)가 병 저항성·수확량 향상을 위해 선발한 74110·74112·74158·74165(1978~79년 방출) 등을 함께 '에티오피안 헤어룸'이라 부르는 경우가 많습니다. 에티오피아에는 1만~1만5천 종의 재래종이 있을 것으로 추정되며, 대부분은 정식으로 유전자가 규명되지 않았습니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "에티오피아는 아프리카 최대·세계 5위의 커피 생산국이며, 2016-17년 작황은 약 39만500톤의 순수 아라비카였다",
+          "url": "https://food.ndtv.com/food-drinks/heres-what-you-need-to-know-about-ethiopian-coffee-1806002",
+          "year": 2016
+        }
+      ],
+      "status": "weak",
+      "text": "재래종 품종별 판매량 통계는 존재하지 않습니다. 재배 규모를 가늠할 간접 지표로는 국가 단위 통계만 있으며, 에티오피아는 아프리카 최대·세계 5위의 커피 생산국으로 2016-17년 작황 기준 약 39만5천 톤의 순수 아라비카를 생산했습니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2021년 초 에티오피아 CoE 경매가 세운 평균가 기록을 첫 에콰도르 CoE 경매가 경신했다",
+          "url": "https://www.beanscenemag.com.au/inaugural-ecuador-cup-of-excellence-garners-global-recognition/",
+          "year": 2021
+        },
+        {
+          "claim": "에티오피아 커피는 어떤 생산국의 커피보다도 넓은 향미 스펙트럼을 가진다",
+          "url": "https://food.ndtv.com/food-drinks/heres-what-you-need-to-know-about-ethiopian-coffee-1806002"
+        }
+      ],
+      "status": "weak",
+      "text": "에티오피아는 재래종의 향미 스펙트럼이 가장 넓은 산지로 평가받으며, 2021년 에티오피아 Cup of Excellence 경매는 당시 역대 최고 평균가 기록을 세웠습니다. 스페셜티 업계에서 예가체프·시다모 등 지역 재래종은 대표 원두로 꼽힙니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "'헤어룸'이라는 포괄적 명칭은 에티오피아의 다양한 유전적 변이와 연구 노력을 가리며, 토착 헤어룸이라 불리는 많은 품종이 실제로는 교배종이나 선발 품종이다. '랜드레이스'라는 용어가 더 구체적인 말로 인기를 얻고 있다",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        }
+      ],
+      "status": "weak",
+      "text": "'헤어룸'이라는 총칭은 에티오피아의 방대한 유전적 다양성과 연구 성과를 가린다는 지적이 있으며, 실제로는 교배종이나 선발 품종인 경우가 많다고 지적됩니다. 최근에는 '랜드레이스'라는 더 구체적인 용어를 쓰려는 움직임이 있습니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "옥스퍼드 영어사전에서 heirloom은 '여러 세대에 걸쳐 가문에 속해 온 귀중품'이며, 커피 업계에서는 에티오피아 토착의 오래된 아라비카 품종을 통칭한다",
+          "url": "https://perfectdailygrind.com/2020/10/exploring-ethiopian-heirloom-coffee-varieties-nardos-coffee-export/"
+        },
+        {
+          "claim": "예가체프의 농민에게 품종을 물으면 '예가체프', 아가로의 농민에게 물으면 '아가로'라고 답한다",
+          "url": "https://library.sweetmarias.com/ethiopia-fundamentals/"
+        }
+      ],
+      "status": "weak",
+      "text": "'헤어룸'은 원래 '대대로 물려받은 귀중품'이라는 뜻이지만, 커피 업계에서는 에티오피아 토착 품종을 뭉뚱그려 부르는 말이 됐습니다. 에티오피아 농민에게 품종을 물으면 지역 이름(예가체프·아가로 등)을 답하는 경우가 많다고 합니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "케냐가 주산지이며 'Found mostly in Kenya'로 표기",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        },
+        {
+          "claim": "탄자니아 Finagro 농장에서 SL-28·SL-34 재배",
+          "url": "https://royalcoffee.com/product/3427097000018726131/"
+        },
+        {
+          "claim": "근 수십 년 사이 중남미(볼리비아 등) 농가에도 식재",
+          "url": "https://melbournecoffeemerchants.com.au/coffee/floripondio-sl34-washed/"
+        }
+      ],
+      "status": "weak",
+      "text": "케냐가 주산지이며 탄자니아의 일부 농장에서도 재배됩니다. 근 수십 년 사이 볼리비아 등 중남미에도 소규모로 도입되었습니다. 국제 시장에서는 케냐 AA·AB 등급 생두 형태로 거래되며, SL34 단독 로트의 경매가는 공개 자료에서 확인되지 않았습니다."
+    },
+    "id": "sl34",
+    "intro": {
+      "sources": [
+        {
+          "claim": "1935~1939년 Scott Agricultural Laboratories에서 선발, 카베테 Loresho Estate의 'French Mission' 표기 단일 개체에서 유래",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        },
+        {
+          "claim": "유전자 분석상 Typica 계통에 가까우며, French Mission(부르봉) 유래 이야기가 틀렸을 가능성이 있음",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        },
+        {
+          "claim": "키가 크고 새순 끝이 짙은 청동색, 콩이 크며, 고지대 컵 품질 'Exceptional'",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        }
+      ],
+      "status": "verified",
+      "text": "SL34는 1935~1939년 케냐의 Scott Agricultural Laboratories에서 선발된 품종으로, 카베테(Kabete)의 로레쇼 농장(Loresho Estate)에 있던 'French Mission' 표기의 단일 개체에서 유래했습니다. 오랫동안 부르봉(Bourbon) 계통으로 알려졌으나, World Coffee Research에 따르면 최근 유전자 분석 결과 티피카(Typica) 계통에 가까운 것으로 밝혀졌습니다. 키가 크고 새순 끝이 짙은 청동색이며 콩이 큰 것이 특징이고, 고지대에서의 컵 품질은 최고 등급인 'Exceptional'로 평가받습니다. 케냐 커피의 상징과도 같은 품종으로, 케냐를 중심으로 재배됩니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "2010년 학술대회(AAAE/AEASA) 발표 논문의 케냐 Mt. Kenya 지역 소농 조사에서 응답 농가의 96%가 SL34·SL28 재배, Ruiru 11은 4%",
+          "url": "https://ageconsearch.umn.edu/nanna/record/95970/files/76.%20Coffee%20eco-certification%20in%20Kenya.pdf?withWatermark=0&withMetadata=0&registerDownload=1&version=1",
+          "year": 2010
+        },
+        {
+          "claim": "케냐 수출 커피의 최대 80%에 SL 계열이 포함된다는 추산(연도 미상)",
+          "url": "https://theroasterspack.com/blogs/news/quietly-kenyan-and-the-sl-28-sl-34-in-kenya"
+        },
+        {
+          "claim": "한때 케냐 커피의 90%가 SL 계열이었으나 Ruiru 11·Batian 보급으로 비중 하락",
+          "url": "https://library.sweetmarias.com/glossary/sl-34/"
+        },
+        {
+          "claim": "WCR 평가 수확 잠재력 Medium-Low",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        }
+      ],
+      "status": "weak",
+      "text": "품종별 판매량 통계는 존재하지 않으므로 아래는 모두 간접 지표입니다. 2010년 발표된 케냐 Mt. Kenya 지역 소농 조사에서는 응답 농가의 96%가 SL34·SL28을 재배했고, 업계 추산(연도 미상)으로는 케냐 수출 커피의 최대 80%에 SL 계열이 포함됩니다. 한때 케냐 커피의 90%를 SL 계열이 차지했으나, Ruiru 11·Batian 보급으로 비중은 낮아진 것으로 전해집니다. WCR이 평가한 수확 잠재력은 중하(Medium-Low) 수준입니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "고지대 컵 품질 잠재력 'Exceptional', 커피베리병에 매우 취약",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        },
+        {
+          "claim": "케냐의 주요 품종은 Ruiru 11, SL28, SL34, K7이며 케냐 AA 로트에 SL28·SL34 표기",
+          "url": "https://uk.covoyacoffee.com/kenya-aa-kapulso.html"
+        }
+      ],
+      "status": "verified",
+      "text": "World Coffee Research는 SL34의 고지대 컵 품질 잠재력을 'Exceptional'(탁월함)로 평가하며, 커피베리병에는 매우 취약하다고 기록했습니다. 케냐 AA 등급 로트의 품종 표기에는 SL28·SL34가 빠지지 않아, 케냐 스페셜티의 품질 기준점 역할을 합니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "SL34는 단독으로 맛볼 기회가 드물고 대부분 SL28과 혼합되어 유통되며, SL28 단독보다 추출 수율이 높은 경향",
+          "url": "https://www.baristahustle.com/research-papers/the-effects-of-varieties-origin-and-processing/"
+        },
+        {
+          "claim": "Ruiru 11·Batian 같은 병저항성 신품종보다 SL 계열의 컵 복합미를 스페셜티 업계가 선호",
+          "url": "https://www.vournascoffee.com/wp-content/themes/lojo-theme/bpdf.php?ul=https://www.vournascoffee.com/pdf?id=5321&fn=Kenya%20AB"
+        }
+      ],
+      "status": "weak",
+      "text": "스페셜티 업계에서는 SL28과 함께 케냐 커피의 정체성으로 대우받으며, 병충해 저항성 신품종(Ruiru 11·Batian)보다 컵의 복합미가 뛰어나다고 평가받습니다. 다만 단독으로 맛볼 기회는 드물고 대부분 SL28과 혼합되어 유통됩니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "'SL'은 Scott Laboratories의 머리글자로 1935~1939년 선발 개체에 부여된 접두어",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        },
+        {
+          "claim": "부르봉 유래로 믿어졌으나 유전자 분석에서 티피카 계통임이 드러나 원래 이야기가 틀렸을 가능성이 제기됨",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/sl34"
+        }
+      ],
+      "status": "verified",
+      "text": "'SL'은 Scott Laboratories의 머리글자로, 1935~1939년에 선발된 개체들에 일괄 부여된 접두어입니다. SL34는 'French Mission'으로 표기된 나무에서 선발되어 부르봉으로 믿어졌으나, 유전자 분석에서 티피카 계통임이 드러나 원래 이야기가 틀렸을 가능성이 제기되었습니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "현재 상업 생산은 콜롬비아 Finca Inmaculada(해발 1,900~2,000m)가 사실상 유일",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        },
+        {
+          "claim": "브라질에서 유일하게 재배하는 농가(Luiz Paulo Dias Pereira Filho), 고급 아라비카의 50배 가격에 거래될 수 있음",
+          "url": "https://perfectdailygrind.com/2026/03/coffee-news-recap-27-march-2026/",
+          "year": 2026
+        }
+      ],
+      "status": "weak",
+      "text": "사실상 콜롬비아 Finca Inmaculada(해발 1,900~2,000m) 단일 산지가 국제 유통의 전부이며, 극소량만이 일부 로스터에 공급됩니다. 가격은 고급 아라비카의 수십 배에 달하는 것으로 2026년 보도에서 전해졌습니다. 일반 소비자가 구하기는 매우 어렵습니다."
+    },
+    "id": "eugenioides",
+    "intro": {
+      "sources": [
+        {
+          "claim": "C. canephora와 함께 아라비카의 두 부모종 중 하나인 야생종",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        },
+        {
+          "claim": "동아프리카(르완다·탄자니아·우간다·케냐·콩고민주공화국 등) 자생, 2~3m(최대 5m)의 작은 상록 관목",
+          "url": "https://eol.org/pages/1095785/articles"
+        },
+        {
+          "claim": "카페인 약 0.2%(아라비카 1~2.5%), PROTA 기준 0.3~0.6g/100g",
+          "url": "https://eol.org/pages/1095785/articles"
+        },
+        {
+          "claim": "참깨 과자·구운 마시멜로·레몬 캔디 같은 향미, 잎·체리가 아라비카보다 작음",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        }
+      ],
+      "status": "weak",
+      "text": "Coffea eugenioides는 아라비카(Coffea arabica)의 두 부모종 중 하나로, 로부스타의 학명인 Coffea canephora와 함께 아라비카의 탄생에 관여한 야생종입니다. 동아프리카(르완다·탄자니아·우간다·케냐·콩고민주공화국 등)가 자생지이며, 2~5m의 작은 상록 관목으로 잎·체리·콩이 모두 작습니다. 카페인 함량이 약 0.2~0.6%로 아라비카(1~2.5%)보다 현저히 낮아, 참깨 과자·구운 마시멜로·레몬 캔디 같은 달콤하고 독특한 향미를 냅니다. 현재 상업적 생산은 콜롬비아의 Finca Inmaculada 농장이 사실상 유일합니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "나무 한 그루당 생두 수확량 약 150g",
+          "url": "https://onyxcoffeelab.com/products/echelon-colombia-inmaculada-eugenioides-2023"
+        },
+        {
+          "claim": "아라비카보다 수확량이 낮고 희귀·실험적 작물로 분류",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        },
+        {
+          "claim": "브라질에서 유일하게 재배하는 농가 존재(2026년 보도)",
+          "url": "https://perfectdailygrind.com/2026/03/coffee-news-recap-27-march-2026/",
+          "year": 2026
+        }
+      ],
+      "status": "weak",
+      "text": "판매량 통계는 없으며, 간접 지표로도 생산량은 극히 적습니다. 나무 한 그루당 수확량이 생두 기준 약 150g에 불과하고, 상업 재배는 콜롬비아 Inmaculada 농장과 2026년 보도 기준 브라질의 한 농가에 한정됩니다. 실험적·희귀 작물로 분류됩니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2021 WBC에서 3명의 국가 챔피언(폴란드·미국 포함)과 챔피언 Diego Campos가 사용",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html",
+          "year": 2021
+        },
+        {
+          "claim": "2021 WBC 우승자 Diego Campos와 2021 World Brewers Cup 우승자 Matt Winton이 사용",
+          "url": "https://perfectdailygrind.com/?p=96800",
+          "year": 2021
+        },
+        {
+          "claim": "2025 WBC에서 Michael이 필리핀 리베리카와 콜롬비아 유제니오이데스 블렌드로 루틴 구성",
+          "url": "https://perfectdailygrind.com/2026/07/new-coffee-varieties-species-competitions/",
+          "year": 2025
+        }
+      ],
+      "status": "weak",
+      "text": "2021년 World Barista Championship에서 폴란드·미국 국가대표를 포함한 3명의 국가 챔피언과 챔피언 Diego Campos(콜롬비아)가 사용했고, 같은 해 World Brewers Cup 우승자 Matt Winton도 블렌드로 사용했습니다. 2025년 WBC에서도 필리핀 리베리카와의 블렌드 형태로 등장하는 등 대회용 희귀 원두로 명성을 얻었습니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "호불호가 갈리는 컵, Intelligentsia Geoff Watts '아주 틈새적인 추종층' 평가",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        },
+        {
+          "claim": "대회 화제성은 크나 대중적 확산 가능성은 낮다는 전망",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        }
+      ],
+      "status": "weak",
+      "text": "대회 무대에서는 화제성이 크지만, 컵 프로파일이 '커피답지 않다'는 평가도 있어 호불호가 갈립니다. Intelligentsia의 Geoff Watts는 '아주 틈새적인 추종층'을 가진 커피라고 평했습니다. 로스터·바이어에게는 희소성과 스토리텔링 가치가 크나, 대중적 확산 가능성은 낮게 봅니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "한때 '버려진(abandoned)' 종으로 여겨졌으나 Finca Inmaculada(Holguin 가문)가 지난 10여 년간 되살림",
+          "url": "https://sprudge.com/what-is-eugenioides-coffee-181142.html"
+        },
+        {
+          "claim": "시장의 대부분 커피와 같은 종이 아닌 별개의 종(species)",
+          "url": "https://onyxcoffeelab.com/products/echelon-colombia-inmaculada-eugenioides-2023"
+        }
+      ],
+      "status": "weak",
+      "text": "한때 '버려진(abandoned)' 종으로 여겨졌으나, 콜롬비아 Holguin 가문의 Finca Inmaculada가 지난 10여 년간 되살려낸 것이 오늘날 유통량의 대부분입니다. 흔한 오해와 달리 아라비카의 '품종(variety)'이 아니라 별개의 '종(species)'입니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "주요 산지: 에티오피아 케파 지역, 콜롬비아 윌라(San Agustín)",
+          "url": "https://www.coffeereview.com/review/colombia-wush-wush-dynamic-natural/"
+        },
+        {
+          "claim": "2026년 리뷰 로트 소매가: 8온스당 26달러(95점), 4온스당 40달러(94점)",
+          "url": "https://www.coffeereview.com/types/wush-wush/",
+          "year": 2026
+        },
+        {
+          "claim": "콜롬비아 킨디오 Finca Campo Hermoso산 Wush Wush 유통",
+          "url": "http://drinkmorning.co.uk/products/limited-release-wush-wush-natural-morning-coffee-capsules"
+        }
+      ],
+      "status": "weak",
+      "text": "에티오피아 케파 지역과 콜롬비아(윌라·킨디오 등)가 주요 산지입니다. 소량 로트 중심으로 유통되어 스페셜티 로스터를 통해서만 구할 수 있는 경우가 많습니다. 소매가 기준으로 2026년 리뷰 로트는 8온스당 26달러, 4온스당 40달러 수준으로 일반 스페셜티보다 높은 가격대를 형성합니다."
+    },
+    "id": "wush-wush",
+    "intro": {
+      "sources": [
+        {
+          "claim": "에티오피아 카파 지역 Wushwush 마을 인근 야생림 유래의 지역 랜드레이스로 현지 농가가 번식",
+          "url": "https://library.sweetmarias.com/glossary/wush-wush/"
+        },
+        {
+          "claim": "1990년대 초 남아메리카로 전해져 현재 콜롬비아 농장에서도 재배",
+          "url": "https://library.sweetmarias.com/glossary/wush-wush/"
+        },
+        {
+          "claim": "체리가 무리지어 달리고 콩 크기는 14~18+ 스크린으로 들쭉날쭉",
+          "url": "https://library.sweetmarias.com/glossary/wush-wush/"
+        },
+        {
+          "claim": "섬세하고 향긋하며 차 같은 컵, 높은 단맛으로 유명",
+          "url": "https://library.sweetmarias.com/glossary/wush-wush/"
+        }
+      ],
+      "status": "weak",
+      "text": "Wush Wush는 에티오피아 남서부 카파(Kaffa) 지역의 Wushwush 마을 인근 야생림에서 확인된 지역 랜드레이스(heirloom) 품종입니다. 마을 이름을 그대로 따서 명명되었으며, 에티오피아 농가에 의해 대대로 번식되어 왔습니다. 1990년대 초 남아메리카로 전해져 현재는 콜롬비아의 일부 농장에서도 재배됩니다. 체리가 무리지어 달리고 콩 크기가 들쭉날쭉하며, 섬세하고 향긋하며 차(tea) 같은 컵과 높은 단맛으로 알려져 있습니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "에티오피아 공식 품종 등록: 754(Wush Wush/Kaffa, 1980/81), Wushwush(Wush wush/Kaffa, 2006)",
+          "url": "https://iiste.org/Journals/index.php/JBAH/article/download/25109/25714"
+        },
+        {
+          "claim": "카투라·부르봉보다 수확량이 낮고 병 저항성이 떨어져 농가 생산비가 높음",
+          "url": "https://library.sweetmarias.com/glossary/wush-wush/"
+        }
+      ],
+      "status": "weak",
+      "text": "품종별 판매량 통계는 없으며 아래는 간접 지표입니다. 에티오피아에서는 1980/81년(품종 번호 754)과 2006년(Wushwush)에 공식 품종으로 등록된 바 있습니다. 수확량이 카투라·부르봉 등 상용 품종보다 낮고 병 저항성도 떨어져, 농가 입장에서는 생산비가 높은 품종으로 분류됩니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2020년 Equiano Coffee 로트 95점, 2020년 Top 30 중 14위",
+          "url": "https://www.coffeereview.com/review/wush-wush-ginbo-keffa-ethiopia/",
+          "year": 2020
+        },
+        {
+          "claim": "2021년 Coffee Please(대만) 로트 95점, 2021년 Top 30 중 23위",
+          "url": "https://www.coffeereview.com/review/ethiopia-guji-wush-wush-anaerobic-natural/",
+          "year": 2021
+        },
+        {
+          "claim": "2022년 SÖT Coffee Roaster(콜롬비아산) 로트 95점, 2022년 Top 30 중 16위",
+          "url": "https://www.coffeereview.com/review/colombia-wush-wush-dynamic-natural/",
+          "year": 2022
+        },
+        {
+          "claim": "Wush Wush 리뷰 14건 아카이브, 2026년 2월 리뷰 95점",
+          "url": "https://www.coffeereview.com/types/wush-wush/",
+          "year": 2026
+        }
+      ],
+      "status": "verified",
+      "text": "Coffee Review에서 반복적으로 95점을 받았습니다. 2020년 Equiano Coffee 로트(2020년 Top 30 중 14위), 2021년 Coffee Please(대만) 로트(2021년 Top 30 중 23위), 2022년 SÖT Coffee Roaster의 콜롬비아산 로트(2022년 Top 30 중 16위) 등이 모두 95점을 기록했고, 2026년 2월 리뷰에서도 95점을 받았습니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "독특한 컵으로 유명하며 수확량이 낮아 농가 생산비가 높고 높은 가격 형성",
+          "url": "https://library.sweetmarias.com/glossary/wush-wush/"
+        },
+        {
+          "claim": "싱글 오리진 에스프레소·푸어오버 쇼케이스·대회용에 적합",
+          "url": "https://keffacoffee.com/resources/origins/wush-wush-variety-buying-notes"
+        }
+      ],
+      "status": "weak",
+      "text": "독특한 컵(섬세·향긋·티라이크)과 높은 단맛으로 스페셜티 로스터들의 사랑을 받으며, 싱글 오리진 에스프레소·푸어오버·대회용 쇼케이스에 적합한 품종으로 꼽힙니다. 다만 수확량이 낮고 병에 약해 농가 생산비가 높아, 높은 가격으로 이어집니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "품종 이름은 케파 지역의 작은 마을 Wush Wush에서 유래",
+          "url": "https://keffacoffee.com/resources/origins/wush-wush-variety-buying-notes"
+        },
+        {
+          "claim": "Keffa → Kaffa → Coffee, 커피라는 단어의 어원으로 여겨지는 지역",
+          "url": "https://keffacoffee.com/resources/origins/wush-wush-variety-buying-notes"
+        }
+      ],
+      "status": "weak",
+      "text": "품종 이름은 에티오피아 카파 지역의 작은 마을 'Wush Wush'에서 따왔습니다. 이 카파(Kaffa) 지역은 커피(coffee)라는 단어의 어원으로 여겨지는 곳이기도 합니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "재배지: 레위니옹, 브라질, 니카라과, 코스타리카, 과테말라 등",
+          "url": "https://espressobasics.com/laurina-coffee-beans-naturally-low-caffeine-coffee/"
+        },
+        {
+          "claim": "브라질·콜롬비아·니카라과에서 상대적으로 흔하고 코스타리카·하와이·인도네시아에서는 드묾",
+          "url": "https://leaderboard.coffee/blogs/education/an-origin-region-varietal-guide-season-10"
+        },
+        {
+          "claim": "Best of Panama 2025년 Laurina 로트 kg당 8,040달러, 2026년 kg당 4,216달러",
+          "url": "https://www.beanscenemag.com.au/best-of-panama-2026-auction-results/",
+          "year": 2026
+        }
+      ],
+      "status": "weak",
+      "text": "원산지인 레위니옹을 비롯해 브라질(Daterra), 콜롬비아, 코스타리카(Doka Estate), 과테말라, 니카라과, 하와이(코나) 등에서 소량 재배됩니다. 구하기가 매우 어려우며, 국제 가격대는 Best of Panama 2025~2026년 경매에서 kg당 4,216~8,040달러를 기록했습니다."
+    },
+    "id": "laurina",
+    "intro": {
+      "sources": [
+        {
+          "claim": "부르봉의 돌연변이로 1770년대~19세기 초 레위니옹 섬에서 처음 발견",
+          "url": "https://cdn.royalcoffee.com/wp-content/uploads/2018/10/21123250/CJ1240-42733-Colombia-Valle-del-Cauca-Rigoberto-Herrera-Natural-Laurina-Crown-Jewel.pdf"
+        },
+        {
+          "claim": "2009년 Euphytica 연구에서 교잡이 아닌 순수 자연 돌연변이로 확인",
+          "url": "https://xliiicoffee.com/en/journal/naturally-low-in-caffeine-can-laurina-coffee-knock-decaf-out-of-the-market/"
+        },
+        {
+          "claim": "단일 열성 유전자 돌연변이, 카페인 0.6~0.7%로 아라비카 대비 약 50% 감소, 저수확·녹병 취약",
+          "url": "https://data.epo.org/publication-server/rest/v1.2/patents/EP0606759NWA1/document.pdf"
+        },
+        {
+          "claim": "평균 카페인 약 0.6%, 수확량이 매우 낮고 여러 병에 매우 취약",
+          "url": "https://perfectdailygrind.com/?p=107097"
+        },
+        {
+          "claim": "일부 판매자는 0.3~0.5%(아라비카 1.4% 대비)로 표기 — 수치 상충",
+          "url": "https://apartmentcoffee.co/blogs/journal/july-subscription"
+        }
+      ],
+      "status": "verified",
+      "text": "Laurina(별명 Bourbon Pointu)는 부르봉의 자연 돌연변이 품종으로, 1770년대~1810년경 인도양의 레위니옹 섬(당시 Île Bourbon)에서 처음 발견되었습니다. 2009년 Euphytica 학술지 연구에서 부르봉과의 교잡이 아닌 순수 자연 돌연변이임이 확인되었습니다. 왜소한 원뿔형 수형에 양끝이 뾰족한 작은 콩이 특징이며, 카페인 함량은 일반 아라비카의 절반 수준(약 0.6% 안팎)으로 자연 저카페인입니다. 수확량이 매우 낮고 녹병에 약해 한때 멸종 위기에 처했으나, 코스타리카·브라질 등에서 복원되어 소량 재배됩니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "레위니옹 Maison du Laurina 연간 약 1.5톤 생산",
+          "url": "https://www.decadentdecaf.com/blogs/faq/what-is-arabica-laurina-the-naturally-low-caffeine-coffee?srsltid=AfmBOopTh1fqVSvjra-uSTZLeIuvsco_EBIHMxFQiXQFAJ1G7F78qFXN"
+        },
+        {
+          "claim": "하와이 코나 전체 생산량은 연간 500파운드 미만으로 추산(2026년 10월 확인)",
+          "url": "https://paradiseroasters.com/collections/buy-hawaiian-coffee-online/products/kona-laurina",
+          "year": 2026
+        },
+        {
+          "claim": "Daterra Masterpieces 경매에 Laurina 로트 출품(2022년·2024년)",
+          "url": "https://drwakefield.com/news-and-views/daterra-masterpieces-2022-auction/",
+          "year": 2022
+        }
+      ],
+      "status": "weak",
+      "text": "판매량 통계는 없으며, 간접 지표상 생산량은 극히 적습니다. 레위니옹의 Maison du Laurina는 연간 약 1.5톤을 생산하고, 하와이 코나의 전체 생산량은 연간 500파운드(약 227kg) 미만으로 추산됩니다. 브라질 Daterra의 Masterpieces 경매에도 나노 로트(수십 kg 단위)로 출품됩니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2026년 Best of Panama에서 Esmeralda Laurina 93.63점, Varietals 부문 최고가 kg당 4,216달러(로트 총 63,240달러)",
+          "url": "https://www.beanscenemag.com.au/best-of-panama-2026-auction-results/",
+          "year": 2026
+        },
+        {
+          "claim": "2025년 Best of Panama에서 Esmeralda Laurina 로트 V-01이 kg당 8,040달러",
+          "url": "https://www.beanscenemag.com.au/best-of-panama-auction-sets-new-washed-geisha-record/",
+          "year": 2025
+        },
+        {
+          "claim": "Hula Daddy 코나 Bourbon Pointu 2017년 96점, 2020년 95점",
+          "url": "https://www.coffeereview.com/review/100-kona-bourbon-pointu-laurina-5/",
+          "year": 2020
+        }
+      ],
+      "status": "weak",
+      "text": "2026년 Best of Panama 경매에서 Hacienda La Esmeralda의 Laurina 로트가 93.63점을 받아 Varietals 부문 최고가인 kg당 4,216달러(로트 총 63,240달러)에 낙찰되었습니다. 2025년 같은 경매에서도 Esmeralda Laurina 로트가 kg당 8,040달러에 팔렸습니다. Coffee Review에서도 하와이 코나산 Bourbon Pointu가 2017년 96점, 2020년 95점을 받는 등 꾸준히 고평가됩니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "Daterra Masterpieces 경매에 Laurina 로트 반복 출품(2021·2022·2024년)",
+          "url": "https://drwakefield.com/news-and-views/daterra-masterpieces-2024-auction/",
+          "year": 2024
+        },
+        {
+          "claim": "Best of Panama Varietals 부문 최고가 경신(2025·2026년)",
+          "url": "https://www.beanscenemag.com.au/best-of-panama-2026-auction-results/",
+          "year": 2026
+        }
+      ],
+      "status": "weak",
+      "text": "자연 저카페인과 희소성 덕분에 스페셜티 업계의 관심이 높으며, Daterra의 Masterpieces 같은 실험적 경매의 단골 출품 품종입니다. Best of Panama Varietals 부문에서 최고가를 경신하는 등 대회·경매용 품종으로서의 입지를 다지고 있습니다. 다만 재배 난이도와 낮은 수확량 탓에 대중화 가능성은 낮게 평가됩니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "'Laurina'는 월계수(laurel)를 닮은 수형에서, 'Bourbon Pointu'는 뾰족한 콩 모양에서 유래",
+          "url": "https://xliiicoffee.com/en/journal/naturally-low-in-caffeine-can-laurina-coffee-knock-decaf-out-of-the-market/"
+        },
+        {
+          "claim": "'Le Roy'는 돌연변이를 처음 발견·보존한 농부의 이름에서 유래한 것으로 전해짐",
+          "url": "https://xliiicoffee.com/en/journal/naturally-low-in-caffeine-can-laurina-coffee-knock-decaf-out-of-the-market/"
+        },
+        {
+          "claim": "낮은 카페인이 병충해 취약·저수확으로 이어져 농가들이 재배를 포기했다는 설명",
+          "url": "https://espressobasics.com/laurina-coffee-beans-naturally-low-caffeine-coffee/"
+        }
+      ],
+      "status": "weak",
+      "text": "'Laurina'라는 이름은 나무의 가늘고 빽빽한 수형이 월계수(laurel)를 닮았다고 해서 붙었고, 'Bourbon Pointu'는 양끝이 뾰족한(pointu) 콩 모양에서 왔습니다. 'Le Roy'라는 별명은 이 돌연변이를 처음 발견·보존한 농부의 이름에서 유래한 것으로 전해집니다. 카페인이 천연 살충제 역할을 하는데 카페인이 낮아 병충해에 약했고, 이것이 19세기 재배 포기의 한 원인으로 설명됩니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "브라질·온두라스·코스타리카·과테말라 보급 현황",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        }
+      ],
+      "status": "verified",
+      "text": "주요 생산국은 브라질(가장 널리 재배), 온두라스, 코스타리카, 과테말라입니다. 워낙 보급이 넓어 산지에서 구하기 쉽고, 스페셜티 시장에서도 해당 원산지의 일반 시세로 거래되는 것이 보통입니다. 별도의 품종 프리미엄이 붙는 경우는 드문 편입니다(시장 상장 사례 관찰 기준의 추정)."
+    },
+    "id": "catuai",
+    "intro": {
+      "sources": [
+        {
+          "claim": "IAC가 1949년 황색 카투라와 문두 노부를 교배(H-2077), 1972년 브라질 보급",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        },
+        {
+          "claim": "밀식 가능(기존의 2배 가까운 밀도), 잎녹병에 매우 취약, 컵 품질 'good but not great'",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        },
+        {
+          "claim": "이름의 과라니어 유래 '아주 좋다'",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        },
+        {
+          "claim": "1970~80년대 중미 전일조 집약 재배 확대에 기여",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        }
+      ],
+      "status": "verified",
+      "text": "카투아이는 1949년 브라질 상파울루주 캄피나스의 농업연구소(IAC)가 황색 카투라와 문두 노부(Mundo Novo)를 교배해 만든 품종으로, 내부 코드명 H-2077로 불리다가 계통 선발을 거쳐 1972년 브라질에 보급되었습니다. 고수확의 문두 노부와 왜성(矮性)의 카투라의 장점을 결합해 밀식 재배가 가능한 콤팩트한 수형이 특징이며, 수확과 병해충 방제가 수월합니다. 이름은 과라니어로 '아주 좋다'는 뜻이고, World Coffee Research는 컵 품질을 '좋지만 뛰어나지는 않은(good but not great)' 수준으로 평가합니다. 작은 수형 덕분에 중남미의 전일조·밀식 재배 확대를 이끈 품종 중 하나로 커피 역사에 자리합니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "온두라스에서 한때 아라비카 재배의 절반 가까이 차지(간접 지표, 연도 미표기)",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        },
+        {
+          "claim": "과테말라 생산량의 약 20%가 카투아이(간접 지표, 연도 미표기)",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        },
+        {
+          "claim": "온두라스 1979년 도입·1983년 상업 보급, 코스타리카 1985년 도입·경제적 중요성, 브라질 광범위 재배",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        }
+      ],
+      "status": "weak",
+      "text": "품종별 판매량 통계는 존재하지 않으므로 아래는 간접 지표임을 명시합니다. WCR에 따르면 카투아이는 온두라스에서 한때 아라비카 재배면적의 절반 가까이를 차지했고(연도 표기 없음), 과테말라에서는 전체 생산량의 약 20%를 차지합니다(연도 표기 없음). 코스타리카에서는 1985년 도입 이후 경제적으로 중요한 품종으로 자리 잡았고, 브라질에서도 널리 재배됩니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "COE 브라질 2022 1·2위 카투아이(91.41·90.59점)",
+          "url": "https://www.gcrmag.com/?p=31533",
+          "year": 2022
+        },
+        {
+          "claim": "COE 브라질 2021 1위 옐로 카투아이(90.50점), 경매 역대 평균가 기록",
+          "url": "https://www.gcrmag.com/brazilian-coffees-selected-for-international-phase-of-coe/",
+          "year": 2021
+        },
+        {
+          "claim": "COE 니카라과 2022 1위 카투아이 로호(90.74점)",
+          "url": "https://www.gcrmag.com/nicaragua-cup-of-excellence-winners-announced/",
+          "year": 2022
+        }
+      ],
+      "status": "verified",
+      "text": "Cup of Excellence에서 여러 차례 우승한 품종입니다. 2022년 브라질 대회에서는 카투아이가 1위(91.41점)와 2위(90.59점)를 차지했고, 2021년 브라질 1위(옐로 카투아이, 90.50점)와 2022년 니카라과 1위(카투아이 로호, 90.74점)도 카투아이였습니다. 전통 품종임에도 가공과 재배 관리가 뒷받침되면 게이샤 같은 이국적 품종과 겨루는 컵 품질을 낼 수 있다는 평가를 받고 있습니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "WCR 컵 품질 평가 'good but not great'",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai"
+        },
+        {
+          "claim": "2009년 영국 바리스타 챔피언십 우승자 시그니처 드링크에 레드 카투아이 사용",
+          "url": "https://www.publicsectorcatering.co.uk/news/coffee-cart-owner-wins-uk-barista-championship",
+          "year": 2009
+        }
+      ],
+      "status": "weak",
+      "text": "스페셜티 업계의 평가는 엇갈립니다. WCR이 컵 품질을 '좋지만 뛰어나지 않은' 수준으로 본 반면, COE 상위권 진입이 반복되면서 '저급 품종' 취급과는 거리가 있다는 인식도 있습니다. 로스터들은 안정적인 블렌드·싱글오리진 베이스로 취급하는 편이며, 대회 수상 경력 덕에 산지 마이크로롯에서는 꾸준히 관심을 받습니다. 2009년 영국 바리스타 챔피언십 우승자는 시그니처 드링크에 니카라과산 레드 카투아이를 사용한 바 있습니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "멕시코 INMECAFÉ의 가르니카 병행 개발(1960~61년)과 1989년 연구소 해산",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/catuai",
+          "year": 1960
+        }
+      ],
+      "status": "verified",
+      "text": "멕시코 커피연구소(INMECAFÉ)도 1960~61년 같은 조합(문두 노부×카투라 아마릴로)으로 '가르니카(Garnica)'라는 유사 품종을 만들었으나, 연구소가 1989년 해산되면서 계통 선발이 완성되지 못했습니다. 카투아이라는 이름이 '아주 좋다'는 뜻인 것과 달리, 학계와 업계의 평가는 대체로 '성실한 일꾼' 쪽에 가깝습니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "FNC가 보급·권장하는 콜롬비아 대표 저항성 품종",
+          "url": "https://biblioteca.cenicafe.org/jspui/bitstream/10778/410/1/avt0426.pdf"
+        },
+        {
+          "claim": "과테말라에서도 카스티요 재배 사례",
+          "url": "https://coffeediff.co.uk/coffee-beans?page=3&variety=%7CTYPICA%7C"
+        }
+      ],
+      "status": "weak",
+      "text": "주 생산국은 콜롬비아이며, 과테말라 등 일부 중남미 국가에서도 재배됩니다. 콜롬비아 원산지로 유통되는 커피의 상당량이 카스티요라는 추정이 가능하나, 품종별 공식 유통 통계는 없습니다(간접 추정). 스페셜티 시장에서는 '콜롬비아 카스티요' 싱글오리진으로 흔히 구할 수 있고, 고품질 마이크로롯은 위 경매 기록처럼 높은 가격에 거래되기도 합니다."
+    },
+    "id": "castillo",
+    "intro": {
+      "sources": [
+        {
+          "claim": "2005년 보급, 카투라×티모르 하이브리드 교배의 복합 품종, FNC 결의 2005년 5월",
+          "url": "https://biblioteca.cenicafe.org/jspui/bitstream/10778/410/1/avt0426.pdf",
+          "year": 2005
+        },
+        {
+          "claim": "2005년 카스티요 General과 7개 지역 계열(Pueblo Bello, El Rosario, Santa Bárbara, La Trinidad, Paraguaicito, Naranjal, El Tambo) 보급",
+          "url": "https://publicaciones.cenicafe.org/index.php/libros_manuales/article/download/823/1013",
+          "year": 2005
+        },
+        {
+          "claim": "이름은 연구자 Jaime Castillo Zapata를 기린 것",
+          "url": "https://repository.unad.edu.co/jspui/bitstream/10596/18759/1/12274496.pdf"
+        }
+      ],
+      "status": "verified",
+      "text": "카스티요는 콜롬비아 커피재배자연맹(FNC) 산하 국립커피연구소 Cenicafé가 2005년 보급한 잎녹병 저항성 품종입니다(FNC 결의 2005년 5월). 카투라와 티모르 하이브리드의 교배로 만들어진 F5 세대 복합(콤포지트) 품종으로, 유전적 다양성을 유지해 녹병 저항성이 오래 지속되도록 설계되었습니다. 이름은 녹병이 콜롬비아에 없던 시절 '콜롬비아' 품종 육성을 이끈 연구자 하이메 카스티요 사파타(Jaime Castillo Zapata)를 기린 것입니다. 콜롬비아 커피 산업이 녹병 위기에 대응한 상징적인 품종으로 자리합니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "저항성 품종 재배면적 비중 2011년 42.7% → 2023년 87%(카스티요 단독 아님, 간접 지표)",
+          "url": "https://www.eltiempo.com/economia/sectores/regiones-del-sur-reemplazan-al-eje-cafetero-como-el-principal-foco-de-expansion-de-la-caficultura-en-colombia-3510925",
+          "year": 2023
+        },
+        {
+          "claim": "2022년 저항성 품종 면적 86%(FNC 발표 인용)",
+          "url": "https://www.eltiempo.com/economia/sectores/cafe-las-cifras-historicas-de-la-federacion-nacional-de-cafeteros-en-2022-726132",
+          "year": 2022
+        },
+        {
+          "claim": "2012년 저항성 품종 면적 54%(SICA 기준, 간접 지표)",
+          "url": "https://biblioteca.cenicafe.org/jspui/bitstream/10778/410/1/avt0426.pdf",
+          "year": 2012
+        }
+      ],
+      "status": "weak",
+      "text": "품종별 판매량 통계는 존재하지 않으므로 아래는 간접 지표임을 명시합니다. FNC 자료에 따르면 잎녹병 저항성 품종(카스티요·콜롬비아·타비·Cenicafé 1 등)이 차지하는 재배면적 비중은 2011년 42.7%에서 2023년 87%로 늘었습니다. 카스티요 단독 비중은 공개 통계에 없으나, 2012년 Cenicafé FAQ는 저항성 품종 면적이 54%라고 밝힌 바 있어 카스티요가 콜롬비아 재배의 주축임을 짐작할 수 있습니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2016년 내셔널 퀄리티 콘테스트 경매 최고가 100% 카스티요 50.5달러/파운드",
+          "url": "https://www.comunicaffe.com/castillo-variety-coffees-shine-colombias-first-national-quality-contest/",
+          "year": 2016
+        },
+        {
+          "claim": "2020년 온라인 경매 최고가 워시드 카스티요 45.5달러/파운드, 평균 11.66달러/파운드",
+          "url": "https://www.comunicaffe.com/colombia-land-of-diversity-on-online-auction-lots-sold-at-average-price-of-11-66-lb/",
+          "year": 2020
+        },
+        {
+          "claim": "2021년 콜롬비아 COE 3위 내추럴 카스티요(89.46점)",
+          "url": "https://www.beanscenemag.com.au/colombia-geisha-win-kicks-off-2021-cup-of-excellence/",
+          "year": 2021
+        }
+      ],
+      "status": "verified",
+      "text": "2016년 제1회 콜롬비아 내셔널 퀄리티 콘테스트 'Colombia, Land of Diversity'에서 100% 카스티요 로트가 경매 최고가(파운드당 50.5달러)를 기록했고, 2020년 온라인 경매에서도 워시드 카스티요가 최고가(파운드당 45.5달러)를 기록했습니다. 2021년 콜롬비아 Cup of Excellence에서는 내추럴 카스티요가 3위(89.46점)에 올랐습니다. 업계에 있던 '저항성 품종=컵 품질 저하' 편견에 반하는 기록들로 자주 인용됩니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "나리뇨 연구: 동일 조건에서 카투라·카스티요 간 유의한 품질 차이 없음(2014~2015년 시음, SCAA 심포지엄 발표)",
+          "url": "https://www.comunicaffe.com/colombia-study-presented-at-scaas-annual-symposium-debunks-caturra-vs-castillo-quality-misconception/",
+          "year": 2015
+        }
+      ],
+      "status": "weak",
+      "text": "스페셜티 업계의 시선은 갈립니다. 일부 바이어는 증거보다 믿음으로 카투라를 선호한다는 지적이 있었고, 2015년경 SCAA 심포지엄에서 발표된 나리뇨 연구는 동일 조건에서 카투라와 카스티요 간 유의한 품질 차이가 없다고 결론지었습니다. WCR과 CRS도 양 품종의 블라인드 비교 시험을 진행했습니다. 대회 수상 경력이 쌓이면서 '저항성=저품질' 인식은 약해지는 추세이나, 게이샤 같은 화제 품종에 비하면 주목도는 낮습니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "한 봉지 종자 안에 5개 안팎의 서로 다른 F5 계통이 섞인 복합 구조",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        },
+        {
+          "claim": "공식 자료상 7개 지역 계열 목록",
+          "url": "https://publicaciones.cenicafe.org/index.php/libros_manuales/article/download/823/1013"
+        },
+        {
+          "claim": "16개 지역 변형이라는 업계 매체의 상이한 표현",
+          "url": "https://dailycoffeenews.com/2019/02/07/the-coffee-roasters-complete-guide-to-coffee-varieties-and-cultivars/"
+        }
+      ],
+      "status": "verified",
+      "text": "'복합 품종'이라는 점이 가장 큰 특징입니다. 한 봉지의 종자 안에도 녹병 저항성이 서로 다른 5개 안팎의 F5 계통이 섞여 있어, 한 포장에서 일부 나무만 병에 걸리는 구조로 설계되었습니다. 흔한 오해로는 '카스티요는 로부스타 계통이라 맛이 떨어진다'는 것이 있는데, 티모르 하이브리드 유래 유전자를 포함할 뿐 엄연한 아라비카이며, 나리뇨 연구 결과도 이를 뒷받침합니다. 참고로 지역 계열 수에 대해서는 Cenicafé 공식 자료는 7개라고 하나 업계 매체에는 16개라는 표현도 있어 출처마다 다릅니다."
+    }
+  },
+  {
+    "distribution": {
+      "sources": [
+        {
+          "claim": "멕시코·과테말라·니카라과 등 중미 재배, 희소성",
+          "url": "https://www.tastingtable.com/1269287/what-rare-maragogipe-coffee-taste/"
+        },
+        {
+          "claim": "니카라과 마라고지피 225g 약 24.5파운드의 소매가(2026년 10월 확인)",
+          "url": "http://coffeediff.co.uk/coffee-beans?page=25",
+          "year": 2026
+        }
+      ],
+      "status": "weak",
+      "text": "주요 생산국은 멕시코·과테말라·온두라스·니카라과 등으로 파악되며(업계 매체 기준), 소량 한정 로트 위주로 스페셜티 로스터를 통해 유통됩니다. 소매가도 일반 원두보다 높게 형성되는 경향이 있습니다(예: 영국 소매점의 니카라과 마라고지피 225g 약 24.5파운드). 물량이 적어 상시 구매는 어렵습니다."
+    },
+    "id": "maragogype",
+    "intro": {
+      "sources": [
+        {
+          "claim": "1870년 브라질 마라고지피 인근에서 발견된 티피카의 자연 돌연변이, 단일 우성 유전자",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        },
+        {
+          "claim": "수확량 'very low', 중미 기준 컵 품질 'good to very good', 녹병에 매우 취약",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        },
+        {
+          "claim": "파카마라의 부모 품종 중 하나",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        }
+      ],
+      "status": "verified",
+      "text": "마라고지피는 1870년 브라질 바이아주 마라고지피시 인근에서 발견된 티피카의 자연 돌연변이입니다. 단일 우성 유전자 변이로 콩·잎·마디 사이 간격이 비정상적으로 커지며, 콩이 일반 아라비카의 두 배 안팎으로 커 '엘리펀트 빈(코끼리 콩)'이라 불립니다. World Coffee Research는 수확량을 '매우 낮음(very low)'으로, 중미 기준 컵 품질을 '좋음~매우 좋음'으로 평가합니다. 저수확 때문에 브라질에서는 도태되었으나, 파카마라의 부모 품종으로 스페셜티 역사에 이름을 남겼습니다."
+    },
+    "production": {
+      "sources": [
+        {
+          "claim": "수확량 'very low', 저생산성으로 파카마라가 더 나은 선택이라는 WCR 언급",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        },
+        {
+          "claim": "멕시코·과테말라·니카라과 등 중미 재배, 브라질에서는 고수확 품종 선호로 축소(업계 매체 기준)",
+          "url": "https://www.tastingtable.com/1269287/what-rare-maragogipe-coffee-taste/"
+        }
+      ],
+      "status": "weak",
+      "text": "품종별 판매량 통계는 존재하지 않으므로 아래는 간접 지표임을 명시합니다. WCR은 '수확량이 매우 낮다'고 명시했고, 저생산성 때문에 브라질에서는 재배가 축소된 것으로 업계 매체들이 전합니다. 재배는 멕시코·과테말라·온두라스·니카라과 등 중미의 소수 농가에 한정된 것으로 보이며, 전체 생산에서 차지하는 비중은 미미합니다."
+    },
+    "reputation": {
+      "sources": [
+        {
+          "claim": "2011년 온두라스 COE 입상 마라고지피(84.00점, 4.90달러/파운드)",
+          "url": "https://allianceforcoffeeexcellence.org/farm-directory/84-00-12/",
+          "year": 2011
+        },
+        {
+          "claim": "중미 기준 컵 품질 'good to very good'",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        },
+        {
+          "claim": "'romantic's coffee curiosity'라는 업계의 평",
+          "url": "https://www.peregrinecoffee.com/blog/2013/06/05/an-anomalous-variant-of-the-arabica-called-maragogype-or-maragogipe/",
+          "year": 2013
+        }
+      ],
+      "status": "verified",
+      "text": "WCR의 중미 기준 '좋음~매우 좋음' 평가와 달리, 토양이 나쁘면 밋밋하다는 지적도 있어 평가가 엇갈립니다. 2011년 온두라스 Cup of Excellence에서는 'El Maragogipe' 농장의 마라고지피가 입상(84.00점, 파운드당 4.90달러)한 공식 기록이 있습니다. 전반적으로 '로맨틱한 호기심거리'라는 평이 따라다니는 희소 품종입니다."
+    },
+    "specialty": {
+      "sources": [
+        {
+          "claim": "저생산성으로 파카마라가 더 나은 선택이라는 WCR 언급",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        },
+        {
+          "claim": "더 일관된 컵 품질의 대안으로 파카마라를 권하는 업계 평가",
+          "url": "https://www.peregrinecoffee.com/blog/2013/06/05/an-anomalous-variant-of-the-arabica-called-maragogype-or-maragogipe/"
+        }
+      ],
+      "status": "weak",
+      "text": "스페셜티 업계에서는 희소성 자체가 매력으로 작용합니다. 다만 WCR은 '저생산성 때문에 파카마라가 더 나은 선택'이라고 적시했고, 업계에서도 컵 품질의 일관성이 떨어진다는 지적이 있어 파카마라(마라고지피×파카스)가 사실상 후계자 취급을 받습니다. 소량 한정·고가 로트 위주로 거래되는 니치 품종입니다."
+    },
+    "trivia": {
+      "sources": [
+        {
+          "claim": "1870년 마라고지피시 인근 발견(지명 유래)",
+          "url": "https://varieties.worldcoffeeresearch.org/varieties/maragogipe"
+        },
+        {
+          "claim": "로스팅이 까다롭고 그라인더 투입도 어려우나 '가끔은 환상적'",
+          "url": "https://library.sweetmarias.com/glossary/maragogype/"
+        }
+      ],
+      "status": "verified",
+      "text": "이름은 발견지인 바이아주 마라고지피시에서 왔습니다. '엘리펀트 빈'이라는 별명답게 로스팅이 까다롭고 그라인더 버(burr)에 투입하기도 어렵다는 일화가 있으며, 미국의 유명 홈로스팅 공급업체 Sweet Maria's는 '가끔은 환상적일 수 있다(sometimes Maragos can be fantastic)'고 평했습니다. 파카마라와 마라카투라의 부모 품종이라는 점도 자주 언급됩니다."
+    }
+  }
+]
