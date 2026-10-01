@@ -2625,7 +2625,8 @@ a {
 .variety-chip.is-active { color: #fffaf2; background: #684630; border-color: #684630; }
 .variety-chip.is-empty:not(.is-active) { opacity: 0.55; }
 .variety-chip-name { font-size: 14px; font-weight: 600; }
-.variety-chip-ko, .variety-chip-count { font-size: 11px; opacity: 0.8; }
+.variety-chip-ko { font-size: 11px; opacity: 0.8; }
+.variety-chip-count { font-weight: 400; opacity: 0.7; }
 .detail-variety-link { padding: 0; border: 0; border-bottom: 1px solid currentColor; color: #684630; background: none; font: inherit; cursor: pointer; }
 .variety-intro { margin: 0 0 4px; line-height: 1.7; }
 .variety-story-item { padding-top: 14px; }
@@ -2673,6 +2674,11 @@ a {
   .coffee-map-reset-btn { min-height: 44px; }
   .map-view-controls { margin-right: -20px; padding-right: 20px; gap: 6px; }
   .atlas-page .bean-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* 품종 보기 목록은 원두 탭과 같이 폰 폭에서 2열 */
+@media (max-width: 520px) {
+  .atlas-page .bean-grid.is-variety-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

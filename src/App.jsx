@@ -36,7 +36,7 @@ import { loadProductCache, saveProductCache } from './services/productHistory.js
 import { getDisplayTastingNotes, getPendingTastingNotes, normalizeTastingNotes } from './services/tastingNotes.js';
 import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
 import { extractProductCountries } from './services/mapCoordinates.js';
-import { STORY_SECTIONS, VARIETY_TIERS, matchVarietyIds } from './data/varietyGuide.js';
+import { STORY_SECTIONS, VARIETY_TIERS, matchSingleVarietyIds } from './data/varietyGuide.js';
 
 const NAV = [
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
@@ -242,7 +242,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
             <p className="modal-original-name">{product.productName}</p>
             <dl className="modal-spec">
               {infoRows.map(([label, value]) => {
-                const varietyId = label === '품종' ? matchVarietyIds(product.variety, value)[0] : null;
+                const varietyId = label === '품종' ? matchSingleVarietyIds(product.variety || value)[0] : null;
                 return (
                   <div key={label}>
                     <dt>{label}</dt>
@@ -1336,7 +1336,7 @@ function MapPage({
   const listHeadRef = React.useRef(null);
 
   const varietyIdsByProduct = React.useMemo(() => new Map(products.map((p) => (
-    [p.id, matchVarietyIds(p.variety, formatProductDisplayInfo(p).variety)]
+    [p.id, matchSingleVarietyIds(p.variety || formatProductDisplayInfo(p).variety)]
   ))), [products]);
   const varietyCounts = React.useMemo(() => {
     const counts = {};
@@ -1471,7 +1471,7 @@ function MapPage({
             <div className="variety-guide-head">
               <h2 className="section-title">빈픽 추천 등급</h2>
               <span className="variety-guide-note">
-                품종이 표시된 원두 {[...varietyIdsByProduct.values()].filter((ids) => ids.length).length}개 / 전체 {products.length}개 기준
+                단일 품종 원두 {[...varietyIdsByProduct.values()].filter((ids) => ids.length).length}개 / 전체 {products.length}개 기준 (블렌드 제외)
               </span>
             </div>
             {VARIETY_TIERS.map(({ tier, caption, items }) => (
@@ -1492,9 +1492,8 @@ function MapPage({
                         aria-pressed={active}
                         onClick={() => setSelectedVariety(active ? null : { ...item, tier })}
                       >
-                        <span className="variety-chip-name">{item.name}</span>
+                        <span className="variety-chip-name">{item.name} <span className="variety-chip-count">({count})</span></span>
                         <span className="variety-chip-ko">{item.ko}</span>
-                        <span className="variety-chip-count">{count ? `판매 ${count}` : '판매 없음'}</span>
                       </button>
                     );
                   })}
@@ -1634,7 +1633,7 @@ function MapPage({
           <span className="section-eyebrow">원두 목록</span>
           <h2 className="section-title" style={{ fontSize: '18px' }}>
             {mapMode === 'variety'
-              ? `${selectedVariety ? selectedVariety.ko : '품종 표시'} 원두 (${shownProducts.length}개)`
+              ? `${selectedVariety ? selectedVariety.ko : '단일 품종'} 원두 (${shownProducts.length}개)`
               : selectedCountry
               ? `${selectedCountry} 생산 원두 (${filteredProducts.length}개)`
               : blendOnly
@@ -1645,7 +1644,7 @@ function MapPage({
       </div>
 
       {/* 4. 원두 카드 그리드 피드 */}
-      <div className="bean-grid atlas-product-grid">
+      <div className={`bean-grid atlas-product-grid ${mapMode === 'variety' ? 'is-variety-grid' : ''}`}>
         {visibleProducts.map((product) => {
           const isFocused = focusedProductId === product.id;
           return (
