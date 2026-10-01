@@ -110,7 +110,7 @@ export const VARIETY_TIERS = [
         },
       },
       {
-        id: 'ethiopian-landrace', name: 'Ethiopian landrace', ko: '에티오피아 재래종', aliases: ['에티오피아재래종', '에티오피아토착종', '에티오피아자생종', '에티오피아', '헤어룸', '에어룸', 'heirloom', 'landrace', '월리쇼', 'wolisho', '74110', '74112', '74158'],
+        id: 'ethiopian-landrace', name: 'Ethiopian landrace', ko: '에티오피아 재래종', aliases: ['에티오피아재래종', '에티오피아토착종', '에티오피아자생종', '에티오피아', '헤어룸', '에어룸', 'heirloom', 'landrace', '월리쇼', 'wolisho', '쿠르메', 'kurume', '데가', 'dega', '74110', '74112', '74158'],
         note: '아라비카 커피의 고향 에티오피아에서 자생하거나 오래 재배돼 온 토착 품종들을 함께 부르는 이름입니다. 업계에서는 야생 재래종과, 짐마 농업연구센터(JARC)가 병 저항성과 수확량을 높이려 1978~79년에 내놓은 74110·74112·74158·74165 같은 번호 품종을 묶어 ‘에티오피안 헤어룸’이라 부르는 경우가 많습니다. 에티오피아에는 재래종이 1만~1만 5천 종에 이를 것으로 추정되지만, 대부분은 아직 유전적으로 밝혀지지 않았습니다. 그만큼 같은 ‘재래종’이라도 맛의 폭이 넓습니다.',
         story: {
           reputation: '에티오피아는 재래종 덕분에 세계에서 향미 폭이 가장 넓은 산지로 평가받습니다. 2021년 에티오피아 컵 오브 엑설런스(CoE) 경매는 당시 역대 최고 평균가 기록을 세웠고, 예가체프·시다모 같은 지역 커피는 스페셜티 업계의 대표 원두로 꼽힙니다.',
@@ -238,4 +238,25 @@ export function matchVarietyIds(...texts) {
     }
   }
   return [...ids];
+}
+
+// 단일 품종 원두만 인정한다 — 블렌드·여러 품종 표기는 빈 배열
+// 예외: SL28·SL34(+바티안·루이루 11)가 함께 적힌 케냐 원두는 SL 품종 모두에 넣는다
+const SL_PAIR = new Set(['sl28', 'sl34']);
+const KENYA_COMPANION = /^(batian|바티안|ruiru\s*11|루이루\s*11)$/i;
+export function matchSingleVarietyIds(text) {
+  const tokens = String(text || '').split(/[,·/&+]/).map((t) => t.trim()).filter(Boolean);
+  if (!tokens.length) return [];
+  const ids = new Set();
+  for (const token of tokens) {
+    const found = matchVarietyIds(token);
+    if (found.length) found.forEach((id) => ids.add(id));
+    else if (/^(jarc\s*)?\d{5}$/i.test(token)) ids.add('ethiopian-landrace');
+    else if (KENYA_COMPANION.test(token)) ids.add('kenya-companion');
+    else return [];
+  }
+  if (ids.size === 1 && !ids.has('kenya-companion')) return [...ids];
+  const list = [...ids];
+  if (!list.some((id) => SL_PAIR.has(id))) return [];
+  return list.every((id) => SL_PAIR.has(id) || id === 'kenya-companion') ? list.filter((id) => SL_PAIR.has(id)) : [];
 }
