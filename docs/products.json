@@ -1,5 +1,5 @@
 {
-  "publishedAt": "2026-10-07T23:44:25.039Z",
+  "publishedAt": "2026-10-08T00:04:07.588Z",
   "count": 460,
   "products": [
     {
@@ -2738,7 +2738,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382466105",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_8/1737430180341Ieay5_PNG/28774046651709840_567871600.png?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_8/1737430180341Ieay5_PNG/28774046651709840_567871600.png?type=f80_80",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -2761,7 +2761,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382415813",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_194/1737429704492OOvGt_PNG/9583841621353952_1612451964.png?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_194/1737429704492OOvGt_PNG/9583841621353952_1612451964.png?type=f80_80",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -2784,7 +2784,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382400626",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250120_40/1737353659374JaNbs_PNG/71486511512855519_1887501194.png?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250120_40/1737353659374JaNbs_PNG/71486511512855519_1887501194.png?type=f80_80",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -2807,7 +2807,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/doanselectshop/products/11382383124",
       "storeUrl": "https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_45/1737428880272bX4vn_PNG/71561815422177021_288082022.png?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_45/1737428880272bX4vn_PNG/71561815422177021_288082022.png?type=f80_80",
       "isSoldOut": true,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -5093,7 +5093,29 @@
       "priceOptionsComplete": false,
       "priceOptionsStatus": "partial",
       "weightLabel": "100g",
-      "tastingNoteEvidence": [],
+      "tastingNoteEvidence": [
+        {
+          "text": "자스민",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        },
+        {
+          "text": "핵과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        },
+        {
+          "text": "사과",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260727_4/1785131603415kBfrI_JPEG/%EA%B3%BC%ED%85%8C%EB%A7%90%EB%9D%BC_%EB%A1%9C%EC%8A%A4%EC%BD%94%EB%84%A4%EC%A1%B0%EC%8A%A4_%EA%B2%8C%EC%9D%B4%EC%83%A4%EB%82%B4%EC%B6%94%EB%9F%B4.jpg?type=w848",
+          "method": "image-model",
+          "process": "무산소 내추럴",
+          "reviewReason": "process-conflict"
+        }
+      ],
       "unitPriceLabel": "",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
@@ -5282,6 +5304,24 @@
           "group": "MEDIUM"
         }
       ],
+      "priceOptions": [
+        {
+          "id": "200g-18000",
+          "price": 18000,
+          "weight": 200,
+          "weightLabel": "200g",
+          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/5310169256",
+          "priceLabel": "18,000원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "9,000원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g",
+      "unitPriceLabel": "",
       "acidityScore": -0.5666666666666667,
       "acidityScoreSource": "tastingNotes"
     },
@@ -5486,9 +5526,8 @@
         }
       ],
       "unitPriceLabel": "",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
+      "acidityScore": 0.9,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "fillout-13684419805",
@@ -5551,6 +5590,23 @@
       "isNew": false,
       "lastCheckedAt": "방금",
       "checkedMinutesAgo": 25,
+      "priceOptions": [
+        {
+          "id": "100g-13500",
+          "price": 13500,
+          "weight": 100,
+          "weightLabel": "100g",
+          "productUrl": "https://smartstore.naver.com/filloutcoffee/products/13684417070",
+          "priceLabel": "13,500원",
+          "originalPriceLabel": "",
+          "unitPriceLabel": "13,500원/100g",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "100g",
       "tastingNoteEvidence": [
         {
           "text": "열대과일",
@@ -5571,6 +5627,7 @@
           "process": "NATURAL"
         }
       ],
+      "unitPriceLabel": "",
       "acidityScore": null,
       "acidityScoreSource": "tastingNotes",
       "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
@@ -6066,6 +6123,123 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
+      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "roasterName": "루비아 커피",
+      "productName": "클래식 이탈리안 스타일 피렌체",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "score": 88,
+      "tastingNotes": [
+        "초콜릿",
+        "캐러멜",
+        "견과류",
+        "아몬드",
+        "몰트"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f140",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 0,
+      "tastingNoteEvidence": [
+        {
+          "text": "부드러운",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "아몬드",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "몰트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "구운디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "originalPrice": 14000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
+          "originalPriceLabel": "14,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
+        },
+        {
+          "id": "500g-25000",
+          "price": 25000,
+          "originalPrice": 26000,
+          "weight": 500,
+          "priceLabel": "25,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
+          "originalPriceLabel": "26,000원",
+          "discountRate": 0.038461538461538464,
+          "discountLabel": "3% 할인"
+        },
+        {
+          "id": "1kg-34000",
+          "price": 34000,
+          "originalPrice": 38000,
+          "weight": 1000,
+          "priceLabel": "34,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,400원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+          "originalPriceLabel": "38,000원",
+          "discountRate": 0.10526315789473684,
+          "discountLabel": "10% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "13,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.10526315789473684,
+      "acidityScore": -0.8400000000000001,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
       "id": "루비아커피-다크브라운",
       "roasterName": "루비아 커피",
       "productName": "다크브라운",
@@ -6074,7 +6248,7 @@
       "roastLevel": "확인 필요",
       "price": 14000,
       "weight": 200,
-      "score": 88,
+      "score": 87,
       "tastingNotes": [
         "초콜릿",
         "견과류",
@@ -6086,7 +6260,7 @@
       "isSoldOut": false,
       "isNew": true,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 0,
+      "checkedMinutesAgo": 1,
       "priceOptions": [
         {
           "id": "200g-14000",
@@ -6177,67 +6351,65 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-100-에티오피아스칼렛",
+      "id": "루비아커피-시에나",
       "roasterName": "루비아 커피",
-      "productName": "100% 에티오피아 스칼렛",
+      "productName": "시에나",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 17000,
+      "price": 15000,
       "weight": 200,
-      "score": 87,
+      "score": 85,
       "tastingNotes": [
-        "블랙커런트",
-        "블루베리",
-        "열대과일",
-        "플로럴",
-        "다크초콜릿"
+        "초콜릿",
+        "바닐라",
+        "견과류"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
       "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
-      "isNew": true,
+      "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
+      "checkedMinutesAgo": 3,
       "priceOptions": [
         {
-          "id": "200g-17000",
-          "price": 17000,
-          "originalPrice": 18000,
+          "id": "200g-15000",
+          "price": 15000,
+          "originalPrice": 16000,
           "weight": 200,
-          "priceLabel": "17,000원",
+          "priceLabel": "15,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "8,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084252336",
-          "originalPriceLabel": "18,000원",
-          "discountRate": 0.05555555555555555,
-          "discountLabel": "5% 할인"
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084225944",
+          "originalPriceLabel": "16,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
         },
         {
-          "id": "500g-34000",
-          "price": 34000,
-          "originalPrice": 36000,
+          "id": "500g-30000",
+          "price": 30000,
+          "originalPrice": 32000,
           "weight": 500,
-          "priceLabel": "34,000원",
+          "priceLabel": "30,000원",
           "weightLabel": "500g",
-          "unitPriceLabel": "6,800원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306840350",
-          "originalPriceLabel": "36,000원",
-          "discountRate": 0.05555555555555555,
-          "discountLabel": "5% 할인"
+          "unitPriceLabel": "6,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306975007",
+          "originalPriceLabel": "32,000원",
+          "discountRate": 0.0625,
+          "discountLabel": "6% 할인"
         },
         {
-          "id": "1kg-47000",
-          "price": 47000,
-          "originalPrice": 50000,
+          "id": "1kg-42000",
+          "price": 42000,
+          "originalPrice": 45000,
           "weight": 1000,
-          "priceLabel": "47,000원",
+          "priceLabel": "42,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "4,700원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
-          "originalPriceLabel": "50,000원",
-          "discountRate": 0.06,
+          "unitPriceLabel": "4,200원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
+          "originalPriceLabel": "45,000원",
+          "discountRate": 0.06666666666666667,
           "discountLabel": "6% 할인"
         }
       ],
@@ -6246,56 +6418,187 @@
       "weightLabel": "200g / 500g / 1kg",
       "tastingNoteEvidence": [
         {
-          "text": "꽃향기",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "열대과일",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
-          "method": "image-model",
-          "group": "SCARLET"
-        },
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "text": "#달콤한 바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "블랙커런트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "text": "#바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "다크초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "text": "#견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "베리류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
+          "text": "#초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "깔끔한 커피의 맛과 부드러운 바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
           "method": "image-model"
         }
       ],
-      "priceLabel": "17,000원",
+      "priceLabel": "15,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.06,
-      "acidityScore": 0.6399999999999999,
+      "discountRate": 0.06666666666666667,
+      "acidityScore": -0.7333333333333334,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
+    },
+    {
+      "id": "루비아커피-anniversaryblend프렌치브라운",
+      "roasterName": "루비아 커피",
+      "productName": "Anniversary Blend 프렌치브라운",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 200,
+      "score": 82,
+      "tastingNotes": [
+        "다크초콜릿",
+        "바닐라",
+        "견과류",
+        "묵직"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f140",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 6,
+      "tastingNoteEvidence": [
+        {
+          "text": "다크 초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "볶은 견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "커피",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "첫 모금에서는 짙고 부드러운 다크 초콜릿의 풍미가 중심을 잡으며 묵직한 바디감을 전합니다. 이어 볶은 견과류의 고소하고 따뜻한 인상이 더해지고",
+          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
+          "method": "detail-text"
+        },
+        {
+          "text": "중반",
+          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
+          "method": "detail-text"
+        },
+        {
+          "text": "다크 초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
+          "method": "image-model",
+          "group": "시그니처"
+        },
+        {
+          "text": "바닐라",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
+          "method": "image-model",
+          "group": "시그니처"
+        },
+        {
+          "text": "볶은 견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
+          "method": "image-model",
+          "group": "시그니처"
+        },
+        {
+          "text": "커피",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
+          "method": "image-model",
+          "group": "시그니처"
+        },
+        {
+          "text": "첫 모금에서는 짙고 부드러운 다크 초콜릿의 풍미가 중심을 잡으며 묵직한 바디감을 전합니다. 이어 볶은 견과류의 고소하고 따뜻한 인상이 더해지고",
+          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970429",
+          "method": "detail-text"
+        },
+        {
+          "text": "중반",
+          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970429",
+          "method": "detail-text"
+        },
+        {
+          "text": "첫 모금에서는 짙고 부드러운 다크 초콜릿의 풍미가 중심을 잡으며 묵직한 바디감을 전합니다. 이어 볶은 견과류의 고소하고 따뜻한 인상이 더해지고",
+          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970428",
+          "method": "detail-text"
+        },
+        {
+          "text": "중반",
+          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970428",
+          "method": "detail-text"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "originalPrice": 15000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970428",
+          "originalPriceLabel": "15,000원",
+          "discountRate": 0.06666666666666667,
+          "discountLabel": "6% 할인"
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "originalPrice": 29000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970429",
+          "originalPriceLabel": "29,000원",
+          "discountRate": 0.034482758620689655,
+          "discountLabel": "3% 할인"
+        },
+        {
+          "id": "1kg-39000",
+          "price": 39000,
+          "originalPrice": 40000,
+          "weight": 1000,
+          "priceLabel": "39,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,900원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
+          "originalPriceLabel": "40,000원",
+          "discountRate": 0.025,
+          "discountLabel": "2% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.06666666666666667,
+      "acidityScore": -0.7333333333333334,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
     },
     {
       "id": "루비아커피-블루문디카페인",
@@ -6306,7 +6609,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 86,
+      "score": 80,
       "tastingNotes": [
         "다크초콜릿",
         "견과류"
@@ -6317,7 +6620,7 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
+      "checkedMinutesAgo": 8,
       "tastingNoteEvidence": [
         {
           "text": "꽃",
@@ -6431,68 +6734,68 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "id": "루비아커피-100-에티오피아스칼렛",
       "roasterName": "루비아 커피",
-      "productName": "클래식 이탈리안 스타일 피렌체",
+      "productName": "100% 에티오피아 스칼렛",
       "origin": "루비아 커피",
       "process": "",
       "roastLevel": "확인 필요",
-      "price": 13000,
+      "price": 17000,
       "weight": 200,
-      "score": 85,
+      "score": 78,
       "tastingNotes": [
-        "초콜릿",
-        "캐러멜",
-        "견과류",
-        "아몬드",
-        "몰트"
+        "블랙커런트",
+        "블루베리",
+        "열대과일",
+        "플로럴",
+        "다크초콜릿"
       ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20241209_16/1733724402649HBzsx_JPEG/67857233745298635_1969675333.jpg?type=f750_750",
+      "imageUrl": "https://shop-phinf.pstatic.net/20240514_262/1715680562045D87Ea_JPEG/116816457738216733_1010698503.jpg?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 3,
+      "checkedMinutesAgo": 10,
       "priceOptions": [
         {
-          "id": "200g-13000",
-          "price": 13000,
-          "originalPrice": 14000,
+          "id": "200g-17000",
+          "price": 17000,
+          "originalPrice": 18000,
           "weight": 200,
-          "priceLabel": "13,000원",
+          "priceLabel": "17,000원",
           "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
-          "originalPriceLabel": "14,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
+          "unitPriceLabel": "8,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084252336",
+          "originalPriceLabel": "18,000원",
+          "discountRate": 0.05555555555555555,
+          "discountLabel": "5% 할인"
         },
         {
-          "id": "500g-25000",
-          "price": 25000,
-          "originalPrice": 26000,
-          "weight": 500,
-          "priceLabel": "25,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
-          "originalPriceLabel": "26,000원",
-          "discountRate": 0.038461538461538464,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-34000",
+          "id": "500g-34000",
           "price": 34000,
-          "originalPrice": 38000,
-          "weight": 1000,
+          "originalPrice": 36000,
+          "weight": 500,
           "priceLabel": "34,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,800원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306840350",
+          "originalPriceLabel": "36,000원",
+          "discountRate": 0.05555555555555555,
+          "discountLabel": "5% 할인"
+        },
+        {
+          "id": "1kg-47000",
+          "price": 47000,
+          "originalPrice": 50000,
+          "weight": 1000,
+          "priceLabel": "47,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "3,400원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-          "originalPriceLabel": "38,000원",
-          "discountRate": 0.10526315789473684,
-          "discountLabel": "10% 할인"
+          "unitPriceLabel": "4,700원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084259553",
+          "originalPriceLabel": "50,000원",
+          "discountRate": 0.06,
+          "discountLabel": "6% 할인"
         }
       ],
       "priceOptionsComplete": false,
@@ -6500,312 +6803,56 @@
       "weightLabel": "200g / 500g / 1kg",
       "tastingNoteEvidence": [
         {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
+          "text": "꽃향기",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
         },
         {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
+          "text": "베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
         },
         {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "굿바디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
-          "method": "image-model"
+          "text": "열대과일",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
         },
         {
           "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_280/1736834572456q08KV_PNG/70967487517105238_238267512.png?type=f750_750",
+          "method": "image-model",
+          "group": "SCARLET"
+        },
+        {
+          "text": "블루베리",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "구운디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_68/1736833838977uN9ul_PNG/6893328762906760_1313709520.png?type=f750_750",
+          "text": "블랙커런트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "부드러운",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
         },
         {
-          "text": "아몬드",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "카라멜",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "text": "베리류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_216/1749450761777q0T0F_PNG/100148286520175652_1239480407.png?type=f750_750",
           "method": "image-model"
         }
       ],
-      "priceLabel": "13,000원",
+      "priceLabel": "17,000원",
       "unitPriceLabel": "",
-      "discountRate": 0.10526315789473684,
-      "acidityScore": -0.8400000000000001,
+      "discountRate": 0.06,
+      "acidityScore": 0.6399999999999999,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-시에나",
-      "roasterName": "루비아 커피",
-      "productName": "시에나",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 200,
-      "score": 84,
-      "tastingNotes": [
-        "초콜릿",
-        "바닐라",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f140",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 4,
-      "tastingNoteEvidence": [
-        {
-          "text": "깔끔한 커피의 맛과 부드러운 바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#달콤한 바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "#초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250114_174/1736834457478Ji2Gg_PNG/70967305966627478_1633752323.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-15000",
-          "price": 15000,
-          "originalPrice": 16000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084225944",
-          "originalPriceLabel": "16,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-30000",
-          "price": 30000,
-          "originalPrice": 32000,
-          "weight": 500,
-          "priceLabel": "30,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11306975007",
-          "originalPriceLabel": "32,000원",
-          "discountRate": 0.0625,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "1kg-42000",
-          "price": 42000,
-          "originalPrice": 45000,
-          "weight": 1000,
-          "priceLabel": "42,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,200원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6084232849",
-          "originalPriceLabel": "45,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "15,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.06666666666666667,
-      "acidityScore": -0.7333333333333334,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
-      "id": "루비아커피-anniversaryblend프렌치브라운",
-      "roasterName": "루비아 커피",
-      "productName": "Anniversary Blend 프렌치브라운",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 200,
-      "score": 82,
-      "tastingNotes": [
-        "다크초콜릿",
-        "바닐라",
-        "견과류",
-        "묵직"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f140",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 6,
-      "tastingNoteEvidence": [
-        {
-          "text": "다크 초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "볶은 견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "커피",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_263/1790754787415TgUsV_PNG/37499792672016595_1962634496.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "첫 모금에서는 짙고 부드러운 다크 초콜릿의 풍미가 중심을 잡으며 묵직한 바디감을 전합니다. 이어 볶은 견과류의 고소하고 따뜻한 인상이 더해지고",
-          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
-          "method": "detail-text"
-        },
-        {
-          "text": "중반",
-          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
-          "method": "detail-text"
-        },
-        {
-          "text": "다크 초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
-          "method": "image-model",
-          "group": "시그니처"
-        },
-        {
-          "text": "바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
-          "method": "image-model",
-          "group": "시그니처"
-        },
-        {
-          "text": "볶은 견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
-          "method": "image-model",
-          "group": "시그니처"
-        },
-        {
-          "text": "커피",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_234/1790754765537qOApe_PNG/104690446433764302_1028439100.png?type=f750_750",
-          "method": "image-model",
-          "group": "시그니처"
-        },
-        {
-          "text": "첫 모금에서는 짙고 부드러운 다크 초콜릿의 풍미가 중심을 잡으며 묵직한 바디감을 전합니다. 이어 볶은 견과류의 고소하고 따뜻한 인상이 더해지고",
-          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970429",
-          "method": "detail-text"
-        },
-        {
-          "text": "중반",
-          "sourceUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970429",
-          "method": "detail-text"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "originalPrice": 15000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970428",
-          "originalPriceLabel": "15,000원",
-          "discountRate": 0.06666666666666667,
-          "discountLabel": "6% 할인"
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "originalPrice": 29000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970429",
-          "originalPriceLabel": "29,000원",
-          "discountRate": 0.034482758620689655,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-39000",
-          "price": 39000,
-          "originalPrice": 40000,
-          "weight": 1000,
-          "priceLabel": "39,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,900원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/12545970430",
-          "originalPriceLabel": "40,000원",
-          "discountRate": 0.025,
-          "discountLabel": "2% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.06666666666666667,
-      "acidityScore": -0.7333333333333334,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
     },
     {
       "id": "루비아커피-시즈널블렌드너티브리즈미디엄로스트",
@@ -13959,7 +14006,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13794420579",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20261007_256/1791369082230SyWJ4_PNG/21369535342575652_887124375.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20261007_256/1791369082230SyWJ4_PNG/21369535342575652_887124375.png?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -14035,7 +14082,7 @@
       "tastingNotes": [],
       "productUrl": "https://smartstore.naver.com/hocuspocus_roasters/products/13792648137",
       "storeUrl": "https://smartstore.naver.com/hocuspocus_roasters/category/f3cde73217694416b8caf58be088e907?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20261007_233/1791369675693CDoBB_PNG/118182570504614927_796523787.png?type=f80_80",
+      "imageUrl": "https://shop-phinf.pstatic.net/20261007_233/1791369675693CDoBB_PNG/118182570504614927_796523787.png?type=f750_750",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -16020,14 +16067,13 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100582",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260930003254_1790728374012_Ez25hLA3zh.png",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260930003258_1790728378554_HBigbQYk27.webp",
       "isSoldOut": false,
-      "isNew": false,
+      "isNew": true,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "terarosa-100583",
@@ -16200,14 +16246,13 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100499",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821083101_1787301061091_5K90R42s5a.png",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821083103_1787301063815_MbxUzf8vas.webp",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "terarosa-100587",
@@ -16315,13 +16360,14 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100531",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260928011911_1790558351413_2oAhocoWZE.webp",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260928011907_1790558347504_u639rtgA2M.png",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "acidityScore": -1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-10-08T00:04:07.588Z"
     },
     {
       "id": "terarosa-100520",
@@ -16566,14 +16612,13 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100020",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821065059_1787295059072_Bj1np9dKLe.png",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821065101_1787295061724_Bn56r5PB8G.webp",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
+      "acidityScore": 0.5,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "terarosa-100018",
@@ -16636,14 +16681,13 @@
         }
       ],
       "productUrl": "https://www.terarosa.com/product/detail/?ItemCode=100019",
-      "imageUrl": "https://www.terarosa.com/UpImg/item/list/20260821064230_1787294550354_48fekULz70.png",
+      "imageUrl": "https://www.terarosa.com/UpImg/item/detail/20260821064232_1787294552976_AcO7iUYDDY.webp",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "terarosa-100017",
@@ -16674,147 +16718,6 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "헬카페-밸런스블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "밸런스 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 13000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "13,000원",
-      "priceOptions": [
-        {
-          "id": "200g-13000",
-          "price": 13000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "헬카페-강배전블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "강배전 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "Dark",
-      "price": 14000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "14,000원",
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-52000",
-          "price": 52000,
-          "weight": 1000,
-          "priceLabel": "52,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,200원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "hellcafe-60",
-      "roasterName": "헬카페",
-      "productName": "헬카페 클래식 커피 1kg",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 208000,
-      "weight": 1000,
-      "priceOptionsComplete": false,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": null,
       "acidityScoreSource": "tastingNotes"
     },
     {
@@ -17591,6 +17494,147 @@
       "officialDetailPreservedAt": "2026-10-06T00:04:09.398Z"
     },
     {
+      "id": "헬카페-밸런스블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "밸런스 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "13,000원",
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "헬카페-강배전블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "강배전 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Dark",
+      "price": 14000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-52000",
+          "price": 52000,
+          "weight": 1000,
+          "priceLabel": "52,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,200원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "hellcafe-60",
+      "roasterName": "헬카페",
+      "productName": "헬카페 클래식 커피 1kg",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 208000,
+      "weight": 1000,
+      "priceOptionsComplete": false,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
       "id": "로스터릭-만개블랜드",
       "roasterName": "로스터릭",
       "productName": "만개 블랜드",
@@ -18040,6 +18084,8 @@
           "process": "언에어로빅 내추럴"
         }
       ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
       "priceLabel": "26,000원",
       "unitPriceLabel": "",
       "priceOptions": [
@@ -18069,8 +18115,6 @@
         }
       ],
       "weightLabel": "220g / 500g",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
       "acidityScore": 1,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 2
@@ -18289,6 +18333,8 @@
           "process": "무산소 워시드"
         }
       ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
       "priceLabel": "12,000원",
       "unitPriceLabel": "",
       "priceOptions": [
@@ -18318,8 +18364,6 @@
         }
       ],
       "weightLabel": "220g / 500g",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
       "acidityScore": 0.4666666666666666,
       "acidityScoreSource": "tastingNotes",
       "groupedProductCount": 2
@@ -21380,6 +21424,944 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
+      "id": "coffee502-93",
+      "roasterName": "502커피로스터스",
+      "productName": "502 시그니처 블렌드 1kg",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 39000,
+      "weight": 1000,
+      "weightLabel": "1kg",
+      "priceLabel": "39,000원",
+      "priceOptions": [
+        {
+          "id": "1000-39000",
+          "price": 39000,
+          "weight": 1000,
+          "priceLabel": "39,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,900원/100g",
+          "productUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [
+        "초콜릿",
+        "견과류",
+        "구운빵"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "토스트",
+          "sourceUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "구운 견과",
+          "sourceUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/f2f434417230b4e20c5793dfe69a2666.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": -0.8666666666666667,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-154",
+      "roasterName": "502커피로스터스",
+      "productName": "[10월의 커피] 코스타리카 비스타 알 바예 게이샤 허니",
+      "origin": "Costa Rica",
+      "process": "Honey",
+      "roastLevel": "Light",
+      "price": 32300,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "32,300원",
+      "priceOptions": [
+        {
+          "id": "200-32300",
+          "price": 32300,
+          "weight": 200,
+          "priceLabel": "32,300원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "16,150원/100g",
+          "productUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-64600",
+          "price": 64600,
+          "weight": 500,
+          "priceLabel": "64,600원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "12,920원/100g",
+          "productUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 92,
+      "tastingNotes": [
+        "오렌지",
+        "살구",
+        "브라운슈가"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "오렌지",
+          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "살구",
+          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "허니",
+          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "브라운슈가",
+          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20261002/28b3c0d1dd4a0defed23763903712087.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "Geisha",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.19999999999999998,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-9",
+      "roasterName": "502커피로스터스",
+      "productName": "CLASSIC 클래식",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Medium-Dark",
+      "price": 14000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "200-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-28000",
+          "price": 28000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [
+        "초콜릿",
+        "견과류",
+        "구운빵"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "토스트",
+          "sourceUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "구운 견과",
+          "sourceUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/35834ec60f8ecf47b51abd5396f291eb.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": -0.8666666666666667,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-10",
+      "roasterName": "502커피로스터스",
+      "productName": "WORKERS 워커스",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Dark",
+      "price": 16000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "16,000원",
+      "priceOptions": [
+        {
+          "id": "200-16000",
+          "price": 16000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-32000",
+          "price": 32000,
+          "weight": 500,
+          "priceLabel": "32,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,400원/100g",
+          "productUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [
+        "다크초콜릿",
+        "브라운슈가"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "다크 초콜릿",
+          "sourceUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "카카오",
+          "sourceUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "블랙 슈가",
+          "sourceUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/81c6c35a2db01da2ec6311f5cccf455b.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": -0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-11",
+      "roasterName": "502커피로스터스",
+      "productName": "GENTLE 젠틀",
+      "origin": "Brazil",
+      "process": "확인 필요",
+      "roastLevel": "Medium",
+      "price": 16000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "16,000원",
+      "priceOptions": [
+        {
+          "id": "200-16000",
+          "price": 16000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-32000",
+          "price": 32000,
+          "weight": 500,
+          "priceLabel": "32,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,400원/100g",
+          "productUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [
+        "시트러스",
+        "캐러멜"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "시트러스",
+          "sourceUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "좋은 밸런스",
+          "sourceUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/fa894027add90add2b574d308619e187.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": -0.06666666666666665,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-121",
+      "roasterName": "502커피로스터스",
+      "productName": "BLUES 블루스",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "Medium",
+      "price": 16000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "16,000원",
+      "priceOptions": [
+        {
+          "id": "200-16000",
+          "price": 16000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-32000",
+          "price": 32000,
+          "weight": 500,
+          "priceLabel": "32,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,400원/100g",
+          "productUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 84,
+      "tastingNotes": [
+        "베리",
+        "감귤",
+        "다크초콜릿"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "감귤",
+          "sourceUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "초콜렛",
+          "sourceUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/f0328c0e19c9762d1791bbbf5e31e4ca.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-12",
+      "roasterName": "502커피로스터스",
+      "productName": "WELCOME 웰컴",
+      "origin": "Ethiopia",
+      "process": "확인 필요",
+      "roastLevel": "Medium-Light",
+      "price": 18000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "18,000원",
+      "priceOptions": [
+        {
+          "id": "200-18000",
+          "price": 18000,
+          "weight": 200,
+          "priceLabel": "18,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-36000",
+          "price": 36000,
+          "weight": 500,
+          "priceLabel": "36,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,200원/100g",
+          "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [
+        "베리",
+        "열대과일",
+        "플로럴"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "플로럴",
+          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "열대과일",
+          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "베리류",
+          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "캔디 같은 단맛",
+          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/52005a702da1088fc8442525d3328477.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.9333333333333332,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-13",
+      "roasterName": "502커피로스터스",
+      "productName": "[디카페인] PILLOW 필로우",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Medium-Dark",
+      "price": 18000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "18,000원",
+      "priceOptions": [
+        {
+          "id": "200-18000",
+          "price": 18000,
+          "weight": 200,
+          "priceLabel": "18,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-36000",
+          "price": 36000,
+          "weight": 500,
+          "priceLabel": "36,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,200원/100g",
+          "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-54000",
+          "price": 54000,
+          "weight": 1000,
+          "priceLabel": "54,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,400원/100g",
+          "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 84,
+      "tastingNotes": [
+        "시트러스",
+        "초콜릿",
+        "캐러멜"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "시트러스",
+          "sourceUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/e3903301e406b3b9b39b56c331e2a42a.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": -0.36,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-184",
+      "roasterName": "502커피로스터스",
+      "productName": "에티오피아 예가체프 게뎁 초르소 워시드",
+      "origin": "Ethiopia",
+      "process": "Washed",
+      "roastLevel": "Light",
+      "price": 22000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "22,000원",
+      "priceOptions": [
+        {
+          "id": "200-22000",
+          "price": 22000,
+          "weight": 200,
+          "priceLabel": "22,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "11,000원/100g",
+          "productUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-44000",
+          "price": 44000,
+          "weight": 500,
+          "priceLabel": "44,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "8,800원/100g",
+          "productUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [
+        "레몬",
+        "살구",
+        "청포도",
+        "베르가못",
+        "라벤더"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "베르가못",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "라벤더",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "청포도",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "살구",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "레몬",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20260801/e3fcbaca749214a70ec5369ab9dcbc10.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "74110, Kurume",
+      "farm": "Gedeb",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.9199999999999999,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-185",
+      "roasterName": "502커피로스터스",
+      "productName": "에티오피아 시다마 벤사 하마쇼 내추럴",
+      "origin": "Ethiopia",
+      "process": "Natural",
+      "roastLevel": "Light",
+      "price": 22000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "22,000원",
+      "priceOptions": [
+        {
+          "id": "200-22000",
+          "price": 22000,
+          "weight": 200,
+          "priceLabel": "22,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "11,000원/100g",
+          "productUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-44000",
+          "price": 44000,
+          "weight": 500,
+          "priceLabel": "44,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "8,800원/100g",
+          "productUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [
+        "파인애플",
+        "쥬시",
+        "감귤",
+        "와이니"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "파인애플",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "감귤",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "쥬시",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "와이니",
+          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20261002/eb56ab995703e5f4dc661314bfd45c99.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "74158",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.7,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-178",
+      "roasterName": "502커피로스터스",
+      "productName": "[디카페인] 에티오피아 예가체프 할로 베리티 내추럴",
+      "origin": "Ethiopia",
+      "process": "Natural / Mountain Water Decaf",
+      "roastLevel": "Medium",
+      "price": 19000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "19,000원",
+      "priceOptions": [
+        {
+          "id": "200-19000",
+          "price": 19000,
+          "weight": 200,
+          "priceLabel": "19,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,500원/100g",
+          "productUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500-38000",
+          "price": 38000,
+          "weight": 500,
+          "priceLabel": "38,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,600원/100g",
+          "productUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 84,
+      "tastingNotes": [
+        "블루베리",
+        "복숭아",
+        "포도",
+        "사탕수수"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "포도",
+          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "블루베리",
+          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "사탕수수",
+          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20260329/db0a454c8139279326d33e292e4e2e9a.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "Ethiopian Heirloom",
+      "farm": "Yirgacheffe, Gedeo",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "coffee502-182",
+      "roasterName": "502커피로스터스",
+      "productName": "콜롬비아 카우카 파라이소92 게이샤 100g",
+      "origin": "Colombia",
+      "process": "Anaerobic Washed",
+      "roastLevel": "Light",
+      "price": 21000,
+      "weight": 100,
+      "weightLabel": "100g",
+      "priceLabel": "21,000원",
+      "priceOptions": [
+        {
+          "id": "100-21000",
+          "price": 21000,
+          "weight": 100,
+          "priceLabel": "21,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "21,000원/100g",
+          "productUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "200-42000",
+          "price": 42000,
+          "weight": 200,
+          "priceLabel": "42,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "21,000원/100g",
+          "productUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 92,
+      "tastingNotes": [
+        "피치",
+        "망고스틴",
+        "로즈",
+        "엘더플라워"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "로즈",
+          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "엘더플라워",
+          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "피치",
+          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "method": "detail-text"
+        },
+        {
+          "text": "망고스틴",
+          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20260705/117994f256a1f844e3fe463045f379ac.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "Geisha",
+      "farm": "Paraiso92",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.8999999999999999,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
       "id": "deepbluelake-581",
       "roasterName": "딥블루레이크",
       "productName": "Single Origin 콜롬비아 리오 네그로 카투라 코퍼먼테이션 (로스팅 10월6일)",
@@ -22755,25 +23737,37 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "coffee502-93",
-      "roasterName": "502커피로스터스",
-      "productName": "502 시그니처 블렌드 1kg",
+      "id": "werk-572",
+      "roasterName": "베르크커피",
+      "productName": "베르크 론리 베이비 블렌드",
       "origin": "Blend",
       "process": "Blend",
       "roastLevel": "확인 필요",
-      "price": 39000,
-      "weight": 1000,
-      "weightLabel": "1kg",
-      "priceLabel": "39,000원",
+      "price": 24000,
+      "weight": 250,
+      "weightLabel": "250g",
+      "priceLabel": "24,000원",
       "priceOptions": [
         {
-          "id": "1000-39000",
-          "price": 39000,
+          "id": "250-24000",
+          "price": 24000,
+          "weight": 250,
+          "priceLabel": "24,000원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "9,600원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-68000",
+          "price": 68000,
           "weight": 1000,
-          "priceLabel": "39,000원",
+          "priceLabel": "68,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "3,900원/100g",
-          "productUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "unitPriceLabel": "6,800원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
@@ -22782,153 +23776,94 @@
       "priceOptionsComplete": true,
       "score": 83,
       "tastingNotes": [
-        "초콜릿",
-        "견과류",
-        "구운빵"
+        "사과",
+        "계피",
+        "호두"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "토스트",
-          "sourceUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "text": "홍옥",
+          "sourceUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "구운 견과",
-          "sourceUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "text": "시나몬",
+          "sourceUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "초콜릿",
-          "sourceUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
+          "text": "호두",
+          "sourceUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
+        },
+        {
+          "text": "홍옥",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260827/Seasonal-Blend-Detailed-Page.png",
+          "method": "image-model",
+          "group": "향미"
+        },
+        {
+          "text": "시나몬",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260827/Seasonal-Blend-Detailed-Page.png",
+          "method": "image-model",
+          "group": "향미"
+        },
+        {
+          "text": "호두",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260827/Seasonal-Blend-Detailed-Page.png",
+          "method": "image-model",
+          "group": "향미"
         }
       ],
-      "productUrl": "https://502coffee.com/product/502-시그니처-블렌드-1kg/93/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/f2f434417230b4e20c5793dfe69a2666.png",
+      "productUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202608/b0b8d47b869e30d4a331b84d7c56479c.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": -0.8666666666666667,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": 0.175,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-154",
-      "roasterName": "502커피로스터스",
-      "productName": "[10월의 커피] 코스타리카 비스타 알 바예 게이샤 허니",
-      "origin": "Costa Rica",
-      "process": "Honey",
-      "roastLevel": "Light",
-      "price": 32300,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "32,300원",
-      "priceOptions": [
-        {
-          "id": "200-32300",
-          "price": 32300,
-          "weight": 200,
-          "priceLabel": "32,300원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "16,150원/100g",
-          "productUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-64600",
-          "price": 64600,
-          "weight": 500,
-          "priceLabel": "64,600원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "12,920원/100g",
-          "productUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 92,
-      "tastingNotes": [
-        "오렌지",
-        "살구",
-        "브라운슈가"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "살구",
-          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "허니",
-          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "브라운슈가",
-          "sourceUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://502coffee.com/product/10월의-커피-코스타리카-비스타-알-바예-게이샤-허니/154/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20261002/28b3c0d1dd4a0defed23763903712087.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "Geisha",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.19999999999999998,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffee502-9",
-      "roasterName": "502커피로스터스",
-      "productName": "CLASSIC 클래식",
+      "id": "werk-161",
+      "roasterName": "베르크커피",
+      "productName": "베르크 베이비 블렌드",
       "origin": "Blend",
       "process": "Blend",
-      "roastLevel": "Medium-Dark",
-      "price": 14000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "14,000원",
+      "roastLevel": "확인 필요",
+      "price": 18000,
+      "weight": 250,
+      "weightLabel": "250g",
+      "priceLabel": "18,000원",
       "priceOptions": [
         {
-          "id": "200-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "id": "250-18000",
+          "price": 18000,
+          "weight": 250,
+          "priceLabel": "18,000원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "7,200원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-베이비-블렌드/161/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "500-28000",
-          "price": 28000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-베이비-블렌드/161/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
@@ -22937,73 +23872,128 @@
       "priceOptionsComplete": true,
       "score": 83,
       "tastingNotes": [
-        "초콜릿",
-        "견과류",
-        "구운빵"
+        "베리",
+        "캐러멜",
+        "브라운슈가",
+        "부드러움"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "토스트",
-          "sourceUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
-          "method": "detail-text"
+          "text": "브라운 슈가",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "향미"
         },
         {
-          "text": "구운 견과",
-          "sourceUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
-          "method": "detail-text"
+          "text": "캐러멜",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "향미"
         },
         {
-          "text": "초콜릿",
-          "sourceUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
-          "method": "detail-text"
+          "text": "베리",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "향미"
+        },
+        {
+          "text": "고소한 브라운슈가와 캐러멜의 부드러운 질감과 풍부한 단맛",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "부드러운 질감과 단맛"
+        },
+        {
+          "text": "약간의 산미",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "약간의 산미"
+        },
+        {
+          "text": "브라질 상 주앙 펄프드 내추럴 40%",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "블렌드",
+          "process": "Pulped Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "온두라스 라스 보티하스 워시드 40%",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "블렌드",
+          "process": "Washed",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "에티오피아 시다마 산타웨네 내추럴 20%",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "블렌드",
+          "process": "Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "좋은 단맛과 바디감",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "로스팅 프로파일"
+        },
+        {
+          "text": "부드러운 질감이 잘 표현되면서 후미에 은은한 베리류의 산미",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "로스팅 프로파일"
         }
       ],
-      "productUrl": "https://502coffee.com/product/classic-클래식/9/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/35834ec60f8ecf47b51abd5396f291eb.png",
+      "productUrl": "https://werk.co.kr/product/베르크-베이비-블렌드/161/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202608/7e9685b488c1e3d79c73688ed4c0c2d8.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": -0.8666666666666667,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": -0.175,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-10",
-      "roasterName": "502커피로스터스",
-      "productName": "WORKERS 워커스",
+      "id": "werk-170",
+      "roasterName": "베르크커피",
+      "productName": "베르크 하우스 블렌드",
       "origin": "Blend",
       "process": "Blend",
-      "roastLevel": "Dark",
-      "price": 16000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "16,000원",
+      "roastLevel": "확인 필요",
+      "price": 18000,
+      "weight": 250,
+      "weightLabel": "250g",
+      "priceLabel": "18,000원",
       "priceOptions": [
         {
-          "id": "200-16000",
-          "price": 16000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "id": "250-18000",
+          "price": 18000,
+          "weight": 250,
+          "priceLabel": "18,000원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "7,200원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "500-32000",
-          "price": 32000,
-          "weight": 500,
-          "priceLabel": "32,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,400원/100g",
-          "productUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "id": "1000-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
@@ -23013,71 +24003,110 @@
       "score": 83,
       "tastingNotes": [
         "다크초콜릿",
-        "브라운슈가"
+        "헤이즐넛"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "다크 초콜릿",
-          "sourceUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "text": "블랙 : 다크 초콜릿",
+          "sourceUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
+          "method": "detail-text"
+        },
+        {
+          "text": "헤이즐넛",
+          "sourceUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
           "text": "카카오",
-          "sourceUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
+          "sourceUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "블랙 슈가",
-          "sourceUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
-          "method": "detail-text"
+          "text": "다크 초콜릿",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "블랙"
+        },
+        {
+          "text": "헤이즐넛",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "블랙"
+        },
+        {
+          "text": "카카오",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "블랙"
+        },
+        {
+          "text": "다크 초콜릿의 풍부한 단맛",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
+          "method": "image-model",
+          "group": "풍부한 단맛"
         }
       ],
-      "productUrl": "https://502coffee.com/product/workers-워커스/10/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/81c6c35a2db01da2ec6311f5cccf455b.png",
+      "productUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202601/d6cdd2d70ef1c1157579a2dff6f13bb7.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": -0.8666666666666667,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-11",
-      "roasterName": "502커피로스터스",
-      "productName": "GENTLE 젠틀",
-      "origin": "Brazil",
-      "process": "확인 필요",
-      "roastLevel": "Medium",
-      "price": 16000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "16,000원",
+      "id": "werk-575",
+      "roasterName": "베르크커피",
+      "productName": "베르크 에티오피아 알로 시다마 벤사 하마쇼 BM 내추럴",
+      "origin": "Ethiopia",
+      "process": "Natural",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 100,
+      "weightLabel": "100g",
+      "priceLabel": "14,000원",
       "priceOptions": [
         {
-          "id": "200-16000",
-          "price": 16000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "id": "100-14000",
+          "price": 14000,
+          "weight": 100,
+          "priceLabel": "14,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "14,000원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "500-32000",
-          "price": 32000,
-          "weight": 500,
-          "priceLabel": "32,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,400원/100g",
-          "productUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "id": "250-28000",
+          "price": 28000,
+          "weight": 250,
+          "priceLabel": "28,000원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "11,200원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1000-82000",
+          "price": 82000,
+          "weight": 1000,
+          "priceLabel": "82,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "8,200원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
@@ -23086,72 +24115,97 @@
       "priceOptionsComplete": true,
       "score": 88,
       "tastingNotes": [
-        "시트러스",
-        "캐러멜"
+        "블루베리",
+        "복숭아",
+        "망고"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "시트러스",
-          "sourceUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "text": "블랙 : 황도",
+          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "캐러멜",
-          "sourceUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "text": "망고",
+          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "좋은 밸런스",
-          "sourceUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
+          "text": "블루베리",
+          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
+        },
+        {
+          "text": "황도",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260917/2025-BlackLetter-Detailed-Page.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "내추럴 Natural"
+        },
+        {
+          "text": "망고",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260917/2025-BlackLetter-Detailed-Page.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "내추럴 Natural"
+        },
+        {
+          "text": "블루베리",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260917/2025-BlackLetter-Detailed-Page.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "내추럴 Natural"
         }
       ],
-      "productUrl": "https://502coffee.com/product/gentle-젠틀/11/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/fa894027add90add2b574d308619e187.png",
+      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202609/f719c29cab861e1e54b6f86bfff95927.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": -0.06666666666666665,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-121",
-      "roasterName": "502커피로스터스",
-      "productName": "BLUES 블루스",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "Medium",
-      "price": 16000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "16,000원",
+      "id": "werk-581",
+      "roasterName": "베르크커피",
+      "productName": "베르크 에티오피아 예가체프 콩가 워시드",
+      "origin": "Ethiopia",
+      "process": "Washed",
+      "roastLevel": "확인 필요",
+      "price": 22500,
+      "weight": 250,
+      "weightLabel": "250g",
+      "priceLabel": "22,500원",
       "priceOptions": [
         {
-          "id": "200-16000",
-          "price": 16000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "id": "250-22500",
+          "price": 22500,
+          "weight": 250,
+          "priceLabel": "22,500원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "500-32000",
-          "price": 32000,
-          "weight": 500,
-          "priceLabel": "32,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,400원/100g",
-          "productUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
+          "id": "1000-61000",
+          "price": 61000,
+          "weight": 1000,
+          "priceLabel": "61,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "6,100원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
@@ -23160,73 +24214,81 @@
       "priceOptionsComplete": true,
       "score": 84,
       "tastingNotes": [
-        "베리",
-        "감귤",
-        "다크초콜릿"
+        "오렌지",
+        "레몬"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "감귤",
-          "sourceUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
-          "method": "detail-text"
+          "text": "레몬",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "워시드 Washed"
         },
         {
-          "text": "베리",
-          "sourceUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
-          "method": "detail-text"
+          "text": "오렌지",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "워시드 Washed"
         },
         {
-          "text": "초콜렛",
-          "sourceUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
-          "method": "detail-text"
+          "text": "케인 슈가",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "워시드 Washed"
         }
       ],
-      "productUrl": "https://502coffee.com/product/blues-블루스/121/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/f0328c0e19c9762d1791bbbf5e31e4ca.png",
+      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202610/3750fcbe03d0ef7cc6334342cb5d61a3.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": 1,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-12",
-      "roasterName": "502커피로스터스",
-      "productName": "WELCOME 웰컴",
-      "origin": "Ethiopia",
-      "process": "확인 필요",
-      "roastLevel": "Medium-Light",
-      "price": 18000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "18,000원",
+      "id": "werk-577",
+      "roasterName": "베르크커피",
+      "productName": "코스타리카 임페리오 로호 카투아이 워시드",
+      "origin": "Costa Rica",
+      "process": "Washed",
+      "roastLevel": "확인 필요",
+      "price": 23000,
+      "weight": 250,
+      "weightLabel": "250g",
+      "priceLabel": "23,000원",
       "priceOptions": [
         {
-          "id": "200-18000",
-          "price": 18000,
-          "weight": 200,
-          "priceLabel": "18,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "id": "250-23000",
+          "price": 23000,
+          "weight": 250,
+          "priceLabel": "23,000원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "9,200원/100g",
+          "productUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "500-36000",
-          "price": 36000,
-          "weight": 500,
-          "priceLabel": "36,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,200원/100g",
-          "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "id": "1000-64000",
+          "price": 64000,
+          "weight": 1000,
+          "priceLabel": "64,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "6,400원/100g",
+          "productUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
@@ -23235,462 +24297,259 @@
       "priceOptionsComplete": true,
       "score": 85,
       "tastingNotes": [
-        "베리",
-        "열대과일",
-        "플로럴"
+        "자몽",
+        "캐러멜",
+        "아몬드"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "플로럴",
-          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "text": "블랙 : 캐러멜",
+          "sourceUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "열대과일",
-          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "text": "구운 아몬드",
+          "sourceUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "베리류",
-          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
+          "text": "자몽",
+          "sourceUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "캔디 같은 단맛",
-          "sourceUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
-          "method": "detail-text"
+          "text": "캐러멜",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260921/copy-1789972788-Costa20Rica20Imperio20Rojo20Catuai20Washed.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "워시드 Washed"
+        },
+        {
+          "text": "구운 아몬드",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260921/copy-1789972788-Costa20Rica20Imperio20Rojo20Catuai20Washed.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "워시드 Washed"
+        },
+        {
+          "text": "자몽",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260921/copy-1789972788-Costa20Rica20Imperio20Rojo20Catuai20Washed.png",
+          "method": "image-model",
+          "group": "향미",
+          "process": "워시드 Washed"
         }
       ],
-      "productUrl": "https://502coffee.com/product/welcome-웰컴/12/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/52005a702da1088fc8442525d3328477.png",
+      "productUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202609/aa5c03eddefd89200efba5dd0592beb0.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": 0.9333333333333332,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": -0.4,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-13",
-      "roasterName": "502커피로스터스",
-      "productName": "[디카페인] PILLOW 필로우",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "Medium-Dark",
-      "price": 18000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "18,000원",
+      "id": "werk-558",
+      "roasterName": "베르크커피",
+      "productName": "베르크 에티오피아 시다마 산타웨네 내추럴 중강배전",
+      "origin": "Ethiopia",
+      "process": "Natural",
+      "roastLevel": "Dark",
+      "price": 21000,
+      "weight": 250,
+      "weightLabel": "250g",
+      "priceLabel": "21,000원",
       "priceOptions": [
         {
-          "id": "200-18000",
-          "price": 18000,
-          "weight": 200,
-          "priceLabel": "18,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "id": "250-21000",
+          "price": 21000,
+          "weight": 250,
+          "priceLabel": "21,000원",
+          "weightLabel": "250g",
+          "unitPriceLabel": "8,400원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "500-36000",
-          "price": 36000,
-          "weight": 500,
-          "priceLabel": "36,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,200원/100g",
-          "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-54000",
-          "price": 54000,
+          "id": "1000-53000",
+          "price": 53000,
           "weight": 1000,
-          "priceLabel": "54,000원",
+          "priceLabel": "53,000원",
           "weightLabel": "1kg",
-          "unitPriceLabel": "5,400원/100g",
-          "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "unitPriceLabel": "5,300원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         }
       ],
       "priceOptionsComplete": true,
-      "score": 84,
+      "score": 86,
       "tastingNotes": [
-        "시트러스",
-        "초콜릿",
-        "캐러멜"
+        "건포도",
+        "말린자두",
+        "초콜릿"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "카라멜",
-          "sourceUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "text": "블랙 : 초콜릿",
+          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "시트러스",
-          "sourceUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
+          "text": "건자두",
+          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
+          "method": "detail-text"
+        },
+        {
+          "text": "건포도",
+          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
           "text": "초콜릿",
-          "sourceUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
-          "method": "detail-text"
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260803/Ethiopia20Sidama20Shantawene20Natural.png",
+          "method": "image-model",
+          "group": "블랙",
+          "process": "내추럴 Natural"
+        },
+        {
+          "text": "건자두",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260803/Ethiopia20Sidama20Shantawene20Natural.png",
+          "method": "image-model",
+          "group": "블랙",
+          "process": "내추럴 Natural"
+        },
+        {
+          "text": "건포도",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260803/Ethiopia20Sidama20Shantawene20Natural.png",
+          "method": "image-model",
+          "group": "블랙",
+          "process": "내추럴 Natural"
         }
       ],
-      "productUrl": "https://502coffee.com/product/디카페인-pillow-필로우/13/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20240521/e3903301e406b3b9b39b56c331e2a42a.png",
+      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202608/df1c924297ea2581e05cc4ca97a00a5b.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
       "variety": "",
       "farm": "",
       "blendComposition": [],
       "tasteScale": null,
       "unitPriceLabel": "",
-      "acidityScore": -0.36,
-      "acidityScoreSource": "tastingNotes"
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
-      "id": "coffee502-184",
-      "roasterName": "502커피로스터스",
-      "productName": "에티오피아 예가체프 게뎁 초르소 워시드",
-      "origin": "Ethiopia",
-      "process": "Washed",
-      "roastLevel": "Light",
-      "price": 22000,
+      "id": "werk-545",
+      "roasterName": "베르크커피",
+      "productName": "베르크 디카페인 E.A 콜롬비아 핀카 참바쿠",
+      "origin": "Colombia",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 21000,
       "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "22,000원",
-      "priceOptions": [
-        {
-          "id": "200-22000",
-          "price": 22000,
-          "weight": 200,
-          "priceLabel": "22,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "11,000원/100g",
-          "productUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-44000",
-          "price": 44000,
-          "weight": 500,
-          "priceLabel": "44,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "8,800원/100g",
-          "productUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [
-        "레몬",
-        "살구",
-        "청포도",
-        "베르가못",
-        "라벤더"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "베르가못",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "라벤더",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "청포도",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "살구",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "레몬",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://502coffee.com/product/에티오피아-예가체프-게뎁-초르소-워시드/184/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20260801/e3fcbaca749214a70ec5369ab9dcbc10.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "74110, Kurume",
-      "farm": "Gedeb",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.9199999999999999,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffee502-185",
-      "roasterName": "502커피로스터스",
-      "productName": "에티오피아 시다마 벤사 하마쇼 내추럴",
-      "origin": "Ethiopia",
-      "process": "Natural",
-      "roastLevel": "Light",
-      "price": 22000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "22,000원",
-      "priceOptions": [
-        {
-          "id": "200-22000",
-          "price": 22000,
-          "weight": 200,
-          "priceLabel": "22,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "11,000원/100g",
-          "productUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-44000",
-          "price": 44000,
-          "weight": 500,
-          "priceLabel": "44,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "8,800원/100g",
-          "productUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [
-        "파인애플",
-        "쥬시",
-        "감귤",
-        "와이니"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "파인애플",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "감귤",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "쥬시",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "와이니",
-          "sourceUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://502coffee.com/product/에티오피아-시다마-벤사-하마쇼-내추럴/185/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20261002/eb56ab995703e5f4dc661314bfd45c99.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "74158",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.7,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffee502-178",
-      "roasterName": "502커피로스터스",
-      "productName": "[디카페인] 에티오피아 예가체프 할로 베리티 내추럴",
-      "origin": "Ethiopia",
-      "process": "Natural / Mountain Water Decaf",
-      "roastLevel": "Medium",
-      "price": 19000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "19,000원",
-      "priceOptions": [
-        {
-          "id": "200-19000",
-          "price": 19000,
-          "weight": 200,
-          "priceLabel": "19,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,500원/100g",
-          "productUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500-38000",
-          "price": 38000,
-          "weight": 500,
-          "priceLabel": "38,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,600원/100g",
-          "productUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
+      "priceOptionsComplete": false,
       "score": 84,
       "tastingNotes": [
-        "블루베리",
-        "복숭아",
-        "포도",
-        "사탕수수"
+        "다크초콜릿",
+        "군고구마"
       ],
       "tastingNoteEvidence": [
         {
-          "text": "복숭아",
-          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "text": "블랙 : 다크 초콜릿",
+          "sourceUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "포도",
-          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "text": "카카오",
+          "sourceUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "블루베리",
-          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
+          "text": "군고구마",
+          "sourceUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
           "method": "detail-text"
         },
         {
-          "text": "사탕수수",
-          "sourceUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
-          "method": "detail-text"
+          "text": "다크 초콜릿",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260625/26Decaf.png",
+          "method": "image-model",
+          "group": "블랙",
+          "process": "워시드, 디카페 E.A Washed, Decaf E.A"
+        },
+        {
+          "text": "카카오",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260625/26Decaf.png",
+          "method": "image-model",
+          "group": "블랙",
+          "process": "워시드, 디카페 E.A Washed, Decaf E.A"
+        },
+        {
+          "text": "군고구마",
+          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260625/26Decaf.png",
+          "method": "image-model",
+          "group": "블랙",
+          "process": "워시드, 디카페 E.A Washed, Decaf E.A"
         }
       ],
-      "productUrl": "https://502coffee.com/product/디카페인-에티오피아-예가체프-할로-베리티-내추럴/178/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20260329/db0a454c8139279326d33e292e4e2e9a.png",
+      "productUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
+      "imageUrl": "https://www.werk.co.kr/web/product/medium/202606/221270565f7742f63f8142187c49a071.png",
       "isSoldOut": false,
       "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "Ethiopian Heirloom",
-      "farm": "Yirgacheffe, Gedeo",
+      "lastCheckedAt": "갱신 실패 · 20분 전 정보",
+      "checkedMinutesAgo": 20,
+      "variety": "",
+      "farm": "",
       "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "coffee502-182",
-      "roasterName": "502커피로스터스",
-      "productName": "콜롬비아 카우카 파라이소92 게이샤 100g",
-      "origin": "Colombia",
-      "process": "Anaerobic Washed",
-      "roastLevel": "Light",
-      "price": 21000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "21,000원",
+      "roasterPreservedReason": "수집 실패로 이전 데이터 유지",
       "priceOptions": [
         {
-          "id": "100-21000",
+          "id": "250-21000",
           "price": 21000,
-          "weight": 100,
+          "weight": 250,
           "priceLabel": "21,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "21,000원/100g",
-          "productUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "weightLabel": "250g",
+          "unitPriceLabel": "8,400원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         },
         {
-          "id": "200-42000",
-          "price": 42000,
-          "weight": 200,
-          "priceLabel": "42,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "21,000원/100g",
-          "productUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
+          "id": "1000-53000",
+          "price": 53000,
+          "weight": 1000,
+          "priceLabel": "53,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,300원/100g",
+          "productUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
           "originalPriceLabel": "",
           "discountRate": 0,
           "discountLabel": ""
         }
       ],
-      "priceOptionsComplete": true,
-      "score": 92,
-      "tastingNotes": [
-        "피치",
-        "망고스틴",
-        "로즈",
-        "엘더플라워"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "로즈",
-          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "엘더플라워",
-          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "피치",
-          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
-          "method": "detail-text"
-        },
-        {
-          "text": "망고스틴",
-          "sourceUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://502coffee.com/product/콜롬비아-카우카-파라이소92-게이샤-100g/182/category/24/display/1/",
-      "imageUrl": "https://ecimg.cafe24img.com/pg514b21282409045/coffee502com/web/product/medium/20260705/117994f256a1f844e3fe463045f379ac.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "Geisha",
-      "farm": "Paraiso92",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.8999999999999999,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "officialDetailPreservedAt": "2026-10-07T12:34:37.026Z",
+      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z",
+      "isStale": true,
+      "lastObservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
       "id": "fritz-2099",
@@ -24197,7 +25056,7 @@
       "id": "momos-7450",
       "roasterName": "모모스커피",
       "productName": "원두 파나마 알티에리 로라 카투아이 ASD 내추럴",
-      "origin": "Panama",
+      "origin": "org,",
       "process": "Natural",
       "roastLevel": "확인 필요",
       "price": 26000,
@@ -24271,9 +25130,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": -1,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T07:03:50.108Z"
+      "acidityScore": -0.19999999999999998,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-7449",
@@ -24500,8 +25358,16 @@
       "roastLevel": "확인 필요",
       "price": 15000,
       "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "15,000원",
+      "priceOptionsComplete": false,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://momos.co.kr/shop_view/2486",
+      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/f6750771684ac.png?w=800",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
       "priceOptions": [
         {
           "id": "200-15000",
@@ -24540,19 +25406,9 @@
           "discountLabel": ""
         }
       ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://momos.co.kr/shop_view/2486",
-      "imageUrl": "https://cdn-optimized.imweb.me/upload/S2026022396690869a4918/f6750771684ac.png?w=800",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "unitPriceLabel": "",
       "acidityScore": -0.6,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "officialDetailPreservedAt": "2026-10-07T23:44:25.039Z"
     },
     {
       "id": "momos-7378",
@@ -24597,7 +25453,7 @@
       "id": "momos-2487",
       "roasterName": "모모스커피",
       "productName": "원두 프루티봉봉",
-      "origin": "org,",
+      "origin": "확인 필요",
       "process": "확인 필요",
       "roastLevel": "확인 필요",
       "price": 15000,
@@ -24679,13 +25535,14 @@
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-10-08T00:04:07.588Z"
     },
     {
       "id": "momos-7379",
       "roasterName": "모모스커피",
       "productName": "원두 프루티봉봉 1kg 대용량",
-      "origin": "org,",
+      "origin": "확인 필요",
       "process": "확인 필요",
       "roastLevel": "확인 필요",
       "price": 48000,
@@ -24743,7 +25600,8 @@
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
       "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
+      "acidityScoreSource": "tastingNotes",
+      "tastingNotesPreservedAt": "2026-10-08T00:04:07.588Z"
     },
     {
       "id": "momos-3058",
@@ -24903,7 +25761,7 @@
       "id": "momos-3658",
       "roasterName": "모모스커피",
       "productName": "원두 므쵸베리",
-      "origin": "확인 필요",
+      "origin": "org,",
       "process": "확인 필요",
       "roastLevel": "확인 필요",
       "price": 16000,
@@ -24978,9 +25836,8 @@
       "lastCheckedAt": "방금 전",
       "checkedMinutesAgo": 0,
       "unitPriceLabel": "",
-      "acidityScore": 0.4666666666666666,
-      "acidityScoreSource": "tastingNotes",
-      "tastingNotesPreservedAt": "2026-10-07T05:03:25.832Z"
+      "acidityScore": 0.6,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "momos-7381",
@@ -25045,7 +25902,7 @@
       "id": "momos-7375",
       "roasterName": "모모스커피",
       "productName": "원두 에티오피아 사포 모스토 무산소 내추럴",
-      "origin": "org,",
+      "origin": "Ethiopia",
       "process": "Anaerobic Natural",
       "roastLevel": "확인 필요",
       "price": 17000,
@@ -25079,797 +25936,6 @@
       "unitPriceLabel": "",
       "acidityScore": -0.6,
       "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-572",
-      "roasterName": "베르크커피",
-      "productName": "베르크 론리 베이비 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 24000,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "24,000원",
-      "priceOptions": [
-        {
-          "id": "250-24000",
-          "price": 24000,
-          "weight": 250,
-          "priceLabel": "24,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "9,600원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-68000",
-          "price": 68000,
-          "weight": 1000,
-          "priceLabel": "68,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "6,800원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [
-        "사과",
-        "계피",
-        "호두"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "홍옥",
-          "sourceUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "시나몬",
-          "sourceUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "호두",
-          "sourceUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "홍옥",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260827/Seasonal-Blend-Detailed-Page.png",
-          "method": "image-model",
-          "group": "향미"
-        },
-        {
-          "text": "시나몬",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260827/Seasonal-Blend-Detailed-Page.png",
-          "method": "image-model",
-          "group": "향미"
-        },
-        {
-          "text": "호두",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260827/Seasonal-Blend-Detailed-Page.png",
-          "method": "image-model",
-          "group": "향미"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-론리-베이비-블렌드/572/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202608/b0b8d47b869e30d4a331b84d7c56479c.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.175,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-161",
-      "roasterName": "베르크커피",
-      "productName": "베르크 베이비 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 18000,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "18,000원",
-      "priceOptions": [
-        {
-          "id": "250-18000",
-          "price": 18000,
-          "weight": 250,
-          "priceLabel": "18,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "7,200원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-베이비-블렌드/161/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-베이비-블렌드/161/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [
-        "베리",
-        "캐러멜",
-        "브라운슈가",
-        "부드러움"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "브라운 슈가",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "향미"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "향미"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "향미"
-        },
-        {
-          "text": "고소한 브라운슈가와 캐러멜의 부드러운 질감과 풍부한 단맛",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "부드러운 질감과 단맛"
-        },
-        {
-          "text": "약간의 산미",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "약간의 산미"
-        },
-        {
-          "text": "브라질 상 주앙 펄프드 내추럴 40%",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "블렌드",
-          "process": "Pulped Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "온두라스 라스 보티하스 워시드 40%",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "블렌드",
-          "process": "Washed",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "에티오피아 시다마 산타웨네 내추럴 20%",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "블렌드",
-          "process": "Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "좋은 단맛과 바디감",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "로스팅 프로파일"
-        },
-        {
-          "text": "부드러운 질감이 잘 표현되면서 후미에 은은한 베리류의 산미",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260804/BABY-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "로스팅 프로파일"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-베이비-블렌드/161/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202608/7e9685b488c1e3d79c73688ed4c0c2d8.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": -0.175,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-170",
-      "roasterName": "베르크커피",
-      "productName": "베르크 하우스 블렌드",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 18000,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "18,000원",
-      "priceOptions": [
-        {
-          "id": "250-18000",
-          "price": 18000,
-          "weight": 250,
-          "priceLabel": "18,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "7,200원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [
-        "다크초콜릿",
-        "헤이즐넛"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙 : 다크 초콜릿",
-          "sourceUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "헤이즐넛",
-          "sourceUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "카카오",
-          "sourceUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "다크 초콜릿",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "블랙"
-        },
-        {
-          "text": "헤이즐넛",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "블랙"
-        },
-        {
-          "text": "카카오",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "블랙"
-        },
-        {
-          "text": "다크 초콜릿의 풍부한 단맛",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260102/HAUS-Blend-Detailed-Page-_29cm.png",
-          "method": "image-model",
-          "group": "풍부한 단맛"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-하우스-블렌드/170/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202601/d6cdd2d70ef1c1157579a2dff6f13bb7.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": -0.8666666666666667,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-575",
-      "roasterName": "베르크커피",
-      "productName": "베르크 에티오피아 알로 시다마 벤사 하마쇼 BM 내추럴",
-      "origin": "Ethiopia",
-      "process": "Natural",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "14,000원",
-      "priceOptions": [
-        {
-          "id": "100-14000",
-          "price": 14000,
-          "weight": 100,
-          "priceLabel": "14,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "14,000원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "250-28000",
-          "price": 28000,
-          "weight": 250,
-          "priceLabel": "28,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "11,200원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-82000",
-          "price": 82000,
-          "weight": 1000,
-          "priceLabel": "82,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "8,200원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [
-        "블루베리",
-        "복숭아",
-        "망고"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙 : 황도",
-          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "망고",
-          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "황도",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260917/2025-BlackLetter-Detailed-Page.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "내추럴 Natural"
-        },
-        {
-          "text": "망고",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260917/2025-BlackLetter-Detailed-Page.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "내추럴 Natural"
-        },
-        {
-          "text": "블루베리",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260917/2025-BlackLetter-Detailed-Page.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "내추럴 Natural"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-알로-시다마-벤사-하마쇼-bm-내추럴/575/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202609/f719c29cab861e1e54b6f86bfff95927.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-581",
-      "roasterName": "베르크커피",
-      "productName": "베르크 에티오피아 예가체프 콩가 워시드",
-      "origin": "Ethiopia",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 22500,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "22,500원",
-      "priceOptions": [
-        {
-          "id": "250-22500",
-          "price": 22500,
-          "weight": 250,
-          "priceLabel": "22,500원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-61000",
-          "price": 61000,
-          "weight": 1000,
-          "priceLabel": "61,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "6,100원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 84,
-      "tastingNotes": [
-        "오렌지",
-        "레몬"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "레몬",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        },
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        },
-        {
-          "text": "케인 슈가",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202610/3750fcbe03d0ef7cc6334342cb5d61a3.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 1,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-577",
-      "roasterName": "베르크커피",
-      "productName": "코스타리카 임페리오 로호 카투아이 워시드",
-      "origin": "Costa Rica",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 23000,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "23,000원",
-      "priceOptions": [
-        {
-          "id": "250-23000",
-          "price": 23000,
-          "weight": 250,
-          "priceLabel": "23,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "9,200원/100g",
-          "productUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-64000",
-          "price": 64000,
-          "weight": 1000,
-          "priceLabel": "64,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "6,400원/100g",
-          "productUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 85,
-      "tastingNotes": [
-        "자몽",
-        "캐러멜",
-        "아몬드"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙 : 캐러멜",
-          "sourceUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "구운 아몬드",
-          "sourceUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "자몽",
-          "sourceUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260921/copy-1789972788-Costa20Rica20Imperio20Rojo20Catuai20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        },
-        {
-          "text": "구운 아몬드",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260921/copy-1789972788-Costa20Rica20Imperio20Rojo20Catuai20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        },
-        {
-          "text": "자몽",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260921/copy-1789972788-Costa20Rica20Imperio20Rojo20Catuai20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/코스타리카-임페리오-로호-카투아이-워시드/577/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202609/aa5c03eddefd89200efba5dd0592beb0.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": -0.4,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-558",
-      "roasterName": "베르크커피",
-      "productName": "베르크 에티오피아 시다마 산타웨네 내추럴 중강배전",
-      "origin": "Ethiopia",
-      "process": "Natural",
-      "roastLevel": "Dark",
-      "price": 21000,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "21,000원",
-      "priceOptions": [
-        {
-          "id": "250-21000",
-          "price": 21000,
-          "weight": 250,
-          "priceLabel": "21,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "8,400원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-53000",
-          "price": 53000,
-          "weight": 1000,
-          "priceLabel": "53,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,300원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 86,
-      "tastingNotes": [
-        "건포도",
-        "말린자두",
-        "초콜릿"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙 : 초콜릿",
-          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "건자두",
-          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "건포도",
-          "sourceUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260803/Ethiopia20Sidama20Shantawene20Natural.png",
-          "method": "image-model",
-          "group": "블랙",
-          "process": "내추럴 Natural"
-        },
-        {
-          "text": "건자두",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260803/Ethiopia20Sidama20Shantawene20Natural.png",
-          "method": "image-model",
-          "group": "블랙",
-          "process": "내추럴 Natural"
-        },
-        {
-          "text": "건포도",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260803/Ethiopia20Sidama20Shantawene20Natural.png",
-          "method": "image-model",
-          "group": "블랙",
-          "process": "내추럴 Natural"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-시다마-산타웨네-내추럴-중강배전/558/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202608/df1c924297ea2581e05cc4ca97a00a5b.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.6,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "werk-545",
-      "roasterName": "베르크커피",
-      "productName": "베르크 디카페인 E.A 콜롬비아 핀카 참바쿠",
-      "origin": "Colombia",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 21000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 84,
-      "tastingNotes": [
-        "다크초콜릿",
-        "군고구마"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "블랙 : 다크 초콜릿",
-          "sourceUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "카카오",
-          "sourceUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "군고구마",
-          "sourceUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "method": "detail-text"
-        },
-        {
-          "text": "다크 초콜릿",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260625/26Decaf.png",
-          "method": "image-model",
-          "group": "블랙",
-          "process": "워시드, 디카페 E.A Washed, Decaf E.A"
-        },
-        {
-          "text": "카카오",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260625/26Decaf.png",
-          "method": "image-model",
-          "group": "블랙",
-          "process": "워시드, 디카페 E.A Washed, Decaf E.A"
-        },
-        {
-          "text": "군고구마",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20260625/26Decaf.png",
-          "method": "image-model",
-          "group": "블랙",
-          "process": "워시드, 디카페 E.A Washed, Decaf E.A"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://www.werk.co.kr/web/product/medium/202606/221270565f7742f63f8142187c49a071.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "priceOptions": [
-        {
-          "id": "250-21000",
-          "price": 21000,
-          "weight": 250,
-          "priceLabel": "21,000원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "8,400원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-53000",
-          "price": 53000,
-          "weight": 1000,
-          "priceLabel": "53,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,300원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-디카페인-ea-콜롬비아-핀카-참바쿠/545/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "officialDetailPreservedAt": "2026-10-07T12:34:37.026Z",
-      "tastingNotesPreservedAt": "2026-10-07T23:44:25.039Z"
     }
   ],
   "quality": {
@@ -25952,9 +26018,9 @@
     "preservedRoasters": [],
     "preservedRoasterProductCount": 0,
     "preservedDiscountCount": 1,
-    "preservedOfficialDetailCount": 2,
-    "preservedTastingNoteCount": 20,
-    "staleProductCount": 0,
+    "preservedOfficialDetailCount": 3,
+    "preservedTastingNoteCount": 16,
+    "staleProductCount": 8,
     "collectionRuns": [
       {
         "sourceId": "identity",
@@ -26041,17 +26107,17 @@
         "usedFallback": false
       },
       {
-        "sourceId": "hellcafe",
-        "roasterName": "헬카페",
-        "status": "complete",
-        "itemCount": 7,
-        "usedFallback": false
-      },
-      {
         "sourceId": "coffeelibre",
         "roasterName": "커피리브레",
         "status": "complete",
         "itemCount": 18,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "hellcafe",
+        "roasterName": "헬카페",
+        "status": "complete",
+        "itemCount": 7,
         "usedFallback": false
       },
       {
@@ -26069,6 +26135,13 @@
         "usedFallback": false
       },
       {
+        "sourceId": "coffee502",
+        "roasterName": "502커피로스터스",
+        "status": "complete",
+        "itemCount": 12,
+        "usedFallback": false
+      },
+      {
         "sourceId": "deepbluelake",
         "roasterName": "딥블루레이크",
         "status": "complete",
@@ -26076,11 +26149,11 @@
         "usedFallback": false
       },
       {
-        "sourceId": "coffee502",
-        "roasterName": "502커피로스터스",
-        "status": "complete",
-        "itemCount": 12,
-        "usedFallback": false
+        "sourceId": "werk",
+        "roasterName": "베르크커피",
+        "status": "failed",
+        "itemCount": 8,
+        "usedFallback": true
       },
       {
         "sourceId": "fritz",
@@ -26094,13 +26167,6 @@
         "roasterName": "모모스커피",
         "status": "complete",
         "itemCount": 13,
-        "usedFallback": false
-      },
-      {
-        "sourceId": "werk",
-        "roasterName": "베르크커피",
-        "status": "complete",
-        "itemCount": 8,
         "usedFallback": false
       }
     ]
