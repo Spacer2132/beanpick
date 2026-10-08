@@ -640,6 +640,7 @@ a {
 }
 
 .bean-card {
+  position: relative;
   display: flex;
   min-height: 100%;
   flex-direction: column;
@@ -811,6 +812,21 @@ a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* 카드 어디를 눌러도 상세가 열리도록 제목 버튼의 누르는 영역을 카드 전체로 넓힌다. 하트(z-index 2)만 그 위에 남는다. */
+.bean-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* 사진 위 배지는 장식이라 누름을 막지 않게 한다. */
+.bean-image b,
+.bean-image .event-ribbon,
+.bean-image .soldout-ribbon {
+  pointer-events: none;
 }
 
 .bean-title-unit-price {
@@ -1674,12 +1690,70 @@ a {
   font-size: 18px;
 }
 
+/* 상세창이 길어도 관심 저장·상품 페이지 버튼은 화면 아래에 붙어 있게 한다. */
 .modal-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
-  padding-top: 16px;
+  padding: 16px 0 12px;
   border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.sold-out-note {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.roaster-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.roaster-row {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.roaster-row:last-child {
+  border-bottom: 0;
+}
+
+.roaster-row strong {
+  font-size: 16px;
+}
+
+.roaster-row span {
+  flex: none;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.roaster-row:hover:not(:disabled) strong {
+  color: var(--accent);
+}
+
+.roaster-row:disabled {
+  cursor: default;
+  opacity: 0.6;
 }
 
 .spark {
@@ -2120,10 +2194,11 @@ a {
   }
 
   /* 폰에서는 정렬 버튼을 감싸던 큰 알약 배경을 없애고, 버튼마다 개별 칩으로 보여 2줄로 넘어가도 깔끔하게 한다. */
+  /* 정렬 칩은 위 제목과 같은 왼쪽 줄에 맞춘다. */
   .sort-actions {
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 8px;
     padding: 0;
     border: 0;
@@ -2134,7 +2209,7 @@ a {
   .sort-row {
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
   }
 
@@ -2156,9 +2231,15 @@ a {
     box-shadow: none;
   }
 
+  /* 폰에서는 바깥 여백을 당겨오는 음수 margin 때문에 화면이 옆으로 넘쳐서 0으로 둔다. */
   .results-toolbar {
     position: static;
     z-index: auto;
+    margin: 0 0 16px;
+    padding: 0 0 12px;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
   }
 
   .filter-panel.is-collapsed {
@@ -2272,6 +2353,13 @@ a {
     font-size: 18px;
   }
 
+  /* 보이는 크기는 34px 그대로 두고, 손가락으로 누르는 영역만 44px로 넓힌다. */
+  .image-favorite-btn::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+  }
+
   .bean-content {
     padding: 11px 11px 8px;
   }
@@ -2307,7 +2395,7 @@ a {
   }
 
   /* 좁은 카드에서는 맛 노트를 한 줄만 보여주고 나머지는 숨긴다(상세창에서 전부 확인 가능). */
-  .notes {
+  .bean-card .notes {
     max-height: 30px;
     gap: 6px;
     overflow: hidden;
@@ -2359,6 +2447,22 @@ a {
 
   .bean-footer .bean-price-unit .bean-price-unit-suffix::before {
     content: "/";
+  }
+
+  /* 폰 상세창: 보조 버튼은 반씩 나눠 한 줄, '상품 페이지 열기'는 아래 한 줄 전체로 해 고정 버튼 줄이 두 줄을 넘지 않게 한다. */
+  .modal-actions {
+    gap: 8px;
+  }
+
+  .modal-actions .btn {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+    padding: 0 8px;
+    white-space: nowrap;
+  }
+
+  .modal-actions .btn-primary {
+    flex-basis: 100%;
   }
 
   /* 카드에서는 단가를 가격 박스 오른쪽에 보이게 하고, 상세 모달에서만 폰 폭에서 숨긴다. */

@@ -219,7 +219,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
     ['품종', displayInfo.variety],
     ['농장', displayInfo.farm],
     ['로스팅', getDisplayRoastLevel(product) || product.roastLevel],
-  ].filter(([, value]) => Boolean(value));
+  ].filter(([, value]) => Boolean(value) && value !== '확인 필요'); // 수집 단계의 '확인 필요'는 손님에게 보이지 않게 줄째 숨긴다.
 
   return (
     <div className="modal-overlay" role="dialog" aria-modal="true" aria-label={`${product.productName} 상세 정보`} onClick={onClose}>
@@ -270,7 +270,8 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
                 {getDisplayTastingNotes(product).map((note) => <span className="note-tag is-static" key={note}>{note}</span>)}
               </div>
             )}
-            {getPendingTastingNotes(product).length > 0 && (
+            {/* 검수용 원문 링크는 PC 운영 앱에서만 보여준다. */}
+            {canLoadLiveProducts() && getPendingTastingNotes(product).length > 0 && (
               <p className="modal-original-name">
                 확인할 원문: {getPendingTastingNotes(product).map((entry, index) => (
                   <React.Fragment key={`${entry.sourceUrl}-${entry.group || ''}-${entry.text}`}>
@@ -288,26 +289,16 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
             <h3>가격</h3>
           </div>
           <div className="bean-price-options">
-            {priceOptions.map((option) => {
-              const hasOptionLink = isRealProductUrl(option.productUrl);
-              const PriceOptionTag = hasOptionLink ? 'a' : 'div';
-
-              return (
-                <PriceOptionTag
-                  className={`bean-price-option ${hasOptionLink ? 'is-link' : ''}`}
-                  key={option.id}
-                  href={hasOptionLink ? resolveProductOpenUrl(option.productUrl, product) : undefined}
-                  target={hasOptionLink ? '_blank' : undefined}
-                  rel={hasOptionLink ? 'noreferrer' : undefined}
-                >
-                  {option.originalPriceLabel && <del>{option.originalPriceLabel}</del>}
-                  <strong>{option.priceLabel}</strong>
-                  {option.discountLabel && <small>{option.discountLabel}</small>}
-                  <span>{option.weightLabel}</span>
-                  {option.unitPriceLabel && option.unitPriceLabel.split('/')[0]?.trim() !== option.priceLabel?.trim() && <em>{option.unitPriceLabel}</em>}
-                </PriceOptionTag>
-              );
-            })}
+            {priceOptions.map((option) => (
+              // 가격 옵션은 쇼핑몰로 바로 나가지 않는다. 쇼핑몰 이동은 아래 '상품 페이지 열기' 버튼에서만 한다.
+              <div className="bean-price-option" key={option.id}>
+                {option.originalPriceLabel && <del>{option.originalPriceLabel}</del>}
+                <strong>{option.priceLabel}</strong>
+                {option.discountLabel && <small>{option.discountLabel}</small>}
+                <span>{option.weightLabel}</span>
+                {option.unitPriceLabel && option.unitPriceLabel.split('/')[0]?.trim() !== option.priceLabel?.trim() && <em>{option.unitPriceLabel}</em>}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -348,7 +339,7 @@ function getBestUnitPriceLabel(product, priceOptions) {
   return candidates[0]?.label || '';
 }
 
-function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSelect, onToggleFavorite, tasteAxis }) {
+function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleFavorite, tasteAxis }) {
   const hasImage = Boolean(product.imageUrl);
   const detailLabel = `${product.roasterName} ${product.productName} 상세 보기`;
   const metaItems = [product.roasterName].filter(Boolean);
@@ -407,11 +398,11 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
         )}
         {(getDisplayTastingNotes(product).length > 0 || showTasteInfoMissing) && (
           <div className="notes">
+            {/* 카드 안 노트는 눌러도 상세가 열리도록 글자로만 보여주고, 상세검색에서 고른 노트만 강조한다. */}
             {getDisplayTastingNotes(product).map((note) => {
               const filterNote = normalizeTastingNotes([note]).find((tag) => product.tastingNotes.includes(tag));
-              return filterNote
-                ? <NoteTag key={note} note={note} active={activeNotes.includes(filterNote)} onClick={() => onNoteClick(filterNote)} />
-                : <span className="note-tag is-static" key={note}>{note}</span>;
+              const isActive = Boolean(filterNote) && activeNotes.includes(filterNote);
+              return <span className={`note-tag is-static ${isActive ? 'active' : ''}`} key={note}>{note}</span>;
             })}
             {showTasteInfoMissing && <span className="note-tag is-static taste-missing-note">맛정보 없음</span>}
           </div>
@@ -420,21 +411,13 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
       <div className="bean-footer">
         <div className="bean-price-options">
           {cardPriceOptions.map((option) => {
-            const hasOptionLink = isRealProductUrl(option.productUrl);
-            const PriceOptionTag = hasOptionLink ? 'a' : 'div';
             const [unitPriceValue, unitPriceSuffix] = option.unitPriceLabel ? option.unitPriceLabel.split('/') : [];
             // 100g 상품은 가격과 100g당 단가가 같은 숫자라 중복이므로 단가를 숨긴다.
             const showUnitPrice = Boolean(option.unitPriceLabel) && unitPriceValue?.trim() !== option.priceLabel?.trim();
 
+            // 카드의 가격 상자는 쇼핑몰로 바로 나가지 않는다. 쇼핑몰 이동은 상세창의 상품 페이지 버튼에서만 한다.
             return (
-              <PriceOptionTag
-                className={`bean-price-option ${hasOptionLink ? 'is-link' : ''}`}
-                key={option.id}
-                href={hasOptionLink ? resolveProductOpenUrl(option.productUrl, product) : undefined}
-                target={hasOptionLink ? '_blank' : undefined}
-                rel={hasOptionLink ? 'noreferrer' : undefined}
-                aria-label={hasOptionLink ? `${product.productName} ${option.weightLabel} 상품 열기` : undefined}
-              >
+              <div className="bean-price-option" key={option.id}>
                 <div className="bean-price-main">
                   {option.originalPriceLabel && <del>{option.originalPriceLabel}</del>}
                   <strong>{option.priceLabel}</strong>
@@ -459,7 +442,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, onNoteClick, onSele
                     </>
                   )}
                 </em>
-              </PriceOptionTag>
+              </div>
             );
           })}
         </div>
@@ -485,7 +468,7 @@ function ChangeList({ changes }) {
   );
 }
 
-function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.', favoriteIds, products, onNoteClick, onSelect, onToggleFavorite, tasteAxis }) {
+function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.', favoriteIds, products, onSelect, onToggleFavorite, tasteAxis }) {
   if (products.length === 0) {
     return <div className="empty-result">{emptyMessage}</div>;
   }
@@ -498,7 +481,6 @@ function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 �
           product={product}
           activeNotes={activeNotes}
           isFavorite={favoriteIds.includes(product.id)}
-          onNoteClick={onNoteClick}
           onSelect={onSelect}
           onToggleFavorite={onToggleFavorite}
           tasteAxis={tasteAxis}
@@ -567,6 +549,45 @@ function SourcesPage({ monitorSummary, onSaveSnapshot }) {
           <ChangeList changes={monitorSummary.changes} />
         </aside>
       </div>
+    </div>
+  );
+}
+
+// 아이폰 웹앱 손님용 로스터리 목록: 판매 중 원두 수만 보여주고, 누르면 그 로스터리 원두 목록으로 간다.
+function RoasterListPage({ products, onSelectRoaster }) {
+  const rows = roasterySources
+    .map((source) => ({
+      id: source.id,
+      name: source.roasterName,
+      count: products.filter((product) => product.roasterName === source.roasterName).length,
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  return (
+    <div className="page-stack">
+      <header className="page-head compact">
+        <div>
+          <h1>로스터리</h1>
+          <p>{rows.length}곳 · 판매 중인 원두 {products.length}개</p>
+        </div>
+      </header>
+
+      <section className="panel">
+        <div className="roaster-list">
+          {rows.map((row) => (
+            <button
+              className="roaster-row"
+              type="button"
+              key={row.id}
+              disabled={row.count === 0}
+              onClick={() => onSelectRoaster(row.name)}
+            >
+              <strong>{row.name}</strong>
+              <span>{row.count > 0 ? `판매 중 ${row.count}개` : '지금 판매 중인 원두 없음'}</span>
+            </button>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
@@ -728,12 +749,21 @@ export default function App() {
 
   const products = React.useMemo(() => normalizeProducts(baseProducts), [baseProducts]);
   const discountProducts = React.useMemo(() => filterDiscountProducts(products), [products]);
+  // 품절·분쇄 원두를 뺀 "판매 중" 원두. 탭 배지·원두 목록·지도가 모두 이 기준으로 센다.
+  const availableProducts = React.useMemo(() => (
+    products.filter((product) => !product.isSoldOut && !isGroundCoffeeProduct(product))
+  ), [products]);
 
-  const navItems = React.useMemo(() => NAV.map((item) => {
-    if (item.id === 'products') return { ...item, badge: products.length };
-    if (item.id === 'alerts') return { ...item, badge: favoriteIds.length };
-    return item;
-  }), [favoriteIds.length, products.length]);
+  // 앱 상태 탭은 운영용이라 PC 앱에서만 보여주고, 아이폰 웹앱에서는 숨긴다.
+  const navItems = React.useMemo(() => NAV
+    .filter((item) => item.id !== 'server' || canLoadLiveProducts())
+    .map((item) => {
+      if (item.id === 'products') return { ...item, badge: availableProducts.length };
+      // 아이폰 웹앱에서는 앱 상태 탭이 없어 로스터리 혼자 '데이터' 그룹에 남지 않게 둘러보기로 옮긴다.
+      if (item.id === 'sources' && !canLoadLiveProducts()) return { ...item, group: '둘러보기' };
+      if (item.id === 'alerts') return { ...item, badge: favoriteIds.length };
+      return item;
+    }), [favoriteIds.length, availableProducts.length]);
 
   const groups = navItems.reduce((acc, item) => {
     acc[item.group] = acc[item.group] || [];
@@ -752,12 +782,10 @@ export default function App() {
     return products.filter((product) => favoriteIds.includes(product.id));
   }, [favoriteIds, products]);
 
-  // 검색·노트·할인·디카페인·원산지·가공·가격 조건을 적용하고, 품절 원두는 목록에서 제외한다.
+  // 판매 중 원두에 검색·노트·할인·디카페인·원산지·가공·가격 조건을 적용한다.
   const visibleProducts = React.useMemo(() => (
-    products.filter((product) => (
-      !product.isSoldOut
-      && !isGroundCoffeeProduct(product)
-      && matchesDetailQuery(product, searchQuery)
+    availableProducts.filter((product) => (
+      matchesDetailQuery(product, searchQuery)
       && (activeNotes.length === 0 || activeNotes.some((note) => product.tastingNotes.includes(note)))
       && matchesNoteQuery(product, noteIncludeQuery, noteExcludeQuery)
       && (!saleOnly || discountProducts.includes(product) || isOnePlusOneProduct(product))
@@ -767,7 +795,7 @@ export default function App() {
       && matchesBudgetFilter(product, budget)
       && matchesCapacityFilter(product, capacityFilter)
     ))
-  ), [activeNotes, budget, capacityFilter, decafOnly, saleOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, products, searchQuery]);
+  ), [activeNotes, availableProducts, budget, capacityFilter, decafOnly, saleOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, searchQuery]);
 
   const filteredProducts = React.useMemo(() => (
     sortProducts(visibleProducts, sortMode, tasteAxis)
@@ -788,7 +816,7 @@ export default function App() {
     if (!query) return [];
 
     const candidates = new Set();
-    products.forEach((product) => {
+    availableProducts.forEach((product) => {
       candidates.add(product.roasterName);
       candidates.add(formatProductDisplayInfo(product).primary);
       product.tastingNotes.forEach((note) => candidates.add(note));
@@ -798,7 +826,7 @@ export default function App() {
       .filter(Boolean)
       .filter((candidate) => candidate.toLowerCase() !== query.toLowerCase() && matchesSmartSearch(candidate, query))
       .slice(0, 8);
-  }, [products, searchQuery]);
+  }, [availableProducts, searchQuery]);
 
   function clearAllFilters() {
     setSearchQuery('');
@@ -1082,7 +1110,7 @@ export default function App() {
       setMonitorSummary(createMonitorSummary(snapshot.products, roasterySources));
       setLoadState({
         status: 'success',
-        message: `게시된 원두 ${snapshot.count || snapshot.products.length}종을 불러왔습니다.`,
+        message: '게시된 원두 정보를 불러왔습니다.',
       });
     });
 
@@ -1174,7 +1202,11 @@ export default function App() {
               <input
                 value={searchQuery}
                 placeholder="원두·로스터리·노트 검색 (초성 가능)"
-                onChange={(event) => setSearchQuery(event.target.value)}
+                onChange={(event) => {
+                  setSearchQuery(event.target.value);
+                  // 아이폰 웹 로스터리 목록은 검색 결과를 보여주지 않으므로 원두 화면으로 넘긴다.
+                  if (screen === 'sources' && !canLoadLiveProducts()) setScreen('products');
+                }}
                 onFocus={() => setSearchFocused(true)}
                 onBlur={() => setSearchFocused(false)}
               />
@@ -1267,13 +1299,26 @@ export default function App() {
           <MapPage
             key={mapEntry.key}
             initialVarietyId={mapEntry.varietyId}
-            products={products}
+            products={availableProducts}
             favoriteIds={favoriteIds}
             onSelectProduct={(product) => setDetailProductId(product.id)}
             onToggleFavorite={handleToggleFavorite}
           />
         ) : screen === 'sources' ? (
-          <SourcesPage monitorSummary={monitorSummary} onSaveSnapshot={handleSaveSnapshot} />
+          canLoadLiveProducts() ? (
+            <SourcesPage monitorSummary={monitorSummary} onSaveSnapshot={handleSaveSnapshot} />
+          ) : (
+            <RoasterListPage
+              products={availableProducts}
+              onSelectRoaster={(roasterName) => {
+                clearAllFilters();
+                setSortMode('score');
+                setSearchQuery(roasterName);
+                setScreen('products');
+                window.scrollTo({ top: 0 });
+              }}
+            />
+          )
         ) : screen === 'alerts' ? (
           <AlertsPage
             favoriteProducts={favoriteProducts}
@@ -1661,7 +1706,6 @@ function MapPage({
                 product={product}
                 activeNotes={[]}
                 isFavorite={favoriteIds.includes(product.id)}
-                onNoteClick={() => {}}
                 onSelect={() => {
                   handleProductCardClick(product);
                   onSelectProduct?.(product);
@@ -1728,6 +1772,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
     total: summaryProducts.filter((product) => !product.isSoldOut).length,
     discount: discountCount,
   };
+  const soldOutCount = summaryProducts.filter((product) => product.isSoldOut).length;
   const emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.';
 
   return (
@@ -1759,6 +1804,8 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           <div>
             <span className="eyebrow">{sortLabel}</span>
             <h2>원두 <em>{products.length}개</em></h2>
+            {/* 품절 원두가 목록에서 빠졌다는 걸 알려준다. 검색·필터가 걸리면 숫자가 안 맞으므로 숨긴다. */}
+            {!hasActiveFilters && soldOutCount > 0 && <p className="sold-out-note">품절 {soldOutCount}개는 목록에서 숨겼어요</p>}
           </div>
           <div className="sort-actions" aria-label="원두 정렬">
             <div className="sort-row">
@@ -1801,8 +1848,9 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           >
             <span className="filter-toggle-title">🫘 상세검색</span>
           </button>
-          {filtersExpanded && <div className="filter-panel-actions">
-            {hasActiveFilters && <button className="btn btn-small" type="button" onClick={onClearFilters}>필터 초기화</button>}
+          {/* 로스터리 선택처럼 상세검색을 열지 않고 걸린 조건도 되돌릴 수 있게, 접혀 있어도 초기화 버튼을 보인다. */}
+          {hasActiveFilters && <div className="filter-panel-actions">
+            <button className="btn btn-small" type="button" onClick={onClearFilters}>필터 초기화</button>
           </div>}
         </div>
         {filtersExpanded && (
@@ -1959,7 +2007,6 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               favoriteIds={favoriteIds}
               emptyMessage={emptyMessage}
               products={visibleProducts}
-              onNoteClick={onNoteClick}
               onSelect={onSelectProduct}
               onToggleFavorite={onToggleFavorite}
               tasteAxis={tasteAxis}
