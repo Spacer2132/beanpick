@@ -184,7 +184,7 @@ function notifyFavoriteChanges(changes, favoriteIds) {
   changes.filter((change) => favoriteIds.includes(change.id)).forEach((change) => {
     try {
       if (change.type === 'restocked') {
-        new Notification('Beanly · 재입고', { body: change.detail });
+        new Notification('BeanPick · 재입고', { body: change.detail });
       }
     } catch {
       // 알림을 못 보내도 앱 동작은 계속한다.
@@ -519,7 +519,7 @@ function SourcesPage({ monitorSummary, onSaveSnapshot }) {
         <div>
           <span className="eyebrow">Roasteries</span>
           <h1>좋은 원두를 가져오는 로스터리</h1>
-          <p>Beanly가 확인하는 공식몰 목록입니다. 어디에서 상품을 가져오는지 한눈에 볼 수 있어요.</p>
+          <p>BeanPick이 확인하는 공식몰 목록입니다. 어디에서 상품을 가져오는지 한눈에 볼 수 있어요.</p>
         </div>
         <button className="btn btn-primary" type="button" onClick={onSaveSnapshot}>현재 목록 저장</button>
       </header>
@@ -1103,7 +1103,7 @@ export default function App() {
       <aside className="sidebar">
         <button className="brand" type="button" onClick={() => setScreen('products')}>
           <span className="brand-head">
-            <span className="brand-mark">Beanly</span>
+            <span className="brand-mark">BeanPick</span>
             {lastLoadedAt && <span className="brand-updated">{formatDateTime(lastLoadedAt)} 기준</span>}
           </span>
           <span>오늘 마실 원두를 쉽게 고르기</span>
@@ -1166,7 +1166,7 @@ export default function App() {
       <main className="main">
         <div className="topbar">
           <div>
-            <span>Beanly / {current.label}</span>
+            <span>BeanPick / {current.label}</span>
           </div>
           <div className="topbar-actions">
             <label className="search-box">
