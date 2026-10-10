@@ -663,6 +663,38 @@ if (unspecialtyDuplicateTargetMerged.some((product) => !product.tastingNotes.inc
   throw new Error(`같은 스마트스토어 상품 카드가 중복되어도 EDN 보조 매칭은 동작해야 합니다: ${JSON.stringify(unspecialtyDuplicateTargetMerged)}`);
 }
 
+// 게시 단계는 근거에서만 노트를 다시 계산하므로, 언스페셜티 이식 노트에도 근거가 붙어야 한다.
+const unspecialtyEvidenceCachePath = path.join(os.tmpdir(), `beanpick-unspecialty-test-${process.pid}.json`);
+process.on('exit', () => fs.rmSync(unspecialtyEvidenceCachePath, { force: true }));
+fs.writeFileSync(unspecialtyEvidenceCachePath, JSON.stringify({
+  version: 1,
+  entries: {
+    [unspecialtyNotes._test.normalizeCacheKey('말릭커피', '프루티블렌드')]: {
+      productName: '프루티블렌드',
+      roasterName: '말릭커피',
+      tastingNotes: ['딸기', '라즈베리', '복숭아'],
+      sourceUrl: 'https://unspecialty.com/product/detail.html?product_no=1',
+      cachedAt: '2026-10-01T00:00:00.000Z',
+    },
+  },
+}));
+unspecialtyNotes.enrichProductsWithUnspecialtyNotes('malik', [
+  { productName: '프루티 블랜드', tastingNotes: [], price: 18000 },
+], {
+  cachePath: unspecialtyEvidenceCachePath,
+  fetchImpl: async () => { throw new Error('offline'); },
+}).then(([enriched]) => {
+  const { normalizeTastingNotes } = require('../src/services/tastingNotes.cjs');
+  const republished = normalizeTastingNotes(
+    (enriched.tastingNoteEvidence || []).filter((entry) => !entry.reviewReason).map((entry) => entry.text),
+    { limit: 5, explicitEvidence: true },
+  );
+  if (!enriched.tastingNotes.includes('딸기') || !republished.includes('딸기')
+    || enriched.tastingNoteEvidence.some((entry) => !entry.sourceUrl.startsWith('https://unspecialty.com/'))) {
+    throw new Error(`언스페셜티 이식 노트는 출처 근거와 함께 넘어가 게시 단계에서 유지되어야 합니다: ${JSON.stringify(enriched)}`);
+  }
+});
+
 const unspecialtyGradeGuard = _test.mergeNotesFromMatchedProducts(
   [
     { productName: '케냐 니에리힐 AA 워시드', tastingNotes: [] },

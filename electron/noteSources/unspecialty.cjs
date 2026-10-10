@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { normalizeTastingNotes } = require('../../src/services/tastingNotes.cjs');
+const { createTastingNoteEvidence, normalizeTastingNotes } = require('../../src/services/tastingNotes.cjs');
 const { mergeNotesFromMatchedProducts } = require('../naverShoppingSearch.cjs');
 
 const UNSPECIALTY_ORIGIN = 'https://unspecialty.com';
@@ -292,7 +292,12 @@ async function enrichProductsWithUnspecialtyNotes(sourceId, products, options = 
 
   const result = await collectUnspecialtyNotesForSource(sourceId, options);
   if (result.products.length === 0) return products;
-  return mergeNotesFromMatchedProducts(products, result.products);
+  // 게시 단계는 근거에서만 노트를 다시 계산하므로, 근거 없이 넘기면 이식한 노트가 지워진다.
+  const noteProducts = result.products.map((product) => ({
+    ...product,
+    tastingNoteEvidence: createTastingNoteEvidence(product.tastingNotes, product.sourceUrl),
+  }));
+  return mergeNotesFromMatchedProducts(products, noteProducts);
 }
 
 module.exports = {
