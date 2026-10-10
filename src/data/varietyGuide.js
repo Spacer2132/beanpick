@@ -249,6 +249,8 @@ export function matchSingleVarietyIds(text) {
   if (!tokens.length) return [];
   const ids = new Set();
   for (const token of tokens) {
+    // 블루마운틴은 SL28·SL34와 함께 적힌 경우에만 케냐 동반 품종으로 본다 (몽상스)
+    if (/^(blue\s*mountain|블루\s*마운틴)$/i.test(token)) { ids.add('kenya-companion'); continue; }
     const found = matchVarietyIds(token);
     if (found.length) found.forEach((id) => ids.add(id));
     else if (/^(jarc\s*)?\d{5}$/i.test(token)) ids.add('ethiopian-landrace');
