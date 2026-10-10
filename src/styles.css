@@ -6,8 +6,8 @@
   --surface: #fffaf2;
   --surface-strong: #ffffff;
   --ink: #231b16;
-  --muted: #7d6f63;
-  --soft: #b9aa99;
+  --muted: #6b5d52;
+  --soft: #7d6f63;
   --line: #e4d8c8;
   --line-strong: #d4c3ae;
   --accent: #8f4f2e;
@@ -611,6 +611,59 @@ a {
   box-shadow: var(--shadow);
 }
 
+.bean-card .notes .note-tag {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  cursor: inherit;
+  font-size: 12.5px;
+}
+
+.bean-card .notes .note-tag + .note-tag::before {
+  content: "·";
+  margin-right: 6px;
+  color: var(--soft);
+}
+
+.bean-card .notes .note-tag.active {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* 10: 사진을 불러오는 동안 빈 상자 대신 은은하게 반짝인다. */
+.bean-image.is-loading {
+  background: linear-gradient(100deg, #efe1d0 30%, #f7ede1 50%, #efe1d0 70%) 0 0 / 200% 100%;
+  animation: bean-image-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes bean-image-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.image-favorite-btn.active .icon,
+.btn-favorite.active .icon {
+  fill: currentColor;
+}
+
+.empty-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.empty-favorites p {
+  margin: 0;
+}
+
+.empty-favorites .btn {
+  margin-top: 8px;
+}
+
 .bean-card.is-soldout {
   opacity: 0.68;
 }
@@ -877,7 +930,10 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  min-height: 100px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
 }
 
 .bean-price-main {
@@ -923,23 +979,6 @@ a {
 .bean-price-unit-suffix {
   display: block;
   font-size: 11px;
-}
-
-.bean-price-option.is-link {
-  cursor: pointer;
-  text-decoration: none;
-  transition: border-color 140ms, background 140ms, transform 140ms;
-}
-
-.bean-price-option.is-link:hover {
-  border-color: var(--accent);
-  background: var(--surface-strong);
-  transform: translateY(-1px);
-}
-
-.bean-price-option.is-link:focus-visible {
-  outline: 3px solid rgba(143, 79, 46, 0.28);
-  outline-offset: 3px;
 }
 
 .bean-price-option strong {
@@ -2313,6 +2352,18 @@ a {
     border-radius: 20px 20px 0 0;
   }
 
+  .brand {
+    min-height: 44px;
+  }
+
+  .browse-grid-panel {
+    margin-top: -10px;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
   .results-toolbar {
     position: static;
     z-index: auto;
@@ -2458,10 +2509,12 @@ a {
   }
 
   /* 좁은 카드에서는 맛 노트를 한 줄만 보여주고 나머지는 숨긴다(상세창에서 전부 확인 가능). */
+  /* 카드 노트는 글자 한 줄만 보여 준다(전부는 상세창에서). */
   .bean-card .notes {
-    max-height: 30px;
+    max-height: 18px;
     gap: 6px;
     overflow: hidden;
+    line-height: 18px;
   }
 
   .note-tag {
@@ -2488,12 +2541,20 @@ a {
     font-size: 15px;
   }
 
-  /* 좁은 2열 카드에서는 가격과 단가를 세로로 쌓고 높이를 통일한다. */
+  /* 좁은 2열 카드에서는 가격과 단가를 세로로 쌓는다. 상자 테두리는 없앴지만, 할인 카드와 일반 카드의
+     가격 줄이 한 줄에서 가지런하도록 높이는 100px 로 맞춘다. */
   .bean-footer .bean-price-option {
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: 3px;
     min-height: 100px;
+    padding: 0;
+  }
+
+  .bean-footer {
+    padding: 0 11px 12px;
+    border-top: 0;
   }
 
   .bean-footer .bean-price-unit {

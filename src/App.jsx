@@ -224,7 +224,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
   return (
     <div className="modal-overlay" role="dialog" aria-modal="true" aria-label={`${product.productName} 상세 정보`} onClick={onClose}>
       <div className="modal-panel" onClick={(event) => event.stopPropagation()}>
-        <button className="modal-close" type="button" aria-label="닫기" onClick={onClose}>×</button>
+        <button className="modal-close" type="button" aria-label="닫기" onClick={onClose}><Icon name="close" size={22} /></button>
 
         <div className="modal-top">
           <div className="modal-image">
@@ -303,8 +303,9 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
         </div>
 
         <div className="modal-actions">
-          <button className="btn" type="button" onClick={() => onToggleFavorite(product.id)}>
-            {isFavorite ? '♥ 관심 해제' : '♡ 관심 저장'}
+          <button className={`btn btn-favorite ${isFavorite ? 'active' : ''}`} type="button" onClick={() => onToggleFavorite(product.id)}>
+            <Icon name="heart" size={18} />
+            {isFavorite ? '관심 해제' : '관심 저장'}
           </button>
           {storeLink && (
             <a className="btn" href={resolveProductOpenUrl(storeLink, product)} target="_blank" rel="noreferrer">원두 목록 보기</a>
@@ -373,14 +374,15 @@ function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleF
   const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
   const representativePrice = getRepresentativePriceOption(product);
   const cardPriceOptions = representativePrice.option ? [representativePrice.option] : priceOptions.slice(0, 1);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
   const imageContent = hasImage
-    ? <img src={product.imageUrl} alt="" loading="lazy" />
+    ? <img src={product.imageUrl} alt="" loading="lazy" onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(true)} />
     : <span className="bean-image-placeholder">{product.roasterName.slice(0, 2)}</span>;
   const showTasteInfoMissing = tasteAxis !== null && (product.acidityScore === null || product.acidityScore === undefined);
 
   return (
     <article className={`bean-card ${product.isSoldOut ? 'is-soldout' : ''}`}>
-      <div className="bean-image">
+      <div className={`bean-image ${hasImage && !imageLoaded ? 'is-loading' : ''}`}>
         <button className="bean-image-link" type="button" aria-label={detailLabel} onClick={() => onSelect(product)}>
           {imageContent}
         </button>
@@ -393,7 +395,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleF
           aria-label={isFavorite ? `${product.productName} 관심 해제` : `${product.productName} 관심 저장`}
           onClick={() => onToggleFavorite(product.id)}
         >
-          {isFavorite ? '♥' : '♡'}
+          <Icon name="heart" size={18} />
         </button>
       </div>
       <div className="bean-content">
@@ -521,7 +523,7 @@ function SourcesPage({ monitorSummary, onSaveSnapshot }) {
     <div className="page-stack">
       <header className="page-head compact">
         <div>
-          <span className="eyebrow">Roasteries</span>
+          <span className="eyebrow">로스터리</span>
           <h1>좋은 원두를 가져오는 로스터리</h1>
           <p>BeanPick이 확인하는 공식몰 목록입니다. 어디에서 상품을 가져오는지 한눈에 볼 수 있어요.</p>
         </div>
@@ -614,12 +616,12 @@ function RoasterListPage({ products, onSelectRoaster }) {
   );
 }
 
-function AlertsPage({ favoriteProducts, onToggleFavorite }) {
+function AlertsPage({ favoriteProducts, onBrowse, onToggleFavorite }) {
   return (
     <div className="page-stack">
       <header className="page-head compact">
         <div>
-          <span className="eyebrow">In-app alerts</span>
+          <span className="eyebrow">관심</span>
           <h1>관심 원두와 입고 알림</h1>
           <p>저장한 관심 원두를 한곳에서 확인합니다.</p>
         </div>
@@ -628,7 +630,7 @@ function AlertsPage({ favoriteProducts, onToggleFavorite }) {
       <section className="panel">
         <div className="section-title">
           <div>
-            <span className="eyebrow">Favorites</span>
+            <span className="eyebrow">관심 원두</span>
             <h2>관심 원두 <em>{favoriteProducts.length}개</em></h2>
           </div>
         </div>
@@ -645,7 +647,11 @@ function AlertsPage({ favoriteProducts, onToggleFavorite }) {
             ))}
           </div>
         ) : (
-          <div className="empty-result">아직 관심 원두가 없습니다. 상품 카드에서 관심 저장을 눌러보세요.</div>
+          <div className="empty-result empty-favorites">
+            <p>아직 관심 원두가 없어요. 원두 카드의 하트를 누르면 여기에 모여요.</p>
+            <p>저장한 원두가 품절되면 '품절', 다시 들어오면 '판매 중'으로 여기서 표시돼요.</p>
+            <button className="btn btn-primary" type="button" onClick={onBrowse}>원두 둘러보기</button>
+          </div>
         )}
       </section>
     </div>
@@ -660,7 +666,7 @@ function AppStatusPage({ dataMode, favoriteCount, lastLoadedAt, loadState, monit
     <div className="page-stack">
       <header className="page-head compact">
         <div>
-          <span className="eyebrow">App status</span>
+          <span className="eyebrow">앱 상태</span>
           <h1>앱 상태</h1>
           <p>현재 표시 중인 데이터와 저장 상태를 확인합니다.</p>
         </div>
@@ -677,7 +683,7 @@ function AppStatusPage({ dataMode, favoriteCount, lastLoadedAt, loadState, monit
         <section className="panel">
           <div className="section-title">
             <div>
-              <span className="eyebrow">iPhone</span>
+              <span className="eyebrow">아이폰</span>
               <h2>아이폰 웹앱 게시</h2>
             </div>
             <button className="btn btn-primary" type="button" onClick={onPublishIphoneSnapshot} disabled={isPublishing}>
@@ -697,7 +703,7 @@ function AppStatusPage({ dataMode, favoriteCount, lastLoadedAt, loadState, monit
       <section className="panel">
         <div className="section-title">
           <div>
-            <span className="eyebrow">Connection</span>
+            <span className="eyebrow">연결</span>
             <h2>로스터리 연결 상태</h2>
           </div>
         </div>
@@ -719,7 +725,7 @@ function AppStatusPage({ dataMode, favoriteCount, lastLoadedAt, loadState, monit
       <section className="panel">
         <div className="section-title">
           <div>
-            <span className="eyebrow">SmartStore</span>
+            <span className="eyebrow">스마트스토어</span>
             <h2>스마트스토어 검색</h2>
           </div>
           <button className="btn btn-small" type="button" onClick={onTestSmartStoreSearch} disabled={isTestingSmartStore}>
@@ -1334,6 +1340,7 @@ export default function App() {
           )
         ) : screen === 'alerts' ? (
           <AlertsPage
+            onBrowse={() => setScreen('products')}
             favoriteProducts={favoriteProducts}
             onToggleFavorite={handleToggleFavorite}
           />
@@ -1584,7 +1591,7 @@ function MapPage({
                 ))}
                 {varietyStats && (
                   <div className="variety-story-item is-beanpick">
-                    <strong>📊 빈픽에서는</strong>
+                    <strong>빈픽에서는</strong>
                     <p>
                       지금 {varietyCounts[selectedVariety.id]}개 판매 중{varietyStats.priceRange ? ` · ${varietyStats.priceRange}` : ''}
                       {varietyStats.topRoasters ? <><br />많이 파는 곳: {varietyStats.topRoasters}</> : null}
@@ -1662,7 +1669,7 @@ function MapPage({
         <div className="origin-story-card">
           <div className="origin-story-header">
             <div className="origin-story-title-group">
-              <span className="origin-story-flag">☕</span>
+              <span className="origin-story-flag"><Icon name="bean" size={22} /></span>
               <div>
                 <span className="origin-story-name">하우스 블렌드 (House Blend)</span>
                 <span className="origin-story-en">(생산국 미표기 또는 복합 배합)</span>
@@ -1674,7 +1681,7 @@ function MapPage({
           </div>
           <div className="origin-story-body">
             <div className="origin-story-item">
-              <span className="origin-story-label">✨ 특징</span>
+              <span className="origin-story-label">특징</span>
               <span className="origin-story-val">
                 여러 산지의 원두를 황금비율로 배합하여 균형 잡힌 바디감과 고소한 단맛을 느낄 수 있는 로스터리의 대표 시그니처 원두입니다.
               </span>
@@ -2017,7 +2024,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
         </div>
       )}
 
-      <section className="panel">
+      <section className="panel browse-grid-panel">
         {showSkeleton ? (
           <div className="bean-grid" aria-hidden="true">
             {Array.from({ length: 8 }, (_, index) => (

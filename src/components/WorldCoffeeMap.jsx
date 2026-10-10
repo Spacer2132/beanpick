@@ -553,7 +553,7 @@ export default function WorldCoffeeMap({
       <div className="coffee-map-header">
         <div className="atlas-heading">
           <div>
-            <span className="atlas-eyebrow">THE COFFEE ATLAS</span>
+            <span className="atlas-eyebrow">커피 산지 지도</span>
             <h1 id="atlas-title">한 잔의 시작, <span>산지에서.</span></h1>
             <p>지도를 따라, 나의 취향에 가까운 커피를 만나보세요.</p>
           </div>
