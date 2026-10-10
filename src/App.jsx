@@ -40,9 +40,9 @@ import { STORY_SECTIONS, VARIETY_TIERS, matchSingleVarietyIds } from './data/var
 
 const NAV = [
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
-  { id: 'map', label: 'Map', group: '둘러보기' },
-  { id: 'alerts', label: '관심·알림', group: '둘러보기', badge: 0 },
+  { id: 'map', label: '지도', group: '둘러보기' },
   { id: 'sources', label: '로스터리', group: '데이터', badge: roasterySources.length },
+  { id: 'alerts', label: '관심', group: '둘러보기', badge: 0 },
   { id: 'server', label: '앱 상태', group: '데이터' },
 ];
 
@@ -315,6 +315,28 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
         </div>
       </div>
     </div>
+  );
+}
+
+// 선 아이콘 한 벌. 글자 기호(♡·↑)나 이모지는 기기마다 모양이 달라 SVG로 통일한다.
+const ICON_PATHS = {
+  bean: <><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)" /><path d="M8.6 6.2c3.2 2.6 3.6 8.8 6.8 11.6" /></>,
+  map: <><path d="M9 4L3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4z" /><path d="M9 4v14M15 6v14" /></>,
+  store: <><path d="M4 9.5L5.5 4h13L20 9.5" /><path d="M4 9.5h16c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3" /><path d="M5.5 12.3V20h13v-7.7" /></>,
+  heart: <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z" />,
+  status: <><path d="M4 18a8 8 0 1 1 16 0" /><path d="M12 18l4-5" /></>,
+  filter: <><path d="M4 7h9M17 7h3M4 17h3M11 17h9" /><circle cx="15" cy="7" r="2" /><circle cx="9" cy="17" r="2" /></>,
+  chevron: <path d="M6 9l6 6 6-6" />,
+  close: <path d="M6 6l12 12M18 6L6 18" />,
+  arrowUp: <path d="M12 19V5M6 11l6-6 6 6" />,
+};
+const NAV_ICONS = { products: 'bean', map: 'map', sources: 'store', alerts: 'heart', server: 'status' };
+
+function Icon({ name, size = 20 }) {
+  return (
+    <svg className="icon" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {ICON_PATHS[name]}
+    </svg>
   );
 }
 
@@ -840,6 +862,8 @@ export default function App() {
     setSaleOnly(false);
     setDecafOnly(false);
     setTasteAxis(null);
+    // 할인 중을 켜면 정렬도 할인율순으로 바뀌므로, 초기화하면 정렬도 추천순으로 되돌린다.
+    setSortMode('score');
   }
 
   function handleNoteClick(note) {
@@ -1137,18 +1161,7 @@ export default function App() {
           <span>오늘 마실 원두를 쉽게 고르기</span>
         </button>
 
-        {/* 폰에서는 화면 전환 탭이 숨겨지므로, 관심 원두 화면으로 가는 하트 버튼만 따로 노출한다. */}
-        <button
-          className="mobile-fav-btn"
-          type="button"
-          aria-label="관심 원두 보기"
-          onClick={() => setScreen(screen === 'alerts' ? 'products' : 'alerts')}
-        >
-          <span aria-hidden="true">{screen === 'alerts' ? '♥' : '♡'}</span>
-          {favoriteIds.length > 0 && <em>{favoriteIds.length}</em>}
-        </button>
-
-        {/* 모바일 화면 상단 네비게이션 탭 바 (아이폰에서도 Map 등 메뉴를 자유롭게 이동) */}
+        {/* 폰 화면 아래 탭바. 아이폰 앱처럼 스크롤해도 항상 보인다. */}
         <div className="mobile-nav-bar" role="tablist" aria-label="메뉴 탐색">
           {navItems.map((item) => (
             <button
@@ -1159,8 +1172,9 @@ export default function App() {
               aria-selected={screen === item.id}
               onClick={() => { setMapEntry({ varietyId: null, key: Date.now() }); setScreen(item.id); }}
             >
+              <Icon name={NAV_ICONS[item.id]} size={24} />
               <span>{item.label}</span>
-              {item.badge != null && <em>{item.badge}</em>}
+              {item.id === 'alerts' && item.badge > 0 && <em>{item.badge}</em>}
             </button>
           ))}
         </div>
@@ -1312,7 +1326,6 @@ export default function App() {
               products={availableProducts}
               onSelectRoaster={(roasterName) => {
                 clearAllFilters();
-                setSortMode('score');
                 setSearchQuery(roasterName);
                 setScreen('products');
                 window.scrollTo({ top: 0 });
@@ -1762,12 +1775,11 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
   const visibleProducts = products.slice(0, visibleCount);
   const visibleNotes = notesExpanded ? noteOptions : noteOptions.slice(0, NOTE_PREVIEW_COUNT);
   const hiddenNoteCount = noteOptions.length - NOTE_PREVIEW_COUNT;
-  const sortLabel = tasteAxis !== null ? '내 입맛 맞춤'
-    : sortMode === 'latest' ? '최근 확인순'
-    : sortMode === 'unitPriceAsc' ? '100g당 낮은가격순'
-    : sortMode === 'unitPriceDesc' ? '100g당 높은가격순'
-    : sortMode === 'discount' ? '할인율 높은순'
-    : '추천순';
+  // 켜진 필터 개수. 칩 줄의 '필터' 옆에 보여 줘서 접혀 있어도 걸린 조건이 있는 걸 알 수 있게 한다.
+  const filterCount = [
+    originFilter !== 'all', processFilter !== 'all', budget !== 'all', capacityFilter !== 'all',
+    activeNotes.length > 0, Boolean(noteIncludeQuery.trim()), Boolean(noteExcludeQuery.trim()), tasteAxis !== null,
+  ].filter(Boolean).length;
   const summary = {
     total: summaryProducts.filter((product) => !product.isSoldOut).length,
     discount: discountCount,
@@ -1800,96 +1812,75 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
       </div>
 
       <div className="results-toolbar">
-        <div className="section-title">
-          <div>
-            <span className="eyebrow">{sortLabel}</span>
-            <h2>원두 <em>{products.length}개</em></h2>
-            {/* 품절 원두가 목록에서 빠졌다는 걸 알려준다. 검색·필터가 걸리면 숫자가 안 맞으므로 숨긴다. */}
-            {!hasActiveFilters && soldOutCount > 0 && <p className="sold-out-note">품절 {soldOutCount}개는 목록에서 숨겼어요</p>}
-          </div>
-          <div className="sort-actions" aria-label="원두 정렬">
-            <div className="sort-row">
-              <button className={tasteAxis === null && sortMode === 'score' ? 'active' : ''} type="button" onClick={() => { setTasteAxis(null); setSortMode('score'); }}>추천순</button>
-              {/* On-Sale은 필터이면서, 켜면 자동으로 할인율 높은순 정렬로 보여준다. */}
-              <button
-                className={saleOnly ? 'active' : ''}
-                type="button"
-                onClick={() => {
-                  const next = !saleOnly;
-                  setSaleOnly(next);
-                  if (next) {
-                    setTasteAxis(null);
-                    setSortMode('discount');
-                  } else if (sortMode === 'discount') {
-                    setSortMode('score');
-                  }
-                }}
-              >
-                On-Sale
-              </button>
-              <button className={decafOnly ? 'active' : ''} type="button" onClick={() => setDecafOnly(!decafOnly)}>디카페인</button>
-            </div>
-            <div className="sort-row">
-              <button className={tasteAxis === null && sortMode === 'unitPriceAsc' ? 'active' : ''} type="button" onClick={() => { setTasteAxis(null); setSortMode('unitPriceAsc'); }}>100g당 낮은가격</button>
-              <button className={tasteAxis === null && sortMode === 'unitPriceDesc' ? 'active' : ''} type="button" onClick={() => { setTasteAxis(null); setSortMode('unitPriceDesc'); }}>100g당 높은가격</button>
-            </div>
-          </div>
+        {/* 정렬(하나만 고름)은 펼치는 버튼, 필터(여러 개 켬)는 칩으로 모양부터 나눈다. */}
+        <div className="browse-chips" role="toolbar" aria-label="정렬과 필터">
+          <button className="chip chip-filter" type="button" aria-haspopup="dialog" onClick={() => setFiltersExpanded(true)}>
+            <Icon name="filter" size={16} />
+            필터
+            {filterCount > 0 && <em>{filterCount}</em>}
+          </button>
+          <label className="chip chip-sort">
+            <span className="visually-hidden">정렬</span>
+            <select
+              value={tasteAxis !== null ? 'taste' : sortMode}
+              onChange={(event) => {
+                if (event.target.value === 'taste') return;
+                setTasteAxis(null);
+                setSortMode(event.target.value);
+              }}
+            >
+              {tasteAxis !== null && <option value="taste">입맛 맞춤순</option>}
+              <option value="score">추천순</option>
+              <option value="discount">할인율 높은순</option>
+              <option value="unitPriceAsc">100g당 낮은 가격순</option>
+              <option value="unitPriceDesc">100g당 높은 가격순</option>
+            </select>
+            <Icon name="chevron" size={16} />
+          </label>
+          <span className="chip-divider" aria-hidden="true" />
+          {/* 할인 중은 필터이면서, 켜면 자동으로 할인율 높은순 정렬로 보여준다. */}
+          <button
+            className={`chip ${saleOnly ? 'active' : ''}`}
+            type="button"
+            aria-pressed={saleOnly}
+            onClick={() => {
+              const next = !saleOnly;
+              setSaleOnly(next);
+              if (next) {
+                setTasteAxis(null);
+                setSortMode('discount');
+              } else if (sortMode === 'discount') {
+                setSortMode('score');
+              }
+            }}
+          >
+            할인 중
+          </button>
+          <button className={`chip ${decafOnly ? 'active' : ''}`} type="button" aria-pressed={decafOnly} onClick={() => setDecafOnly(!decafOnly)}>디카페인</button>
+          <button className={`chip ${tasteAxis !== null ? 'active' : ''}`} type="button" aria-haspopup="dialog" onClick={() => setFiltersExpanded(true)}>입맛 맞춤</button>
+          {/* 로스터리 선택처럼 필터를 열지 않고 걸린 조건도 바로 되돌릴 수 있게 한다. */}
+          {hasActiveFilters && <button className="chip chip-reset" type="button" onClick={onClearFilters}>초기화</button>}
         </div>
+        <p className="results-count">
+          <strong>{hasActiveFilters ? '찾은 원두' : '판매 중'} {products.length}개</strong>
+          {/* 검색·필터가 걸리면 숫자가 안 맞으므로 품절 안내는 숨긴다. */}
+          {!hasActiveFilters && soldOutCount > 0 && <span> · 품절 {soldOutCount}개 숨김</span>}
+        </p>
       </div>
 
-      <section className={`panel filter-panel ${filtersExpanded ? 'is-open' : 'is-collapsed'}`}>
-        <div className="section-title filter-panel-head">
-          <button
-            className="filter-toggle"
-            type="button"
-            aria-expanded={filtersExpanded}
-            aria-controls="bean-filters-body"
-            onClick={() => setFiltersExpanded((expanded) => !expanded)}
-          >
-            <span className="filter-toggle-title">🫘 상세검색</span>
-          </button>
-          {/* 로스터리 선택처럼 상세검색을 열지 않고 걸린 조건도 되돌릴 수 있게, 접혀 있어도 초기화 버튼을 보인다. */}
-          {hasActiveFilters && <div className="filter-panel-actions">
-            <button className="btn btn-small" type="button" onClick={onClearFilters}>필터 초기화</button>
-          </div>}
-        </div>
-        {filtersExpanded && (
-          <div className="filter-panel-body" id="bean-filters-body">
-            <div className="detail-filter-row">
-              <label>
-                <span>원산지</span>
-                <select value={originFilter} onChange={(event) => setOriginFilter(event.target.value)}>
-                  <option value="all">전체</option>
-                  {originOptions.map((label) => <option key={label} value={label}>{label}</option>)}
-                </select>
-              </label>
-              <label>
-                <span>가공방식</span>
-                <select value={processFilter} onChange={(event) => setProcessFilter(event.target.value)}>
-                  <option value="all">전체</option>
-                  {processOptions.map((label) => <option key={label} value={label}>{label}</option>)}
-                </select>
-              </label>
-              <label>
-                <span>가격</span>
-                <select value={budget} onChange={(event) => setBudget(event.target.value)}>
-                  <option value="all">가격 전체</option>
-                  <option value="under30000">3만원 이하</option>
-                  <option value="under50000">5만원 이하</option>
-                </select>
-              </label>
-              <label>
-                <span>용량</span>
-                <select value={capacityFilter} onChange={(event) => setCapacityFilter(event.target.value)}>
-                  <option value="all">용량 전체</option>
-                  <option value="under100">100g</option>
-                  <option value="over200">200g</option>
-                  <option value="over500">500g</option>
-                  <option value="exact1000">1kg</option>
-                </select>
-              </label>
-            </div>
-
+      {filtersExpanded && (
+        <div className="sheet-overlay" onClick={() => setFiltersExpanded(false)}>
+          <section className="filter-sheet" role="dialog" aria-modal="true" aria-label="필터" onClick={(event) => event.stopPropagation()}>
+            <header className="filter-sheet-head">
+              <h2>필터</h2>
+              <div>
+                <button className="sheet-text-btn" type="button" disabled={!hasActiveFilters} onClick={onClearFilters}>초기화</button>
+                <button className="sheet-close" type="button" aria-label="닫기" onClick={() => setFiltersExpanded(false)}>
+                  <Icon name="close" size={22} />
+                </button>
+              </div>
+            </header>
+            <div className="filter-sheet-body" id="bean-filters-body">
             {/* 맛 슬라이더 UI */}
             <div className="taste-slider-container">
               <div className="taste-slider-header">
@@ -1948,6 +1939,41 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               </div>
             </div>
 
+            <div className="detail-filter-row">
+              <label>
+                <span>원산지</span>
+                <select value={originFilter} onChange={(event) => setOriginFilter(event.target.value)}>
+                  <option value="all">전체</option>
+                  {originOptions.map((label) => <option key={label} value={label}>{label}</option>)}
+                </select>
+              </label>
+              <label>
+                <span>가공방식</span>
+                <select value={processFilter} onChange={(event) => setProcessFilter(event.target.value)}>
+                  <option value="all">전체</option>
+                  {processOptions.map((label) => <option key={label} value={label}>{label}</option>)}
+                </select>
+              </label>
+              <label>
+                <span>가격</span>
+                <select value={budget} onChange={(event) => setBudget(event.target.value)}>
+                  <option value="all">가격 전체</option>
+                  <option value="under30000">3만원 이하</option>
+                  <option value="under50000">5만원 이하</option>
+                </select>
+              </label>
+              <label>
+                <span>용량</span>
+                <select value={capacityFilter} onChange={(event) => setCapacityFilter(event.target.value)}>
+                  <option value="all">용량 전체</option>
+                  <option value="under100">100g</option>
+                  <option value="over200">200g</option>
+                  <option value="over500">500g</option>
+                  <option value="exact1000">1kg</option>
+                </select>
+              </label>
+            </div>
+
             {noteOptions.length > 0 && (
               <div className="detail-note-cloud">
                 <span>테이스팅 노트</span>
@@ -1983,9 +2009,13 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                 </div>
               </div>
             )}
-          </div>
-        )}
-      </section>
+            </div>
+            <footer className="filter-sheet-foot">
+              <button className="btn btn-primary" type="button" onClick={() => setFiltersExpanded(false)}>원두 {products.length}개 보기</button>
+            </footer>
+          </section>
+        </div>
+      )}
 
       <section className="panel">
         {showSkeleton ? (
@@ -2029,7 +2059,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           aria-label="맨 위로"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          ↑
+          <Icon name="arrowUp" size={20} />
         </button>
       )}
     </div>

@@ -10,7 +10,8 @@ import { buildRegionCells } from '../services/regionCells.js';
 import { REGION_PROFILES, regionProfileKey } from '../services/coffeeRegionProfiles.js';
 
 // 화면 폭에 맞춘 비율은 대륙을 전환해도 유지한다.
-const DEFAULT_VIEW = { x: 182, y: 70, w: 760 };
+// 처음 화면은 양 끝 생산국 핀이 폰 폭에서도 잘리지 않고 여백을 두고 들어오는 범위다.
+const DEFAULT_VIEW = { x: 140, y: 70, w: 826 };
 const MAP_RATIO = 760 / 345;
 const MIN_W = 90;
 const MAX_W = DEFAULT_VIEW.w;

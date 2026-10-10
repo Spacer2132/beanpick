@@ -215,8 +215,8 @@ async function main() {
     '스마트스토어 상세창에는 원두 목록 링크와 상품 페이지 링크가 구분되어야 합니다',
   );
   expect(
-    /🫘 상세검색/.test(appSource) && !/>Filters</.test(appSource),
-    '필터 접기 버튼의 표시 문구는 🫘 상세검색이어야 합니다',
+    /aria-label="필터"/.test(appSource) && !/🫘/.test(appSource) && !/>Filters</.test(appSource),
+    '필터 시트 이름은 한국어 "필터"이고 이모지를 쓰지 않아야 합니다',
   );
   expect(
     !/조건으로 찾기|조건으로 고르기|펼치기/.test(appSource),
