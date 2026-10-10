@@ -190,6 +190,7 @@ if (!fs.existsSync(snapshotPath)) {
 } else {
   const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
   let unidentified = 0;
+  const unidentifiedOutsideLibre = [];
   let legacyFakeComplete = 0;
   let contractFakeComplete = 0;
   let optionCountChanged = 0;
@@ -203,7 +204,11 @@ if (!fs.existsSync(snapshotPath)) {
     if (product.priceOptionsComplete === true && options.length === 0) legacyFakeComplete += 1;
 
     const record = contract.fromLegacyProduct(product, { channelId: 'test:channel' });
-    if (!record.identified) unidentified += 1;
+    if (!record.identified) {
+      unidentified += 1;
+      // 커피리브레는 검색 주소로만 수집돼 번호 없는 행이 정상이다. 그 밖에서 나오면 수집 이상.
+      if (!/^https:\/\/coffeelibre\.kr\//.test(product.productUrl || '')) unidentifiedOutsideLibre.push(product.productName);
+    }
 
     const roundTripped = contract.toLegacyProduct(record);
     if (roundTripped.priceOptionsComplete === true && roundTripped.priceOptions.length === 0) contractFakeComplete += 1;
@@ -219,7 +224,7 @@ if (!fs.existsSync(snapshotPath)) {
   // 2026-09-11 게시 스냅샷에서 무근거 완전 표시가 모두 제거됐다.
   expect(legacyFakeComplete === 0, '기준값(무근거 완전 0건)이 바뀜. output/baseline을 다시 뽑을 것', String(legacyFakeComplete));
   expect(contractFakeComplete === 0, '계약을 거쳐도 무근거 완전 표시가 남음', String(contractFakeComplete));
-  expect(unidentified === 15, '고유 상품 번호 없는 행이 기준값 15건과 다름', String(unidentified));
+  expect(unidentifiedOutsideLibre.length === 0, '커피리브레 밖에서 고유 상품 번호 없는 행이 나옴', unidentifiedOutsideLibre.join(', '));
   expect(optionCountChanged === 0, '호환층이 옵션 개수를 바꿈', String(optionCountChanged));
   expect(priceChanged === 0, '호환층 왕복에서 가격이 바뀜', String(priceChanged));
   expect(weightChanged === 0, '호환층 왕복에서 용량이 바뀜', String(weightChanged));
