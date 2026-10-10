@@ -892,12 +892,14 @@ a {
   font-weight: 600;
 }
 
+/* 노트 줄이 없는 카드도 가격이 옆 카드와 같은 높이에 오도록 가격 부분을 카드 맨 아래로 붙인다. */
 .bean-footer {
   display: flex;
   align-items: stretch;
   flex-direction: column;
   justify-content: space-between;
   gap: 12px;
+  margin-top: auto;
   padding: 14px 16px 16px;
   border-top: 1px solid var(--line);
 }
@@ -1465,24 +1467,23 @@ a {
 
 /* 정렬 칩: 진짜 select 를 칩 모양으로 감싸 아이폰 기본 선택창이 뜨게 한다. */
 .chip-sort {
-  padding: 0;
+  gap: 4px;
+  padding: 0 10px 0 14px;
 }
 
 .chip-sort select {
-  min-height: 42px;
-  padding: 0 34px 0 14px;
-  border: 0;
-  appearance: none;
-  background: transparent;
-  color: inherit;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
   cursor: pointer;
-  font: inherit;
+  /* 16px 미만이면 아이폰이 누를 때 화면을 확대한다. */
+  font-size: 16px;
 }
 
-.chip-sort .icon {
-  position: absolute;
-  right: 12px;
-  pointer-events: none;
+.chip-sort:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .chip-divider {

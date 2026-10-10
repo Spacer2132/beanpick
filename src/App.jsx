@@ -409,7 +409,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleF
         </h3>
         {infoItems.length > 0 && (
           <div className="bean-info-lines">
-            {infoItems.map((item) => <span key={item}>{item}</span>)}
+            <span>{infoItems.join(' · ')}</span>
           </div>
         )}
         {product.blendComposition && product.blendComposition.length > 0 && (
@@ -761,7 +761,10 @@ export default function App() {
   const [initialCache] = React.useState(() => loadProductCache());
   const [baseProducts, setBaseProducts] = React.useState(initialCache?.products ?? mockBeans);
   const [dataMode, setDataMode] = React.useState(initialCache ? 'cached' : 'mock');
-  const [loadState, setLoadState] = React.useState({ status: 'idle', message: '' });
+  // 아이폰 웹은 게시된 원두를 받아 오기 전까지 샘플 원두가 잠깐 보이지 않도록 '불러오는 중'으로 시작한다.
+  const [loadState, setLoadState] = React.useState(() => (
+    !initialCache && !canLoadLiveProducts() ? { status: 'loading', message: '' } : { status: 'idle', message: '' }
+  ));
   const [publishState, setPublishState] = React.useState({ status: 'idle', message: '' });
   const [collectionRuns, setCollectionRuns] = React.useState([]);
   const [smartStoreState, setSmartStoreState] = React.useState({ status: 'idle', message: '' });
@@ -1792,6 +1795,14 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
     discount: discountCount,
   };
   const soldOutCount = summaryProducts.filter((product) => product.isSoldOut).length;
+  const sortValue = tasteAxis !== null ? 'taste' : sortMode;
+  const sortOptions = [
+    ['score', '추천순'],
+    ['discount', '할인율 높은순'],
+    ['unitPriceAsc', '100g당 낮은 가격순'],
+    ['unitPriceDesc', '100g당 높은 가격순'],
+  ];
+  const sortName = sortValue === 'taste' ? '입맛 맞춤순' : (sortOptions.find(([value]) => value === sortValue)?.[1] ?? '추천순');
   const emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.';
 
   return (
@@ -1828,8 +1839,10 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           </button>
           <label className="chip chip-sort">
             <span className="visually-hidden">정렬</span>
+            <span aria-hidden="true">{sortName}</span>
+            <Icon name="chevron" size={16} />
             <select
-              value={tasteAxis !== null ? 'taste' : sortMode}
+              value={sortValue}
               onChange={(event) => {
                 if (event.target.value === 'taste') return;
                 setTasteAxis(null);
@@ -1837,12 +1850,8 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               }}
             >
               {tasteAxis !== null && <option value="taste">입맛 맞춤순</option>}
-              <option value="score">추천순</option>
-              <option value="discount">할인율 높은순</option>
-              <option value="unitPriceAsc">100g당 낮은 가격순</option>
-              <option value="unitPriceDesc">100g당 높은 가격순</option>
+              {sortOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
             </select>
-            <Icon name="chevron" size={16} />
           </label>
           <span className="chip-divider" aria-hidden="true" />
           {/* 할인 중은 필터이면서, 켜면 자동으로 할인율 높은순 정렬로 보여준다. */}
@@ -1869,9 +1878,9 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           {hasActiveFilters && <button className="chip chip-reset" type="button" onClick={onClearFilters}>초기화</button>}
         </div>
         <p className="results-count">
-          <strong>{hasActiveFilters ? '찾은 원두' : '판매 중'} {products.length}개</strong>
+          {showSkeleton ? <strong>원두를 불러오는 중…</strong> : <strong>{hasActiveFilters ? '찾은 원두' : '판매 중'} {products.length}개</strong>}
           {/* 검색·필터가 걸리면 숫자가 안 맞으므로 품절 안내는 숨긴다. */}
-          {!hasActiveFilters && soldOutCount > 0 && <span> · 품절 {soldOutCount}개 숨김</span>}
+          {!showSkeleton && !hasActiveFilters && soldOutCount > 0 && <span> · 품절 {soldOutCount}개 숨김</span>}
         </p>
       </div>
 
