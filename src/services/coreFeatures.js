@@ -1,4 +1,5 @@
-import { normalizeTastingNotes, sortTastingNotes, getAcidityScore, mergeTastingNoteEvidence, getDisplayTastingNotes } from './tastingNotes.js';
+import { normalizeTastingNotes, sortTastingNotes, getAcidityScore, getTasteScaleAcidityScore, mergeTastingNoteEvidence, getDisplayTastingNotes } from './tastingNotes.js';
+import { getDisplayRoastLevel } from './roastLevel.js';
 
 // 10% 이상 싸게 팔면 할인 상품으로 본다. (1~9%는 표기 오차/소폭 할인이라 제외)
 const DISCOUNT_THRESHOLD = 0.10;
@@ -117,31 +118,9 @@ function formatPrice(value) {
   return `${new Intl.NumberFormat('ko-KR').format(value)}원`;
 }
 
-function getTasteScaleAcidityScore(tasteScale) {
-  if (!tasteScale || typeof tasteScale !== 'object') return null;
-  const max = Number(tasteScale.max || 5);
-  if (!Number.isFinite(max) || max <= 0) return null;
-
-  const acidity = Number(tasteScale.acidity);
-  const sweetness = Number(tasteScale.sweetness);
-  const hasAcidity = Number.isFinite(acidity);
-  const hasSweetness = Number.isFinite(sweetness);
-  if (!hasAcidity && !hasSweetness) return null;
-
-  let score;
-  if (hasAcidity && hasSweetness) {
-    score = (acidity - sweetness) / max;
-  } else if (hasAcidity) {
-    score = (acidity - max / 2) / (max / 2);
-  } else {
-    score = (max / 2 - sweetness) / (max / 2);
-  }
-  return Math.max(-1, Math.min(1, score));
-}
-
 function getProductAcidityScore(product, tastingNotes) {
   const scaleScore = getTasteScaleAcidityScore(product?.tasteScale);
-  return scaleScore !== null ? scaleScore : getAcidityScore(tastingNotes);
+  return scaleScore !== null ? scaleScore : getAcidityScore(tastingNotes, getDisplayRoastLevel(product));
 }
 
 function formatWeight(value) {

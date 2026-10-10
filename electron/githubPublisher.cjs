@@ -1,6 +1,7 @@
 const { validateProducts } = require('./dataQuality.cjs');
 const { markStaleProduct } = require('./collection/contract.cjs');
-const { normalizeTastingNotes, mergeTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
+const { normalizeTastingNotes, mergeTastingNoteEvidence, getAcidityScore, getTasteScaleAcidityScore } = require('../src/services/tastingNotes.cjs');
+const { getDisplayRoastLevel } = require('../src/services/roastLevel.cjs');
 
 const DEFAULT_OWNER = 'Spacer2132';
 const DEFAULT_REPO = 'beanpick';
@@ -311,15 +312,19 @@ function preservePreviousTastingNotes(products, previousSnapshot, publishedAt) {
     product.tastingNotes = currentNotes;
     if (currentNotes.length > 0) {
       delete product.tastingNotesPreservedAt;
-      continue;
+    } else {
+      const match = previousNotes.get(normalizeText(product?.id));
+      if (match) {
+        product.tastingNotes = match.notes;
+        if (product.tastingNoteEvidence.length === 0) product.tastingNoteEvidence = match.evidence;
+        product.tastingNotesPreservedAt = match.preservedAt || publishedAt;
+        preservedCount += 1;
+      }
     }
 
-    const match = previousNotes.get(normalizeText(product?.id));
-    if (!match) continue;
-    product.tastingNotes = match.notes;
-    if (product.tastingNoteEvidence.length === 0) product.tastingNoteEvidence = match.evidence;
-    product.tastingNotesPreservedAt = match.preservedAt || publishedAt;
-    preservedCount += 1;
+    const tasteScaleScore = getTasteScaleAcidityScore(product.tasteScale);
+    product.acidityScore = tasteScaleScore !== null ? tasteScaleScore : getAcidityScore(product.tastingNotes, getDisplayRoastLevel(product));
+    product.acidityScoreSource = tasteScaleScore !== null ? 'tasteScale' : 'tastingNotes';
   }
 
   return { products, preservedCount };

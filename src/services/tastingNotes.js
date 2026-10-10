@@ -519,35 +519,68 @@ function getPendingTastingNotes(product) {
 }
 
 const ACIDITY_WEIGHTS = {
-  fruit: 1.0,
+  fruit: 1,
   floral: 0.8,
-  sour: 0.6,
-  green: 0.2,
-  spice: -0.1,
+  sour: 0.8, // 식초·요구르트는 직접적인 신맛 단서다.
+  green: 0, // 허브·풀향은 산미 강도를 뜻하지 않는다.
+  spice: 0, // 향신료 향은 산미 강도를 뜻하지 않는다.
   sweet: -0.6,
   roasted: -0.7,
-  nutty: -1.0,
-  body: -0.5,
+  nutty: -1,
+  body: 0, // 질감과 여운은 산미 강도를 뜻하지 않는다.
 };
 
-function getAcidityScore(notes) {
+const ACIDITY_NOTE_WEIGHTS = {
+  // 감귤류와 청사과는 일반 과일보다 뚜렷한 신맛 단서다.
+  '자몽': 0.9, '오렌지': 0.9, '레몬': 0.9, '라임': 0.9,
+  '시트러스': 0.9, '감귤': 0.9, '유자': 0.9, '청사과': 0.9,
+  // 말리거나 구운 과일은 생과일보다 단맛 인상이 강하다.
+  '건과일': 0.2, '건포도': 0.2, '말린자두': 0.2,
+  '대추야자': 0.2, '무화과': 0.2, '구운 사과': 0.2,
+};
+
+// 얕은 로스팅은 산미를 보존하고 깊은 로스팅은 줄이는 작은 보정이다.
+const ROAST_ACIDITY_ADJUSTMENTS = new Map([
+  ['Light', 0.08], ['Medium-Light', 0.04], ['Medium', 0],
+  ['Medium-Dark', -0.1], ['Dark', -0.15],
+]);
+
+function getAcidityScore(notes, roastLevel = '') {
   if (!Array.isArray(notes) || notes.length === 0) return null;
 
   let sum = 0;
   let count = 0;
 
-  notes.forEach((note) => {
+  new Set(notes).forEach((note) => {
     const group = LABEL_GROUP.get(note);
     if (group !== undefined && ACIDITY_WEIGHTS[group] !== undefined) {
-      sum += ACIDITY_WEIGHTS[group];
+      sum += ACIDITY_NOTE_WEIGHTS[note] ?? ACIDITY_WEIGHTS[group];
       count++;
     }
   });
 
   if (count === 0) return null;
 
-  const average = sum / count;
-  return Math.max(-1, Math.min(1, average));
+  const roastAdjust = ROAST_ACIDITY_ADJUSTMENTS.get(roastLevel) || 0;
+  // 중립 근거 0.5개를 더해 노트 1개짜리가 끝값을 받지 않게 한다.
+  const score = (sum + count * roastAdjust) / (count + 0.5);
+  // 상쇄된 가중치의 실수 오차가 산미 방향으로 잡히지 않게 한다.
+  if (Math.abs(score) < Number.EPSILON) return 0;
+  return Math.max(-1, Math.min(1, score));
+}
+
+function getTasteScaleAcidityScore(tasteScale) {
+  if (!tasteScale || typeof tasteScale !== 'object') return null;
+  const max = Number(tasteScale.max ?? 5);
+  if (!Number.isFinite(max) || max <= 0) return null;
+
+  if (typeof tasteScale.acidity !== 'number' && typeof tasteScale.acidity !== 'string') return null;
+  if (typeof tasteScale.acidity === 'string' && !tasteScale.acidity.trim()) return null;
+  const acidity = Number(tasteScale.acidity);
+  if (!Number.isFinite(acidity)) return null;
+
+  const score = (acidity - max / 2) / (max / 2);
+  return Math.max(-1, Math.min(1, score));
 }
 
 export {
@@ -557,6 +590,7 @@ export {
   sortTastingNotes,
   isTastingNote,
   getAcidityScore,
+  getTasteScaleAcidityScore,
   createTastingNoteEvidence,
   mergeTastingNoteEvidence,
   extractTastingNoteEvidence,

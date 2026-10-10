@@ -9,6 +9,7 @@ function loadJsModule(filePath) {
 
   new Function('exports', 'module', 'require', output)(module.exports, module, (request) => {
     if (String(request).includes('tastingNotes')) return tastingNoteTools;
+    if (String(request).includes('roastLevel')) return require('../src/services/roastLevel.cjs');
     return {};
   });
   return module.exports;
@@ -683,7 +684,7 @@ expect(testProductsForScore[1].acidityScore < 0, '고소한 단맛형 원두의 
 expect(testProductsForScore[2].acidityScore === null, '테이스팅 노트가 없는 경우 acidityScore는 null이어야 합니다', testProductsForScore[2].acidityScore);
 
 const scaleScore = core.getTasteScaleAcidityScore({ acidity: 2, sweetness: 4, max: 5 });
-expect(scaleScore <= -0.39 && scaleScore >= -0.61, '신맛 2/5·단맛 4/5 막대는 고소한 쪽 점수여야 합니다', scaleScore);
+expect(Math.abs(scaleScore - (-0.2)) < 1e-9, '신맛 2/5 막대는 단맛과 무관하게 산미 값만으로 -0.2여야 합니다', scaleScore);
 
 const scalePriorityProducts = core.normalizeProducts([
   { id: 'p-scale-sweet', tastingNotes: ['블루베리', '자스민'], tasteScale: { acidity: 2, sweetness: 4, max: 5 }, isSoldOut: false, score: 90 },

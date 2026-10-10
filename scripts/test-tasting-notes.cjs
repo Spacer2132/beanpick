@@ -11,6 +11,7 @@ function loadTsModule(filePath) {
 
   new Function('exports', 'module', 'require', output)(module.exports, module, (request) => {
     if (String(request).includes('tastingNotes')) return tastingNoteTools;
+    if (String(request).includes('roastLevel')) return require('../src/services/roastLevel.cjs');
     return {};
   });
   return module.exports;
@@ -423,4 +424,93 @@ if (scoreFailures > 0) {
 } else {
   console.log('getAcidityScore 검증 통과');
 }
+
+const acidityRedesignChecks = [];
+const closeAcidity = (actual, expected) => actual !== null && Math.abs(actual - expected) < 1e-12;
+function checkAcidityRedesign(rule, condition) {
+  acidityRedesignChecks.push({ rule, passed: Boolean(condition) });
+}
+
+const acidityCore = loadTsModule('src/services/coreFeatures.js');
+checkAcidityRedesign('공식 막대는 산미만 선형 변환', [5, 10].every((max) =>
+  [0, 0.2, 0.4, 0.5, 0.6, 0.8, 1].every((ratio) =>
+    [0, 1, 4, 5, undefined].every((sweetness) => closeAcidity(
+      tastingNoteTools.getTasteScaleAcidityScore({ acidity: ratio * max, sweetness, max }),
+      2 * ratio - 1,
+    )))));
+checkAcidityRedesign('산미 없는 단맛 막대는 점수 근거 아님', [undefined, null, '', ' ', true, NaN, Infinity].every((acidity) =>
+  tastingNoteTools.getTasteScaleAcidityScore({ acidity, sweetness: 4, max: 5 }) === null));
+checkAcidityRedesign('공식 막대 경계와 숫자 문자열',
+  closeAcidity(tastingNoteTools.getTasteScaleAcidityScore({ acidity: '0', max: '5' }), -1)
+  && closeAcidity(tastingNoteTools.getTasteScaleAcidityScore({ acidity: 6, max: 5 }), 1)
+  && closeAcidity(tastingNoteTools.getTasteScaleAcidityScore({ acidity: -1, max: 5 }), -1)
+  && [0, -1, 'bad', Infinity].every((max) => tastingNoteTools.getTasteScaleAcidityScore({ acidity: 4, max }) === null));
+
+for (const [note, weight] of [
+  ['블루베리', 1], ['자스민', 0.8], ['요구르트', 0.8], ['허브', 0], ['계피', 0],
+  ['꿀', -0.6], ['구운향', -0.7], ['견과류', -1], ['묵직', 0],
+]) {
+  checkAcidityRedesign(`그룹 가중치: ${note}`, closeAcidity(tastingNoteTools.getAcidityScore([note]), weight / 1.5));
+}
+checkAcidityRedesign('시트러스와 청사과는 강한 산미 단서',
+  ['자몽', '오렌지', '레몬', '라임', '시트러스', '감귤', '유자', '청사과'].every((note) =>
+    closeAcidity(tastingNoteTools.getAcidityScore([note]), 0.9 / 1.5)));
+checkAcidityRedesign('말린 과일과 구운 사과는 약한 산미 단서',
+  ['건과일', '건포도', '말린자두', '대추야자', '무화과', '구운 사과'].every((note) =>
+    closeAcidity(tastingNoteTools.getAcidityScore([note]), 0.2 / 1.5)));
+const sparseAcidity = [
+  ['레몬'], ['레몬', '라임'], ['레몬', '라임', '자몽'],
+].map((notes) => tastingNoteTools.getAcidityScore(notes));
+checkAcidityRedesign('노트가 적으면 중립 쪽으로 축소',
+  closeAcidity(sparseAcidity[0], 0.6) && closeAcidity(sparseAcidity[1], 1.8 / 2.5)
+  && closeAcidity(sparseAcidity[2], 2.7 / 3.5));
+checkAcidityRedesign('중복과 미인식 노트는 근거 수를 늘리지 않음',
+  closeAcidity(tastingNoteTools.getAcidityScore(['레몬', '레몬', '확인 필요']), sparseAcidity[0]));
+
+const roastOffsets = { Light: 0.08, 'Medium-Light': 0.04, Medium: 0, 'Medium-Dark': -0.1, Dark: -0.15 };
+for (const [roastLevel, offset] of Object.entries(roastOffsets)) {
+  checkAcidityRedesign(`로스팅 보정: ${roastLevel}`,
+    closeAcidity(tastingNoteTools.getAcidityScore(['레몬'], roastLevel), (0.9 + offset) / 1.5)
+    && tastingNoteTools.getAcidityScore([], roastLevel) === null);
+}
+checkAcidityRedesign('모르는 로스팅은 보정 없음',
+  closeAcidity(tastingNoteTools.getAcidityScore(['레몬'], '확인 필요'), sparseAcidity[0])
+  && closeAcidity(tastingNoteTools.getAcidityScore(['레몬'], '__proto__'), sparseAcidity[0]));
+const redesignedProducts = acidityCore.normalizeProducts([
+  { id: 'redesign-notes', tastingNotes: ['레몬'], roastLevel: 'Dark', acidityScore: -0.9 },
+  { id: 'redesign-scale', tastingNotes: ['견과류'], roastLevel: 'Dark', tasteScale: { acidity: 4, sweetness: 4, max: 5 } },
+  { id: 'redesign-none', tastingNotes: [], roastLevel: 'Light' },
+  { id: 'redesign-sweet-only', tastingNotes: ['레몬'], roastLevel: 'Dark', tasteScale: { sweetness: 4 } },
+]);
+checkAcidityRedesign('상품은 현재 노트와 로스팅으로 다시 계산', closeAcidity(redesignedProducts[0].acidityScore, 0.5));
+checkAcidityRedesign('공식 막대 우선이며 노트와 로스팅 보정 없음',
+  closeAcidity(redesignedProducts[1].acidityScore, 0.6) && redesignedProducts[1].acidityScoreSource === 'tasteScale');
+checkAcidityRedesign('로스팅만 있으면 점수 없음', redesignedProducts[2].acidityScore === null);
+checkAcidityRedesign('단맛만 있으면 노트로 계산하고 출처 유지',
+  closeAcidity(redesignedProducts[3].acidityScore, 0.5) && redesignedProducts[3].acidityScoreSource === 'tastingNotes');
+const roastGroupInput = [
+  { id: 'redesign-200', roasterName: '산미 검사', productName: '검사 원두 200g', price: 16000, weight: 200, roastLevel: 'Dark', tastingNotes: ['레몬'] },
+  { id: 'redesign-500', roasterName: '산미 검사', productName: '검사 원두 500g', price: 36000, weight: 500, roastLevel: 'Dark', tastingNotes: ['라임'] },
+];
+const roastGroupBefore = JSON.stringify(roastGroupInput);
+const [redesignedGroup] = acidityCore.groupProductsByNameAndWeight(roastGroupInput);
+checkAcidityRedesign('묶인 상품도 합친 노트와 로스팅으로 계산', closeAcidity(redesignedGroup.acidityScore, 0.6));
+checkAcidityRedesign('계산은 원본 상품을 변경하지 않음', JSON.stringify(roastGroupInput) === roastGroupBefore);
+const renamedProducts = acidityCore.normalizeProducts([
+  { id: 'neutral-name', productName: '검사 원두', tastingNotes: ['레몬'], roastLevel: 'Dark' },
+  { id: 'different-id', productName: '고소 다크 산미 검사', tastingNotes: ['레몬'], roastLevel: 'Dark' },
+]);
+checkAcidityRedesign('상품명과 id에 따른 산미 예외 없음', renamedProducts[0].acidityScore === renamedProducts[1].acidityScore);
+checkAcidityRedesign('가중치가 상쇄되면 부동소수점 오차도 0으로 처리',
+  tastingNoteTools.getAcidityScore(['블루베리', '견과류']) === 0);
+const inferredRoastProducts = acidityCore.normalizeProducts([
+  { tastingNotes: ['레몬'], roastLevel: '확인 필요', productName: '검사 원두 다크 로스트' },
+  { tastingNotes: ['레몬'], roastLevel: '확인 필요', productName: '검사 원두 다크 블렌드' },
+]);
+checkAcidityRedesign('명시된 로스트 표기는 기존 로스팅 판정 재사용', closeAcidity(inferredRoastProducts[0].acidityScore, 0.5));
+checkAcidityRedesign('다크라는 이름만으로 로스팅을 추측하지 않음', closeAcidity(inferredRoastProducts[1].acidityScore, 0.6));
+
+const acidityRedesignFailed = acidityRedesignChecks.filter((check) => !check.passed);
+console.log(`[acidity-redesign] ${JSON.stringify({ total: acidityRedesignChecks.length, passed: acidityRedesignChecks.length - acidityRedesignFailed.length, failed: acidityRedesignFailed.length, checks: acidityRedesignChecks })}`);
+if (acidityRedesignFailed.length) process.exitCode = 1;
 

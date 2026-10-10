@@ -11,6 +11,7 @@ function loadModule(file) {
   const module = { exports: {} };
   new Function('module', 'exports', 'require', output)(module, module.exports, (name) => {
     if (name.includes('tastingNotes')) return notes;
+    if (name.includes('roastLevel')) return require('../src/services/roastLevel.cjs');
     if (name.includes('stockStatus')) return require('../src/services/adapters/stockStatus.cjs');
     throw new Error(`Unexpected import: ${name}`);
   });

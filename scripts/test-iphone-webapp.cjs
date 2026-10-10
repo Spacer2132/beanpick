@@ -12,7 +12,7 @@ function loadJsModule(filePath, dependencies = {}) {
 }
 
 const tastingNotes = loadJsModule('src/services/tastingNotes.js');
-const coreFeatures = loadJsModule('src/services/coreFeatures.js', { './tastingNotes.js': tastingNotes });
+const coreFeatures = loadJsModule('src/services/coreFeatures.js', { './tastingNotes.js': tastingNotes, './roastLevel.js': require('../src/services/roastLevel.cjs') });
 const publishedSnapshot = loadJsModule('src/services/publishedSnapshot.js', { './coreFeatures.js': coreFeatures });
 const githubPublisher = require('../electron/githubPublisher.cjs');
 const { createTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
@@ -82,10 +82,12 @@ async function main() {
 
   const notePreservedAt = '2026-06-13T00:00:00.000Z';
   const currentNoteProducts = [
-    { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: [] },
-    { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['다크초콜릿'], tastingNoteEvidence: createTastingNoteEvidence(['다크초콜릿'], 'https://example.com/fresh-bean'), tastingNotesPreservedAt: notePreservedAt },
-    { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: [] },
+    { id: 'same-bean', roasterName: '테스트 로스터리', productName: '같은 원두', price: 20000, weight: 200, tastingNotes: [], acidityScore: null, acidityScoreSource: 'tastingNotes' },
+    { id: 'fresh-bean', roasterName: '테스트 로스터리', productName: '새 노트 원두', price: 21000, weight: 200, tastingNotes: ['다크초콜릿'], tastingNoteEvidence: createTastingNoteEvidence(['다크초콜릿'], 'https://example.com/fresh-bean'), tastingNotesPreservedAt: notePreservedAt, acidityScore: null, acidityScoreSource: 'tastingNotes' },
+    { id: 'first-preserve', roasterName: '테스트 로스터리', productName: '최초 보존 원두', price: 21500, weight: 200, tastingNotes: [], acidityScore: null, acidityScoreSource: 'tastingNotes' },
     { id: 'new-bean', roasterName: '테스트 로스터리', productName: '동명 원두', price: 22000, weight: 200, tastingNotes: [] },
+    { id: 'removed-note', roasterName: '테스트 로스터리', productName: '근거 없는 노트', price: 23000, weight: 200, tastingNotes: ['자스민'], acidityScore: 0.8, acidityScoreSource: 'tastingNotes' },
+    { id: 'scale-note', roasterName: '테스트 로스터리', productName: '막대값 원두', price: 24000, weight: 200, tastingNotes: [], tasteScale: { acidity: 2, sweetness: 4, max: 5 }, acidityScore: 0.8, acidityScoreSource: 'tastingNotes' },
   ];
   const currentNoteProductsBeforePublish = JSON.stringify(currentNoteProducts);
   const notePreservationSnapshot = githubPublisher.buildGithubSnapshot(currentNoteProducts, '2026-06-14T01:02:03.000Z', {
@@ -102,6 +104,8 @@ async function main() {
   const freshNoteProduct = notePreservationSnapshot.products.find((product) => product.id === 'fresh-bean');
   const firstPreservedProduct = notePreservationSnapshot.products.find((product) => product.id === 'first-preserve');
   const newProduct = notePreservationSnapshot.products.find((product) => product.id === 'new-bean');
+  const removedNoteProduct = notePreservationSnapshot.products.find((product) => product.id === 'removed-note');
+  const scaleProduct = notePreservationSnapshot.products.find((product) => product.id === 'scale-note');
   expect(
     preservedNoteProduct?.tastingNotes?.join(',') === '자스민',
     '새 수집 노트만 비었으면 같은 상품의 이전 유효 노트를 보존해야 합니다',
@@ -125,6 +129,21 @@ async function main() {
     '게시 품질 정보에 맛정보 보존 상품 수를 기록해야 합니다',
     JSON.stringify(notePreservationSnapshot.quality),
   );
+  for (const product of notePreservationSnapshot.products) {
+    const [recomputed] = coreFeatures.normalizeProducts([product]);
+    expect(
+      product.acidityScore === recomputed.acidityScore,
+      '게시 스냅샷의 산미 점수는 최종 노트와 막대값으로 다시 계산해야 합니다',
+      `${product.id}: ${product.acidityScore} !== ${recomputed.acidityScore}`,
+    );
+    expect(
+      product.acidityScoreSource === recomputed.acidityScoreSource,
+      '게시 스냅샷의 산미 점수 출처는 최종 노트와 막대값에 맞아야 합니다',
+      `${product.id}: ${product.acidityScoreSource} !== ${recomputed.acidityScoreSource}`,
+    );
+  }
+  expect(removedNoteProduct?.tastingNotes?.length === 0, '근거가 사라진 노트는 게시 스냅샷에서 제거해야 합니다');
+  expect(Math.abs(scaleProduct?.acidityScore - (-0.2)) < 1e-9 && scaleProduct?.acidityScoreSource === 'tasteScale', '신맛/단맛 막대가 있으면 게시 산미 점수도 막대값 기준이어야 합니다', JSON.stringify(scaleProduct));
   expect(
     JSON.stringify(currentNoteProducts) === currentNoteProductsBeforePublish,
     '게시 스냅샷을 만들면서 현재 수집 상품 원본을 바꾸면 안 됩니다',
