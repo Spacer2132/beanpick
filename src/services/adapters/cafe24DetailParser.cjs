@@ -540,10 +540,16 @@ function extractDetailContentImageUrls(html) {
   for (const re of patterns) {
     for (const m of text.matchAll(re)) urls.push(m[1]);
   }
-  // 중복 제거 + 로고/푸터/아이콘류 배제
+  // 아임웹 상세 본문 이미지: 편집기(fr-) 클래스가 붙은 것만 골라 배너·다른 상품 사진을 뺀다
+  for (const [tag] of text.matchAll(/<img\b[^>]*>/gi)) {
+    if (!/class=["'][^"']*\bfr-/i.test(tag)) continue;
+    const src = tag.match(/(?:data-src|src)=["']((?:https?:)?\/\/cdn(?:-optimized)?\.imweb\.me\/upload\/[^"']+)["']/i)?.[1];
+    if (src) urls.push(src);
+  }
+  // 중복 제거 + 로고/푸터/아이콘류 배제 (카페24는 스킨 공용 그림 서버만 뺀다. 본문 이미지 주소에도 cafe24가 들어간다)
   return [...new Set(urls)]
-    .filter((u) => !/icon|logo|footer|btn|arrow|cafe24|ini|gong|favicon|csm|directtrade/i.test(u))
-    .slice(0, 2);
+    .filter((u) => !/icon|logo|footer|btn|arrow|echosting|ini|gong|favicon|csm|directtrade/i.test(u))
+    .slice(0, 6);
 }
 
 // OCR/설명 텍스트에서 블렌딩 구성 추출. 예: "인도네시아 / Indonesia 40%", "ETHIOPIA NATURAL 60%"

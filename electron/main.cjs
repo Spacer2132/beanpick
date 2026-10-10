@@ -1636,7 +1636,11 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
           if (needsOcr) {
             const imgs = extractDetailContentImageUrls(detail.html);
             const ocrChunks = [];
-            for (const src of imgs) {
+            for (const [imageIndex, src] of imgs.entries()) {
+              // 3장째부터는 노트가 아직 없는 상품만 읽는다. 노트가 있는 상품까지 6장을 읽으면 시간 예산을 넘겨
+              // 다른 상품의 상세보강(재고·가격)이 생략될 수 있다. 앞의 2장은 블렌딩 구성 확인을 위해 기존처럼 읽는다.
+              if (Date.now() > deadlineAt) break;
+              if (imageIndex >= 2 && (parsed.tastingNotes || ocrChunks.some((chunk) => /^Tasting Note:/.test(chunk)))) break;
               const abs = absolutizeImageUrl(src, detailUrl);
               if (!abs) continue;
               try {

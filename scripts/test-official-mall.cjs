@@ -928,7 +928,36 @@ async function fetchTerarosaRows(source) {
   return rows;
 }
 
+// 공식몰 상세 이미지 OCR 대상 선택: 아임웹 본문(fr-) 이미지와, 주소에 cafe24가 들어간 카페24 본문 이미지도 골라야 한다.
+function assertDetailContentImageSelection() {
+  const imwebHtml = `
+    <img src="https://cdn.imweb.me/upload/S2017/banner.png" alt="배너">
+    <img class="fr-dib" src="https://cdn.imweb.me/upload/S2026/note1.png" alt="본문">
+    <img src="https://cdn.imweb.me/upload/S2017/a.png" class="fr-fil fr-dib">
+    <img class="fr-dib" src="//cdn-optimized.imweb.me/upload/S2026/b.png?w=1024">
+    <img class="thumb" src="https://cdn.imweb.me/upload/S2026/other-product.png">`;
+  const imweb = cafe24DetailParser.extractDetailContentImageUrls(imwebHtml);
+  if (imweb.join('|') !== 'https://cdn.imweb.me/upload/S2026/note1.png|https://cdn.imweb.me/upload/S2017/a.png|//cdn-optimized.imweb.me/upload/S2026/b.png?w=1024') {
+    throw new Error(`아임웹 본문 이미지만 골라야 합니다: ${JSON.stringify(imweb)}`);
+  }
+  const cafe24Html = `
+    <img src="https://img.echosting.cafe24.com/skin/base/icon.png">
+    <img ec-data-src="/ec/coffee/bean/intro.png">
+    <img ec-data-src="/ec/coffee/bean/olddog_200g_cafe24.png">
+    <img src="https://ecimg.cafe24img.com/pg1/aery/web/upload/NNEditor/20261002/detail.jpg">`;
+  const cafe24 = cafe24DetailParser.extractDetailContentImageUrls(cafe24Html);
+  if (!cafe24.includes('/ec/coffee/bean/olddog_200g_cafe24.png') || !cafe24.some((url) => url.includes('NNEditor/20261002/detail.jpg'))
+    || cafe24.some((url) => url.includes('echosting'))) {
+    throw new Error(`카페24 본문 이미지는 주소에 cafe24가 있어도 고르고 스킨 공용 그림은 빼야 합니다: ${JSON.stringify(cafe24)}`);
+  }
+  const many = cafe24DetailParser.extractDetailContentImageUrls(
+    Array.from({ length: 9 }, (_, index) => `<img class="fr-dib" src="https://cdn.imweb.me/upload/S1/${index}.png">`).join(''),
+  );
+  if (many.length !== 6) throw new Error(`본문 이미지는 최대 6장까지만 골라야 합니다: ${many.length}`);
+}
+
 async function main() {
+  assertDetailContentImageSelection();
   assertStockStatusSamples();
   await assertCafe24DetailRetry();
 
