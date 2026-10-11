@@ -2942,12 +2942,14 @@ a {
 .coffee-map-svg-wrap.is-real-map .coffee-world-svg,
 .coffee-map-svg-wrap.is-real-map .map-floating-controls { display: none; }
 /* 지도 라이브러리의 겹침 순서가 하단 탭바·상단 검색 바 위로 올라오지 않게 가둔다 */
-.real-country-map.leaflet-container { height: clamp(300px, 56vw, 520px); isolation: isolate; background: var(--atlas-ocean); }
-.real-country-map .real-map-dot { fill: var(--accent); fill-opacity: 1; stroke: #fff; stroke-width: 2; }
-.real-country-map .real-map-dot.is-active { fill: var(--accent-dark); }
-.leaflet-tooltip.real-map-label { padding: 2px 8px; border: 0; border-radius: 999px; background: rgb(255 255 255 / 0.94); color: var(--ink); font: 700 12px/1.4 var(--sans); box-shadow: 0 2px 8px rgb(var(--ink-rgb) / 0.18); }
-.leaflet-tooltip.real-map-label::before { display: none; }
-.leaflet-tooltip.real-map-label.is-active { background: var(--accent); color: #fff; }
+.real-country-map { position: relative; height: clamp(300px, 56vw, 520px); isolation: isolate; background: var(--atlas-ocean); }
+.real-country-map .maplibregl-ctrl-attrib { padding: 1px 6px; font: 10px/1.4 var(--sans); background: rgb(255 255 255 / 0.8); }
+.real-map-marker { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; border: 0; background: none; cursor: pointer; }
+.real-map-dot { width: 14px; height: 14px; border: 2px solid #fff; border-radius: 50%; background: var(--accent); box-shadow: 0 1px 4px rgb(var(--ink-rgb) / 0.3); }
+.real-map-label { padding: 2px 8px; border-radius: 999px; background: rgb(255 255 255 / 0.94); color: var(--ink); font: 700 12px/1.4 var(--sans); white-space: nowrap; box-shadow: 0 2px 8px rgb(var(--ink-rgb) / 0.18); }
+.real-map-marker.is-active { z-index: 1; }
+.real-map-marker.is-active .real-map-dot { width: 18px; height: 18px; background: var(--accent-dark); }
+.real-map-marker.is-active .real-map-label { background: var(--accent); color: #fff; }
 .coffee-pin-group { pointer-events: auto; }
 .coffee-pin-glow-ring, .coffee-pin-label, .coffee-map-tooltip, .coffee-map-tooltip * { pointer-events: none !important; }
 .map-coffee-lands path:focus-visible { outline: none; stroke: #382c24; stroke-width: 2.5px; }
