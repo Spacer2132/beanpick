@@ -1550,7 +1550,10 @@ async function fetchMomosProducts() {
   let loadAttempts = 0;
   while (!page && loadAttempts <= MOMOS_LIST_RETRIES) {
     loadAttempts += 1;
+    // 목록 끊김 원인 측정: 시도마다 걸린 시간을 남긴다(12초 근처면 abort, 15초면 하드 타임아웃).
+    const attemptStartedMs = Date.now();
     page = await fetchHtmlPage(MOMOS_SOURCE_URL, MOMOS_SOURCE_URL);
+    console.log(`[beanpick:momos-list] attempt=${loadAttempts} ok=${Boolean(page)} ms=${Date.now() - attemptStartedMs} bytes=${page ? page.html.length : 0}`);
     if (!page && loadAttempts <= MOMOS_LIST_RETRIES) await delay(1000);
   }
   if (!page) {
