@@ -8,6 +8,9 @@ import { COFFEE_COUNTRY_PATHS, OTHER_COUNTRY_PATHS } from './worldCountryPaths.j
 import { COFFEE_REGION_POINTS } from '../services/coffeeRegions.js';
 import { buildRegionCells } from '../services/regionCells.js';
 import { REGION_PROFILES, regionProfileKey } from '../services/coffeeRegionProfiles.js';
+import RealCountryMap from './RealCountryMap.jsx';
+
+const NO_REGIONS = [];
 
 // 화면 폭에 맞춘 비율은 대륙을 전환해도 유지한다.
 // 처음 화면은 양 끝 생산국 핀이 폰 폭에서도 잘리지 않고 여백을 두고 들어오는 범위다.
@@ -584,7 +587,16 @@ export default function WorldCoffeeMap({
         </div>
       </div>
 
-      <div className="coffee-map-svg-wrap" ref={wrapRef}>
+      {/* 나라를 고르면 그림 지도와 확대 버튼은 숨기고 실제 지도를 보여 준다. */}
+      <div className={`coffee-map-svg-wrap ${selectedInfo ? 'is-real-map' : ''}`} ref={wrapRef}>
+        {selectedInfo && COUNTRY_BOUNDS[selectedInfo.code] && (
+          <RealCountryMap
+            bounds={COUNTRY_BOUNDS[selectedInfo.code]}
+            regions={COFFEE_REGION_POINTS[selectedInfo.code] || NO_REGIONS}
+            selectedRegion={selectedRegion}
+            onSelectRegion={(name) => setSelectedRegion((prev) => (prev === name ? null : name))}
+          />
+        )}
         <svg
           ref={svgRef}
           viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.w} ${vbH}`}

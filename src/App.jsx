@@ -39,7 +39,7 @@ import { extractProductCountries } from './services/mapCoordinates.js';
 import { STORY_SECTIONS, VARIETY_TIERS, matchSingleVarietyIds } from './data/varietyGuide.js';
 
 const NAV = [
-  { id: 'explore', label: '탐색', group: '둘러보기' },
+  { id: 'explore', label: '검색', group: '둘러보기' },
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
   { id: 'map', label: '지도', group: '둘러보기' },
   { id: 'sources', label: '로스터리', group: '데이터', badge: roasterySources.length },
@@ -322,7 +322,7 @@ function ProductDetailModal({ isFavorite, product, onClose, onToggleFavorite, on
 
 // 선 아이콘 한 벌. 글자 기호(♡·↑)나 이모지는 기기마다 모양이 달라 SVG로 통일한다.
 const ICON_PATHS = {
-  bean: <><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)" /><path d="M8.6 6.2c3.2 2.6 3.6 8.8 6.8 11.6" /></>,
+  bean: <><ellipse cx="12" cy="12" rx="7" ry="10" transform="rotate(45 12 12)" /><path d="M16.6 7.4c-3 .6-3.4 3.3-4.6 4.6s-1.6 4-4.6 4.6" /></>,
   map: <><path d="M9 4L3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4z" /><path d="M9 4v14M15 6v14" /></>,
   store: <><path d="M4 9.5L5.5 4h13L20 9.5" /><path d="M4 9.5h16c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3" /><path d="M5.5 12.3V20h13v-7.7" /></>,
   heart: <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z" />,
@@ -331,9 +331,9 @@ const ICON_PATHS = {
   chevron: <path d="M6 9l6 6 6-6" />,
   close: <path d="M6 6l12 12M18 6L6 18" />,
   arrowUp: <path d="M12 19V5M6 11l6-6 6 6" />,
-  sparkle: <><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9L11 3z" /><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15z" /></>,
+  search: <><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></>,
 };
-const NAV_ICONS = { explore: 'sparkle', products: 'bean', map: 'map', sources: 'store', alerts: 'heart', server: 'status' };
+const NAV_ICONS = { explore: 'search', products: 'bean', map: 'map', sources: 'store', alerts: 'heart', server: 'status' };
 
 function Icon({ name, size = 20 }) {
   return (
@@ -693,7 +693,7 @@ function ExplorePage({ products, isLoading, onSelectVariety, onSelectProduct, on
 
   return (
     <div className="page-stack explore-page">
-      <h1 className="explore-title">탐색</h1>
+      <h1 className="explore-title">검색</h1>
 
       {isLoading ? (
         <div className="explore-loading"><LoadingSpinner /><p>원두를 불러오는 중입니다</p></div>
@@ -879,7 +879,7 @@ function AppStatusPage({ dataMode, favoriteCount, lastLoadedAt, loadState, monit
 }
 
 export default function App() {
-  // 아이폰 웹은 탐색, PC 앱은 원두 목록이 첫 화면이다.
+  // 아이폰 웹은 검색, PC 앱은 원두 목록이 첫 화면이다.
   const [screen, setScreen] = React.useState(() => (canLoadLiveProducts() ? 'products' : 'explore'));
   const [searchQuery, setSearchQuery] = React.useState('');
   const [sortMode, setSortMode] = React.useState('score');
@@ -913,6 +913,19 @@ export default function App() {
   const [detailProductId, setDetailProductId] = React.useState(null);
   const [mapEntry, setMapEntry] = React.useState({ varietyId: null, key: 0 });
   const [searchFocused, setSearchFocused] = React.useState(false);
+  // 스크롤 숨김 헤더: 아래로 내리면 위 검색 바를 숨기고, 위로 올리면 다시 보여 준다.
+  const [topbarHidden, setTopbarHidden] = React.useState(false);
+  React.useEffect(() => {
+    let lastY = window.scrollY;
+    const handleScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) < 8) return; // 손가락 떨림 정도의 작은 움직임은 무시
+      setTopbarHidden(y > lastY && y > 80);
+      lastY = y;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const loadingRef = React.useRef(false);
   const loadProductsRef = React.useRef(null);
 
@@ -924,7 +937,7 @@ export default function App() {
   ), [products]);
 
   // 앱 상태·로스터리 연결 탭은 운영용이라 PC 앱에서만 보여주고, 아이폰 웹앱에서는 숨긴다.
-  // (아이폰 웹의 로스터리 목록은 탐색 화면의 로스터리 줄로 옮겼다.)
+  // (아이폰 웹의 로스터리 목록은 검색 화면의 로스터리 줄로 옮겼다.)
   const navItems = React.useMemo(() => NAV
     .filter((item) => (item.id !== 'server' && item.id !== 'sources') || canLoadLiveProducts())
     .map((item) => {
@@ -1318,7 +1331,7 @@ export default function App() {
               aria-selected={screen === item.id}
               onClick={() => { setMapEntry({ varietyId: null, key: Date.now() }); setScreen(item.id); }}
             >
-              <Icon name={NAV_ICONS[item.id]} size={24} />
+              <Icon name={NAV_ICONS[item.id]} size={26} />
               <span>{item.label}</span>
               {item.id === 'alerts' && item.badge > 0 && <em>{item.badge}</em>}
             </button>
@@ -1352,7 +1365,7 @@ export default function App() {
       </aside>
 
       <main className="main">
-        <div className="topbar">
+        <div className={`topbar ${topbarHidden && !searchFocused ? 'is-scroll-hidden' : ''}`}>
           <div>
             <span>BeanPick / {current.label}</span>
           </div>
@@ -1364,7 +1377,7 @@ export default function App() {
                 placeholder="원두·로스터리·노트 검색 (초성 가능)"
                 onChange={(event) => {
                   setSearchQuery(event.target.value);
-                  // 탐색 화면은 검색 결과를 보여주지 않으므로 원두 화면으로 넘긴다.
+                  // 검색 첫 화면은 검색 결과를 보여주지 않으므로 원두 화면으로 넘긴다.
                   if (screen === 'explore') setScreen('products');
                 }}
                 onFocus={() => setSearchFocused(true)}

@@ -1882,7 +1882,7 @@ a {
   font-weight: 700;
 }
 
-/* 탐색 화면: 큰 제목 + 가로로 넘기는 줄(레일) 세 개 */
+/* 검색 첫 화면: 큰 제목 + 가로로 넘기는 줄(레일) 세 개 */
 .explore-page {
   --rail-bleed: 0px;
   gap: 36px;
@@ -2385,6 +2385,16 @@ a {
     font-weight: 700;
   }
 
+  /* 인스타그램처럼 아이콘만 보인다. 글자는 화면 읽기 프로그램용으로만 남긴다. */
+  .mobile-nav-item span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   .mobile-nav-item em {
     position: absolute;
     top: 2px;
@@ -2456,6 +2466,12 @@ a {
     background: rgb(var(--bg-rgb) / 0.92);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
+    transition: transform 0.25s ease;
+  }
+
+  /* 스크롤 숨김 헤더: 아래로 내릴 때는 숨고, 위로 올리면 다시 내려온다 */
+  .topbar.is-scroll-hidden {
+    transform: translateY(-110%);
   }
 
   .topbar > div:first-child {
@@ -2921,6 +2937,17 @@ a {
 .coffee-map-svg-wrap { position: relative; width: 100%; overflow: hidden; border-radius: 4px; background: var(--atlas-ocean); user-select: none; }
 .coffee-world-svg { display: block; width: 100%; height: auto; touch-action: none; user-select: none; }
 .coffee-world-svg.is-dragging { cursor: grabbing !important; }
+
+/* 나라를 고르면 보이는 실제 지도(RealCountryMap). 그림 지도와 확대 버튼은 숨긴다. */
+.coffee-map-svg-wrap.is-real-map .coffee-world-svg,
+.coffee-map-svg-wrap.is-real-map .map-floating-controls { display: none; }
+/* 지도 라이브러리의 겹침 순서가 하단 탭바·상단 검색 바 위로 올라오지 않게 가둔다 */
+.real-country-map.leaflet-container { height: clamp(300px, 56vw, 520px); isolation: isolate; background: var(--atlas-ocean); }
+.real-country-map .real-map-dot { fill: var(--accent); fill-opacity: 1; stroke: #fff; stroke-width: 2; }
+.real-country-map .real-map-dot.is-active { fill: var(--accent-dark); }
+.leaflet-tooltip.real-map-label { padding: 2px 8px; border: 0; border-radius: 999px; background: rgb(255 255 255 / 0.94); color: var(--ink); font: 700 12px/1.4 var(--sans); box-shadow: 0 2px 8px rgb(var(--ink-rgb) / 0.18); }
+.leaflet-tooltip.real-map-label::before { display: none; }
+.leaflet-tooltip.real-map-label.is-active { background: var(--accent); color: #fff; }
 .coffee-pin-group { pointer-events: auto; }
 .coffee-pin-glow-ring, .coffee-pin-label, .coffee-map-tooltip, .coffee-map-tooltip * { pointer-events: none !important; }
 .map-coffee-lands path:focus-visible { outline: none; stroke: #382c24; stroke-width: 2.5px; }
