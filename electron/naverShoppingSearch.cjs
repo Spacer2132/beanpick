@@ -110,6 +110,11 @@ const SMARTSTORE_GOODS_PHRASES = [
   '밀크컵',
   '커핑스푼',
   '장바구니',
+  '후드티',
+  '후드집업',
+  '쿠키',
+  '다쿠아즈',
+  '정기배송',
 ];
 const SMARTSTORE_GOODS_SET_PHRASES = [
   '기프트세트',
@@ -786,6 +791,8 @@ function isSmartStoreGoodsTitle(title) {
   const text = String(title || '').toLowerCase();
   if (SMARTSTORE_GOODS_PHRASES.some((word) => text.includes(word))) return true;
   if (!hasSmartStoreBeanSignal(text) && SMARTSTORE_GOODS_SET_PHRASES.some((word) => text.includes(word))) return true;
+  // 디저트 이름(정경 파운드)은 치고, 원두 포장 단위(1파운드·1 파운드)는 치지 않는다.
+  if (/(^|[^a-z0-9가-힣])파운드(?=$|[^a-z0-9가-힣])/.test(text) && !/\d\s*파운드/.test(text)) return true;
   return SMARTSTORE_GOODS_BOUNDARY_WORDS.some((word) => {
     const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return new RegExp(`(^|[^a-z0-9가-힣])${escapedWord}(?=$|[^a-z0-9가-힣])`, 'i').test(text);

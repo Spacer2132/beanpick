@@ -10,7 +10,7 @@ export const OFFICIAL_MALL_CONFIGS: Record<string, Cafe24SourceConfig> = {
     categoryNo: '48',
     trustCategoryAsBean: true,
     verifyStockFromDetail: true,
-    blockedWords: ['드립백', '티백', '캡슐', '콜드브루', '선물', '쇼핑백', '수첩', '굿즈', '꿀꺽꿀꺽', '샷글라스'],
+    blockedWords: ['드립백', '티백', '캡슐', '콜드브루', '선물', '쇼핑백', '수첩', '굿즈', '꿀꺽꿀꺽', '샷글라스', '퀵커피'],
   },
   namusairo: {
     sourceId: 'namusairo',
