@@ -440,6 +440,116 @@ expect(core.matchesNoteQuery(noteQueryProduct, '캐러멜', '오렌지, 플로�
 expect(core.matchesNoteQuery(noteQueryProduct, '', '') === true, '둘 다 비어 있으면 전체 통과여야 합니다');
 expect(core.matchesNoteQuery({ tastingNotes: [] }, '초콜릿', '') === false, '노트가 없는 원두는 포함 검색에서 제외되어야 합니다');
 
+// 노트 검색어가 둘 다 비어 있으면 비싼 노트 근거 조합 자체를 건너뛰어야 한다.
+const noteEvidenceTrapProduct = {
+  tastingNotes: ['밀크초콜릿'],
+  get tastingNoteEvidence() { throw new Error('tastingNoteEvidence를 읽었습니다'); },
+};
+let noteEvidenceTrapPassed = false;
+try {
+  noteEvidenceTrapPassed = core.matchesNoteQuery(noteEvidenceTrapProduct, '', '') === true;
+} catch (error) {
+  noteEvidenceTrapPassed = false;
+}
+expect(noteEvidenceTrapPassed, '포함·제외 검색어가 비어 있으면 노트 근거를 만들기 전에 바로 통과해야 합니다');
+
+// --- 검색 색인 회귀: 의미 보존 + 속도 ---
+// App.jsx의 productSearchText와 동일한 검색 대상 문자열을 만든다.
+function buildProductSearchText(product) {
+  const displayInfo = core.formatProductDisplayInfo(product);
+  const optionText = (product.priceOptions || [])
+    .flatMap((option) => [option.weightLabel, option.priceLabel, option.unitPriceLabel])
+    .filter(Boolean);
+
+  return [
+    product.roasterName,
+    core.normalizeWholeBeanProductName(product.productName),
+    product.origin,
+    product.process,
+    product.roastLevel,
+    product.variety,
+    product.farm,
+    displayInfo.primary,
+    displayInfo.variety,
+    displayInfo.process,
+    displayInfo.farm,
+    product.weight ? `${product.weight}g` : '',
+    product.price ? String(product.price) : '',
+    product.price ? core.formatPrice(product.price) : '',
+    product.weightLabel,
+    product.priceLabel,
+    ...optionText,
+    ...product.tastingNotes,
+    ...tastingNoteTools.getDisplayTastingNotes(product),
+  ].filter(Boolean).join(' ').toLowerCase();
+}
+
+const SEARCH_PERF_QUERIES = [
+  'ㅋ', '커', '커피', '에티오피아', '초콜릿',
+  'ㅇㅌㅇㅍㅇ', 'ㅅㄷㄹ', 'sidra', 'geisha', 'washed',
+  '에티오피아 워시드', '콜롬비아 내추럴', '에티오피아예가', '',
+];
+
+const searchPerfSnapshotPath = 'docs/products.json';
+if (!fs.existsSync(searchPerfSnapshotPath)) {
+  failures.push('검색 성능 회귀 테스트에 필요한 docs/products.json이 없습니다');
+} else {
+  const snapshotProducts = core.normalizeProducts(JSON.parse(fs.readFileSync(searchPerfSnapshotPath, 'utf8')).products || []);
+  expect(snapshotProducts.length >= 100, '검색 성능 회귀는 실데이터 100건 이상에서 측정해야 합니다', String(snapshotProducts.length));
+
+  const searchTexts = snapshotProducts.map((product) => buildProductSearchText(product));
+
+  // 1) 의미 보존: 색인 경로와 기존 경로의 매칭 상품 ID가 완전히 같아야 한다.
+  const searchIndexes = searchTexts.map((text) => core.createSmartSearchIndex(text));
+  for (const query of SEARCH_PERF_QUERIES) {
+    const compiledQuery = core.createSmartSearchQuery(query);
+    const legacyIds = snapshotProducts.filter((product, i) => core.matchesSmartSearch(searchTexts[i], query)).map((product) => product.id);
+    const indexedIds = snapshotProducts.filter((product, i) => core.matchesSmartSearchIndex(searchIndexes[i], compiledQuery)).map((product) => product.id);
+    expect(
+      legacyIds.length === indexedIds.length && legacyIds.every((id, i) => id === indexedIds[i]),
+      `색인 검색 결과가 기존 검색과 같아야 합니다 (질의 "${query}")`,
+      `기존 ${legacyIds.length}건 / 색인 ${indexedIds.length}건`,
+    );
+  }
+
+  // 2) 속도: 키 입력 1회를 흔내 낸다. 기존은 텍스트·색인을 매번 다시 만들었다.
+  function measureMs(run) {
+    let best = Infinity;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const started = process.hrtime.bigint();
+      run();
+      best = Math.min(best, Number(process.hrtime.bigint() - started) / 1e6);
+    }
+    return best;
+  }
+
+  const legacyKeystrokeMs = measureMs(() => {
+    for (const query of SEARCH_PERF_QUERIES) {
+      snapshotProducts.forEach((product) => core.matchesSmartSearch(buildProductSearchText(product), query));
+    }
+  });
+  const indexBuildMs = measureMs(() => {
+    snapshotProducts.forEach((product) => core.createSmartSearchIndex(buildProductSearchText(product)));
+  });
+  const indexedKeystrokeMs = measureMs(() => {
+    for (const query of SEARCH_PERF_QUERIES) {
+      const compiledQuery = core.createSmartSearchQuery(query);
+      searchIndexes.forEach((searchIndex) => core.matchesSmartSearchIndex(searchIndex, compiledQuery));
+    }
+  });
+
+  const speedup = legacyKeystrokeMs / Math.max(indexedKeystrokeMs, 0.0001);
+  expect(
+    speedup >= 10,
+    '색인 재사용 검색은 매번 다시 만드는 기존 경로보다 10배 이상 빨라야 합니다',
+    `${legacyKeystrokeMs.toFixed(1)}ms → ${indexedKeystrokeMs.toFixed(1)}ms (${speedup.toFixed(1)}배)`,
+  );
+  console.log(
+    `[search-perf] 상품 ${snapshotProducts.length}개 / 질의 ${SEARCH_PERF_QUERIES.length}개: `
+    + `기존 ${legacyKeystrokeMs.toFixed(1)}ms, 색인 생성 ${indexBuildMs.toFixed(1)}ms(1회), 색인 검색 ${indexedKeystrokeMs.toFixed(1)}ms, ${speedup.toFixed(1)}배`,
+  );
+}
+
 expect(core.getTasteNoteGroup('오렌지') === 'light', '오렌지는 라이트 그룹이어야 합니다');
 expect(core.getTasteNoteGroup('버터스카치') === 'medium', '버터스카치는 미디움 그룹이어야 합니다');
 expect(core.getTasteNoteGroup('다크초콜릿') === 'dark', '다크초콜릿은 다크 그룹이어야 합니다');

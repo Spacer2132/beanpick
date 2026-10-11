@@ -940,22 +940,51 @@ function matchesSmartSearchToken(originalText, compactText, choseongText, wordSt
     || (/^[ㄱ-ㅎ]+$/.test(token) && hasWordStartMatch(choseongText, token, wordStartOffsets));
 }
 
+// 검색 대상 문자열을 한 번만 정규화해 두는 색인. 상품 데이터가 바뀔 때만 다시 만들면 된다.
+function createSmartSearchIndex(text) {
+  const originalText = String(text).toLowerCase();
+  const { compactText, wordStartOffsets } = buildCompactSearchIndex(originalText);
+
+  return {
+    originalText,
+    compactText,
+    choseongText: getChoseong(compactText),
+    wordStartOffsets,
+  };
+}
+
+// 검색어를 별칭까지 펼쳐 한 번만 컴파일한다. (상품마다 별칭표를 다시 돌지 않기 위함)
+function createSmartSearchQuery(query) {
+  if (query && Array.isArray(query.tokenVariants)) return query;
+  const tokens = String(query ?? '').trim().toLowerCase().split(/\s+/).filter(Boolean);
+  return { tokenVariants: tokens.map((token) => getSearchTokenVariants(token)) };
+}
+
+// 미리 만든 색인과 컴파일된 검색어로 매칭한다. matchesSmartSearch와 결과가 같다.
+function matchesSmartSearchIndex(index, query) {
+  const { tokenVariants } = createSmartSearchQuery(query);
+  if (tokenVariants.length === 0) return true;
+
+  return tokenVariants.every((variants) => variants
+    .some((variant) => matchesSmartSearchToken(index.originalText, index.compactText, index.choseongText, index.wordStartOffsets, variant)));
+}
+
 // 띄어쓰기 무시 + 초성(ㅇㅌㅇㅍㅇ) 검색을 지원하는 매칭.
 // 여러 단어를 입력하면 모든 단어가 들어 있어야 한다.
 function matchesSmartSearch(text, query) {
-  const tokens = String(query).trim().toLowerCase().split(/\s+/).filter(Boolean);
-  if (tokens.length === 0) return true;
+  const compiledQuery = createSmartSearchQuery(query);
+  if (compiledQuery.tokenVariants.length === 0) return true;
 
-  const originalText = String(text).toLowerCase();
-  const { compactText, wordStartOffsets } = buildCompactSearchIndex(originalText);
-  const choseongText = getChoseong(compactText);
-
-  return tokens.every((token) => getSearchTokenVariants(token)
-    .some((variant) => matchesSmartSearchToken(originalText, compactText, choseongText, wordStartOffsets, variant)));
+  return matchesSmartSearchIndex(createSmartSearchIndex(text), compiledQuery);
 }
 
 // 노트 상세검색: 포함 단어는 노트에 모두 들어 있어야 하고, 제외 단어는 하나도 없어야 한다.
 function matchesNoteQuery(product, includeQuery = '', excludeQuery = '') {
+  const includeText = String(includeQuery).replace(/,/g, ' ').trim();
+  const excludeTokens = String(excludeQuery).trim().split(/[\s,]+/).filter(Boolean);
+  // 둘 다 비어 있으면 어차피 전체 통과다. 비싼 노트 근거 조합을 건너뛴다.
+  if (!includeText && excludeTokens.length === 0) return true;
+
   // 화면은 한글 정규 라벨을 쓰되, 검색은 기존 원문 별칭도 계속 찾을 수 있게 한다.
   const searchableEvidence = mergeTastingNoteEvidence(product?.tastingNoteEvidence || [])
     .filter((entry) => !entry.reviewReason && normalizeTastingNotes([entry.text], { limit: Infinity })
@@ -963,9 +992,8 @@ function matchesNoteQuery(product, includeQuery = '', excludeQuery = '') {
     .map((entry) => entry.text);
   const noteText = [...(product.tastingNotes || []), ...getDisplayTastingNotes(product), ...searchableEvidence].join(' ');
 
-  if (!matchesSmartSearch(noteText, String(includeQuery).replace(/,/g, ' '))) return false;
+  if (!matchesSmartSearch(noteText, includeText)) return false;
 
-  const excludeTokens = String(excludeQuery).trim().split(/[\s,]+/).filter(Boolean);
   return !excludeTokens.some((token) => matchesSmartSearch(noteText, token));
 }
 
@@ -1013,6 +1041,8 @@ function getFilteredProducts(products, { searchQuery = '', activeNotes = [], sto
 export {
   createPriceOption,
   createPriceOptions,
+  createSmartSearchIndex,
+  createSmartSearchQuery,
   calculateDiscountRate,
   filterDiscountProducts,
   filterProductsBySearchAndNotes,
@@ -1041,6 +1071,7 @@ export {
   matchesCapacityFilter,
   matchesNoteQuery,
   matchesSmartSearch,
+  matchesSmartSearchIndex,
   normalizeProductNameForGroup,
   normalizeProducts,
   normalizeWholeBeanProductName,

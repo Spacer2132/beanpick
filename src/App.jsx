@@ -8,6 +8,8 @@ import { enrichTerarosaProducts, normalizeTerarosaApiRows, parseTerarosaHtmlProd
 import { getDisplayRoastLevel } from './services/roastLevel.js';
 import {
   createPriceOptions,
+  createSmartSearchIndex,
+  createSmartSearchQuery,
   filterDiscountProducts,
   formatPrice,
   formatProductDisplayInfo,
@@ -24,7 +26,7 @@ import {
   isRealProductUrl,
   matchesCapacityFilter,
   matchesNoteQuery,
-  matchesSmartSearch,
+  matchesSmartSearchIndex,
   normalizeProducts,
   normalizeWholeBeanProductName,
   resolveProductOpenUrl,
@@ -75,10 +77,6 @@ function productSearchText(product) {
     ...product.tastingNotes,
     ...getDisplayTastingNotes(product),
   ].filter(Boolean).join(' ').toLowerCase();
-}
-
-function matchesDetailQuery(product, query) {
-  return matchesSmartSearch(productSearchText(product), query);
 }
 
 function matchesBudgetFilter(product, budget) {
@@ -935,6 +933,12 @@ export default function App() {
   const availableProducts = React.useMemo(() => (
     products.filter((product) => !product.isSoldOut && !isGroundCoffeeProduct(product))
   ), [products]);
+  // 검색용 정규화 색인은 상품이 바뀔 때만 만든다. 키 입력마다 다시 만들면 입력이 멈춘다.
+  const productSearchIndexes = React.useMemo(() => (
+    new Map(products.map((product) => [product, createSmartSearchIndex(productSearchText(product))]))
+  ), [products]);
+  // 검색어 별칭 확장도 입력당 한 번만 한다.
+  const compiledSearchQuery = React.useMemo(() => createSmartSearchQuery(searchQuery), [searchQuery]);
 
   // 앱 상태·로스터리 연결 탭은 운영용이라 PC 앱에서만 보여주고, 아이폰 웹앱에서는 숨긴다.
   // (아이폰 웹의 로스터리 목록은 검색 화면의 로스터리 줄로 옮겼다.)
@@ -966,7 +970,7 @@ export default function App() {
   // 판매 중 원두에 검색·노트·할인·디카페인·원산지·가공·가격 조건을 적용한다.
   const visibleProducts = React.useMemo(() => (
     availableProducts.filter((product) => (
-      matchesDetailQuery(product, searchQuery)
+      matchesSmartSearchIndex(productSearchIndexes.get(product), compiledSearchQuery)
       && (activeNotes.length === 0 || activeNotes.some((note) => product.tastingNotes.includes(note)))
       && matchesNoteQuery(product, noteIncludeQuery, noteExcludeQuery)
       && (!saleOnly || discountProducts.includes(product) || isOnePlusOneProduct(product))
@@ -976,7 +980,7 @@ export default function App() {
       && matchesBudgetFilter(product, budget)
       && matchesCapacityFilter(product, capacityFilter)
     ))
-  ), [activeNotes, availableProducts, budget, capacityFilter, decafOnly, saleOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, searchQuery]);
+  ), [activeNotes, availableProducts, budget, capacityFilter, decafOnly, saleOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, productSearchIndexes, compiledSearchQuery]);
 
   const filteredProducts = React.useMemo(() => (
     sortProducts(visibleProducts, sortMode, tasteAxis)
@@ -991,11 +995,8 @@ export default function App() {
     detailProductId ? products.find((product) => product.id === detailProductId) ?? null : null
   ), [detailProductId, products]);
 
-  // 입력 중인 검색어와 비슷한 로스터리·원두·노트 이름을 추천한다.
-  const searchSuggestions = React.useMemo(() => {
-    const query = searchQuery.trim();
-    if (!query) return [];
-
+  // 추천 후보와 그 검색 색인도 상품이 바뀔 때만 구성한다.
+  const searchSuggestionCandidates = React.useMemo(() => {
     const candidates = new Set();
     availableProducts.forEach((product) => {
       candidates.add(product.roasterName);
@@ -1005,9 +1006,20 @@ export default function App() {
 
     return [...candidates]
       .filter(Boolean)
-      .filter((candidate) => candidate.toLowerCase() !== query.toLowerCase() && matchesSmartSearch(candidate, query))
+      .map((candidate) => ({ candidate, searchIndex: createSmartSearchIndex(candidate) }));
+  }, [availableProducts]);
+
+  // 입력 중인 검색어와 비슷한 로스터리·원두·노트 이름을 추천한다.
+  const searchSuggestions = React.useMemo(() => {
+    const query = searchQuery.trim();
+    if (!query) return [];
+    const lowerQuery = query.toLowerCase();
+
+    return searchSuggestionCandidates
+      .filter((entry) => entry.candidate.toLowerCase() !== lowerQuery && matchesSmartSearchIndex(entry.searchIndex, compiledSearchQuery))
+      .map((entry) => entry.candidate)
       .slice(0, 8);
-  }, [availableProducts, searchQuery]);
+  }, [searchSuggestionCandidates, searchQuery, compiledSearchQuery]);
 
   function clearAllFilters() {
     setSearchQuery('');

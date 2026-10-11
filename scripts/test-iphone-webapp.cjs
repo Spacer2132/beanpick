@@ -197,6 +197,25 @@ async function main() {
     '추가 용량 표시는 가격 박스 안의 용량 행에 있어야 합니다',
   );
 
+  // 검색 입력 지연 회귀 방지: 상품별 정규화 색인은 상품 데이터가 바뀔 때만 만들어야 한다.
+  const productSearchIndexMemo = appSource.match(/const productSearchIndexes = React\.useMemo\(\(\) => \([\s\S]*?\), \[([^\]]*)\]\);/);
+  expect(
+    Boolean(productSearchIndexMemo) && productSearchIndexMemo[1].trim() === 'products',
+    '상품 검색 색인은 products가 바뀔 때만 다시 만들어야 합니다',
+    productSearchIndexMemo ? productSearchIndexMemo[1].trim() : '색인 useMemo 없음',
+  );
+  const suggestionCandidateMemo = appSource.match(/const searchSuggestionCandidates = React\.useMemo\(\(\) => \{[\s\S]*?\}, \[([^\]]*)\]\);/);
+  expect(
+    Boolean(suggestionCandidateMemo) && suggestionCandidateMemo[1].trim() === 'availableProducts',
+    '검색 추천 후보도 상품 데이터(availableProducts)가 바뀔 때만 구성해야 합니다',
+    suggestionCandidateMemo ? suggestionCandidateMemo[1].trim() : '후보 useMemo 없음',
+  );
+  expect(
+    /matchesSmartSearchIndex\(productSearchIndexes\.get\(product\), compiledSearchQuery\)/.test(appSource)
+      && !/matchesSmartSearch\(productSearchText\(/.test(appSource),
+    '상품 목록 검색은 키 입력마다 검색 텍스트를 다시 만들지 말고 미리 만든 색인을 써야 합니다',
+  );
+
   const stylesSource = fs.readFileSync('src/styles.css', 'utf8');
   expect(
     /\.bean-price-option \.bean-price-more-pill\s*\{[\s\S]*?display:\s*inline-flex/.test(stylesSource)
