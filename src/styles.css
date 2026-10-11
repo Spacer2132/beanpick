@@ -2,23 +2,34 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
 :root {
-  --bg: #f7f2ea;
-  --surface: #fffaf2;
+  /* 색 원본(R G B). 반투명이 필요한 곳은 rgb(var(--x-rgb) / 0.5)처럼 쓴다. */
+  --bg-rgb: 255 255 255;
+  --surface-rgb: 255 255 255;
+  --ink-rgb: 30 24 20;
+  --accent-rgb: 107 66 38;
+  --accent-soft-rgb: 243 235 227;
+  --line-strong-rgb: 217 207 196;
+
+  --bg: rgb(var(--bg-rgb));
+  --surface: rgb(var(--surface-rgb));
   --surface-strong: #ffffff;
-  --ink: #231b16;
-  --muted: #6b5d52;
-  --soft: #7d6f63;
-  --line: #e4d8c8;
-  --line-strong: #d4c3ae;
-  --accent: #8f4f2e;
-  --accent-dark: #64351f;
-  --accent-soft: #f1d8c6;
+  --surface-muted: #f6f3ef;
+  --skeleton: #efe9e2;
+  --skeleton-highlight: #f7f3ef;
+  --ink: rgb(var(--ink-rgb));
+  --muted: #6e6259;
+  --soft: #7a6d62;
+  --line: #ece6df;
+  --line-strong: rgb(var(--line-strong-rgb));
+  --accent: rgb(var(--accent-rgb));
+  --accent-dark: #4a2c18;
+  --accent-soft: rgb(var(--accent-soft-rgb));
   --green: #5d8b62;
   --red: #bb6258;
   --amber: #c78a3b;
-  --shadow: 0 20px 50px rgba(58, 38, 22, 0.12);
-  --shadow-soft: 0 12px 28px rgba(58, 38, 22, 0.08);
-  --radius: 18px;
+  --shadow: 0 16px 40px rgb(var(--ink-rgb) / 0.10);
+  --shadow-soft: 0 6px 20px rgb(var(--ink-rgb) / 0.06);
+  --radius: 20px;
   --radius-small: 12px;
   --sans: "Inter", "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
   --serif: "Noto Serif KR", Georgia, serif;
@@ -43,11 +54,7 @@ body {
 }
 
 body {
-  background:
-    linear-gradient(120deg, rgba(255, 250, 242, 0.9), rgba(247, 242, 234, 0.9)),
-    radial-gradient(circle at 90% 0%, rgba(143, 79, 46, 0.12), transparent 34%),
-    radial-gradient(circle at 8% 92%, rgba(93, 139, 98, 0.12), transparent 32%),
-    var(--bg);
+  background: var(--bg);
 }
 
 button,
@@ -79,8 +86,8 @@ a {
   top: 0;
   height: 100vh;
   padding: 28px 18px;
-  border-right: 1px solid rgba(212, 195, 174, 0.72);
-  background: rgba(255, 250, 242, 0.82);
+  border-right: 1px solid rgb(var(--line-strong-rgb) / 0.72);
+  background: rgb(var(--surface-rgb) / 0.82);
   backdrop-filter: blur(18px);
   display: flex;
   flex-direction: column;
@@ -369,8 +376,8 @@ a {
   border-radius: 999px;
   background:
     radial-gradient(circle at 50% 50%, var(--surface-strong) 0 33%, transparent 35%),
-    conic-gradient(from 0deg, rgba(143, 79, 46, 0.12), var(--accent), rgba(93, 139, 98, 0.72), rgba(143, 79, 46, 0.12));
-  box-shadow: inset 0 0 0 1px rgba(143, 79, 46, 0.14);
+    conic-gradient(from 0deg, rgb(var(--accent-rgb) / 0.12), var(--accent), rgba(93, 139, 98, 0.72), rgb(var(--accent-rgb) / 0.12));
+  box-shadow: inset 0 0 0 1px rgb(var(--accent-rgb) / 0.14);
   animation: loading-spin 900ms linear infinite;
 }
 
@@ -380,7 +387,7 @@ a {
   inset: 12px;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(143, 79, 46, 0.12);
+  box-shadow: 0 0 0 4px rgb(var(--accent-rgb) / 0.12);
 }
 
 .loading-spinner.compact {
@@ -432,7 +439,7 @@ a {
 .empty-page {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 250, 242, 0.9);
+  background: rgb(var(--surface-rgb) / 0.9);
   box-shadow: var(--shadow-soft);
 }
 
@@ -601,7 +608,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--surface-strong);
-  box-shadow: 0 10px 26px rgba(58, 38, 22, 0.07);
+  box-shadow: 0 10px 26px rgb(var(--ink-rgb) / 0.07);
   transition: transform 160ms, box-shadow 160ms, border-color 160ms;
 }
 
@@ -634,7 +641,7 @@ a {
 
 /* 10: 사진을 불러오는 동안 빈 상자 대신 은은하게 반짝인다. */
 .bean-image.is-loading {
-  background: linear-gradient(100deg, #efe1d0 30%, #f7ede1 50%, #efe1d0 70%) 0 0 / 200% 100%;
+  background: linear-gradient(100deg, var(--skeleton) 30%, var(--skeleton-highlight) 50%, var(--skeleton) 70%) 0 0 / 200% 100%;
   animation: bean-image-shimmer 1.4s ease-in-out infinite;
 }
 
@@ -675,8 +682,8 @@ a {
   align-items: center;
   justify-content: center;
   background:
-    linear-gradient(135deg, rgba(143, 79, 46, 0.16), rgba(93, 139, 98, 0.12)),
-    #efe1d0;
+    linear-gradient(135deg, rgb(var(--accent-rgb) / 0.16), rgba(93, 139, 98, 0.12)),
+    var(--skeleton);
   overflow: hidden;
 }
 
@@ -696,7 +703,7 @@ a {
 .bean-image-link:focus-visible,
 .bean-title-link:focus-visible,
 .image-favorite-btn:focus-visible {
-  outline: 3px solid rgba(143, 79, 46, 0.34);
+  outline: 3px solid rgb(var(--accent-rgb) / 0.34);
   outline-offset: 3px;
 }
 
@@ -761,9 +768,9 @@ a {
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 999px;
-  background: rgba(255, 252, 247, 0.88);
+  background: rgb(var(--surface-rgb) / 0.88);
   color: var(--accent-dark);
-  box-shadow: 0 10px 24px rgba(58, 38, 22, 0.16);
+  box-shadow: 0 10px 24px rgb(var(--ink-rgb) / 0.16);
   cursor: pointer;
   font-size: 22px;
   line-height: 1;
@@ -921,7 +928,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 12px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 250, 242, 0.96)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgb(var(--surface-rgb) / 0.96)),
     var(--surface-strong);
 }
 
@@ -1176,7 +1183,7 @@ a {
 
 .detail-search-input input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(143, 79, 46, 0.12);
+  box-shadow: 0 0 0 4px rgb(var(--accent-rgb) / 0.12);
 }
 
 .detail-filter-row {
@@ -1257,7 +1264,7 @@ a {
   padding: 0 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #f5eee6;
+  background: var(--surface-muted);
   color: var(--muted);
   font-size: 11px;
   font-weight: 800;
@@ -1286,7 +1293,7 @@ a {
   padding: 6px;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: #f5eee6;
+  background: var(--surface-muted);
 }
 
 .stock-tabs button {
@@ -1307,14 +1314,14 @@ a {
 .stock-tabs button.active {
   background: var(--surface-strong);
   color: var(--accent);
-  box-shadow: 0 4px 12px rgba(58, 38, 22, 0.08);
+  box-shadow: 0 4px 12px rgb(var(--ink-rgb) / 0.08);
 }
 
 .stock-tabs em {
   min-width: 24px;
   padding: 2px 7px;
   border-radius: 999px;
-  background: rgba(143, 79, 46, 0.1);
+  background: rgb(var(--accent-rgb) / 0.1);
   color: inherit;
   font-style: normal;
   text-align: center;
@@ -1333,7 +1340,7 @@ a {
   padding: 14px 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 250, 242, 0.9);
+  background: rgb(var(--surface-rgb) / 0.9);
   box-shadow: var(--shadow-soft);
   color: var(--muted);
   font-size: 13px;
@@ -1393,7 +1400,7 @@ a {
 
 .note-query-row input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(143, 79, 46, 0.12);
+  box-shadow: 0 0 0 4px rgb(var(--accent-rgb) / 0.12);
 }
 
 /* 화면에는 안 보이고 화면 낭독기만 읽는 글자 */
@@ -1517,7 +1524,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(35, 27, 22, 0.45);
+  background: rgb(var(--ink-rgb) / 0.45);
 }
 
 .filter-sheet {
@@ -1612,7 +1619,7 @@ a {
   padding: 18px 22px 12px;
   border-bottom: 1px solid var(--line);
   border-radius: var(--radius) var(--radius) 0 0;
-  background: rgba(255, 250, 242, 0.94);
+  background: rgb(var(--surface-rgb) / 0.94);
   backdrop-filter: blur(12px);
 }
 
@@ -1626,7 +1633,7 @@ a {
   right: 12px;
   padding: 5px 10px;
   border-radius: 999px;
-  background: rgba(35, 27, 22, 0.78);
+  background: rgb(var(--ink-rgb) / 0.78);
   color: #fff;
   font-size: 11px;
   font-weight: 800;
@@ -1639,7 +1646,7 @@ a {
 
 .skeleton-image {
   height: 180px;
-  background: #efe1d0;
+  background: var(--skeleton);
 }
 
 .skeleton-body {
@@ -1651,7 +1658,7 @@ a {
 .skeleton-line {
   height: 14px;
   border-radius: 999px;
-  background: #efe1d0;
+  background: var(--skeleton);
 }
 
 .skeleton-line.short {
@@ -1711,7 +1718,7 @@ a {
   align-items: flex-start;
   justify-content: center;
   padding: 40px 20px;
-  background: rgba(35, 27, 22, 0.45);
+  background: rgb(var(--ink-rgb) / 0.45);
   backdrop-filter: blur(4px);
   overflow-y: auto;
 }
@@ -1765,8 +1772,8 @@ a {
   overflow: hidden;
   border-radius: var(--radius-small);
   background:
-    linear-gradient(135deg, rgba(143, 79, 46, 0.16), rgba(93, 139, 98, 0.12)),
-    #efe1d0;
+    linear-gradient(135deg, rgb(var(--accent-rgb) / 0.16), rgba(93, 139, 98, 0.12)),
+    var(--skeleton);
 }
 
 .modal-image img {
@@ -1831,8 +1838,8 @@ a {
 }
 
 .note-tag.taste-missing-note {
-  border-color: rgba(35, 27, 22, 0.16);
-  background: rgba(35, 27, 22, 0.06);
+  border-color: rgb(var(--ink-rgb) / 0.16);
+  background: rgb(var(--ink-rgb) / 0.06);
   color: var(--muted);
 }
 
@@ -1875,49 +1882,177 @@ a {
   font-weight: 700;
 }
 
-.roaster-list {
-  display: flex;
-  flex-direction: column;
+/* 탐색 화면: 큰 제목 + 가로로 넘기는 줄(레일) 세 개 */
+.explore-page {
+  --rail-bleed: 0px;
+  gap: 36px;
 }
 
-.roaster-row {
+.explore-title {
+  margin: 4px 0 -12px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.explore-section h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.explore-section > p {
+  margin: 4px 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.explore-section-head {
   display: flex;
-  min-height: 56px;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 4px;
+}
+
+.explore-section-head button {
+  padding: 0;
   border: 0;
-  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 화면 끝까지 붙여 다음 칸이 잘려 보이게 해서 옆으로 넘길 수 있음을 알린다 */
+.explore-rail {
+  display: flex;
+  gap: 14px;
+  margin: 0 calc(var(--rail-bleed) * -1);
+  padding: 0 var(--rail-bleed) 4px;
+  overflow-x: auto;
+  scroll-padding-inline: var(--rail-bleed);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.explore-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-circle,
+.explore-card {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  border: 0;
   background: transparent;
   color: var(--ink);
-  cursor: pointer;
   font: inherit;
   text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
 }
 
-.roaster-row:last-child {
-  border-bottom: 0;
+.explore-circle {
+  width: 104px;
+  align-items: center;
+  text-align: center;
 }
 
-.roaster-row strong {
-  font-size: 16px;
+.explore-circle-image,
+.explore-card-image {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface-muted);
+  transition: transform 0.15s ease;
 }
 
-.roaster-row span {
-  flex: none;
+.explore-circle-image {
+  width: 104px;
+  height: 104px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.explore-circle-image svg,
+.explore-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.explore-circle strong,
+.explore-card strong {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.explore-circle span:last-child {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.explore-card {
+  width: 148px;
+  gap: 2px;
+}
+
+.explore-card-image {
+  width: 148px;
+  height: 148px;
+  margin-bottom: 8px;
+  border-radius: var(--radius);
+}
+
+.explore-card strong {
+  display: -webkit-box;
+  line-height: 1.35;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.explore-card-roaster {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.explore-card-price {
+  margin-top: 2px;
+  color: var(--accent);
+  font-size: 14px;
   font-weight: 700;
 }
 
-.roaster-row:hover:not(:disabled) strong {
-  color: var(--accent);
+.explore-circle:active .explore-circle-image,
+.explore-card:active .explore-card-image {
+  transform: scale(0.97);
 }
 
-.roaster-row:disabled {
-  cursor: default;
-  opacity: 0.6;
+.explore-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
 }
 
 .spark {
@@ -2017,9 +2152,9 @@ a {
 }
 
 .load-loading {
-  border-color: rgba(143, 79, 46, 0.28);
+  border-color: rgb(var(--accent-rgb) / 0.28);
   background:
-    linear-gradient(90deg, rgba(255, 250, 242, 0.96), rgba(241, 216, 198, 0.56), rgba(255, 250, 242, 0.96)),
+    linear-gradient(90deg, rgb(var(--surface-rgb) / 0.96), rgb(var(--accent-soft-rgb) / 0.56), rgb(var(--surface-rgb) / 0.96)),
     var(--surface-strong);
 }
 
@@ -2109,7 +2244,7 @@ a {
 }
 
 .source-title-link:focus-visible {
-  outline: 3px solid rgba(143, 79, 46, 0.28);
+  outline: 3px solid rgb(var(--accent-rgb) / 0.28);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -2196,19 +2331,33 @@ a {
   }
 
   /* 08: 폰 메뉴는 화면 아래 탭바. 스크롤해도 항상 보이고, 아이폰 홈 막대 높이만큼 띄운다. */
+  /* 리퀴드 글라스: 떠 있는 알약 모양 유리 막대. 뒤 내용이 흐리게 비친다. */
   .mobile-nav-bar {
     position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: 14px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 14px;
     z-index: 30;
     display: grid;
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
-    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--line);
-    background: rgba(255, 250, 242, 0.97);
-    backdrop-filter: blur(12px);
+    gap: 4px;
+    padding: 6px;
+    border: 1px solid rgb(255 255 255 / 0.6);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.58);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    backdrop-filter: blur(22px) saturate(180%);
+    box-shadow:
+      0 12px 32px rgb(var(--ink-rgb) / 0.14),
+      0 1px 3px rgb(var(--ink-rgb) / 0.08),
+      inset 0 1px 0 rgb(255 255 255 / 0.85);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .mobile-nav-bar {
+      background: rgb(255 255 255 / 0.95);
+    }
   }
 
   .mobile-nav-item {
@@ -2217,20 +2366,23 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
-    min-height: 50px;
+    gap: 2px;
+    min-height: 52px;
     padding: 0;
     border: 0;
+    border-radius: 999px;
     background: transparent;
     color: var(--muted);
     font-size: 11px;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .mobile-nav-item.active {
+    background: rgb(var(--accent-rgb) / 0.12);
     color: var(--accent);
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .mobile-nav-item em {
@@ -2282,9 +2434,13 @@ a {
     padding: 14px 14px calc(96px + env(safe-area-inset-bottom));
   }
 
+  .explore-page {
+    --rail-bleed: 14px;
+  }
+
   .back-to-top {
     right: 16px;
-    bottom: calc(80px + env(safe-area-inset-bottom));
+    bottom: calc(88px + env(safe-area-inset-bottom));
     width: 44px;
     height: 44px;
   }
@@ -2297,7 +2453,7 @@ a {
     align-items: stretch;
     margin: -14px -14px 12px;
     padding: 8px 14px;
-    background: rgba(247, 242, 234, 0.92);
+    background: rgb(var(--bg-rgb) / 0.92);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
   }
@@ -2654,7 +2810,7 @@ a {
 }
 
 .taste-slider-header .btn-reset:hover {
-  background: rgba(143, 79, 46, 0.08);
+  background: rgb(var(--accent-rgb) / 0.08);
 }
 
 .taste-slider-body {
@@ -2724,7 +2880,7 @@ a {
 }
 
 .taste-slider-body input[type="range"].is-active + .taste-slider-labels .label-value {
-  background: rgba(143, 79, 46, 0.12);
+  background: rgb(var(--accent-rgb) / 0.12);
   color: var(--accent);
 }
 

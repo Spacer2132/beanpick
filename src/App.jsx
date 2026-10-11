@@ -39,6 +39,7 @@ import { extractProductCountries } from './services/mapCoordinates.js';
 import { STORY_SECTIONS, VARIETY_TIERS, matchSingleVarietyIds } from './data/varietyGuide.js';
 
 const NAV = [
+  { id: 'explore', label: '탐색', group: '둘러보기' },
   { id: 'products', label: '원두', group: '둘러보기', badge: mockBeans.length },
   { id: 'map', label: '지도', group: '둘러보기' },
   { id: 'sources', label: '로스터리', group: '데이터', badge: roasterySources.length },
@@ -330,8 +331,9 @@ const ICON_PATHS = {
   chevron: <path d="M6 9l6 6 6-6" />,
   close: <path d="M6 6l12 12M18 6L6 18" />,
   arrowUp: <path d="M12 19V5M6 11l6-6 6 6" />,
+  sparkle: <><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9L11 3z" /><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15z" /></>,
 };
-const NAV_ICONS = { products: 'bean', map: 'map', sources: 'store', alerts: 'heart', server: 'status' };
+const NAV_ICONS = { explore: 'sparkle', products: 'bean', map: 'map', sources: 'store', alerts: 'heart', server: 'status' };
 
 function Icon({ name, size = 20 }) {
   return (
@@ -577,41 +579,176 @@ function SourcesPage({ monitorSummary, onSaveSnapshot }) {
   );
 }
 
-// 아이폰 웹앱 손님용 로스터리 목록: 판매 중 원두 수만 보여주고, 누르면 그 로스터리 원두 목록으로 간다.
-function RoasterListPage({ products, onSelectRoaster }) {
-  const rows = roasterySources
-    .map((source) => ({
-      id: source.id,
-      name: source.roasterName,
-      count: products.filter((product) => product.roasterName === source.roasterName).length,
-    }))
-    .sort((a, b) => b.count - a.count);
+// 품종 동그라미의 열매 그림. 품종별 겉모습 특징을 과장해서 그린다.
+// 근거: World Coffee Research 품종 목록(원두 크기·새잎 끝 색·카투아이 빨강/노랑 열매), 치로소는 길쭉하고 뾰족한 열매라는 로스터리 설명.
+// 근거가 없는 품종(시드라 등)은 기준형(빨갛고 둥근 열매 3알, 초록 새잎)으로 그린다.
+const CHERRY_COLORS = {
+  red: ['#d8473d', '#8a2520'],
+  wine: ['#b3303f', '#5f1422'],
+  scarlet: ['#ef5d3d', '#a4301c'],
+  pink: ['#f7aebd', '#c25f78'],
+  yellow: ['#f6cd50', '#bd8a17'],
+};
+const CHERRY_SHAPES = { round: [1, 1], oval: [0.9, 1.12], long: [0.72, 1.32], pointed: [0.8, 1.3] };
+const LEAF_TIP_COLORS = { green: ['#9cc46f', '#bcd99c'], bronze: ['#c0703f', '#dc9668'], darkBronze: ['#86401f', '#a95d3b'] };
+const VARIETY_CHERRY = {
+  geisha: { shape: 'long' },
+  typica: { shape: 'oval', size: 1.15, tip: 'bronze' },
+  sl28: { size: 1.15 },
+  sl34: { size: 1.15, tip: 'darkBronze' },
+  chiroso: { shape: 'pointed' },
+  'pink-bourbon': { colors: ['pink'] },
+  pacamara: { shape: 'oval', size: 1.45, count: 2 },
+  maragogype: { shape: 'oval', size: 1.5, count: 2 },
+  mocha: { size: 0.72, count: 4 },
+  // 재래종은 유전적으로 다양해서 크기·색이 조금씩 다른 작은 열매 여러 알로 그린다
+  'ethiopian-landrace': { shape: 'oval', size: 0.72, count: 5, colors: ['red', 'wine', 'scarlet', 'red', 'wine'] },
+  eugenioides: { size: 0.68, count: 4 },
+  laurina: { shape: 'pointed', size: 0.85, count: 4 },
+  catuai: { count: 4, colors: ['red', 'yellow', 'yellow', 'red'] },
+};
+const CHERRY_SPOTS = {
+  2: [[37, 66, -10], [66, 66, 10]],
+  3: [[37, 62, -14], [65, 61, 12], [51, 77, 0]],
+  4: [[35, 60, -14], [66, 60, 14], [43, 78, -6], [60, 79, 8]],
+  5: [[33, 60, -16], [50, 57, 0], [67, 60, 16], [41, 77, -8], [60, 78, 8]],
+};
+const LEAF_PATH = 'M0 0C10-12 30-12 42 0C30 12 10 12 0 0Z';
+
+function cherryShapePath(cx, cy, rx, ry) {
+  // 위아래 끝이 뾰족한 럭비공 모양
+  const k = rx * 1.35;
+  return `M${cx} ${cy - ry}C${cx + k} ${cy - ry * 0.55} ${cx + k} ${cy + ry * 0.55} ${cx} ${cy + ry}C${cx - k} ${cy + ry * 0.55} ${cx - k} ${cy - ry * 0.55} ${cx} ${cy - ry}Z`;
+}
+
+function CherryArt({ varietyId }) {
+  const { shape = 'round', size = 1, count = 3, colors = ['red'], tip = 'green' } = VARIETY_CHERRY[varietyId] ?? {};
+  const [sx, sy] = CHERRY_SHAPES[shape];
+  const rx = 13 * size * sx;
+  const ry = 13 * size * sy;
+  const [tipFill, tipStroke] = LEAF_TIP_COLORS[tip];
+  return (
+    <svg viewBox="0 0 104 104" aria-hidden="true">
+      <defs>
+        {Object.entries(CHERRY_COLORS).map(([name, [light, dark]]) => (
+          <radialGradient key={name} id={`cherry-${varietyId}-${name}`} cx="36%" cy="30%" r="78%">
+            <stop offset="0%" stopColor={light} />
+            <stop offset="100%" stopColor={dark} />
+          </radialGradient>
+        ))}
+      </defs>
+      <g fill="#5f8a55" stroke="#7fa872" strokeWidth="1">
+        <path d={LEAF_PATH} transform="translate(26 37) rotate(-150)" />
+        <path d={LEAF_PATH} transform="translate(60 31) rotate(-58) scale(0.85)" />
+      </g>
+      <path d="M0 43C26 33 58 28 80 33" fill="none" stroke="#7a5236" strokeWidth="3.5" strokeLinecap="round" />
+      {/* 가지 끝 새잎: 품종에 따라 초록·구릿빛 */}
+      <g fill={tipFill} stroke={tipStroke} strokeWidth="1">
+        <path d={LEAF_PATH} transform="translate(80 33) rotate(-42) scale(0.66)" />
+        <path d={LEAF_PATH} transform="translate(80 33) rotate(24) scale(0.54)" />
+      </g>
+      {CHERRY_SPOTS[count].map(([cx, cy], i) => (
+        <path key={i} d={`M50 33L${cx} ${cy - ry + 2}`} stroke="#6d8f4f" strokeWidth="2" strokeLinecap="round" />
+      ))}
+      {CHERRY_SPOTS[count].map(([cx, cy, rotate], i) => (
+        <g key={i} transform={`rotate(${rotate} ${cx} ${cy})`}>
+          {shape === 'pointed'
+            ? <path d={cherryShapePath(cx, cy, rx, ry)} fill={`url(#cherry-${varietyId}-${colors[i % colors.length]})`} />
+            : <ellipse cx={cx} cy={cy} rx={rx} ry={ry} fill={`url(#cherry-${varietyId}-${colors[i % colors.length]})`} />}
+          <ellipse cx={cx - rx * 0.36} cy={cy - ry * 0.42} rx={rx * 0.26} ry={ry * 0.15} fill="#fff" opacity="0.5" />
+          <circle cx={cx} cy={cy + ry * 0.84} r={1.6 * size} fill="#3c1e14" opacity="0.45" />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+// 아이폰 웹 첫 화면. 품종·새 원두·로스터리를 가로로 넘겨 보는 줄 세 개.
+function ExplorePage({ products, isLoading, onSelectVariety, onSelectProduct, onSelectRoaster, onBrowseAll }) {
+  // 판매 중인 원두가 있는 품종만 원두 수와 함께 보여 준다.
+  const varieties = React.useMemo(() => {
+    const counts = new Map();
+    products.forEach((product) => {
+      matchSingleVarietyIds(product.variety || formatProductDisplayInfo(product).variety).forEach((id) => {
+        counts.set(id, (counts.get(id) ?? 0) + 1);
+      });
+    });
+    return VARIETY_TIERS
+      .flatMap(({ items }) => items)
+      .filter((item) => counts.has(item.id))
+      .map((item) => ({ ...item, count: counts.get(item.id) }));
+  }, [products]);
+  // 로스터리마다 원두 수와 대표 사진(처음 나온 원두 사진)을 모은다.
+  const newProducts = React.useMemo(() => products.filter((product) => product.isNew).slice(0, 12), [products]);
+  const roasters = React.useMemo(() => {
+    const byName = new Map();
+    products.forEach((product) => {
+      const entry = byName.get(product.roasterName) ?? { name: product.roasterName, count: 0, imageUrl: '' };
+      entry.count += 1;
+      entry.imageUrl ||= product.imageUrl || '';
+      byName.set(product.roasterName, entry);
+    });
+    return [...byName.values()].sort((a, b) => b.count - a.count);
+  }, [products]);
 
   return (
-    <div className="page-stack">
-      <header className="page-head compact">
-        <div>
-          <h1>로스터리</h1>
-          <p>{rows.length}곳 · 판매 중인 원두 {products.length}개</p>
-        </div>
-      </header>
+    <div className="page-stack explore-page">
+      <h1 className="explore-title">탐색</h1>
 
-      <section className="panel">
-        <div className="roaster-list">
-          {rows.map((row) => (
-            <button
-              className="roaster-row"
-              type="button"
-              key={row.id}
-              disabled={row.count === 0}
-              onClick={() => onSelectRoaster(row.name)}
-            >
-              <strong>{row.name}</strong>
-              <span>{row.count > 0 ? `판매 중 ${row.count}개` : '지금 판매 중인 원두 없음'}</span>
-            </button>
-          ))}
-        </div>
-      </section>
+      {isLoading ? (
+        <div className="explore-loading"><LoadingSpinner /><p>원두를 불러오는 중입니다</p></div>
+      ) : (
+        <>
+          <section className="explore-section" aria-label="품종으로 고르기">
+            <h2>품종으로 고르기</h2>
+            <p>품종마다 맛의 성격이 다릅니다. 빈픽 추천 등급 순서로 모았습니다.</p>
+            <div className="explore-rail">
+              {varieties.map((variety) => (
+                <button key={variety.id} className="explore-circle" type="button" onClick={() => onSelectVariety(variety.id)}>
+                  <span className="explore-circle-image"><CherryArt varietyId={variety.id} /></span>
+                  {/* SL28·SL34는 한글 이름이 둘 다 '케냐'라 영문 이름으로 구분한다 */}
+                  <strong>{variety.ko === '케냐' ? variety.name : variety.ko}</strong>
+                  <span>{variety.count}개</span>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          {newProducts.length > 0 && (
+            <section className="explore-section" aria-label="새로 들어온 원두">
+              <div className="explore-section-head">
+                <h2>새로 들어온 원두</h2>
+                <button type="button" onClick={onBrowseAll}>전체 보기</button>
+              </div>
+              <p>최근 새로 올라온 원두입니다.</p>
+              <div className="explore-rail">
+                {newProducts.map((product) => (
+                  <button key={product.id} className="explore-card" type="button" onClick={() => onSelectProduct(product)}>
+                    <span className="explore-card-image">{product.imageUrl && <img src={product.imageUrl} alt="" loading="lazy" />}</span>
+                    <span className="explore-card-roaster">{product.roasterName}</span>
+                    <strong>{product.productName}</strong>
+                    <span className="explore-card-price">{product.priceLabel}</span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section className="explore-section" aria-label="로스터리">
+            <h2>로스터리</h2>
+            <p>빈픽이 매일 판매 원두를 확인하는 로스터리 {roasters.length}곳입니다.</p>
+            <div className="explore-rail">
+              {roasters.map((roaster) => (
+                <button key={roaster.name} className="explore-card" type="button" onClick={() => onSelectRoaster(roaster.name)}>
+                  <span className="explore-card-image">{roaster.imageUrl && <img src={roaster.imageUrl} alt="" loading="lazy" />}</span>
+                  <strong>{roaster.name}</strong>
+                  <span className="explore-card-roaster">원두 {roaster.count}개</span>
+                </button>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 }
@@ -742,7 +879,8 @@ function AppStatusPage({ dataMode, favoriteCount, lastLoadedAt, loadState, monit
 }
 
 export default function App() {
-  const [screen, setScreen] = React.useState('products');
+  // 아이폰 웹은 탐색, PC 앱은 원두 목록이 첫 화면이다.
+  const [screen, setScreen] = React.useState(() => (canLoadLiveProducts() ? 'products' : 'explore'));
   const [searchQuery, setSearchQuery] = React.useState('');
   const [sortMode, setSortMode] = React.useState('score');
   const [activeNotes, setActiveNotes] = React.useState([]);
@@ -785,13 +923,12 @@ export default function App() {
     products.filter((product) => !product.isSoldOut && !isGroundCoffeeProduct(product))
   ), [products]);
 
-  // 앱 상태 탭은 운영용이라 PC 앱에서만 보여주고, 아이폰 웹앱에서는 숨긴다.
+  // 앱 상태·로스터리 연결 탭은 운영용이라 PC 앱에서만 보여주고, 아이폰 웹앱에서는 숨긴다.
+  // (아이폰 웹의 로스터리 목록은 탐색 화면의 로스터리 줄로 옮겼다.)
   const navItems = React.useMemo(() => NAV
-    .filter((item) => item.id !== 'server' || canLoadLiveProducts())
+    .filter((item) => (item.id !== 'server' && item.id !== 'sources') || canLoadLiveProducts())
     .map((item) => {
       if (item.id === 'products') return { ...item, badge: availableProducts.length };
-      // 아이폰 웹앱에서는 앱 상태 탭이 없어 로스터리 혼자 '데이터' 그룹에 남지 않게 둘러보기로 옮긴다.
-      if (item.id === 'sources' && !canLoadLiveProducts()) return { ...item, group: '둘러보기' };
       if (item.id === 'alerts') return { ...item, badge: favoriteIds.length };
       return item;
     }), [favoriteIds.length, availableProducts.length]);
@@ -1162,7 +1299,7 @@ export default function App() {
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <button className="brand" type="button" onClick={() => setScreen('products')}>
+        <button className="brand" type="button" onClick={() => setScreen(canLoadLiveProducts() ? 'products' : 'explore')}>
           <span className="brand-head">
             <span className="brand-mark">BeanPick</span>
             {lastLoadedAt && <span className="brand-updated">{formatDateTime(lastLoadedAt)} 기준</span>}
@@ -1227,8 +1364,8 @@ export default function App() {
                 placeholder="원두·로스터리·노트 검색 (초성 가능)"
                 onChange={(event) => {
                   setSearchQuery(event.target.value);
-                  // 아이폰 웹 로스터리 목록은 검색 결과를 보여주지 않으므로 원두 화면으로 넘긴다.
-                  if (screen === 'sources' && !canLoadLiveProducts()) setScreen('products');
+                  // 탐색 화면은 검색 결과를 보여주지 않으므로 원두 화면으로 넘긴다.
+                  if (screen === 'explore') setScreen('products');
                 }}
                 onFocus={() => setSearchFocused(true)}
                 onBlur={() => setSearchFocused(false)}
@@ -1278,7 +1415,28 @@ export default function App() {
           </div>
         </div>
 
-        {screen === 'products' ? (
+        {screen === 'explore' ? (
+          <ExplorePage
+            products={availableProducts}
+            isLoading={loadState.status === 'loading' && dataMode === 'mock'}
+            onSelectVariety={(varietyId) => {
+              setMapEntry({ varietyId, key: Date.now() });
+              setScreen('map');
+              window.scrollTo({ top: 0 });
+            }}
+            onSelectProduct={(product) => setDetailProductId(product.id)}
+            onSelectRoaster={(roasterName) => {
+              clearAllFilters();
+              setSearchQuery(roasterName);
+              setScreen('products');
+              window.scrollTo({ top: 0 });
+            }}
+            onBrowseAll={() => {
+              setScreen('products');
+              window.scrollTo({ top: 0 });
+            }}
+          />
+        ) : screen === 'products' ? (
           <BrowsePage
             activeNotes={activeNotes}
             budget={budget}
@@ -1328,19 +1486,7 @@ export default function App() {
             onToggleFavorite={handleToggleFavorite}
           />
         ) : screen === 'sources' ? (
-          canLoadLiveProducts() ? (
-            <SourcesPage monitorSummary={monitorSummary} onSaveSnapshot={handleSaveSnapshot} />
-          ) : (
-            <RoasterListPage
-              products={availableProducts}
-              onSelectRoaster={(roasterName) => {
-                clearAllFilters();
-                setSearchQuery(roasterName);
-                setScreen('products');
-                window.scrollTo({ top: 0 });
-              }}
-            />
-          )
+          <SourcesPage monitorSummary={monitorSummary} onSaveSnapshot={handleSaveSnapshot} />
         ) : screen === 'alerts' ? (
           <AlertsPage
             onBrowse={() => setScreen('products')}
