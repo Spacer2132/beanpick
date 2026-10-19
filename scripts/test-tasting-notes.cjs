@@ -3,6 +3,7 @@ const esbuild = require('esbuild');
 const { _test } = require('../electron/naverShoppingSearch.cjs');
 const tastingNoteTools = require('../src/services/tastingNotes.cjs');
 require('./test-tasting-note-evidence.cjs');
+require('./test-imweb-detail-notes.cjs');
 
 function loadTsModule(filePath) {
   const code = fs.readFileSync(filePath, 'utf8');

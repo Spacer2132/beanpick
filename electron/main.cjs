@@ -1602,6 +1602,41 @@ function absolutizeImageUrl(src, baseUrl) {
   }
 }
 
+async function enrichOfficialDetailNotes(parsed, html, detailUrl, deadlineAt = Infinity, productName = '') {
+  // 1차로 HTML 텍스트에서 블렌딩 구성 시도
+  const textBlend = extractBlendComposition([parsed.description, parsed.tastingNotes].filter(Boolean).join('\n'));
+  if (textBlend.length) parsed.blendComposition = textBlend;
+  // OCR 트리거: 노트가 비었거나 블렌딩 정보가 아직 없을 때 본문 이미지 OCR
+  const needsOcr = !parsed.tastingNotes || !parsed.blendComposition;
+  if (needsOcr) {
+    const imgs = extractDetailContentImageUrls(html);
+    const ocrChunks = [];
+    for (const [imageIndex, src] of imgs.entries()) {
+      // 3장째부터는 노트가 아직 없는 상품만 읽는다. 노트가 있는 상품까지 6장을 읽으면 시간 예산을 넘겨
+      // 다른 상품의 상세보강(재고·가격)이 생략될 수 있다. 앞의 2장은 블렌딩 구성 확인을 위해 기존처럼 읽는다.
+      if (Date.now() > deadlineAt) break;
+      if (imageIndex >= 2 && (parsed.tastingNotes || ocrChunks.some((chunk) => /^Tasting Note:/.test(chunk)))) break;
+      const abs = absolutizeImageUrl(src, detailUrl);
+      if (!abs) continue;
+      try {
+        const text = await readOfficialMallImageText(abs, { lang: 'eng+kor', psm: 6, timeout: 15000,
+          productName, process: parsed.process,
+          onEvidence: (entries) => { parsed.tastingNoteEvidence = mergeTastingNoteEvidence(parsed.tastingNoteEvidence || [], entries); } });
+        if (text) ocrChunks.push(text);
+      } catch {
+        // OCR 실패 시 무시
+      }
+    }
+    if (ocrChunks.length) {
+      parsed.ocrText = ocrChunks.join('\n');
+      if (!parsed.blendComposition) {
+        const ocrBlend = extractBlendComposition(parsed.ocrText);
+        if (ocrBlend.length) parsed.blendComposition = ocrBlend;
+      }
+    }
+  }
+}
+
 async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs = 100, deadlineAt = Infinity) {
   const stock = new Map();
   const info = new Map();
@@ -1631,38 +1666,7 @@ async function buildDetailDataFromDetails(items, referer, concurrency = 5, gapMs
           }
           stock.set(productNo, isSoldOutFromHtml(detail.html));
           const parsed = parseCafe24DetailInfo(detail.html);
-          // 1차로 HTML 텍스트에서 블렌딩 구성 시도
-          const textBlend = extractBlendComposition([parsed.description, parsed.tastingNotes].filter(Boolean).join('\n'));
-          if (textBlend.length) parsed.blendComposition = textBlend;
-          // OCR 트리거: 노트가 비었거나 블렌딩 정보가 아직 없을 때 본문 이미지 OCR
-          const needsOcr = !parsed.tastingNotes || !parsed.blendComposition;
-          if (needsOcr) {
-            const imgs = extractDetailContentImageUrls(detail.html);
-            const ocrChunks = [];
-            for (const [imageIndex, src] of imgs.entries()) {
-              // 3장째부터는 노트가 아직 없는 상품만 읽는다. 노트가 있는 상품까지 6장을 읽으면 시간 예산을 넘겨
-              // 다른 상품의 상세보강(재고·가격)이 생략될 수 있다. 앞의 2장은 블렌딩 구성 확인을 위해 기존처럼 읽는다.
-              if (Date.now() > deadlineAt) break;
-              if (imageIndex >= 2 && (parsed.tastingNotes || ocrChunks.some((chunk) => /^Tasting Note:/.test(chunk)))) break;
-              const abs = absolutizeImageUrl(src, detailUrl);
-              if (!abs) continue;
-              try {
-                const text = await readOfficialMallImageText(abs, { lang: 'eng+kor', psm: 6, timeout: 15000,
-                  process: parsed.process,
-                  onEvidence: (entries) => { parsed.tastingNoteEvidence = mergeTastingNoteEvidence(parsed.tastingNoteEvidence || [], entries); } });
-                if (text) ocrChunks.push(text);
-              } catch {
-                // OCR 실패 시 무시
-              }
-            }
-            if (ocrChunks.length) {
-              parsed.ocrText = ocrChunks.join('\n');
-              if (!parsed.blendComposition) {
-                const ocrBlend = extractBlendComposition(parsed.ocrText);
-                if (ocrBlend.length) parsed.blendComposition = ocrBlend;
-              }
-            }
-          }
+          await enrichOfficialDetailNotes(parsed, detail.html, detailUrl, deadlineAt);
           info.set(productNo, parsed);
         }
       } catch {
@@ -1708,6 +1712,7 @@ function extractImwebListItemLinks(html, origin, includeItem) {
     if (includeItem && !includeItem(properties?.name)) continue;
     items.push({
       productNo,
+      productName: properties.name,
       detailUrl: `${origin}/shop_view/${encodeURIComponent(productNo)}`,
     });
     seen.add(productNo);
@@ -1804,6 +1809,7 @@ async function enrichImwebDetailOptions(pages, config, deadlineAt = Infinity) {
       continue;
     }
     const info = new Map();
+    const ocrTargets = [];
     let cursor = 0;
     async function worker() {
       while (cursor < items.length) {
@@ -1824,18 +1830,32 @@ async function enrichImwebDetailOptions(pages, config, deadlineAt = Infinity) {
           const fallbackPriceOptions = priceOptions.length > 0
             ? priceOptions
             : (optionPage ? extractImwebPriceOptions(optionPage.html) : []);
-          const detailInfo = (optionPage?.detailHtml || detailPage?.html)
-            ? parseCafe24DetailInfo(optionPage?.detailHtml || detailPage.html)
-            : {};
+          const detailHtml = optionPage?.detailHtml || detailPage?.html;
+          const detailInfo = { ...(detailHtml ? parseCafe24DetailInfo(detailHtml) : {}), priceOptions: fallbackPriceOptions };
           if (fallbackPriceOptions.length > 0 || Number(detailInfo.weight || 0) > 0) {
-            info.set(item.productNo, { ...detailInfo, priceOptions: fallbackPriceOptions });
+            info.set(item.productNo, detailInfo);
           }
+          if (detailHtml && !detailInfo.tastingNotes) ocrTargets.push({ ...item, html: detailHtml, parsed: detailInfo });
         } catch {
           // 옵션 상세를 못 받으면 목록의 대표 가격·용량을 그대로 유지한다.
         }
       }
     }
     await Promise.all(Array.from({ length: Math.min(5, items.length) }, () => worker()));
+    // 가격·용량을 먼저 확보하고 남은 예산으로만 이미지 노트를 보강한다.
+    cursor = 0;
+    async function ocrWorker() {
+      while (cursor < ocrTargets.length && Date.now() < deadlineAt) {
+        const target = ocrTargets[cursor++];
+        try {
+          await enrichOfficialDetailNotes(target.parsed, target.html, target.detailUrl, deadlineAt, target.productName);
+          if (target.parsed.ocrText || target.parsed.tastingNoteEvidence?.length) info.set(target.productNo, target.parsed);
+        } catch {
+          // 이미지 판독 실패 시 먼저 확보한 가격·용량을 유지한다.
+        }
+      }
+    }
+    await Promise.all(Array.from({ length: Math.min(5, ocrTargets.length) }, () => ocrWorker()));
     let nextHtml = page.html;
     for (const [productNo, detailInfo] of info.entries()) {
       nextHtml = injectDetailMarkerIntoImwebBlock(nextHtml, productNo, detailInfo);

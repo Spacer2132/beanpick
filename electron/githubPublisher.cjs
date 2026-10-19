@@ -1,6 +1,6 @@
 const { validateProducts } = require('./dataQuality.cjs');
 const { markStaleProduct } = require('./collection/contract.cjs');
-const { normalizeTastingNotes, mergeTastingNoteEvidence, getAcidityScore, getTasteScaleAcidityScore } = require('../src/services/tastingNotes.cjs');
+const { normalizeTastingNotes, mergeTastingNoteEvidence, reviewTastingNoteEvidence, getAcidityScore, getTasteScaleAcidityScore } = require('../src/services/tastingNotes.cjs');
 const { getDisplayRoastLevel } = require('../src/services/roastLevel.cjs');
 
 const DEFAULT_OWNER = 'Spacer2132';
@@ -281,7 +281,7 @@ function buildPreviousTastingNoteMap(previousSnapshot) {
 
   for (const product of previousProducts) {
     const id = normalizeText(product?.id);
-    const evidence = mergeTastingNoteEvidence(product.tastingNoteEvidence || []);
+    const evidence = reviewTastingNoteEvidence(product.tastingNoteEvidence || [], product.productName);
     const supportedNotes = new Set(normalizeTastingNotes(
       evidence.filter((entry) => !entry.reviewReason).map((entry) => entry.text),
       { limit: Infinity, explicitEvidence: true },
@@ -304,7 +304,7 @@ function preservePreviousTastingNotes(products, previousSnapshot, publishedAt) {
   let preservedCount = 0;
 
   for (const product of products) {
-    product.tastingNoteEvidence = mergeTastingNoteEvidence(product.tastingNoteEvidence || []);
+    product.tastingNoteEvidence = reviewTastingNoteEvidence(product.tastingNoteEvidence || [], product.productName);
     const currentNotes = normalizeTastingNotes(
       product.tastingNoteEvidence.filter((entry) => !entry.reviewReason).map((entry) => entry.text),
       { limit: 5, explicitEvidence: true },

@@ -4,7 +4,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { execFile } = require('node:child_process');
 const bcrypt = require('bcryptjs');
-const { normalizeTastingNotes, createTastingNoteEvidence, extractTastingNoteEvidence, mergeTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
+const { normalizeTastingNotes, createTastingNoteEvidence, extractTastingNoteEvidence, mergeTastingNoteEvidence, reviewTastingNoteEvidence } = require('../src/services/tastingNotes.cjs');
 
 const NAVER_COMMERCE_TOKEN_URL = 'https://api.commerce.naver.com/external/v1/oauth2/token';
 const NAVER_COMMERCE_PRODUCT_SEARCH_URL = 'https://api.commerce.naver.com/external/v1/products/search';
@@ -1363,7 +1363,7 @@ function parseGeminiEvidence(text, imageUrl, productName = '', process = '') {
     if (!Array.isArray(parsed)) return [];
     const isBlend = /blend|블[렌랜][드딩]/i.test(`${productName} ${process}`)
       || parsed.some((entry) => /blend|블[렌랜][드딩]/i.test(entry?.group || ''));
-    return createTastingNoteEvidence(parsed.map((entry) => {
+    return reviewTastingNoteEvidence(createTastingNoteEvidence(parsed.map((entry) => {
       // 구성 원두의 노트는 보관하되 블렌드 대표 노트로 합치지 않는다.
       const isComponent = entry?.scope === 'component'
         || (isBlend
@@ -1372,7 +1372,7 @@ function parseGeminiEvidence(text, imageUrl, productName = '', process = '') {
           && !/blend|블[렌랜][드딩]/i.test(entry.group));
       return isComponent ? { ...entry, reviewReason: 'blend-component' } : entry;
     }), imageUrl, 'image-model').map((entry) =>
-      entry.reviewReason ? entry : hasProcessingConflict(processingFamilies(productName).length ? productName : process, entry.process) ? { ...entry, reviewReason: 'process-conflict' } : entry);
+      entry.reviewReason ? entry : hasProcessingConflict(processingFamilies(productName).length ? productName : process, entry.process) ? { ...entry, reviewReason: 'process-conflict' } : entry), productName);
   } catch { return []; }
 }
 

@@ -10,47 +10,16 @@ const NOTE_GROUPS = {
   body: 8,
 };
 
-const COUNTRY_ALIASES = [
-  'brazil',
-  'brasil',
-  '브라질',
-  'ethiopia',
-  '에티오피아',
-  'kenya',
-  '케냐',
-  'colombia',
-  '콜롬비아',
-  'guatemala',
-  '과테말라',
-  'india',
-  '인도',
-  'mexico',
-  '멕시코',
-  'nicaragua',
-  '니카라과',
-  'rwanda',
-  '르완다',
-  'honduras',
-  '온두라스',
-  'costa rica',
-  '코스타리카',
-  'el salvador',
-  '엘살바도르',
-  'peru',
-  '페루',
-  'panama',
-  '파나마',
-  'bolivia',
-  '볼리비아',
-  'indonesia',
-  '인도네시아',
-  'papua new guinea',
-  '파푸아뉴기니',
-  'yemen',
-  '예멘',
-  'thailand',
-  '태국',
+const COUNTRY_GROUPS = [
+  ['brazil', 'brasil', '브라질'], ['ethiopia', '에티오피아'], ['kenya', '케냐'],
+  ['colombia', '콜롬비아'], ['guatemala', '과테말라'], ['india', '인도'],
+  ['mexico', '멕시코'], ['nicaragua', '니카라과'], ['rwanda', '르완다'],
+  ['honduras', '온두라스'], ['costa rica', '코스타리카'], ['el salvador', '엘살바도르'],
+  ['peru', '페루'], ['panama', '파나마'], ['bolivia', '볼리비아'],
+  ['indonesia', '인도네시아'], ['papua new guinea', '파푸아뉴기니'],
+  ['yemen', '예멘'], ['thailand', '태국'],
 ];
+const COUNTRY_ALIASES = COUNTRY_GROUPS.flat();
 
 const NON_TASTE_ALIASES = [
   'co',
@@ -457,7 +426,7 @@ function createTastingNoteEvidence(notes, sourceUrl, method = 'detail-text') {
       for (const field of ['group', 'process']) {
         if (clean(note?.[field])) entry[field] = clean(note[field]);
       }
-      if (['process-conflict', 'blend-component'].includes(note?.reviewReason)) entry.reviewReason = note.reviewReason;
+      if (['process-conflict', 'blend-component', 'product-conflict'].includes(note?.reviewReason)) entry.reviewReason = note.reviewReason;
       entries.set(JSON.stringify(entry), entry);
     }
   }
@@ -472,6 +441,23 @@ function mergeTastingNoteEvidence(...lists) {
     }
   }
   return [...entries.values()];
+}
+
+// 다른 국가 원두의 포장 사진은 상품 근거로 쓰지 않는다. 원문은 검수용으로 남긴다.
+function reviewTastingNoteEvidence(evidence, productName = '') {
+  const entries = mergeTastingNoteEvidence(evidence);
+  if (/blend|블[렌랜][드딩]/i.test(productName)) return entries;
+  const countries = (value) => COUNTRY_GROUPS.filter((aliases) => aliases.some((alias) => (
+    new RegExp(`(^|[^a-z가-힣])${alias.replace(/\s+/g, '\\s*')}(?=$|[^a-z가-힣])`, 'i').test(String(value || ''))
+  )));
+  const expected = countries(productName);
+  if (expected.length !== 1) return entries;
+  return entries.map((entry) => {
+    if (entry.reviewReason) return entry;
+    const actual = countries(entry.group);
+    return actual.length > 0 && !actual.includes(expected[0])
+      ? { ...entry, reviewReason: 'product-conflict' } : entry;
+  });
 }
 
 function extractTastingNoteEvidence(text, sourceUrl, method = 'detail-text') {
@@ -593,6 +579,7 @@ module.exports = {
   getTasteScaleAcidityScore,
   createTastingNoteEvidence,
   mergeTastingNoteEvidence,
+  reviewTastingNoteEvidence,
   extractTastingNoteEvidence,
   getDisplayTastingNotes,
   getPendingTastingNotes,

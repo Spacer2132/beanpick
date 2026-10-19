@@ -90,6 +90,8 @@ function findUnlabeledTastingNotesLine(lines) {
 
 function htmlToLines(html) {
   return String(html || '')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '\n')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '\n')
     .replace(/<\s*br\s*\/?>/gi, '\n')
     .replace(/<\/(?:div|p|li|tr|h[1-6])>/gi, '\n')
     .replace(/<[^>]+>/g, '')

@@ -5,6 +5,7 @@ const notes = require('../src/services/tastingNotes.cjs');
 const { _test: collector, enrichProductsWithThumbnailOcr } = require('../electron/naverShoppingSearch.cjs');
 const { buildGithubSnapshot } = require('../electron/githubPublisher.cjs');
 const contract = require('../electron/collection/contract.cjs');
+const { parseCafe24DetailInfo } = require('../src/services/adapters/cafe24DetailParser.cjs');
 
 function loadModule(file) {
   const output = esbuild.transformSync(fs.readFileSync(file, 'utf8'), { loader: 'ts', format: 'cjs' }).code;
@@ -21,6 +22,37 @@ function loadModule(file) {
 async function main() {
   let checks = 0;
   function equal(actual, expected) { assert.deepEqual(actual, expected); checks++; }
+  const hiddenDetailCode = String.raw`
+    <ScRiPt type="text/javascript">
+      originalPrice: org,
+      컵노트: 딸기, 사과
+      ${'alpha beta gamma delta\n'.repeat(200)}
+    </ScRiPt>
+    <STYLE media="screen">
+      원산지: 케냐
+      컵노트: 레몬, 자몽
+    </STYLE>
+    <meta property="product:price:amount" content="31000" />
+    <script>
+      var option_stock_data = '{\"A\":{\"use_soldout\":\"F\",\"is_selling\":\"T\",\"option_price\":31000,\"option_value_orginal\":[\"200g\"],\"option_name_original\":[\"중량\"]},\"B\":{\"use_soldout\":\"F\",\"is_selling\":\"T\",\"option_price\":62000,\"option_value_orginal\":[\"500g\"],\"option_name_original\":[\"중량\"]}}';
+    </script>`;
+  const hiddenInfo = parseCafe24DetailInfo(hiddenDetailCode);
+  equal(hiddenInfo.origin, '');
+  equal(hiddenInfo.tastingNotes, '');
+  equal(hiddenInfo.priceOptions.map(({ weight, price }) => ({ weight, price })), [{ weight: 200, price: 31000 }, { weight: 500, price: 62000 }]);
+  const visibleInfo = parseCafe24DetailInfo(`${hiddenDetailCode}<p>원산지: 에티오피아</p><p>컵노트: 복숭아, 꿀</p>`);
+  equal(visibleInfo.origin, '에티오피아');
+  equal(visibleInfo.tastingNotes, '복숭아, 꿀');
+  const originalIsTastingNote = notes.isTastingNote;
+  let wordChecks = 0;
+  try {
+    notes.isTastingNote = (word) => { wordChecks++; return originalIsTastingNote(word); };
+    const unlabeledInfo = parseCafe24DetailInfo(`${hiddenDetailCode}<p>복숭아, 꿀</p>`);
+    equal(unlabeledInfo.tastingNotes, '복숭아, 꿀');
+  } finally {
+    notes.isTastingNote = originalIsTastingNote;
+  }
+  equal(wordChecks, 2);
   const sourceUrl = 'https://example.com/product/detail.html?product_no=7001';
   const mainSource = fs.readFileSync('electron/main.cjs', 'utf8');
   const loaderSource = mainSource.slice(mainSource.indexOf('async function loadSmartStorePageWithRetry('), mainSource.indexOf('// 숨김 창 안에서'));
@@ -67,6 +99,16 @@ async function main() {
   equal(collector.parseGeminiEvidence('[{"text":"오렌지","group":"Split A","process":"Washed"}]', sourceUrl, '테스트 워시드')[0].reviewReason, undefined);
   equal(collector.parseGeminiEvidence('[{"text":"다크초콜릿","group":"다크딥 블렌딩"},{"text":"딸기","group":"에티오피아","process":"내추럴"}]', sourceUrl).at(-1).reviewReason, 'blend-component');
   equal(collector.parseGeminiEvidence('[{"text":"오렌지","group":"Split A (Washed)","process":"Washed"}]', sourceUrl, '테스트 블렌드')[0].reviewReason, undefined);
+
+  const otherProductEvidence = collector.parseGeminiEvidence(JSON.stringify([
+    { text: 'mandarin', group: 'Guatemala Los Suspiros', process: 'Fully washed' },
+    { text: 'fuji apple', group: 'Guatemala Amate', process: 'Fully washed' },
+  ]), sourceUrl, 'NOMAD COFFEE Colombia Inmaculada Fellow Farms Geisha Washed');
+  equal(otherProductEvidence.map((entry) => entry.reviewReason), ['product-conflict', 'product-conflict']);
+  equal(notes.mergeTastingNoteEvidence(otherProductEvidence), otherProductEvidence);
+  equal(collector.parseGeminiEvidence('[{"text":"사과","group":"Guatemala Amate"}]', sourceUrl, '과테말라 아마테 워시드')[0].reviewReason, undefined);
+  equal(collector.parseGeminiEvidence('[{"text":"사과","group":"Guatemala Amate"}]', sourceUrl, '인도네시아 수마트라')[0].reviewReason, 'product-conflict');
+  equal(collector.parseGeminiEvidence('[{"text":"사과","group":"Guatemala Amate"}]', sourceUrl, '콜롬비아 과테말라 블렌드')[0].reviewReason, undefined);
 
   const imageEvidence = [];
   const imageText = await collector.readOfficialMallImageText('https://example.com/notes.png', {
@@ -206,6 +248,21 @@ async function main() {
   equal(unsupportedCurrent.products[0].tastingNotes, []);
   const correctedCurrent = buildGithubSnapshot([{ ...product, id: 'current-conflict', tastingNotes: ['복숭아'], tastingNoteEvidence: notes.createTastingNoteEvidence(['자스민'], sourceUrl) }], '2026-09-12T01:00:00.000Z');
   equal(correctedCurrent.products[0].tastingNotes, ['자스민']);
+
+  const cachedWrongProduct = {
+    ...product, id: 'cached-other-product', productName: 'Colombia Inmaculada Washed',
+    tastingNotes: ['사과', '꿀'], tastingNoteEvidence: [
+      { text: 'fuji apple', group: 'Guatemala Amate', sourceUrl, method: 'image-model' },
+      { text: '꿀', sourceUrl, method: 'detail-text' },
+    ],
+  };
+  const correctedCache = buildGithubSnapshot([cachedWrongProduct], '2026-09-12T01:00:00.000Z').products[0];
+  equal(correctedCache.tastingNotes, ['꿀']);
+  equal(correctedCache.tastingNoteEvidence[0].reviewReason, 'product-conflict');
+  const correctedFallback = buildGithubSnapshot([{ ...cachedWrongProduct, tastingNotes: [], tastingNoteEvidence: [] }], '2026-09-12T02:00:00.000Z', {
+    previousSnapshot: { products: [cachedWrongProduct] },
+  }).products[0];
+  equal(correctedFallback.tastingNotes, ['꿀']);
 
   const detail = { tastingNotes: raw.join(', '), weight: 200 };
   const marker = JSON.stringify(detail).replace(/"/g, '&quot;');
