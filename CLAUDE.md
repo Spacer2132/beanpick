@@ -45,6 +45,6 @@ npm run verify
 ## 작업 전
 
 - `.wiki/wiki/topics/`와 `.wiki/_index.md`에 과거 사건·함정·검증 방법이 있다. 코드 수정 전에 확인하라.
-- 코드 구조 질문은 `graphify-out/GRAPH_REPORT.md` 먼저. 수정 후에는 `graphify update .`.
+- 코드 구조 질문은 `graphify query "<질문> in beanpick"` 먼저 (GRAPH_REPORT.md 통독 금지, 갱신은 전역 지침의 `PYTHONHASHSEED=0` 명령).
 - 더 깊은 검증 방법론은 `.wiki/raw/notes/agent-working-standards.md`
   (평소 로드하지 않는 온디맨드 문서 — 왜 그 규칙인지 궁금할 때만).
