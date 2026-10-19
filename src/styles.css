@@ -2948,6 +2948,9 @@ a {
 .real-map-dot { width: 14px; height: 14px; border: 2px solid #fff; border-radius: 50%; background: var(--accent); box-shadow: 0 1px 4px rgb(var(--ink-rgb) / 0.3); }
 .real-map-label { padding: 2px 8px; border-radius: 999px; background: rgb(255 255 255 / 0.94); color: var(--ink); font: 700 12px/1.4 var(--sans); white-space: nowrap; box-shadow: 0 2px 8px rgb(var(--ink-rgb) / 0.18); }
 .real-map-marker.is-active { z-index: 1; }
+.real-map-marker.is-other { opacity: 0.6; }
+.real-map-marker.is-other .real-map-dot { width: 10px; height: 10px; }
+.real-map-marker.is-other .real-map-label { font-size: 11px; font-weight: 600; }
 .real-map-marker.is-active .real-map-dot { width: 18px; height: 18px; background: var(--accent-dark); }
 .real-map-marker.is-active .real-map-label { background: var(--accent); color: #fff; }
 .coffee-pin-group { pointer-events: auto; }

@@ -35,7 +35,7 @@ export const COFFEE_REGION_POINTS = {
   ],
   PER: [
     { name: '카하마르카', en: 'Cajamarca', x: 281.02, y: 267.36 },
-    { name: '쿠스코', en: 'Cusco', x: 300.06, y: 287.55 },
+    { name: '쿠스코', en: 'Cusco', x: 298.07, y: 285.73 },
     { name: '후닌', en: 'Junín', x: 291.67, y: 281.94 },
   ],
   SLV: [
@@ -63,7 +63,7 @@ export const COFFEE_REGION_POINTS = {
   ETH: [
     { name: '예가체프', en: 'Yirgacheffe', x: 606.12, y: 232.91 },
     { name: '시다모', en: 'Sidama', x: 606.86, y: 231.53 },
-    { name: '구지', en: 'Guji', x: 608.9, y: 234.58 },
+    { name: '구지', en: 'Guji', x: 608.06, y: 233.96 },
     { name: '하라', en: 'Harar', x: 617.02, y: 224.13 },
   ],
   KEN: [
@@ -92,24 +92,24 @@ export const COFFEE_REGION_POINTS = {
   ],
   YEM: [
     { name: '베니마타르', en: 'Bani Matar', x: 622.36, y: 207.84 },
-    { name: '하라즈', en: 'Haraz', x: 620.66, y: 205.19 },
+    { name: '하라즈', en: 'Haraz', x: 621.35, y: 208.14 },
   ],
   IDN: [
-    { name: '수마트라', en: 'Sumatra', x: 782.29, y: 250.4 },
-    { name: '자바', en: 'Java', x: 804.48, y: 270.36 },
+    { name: '수마트라', en: 'Sumatra', x: 769.02, y: 237.16 },
+    { name: '자바', en: 'Java', x: 816.34, y: 272.07 },
     { name: '발리', en: 'Bali', x: 819.98, y: 272.85 },
-    { name: '술라웨시', en: 'Sulawesi', x: 834.15, y: 255.49 },
+    { name: '술라웨시', en: 'Sulawesi', x: 833.05, y: 258.25 },
   ],
   IND: [
-    { name: '카르나타카', en: 'Karnataka', x: 710.53, y: 208.45 },
-    { name: '케랄라', en: 'Kerala', x: 712.53, y: 221.24 },
+    { name: '카르나타카', en: 'Karnataka', x: 710.11, y: 212.76 },
+    { name: '케랄라', en: 'Kerala', x: 711.34, y: 217.75 },
   ],
   PNG: [
     { name: '와기밸리', en: 'Wahgi Valley', x: 901.9, y: 266.42 },
     { name: '이스턴하일랜드', en: 'Eastern Highlands Province', x: 904.4, y: 268.06 },
   ],
   MMR: [
-    { name: '샨주', en: 'Shan State', x: 772.25, y: 190.24 },
-    { name: '만달레이', en: 'Mandalay Region', x: 766.02, y: 191.7 },
+    { name: '샨주', en: 'Shan State', x: 768.06, y: 190.88 },
+    { name: '만달레이', en: 'Mandalay Region', x: 767.96, y: 188.8 },
   ],
 };

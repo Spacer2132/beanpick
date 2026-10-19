@@ -128,6 +128,8 @@ export default function WorldCoffeeMap({
 }) {
   const [hoveredCountry, setHoveredCountry] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
+  // 실제 지도에서 이웃 나라 산지를 누르면, 나라가 바뀐 뒤 고를 산지 이름을 잠시 담아 둔다.
+  const pendingRegionRef = useRef(null);
   const [viewBox, setViewBox] = useState(DEFAULT_VIEW);
   const [activePreset, setActivePreset] = useState('all');
   const [isDragging, setIsDragging] = useState(false);
@@ -303,7 +305,8 @@ export default function WorldCoffeeMap({
       setActivePreset(null);
     }
     setHoveredCountry(null);
-    setSelectedRegion(null);
+    setSelectedRegion(pendingRegionRef.current);
+    pendingRegionRef.current = null;
   }, [selectedCountry, countryViews, mapRatio]);
 
   // 커피와 무관한 154개국은 상태와 무관하게 늘 같으므로 한 번만 만들어 재사용한다.
@@ -319,6 +322,11 @@ export default function WorldCoffeeMap({
   // 선택한 나라로 확대했을 때만 주요 산지를 보여 준다(세계 화면에서는 너무 빽빽해진다).
   const selectedInfo = COFFEE_COUNTRIES.find((c) => c.label === selectedCountry);
   const shownRegions = (selectedInfo && isZoomed && COFFEE_REGION_POINTS[selectedInfo.code]) || [];
+  // 실제 지도에 함께 흐리게 찍을 이웃 나라 산지(원두가 있는 나라만).
+  const otherRegions = useMemo(() => COFFEE_COUNTRIES
+    .filter((c) => c.label !== selectedCountry && countryCounts.has(c.label))
+    .flatMap((c) => (COFFEE_REGION_POINTS[c.code] || []).map((r) => ({ ...r, country: c.label }))),
+  [selectedCountry, countryCounts]);
   const selectedCount = selectedInfo ? countryCounts.get(selectedInfo.label) || 0 : 0;
 
   // 선택한 나라 이름을 지도 좌상단에 고정 배너로 띄운다(화면 아래 설명까지 내려보지 않게).
@@ -591,10 +599,16 @@ export default function WorldCoffeeMap({
       <div className={`coffee-map-svg-wrap ${selectedInfo ? 'is-real-map' : ''}`} ref={wrapRef}>
         {selectedInfo && COUNTRY_BOUNDS[selectedInfo.code] && (
           <RealCountryMap
+            countryCode={selectedInfo.code}
             bounds={COUNTRY_BOUNDS[selectedInfo.code]}
             regions={COFFEE_REGION_POINTS[selectedInfo.code] || NO_REGIONS}
+            otherRegions={otherRegions}
             selectedRegion={selectedRegion}
             onSelectRegion={(name) => setSelectedRegion((prev) => (prev === name ? null : name))}
+            onSelectOtherRegion={(country, name) => {
+              pendingRegionRef.current = name;
+              onSelectCountry?.(country);
+            }}
           />
         )}
         <svg

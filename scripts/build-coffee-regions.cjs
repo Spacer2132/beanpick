@@ -45,6 +45,41 @@ const REGION_QUERY = {
   MMR: { 샨주: 'Shan State', 만달레이: 'Mandalay Region' },
 };
 
+// 넓은 지역 이름은 지오코더가 그 땅 한가운데(커피를 안 심는 곳)를 돌려준다.
+// 그런 산지만 대표점 검색어를 실제 커피 재배 도시로 바꾼다. 영문 이름(en)은 위 표 그대로 쓴다.
+const POINT_QUERY = {
+  PER: { 쿠스코: 'Quillabamba' },
+  ETH: { 구지: 'Shakiso' },
+  YEM: { 하라즈: 'Manakhah' },
+  IDN: { 수마트라: 'Takengon', 자바: 'Bondowoso', 술라웨시: 'Rantepao' },
+  IND: { 카르나타카: 'Chikkamagaluru', 케랄라: 'Kalpetta' },
+  MMR: { 샨주: 'Ywangan', 만달레이: 'Pyin Oo Lwin' },
+};
+
+// 산지를 고르면 칠할 행정구역 경계의 검색어. 없으면 대표점 검색어로 찾는다.
+// 커피 산지가 일부 군에만 몰린 넓은 지역은 그 군들만 적는다.
+const AREA_QUERY = {
+  GTM: { 안티구아: 'Sacatepéquez' },
+  PAN: { 볼칸: 'Tierras Altas' },
+  PER: { 쿠스코: 'La Convención' },
+  BDI: { 기테가: 'Province de Gitega' },
+  TZA: { 아루샤: 'Arusha Region' },
+  UGA: { 엘곤산: ['Bududa', 'Manafwa', 'Sironko', 'Bulambuli', 'Kapchorwa', 'Kween'] },
+  PNG: { 와기밸리: ['Jiwaka', 'Western Highlands Province'] },
+  RWA: { 기센이: 'Rubavu', 후예: 'Huye District' },
+  ETH: { 예가체프: 'Gedeo', 구지: 'Guji', 하라: ['Harari', 'East Harerghe', 'West Harerghe'] },
+  YEM: { 하라즈: 'Manakhah District' },
+  IDN: {
+    수마트라: ['Aceh Tengah', 'Bener Meriah', 'Humbang Hasundutan'],
+    자바: ['Kabupaten Bondowoso'],
+    술라웨시: ['Toraja Utara', 'Tana Toraja'],
+  },
+  IND: { 카르나타카: ['Chikkamagaluru district', 'Kodagu district', 'Hassan district'], 케랄라: ['Wayanad district', 'Idukki district'] },
+  MMR: { 샨주: 'Ywangan Township', 만달레이: 'Pyin Oo Lwin District' },
+};
+// 경계를 단순하게 줄이는 정도(도 단위, 0.01 ≈ 1km). 클수록 파일이 작아진다.
+const AREA_SIMPLIFY = 0.01;
+
 const ISO2 = {
   COL: 'co', BRA: 'br', GTM: 'gt', CRI: 'cr', PAN: 'pa', HND: 'hn', PER: 'pe', SLV: 'sv',
   NIC: 'ni', MEX: 'mx', ECU: 'ec', BOL: 'bo', ETH: 'et', KEN: 'ke', RWA: 'rw', BDI: 'bi',
@@ -102,13 +137,14 @@ function pointInRing(px, py, ring) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function geocode(query, iso2, cacheDir) {
-  const key = `${iso2}_${query}`.replace(/[^\w가-힣-]/g, '_');
+async function geocode(query, iso2, cacheDir, withArea = false) {
+  const key = `${withArea ? 'area_' : ''}${iso2}_${query}`.replace(/[^\w가-힣-]/g, '_');
   const cacheFile = path.join(cacheDir, `${key}.json`);
   if (fs.existsSync(cacheFile)) return JSON.parse(fs.readFileSync(cacheFile, 'utf8'));
 
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}`
-    + `&countrycodes=${iso2}&format=json&limit=1`;
+    + `&countrycodes=${iso2}&format=json&limit=1`
+    + (withArea ? `&polygon_geojson=1&polygon_threshold=${AREA_SIMPLIFY}` : '');
   const res = await fetch(url, { headers: { 'User-Agent': UA, 'Accept-Language': 'en' } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${query}`);
   const json = await res.json();
@@ -130,6 +166,9 @@ async function main() {
   const result = {};
   const failed = [];
   let ok = 0;
+  const areas = {};
+  const areaFailed = [];
+  let areaOk = 0;
 
   for (const country of COFFEE_COUNTRIES) {
     const table = REGION_QUERY[country.code];
@@ -141,8 +180,9 @@ async function main() {
 
     const regions = [];
     for (const ko of names) {
-      const query = table[ko];
-      if (!query) { failed.push(`${country.label}/${ko}: 영문 검색어 없음`); continue; }
+      const en = table[ko];
+      if (!en) { failed.push(`${country.label}/${ko}: 영문 검색어 없음`); continue; }
+      const query = POINT_QUERY[country.code]?.[ko] || en;
       let hits;
       try {
         hits = await geocode(query, ISO2[country.code], cacheDir);
@@ -163,8 +203,31 @@ async function main() {
         failed.push(`${country.label}/${ko}: 국경에서 ${(gap * 40.075).toFixed(0)}km 밖 (${lat.toFixed(3)}, ${lng.toFixed(3)})`);
         continue;
       }
-      regions.push({ name: ko, en: query, x: Number(x.toFixed(2)), y: Number(y.toFixed(2)) });
+      regions.push({ name: ko, en, x: Number(x.toFixed(2)), y: Number(y.toFixed(2)) });
       ok += 1;
+
+      // 행정구역 경계: 바깥 테두리만 남기고, 대표점이 그 안에 있어야 쓴다(엉뚱한 동명 지역 거르기).
+      const areaRings = [];
+      for (const areaQuery of [].concat(AREA_QUERY[country.code]?.[ko] || query)) {
+        let areaHits;
+        try {
+          areaHits = await geocode(areaQuery, ISO2[country.code], cacheDir, true);
+        } catch (e) {
+          areaFailed.push(`${country.label}/${ko}: 경계 조회 실패 ${areaQuery} (${e.message})`);
+          continue;
+        }
+        const geo = areaHits?.[0]?.geojson;
+        const polys = geo?.type === 'Polygon' ? [geo.coordinates] : geo?.type === 'MultiPolygon' ? geo.coordinates : [];
+        if (!polys.length) { areaFailed.push(`${country.label}/${ko}: 경계 없음 ${areaQuery} (${geo?.type || '결과 없음'})`); continue; }
+        polys.forEach((poly) => areaRings.push(poly[0].map(([a, b]) => [Number(a.toFixed(3)), Number(b.toFixed(3))])));
+      }
+      if (!areaRings.length) continue;
+      if (!areaRings.some((ring) => pointInRing(lng, lat, ring))) {
+        areaFailed.push(`${country.label}/${ko}: 대표점이 경계 밖이라 제외`);
+        continue;
+      }
+      areas[country.code] = { ...areas[country.code], [ko]: areaRings };
+      areaOk += 1;
     }
     if (regions.length) result[country.code] = regions;
   }
@@ -190,6 +253,26 @@ async function main() {
   if (failed.length) {
     console.log(`  제외 ${failed.length}개:`);
     failed.forEach((f) => console.log(`    - ${f}`));
+  }
+
+  const areaLines = [
+    '// 자동 생성 파일 — scripts/build-coffee-regions.cjs 로 다시 만든다. 직접 고치지 말 것.',
+    '// 경계 출처: OpenStreetMap Nominatim (ODbL). 산지의 행정구역 경계이며 실제 재배지 전체와 같지는 않다.',
+    '// 나라 코드 → 산지 이름 → 바깥 테두리 목록([경도, 위도] 배열). 대표점이 경계 안에 있는 것만 담았다.',
+    '',
+    'export const COFFEE_REGION_AREAS = {',
+    ...Object.entries(areas).map(([code, byName]) => `  ${code}: {\n${Object.entries(byName)
+      .map(([ko, rings]) => `    '${ko}': ${JSON.stringify(rings)},`)
+      .join('\n')}\n  },`),
+    '};',
+    '',
+  ].join('\n');
+  const areaDest = path.resolve(__dirname, '../src/services/coffeeRegionAreas.js');
+  fs.writeFileSync(areaDest, areaLines.replace(/\n/g, '\r\n'));
+  console.log(`경계 생성: ${areaDest} — ${areaOk}개 산지`);
+  if (areaFailed.length) {
+    console.log(`  경계 제외 ${areaFailed.length}개:`);
+    areaFailed.forEach((f) => console.log(`    - ${f}`));
   }
 }
 
