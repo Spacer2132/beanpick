@@ -14,6 +14,7 @@ import {
   formatPrice,
   formatProductDisplayInfo,
   getNoteOptions,
+  getMatchingPriceOptions,
   getPricePer100g,
   getProductCountryLabel,
   getProductOriginLabel,
@@ -24,7 +25,6 @@ import {
   isGroundCoffeeProduct,
   isOnePlusOneProduct,
   isRealProductUrl,
-  matchesCapacityFilter,
   matchesNoteQuery,
   matchesSmartSearchIndex,
   normalizeProducts,
@@ -77,19 +77,6 @@ function productSearchText(product) {
     ...product.tastingNotes,
     ...getDisplayTastingNotes(product),
   ].filter(Boolean).join(' ').toLowerCase();
-}
-
-function matchesBudgetFilter(product, budget) {
-  if (budget === 'all') return true;
-  const prices = [
-    product.price,
-    ...(product.priceOptions || []).map((option) => option.price),
-  ].map((price) => Number(price || 0)).filter((price) => price > 0);
-  const lowestPrice = prices.length ? Math.min(...prices) : 0;
-
-  if (budget === 'under30000') return lowestPrice > 0 && lowestPrice <= 30000;
-  if (budget === 'under50000') return lowestPrice > 0 && lowestPrice <= 50000;
-  return true;
 }
 
 function countLabelOptions(products, getLabel) {
@@ -362,7 +349,7 @@ function getBestUnitPriceLabel(product, priceOptions) {
   return candidates[0]?.label || '';
 }
 
-function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleFavorite, tasteAxis }) {
+function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleFavorite, tasteAxis, priceFilters }) {
   const hasImage = Boolean(product.imageUrl);
   const detailLabel = `${product.roasterName} ${product.productName} 상세 보기`;
   const metaItems = [product.roasterName].filter(Boolean);
@@ -371,9 +358,8 @@ function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleF
     displayInfo.process,
     displayInfo.farm,
   ].filter(Boolean);
-  const priceOptions = product.priceOptions?.length ? product.priceOptions : createPriceOptions([product]);
-  const representativePrice = getRepresentativePriceOption(product);
-  const cardPriceOptions = representativePrice.option ? [representativePrice.option] : priceOptions.slice(0, 1);
+  const representativePrice = getRepresentativePriceOption(product, priceFilters);
+  const cardPriceOptions = representativePrice.option ? [representativePrice.option] : [];
   const [imageLoaded, setImageLoaded] = React.useState(false);
   const imageContent = hasImage
     ? <img src={product.imageUrl} alt="" loading="lazy" onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(true)} />
@@ -492,7 +478,7 @@ function ChangeList({ changes }) {
   );
 }
 
-function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.', favoriteIds, products, onSelect, onToggleFavorite, tasteAxis }) {
+function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.', favoriteIds, products, onSelect, onToggleFavorite, tasteAxis, priceFilters }) {
   if (products.length === 0) {
     return <div className="empty-result">{emptyMessage}</div>;
   }
@@ -508,6 +494,7 @@ function ProductGrid({ activeNotes, emptyMessage = '조건에 맞는 원두가 �
           onSelect={onSelect}
           onToggleFavorite={onToggleFavorite}
           tasteAxis={tasteAxis}
+          priceFilters={priceFilters}
         />
       ))}
     </div>
@@ -725,7 +712,7 @@ function ExplorePage({ products, isLoading, onSelectVariety, onSelectProduct, on
                     <span className="explore-card-image">{product.imageUrl && <img src={product.imageUrl} alt="" loading="lazy" />}</span>
                     <span className="explore-card-roaster">{product.roasterName}</span>
                     <strong>{product.productName}</strong>
-                    <span className="explore-card-price">{product.priceLabel}</span>
+                    <span className="explore-card-price">{product.priceLabel || formatPrice(product.price)}</span>
                   </button>
                 ))}
               </div>
@@ -751,7 +738,7 @@ function ExplorePage({ products, isLoading, onSelectVariety, onSelectProduct, on
   );
 }
 
-function AlertsPage({ favoriteProducts, onBrowse, onToggleFavorite }) {
+function AlertsPage({ favoriteProducts, onBrowse, onSelectProduct, onToggleFavorite }) {
   return (
     <div className="page-stack">
       <header className="page-head compact">
@@ -774,7 +761,7 @@ function AlertsPage({ favoriteProducts, onBrowse, onToggleFavorite }) {
             {favoriteProducts.map((product) => (
               <article className="favorite-row" key={product.id}>
                 <div>
-                  <strong>{product.productName}</strong>
+                  <strong><button className="detail-variety-link" type="button" onClick={() => onSelectProduct(product)}>{product.productName}</button></strong>
                   <span>{product.roasterName} · {formatPrice(product.price)} · {product.isSoldOut ? '품절' : '판매 중'}</span>
                 </div>
                 <button className="btn btn-small" type="button" onClick={() => onToggleFavorite(product.id)}>관심 해제</button>
@@ -973,18 +960,16 @@ export default function App() {
       matchesSmartSearchIndex(productSearchIndexes.get(product), compiledSearchQuery)
       && (activeNotes.length === 0 || activeNotes.some((note) => product.tastingNotes.includes(note)))
       && matchesNoteQuery(product, noteIncludeQuery, noteExcludeQuery)
-      && (!saleOnly || discountProducts.includes(product) || isOnePlusOneProduct(product))
       && (!decafOnly || isDecafProduct(product))
       && (originFilter === 'all' || getProductCountryLabel(product) === originFilter)
       && (processFilter === 'all' || getProductProcessLabel(product) === processFilter)
-      && matchesBudgetFilter(product, budget)
-      && matchesCapacityFilter(product, capacityFilter)
+      && getMatchingPriceOptions(product, { budget, capacityFilter, saleOnly }).length > 0
     ))
   ), [activeNotes, availableProducts, budget, capacityFilter, decafOnly, saleOnly, discountProducts, noteExcludeQuery, noteIncludeQuery, originFilter, processFilter, productSearchIndexes, compiledSearchQuery]);
 
   const filteredProducts = React.useMemo(() => (
-    sortProducts(visibleProducts, sortMode, tasteAxis)
-  ), [visibleProducts, sortMode, tasteAxis]);
+    sortProducts(visibleProducts, sortMode, tasteAxis, { budget, capacityFilter, saleOnly })
+  ), [visibleProducts, sortMode, tasteAxis, budget, capacityFilter, saleOnly]);
 
   const hasActiveFilters = Boolean(searchQuery.trim()) || activeNotes.length > 0
     || budget !== 'all' || capacityFilter !== 'all' || originFilter !== 'all' || processFilter !== 'all' || saleOnly || decafOnly
@@ -1516,6 +1501,7 @@ export default function App() {
           <AlertsPage
             onBrowse={() => setScreen('products')}
             favoriteProducts={favoriteProducts}
+            onSelectProduct={(product) => setDetailProductId(product.id)}
             onToggleFavorite={handleToggleFavorite}
           />
         ) : (
@@ -2224,6 +2210,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
               favoriteIds={favoriteIds}
               emptyMessage={emptyMessage}
               products={visibleProducts}
+              priceFilters={{ budget, capacityFilter, saleOnly }}
               onSelect={onSelectProduct}
               onToggleFavorite={onToggleFavorite}
               tasteAxis={tasteAxis}

@@ -17,6 +17,40 @@ loadLocalEnv(path.resolve(__dirname, '..'));
 
 const mainSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'main.cjs'), 'utf8');
 const smartStoreSearchSource = fs.readFileSync(path.join(__dirname, '..', 'electron', 'naverShoppingSearch.cjs'), 'utf8');
+const groupedOptionScriptMatch = mainSource.match(/const groupedOptionPayload = await executeJavaScriptWithTimeout\(hiddenWindow, `([\s\S]*?)`, 8000, null\);/);
+if (!groupedOptionScriptMatch) throw new Error('스마트스토어 그룹 옵션 수집 스크립트를 찾을 수 없습니다.');
+const groupedOptionScript = new Function('productNo', `return \`${groupedOptionScriptMatch[1]}\`;`)('10130617351');
+const groupedOptionPayload = vm.runInNewContext(groupedOptionScript, {
+  window: { __BEANPICK_DETAIL_CANDIDATES__: [
+    { id: 10130617351, name: '글램 앤 모어 1kg', salePrice: 70000, benefitsView: { discountedSalePrice: 42000 } },
+  ] },
+  location: { pathname: '/toch/category/beans' },
+});
+const tochOption = _test.buildSmartStorePriceOptionsFromDetail(groupedOptionPayload, {
+  price: 42000, originalPrice: 70000, weight: 1000,
+  productUrl: 'https://smartstore.naver.com/toch/products/10130617351',
+})[0];
+if (tochOption?.price !== 42000 || tochOption?.originalPrice !== 70000) {
+  throw new Error(`토치 1kg의 실제 판매가와 정상가가 뒤바뀌었습니다: ${JSON.stringify(tochOption)}`);
+}
+const missingMobileDiscountPayload = vm.runInNewContext(groupedOptionScript, {
+  window: { __BEANPICK_DETAIL_CANDIDATES__: [
+    { id: 10130617351, name: '원두 1kg', salePrice: 70000, benefitsView: { mobileDiscountedSalePrice: '0', discountedSalePrice: 42000 } },
+  ] },
+  location: { pathname: '/toch/category/beans' },
+});
+if (missingMobileDiscountPayload.optionCombinations[0].absolutePrice !== 42000) {
+  throw new Error('모바일 할인가가 비어 있으면 유효한 일반 할인가를 사용해야 합니다.');
+}
+const nonDiscountedPayload = vm.runInNewContext(groupedOptionScript, {
+  window: { __BEANPICK_DETAIL_CANDIDATES__: [
+    { id: 10130617351, name: '원두 1kg', salePrice: 70000, benefitsView: { discountedSalePrice: 75000 } },
+  ] },
+  location: { pathname: '/toch/category/beans' },
+});
+if (nonDiscountedPayload.optionCombinations[0].absolutePrice !== 70000) {
+  throw new Error('잘못된 할인 가격이 정상가보다 높으면 정상 판매가를 유지해야 합니다.');
+}
 if (!mainSource.includes("{ httpReferrer: storeHomeUrl }")) {
   throw new Error('스마트스토어 상품 페이지는 로그인 화면으로 빠지지 않도록 스토어 참조 주소와 함께 열어야 합니다.');
 }
@@ -440,6 +474,21 @@ const successfulDetailCache = {
   sourceOriginalPrice: 20000,
   cachedAt: '2026-07-11T01:00:00.000Z',
 };
+const tochCacheProduct = {
+  productName: '글램 앤 모어 1kg', price: 42000, originalPrice: 70000, weight: 1000,
+  productUrl: 'https://smartstore.naver.com/toch/products/10130617351',
+};
+const tochWrongOption = { price: 70000, weight: 1000, productUrl: tochCacheProduct.productUrl };
+const tochWrongCache = { ...successfulDetailCache, sourcePrice: 42000, sourceOriginalPrice: 70000, priceOptions: [tochWrongOption] };
+if (_test.isSmartStoreDetailCacheUsable(tochWrongCache, tochCacheProduct, cacheNow)) {
+  throw new Error('같은 상품·용량의 정상가가 판매가로 저장된 옵션 캐시는 재수집해야 합니다.');
+}
+if (!_test.isSmartStoreDetailCacheUsable({ ...tochWrongCache, priceOptions: [{ ...tochWrongOption, price: 42000 }] }, tochCacheProduct, cacheNow)) {
+  throw new Error('판매가가 올바른 상세 옵션 캐시는 계속 재사용해야 합니다.');
+}
+if (!_test.isSmartStoreDetailCacheUsable({ ...tochWrongCache, priceOptions: [{ ...tochWrongOption, productUrl: 'https://smartstore.naver.com/toch/products/2' }] }, tochCacheProduct, cacheNow)) {
+  throw new Error('다른 상품 주소의 옵션까지 잘못된 자기 상품 가격으로 단정하면 안 됩니다.');
+}
 if (!_test.isSmartStoreDetailCacheUsable(successfulDetailCache, detailCacheProduct, cacheNow)) {
   throw new Error('가격이 같고 24시간 이내인 성공 상세캐시는 재사용해야 합니다.');
 }

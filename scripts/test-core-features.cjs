@@ -177,6 +177,55 @@ expect(
   '묶인 카드의 용량 필터는 숨겨진 가격 옵션 용량까지 봐야 합니다',
 );
 
+const priceFilterCases = [
+  [{ budget: 'under30000', capacityFilter: 'exact1000' }, []],
+  [{ budget: 'under30000', capacityFilter: 'over200' }, [200]],
+  [{ budget: 'under50000', capacityFilter: 'over500' }, [500]],
+  [{ budget: 'under50000' }, [200, 500]],
+  [{ capacityFilter: 'exact1000' }, [1000]],
+  [{}, [200, 500, 1000]],
+];
+const originalGrouped = JSON.stringify(grouped[0]);
+for (const [filters, weights] of priceFilterCases) {
+  const matched = core.getMatchingPriceOptions(grouped[0], filters);
+  expect(JSON.stringify(matched.map((option) => option.weight)) === JSON.stringify(weights),
+    '가격과 용량은 같은 옵션에서 충족해야 합니다', JSON.stringify(filters));
+  const representative = core.getRepresentativePriceOption(grouped[0], filters);
+  expect(weights.length ? weights.includes(representative.option?.weight) : !representative.option,
+    '카드 대표 가격은 조건에 맞는 옵션에서만 골라야 합니다', JSON.stringify(filters));
+}
+expect(core.getRepresentativePriceOption(grouped[0], { capacityFilter: 'over200' }).extraCount === 2,
+  '용량을 골라도 상세에서 볼 수 있는 다른 옵션 개수는 보존해야 합니다');
+expect(JSON.stringify(grouped[0]) === originalGrouped, '가격 필터는 원본과 상세의 전체 옵션을 바꾸면 안 됩니다');
+const priceSortCompetitor = { ...lowerUnitPriceProduct, id: 'price-sort-competitor', price: 14000, weight: 200 };
+expect(core.sortProducts([grouped[0], priceSortCompetitor], 'unitPriceAsc')[0].id === grouped[0].id,
+  '필터가 없으면 기존 최저 단가 정렬을 유지해야 합니다');
+expect(core.sortProducts([grouped[0], priceSortCompetitor], 'unitPriceAsc', null, { capacityFilter: 'over200' })[0].id === priceSortCompetitor.id,
+  '200g 낮은 가격순은 1kg 단가가 아닌 200g 단가로 정렬해야 합니다');
+expect(core.sortProducts([grouped[0], priceSortCompetitor], 'unitPriceDesc', null, { capacityFilter: 'over200' })[0].id === grouped[0].id,
+  '200g 높은 가격순도 같은 용량 단가로 정렬해야 합니다');
+expect(core.sortProducts([grouped[0], priceSortCompetitor], 'unitPriceAsc', null, { budget: 'under30000' })[0].id === priceSortCompetitor.id,
+  '예산만 골라도 예산을 넘는 대용량 옵션으로 정렬하면 안 됩니다');
+for (const status of ['partial', 'failed']) {
+  const incomplete = { ...grouped[0], priceOptionsStatus: status, priceOptionsComplete: false };
+  expect(core.getMatchingPriceOptions(incomplete, { budget: 'under30000', capacityFilter: 'over200' }).length === 1,
+    `${status}: 수집된 옵션이 조건을 충족하면 보여야 합니다`);
+  expect(core.getMatchingPriceOptions(incomplete, { budget: 'under30000', capacityFilter: 'exact1000' }).length === 0,
+    `${status}: 수집하지 못한 가격을 추측해 조건을 통과시키면 안 됩니다`);
+  expect(incomplete.priceOptionsStatus === status && incomplete.priceOptionsComplete === false,
+    `${status}: 필터로 수집 완료 여부를 바꾸면 안 됩니다`);
+}
+expect(core.getMatchingPriceOptions({ price: 30000, weight: 200 }, { budget: 'under30000', capacityFilter: 'over200' }).length === 1,
+  '옵션 배열 없는 상품도 실제 가격과 용량으로 판단하고 예산 경계를 포함해야 합니다');
+expect(core.getMatchingPriceOptions({ price: 30001, weight: 200 }, { budget: 'under30000' }).length === 0,
+  '예산을 1원 초과한 옵션은 제외해야 합니다');
+expect(core.getMatchingPriceOptions({ price: 0, weight: 200 }, { budget: 'under30000' }).length === 0,
+  '가격 미확인을 무료나 저가로 취급하면 안 됩니다');
+expect(core.getMatchingPriceOptions({ price: 14000 }, { capacityFilter: 'over200' }).length === 0,
+  '용량 미확인을 선택 용량으로 추측하면 안 됩니다');
+expect(core.getMatchingPriceOptions({ price: 0 }).length === 1,
+  '가격과 용량 조건이 없으면 미확인 상품도 기존대로 남아야 합니다');
+
 const discountCandidates = [
   { id: 'discount-30', price: 28000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
   { id: 'discount-20', price: 32000, originalPrice: 40000, tastingNotes: [], isSoldOut: false },
@@ -374,6 +423,38 @@ expect(core.isDiscountedProduct(crossWeightProduct) === true, '실제 할인(23.
 const realBigDiscount = core.normalizeProducts([{ id: 'real-50', price: 20000, originalPrice: 40000, weight: 200, tastingNotes: [], isSoldOut: false }])[0];
 const sortedByDiscount = core.sortProducts([crossWeightProduct, realBigDiscount], 'discount');
 expect(sortedByDiscount[0]?.id === 'real-50', '할인율 정렬은 부풀려진 78%가 아니라 실제 23.5%로 비교해야 합니다', sortedByDiscount.map((p) => p.id).join(','));
+
+const sale200 = { budget: 'all', capacityFilter: 'over200', saleOnly: true };
+const sale500 = { budget: 'all', capacityFilter: 'over500', saleOnly: true };
+const sale1000 = { budget: 'all', capacityFilter: 'exact1000', saleOnly: true };
+expect(core.getMatchingPriceOptions(crossWeightProduct, sale200).length === 0,
+  '1kg만 할인된 상품은 200g 할인 검색에 나오면 안 됩니다');
+expect(core.getMatchingPriceOptions(crossWeightProduct, sale500)[0]?.weight === 500,
+  '500g에 10% 이상 할인이 있으면 해당 용량이 검색되어야 합니다');
+expect(core.getRepresentativePriceOption(crossWeightProduct, sale1000).option?.weight === 1000,
+  '1kg 할인 검색의 카드도 1kg 할인 옵션을 표시해야 합니다');
+expect(core.getMatchingPriceOptions(crossWeightProduct, { ...sale1000, budget: 'under30000' }).length === 0,
+  '할인·용량·예산 세 조건을 같은 옵션에서 만족해야 합니다');
+expect(core.getMatchingPriceOptions({ ...crossWeightProduct, productName: '1+1 칠린 블렌드' }, sale200)[0]?.weight === 200,
+  '1+1 상품은 선택한 용량에 별도 할인율이 없어도 행사 검색에 남아야 합니다');
+expect(core.getMatchingPriceOptions({ productName: '소폭 할인', price: 13000, originalPrice: 14000, weight: 200 }, sale200).length === 0,
+  '선택 용량의 할인이 10% 미만이면 기존 할인 기준을 유지해 제외해야 합니다');
+expect(core.getMatchingPriceOptions({ productName: '경계 할인', price: 9000, originalPrice: 10000, weight: 200 }, sale200).length === 1,
+  '선택 용량이 정확히 10% 할인일 때는 포함해야 합니다');
+const selectedDiscountOrder = core.sortProducts([crossWeightProduct, realBigDiscount], 'discount', null, {
+  budget: 'all', capacityFilter: 'over200', saleOnly: false,
+});
+expect(selectedDiscountOrder[0]?.id === 'real-50',
+  '선택 용량의 할인율 정렬은 카드에 표시하지 않는 1kg 할인율을 쓰면 안 됩니다');
+const saleRepresentative = core.getRepresentativePriceOption(crossWeightProduct, { budget: 'all', capacityFilter: 'all', saleOnly: true });
+expect(saleRepresentative.option?.weight === 1000 && saleRepresentative.option?.discountRate >= 0.1,
+  '용량 미선택 할인 검색에서도 카드에는 실제 할인 옵션이 보여야 합니다');
+const otherOptionDiscount = core.normalizeProducts([{
+  id: 'other-option-discount', productName: '다른 용량 할인', price: 10000, weight: 200, tastingNotes: [],
+  priceOptions: [{ price: 10000, originalPrice: 15000, weight: 200 }, { price: 40000, weight: 1000 }],
+}])[0];
+expect(core.sortProducts([otherOptionDiscount, realBigDiscount], 'discount')[0]?.id === 'real-50',
+  '용량 조건이 없어도 할인율 정렬은 표시된 카드 가격의 할인율로 비교해야 합니다');
 
 const featuredPicks = core.pickFeaturedProducts([
   { id: 'normal-high-score', productName: '평범한 블렌드 200g', origin: 'Blend', score: 99 },

@@ -792,14 +792,19 @@ async function fetchSmartStoreDetailContents(
             detailText: findDetailText(target),
             optionCombinations: candidates
               .filter((item) => optionProductNos.includes(Number(item.id)))
-              .map((item) => ({
-                optionName: item.name,
-                absolutePrice: item.salePrice,
-                originalPrice: item.benefitsView?.mobileDiscountedSalePrice || item.benefitsView?.discountedSalePrice || item.salePrice,
-                productUrl: storeId ? 'https://smartstore.naver.com/' + storeId + '/products/' + item.id : '',
-                usable: item.displayable !== false && item.productStatusType !== 'OUTOFSTOCK',
-                stockQuantity: item.stockQuantity,
-              })),
+              .map((item) => {
+                const originalPrice = Number(item.salePrice) || 0;
+                const discountedPrice = [item.benefitsView?.mobileDiscountedSalePrice, item.benefitsView?.discountedSalePrice]
+                  .map(Number).find((price) => price > 0 && price < originalPrice) || originalPrice;
+                return {
+                  optionName: item.name,
+                  absolutePrice: discountedPrice,
+                  originalPrice,
+                  productUrl: storeId ? 'https://smartstore.naver.com/' + storeId + '/products/' + item.id : '',
+                  usable: item.displayable !== false && item.productStatusType !== 'OUTOFSTOCK',
+                  stockQuantity: item.stockQuantity,
+                };
+              }),
             expectedOptionCount: optionProductNos.length,
             optionCollectionComplete: true,
           };

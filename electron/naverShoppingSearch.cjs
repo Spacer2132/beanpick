@@ -654,6 +654,12 @@ function isSmartStoreDetailCacheUsable(cache, product = {}, now = Date.now()) {
     cache.sourceOriginalPrice !== undefined
     && Number(cache.sourceOriginalPrice || 0) !== Number(product.originalPrice || 0)
   ) return false;
+  // 같은 상품·용량의 정상가가 옵션 판매가로 저장된 캐시는 다시 확인한다.
+  if (Number(product.originalPrice) > Number(product.price) && Number(product.price) > 0
+    && Number(product.weight) > 0 && product.productUrl
+    && cache.priceOptions?.some((option) => Number(option.weight) === Number(product.weight)
+      && option.productUrl === product.productUrl
+      && Number(option.price) === Number(product.originalPrice))) return false;
   if (
     (!product.tastingNotes || product.tastingNotes.length <= 1)
     && (cache.detailImagesChecked !== true || cache.detailImagesCheckedVersion !== 1)

@@ -158,10 +158,23 @@ function getReliableSalePrice(price, originalPrice) {
   return salePrice;
 }
 
-function getLowestUnitPriceCandidate(product) {
+function getMatchingPriceOptions(product, { budget = 'all', capacityFilter = 'all', saleOnly = false } = {}) {
   const options = Array.isArray(product.priceOptions) && product.priceOptions.length > 0
     ? product.priceOptions
     : [product];
+  const maxPrice = budget === 'under30000' ? 30000 : budget === 'under50000' ? 50000 : null;
+
+  // 용량과 예산은 반드시 같은 옵션에서 충족해야 한다.
+  return options.filter((option) => {
+    const price = getReliableSalePrice(option.price, option.originalPrice);
+    return matchesCapacityFilter({ weight: option.weight }, capacityFilter)
+      && (maxPrice === null || (price > 0 && price <= maxPrice))
+      && (!saleOnly || isOnePlusOneProduct(product) || isDiscountedProduct(option));
+  });
+}
+
+function getLowestUnitPriceCandidate(product, priceFilters) {
+  const options = getMatchingPriceOptions(product, priceFilters);
 
   return options
     .map((option, index) => {
@@ -175,13 +188,14 @@ function getLowestUnitPriceCandidate(product) {
     .sort((a, b) => a.value - b.value)[0];
 }
 
-function getRepresentativePriceOption(product) {
+function getRepresentativePriceOption(product, priceFilters) {
   const options = Array.isArray(product.priceOptions) && product.priceOptions.length > 0
     ? product.priceOptions
     : createPriceOptions([product]);
-  const candidate = getLowestUnitPriceCandidate({ ...product, priceOptions: options });
+  const matchingOptions = getMatchingPriceOptions({ ...product, priceOptions: options }, priceFilters);
+  const candidate = getLowestUnitPriceCandidate({ ...product, priceOptions: options }, priceFilters);
   return {
-    option: options[candidate?.index ?? 0],
+    option: matchingOptions[candidate?.index ?? 0],
     extraCount: Math.max(0, options.length - 1),
   };
 }
@@ -296,8 +310,8 @@ function createPriceOption(product, weightLabel = '') {
   });
 }
 
-function unitPrice(product) {
-  return getLowestUnitPriceCandidate(product)?.value || Number.POSITIVE_INFINITY; // 1g당 가격
+function unitPrice(product, priceFilters) {
+  return getLowestUnitPriceCandidate(product, priceFilters)?.value || Number.POSITIVE_INFINITY; // 1g당 가격
 }
 
 function featuredVarietyLabel(product) {
@@ -345,7 +359,7 @@ function pickFeaturedProducts(products, limit = 8) {
   return selected;
 }
 
-function sortProducts(products, sortMode, tasteAxis = null) {
+function sortProducts(products, sortMode, tasteAxis = null, priceFilters) {
   return [...products].sort((a, b) => {
     if (tasteAxis !== null) {
       const aHas = a.acidityScore !== null && a.acidityScore !== undefined;
@@ -360,10 +374,13 @@ function sortProducts(products, sortMode, tasteAxis = null) {
       return b.score - a.score;
     }
     if (sortMode === 'latest') return a.checkedMinutesAgo - b.checkedMinutesAgo;
-    if (sortMode === 'unitPriceAsc') return unitPrice(a) - unitPrice(b);
-    if (sortMode === 'unitPriceDesc') return unitPrice(b) - unitPrice(a);
-    // 할인율 정렬은 옵션까지 반영해 계산된 discountRate를 쓴다. (상단 price/originalPrice 직접 비교는 용량이 섞일 수 있음)
-    if (sortMode === 'discount') return Number(b.discountRate || 0) - Number(a.discountRate || 0);
+    if (sortMode === 'unitPriceAsc') return unitPrice(a, priceFilters) - unitPrice(b, priceFilters);
+    if (sortMode === 'unitPriceDesc') return unitPrice(b, priceFilters) - unitPrice(a, priceFilters);
+    // 카드에 표시한 옵션의 할인율로 정렬한다.
+    if (sortMode === 'discount') {
+      const discount = (product) => Number(getRepresentativePriceOption(product, priceFilters).option?.discountRate || 0);
+      return discount(b) - discount(a);
+    }
     return b.score - a.score;
   });
 }
@@ -1053,6 +1070,7 @@ export {
   formatWeight,
   getChoseong,
   getFilteredProducts,
+  getMatchingPriceOptions,
   getNoteOptions,
   getPricePer100g,
   getProductCountryLabel,
