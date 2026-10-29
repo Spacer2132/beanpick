@@ -1515,6 +1515,24 @@ a {
   font-size: 13px;
 }
 
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -4px 0 16px;
+}
+
+.active-filter-chip {
+  flex: 0 1 auto;
+  max-width: 100%;
+  border-color: var(--accent);
+}
+
+.active-filter-chip span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* 07: 필터 시트. 폰은 아래에서 올라오고, 넓은 화면은 가운데 창으로 뜬다. */
 .sheet-overlay {
   position: fixed;

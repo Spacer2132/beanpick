@@ -1472,6 +1472,7 @@ export default function App() {
             processOptions={processOptions}
             publishState={publishState}
             products={filteredProducts}
+            searchQuery={searchQuery}
             setBudget={setBudget}
             setCapacityFilter={setCapacityFilter}
             setDecafOnly={setDecafOnly}
@@ -1480,6 +1481,7 @@ export default function App() {
             setNoteIncludeQuery={setNoteIncludeQuery}
             setOriginFilter={setOriginFilter}
             setProcessFilter={setProcessFilter}
+            setSearchQuery={setSearchQuery}
             setSortMode={setSortMode}
             sortMode={sortMode}
             summaryProducts={products}
@@ -1915,7 +1917,7 @@ function MapPage({
   );
 }
 
-function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, saleOnly, discountCount, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, processFilter, processOptions, publishState, products, setBudget, setCapacityFilter, setDecafOnly, setSaleOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSortMode, sortMode, summaryProducts, tasteAxis, setTasteAxis }) {
+function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, saleOnly, discountCount, favoriteIds, hasActiveFilters, lastLoadedAt, loadState, noteExcludeQuery, noteIncludeQuery, noteOptions, onClearFilters, onNoteClick, onSelectProduct, onToggleFavorite, originFilter, originOptions, processFilter, processOptions, publishState, products, searchQuery, setBudget, setCapacityFilter, setDecafOnly, setSaleOnly, setNoteExcludeQuery, setNoteIncludeQuery, setOriginFilter, setProcessFilter, setSearchQuery, setSortMode, sortMode, summaryProducts, tasteAxis, setTasteAxis }) {
   const PAGE_SIZE = 24;
   const NOTE_PREVIEW_COUNT = 12;
   const [visibleCount, setVisibleCount] = React.useState(PAGE_SIZE);
@@ -1961,6 +1963,32 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
   ];
   const sortName = sortValue === 'taste' ? '입맛 맞춤순' : (sortOptions.find(([value]) => value === sortValue)?.[1] ?? '추천순');
   const emptyMessage = '조건에 맞는 원두가 없습니다. 검색어를 줄이거나 필터를 해제해보세요.';
+  const tasteLabel = { '-1': '산뜻·상큼', '-0.5': '새콤한 편', 0: '밸런스', 0.5: '고소한 편', 1: '고소·묵직' }[tasteAxis];
+
+  function toggleSaleFilter() {
+    const next = !saleOnly;
+    setSaleOnly(next);
+    if (next) {
+      setTasteAxis(null);
+      setSortMode('discount');
+    } else if (sortMode === 'discount') {
+      setSortMode('score');
+    }
+  }
+
+  const activeFilterChips = [
+    searchQuery.trim() && { key: 'search', label: `검색: ${searchQuery.trim()}`, remove: () => setSearchQuery('') },
+    originFilter !== 'all' && { key: 'origin', label: `원산지: ${originFilter}`, remove: () => setOriginFilter('all') },
+    processFilter !== 'all' && { key: 'process', label: `가공: ${processFilter}`, remove: () => setProcessFilter('all') },
+    budget !== 'all' && { key: 'budget', label: `가격: ${{ under30000: '3만원 이하', under50000: '5만원 이하' }[budget]}`, remove: () => setBudget('all') },
+    capacityFilter !== 'all' && { key: 'capacity', label: `용량: ${{ under100: '100g', over200: '200g', over500: '500g', exact1000: '1kg' }[capacityFilter]}`, remove: () => setCapacityFilter('all') },
+    saleOnly && { key: 'sale', label: '할인 중', remove: toggleSaleFilter },
+    decafOnly && { key: 'decaf', label: '디카페인', remove: () => setDecafOnly(false) },
+    tasteAxis !== null && { key: 'taste', label: `입맛: ${tasteLabel}`, remove: () => setTasteAxis(null) },
+    ...activeNotes.map((note) => ({ key: `note:${note}`, label: `노트: ${note}`, remove: () => onNoteClick(note) })),
+    noteIncludeQuery.trim() && { key: 'include', label: `포함: ${noteIncludeQuery.trim()}`, remove: () => setNoteIncludeQuery('') },
+    noteExcludeQuery.trim() && { key: 'exclude', label: `제외: ${noteExcludeQuery.trim()}`, remove: () => setNoteExcludeQuery('') },
+  ].filter(Boolean);
 
   return (
     <div className="page-stack">
@@ -2016,16 +2044,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
             className={`chip ${saleOnly ? 'active' : ''}`}
             type="button"
             aria-pressed={saleOnly}
-            onClick={() => {
-              const next = !saleOnly;
-              setSaleOnly(next);
-              if (next) {
-                setTasteAxis(null);
-                setSortMode('discount');
-              } else if (sortMode === 'discount') {
-                setSortMode('score');
-              }
-            }}
+            onClick={toggleSaleFilter}
           >
             할인 중
           </button>
@@ -2040,6 +2059,16 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
           {!showSkeleton && !hasActiveFilters && soldOutCount > 0 && <span> · 품절 {soldOutCount}개 숨김</span>}
         </p>
       </div>
+
+      {activeFilterChips.length > 0 && (
+        <div className="active-filters" aria-label="적용된 조건">
+          {activeFilterChips.map((filter) => (
+            <button className="chip active-filter-chip" type="button" key={filter.key} aria-label={`${filter.label} 조건 해제`} onClick={filter.remove}>
+              <span>{filter.label}</span><span aria-hidden="true">×</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       {filtersExpanded && (
         <div className="sheet-overlay" onClick={() => setFiltersExpanded(false)}>
@@ -2095,16 +2124,7 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                             }).length;
                           };
                           const count = getCountForAxis(tasteAxis);
-                          const label = tasteAxis === -1.0
-                            ? '산뜻·상큼'
-                            : tasteAxis === -0.5
-                            ? '새콤한 편'
-                            : tasteAxis === 0
-                            ? '밸런스'
-                            : tasteAxis === 0.5
-                            ? '고소한 편'
-                            : '고소·묵직';
-                          return `${label} (${count}개)`;
+                          return `${tasteLabel} (${count}개)`;
                         })()}
                   </span>
                   <span className="label-right">고소·묵직형</span>
