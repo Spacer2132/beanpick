@@ -30,6 +30,8 @@
   --radius: 20px;
   --radius-small: 12px;
   --radius-sheet: 28px;
+  /* 갈색 바탕 위 글자·아이콘 색 */
+  --on-accent: #ffffff;
   /* 애플 기준 최소 누름 높이 */
   --tap: 44px;
   /* 유리 효과: 뒤가 흐리게 비치는 반투명 흰 면 */
