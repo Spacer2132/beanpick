@@ -113,6 +113,33 @@ function runMapFeatureTests() {
   assert(checkedCountries >= 10, `구역 분할 검증 국가 수(${checkedCountries})가 기준(10개)에 미달함`);
   console.log(`[PASS] ${checkedCountries}개국 산지 구역 분할 검증 완료`);
 
+  // 6-1. 산지 영역이 서로 떨어진 조각으로 나뉘지 않는지 검증
+  // 3km 안에 닿거나 다른 조각 안에 들어간 조각은 한 덩어리로 본다. 가장 큰 조각의 1% 미만인 섬 조각은 화면에 안 보여 뺀다.
+  const { COFFEE_REGION_AREAS } = loadJsModule(path.resolve(__dirname, '../src/services/coffeeRegionAreas.js'));
+  const km = (a, b) => Math.hypot((a[0] - b[0]) * 111 * Math.cos((a[1] * Math.PI) / 180), (a[1] - b[1]) * 111);
+  const ringKm2 = (r) => Math.abs(r.reduce((s, a, i) => {
+    const b = r[(i + 1) % r.length];
+    return s + a[0] * b[1] - b[0] * a[1];
+  }, 0) / 2) * 111 * 111 * Math.cos((r[0][1] * Math.PI) / 180);
+  const joined = (r, s) => isPointInPolygon(r[0][0], r[0][1], s) || isPointInPolygon(s[0][0], s[0][1], r)
+    || r.some((p) => s.some((q) => km(p, q) < 3));
+  let areaRegions = 0;
+  for (const [code, byName] of Object.entries(COFFEE_REGION_AREAS)) {
+    for (const [name, allRings] of Object.entries(byName)) {
+      const largest = Math.max(...allRings.map(ringKm2));
+      const rings = allRings.filter((r) => ringKm2(r) >= largest * 0.01);
+      const group = rings.map((_, i) => i);
+      const root = (i) => (group[i] === i ? i : (group[i] = root(group[i])));
+      for (let i = 0; i < rings.length; i += 1) {
+        for (let j = i + 1; j < rings.length; j += 1) if (joined(rings[i], rings[j])) group[root(i)] = root(j);
+      }
+      const parts = new Set(rings.map((_, i) => root(i))).size;
+      assert.strictEqual(parts, 1, `${code} ${name} 영역이 떨어진 ${parts}조각으로 나뉨`);
+      areaRegions += 1;
+    }
+  }
+  console.log(`[PASS] 산지 영역 ${areaRegions}곳 한 덩어리 검증 완료`);
+
   // 7. 실데이터(docs/products.json) 339개 전수 검증
   const productsPath = path.resolve(__dirname, '../docs/products.json');
   if (fs.existsSync(productsPath)) {
