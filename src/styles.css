@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
 :root {
   /* 색 원본(R G B). 반투명이 필요한 곳은 rgb(var(--x-rgb) / 0.5)처럼 쓴다. */
@@ -31,8 +29,16 @@
   --shadow-soft: 0 6px 20px rgb(var(--ink-rgb) / 0.06);
   --radius: 20px;
   --radius-small: 12px;
-  --sans: "Inter", "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-  --serif: "Noto Serif KR", Georgia, serif;
+  --radius-sheet: 28px;
+  /* 애플 기준 최소 누름 높이 */
+  --tap: 44px;
+  /* 유리 효과: 뒤가 흐리게 비치는 반투명 흰 면 */
+  --glass: rgb(var(--surface-rgb) / 0.72);
+  --glass-blur: blur(22px) saturate(160%);
+  /* 아이폰 시스템 글꼴(SF·애플 SD 고딕 네오). 윈도우 PC 앱에서는 Segoe UI·맑은 고딕으로 보인다. */
+  --sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", "Malgun Gothic", sans-serif;
+  /* 명조를 쓰던 제목도 시스템 글꼴로 통일 */
+  --serif: var(--sans);
 }
 
 * {
@@ -74,6 +80,268 @@ a {
   background: var(--accent);
   color: #fff;
 }
+
+/* ───────── 빈픽 부품 ─────────
+   유틸/디자인세팅(애플 27 스타일)의 모양을 빈픽 갈색으로 옮긴 공통 부품.
+   같은 역할의 클래스는 아래 목록에 함께 묶고, 원래 자리에는 위치·크기만 남긴다.
+   부품: 버튼 · 칩 · 배지 · 세그먼트 탭 · 검색창 · 시트 */
+
+/* 버튼 — 기본(흰 면). .filter-chip 은 지도 화면 '더 많은 원두 보기' 버튼(따로 스타일이 없던 것) */
+.btn,
+.coffee-map-list-btn,
+.filter-chip {
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+  white-space: nowrap;
+}
+
+/* 버튼 — 주 버튼(갈색) */
+.btn-primary,
+.coffee-map-list-btn {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* 버튼 — 작은 버튼 */
+.btn-small {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+/* 버튼 — 글자만 있는 버튼 */
+.sheet-text-btn {
+  min-height: var(--tap);
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 버튼 — 동그란 닫기 버튼 */
+.modal-close,
+.sheet-close {
+  display: inline-flex;
+  width: var(--tap);
+  height: var(--tap);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.btn:disabled,
+.sheet-text-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+  transform: none;
+}
+
+/* 칩 — 고르는 단추. 고르면 갈색으로 채운다. */
+.chip,
+.map-filter-chip,
+.map-preset-btn {
+  min-height: var(--tap);
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.chip.active,
+.map-filter-chip.is-active,
+.map-preset-btn.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* 배지 — 판매 중·품절 같은 작은 상태 표시. 테두리 없이 옅은 색으로 칠한다. */
+.stock-pill {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stock-pill.available {
+  background: rgba(93, 139, 98, 0.12);
+  color: var(--green);
+}
+
+.stock-pill.soldout {
+  background: rgba(187, 98, 88, 0.11);
+  color: var(--red);
+}
+
+/* 세그먼트 탭 — 붙어 있는 전환 단추. 고른 칸만 흰 면이 떠오른다. */
+.stock-tabs,
+.map-mode-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface-muted);
+}
+
+.stock-tabs button,
+.map-mode-toggle button {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.stock-tabs button.active,
+.map-mode-toggle button.is-active {
+  background: var(--surface-strong);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgb(var(--ink-rgb) / 0.12);
+}
+
+/* 검색창 — 유리 알약 모양 */
+.search-box {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  box-shadow: var(--shadow-soft);
+}
+
+.search-box:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 시트 — 필터 시트와 상세창의 겉면 */
+.filter-sheet,
+.modal-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sheet);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+/* 유리 효과: 흐림이 되는 기기에서만 뒤를 비친다. 아이폰 구버전은 -webkit- 이름이 필요하다. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .search-box,
+  .modal-close,
+  .sheet-close {
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .search-box,
+  .modal-close,
+  .sheet-close {
+    background: var(--surface-strong);
+  }
+}
+
+/* 아이폰 '투명도 줄이기'를 켠 사람에게는 흐림 없이 불투명하게 보인다. */
+@media (prefers-reduced-transparency: reduce) {
+  .search-box,
+  .modal-close,
+  .sheet-close {
+    background: var(--surface-strong);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* 누르면 살짝 작아진다(아이폰식 눌림). 마우스가 있는 기기에서만 올려두기 효과를 준다. */
+:is(.btn, .coffee-map-list-btn, .filter-chip, .chip, .map-filter-chip, .map-preset-btn, .modal-close, .sheet-close):active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) {
+  .btn:hover:not(:disabled),
+  .filter-chip:hover {
+    border-color: var(--line-strong);
+  }
+
+  .btn-primary:hover:not(:disabled),
+  .coffee-map-list-btn:hover {
+    border-color: var(--accent-dark);
+    background: var(--accent-dark);
+  }
+
+  .map-filter-chip:hover:not(.is-active),
+  .map-preset-btn:hover:not(.is-active) {
+    background: var(--surface-muted);
+  }
+
+  .modal-close:hover,
+  .sheet-close:hover {
+    color: var(--accent);
+  }
+}
+
+:is(.btn, .coffee-map-list-btn, .filter-chip, .chip, .map-filter-chip, .map-preset-btn, .sheet-text-btn, .modal-close, .sheet-close, .stock-tabs button, .map-mode-toggle button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ───────── 빈픽 부품 끝 ───────── */
 
 .app-shell {
   display: grid;
@@ -259,15 +527,6 @@ a {
 .search-box {
   position: relative;
   width: min(420px, 48vw);
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 16px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface-strong);
-  box-shadow: var(--shadow-soft);
 }
 
 .search-box span {
@@ -339,35 +598,6 @@ a {
   flex-wrap: wrap;
 }
 
-.btn {
-  min-height: 42px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 18px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  background: var(--surface-strong);
-  color: var(--ink);
-  cursor: pointer;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 140ms, border-color 140ms, background 140ms, color 140ms;
-  white-space: nowrap;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  border-color: var(--accent);
-}
-
-.btn:disabled {
-  cursor: wait;
-  opacity: 0.7;
-  transform: none;
-}
-
 .loading-spinner {
   position: relative;
   flex: 0 0 auto;
@@ -409,23 +639,6 @@ a {
   to {
     transform: rotate(360deg);
   }
-}
-
-.btn-primary {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: var(--accent-dark);
-  color: #fff;
-}
-
-.btn-small {
-  min-height: 34px;
-  padding: 0 13px;
-  font-size: 12px;
 }
 
 .stats-grid {
@@ -1257,64 +1470,11 @@ a {
   overflow-wrap: anywhere;
 }
 
-.stock-pill {
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  padding: 0 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface-muted);
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.stock-pill.available {
-  border-color: rgba(93, 139, 98, 0.28);
-  background: rgba(93, 139, 98, 0.12);
-  color: var(--green);
-}
-
-.stock-pill.soldout {
-  border-color: rgba(187, 98, 88, 0.28);
-  background: rgba(187, 98, 88, 0.11);
-  color: var(--red);
-}
-
 .stock-tabs {
   width: fit-content;
   max-width: 100%;
-  display: flex;
   flex-wrap: wrap;
-  gap: 7px;
   margin: -2px 0 16px;
-  padding: 6px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--surface-muted);
-}
-
-.stock-tabs button {
-  min-height: 36px;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 0 12px;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 800;
-  transition: background 140ms, color 140ms, box-shadow 140ms;
-}
-
-.stock-tabs button.active {
-  background: var(--surface-strong);
-  color: var(--accent);
-  box-shadow: 0 4px 12px rgb(var(--ink-rgb) / 0.08);
 }
 
 .stock-tabs em {
@@ -1432,27 +1592,6 @@ a {
 
 .chip {
   position: relative;
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  padding: 0 14px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  background: var(--surface-strong);
-  color: var(--ink);
-  cursor: pointer;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.chip.active {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #fff;
 }
 
 .chip-filter {
@@ -1551,9 +1690,6 @@ a {
   max-height: calc(100vh - 48px);
   flex-direction: column;
   overflow: hidden;
-  border-radius: 20px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
 }
 
 .filter-sheet-head {
@@ -1575,35 +1711,6 @@ a {
 .filter-sheet-head > div {
   display: flex;
   align-items: center;
-}
-
-.sheet-text-btn {
-  min-height: 44px;
-  padding: 0 12px;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.sheet-text-btn:disabled {
-  cursor: default;
-  opacity: 0.45;
-}
-
-.sheet-close {
-  display: inline-flex;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
 }
 
 .filter-sheet-body {
@@ -1748,10 +1855,6 @@ a {
   flex-direction: column;
   gap: 20px;
   padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow);
 }
 
 .modal-close {
@@ -1759,20 +1862,8 @@ a {
   top: 14px;
   right: 14px;
   z-index: 2;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface-strong);
-  color: var(--muted);
-  cursor: pointer;
   font-size: 20px;
   line-height: 1;
-}
-
-.modal-close:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .modal-top {
@@ -2540,7 +2631,7 @@ a {
   .filter-sheet {
     width: 100%;
     max-height: 100%;
-    border-radius: 20px 20px 0 0;
+    border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
   }
 
   .brand {
@@ -2947,9 +3038,6 @@ a {
 
 .atlas-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 16px; }
 .map-zoom-presets { display: flex; align-items: center; gap: 8px; }
-.map-preset-btn { min-height: 44px; padding: 0 22px; border: 1px solid #dcd5c9; border-radius: 24px; background: transparent; color: #66594d; font-size: 13px; cursor: pointer; transition: background 150ms, color 150ms; }
-.map-preset-btn:hover { background: #eee6d9; }
-.map-preset-btn.is-active { background: #684630; border-color: #684630; color: #fffaf2; }
 .atlas-country-select { max-width: 210px; min-height: 44px; padding: 8px 32px 8px 12px; border: 0; border-bottom: 1px solid #b8aa99; border-radius: 0; color: #5c4a3c; background-color: transparent; font: inherit; font-size: 13px; cursor: pointer; }
 
 .coffee-map-svg-wrap { position: relative; width: 100%; overflow: hidden; border-radius: 4px; background: var(--atlas-ocean); user-select: none; }
@@ -3009,8 +3097,7 @@ a {
 }
 .atlas-origin-silhouette { grid-column: 2; width: 150px; height: 125px; opacity: 0.85; }
 .atlas-origin-actions { grid-column: 3; display: flex; flex-direction: column; gap: 8px; }
-.coffee-map-list-btn { width: 100%; min-height: 48px; padding: 12px 20px; border-radius: 28px; background: #684630; color: #fffaf2; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 150ms; }
-.coffee-map-list-btn:hover { background: #4f3323; }
+.coffee-map-list-btn { width: 100%; min-height: 48px; }
 .coffee-map-reset-btn { align-self: center; min-height: 40px; background: transparent; color: #756758; text-decoration: underline; text-underline-offset: 4px; font-size: 12px; cursor: pointer; }
 
 .atlas-map-guide { border-top: 1px solid #e4ddd1; border-bottom: 1px solid #e4ddd1; padding: 12px 0; }
@@ -3027,10 +3114,8 @@ a {
 .legend-note { flex-basis: 100%; }
 
 .map-view-controls { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; padding: 0 0 12px; margin-bottom: 22px; }
-.map-filter-chip { flex: 0 0 auto; min-height: 44px; padding: 8px 14px; border: 1px solid #dcd5c9; border-radius: 24px; color: #706355; background: transparent; font-size: 12px; cursor: pointer; }
+.map-filter-chip { flex: 0 0 auto; }
 .map-filter-chip span { font-size: 11px; margin-left: 6px; opacity: 0.7; }
-.map-filter-chip:hover { background: #eee6d9; }
-.map-filter-chip.is-active { color: #fffaf2; background: #684630; border-color: #684630; }
 .map-filter-chip.is-blend-chip { border-style: dashed; }
 .atlas-list-head { scroll-margin-top: 28px; }
 .atlas-page .bean-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
@@ -3044,9 +3129,8 @@ a {
 .origin-story-en, .origin-story-badge { font-size: 12px; color: #7d6f63; }
 .origin-story-body { padding-top: 10px; font-size: 14px; color: #756b5f; }
 .origin-story-label { margin-right: 8px; }
-.map-mode-toggle { display: inline-flex; align-self: flex-start; padding: 3px; margin-bottom: 16px; border: 1px solid #dcd5c9; border-radius: 24px; }
-.map-mode-toggle button { min-height: 40px; min-width: 72px; padding: 6px 18px; border: 0; border-radius: 20px; color: #706355; background: transparent; font-size: 14px; cursor: pointer; }
-.map-mode-toggle button.is-active { color: #fffaf2; background: #684630; }
+.map-mode-toggle { display: inline-flex; align-self: flex-start; margin-bottom: 16px; }
+.map-mode-toggle button { min-width: 72px; padding: 0 18px; }
 .variety-guide { margin-bottom: 24px; }
 .variety-guide-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 8px; }
 .variety-guide-head .section-title { font-size: 18px; margin: 0; }
