@@ -2446,7 +2446,7 @@ a {
   .mobile-nav-bar {
     position: fixed;
     right: 14px;
-    bottom: calc(10px + env(safe-area-inset-bottom));
+    bottom: calc(18px + env(safe-area-inset-bottom));
     left: 14px;
     z-index: 30;
     display: grid;
@@ -2454,11 +2454,11 @@ a {
     grid-auto-flow: column;
     gap: 4px;
     padding: 6px;
-    border: 1px solid rgb(255 255 255 / 0.6);
+    border: 1px solid rgb(255 255 255 / 0.5);
     border-radius: 999px;
-    background: rgb(255 255 255 / 0.58);
-    -webkit-backdrop-filter: blur(22px) saturate(180%);
-    backdrop-filter: blur(22px) saturate(180%);
+    background: rgb(255 255 255 / 0.22);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(180%);
     box-shadow:
       0 12px 32px rgb(var(--ink-rgb) / 0.14),
       0 1px 3px rgb(var(--ink-rgb) / 0.08),
@@ -2490,9 +2490,10 @@ a {
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
+  /* 고른 메뉴 칸은 갈색으로 채우고 아이콘은 흰색 */
   .mobile-nav-item.active {
-    background: rgb(var(--accent-rgb) / 0.12);
-    color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
     font-weight: 700;
   }
 
@@ -2552,7 +2553,7 @@ a {
   }
 
   .main {
-    padding: 14px 14px calc(96px + env(safe-area-inset-bottom));
+    padding: 14px 14px calc(104px + env(safe-area-inset-bottom));
   }
 
   .explore-page {
@@ -2561,7 +2562,7 @@ a {
 
   .back-to-top {
     right: 16px;
-    bottom: calc(88px + env(safe-area-inset-bottom));
+    bottom: calc(96px + env(safe-area-inset-bottom));
     width: 44px;
     height: 44px;
   }
