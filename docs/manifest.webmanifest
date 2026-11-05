@@ -8,10 +8,10 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "./beanpick-icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "./beanpick-logo-20261106.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
