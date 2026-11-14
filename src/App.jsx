@@ -36,7 +36,7 @@ import { createMonitorSummary, loadFavoriteProductIds, saveFavoriteProductIds, s
 import { getPublishButtonLabel, loadPublishedSnapshot } from './services/publishedSnapshot.js';
 import { loadProductCache, saveProductCache } from './services/productHistory.js';
 import { getDisplayTastingNotes, getPendingTastingNotes, normalizeTastingNotes } from './services/tastingNotes.js';
-import WorldCoffeeMap from './components/WorldCoffeeMap.jsx';
+const WorldCoffeeMap = React.lazy(() => import('./components/WorldCoffeeMap.jsx'));
 import { extractProductCountries } from './services/mapCoordinates.js';
 import { STORY_SECTIONS, VARIETY_TIERS, matchSingleVarietyIds } from './data/varietyGuide.js';
 
@@ -48,6 +48,23 @@ const NAV = [
   { id: 'alerts', label: '관심', group: '둘러보기', badge: 0 },
   { id: 'server', label: '앱 상태', group: '데이터' },
 ];
+
+// 목록 카드용 작은 이미지 주소. 네이버는 이미 작고, imweb은 자체 크기 지정,
+// 나머지 공식몰은 작은 판이 없어 wsrv.nl(이미지 축소 서비스)을 거친다.
+function thumbUrl(url) {
+  if (!url || !url.startsWith('https://') || url.includes('pstatic.net')) return url;
+  if (url.startsWith('https://cdn-optimized.imweb.me/')) return url.replace(/\?.*$/, '?w=480');
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp&q=75`;
+}
+
+// 작은 판이 실패하면 원본 주소로 한 번만 되돌린다. 되돌렸으면 true.
+function useOriginalImage(event, url) {
+  const img = event.currentTarget;
+  if (img.dataset.fallback || !url || img.getAttribute('src') === url) return false;
+  img.dataset.fallback = '1';
+  img.src = url;
+  return true;
+}
 
 function productSearchText(product) {
   const displayInfo = formatProductDisplayInfo(product);
@@ -362,7 +379,7 @@ function BeanProductCard({ product, activeNotes, isFavorite, onSelect, onToggleF
   const cardPriceOptions = representativePrice.option ? [representativePrice.option] : [];
   const [imageLoaded, setImageLoaded] = React.useState(false);
   const imageContent = hasImage
-    ? <img src={product.imageUrl} alt="" loading="lazy" onLoad={() => setImageLoaded(true)} onError={() => setImageLoaded(true)} />
+    ? <img src={thumbUrl(product.imageUrl)} alt="" loading="lazy" decoding="async" onLoad={() => setImageLoaded(true)} onError={(event) => { if (!useOriginalImage(event, product.imageUrl)) setImageLoaded(true); }} />
     : <span className="bean-image-placeholder">{product.roasterName.slice(0, 2)}</span>;
   const showTasteInfoMissing = tasteAxis !== null && (product.acidityScore === null || product.acidityScore === undefined);
 
@@ -709,7 +726,7 @@ function ExplorePage({ products, isLoading, onSelectVariety, onSelectProduct, on
               <div className="explore-rail">
                 {newProducts.map((product) => (
                   <button key={product.id} className="explore-card" type="button" onClick={() => onSelectProduct(product)}>
-                    <span className="explore-card-image">{product.imageUrl && <img src={product.imageUrl} alt="" loading="lazy" />}</span>
+                    <span className="explore-card-image">{product.imageUrl && <img src={thumbUrl(product.imageUrl)} alt="" loading="lazy" decoding="async" onError={(event) => useOriginalImage(event, product.imageUrl)} />}</span>
                     <span className="explore-card-roaster">{product.roasterName}</span>
                     <strong>{product.productName}</strong>
                     <span className="explore-card-price">{product.priceLabel || formatPrice(product.price)}</span>
@@ -725,7 +742,7 @@ function ExplorePage({ products, isLoading, onSelectVariety, onSelectProduct, on
             <div className="explore-rail">
               {roasters.map((roaster) => (
                 <button key={roaster.name} className="explore-card" type="button" onClick={() => onSelectRoaster(roaster.name)}>
-                  <span className="explore-card-image">{roaster.imageUrl && <img src={roaster.imageUrl} alt="" loading="lazy" />}</span>
+                  <span className="explore-card-image">{roaster.imageUrl && <img src={thumbUrl(roaster.imageUrl)} alt="" loading="lazy" decoding="async" onError={(event) => useOriginalImage(event, roaster.imageUrl)} />}</span>
                   <strong>{roaster.name}</strong>
                   <span className="explore-card-roaster">원두 {roaster.count}개</span>
                 </button>
@@ -1767,6 +1784,7 @@ function MapPage({
       ) : (
       <>
       {/* 1. 상단 세계지도 뷰어 */}
+      <React.Suspense fallback={null}>
       <WorldCoffeeMap
         products={products}
         selectedCountry={selectedCountry}
@@ -1786,6 +1804,7 @@ function MapPage({
           });
         }}
       />
+      </React.Suspense>
 
       {/* 2. 퀵 필터 칩 바 */}
       <div className="map-view-controls" role="group" aria-label="원두 생산국 빠른 선택">
