@@ -160,7 +160,6 @@ const SMARTSTORE_SOURCES = {
       'https://smartstore.naver.com/rick/category/d273d60785d2431a8ab7bab4bd38bb99?cp=1', // 아프리카
       'https://smartstore.naver.com/rick/category/1c0312955b5949ae8c6060b70e9d666d?cp=1', // 중남미 외
       'https://smartstore.naver.com/rick/category/101fb10f7ece49d6a4c0ed870e2a9ffd?cp=1', // 조금 특별한
-      'https://smartstore.naver.com/rick/category/10f4b014e5514216a1b089feb7aa12cc?cp=1', // Limited edition
       'https://smartstore.naver.com/rick/category/16163c66dcde43d68ce7256b4b8e0500?cp=1', // 디카페인
       'https://smartstore.naver.com/rick/category/50f80eff19174d7d87f137987dad2a03?cp=1', // 중강배전
     ],
