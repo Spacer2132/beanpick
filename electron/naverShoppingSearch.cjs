@@ -224,6 +224,7 @@ const SMARTSTORE_SOURCES = {
   },
   cafedoan: {
     sourceId: 'cafedoan',
+    enabled: false,
     roasterName: '카페도안',
     query: '도안셀렉트샵 원두',
     categoryUrl: 'https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1',
@@ -1819,7 +1820,7 @@ async function searchNaverShopping(sourceId) {
 }
 
 async function testSmartStoreSearch() {
-  const sourceIds = Object.keys(SMARTSTORE_SOURCES);
+  const sourceIds = Object.keys(SMARTSTORE_SOURCES).filter((id) => SMARTSTORE_SOURCES[id].enabled !== false);
   const results = await Promise.all(sourceIds.map(async (sourceId) => {
     const source = SMARTSTORE_SOURCES[sourceId];
     if (sourceId !== 'coffeejg') {

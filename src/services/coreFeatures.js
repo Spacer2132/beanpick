@@ -659,6 +659,7 @@ function matchesCapacityFilter(product, capacityFilter = 'all') {
   const weights = productWeights(product);
   if (weights.length === 0) return false;
   // 각 구간은 겹치지 않는 범위로 본다. (200g 선택 시 500g·1kg이 같이 잡히지 않도록)
+  if (capacityFilter === 'exact100') return weights.includes(100);
   if (capacityFilter === 'under100') return weights.some((weight) => weight < 200);
   if (capacityFilter === 'over200') return weights.some((weight) => weight >= 200 && weight < 500);
   if (capacityFilter === 'over500') return weights.some((weight) => weight >= 500 && weight < 1000);

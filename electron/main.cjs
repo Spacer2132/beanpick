@@ -358,6 +358,7 @@ function extractSmartStoreCategoryItemsScript() {
       const totalText = (document.body.innerText.match(/총\\s*([0-9,]+)\\s*개/) || [])[1] || '';
       return {
         total: Number(String(totalText).replace(/,/g, '')) || 0,
+        emptyConfirmed: totalText === '0',
         products: [...byId.values()].filter((item) => item.title && item.productUrl),
       };
     })()
@@ -369,6 +370,7 @@ async function waitForSmartStoreProducts(window, previousIds = []) {
   // 일부 스토어는 매 페이지 맨 위에 같은 대표 상품을 반복해서 보여준다(루비아 시그니처 카테고리).
   // 맨 앞 상품 번호만 보면 페이지가 넘어간 것을 놓치므로, 직전 페이지에 없던 상품이 나타났는지로 판단한다.
   const previous = new Set(previousIds);
+  let emptyConfirmed = false;
 
   while (Date.now() - startedAt < 15000) {
     const result = await window.webContents.executeJavaScript(extractSmartStoreCategoryItemsScript(), true).catch(() => null);
@@ -376,10 +378,11 @@ async function waitForSmartStoreProducts(window, previousIds = []) {
     if (result?.products?.length > 0 && (previous.size === 0 || hasNewProduct)) {
       return result;
     }
+    emptyConfirmed = previous.size === 0 && result?.emptyConfirmed === true && result.products.length === 0;
     await delay(300);
   }
 
-  return { total: 0, products: [] };
+  return { total: 0, products: [], emptyConfirmed };
 }
 
 async function clickSmartStorePage(window, pageNumber) {
@@ -451,8 +454,18 @@ async function loadUrlWithTimeout(window, url, timeoutMs = 5000, loadOptions = {
 async function loadSmartStorePageWithRetry(window, url, loadOptions = {}) {
   let lastError;
   for (let attempt = 0; attempt <= SMARTSTORE_PAGE_LOAD_RETRIES; attempt += 1) {
+    let status = 0;
+    const recordStatus = (_event, _url, code) => { status = code; };
+    window.webContents.on?.('did-navigate', recordStatus);
     try {
-      await loadUrlWithTimeout(window, url, SMARTSTORE_PAGE_LOAD_TIMEOUT_MS, loadOptions);
+      await loadUrlWithTimeout(window, url, SMARTSTORE_PAGE_LOAD_TIMEOUT_MS, loadOptions).catch((error) => {
+        if (status !== 429) throw error;
+      });
+      if (status === 429) {
+        const error = new Error('네이버가 요청을 제한했습니다(HTTP 429).');
+        error.code = 'SMARTSTORE_RATE_LIMITED';
+        throw error;
+      }
       if (/^https:\/\/nid\.naver\.com\/nidlogin\.login(?:[?#]|$)/i.test(window.webContents.getURL())) {
         const error = new Error('네이버 로그인이 필요해 상품 목록을 확인하지 못했습니다.');
         error.code = 'SMARTSTORE_LOGIN_REQUIRED';
@@ -460,11 +473,13 @@ async function loadSmartStorePageWithRetry(window, url, loadOptions = {}) {
       }
       return;
     } catch (error) {
-      if (error.code === 'SMARTSTORE_LOGIN_REQUIRED') throw error;
+      if (error.code === 'SMARTSTORE_LOGIN_REQUIRED' || error.code === 'SMARTSTORE_RATE_LIMITED') throw error;
       lastError = error;
       if (attempt >= SMARTSTORE_PAGE_LOAD_RETRIES) break;
       console.warn(`[beanpick:smartstore-category] loadURL 재시도 ${attempt + 1}/${SMARTSTORE_PAGE_LOAD_RETRIES}: ${url}`);
       await delay(1000);
+    } finally {
+      window.webContents.removeListener?.('did-navigate', recordStatus);
     }
   }
   throw lastError;
@@ -560,14 +575,15 @@ async function crawlSmartStoreCategory(categoryUrl) {
     const pageCount = hasReportedTotal ? Math.max(1, Math.ceil(reportedTotal / pageSize)) : 1;
     const lastPage = Math.min(pageCount, MAX_CATEGORY_PAGES);
     let previousIds = firstPage.products.map((product) => product.id);
-    let pagesFetched = 1;
-    let pagesFailed = 0;
-    let endReason = hasReportedTotal
+    const firstPageUnconfirmed = firstPage.products.length === 0 && !firstPage.emptyConfirmed;
+    let pagesFetched = firstPageUnconfirmed ? 0 : 1;
+    let pagesFailed = firstPageUnconfirmed ? 1 : 0;
+    let endReason = firstPageUnconfirmed ? 'firstPageUnconfirmed' : hasReportedTotal
       ? (pageCount <= 1 ? 'reportedTotal' : 'pageLimit')
       : (firstPage.products.length < SMARTSTORE_DEFAULT_PAGE_SIZE ? 'shortFirstPage' : 'pageCountUnknown');
     // 페이지를 끝까지 확인했는지 따로 남긴다. 중간에 끊긴 목록을 완전 수집으로 보지 않기 위해서다.
     // 총 개수를 못 읽었으면, 첫 페이지가 한 화면을 다 채우지 않았을 때만 끝을 확인한 것이다.
-    let endConfirmed = hasReportedTotal ? pageCount <= 1 : firstPage.products.length < SMARTSTORE_DEFAULT_PAGE_SIZE;
+    let endConfirmed = !firstPageUnconfirmed && (hasReportedTotal ? pageCount <= 1 : firstPage.products.length < SMARTSTORE_DEFAULT_PAGE_SIZE);
 
     // 스마트스토어는 URL만 바꾸면 1페이지로 되돌아가서 실제 페이지 버튼을 눌러야 한다.
     for (let pageNumber = 2; pageNumber <= lastPage; pageNumber += 1) {
@@ -1048,8 +1064,10 @@ async function fetchSmartStoreCategoryProducts(sourceId) {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error || '알 수 없는 오류');
       failures.push(`${categoryUrl}: ${message}`);
-      categoryResults.push({ categoryUrl, completeness: COMPLETENESS.FAILED, items: 0, pagesFetched: 0, pagesFailed: 1, expectedTotal: null, truncated: false, endReason: 'categoryFailed', error: message });
+      const rateLimited = error?.code === 'SMARTSTORE_RATE_LIMITED';
+      categoryResults.push({ categoryUrl, completeness: rateLimited ? COMPLETENESS.BLOCKED : COMPLETENESS.FAILED, items: 0, pagesFetched: 0, pagesFailed: 1, expectedTotal: null, truncated: false, endReason: rateLimited ? 'rateLimited' : 'categoryFailed', error: message });
       console.warn(`[beanpick:smartstore-category] ${sourceId} ${categoryUrl} 실패: ${message}`);
+      if (rateLimited) break;
       // 한 카테고리가 실패해도 나머지 카테고리는 계속 확인한다.
     }
   }

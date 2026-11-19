@@ -49,6 +49,20 @@ const OFFICIAL_MALL_PAGE_CONFIGS = {
     verifyStockFromDetail: true,
     detailOrigin: 'https://hellcafe.co.kr',
   },
+  cafedoan: {
+    roasterName: '카페도안',
+    platform: 'imweb',
+    parser: 'imweb',
+    sourceId: 'cafedoan',
+    sourceUrl: 'https://www.doancompany.kr/COFFEE/',
+    detailOrigin: 'https://www.doancompany.kr',
+    maxPages: 12,
+    pageSize: 9,
+    verifyStockFromDetail: true,
+    pageUrl(pageNumber) {
+      return pageNumber === 1 ? this.sourceUrl : this.sourceUrl + '?page=' + pageNumber + '&sort=recent';
+    },
+  },
   centercoffee: {
     roasterName: '센터커피',
     platform: 'imweb',

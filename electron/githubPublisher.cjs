@@ -696,6 +696,22 @@ function markPreservedProductFreshness(products, previousSnapshot, publishedAt) 
   return { products: next, staleCount };
 }
 
+// 같은 상품의 확인된 대표 사진만 보존한다. 가격·옵션·수집 상태는 현재 값 그대로 둔다.
+function preservePreviousImages(products, previousSnapshot) {
+  const key = (product) => JSON.stringify([product.id, product.productUrl, product.roasterName, product.productName]);
+  const previous = new Map();
+  for (const product of previousSnapshot?.products || []) {
+    if (!product.id || !product.productUrl || !/^https:\/\//i.test(product.imageUrl || '')) continue;
+    const identity = key(product);
+    previous.set(identity, previous.has(identity) ? '' : product.imageUrl);
+  }
+  return products.map((product) => {
+    if (product.imageUrl || !product.id || !product.productUrl) return product;
+    const imageUrl = previous.get(key(product));
+    return imageUrl ? { ...product, imageUrl } : product;
+  });
+}
+
 function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), { previousSnapshot = null, collectionRuns = [] } = {}) {
   const safeProducts = Array.isArray(products) ? products : [];
   const preservedRoastersResult = preservePreviousCollapsedRoasters(safeProducts, previousSnapshot);
@@ -704,7 +720,7 @@ function buildGithubSnapshot(products, publishedAt = new Date().toISOString(), {
   const preservedNotes = preservePreviousTastingNotes(preservedDetails.products, previousSnapshot, publishedAt);
   const staleMarked = markPreservedProductFreshness(preservedNotes.products, previousSnapshot, publishedAt);
   const normalizedProducts = normalizeSmartStoreProductUrls(staleMarked.products);
-  const { clean, excluded, flagged, report, optionExcluded } = validateProducts(normalizedProducts);
+  const { clean, excluded, flagged, report, optionExcluded } = validateProducts(preservePreviousImages(normalizedProducts, previousSnapshot));
 
   return {
     publishedAt,

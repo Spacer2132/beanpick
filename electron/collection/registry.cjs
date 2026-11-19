@@ -39,6 +39,7 @@ function buildChannels() {
   const channels = [];
 
   for (const source of Object.values(SMARTSTORE_SOURCES)) {
+    if (source.enabled === false) continue;
     const listUrls = [source.categoryUrl, ...(source.categoryUrls || []), source.storeUrl].filter(Boolean);
     channels.push({
       channelId: createChannelId(source.sourceId, 'smartStore'),

@@ -199,14 +199,14 @@ export const roasterySources: RoasterySource[] = [
   {
     id: 'cafedoan',
     roasterName: '카페도안',
-    channelType: 'smartStore',
-    sourceUrl: 'https://smartstore.naver.com/doanselectshop/category/6758314878ef4d478904279d7065dfba?cp=1',
-    adapterKey: 'naverShoppingSearchAdapter',
+    channelType: 'officialMall',
+    sourceUrl: 'https://www.doancompany.kr/COFFEE/',
+    adapterKey: 'officialHtmlAdapter',
     enabled: true,
     status: 'ready',
     productCount: 0,
     lastCheckedAt: '수동 확인 전',
-    memo: '네이버 쇼핑 검색 API로 카페도안 스마트스토어 원두를 가져옵니다.',
+    memo: '카페도안 공식몰 원두 목록을 가져옵니다.',
   },
   {
     id: 'coffeejg',

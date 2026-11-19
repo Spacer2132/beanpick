@@ -1555,6 +1555,38 @@ export default function App() {
   );
 }
 
+function ProductFilterFields({ processFilter, setProcessFilter, processOptions, budget, setBudget, capacityFilter, setCapacityFilter, exact100 = false }) {
+  return (
+    <>
+      <label>
+        <span>가공방식</span>
+        <select value={processFilter} onChange={(event) => setProcessFilter(event.target.value)}>
+          <option value="all">전체</option>
+          {processOptions.map((label) => <option key={label} value={label}>{label}</option>)}
+        </select>
+      </label>
+      <label>
+        <span>가격</span>
+        <select value={budget} onChange={(event) => setBudget(event.target.value)}>
+          <option value="all">가격 전체</option>
+          <option value="under30000">3만원 이하</option>
+          <option value="under50000">5만원 이하</option>
+        </select>
+      </label>
+      <label>
+        <span>용량</span>
+        <select value={capacityFilter} onChange={(event) => setCapacityFilter(event.target.value)}>
+          <option value="all">용량 전체</option>
+          <option value={exact100 ? 'exact100' : 'under100'}>100g</option>
+          <option value="over200">200g</option>
+          <option value="over500">500g</option>
+          <option value="exact1000">1kg</option>
+        </select>
+      </label>
+    </>
+  );
+}
+
 function MapPage({
   initialVarietyId,
   products,
@@ -1591,7 +1623,23 @@ function MapPage({
     const ids = varietyIdsByProduct.get(p.id) || [];
     return selectedVariety ? ids.includes(selectedVariety.id) : ids.length > 0;
   }), [products, varietyIdsByProduct, selectedVariety]);
-  const listProducts = mapMode === 'variety' ? varietyProducts : null;
+  const [filtersExpanded, setFiltersExpanded] = React.useState(false);
+  const [budget, setBudget] = React.useState('all');
+  const [capacityFilter, setCapacityFilter] = React.useState('all');
+  const [processFilter, setProcessFilter] = React.useState('all');
+  const varietyFilterButton = React.useRef(null);
+  function closeVarietyFilters() {
+    setFiltersExpanded(false);
+    varietyFilterButton.current?.focus();
+  }
+  const priceFilters = React.useMemo(() => ({ budget, capacityFilter }), [budget, capacityFilter]);
+  const filterCount = [budget, capacityFilter, processFilter].filter((value) => value !== 'all').length;
+  const varietyProcesses = React.useMemo(() => countLabelOptions(varietyProducts, getProductProcessLabel), [varietyProducts]);
+  const filteredVarietyProducts = React.useMemo(() => filterCount === 0 ? varietyProducts : varietyProducts.filter((product) => (
+    (processFilter === 'all' || getProductProcessLabel(product) === processFilter)
+    && getMatchingPriceOptions(product, priceFilters).length > 0
+  )), [filterCount, varietyProducts, processFilter, priceFilters]);
+  const listProducts = mapMode === 'variety' ? filteredVarietyProducts : null;
 
   // 빈픽에서는: 선택한 품종의 100g 가격대와 많이 파는 로스터리
   const varietyStats = React.useMemo(() => {
@@ -1662,7 +1710,7 @@ function MapPage({
   // 필터 변경 시 표시 개수 리셋
   React.useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [selectedCountry, blendOnly, mapMode, selectedVariety]);
+  }, [selectedCountry, blendOnly, mapMode, selectedVariety, priceFilters, processFilter]);
 
   const handleSelectCountry = (country) => {
     setBlendOnly(false);
@@ -1887,7 +1935,43 @@ function MapPage({
               : `전체 원두 (${filteredProducts.length}개)`}
           </h2>
         </div>
+        {mapMode === 'variety' && (
+          <button ref={varietyFilterButton} className="chip chip-filter" type="button" aria-haspopup="dialog" onClick={() => setFiltersExpanded(true)}>
+            <Icon name="filter" size={16} />
+            필터{filterCount > 0 && <em>{filterCount}</em>}
+          </button>
+        )}
       </div>
+
+      {mapMode === 'variety' && filtersExpanded && (
+        <div className="sheet-overlay" onClick={closeVarietyFilters}>
+          <section className="filter-sheet" role="dialog" aria-modal="true" aria-label="품종 목록 필터"
+            onClick={(event) => event.stopPropagation()} onKeyDown={(event) => { if (event.key === 'Escape') closeVarietyFilters(); }}>
+            <header className="filter-sheet-head">
+              <h2>필터</h2>
+              <div>
+                <button className="sheet-text-btn" type="button" disabled={!filterCount}
+                  onClick={() => { setBudget('all'); setCapacityFilter('all'); setProcessFilter('all'); }}>초기화</button>
+                <button className="sheet-close" type="button" aria-label="닫기" autoFocus onClick={closeVarietyFilters}>
+                  <Icon name="close" size={22} />
+                </button>
+              </div>
+            </header>
+            <div className="filter-sheet-body">
+              <div className="detail-filter-row">
+                <ProductFilterFields
+                  exact100 processFilter={processFilter} setProcessFilter={setProcessFilter} processOptions={varietyProcesses}
+                  budget={budget} setBudget={setBudget} capacityFilter={capacityFilter} setCapacityFilter={setCapacityFilter}
+                />
+              </div>
+            </div>
+            <footer className="filter-sheet-foot">
+              <button className="btn btn-primary" type="button" onClick={closeVarietyFilters}>원두 {shownProducts.length}개 보기</button>
+            </footer>
+          </section>
+        </div>
+      )}
+      {mapMode === 'variety' && filterCount > 0 && shownProducts.length === 0 && <p role="status">조건에 맞는 원두가 없습니다.</p>}
 
       {/* 4. 원두 카드 그리드 피드 */}
       <div className={`bean-grid atlas-product-grid ${mapMode === 'variety' ? 'is-variety-grid' : ''}`}>
@@ -1913,6 +1997,7 @@ function MapPage({
                 }}
                 onToggleFavorite={onToggleFavorite}
                 tasteAxis={null}
+                priceFilters={mapMode === 'variety' ? priceFilters : undefined}
               />
             </div>
           );
@@ -2159,31 +2244,10 @@ function BrowsePage({ activeNotes, budget, capacityFilter, dataMode, decafOnly, 
                   {originOptions.map((label) => <option key={label} value={label}>{label}</option>)}
                 </select>
               </label>
-              <label>
-                <span>가공방식</span>
-                <select value={processFilter} onChange={(event) => setProcessFilter(event.target.value)}>
-                  <option value="all">전체</option>
-                  {processOptions.map((label) => <option key={label} value={label}>{label}</option>)}
-                </select>
-              </label>
-              <label>
-                <span>가격</span>
-                <select value={budget} onChange={(event) => setBudget(event.target.value)}>
-                  <option value="all">가격 전체</option>
-                  <option value="under30000">3만원 이하</option>
-                  <option value="under50000">5만원 이하</option>
-                </select>
-              </label>
-              <label>
-                <span>용량</span>
-                <select value={capacityFilter} onChange={(event) => setCapacityFilter(event.target.value)}>
-                  <option value="all">용량 전체</option>
-                  <option value="under100">100g</option>
-                  <option value="over200">200g</option>
-                  <option value="over500">500g</option>
-                  <option value="exact1000">1kg</option>
-                </select>
-              </label>
+              <ProductFilterFields
+                processFilter={processFilter} setProcessFilter={setProcessFilter} processOptions={processOptions}
+                budget={budget} setBudget={setBudget} capacityFilter={capacityFilter} setCapacityFilter={setCapacityFilter}
+              />
             </div>
 
             {noteOptions.length > 0 && (

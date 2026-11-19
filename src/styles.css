@@ -3121,7 +3121,13 @@ a {
 .map-filter-chip { flex: 0 0 auto; }
 .map-filter-chip span { font-size: 11px; margin-left: 6px; opacity: 0.7; }
 .map-filter-chip.is-blend-chip { border-style: dashed; }
-.atlas-list-head { scroll-margin-top: 28px; }
+.atlas-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  scroll-margin-top: 28px;
+}
 .atlas-page .bean-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
 .atlas-page .bean-card { box-shadow: none; border-radius: 12px; }
 .atlas-page .bean-card:hover { box-shadow: 0 6px 20px #382c2410; }
