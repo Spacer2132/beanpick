@@ -160,7 +160,7 @@ async function main() {
     fetchImpl: async (url, options = {}) => {
       calls.push({ url, options });
       if (!options.method) {
-        return { ok: true, json: async () => ({ sha: 'old-sha' }) };
+        return { ok: true, json: async () => ({ sha: 'old-sha', content: Buffer.from(JSON.stringify({ products })).toString('base64') }) };
       }
       return { ok: true, json: async () => ({ content: { path: 'docs/products.json' }, commit: { sha: 'new-sha' } }) };
     },
@@ -177,6 +177,68 @@ async function main() {
   const decoded = JSON.parse(Buffer.from(putBody.content, 'base64').toString('utf8'));
   expect(putBody.sha === 'old-sha', '기존 파일이 있으면 sha를 넣어 갱신해야 합니다', putBody.sha);
   expect(decoded.products.length === 2 && decoded.count === 2, 'PUT 본문에는 base64 JSON 스냅샷이 들어가야 합니다', JSON.stringify(decoded));
+
+  const largeSha = 'a'.repeat(40);
+  const newerSha = 'b'.repeat(40);
+  const responseJson = (json) => ({ ok: true, json: async () => json });
+  const encode = (json) => Buffer.from(JSON.stringify(json)).toString('base64');
+  const image1 = 'https://shop.example.com/image1.jpg';
+  const image2 = 'https://shop.example.com/image2.jpg';
+  const withoutPhoto = products.map((p) => ({
+    ...p, roasterName: '테스트 로스터리', productUrl: 'https://shop.example.com/products/' + p.id, imageUrl: '',
+  }));
+  const withPhoto = (url) => ({ products: withoutPhoto.map((p) => ({ ...p, imageUrl: url })) });
+  const largeCalls = [];
+  const largeFile = await githubPublisher.publishProductsToGitHub({
+    products: withoutPhoto,
+    token: 'test-token',
+    fetchImpl: async (url, options) => {
+      largeCalls.push(url);
+      if (options.method === 'PUT') {
+        const body = JSON.parse(options.body);
+        const data = JSON.parse(Buffer.from(body.content, 'base64').toString('utf8'));
+        expect(body.sha === largeSha && data.products.every((p) => p.imageUrl === image1), '큰 이전 파일의 사진과 SHA를 보존해야 합니다');
+        return responseJson({});
+      }
+      if (url.endsWith('/git/blobs/' + largeSha)) {
+        return responseJson({ encoding: 'base64', content: encode(withPhoto(image1)) });
+      }
+      return responseJson({ sha: largeSha, encoding: 'none', content: '' });
+    },
+  });
+  expect(largeFile.ok && largeCalls.length === 3, '큰 파일은 SHA로 본문을 읽고 나서 게시해야 합니다');
+  for (const invalidBlob of [false, true]) {
+    let writes = 0;
+    const unreadable = await githubPublisher.publishProductsToGitHub({
+      products: withoutPhoto,
+      token: 'test-token',
+      fetchImpl: async (url, options) => {
+        if (options.method === 'PUT') { writes += 1; return responseJson({}); }
+        if (url.includes('/git/blobs/')) {
+          return invalidBlob ? responseJson({ encoding: 'base64', content: encode({}) }) : { ok: false, status: 403 };
+        }
+        return responseJson({ sha: largeSha, encoding: 'none', content: '' });
+      },
+    });
+    expect(!unreadable.ok && writes === 0, '기존 파일을 읽지 못하면 PUT을 하지 않아야 합니다');
+  }
+  const attempts = [];
+  let reads = 0;
+  const retried = await githubPublisher.publishProductsToGitHub({
+    products: withoutPhoto,
+    token: 'test-token',
+    fetchImpl: async (_url, options) => {
+      if (options.method !== 'PUT') {
+        reads += 1;
+        return responseJson({ sha: reads === 1 ? largeSha : newerSha, content: encode(withPhoto(reads === 1 ? image1 : image2)) });
+      }
+      attempts.push(JSON.parse(options.body));
+      return attempts.length === 1 ? { ok: false, status: 409, text: async () => '' } : responseJson({});
+    },
+  });
+  const retrySnapshot = attempts[1] && JSON.parse(Buffer.from(attempts[1].content, 'base64').toString('utf8'));
+  expect(retried.ok && attempts[1]?.sha === newerSha && retrySnapshot?.products.every((p) => p.imageUrl === image2),
+    '게시 충돌 뒤 최신 파일의 사진을 보존해야 합니다');
 
   const noToken = await githubPublisher.publishProductsToGitHub({
     products,

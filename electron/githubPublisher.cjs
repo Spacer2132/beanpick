@@ -781,10 +781,21 @@ async function readExistingFile({ fetchImpl, token, owner, repo, path, branch })
 
     if (response.ok) {
       const json = await response.json();
-      return {
-        sha: json?.sha || '',
-        snapshot: parseGithubSnapshotContent(json?.content),
-      };
+      const sha = json?.sha;
+      if (typeof sha !== 'string' || !sha) throw new Error('기존 게시본의 SHA를 확인하지 못했습니다.');
+      let snapshot = parseGithubSnapshotContent(json.content);
+      // Contents 응답에서 큰 파일의 본문이 빠지면 같은 SHA의 Git blob을 읽는다.
+      if (!snapshot && /^[a-f0-9]{40}$/i.test(sha)) {
+        const blob = await fetchImpl(`https://api.github.com/repos/${owner}/${repo}/git/blobs/${sha}`, {
+          headers: githubHeaders(token),
+          signal: controller.signal,
+        });
+        if (!blob.ok) throw new Error(`기존 게시본 본문을 읽지 못했습니다 (${blob.status}).`);
+        const data = await blob.json();
+        if (data?.encoding === 'base64') snapshot = parseGithubSnapshotContent(data.content);
+      }
+      if (!snapshot) throw new Error('기존 게시본 본문이 올바르지 않아 게시를 중단했습니다.');
+      return { sha, snapshot };
     }
 
     if (response.status === 404) return { sha: '', snapshot: null };
@@ -817,32 +828,31 @@ async function publishProductsToGitHub({
   }
 
   try {
-    const existing = await readExistingFile({ fetchImpl, token, owner, repo, path, branch });
-    const snapshot = buildGithubSnapshot(products, now(), { previousSnapshot: existing.snapshot, collectionRuns });
-    const blockReason = getPublishBlockReason(existing.snapshot, snapshot, collectionRuns);
-    if (blockReason) {
-      return {
-        ok: false,
-        error: blockReason,
-        count: snapshot.count,
-        preservedDiscountCount: snapshot.quality.preservedDiscountCount,
-        preservedOfficialDetailCount: snapshot.quality.preservedOfficialDetailCount,
-        preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
-      };
-    }
-
-    const contentBase64 = Buffer.from(JSON.stringify(snapshot, null, 2), 'utf8').toString('base64');
-    let sha = existing.sha;
+    let existing = await readExistingFile({ fetchImpl, token, owner, repo, path, branch });
+    let snapshot;
     let json = null;
 
-    // 게시 충돌(sha 불일치)이나 일시적 GitHub 오류로 비싼 수집 결과를 통째로 잃지 않도록 몇 번 재시도한다.
+    // 충돌 뒤에는 최신 게시본을 기준으로 보존과 게시 보호 검사를 다시 한다.
     for (let attempt = 1; attempt <= MAX_PUBLISH_ATTEMPTS; attempt += 1) {
+      snapshot = buildGithubSnapshot(products, now(), { previousSnapshot: existing.snapshot, collectionRuns });
+      const blockReason = getPublishBlockReason(existing.snapshot, snapshot, collectionRuns);
+      if (blockReason) {
+        return {
+          ok: false,
+          error: blockReason,
+          count: snapshot.count,
+          preservedDiscountCount: snapshot.quality.preservedDiscountCount,
+          preservedOfficialDetailCount: snapshot.quality.preservedOfficialDetailCount,
+          preservedTastingNoteCount: snapshot.quality.preservedTastingNoteCount,
+        };
+      }
+      const contentBase64 = Buffer.from(JSON.stringify(snapshot, null, 2), 'utf8').toString('base64');
       const body = {
         message: `Update BeanPick iPhone snapshot (${snapshot.count} products)`,
         content: contentBase64,
         branch,
       };
-      if (sha) body.sha = sha;
+      if (existing.sha) body.sha = existing.sha;
 
       const controller = new AbortController();
       // products.json(약 1MB) 업로드는 발행의 마지막 단계라 5초로는 위험하다.
@@ -876,10 +886,10 @@ async function publishProductsToGitHub({
       if (attempt >= MAX_PUBLISH_ATTEMPTS || !isRetryablePublishStatus(response.status)) {
         throw new Error(message || `GitHub 게시 실패 (${response.status})`);
       }
-      // sha 충돌(409/422)이면 최신 파일을 다시 읽어 sha를 갱신한 뒤 다시 시도한다.
       if (response.status === 409 || response.status === 422) {
         const refreshed = await readExistingFile({ fetchImpl, token, owner, repo, path, branch });
-        sha = refreshed.sha;
+        if (existing.sha && !refreshed.sha) throw new Error('재시도 중 기존 게시본이 사라져 게시를 중단했습니다.');
+        existing = refreshed;
       }
     }
     return {
