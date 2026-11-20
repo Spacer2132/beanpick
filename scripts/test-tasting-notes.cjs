@@ -22,6 +22,20 @@ const terarosaTest = loadTsModule('src/services/adapters/terarosaOfficialAdapter
 
 const fixtures = [
   {
+    name: '명시 컵노트의 영문·한글 별칭을 단어 일부와 혼동하지 않음',
+    kind: 'ocr',
+    input: 'Tasting Note: grapefruit, strawberry, 검은딸기',
+    expected: ['자몽', '딸기', tastingNoteTools.normalizeTastingNotes('blackberry')[0]],
+    forbidden: ['포도', '짚'],
+  },
+  {
+    name: '명시 컵노트의 복합 이름과 구분 기호를 보존',
+    kind: 'ocr',
+    input: '컵노트: 청사과 / 구운 사과 / 망고스틴 / 레몬그라스 | 원산지 오렌지',
+    expected: ['청사과', '구운 사과', '망고스틴', '레몬그라스'],
+    forbidden: ['사과', '망고', '레몬', '오렌지'],
+  },
+  {
     name: '다크초콜릿 보존',
     kind: 'ocr',
     input: 'CUPPING NOTE 레몬 부드러운 질감 다크초콜릿 원산지 에티오피아',

@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const { EventEmitter } = require('node:events');
 const fs = require('node:fs');
 const esbuild = require('esbuild');
 const notes = require('../src/services/tastingNotes.cjs');
@@ -57,12 +58,20 @@ async function main() {
   const mainSource = fs.readFileSync('electron/main.cjs', 'utf8');
   const loaderSource = mainSource.slice(mainSource.indexOf('async function loadSmartStorePageWithRetry('), mainSource.indexOf('// 숨김 창 안에서'));
   let pageLoads = 0;
-  const loadPage = new Function('loadUrlWithTimeout', 'SMARTSTORE_PAGE_LOAD_RETRIES', 'SMARTSTORE_PAGE_LOAD_TIMEOUT_MS', 'delay', `${loaderSource}; return loadSmartStorePageWithRetry;`)(async () => { pageLoads++; }, 1, 25000, async () => {});
-  await assert.rejects(loadPage({ webContents: { getURL: () => 'https://nid.naver.com/nidlogin.login?url=test' } }, sourceUrl), { code: 'SMARTSTORE_LOGIN_REQUIRED' });
+  const mockPage = (url) => ({ webContents: Object.assign(new EventEmitter(), { getURL: () => url }) });
+  const loadPage = new Function('loadUrlWithTimeout', 'SMARTSTORE_PAGE_LOAD_RETRIES', 'SMARTSTORE_PAGE_LOAD_TIMEOUT_MS', 'delay', `${loaderSource}; return loadSmartStorePageWithRetry;`)(async ({ webContents }) => {
+    pageLoads++;
+    webContents.emit('did-navigate', {}, webContents.getURL(), 200);
+  }, 1, 25000, async () => {});
+  const loginPage = mockPage('https://nid.naver.com/nidlogin.login?url=test');
+  await assert.rejects(loadPage(loginPage, sourceUrl), { code: 'SMARTSTORE_LOGIN_REQUIRED' });
   checks++;
   equal(pageLoads, 1);
-  await loadPage({ webContents: { getURL: () => 'https://smartstore.naver.com/example' } }, sourceUrl);
+  equal(loginPage.webContents.listenerCount('did-navigate'), 0);
+  const storePage = mockPage('https://smartstore.naver.com/example');
+  await loadPage(storePage, sourceUrl);
   equal(pageLoads, 2);
+  equal(storePage.webContents.listenerCount('did-navigate'), 0);
   const raw = ['백도', '라즈베리잼', '오렌지 블로섬', '화이트 와인'];
   equal(notes.normalizeTastingNotes(['BERRY', 'BLUEBERRY', 'BLACKBERRY']), ['블루베리', '검은딸기']);
   const evidence = notes.createTastingNoteEvidence(raw, sourceUrl);

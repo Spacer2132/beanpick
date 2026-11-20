@@ -334,6 +334,7 @@ function findCanonicalNotes(value, options = {}) {
 
   const exact = ALIAS_LOOKUP.get(toKey(value)) || ALIAS_LOOKUP.get(toCompactKey(value));
   if (exact) return [exact];
+  if (options.exactOnly) return [];
 
   const textKey = toKey(value);
   const compactTextKey = toCompactKey(value);

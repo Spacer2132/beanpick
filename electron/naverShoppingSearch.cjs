@@ -1246,31 +1246,25 @@ function extractNoteSection(text) {
 
   return noteMatch[1]
     .split(/\b(?:origin|composition|blend|altitude|variety|process|roasting\s*point|taste\s*scale)\b|원산지|구성|블렌드|고도|품종|가공/i)[0]
-    .replace(/[|/]+/g, ' ')
     .trim();
 }
 
 function extractOcrTasteNotes(text) {
   const spacedText = String(text || '').replace(/\s+/g, ' ').trim();
-  const normalized = cleanOcrText(text);
   const hashtagNotes = extractHashtagNoteTexts(spacedText);
   if (hashtagNotes.length > 0) return sanitizeTastingNotes(hashtagNotes);
 
-  const noteText = extractNoteSection(normalized);
+  const noteText = extractNoteSection(spacedText) || extractNoteSection(cleanOcrText(spacedText));
+  if (!noteText) return [];
 
   const sectionNotes = [];
-  addNotesFromText(sectionNotes, noteText);
-
-  // 명확한 노트 영역만 사용해서 설명문 전체의 단맛/산미 추측을 막는다.
-  const merged = [];
-  for (const list of [sanitizeTastingNotes(sectionNotes), sanitizeTastingNotes(hashtagNotes)]) {
-    for (const note of list) {
-      if (!merged.includes(note)) merged.push(note);
-      if (merged.length >= 5) break;
-    }
-    if (merged.length >= 5) break;
+  for (const part of noteText.split(/[,;/·ㆍ•]+/)) {
+    // 완전 일치가 있으면 이름 일부를 별도 향미로 잡지 않는다.
+    const [exact] = normalizeTastingNotes(part, { exactOnly: true, explicitEvidence: true });
+    if (exact) addNote(sectionNotes, exact);
+    else addNotesFromText(sectionNotes, part);
   }
-  return merged.slice(0, 5);
+  return sanitizeTastingNotes(sectionNotes, { explicitEvidence: true });
 }
 
 function splitDetailTextLines(text) {

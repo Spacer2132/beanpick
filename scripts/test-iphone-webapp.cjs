@@ -149,6 +149,10 @@ async function main() {
     '게시 스냅샷을 만들면서 현재 수집 상품 원본을 바꾸면 안 됩니다',
   );
 
+  const oldSha = 'a'.repeat(40);
+  const previousContent = Buffer.from(JSON.stringify({
+    ...snapshot, publishedAt: '2026-06-14T00:00:00.000Z',
+  }), 'utf8').toString('base64');
   const calls = [];
   const result = await githubPublisher.publishProductsToGitHub({
     products,
@@ -160,7 +164,7 @@ async function main() {
     fetchImpl: async (url, options = {}) => {
       calls.push({ url, options });
       if (!options.method) {
-        return { ok: true, json: async () => ({ sha: 'old-sha', content: Buffer.from(JSON.stringify({ products })).toString('base64') }) };
+        return { ok: true, json: async () => ({ sha: oldSha, encoding: 'base64', content: previousContent }) };
       }
       return { ok: true, json: async () => ({ content: { path: 'docs/products.json' }, commit: { sha: 'new-sha' } }) };
     },
@@ -170,13 +174,14 @@ async function main() {
   expect(result.ok === true, 'GitHub 게시 성공 결과를 돌려줘야 합니다', JSON.stringify(result));
   expect(calls.length === 2, 'GitHub Contents API는 sha 확인 GET 후 PUT을 호출해야 합니다', String(calls.length));
   expect(calls[0].url.includes('/repos/Spacer2132/beanpick/contents/docs/products.json'), 'GET 주소는 docs/products.json을 가리켜야 합니다', calls[0].url);
-  expect(calls[1].options.method === 'PUT', '두 번째 호출은 PUT이어야 합니다', calls[1].options.method);
-  expect(calls[1].options.headers.Authorization === 'Bearer ghp_test', '토큰은 Authorization 헤더로 보내야 합니다');
+  const putOptions = calls[1]?.options;
+  expect(putOptions?.method === 'PUT', '두 번째 호출은 PUT이어야 합니다', putOptions?.method);
+  expect(putOptions?.headers?.Authorization === 'Bearer ghp_test', '토큰은 Authorization 헤더로 보내야 합니다');
 
-  const putBody = JSON.parse(calls[1].options.body);
-  const decoded = JSON.parse(Buffer.from(putBody.content, 'base64').toString('utf8'));
-  expect(putBody.sha === 'old-sha', '기존 파일이 있으면 sha를 넣어 갱신해야 합니다', putBody.sha);
-  expect(decoded.products.length === 2 && decoded.count === 2, 'PUT 본문에는 base64 JSON 스냅샷이 들어가야 합니다', JSON.stringify(decoded));
+  const putBody = putOptions?.body ? JSON.parse(putOptions.body) : null;
+  const decoded = putBody?.content ? JSON.parse(Buffer.from(putBody.content, 'base64').toString('utf8')) : null;
+  expect(putBody?.sha === oldSha, '기존 파일이 있으면 sha를 넣어 갱신해야 합니다', putBody?.sha);
+  expect(decoded?.products?.length === 2 && decoded.count === 2, 'PUT 본문에는 base64 JSON 스냅샷이 들어가야 합니다', JSON.stringify(decoded));
 
   const largeSha = 'a'.repeat(40);
   const newerSha = 'b'.repeat(40);
