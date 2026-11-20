@@ -1230,11 +1230,17 @@ function addNotesFromText(notes, text) {
   });
 }
 
-function extractHashtagNoteTexts(text) {
+function exactExplicitNote(text) {
+  return normalizeTastingNotes(text, { exactOnly: true, explicitEvidence: true })[0];
+}
+
+function extractHashtagNoteTexts(text, explicit = false) {
   const notes = [];
 
   for (const match of text.matchAll(/#\s*([^#\s]+)/g)) {
-    addNotesFromText(notes, match[1]);
+    const exact = explicit && exactExplicitNote(match[1]);
+    if (exact) addNote(notes, exact);
+    else addNotesFromText(notes, match[1]);
   }
 
   return notes;
@@ -1250,19 +1256,25 @@ function extractNoteSection(text) {
 }
 
 function extractOcrTasteNotes(text) {
-  const spacedText = String(text || '').replace(/\s+/g, ' ').trim();
-  const hashtagNotes = extractHashtagNoteTexts(spacedText);
-  if (hashtagNotes.length > 0) return sanitizeTastingNotes(hashtagNotes);
+  const rawText = String(text || '').trim();
+  const noteText = extractNoteSection(rawText) || extractNoteSection(cleanOcrText(rawText));
+  if (!noteText) return sanitizeTastingNotes(extractHashtagNoteTexts(rawText.replace(/\s+/g, ' ')));
 
-  const noteText = extractNoteSection(spacedText) || extractNoteSection(cleanOcrText(spacedText));
-  if (!noteText) return [];
+  // 라벨 직후의 해시태그 묶음만 읽고 뒤의 설명문은 제외한다.
+  const tags = noteText.match(/^(?:\s*#\s*[^#\s]+)+/)?.[0];
+  if (tags) return sanitizeTastingNotes(extractHashtagNoteTexts(tags, true), { explicitEvidence: true });
 
   const sectionNotes = [];
-  for (const part of noteText.split(/[,;/·ㆍ•]+/)) {
-    // 완전 일치가 있으면 이름 일부를 별도 향미로 잡지 않는다.
-    const [exact] = normalizeTastingNotes(part, { exactOnly: true, explicitEvidence: true });
-    if (exact) addNote(sectionNotes, exact);
-    else addNotesFromText(sectionNotes, part);
+  const lines = noteText.split('#', 1)[0].split(/[\r\n]+/);
+  for (const [index, line] of lines.entries()) {
+    const parts = line.trim().replace(/^[-*•]\s+/, '').split(/[,;/·ㆍ•]+/).map((part) => part.trim()).filter(Boolean);
+    const exact = parts.map(exactExplicitNote);
+    // 다음 줄에 사전에 없는 문구가 나오면 상품 설명으로 보고 멈춘다.
+    if (index > 0 && exact.some((note) => !note)) break;
+    for (const [position, part] of parts.entries()) {
+      if (exact[position]) addNote(sectionNotes, exact[position]);
+      else addNotesFromText(sectionNotes, part);
+    }
   }
   return sanitizeTastingNotes(sectionNotes, { explicitEvidence: true });
 }

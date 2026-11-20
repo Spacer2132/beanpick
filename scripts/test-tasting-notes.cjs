@@ -22,6 +22,27 @@ const terarosaTest = loadTsModule('src/services/adapters/terarosaOfficialAdapter
 
 const fixtures = [
   {
+    name: '명시 컵노트의 해시태그는 복합 향미를 그대로 읽음',
+    kind: 'ocr',
+    input: '컵노트: #청사과\n#망고스틴 고소한 향이 납니다 #레몬',
+    expected: ['청사과', '망고스틴'],
+    forbidden: ['사과', '망고', '레몬'],
+  },
+  {
+    name: '명시 컵노트의 줄바꿈은 유지하고 다음 설명은 읽지 않음',
+    kind: 'ocr',
+    input: '컵노트:\n레몬그라스\n- 망고스틴\n아몬드 초콜릿을 떠올리게 합니다.\n구운 사과',
+    expected: ['레몬그라스', '망고스틴'],
+    forbidden: ['레몬', '망고', '아몬드', '초콜릿', '구운 사과'],
+  },
+  {
+    name: '뒤의 해시태그가 앞의 명시 컵노트를 덮어쓰지 않음',
+    kind: 'ocr',
+    input: '컵노트: 청사과, 망고스틴 #레몬',
+    expected: ['청사과', '망고스틴'],
+    forbidden: ['레몬', '사과', '망고'],
+  },
+  {
     name: '명시 컵노트의 영문·한글 별칭을 단어 일부와 혼동하지 않음',
     kind: 'ocr',
     input: 'Tasting Note: grapefruit, strawberry, 검은딸기',
