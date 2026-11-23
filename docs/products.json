@@ -1,1156 +1,7 @@
 {
-  "publishedAt": "2026-11-23T07:01:19.206Z",
-  "count": 484,
+  "publishedAt": "2026-11-23T09:31:10.615Z",
+  "count": 483,
   "products": [
-    {
-      "id": "히떼로스터리-리볼브",
-      "roasterName": "히떼 로스터리",
-      "productName": "리볼브",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 200,
-      "score": 88,
-      "tastingNotes": [
-        "오렌지",
-        "밀크초콜릿",
-        "헤이즐넛"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658404844",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 0,
-      "tastingNoteEvidence": [
-        {
-          "text": "Hazelnut",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
-          "method": "image-model",
-          "group": "REVOLVE BLAEND (Medium)"
-        },
-        {
-          "text": "Milk Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
-          "method": "image-model",
-          "group": "REVOLVE BLAEND (Medium)"
-        },
-        {
-          "text": "Blood Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
-          "method": "image-model",
-          "group": "REVOLVE BLAEND (Medium)"
-        }
-      ],
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658396965",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658401131",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658404844",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.19999999999999998,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "히떼로스터리-케냐니에리마간조faq-aa워시드",
-      "roasterName": "히떼 로스터리",
-      "productName": "케냐 니에리 마간조 FAQ+ AA 워시드",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "Dark",
-      "price": 15000,
-      "weight": 200,
-      "score": 87,
-      "tastingNotes": [
-        "자몽",
-        "홍차",
-        "초콜릿",
-        "헤이즐넛"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447369882",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": true,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
-      "priceOptions": [
-        {
-          "id": "200g-15000",
-          "price": 15000,
-          "weight": 200,
-          "priceLabel": "15,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,500원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447381491",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-32000",
-          "price": 32000,
-          "weight": 500,
-          "priceLabel": "32,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "6,400원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447377453",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-49000",
-          "price": 49000,
-          "weight": 1000,
-          "priceLabel": "49,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,900원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447369882",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "Grapefruit",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Black Tea",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Hazelnut",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Cocoa",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceLabel": "15,000원",
-      "unitPriceLabel": "",
-      "acidityScore": -0.11111111111111109,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "히떼로스터리-콜롬비아엑셀소디카페인",
-      "roasterName": "히떼 로스터리",
-      "productName": "콜롬비아 엑셀소 디카페인",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "Medium-Dark",
-      "price": 16000,
-      "weight": 200,
-      "score": 86,
-      "tastingNotes": [
-        "오렌지",
-        "밀크초콜릿",
-        "볶은아몬드"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605728303",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "tastingNoteEvidence": [
-        {
-          "text": "Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Medium Dark Roast",
-          "process": "Mountain Water Process"
-        },
-        {
-          "text": "Roasted Almond",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Medium Dark Roast",
-          "process": "Mountain Water Process"
-        },
-        {
-          "text": "Milk Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Medium Dark Roast",
-          "process": "Mountain Water Process"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-16000",
-          "price": 16000,
-          "weight": 200,
-          "priceLabel": "16,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605721886",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-35000",
-          "price": 35000,
-          "weight": 500,
-          "priceLabel": "35,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605725662",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-50000",
-          "price": 50000,
-          "weight": 1000,
-          "priceLabel": "50,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605728303",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "16,000원",
-      "unitPriceLabel": "",
-      "acidityScore": -0.2857142857142857,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "히떼로스터리-굿데이다크",
-      "roasterName": "히떼 로스터리",
-      "productName": "굿데이 다크",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 14000,
-      "weight": 200,
-      "score": 83,
-      "tastingNotes": [
-        "초콜릿",
-        "브라운슈가",
-        "묵직"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658387436",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 5,
-      "tastingNoteEvidence": [
-        {
-          "text": "Dark Cacao",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-          "method": "image-model",
-          "group": "GOOD DAY DARK BLAEND (2nd Crack)"
-        },
-        {
-          "text": "Brown Sugar",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-          "method": "image-model",
-          "group": "GOOD DAY DARK BLAEND (2nd Crack)"
-        },
-        {
-          "text": "Heavy Body",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-          "method": "image-model",
-          "group": "GOOD DAY DARK BLAEND (2nd Crack)"
-        },
-        {
-          "text": "Brazil Fazenda Sitio Terra Boa Pulped Natural",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Pulped Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "Brazil Fazenda Casa Blend Natural",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "Tanzania Acacia Hills Kent AA Fully Washed",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Fully Washed",
-          "reviewReason": "blend-component"
-        }
-      ],
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658360980",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658383503",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658387436",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.34285714285714286,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "히떼로스터리-포스트업",
-      "roasterName": "히떼 로스터리",
-      "productName": "포스트업",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "Dark",
-      "price": 14000,
-      "weight": 200,
-      "score": 82,
-      "tastingNotes": [
-        "베리",
-        "초콜릿"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658294951",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 6,
-      "tastingNoteEvidence": [
-        {
-          "text": "Cacao",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Post up Blend"
-        },
-        {
-          "text": "Berry",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Post up Blend"
-        },
-        {
-          "text": "Full Body",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Post up Blend"
-        },
-        {
-          "text": "Indonesia Bener Meriah Kaybeans",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Composition",
-          "process": "Wet-Hulled",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "Brazil Sitio Terra Boa",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Composition",
-          "process": "Pulped Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "India Badra Arabica",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Composition",
-          "process": "Washed",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "Peru El Curce",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Composition",
-          "process": "Washed",
-          "reviewReason": "blend-component"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10640717493",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658291112",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658294951",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "acidityScore": 0.040000000000000015,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "히떼로스터리-굿데이",
-      "roasterName": "히떼 로스터리",
-      "productName": "굿데이",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "Medium-Dark",
-      "price": 14000,
-      "weight": 200,
-      "score": 75,
-      "tastingNotes": [
-        "초콜릿",
-        "구운향"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658332823",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 13,
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658314804",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-28000",
-          "price": 28000,
-          "weight": 500,
-          "priceLabel": "28,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658327635",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-45000",
-          "price": 45000,
-          "weight": 1000,
-          "priceLabel": "45,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,500원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658332823",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "priceOptionsStatus": "complete",
-      "weightLabel": "200g / 500g / 1kg",
-      "tastingNoteEvidence": [
-        {
-          "text": "Roasted Almonds",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-          "method": "image-model",
-          "group": "GOOD DAY BLAEND (Medium Dark)"
-        },
-        {
-          "text": "Cacao",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-          "method": "image-model",
-          "group": "GOOD DAY BLAEND (Medium Dark)"
-        },
-        {
-          "text": "Good Balance",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-          "method": "image-model",
-          "group": "GOOD DAY BLAEND (Medium Dark)"
-        },
-        {
-          "text": "Brazil Fazenda Sitio Serra Boa",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Brazil Fazenda Sitio Serra Boa Pulped Natural",
-          "process": "Pulped Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "Brazil Fazenda Capo",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Brazil Fazenda Capo Blevd Natural",
-          "process": "Natural",
-          "reviewReason": "blend-component"
-        },
-        {
-          "text": "Tanzania Acacia Hills Kent AA",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
-          "method": "image-model",
-          "group": "Tanzania Acacia Hills Kent AA Fully Washed",
-          "process": "Fully Washed",
-          "reviewReason": "blend-component"
-        }
-      ],
-      "priceLabel": "14,000원",
-      "unitPriceLabel": "",
-      "acidityScore": -0.5999999999999999,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3,
-      "tastingNotesPreservedAt": "2026-11-22T00:02:20.176Z"
-    },
-    {
-      "id": "히떼로스터리-과테말라엘인헤르또네이티보블렌드워시드",
-      "roasterName": "히떼 로스터리",
-      "productName": "과테말라 엘 인헤르또 네이티보 블렌드 워시드",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 10000,
-      "weight": 100,
-      "score": 70,
-      "tastingNotes": [
-        "시트러스",
-        "다크초콜릿",
-        "구운향",
-        "견과류"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458246722",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 18,
-      "tastingNoteEvidence": [
-        {
-          "text": "Citrus",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Roasted Nuts",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Dark Chocolate",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceLabel": "10,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "100g-10000",
-          "price": 10000,
-          "weight": 100,
-          "priceLabel": "10,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458258729",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "200g-18000",
-          "price": 18000,
-          "weight": 200,
-          "priceLabel": "18,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458254617",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-38000",
-          "price": 38000,
-          "weight": 500,
-          "priceLabel": "38,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,600원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458251341",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-58000",
-          "price": 58000,
-          "weight": 1000,
-          "priceLabel": "58,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,800원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458246722",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "100g / 200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.3111111111111111,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 4
-    },
-    {
-      "id": "히떼로스터리-에티오피아시다마벤사하테사아코내추럴",
-      "roasterName": "히떼 로스터리",
-      "productName": "에티오피아 시다마 벤사 하테사 아코 내추럴",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 10000,
-      "weight": 100,
-      "score": 68,
-      "tastingNotes": [
-        "복숭아",
-        "파파야",
-        "레몬그라스",
-        "오렌지꽃"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432002540",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 20,
-      "tastingNoteEvidence": [
-        {
-          "text": "Orange Blossom",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
-          "method": "image-model",
-          "process": "NATURAL"
-        },
-        {
-          "text": "Lemongrass",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
-          "method": "image-model",
-          "process": "NATURAL"
-        },
-        {
-          "text": "Papaya",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
-          "method": "image-model",
-          "process": "NATURAL"
-        },
-        {
-          "text": "Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
-          "method": "image-model",
-          "process": "NATURAL"
-        }
-      ],
-      "priceLabel": "10,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "100g-10000",
-          "price": 10000,
-          "weight": 100,
-          "priceLabel": "10,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432036003",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "200g-18000",
-          "price": 18000,
-          "weight": 200,
-          "priceLabel": "18,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432017332",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-35000",
-          "price": 35000,
-          "weight": 500,
-          "priceLabel": "35,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432007767",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-52000",
-          "price": 52000,
-          "weight": 1000,
-          "priceLabel": "52,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,200원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432002540",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "100g / 200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": 0.6666666666666666,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 4
-    },
-    {
-      "id": "히떼로스터리-에티오피아예가체프첼베사워시드",
-      "roasterName": "히떼 로스터리",
-      "productName": "에티오피아 예가체프 첼베사 워시드",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 12000,
-      "weight": 100,
-      "score": 66,
-      "tastingNotes": [
-        "복숭아",
-        "플로럴",
-        "베르가못"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223878808",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 22,
-      "tastingNoteEvidence": [
-        {
-          "text": "Floral",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Bergamot",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Mingo",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceLabel": "12,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "100g-12000",
-          "price": 12000,
-          "weight": 100,
-          "priceLabel": "12,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "12,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223882374",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "200g-20000",
-          "price": 20000,
-          "weight": 200,
-          "priceLabel": "20,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223881444",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-42000",
-          "price": 42000,
-          "weight": 500,
-          "priceLabel": "42,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "8,400원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223880621",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-65000",
-          "price": 65000,
-          "weight": 1000,
-          "priceLabel": "65,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223878808",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "100g / 200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": 0.7428571428571429,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 4
-    },
-    {
-      "id": "히떼로스터리-에티오피안플라워블렌드",
-      "roasterName": "히떼 로스터리",
-      "productName": "에티오피안 플라워 블렌드",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 10000,
-      "weight": 100,
-      "score": 65,
-      "tastingNotes": [
-        "오렌지",
-        "체리",
-        "망고스틴",
-        "다즐링티"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387233412",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 23,
-      "tastingNoteEvidence": [
-        {
-          "text": "Darjeeling",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
-          "method": "image-model"
-        },
-        {
-          "text": "Orange",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
-          "method": "image-model"
-        },
-        {
-          "text": "Mangosteen",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
-          "method": "image-model"
-        },
-        {
-          "text": "Cherry",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
-          "method": "image-model"
-        }
-      ],
-      "priceLabel": "10,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "100g-10000",
-          "price": 10000,
-          "weight": 100,
-          "priceLabel": "10,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "10,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11383819347",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "200g-18000",
-          "price": 18000,
-          "weight": 200,
-          "priceLabel": "18,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387213570",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-37000",
-          "price": 37000,
-          "weight": 500,
-          "priceLabel": "37,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "7,400원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387226944",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-56000",
-          "price": 56000,
-          "weight": 1000,
-          "priceLabel": "56,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,600원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387233412",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "100g / 200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": 0.8222222222222223,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 4
-    },
-    {
-      "id": "히떼로스터리-페루라코이파솔리다리아게이샤워시드",
-      "roasterName": "히떼 로스터리",
-      "productName": "페루 라 코이파 솔리다리아 게이샤 워시드",
-      "origin": "히떼 로스터리",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 34000,
-      "weight": 100,
-      "score": 60,
-      "tastingNotes": [
-        "복숭아",
-        "살구",
-        "플로럴"
-      ],
-      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431820853",
-      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 29,
-      "tastingNoteEvidence": [
-        {
-          "text": "White Floral",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Pomelo",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Peach",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        },
-        {
-          "text": "Dried Apricot",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
-          "method": "image-model",
-          "process": "Washed"
-        }
-      ],
-      "priceLabel": "34,000원",
-      "unitPriceLabel": "",
-      "priceOptions": [
-        {
-          "id": "100g-34000",
-          "price": 34000,
-          "weight": 100,
-          "priceLabel": "34,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "34,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431870863",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "200g-60000",
-          "price": 60000,
-          "weight": 200,
-          "priceLabel": "60,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "30,000원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431841814",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "500g-124000",
-          "price": 124000,
-          "weight": 500,
-          "priceLabel": "124,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "24,800원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431832244",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-191000",
-          "price": 191000,
-          "weight": 1000,
-          "priceLabel": "191,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "19,100원/100g",
-          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431820853",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "weightLabel": "100g / 200g / 500g / 1kg",
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "acidityScore": 0.7999999999999999,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 4,
-      "tastingNotesPreservedAt": "2026-11-20T22:23:11.108Z"
-    },
     {
       "id": "hocuspocus-5935682761",
       "roasterName": "호커스포커스 로스터스",
@@ -4852,6 +3703,1155 @@
       ],
       "acidityScore": 0.12727272727272723,
       "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "히떼로스터리-리볼브",
+      "roasterName": "히떼 로스터리",
+      "productName": "리볼브",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 200,
+      "score": 88,
+      "tastingNotes": [
+        "오렌지",
+        "밀크초콜릿",
+        "헤이즐넛"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658404844",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 0,
+      "tastingNoteEvidence": [
+        {
+          "text": "Hazelnut",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
+          "method": "image-model",
+          "group": "REVOLVE BLAEND (Medium)"
+        },
+        {
+          "text": "Milk Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
+          "method": "image-model",
+          "group": "REVOLVE BLAEND (Medium)"
+        },
+        {
+          "text": "Blood Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_189/1790736276602tAvXf_PNG/124869147704503770_917774582.png?type=f640_webp",
+          "method": "image-model",
+          "group": "REVOLVE BLAEND (Medium)"
+        }
+      ],
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658396965",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658401131",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658404844",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.19999999999999998,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "히떼로스터리-케냐니에리마간조faq-aa워시드",
+      "roasterName": "히떼 로스터리",
+      "productName": "케냐 니에리 마간조 FAQ+ AA 워시드",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "Dark",
+      "price": 15000,
+      "weight": 200,
+      "score": 87,
+      "tastingNotes": [
+        "자몽",
+        "홍차",
+        "초콜릿",
+        "헤이즐넛"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447369882",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "priceOptions": [
+        {
+          "id": "200g-15000",
+          "price": 15000,
+          "weight": 200,
+          "priceLabel": "15,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,500원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447381491",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-32000",
+          "price": 32000,
+          "weight": 500,
+          "priceLabel": "32,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "6,400원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447377453",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-49000",
+          "price": 49000,
+          "weight": 1000,
+          "priceLabel": "49,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,900원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13447369882",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "Grapefruit",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Black Tea",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Hazelnut",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Cocoa",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261109_179/1794191445964gOecl_PNG/5901488054674437_1165495224.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceLabel": "15,000원",
+      "unitPriceLabel": "",
+      "acidityScore": -0.11111111111111109,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "히떼로스터리-콜롬비아엑셀소디카페인",
+      "roasterName": "히떼 로스터리",
+      "productName": "콜롬비아 엑셀소 디카페인",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "Medium-Dark",
+      "price": 16000,
+      "weight": 200,
+      "score": 86,
+      "tastingNotes": [
+        "오렌지",
+        "밀크초콜릿",
+        "볶은아몬드"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605728303",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 2,
+      "tastingNoteEvidence": [
+        {
+          "text": "Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Medium Dark Roast",
+          "process": "Mountain Water Process"
+        },
+        {
+          "text": "Roasted Almond",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Medium Dark Roast",
+          "process": "Mountain Water Process"
+        },
+        {
+          "text": "Milk Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_140/1790736364870or3Yh_PNG/74546056688311114_269488951.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Medium Dark Roast",
+          "process": "Mountain Water Process"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-16000",
+          "price": 16000,
+          "weight": 200,
+          "priceLabel": "16,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605721886",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-35000",
+          "price": 35000,
+          "weight": 500,
+          "priceLabel": "35,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605725662",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-50000",
+          "price": 50000,
+          "weight": 1000,
+          "priceLabel": "50,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/12605728303",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "16,000원",
+      "unitPriceLabel": "",
+      "acidityScore": -0.2857142857142857,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "히떼로스터리-굿데이다크",
+      "roasterName": "히떼 로스터리",
+      "productName": "굿데이 다크",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 14000,
+      "weight": 200,
+      "score": 83,
+      "tastingNotes": [
+        "초콜릿",
+        "브라운슈가",
+        "묵직"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658387436",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 5,
+      "tastingNoteEvidence": [
+        {
+          "text": "Dark Cacao",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+          "method": "image-model",
+          "group": "GOOD DAY DARK BLAEND (2nd Crack)"
+        },
+        {
+          "text": "Brown Sugar",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+          "method": "image-model",
+          "group": "GOOD DAY DARK BLAEND (2nd Crack)"
+        },
+        {
+          "text": "Heavy Body",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+          "method": "image-model",
+          "group": "GOOD DAY DARK BLAEND (2nd Crack)"
+        },
+        {
+          "text": "Brazil Fazenda Sitio Terra Boa Pulped Natural",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Pulped Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "Brazil Fazenda Casa Blend Natural",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "Tanzania Acacia Hills Kent AA Fully Washed",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736191712ICQXE_PNG/141680060640867562_1140394192.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Fully Washed",
+          "reviewReason": "blend-component"
+        }
+      ],
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658360980",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658383503",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658387436",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.34285714285714286,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "히떼로스터리-포스트업",
+      "roasterName": "히떼 로스터리",
+      "productName": "포스트업",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "Dark",
+      "price": 14000,
+      "weight": 200,
+      "score": 82,
+      "tastingNotes": [
+        "베리",
+        "초콜릿"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658294951",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 6,
+      "tastingNoteEvidence": [
+        {
+          "text": "Cacao",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Post up Blend"
+        },
+        {
+          "text": "Berry",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Post up Blend"
+        },
+        {
+          "text": "Full Body",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Post up Blend"
+        },
+        {
+          "text": "Indonesia Bener Meriah Kaybeans",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Composition",
+          "process": "Wet-Hulled",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "Brazil Sitio Terra Boa",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Composition",
+          "process": "Pulped Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "India Badra Arabica",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Composition",
+          "process": "Washed",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "Peru El Curce",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_50/1790736317943ztNnm_PNG/7430813745552007_663518199.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Composition",
+          "process": "Washed",
+          "reviewReason": "blend-component"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10640717493",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658291112",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658294951",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "acidityScore": 0.040000000000000015,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "히떼로스터리-굿데이",
+      "roasterName": "히떼 로스터리",
+      "productName": "굿데이",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "Medium-Dark",
+      "price": 14000,
+      "weight": 200,
+      "score": 75,
+      "tastingNotes": [
+        "초콜릿",
+        "구운향"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658332823",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/6eaffefffc54495f86214fae639cf52b?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 13,
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658314804",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-28000",
+          "price": 28000,
+          "weight": 500,
+          "priceLabel": "28,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658327635",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-45000",
+          "price": 45000,
+          "weight": 1000,
+          "priceLabel": "45,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,500원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/10658332823",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "priceOptionsStatus": "complete",
+      "weightLabel": "200g / 500g / 1kg",
+      "tastingNoteEvidence": [
+        {
+          "text": "Roasted Almonds",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+          "method": "image-model",
+          "group": "GOOD DAY BLAEND (Medium Dark)"
+        },
+        {
+          "text": "Cacao",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+          "method": "image-model",
+          "group": "GOOD DAY BLAEND (Medium Dark)"
+        },
+        {
+          "text": "Good Balance",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+          "method": "image-model",
+          "group": "GOOD DAY BLAEND (Medium Dark)"
+        },
+        {
+          "text": "Brazil Fazenda Sitio Serra Boa",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Brazil Fazenda Sitio Serra Boa Pulped Natural",
+          "process": "Pulped Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "Brazil Fazenda Capo",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Brazil Fazenda Capo Blevd Natural",
+          "process": "Natural",
+          "reviewReason": "blend-component"
+        },
+        {
+          "text": "Tanzania Acacia Hills Kent AA",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_143/1790736230315j22Qu_PNG/124869101407604940_410043306.png?type=f640_webp",
+          "method": "image-model",
+          "group": "Tanzania Acacia Hills Kent AA Fully Washed",
+          "process": "Fully Washed",
+          "reviewReason": "blend-component"
+        }
+      ],
+      "priceLabel": "14,000원",
+      "unitPriceLabel": "",
+      "acidityScore": -0.5999999999999999,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3,
+      "tastingNotesPreservedAt": "2026-11-22T00:02:20.176Z"
+    },
+    {
+      "id": "히떼로스터리-과테말라엘인헤르또네이티보블렌드워시드",
+      "roasterName": "히떼 로스터리",
+      "productName": "과테말라 엘 인헤르또 네이티보 블렌드 워시드",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 10000,
+      "weight": 100,
+      "score": 70,
+      "tastingNotes": [
+        "시트러스",
+        "다크초콜릿",
+        "구운향",
+        "견과류"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458246722",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 18,
+      "tastingNoteEvidence": [
+        {
+          "text": "Citrus",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Roasted Nuts",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Dark Chocolate",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261029_199/1793235482915hVacX_PNG/127410707861669868_1110588540.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceLabel": "10,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "100g-10000",
+          "price": 10000,
+          "weight": 100,
+          "priceLabel": "10,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458258729",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "200g-18000",
+          "price": 18000,
+          "weight": 200,
+          "priceLabel": "18,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458254617",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-38000",
+          "price": 38000,
+          "weight": 500,
+          "priceLabel": "38,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,600원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458251341",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-58000",
+          "price": 58000,
+          "weight": 1000,
+          "priceLabel": "58,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,800원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13458246722",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "100g / 200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.3111111111111111,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 4
+    },
+    {
+      "id": "히떼로스터리-에티오피아시다마벤사하테사아코내추럴",
+      "roasterName": "히떼 로스터리",
+      "productName": "에티오피아 시다마 벤사 하테사 아코 내추럴",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 10000,
+      "weight": 100,
+      "score": 68,
+      "tastingNotes": [
+        "복숭아",
+        "파파야",
+        "레몬그라스",
+        "오렌지꽃"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432002540",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 20,
+      "tastingNoteEvidence": [
+        {
+          "text": "Orange Blossom",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
+          "method": "image-model",
+          "process": "NATURAL"
+        },
+        {
+          "text": "Lemongrass",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
+          "method": "image-model",
+          "process": "NATURAL"
+        },
+        {
+          "text": "Papaya",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
+          "method": "image-model",
+          "process": "NATURAL"
+        },
+        {
+          "text": "Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_18/1792652462424roK02_PNG/64973542574712588_1552098257.png?type=f640_webp",
+          "method": "image-model",
+          "process": "NATURAL"
+        }
+      ],
+      "priceLabel": "10,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "100g-10000",
+          "price": 10000,
+          "weight": 100,
+          "priceLabel": "10,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432036003",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "200g-18000",
+          "price": 18000,
+          "weight": 200,
+          "priceLabel": "18,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432017332",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-35000",
+          "price": 35000,
+          "weight": 500,
+          "priceLabel": "35,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432007767",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-52000",
+          "price": 52000,
+          "weight": 1000,
+          "priceLabel": "52,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,200원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13432002540",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "100g / 200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0.6666666666666666,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 4
+    },
+    {
+      "id": "히떼로스터리-에티오피아예가체프첼베사워시드",
+      "roasterName": "히떼 로스터리",
+      "productName": "에티오피아 예가체프 첼베사 워시드",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 12000,
+      "weight": 100,
+      "score": 66,
+      "tastingNotes": [
+        "복숭아",
+        "플로럴",
+        "베르가못"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223878808",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 22,
+      "tastingNoteEvidence": [
+        {
+          "text": "Floral",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Bergamot",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Mingo",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260930_207/17907309447361yESv_PNG/124863815841184523_36378179.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceLabel": "12,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "100g-12000",
+          "price": 12000,
+          "weight": 100,
+          "priceLabel": "12,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "12,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223882374",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "200g-20000",
+          "price": 20000,
+          "weight": 200,
+          "priceLabel": "20,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223881444",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-42000",
+          "price": 42000,
+          "weight": 500,
+          "priceLabel": "42,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "8,400원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223880621",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-65000",
+          "price": 65000,
+          "weight": 1000,
+          "priceLabel": "65,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13223878808",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "100g / 200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0.7428571428571429,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 4
+    },
+    {
+      "id": "히떼로스터리-에티오피안플라워블렌드",
+      "roasterName": "히떼 로스터리",
+      "productName": "에티오피안 플라워 블렌드",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 10000,
+      "weight": 100,
+      "score": 65,
+      "tastingNotes": [
+        "오렌지",
+        "체리",
+        "망고스틴",
+        "다즐링티"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387233412",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 23,
+      "tastingNoteEvidence": [
+        {
+          "text": "Darjeeling",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
+          "method": "image-model"
+        },
+        {
+          "text": "Orange",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
+          "method": "image-model"
+        },
+        {
+          "text": "Mangosteen",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
+          "method": "image-model"
+        },
+        {
+          "text": "Cherry",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20260812_93/1786492729993vHD3V_PNG/1703566014770761_1990906235.png?type=f640_webp",
+          "method": "image-model"
+        }
+      ],
+      "priceLabel": "10,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "100g-10000",
+          "price": 10000,
+          "weight": 100,
+          "priceLabel": "10,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "10,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11383819347",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "200g-18000",
+          "price": 18000,
+          "weight": 200,
+          "priceLabel": "18,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "9,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387213570",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-37000",
+          "price": 37000,
+          "weight": 500,
+          "priceLabel": "37,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "7,400원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387226944",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-56000",
+          "price": 56000,
+          "weight": 1000,
+          "priceLabel": "56,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,600원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/11387233412",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "100g / 200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0.8222222222222223,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 4
+    },
+    {
+      "id": "히떼로스터리-페루라코이파솔리다리아게이샤워시드",
+      "roasterName": "히떼 로스터리",
+      "productName": "페루 라 코이파 솔리다리아 게이샤 워시드",
+      "origin": "히떼 로스터리",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 34000,
+      "weight": 100,
+      "score": 60,
+      "tastingNotes": [
+        "복숭아",
+        "살구",
+        "플로럴"
+      ],
+      "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431820853",
+      "storeUrl": "https://smartstore.naver.com/hytteroastery/category/5bf5ed70b6ad4f738449292b90ec76ab?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 29,
+      "tastingNoteEvidence": [
+        {
+          "text": "White Floral",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Pomelo",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Peach",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        },
+        {
+          "text": "Dried Apricot",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261022_72/17926603864249zIDC_PNG/69147694524609714_997089184.png?type=f640_webp",
+          "method": "image-model",
+          "process": "Washed"
+        }
+      ],
+      "priceLabel": "34,000원",
+      "unitPriceLabel": "",
+      "priceOptions": [
+        {
+          "id": "100g-34000",
+          "price": 34000,
+          "weight": 100,
+          "priceLabel": "34,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "34,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431870863",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "200g-60000",
+          "price": 60000,
+          "weight": 200,
+          "priceLabel": "60,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "30,000원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431841814",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "500g-124000",
+          "price": 124000,
+          "weight": 500,
+          "priceLabel": "124,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "24,800원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431832244",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-191000",
+          "price": 191000,
+          "weight": 1000,
+          "priceLabel": "191,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "19,100원/100g",
+          "productUrl": "https://smartstore.naver.com/hytteroastery/products/13431820853",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "weightLabel": "100g / 200g / 500g / 1kg",
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0.7999999999999999,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 4,
+      "tastingNotesPreservedAt": "2026-11-20T22:23:11.108Z"
     },
     {
       "id": "아이덴티티커피랩-미드센추리블렌드",
@@ -13109,6 +13109,123 @@
       "groupedProductCount": 6
     },
     {
+      "id": "루비아커피-클래식이탈리안스타일피렌체",
+      "roasterName": "루비아 커피",
+      "productName": "클래식 이탈리안 스타일 피렌체",
+      "origin": "루비아 커피",
+      "process": "",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "score": 87,
+      "tastingNotes": [
+        "초콜릿",
+        "캐러멜",
+        "견과류",
+        "아몬드",
+        "몰트"
+      ],
+      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+      "isSoldOut": false,
+      "isNew": true,
+      "lastCheckedAt": "방금",
+      "checkedMinutesAgo": 1,
+      "tastingNoteEvidence": [
+        {
+          "text": "견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "몰트",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "굿바디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "부드러운",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "아몬드",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
+          "text": "카라멜",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
+          "method": "image-model"
+        }
+      ],
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "originalPrice": 14000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
+          "originalPriceLabel": "14,000원",
+          "discountRate": 0.07142857142857142,
+          "discountLabel": "7% 할인"
+        },
+        {
+          "id": "500g-25000",
+          "price": 25000,
+          "originalPrice": 26000,
+          "weight": 500,
+          "priceLabel": "25,000원",
+          "weightLabel": "500g",
+          "unitPriceLabel": "5,000원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
+          "originalPriceLabel": "26,000원",
+          "discountRate": 0.038461538461538464,
+          "discountLabel": "3% 할인"
+        },
+        {
+          "id": "1kg-34000",
+          "price": 34000,
+          "originalPrice": 38000,
+          "weight": 1000,
+          "priceLabel": "34,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "3,400원/100g",
+          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
+          "originalPriceLabel": "38,000원",
+          "discountRate": 0.10526315789473684,
+          "discountLabel": "10% 할인"
+        }
+      ],
+      "priceOptionsComplete": false,
+      "priceOptionsStatus": "partial",
+      "weightLabel": "200g / 500g / 1kg",
+      "priceLabel": "13,000원",
+      "unitPriceLabel": "",
+      "discountRate": 0.10526315789473684,
+      "acidityScore": -0.7636363636363637,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 6
+    },
+    {
       "id": "루비아커피-블루문디카페인",
       "roasterName": "루비아 커피",
       "productName": "블루문 디카페인",
@@ -13117,7 +13234,7 @@
       "roastLevel": "확인 필요",
       "price": 16000,
       "weight": 200,
-      "score": 87,
+      "score": 86,
       "tastingNotes": [
         "다크초콜릿"
       ],
@@ -13125,9 +13242,9 @@
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/3f7e21c90a9f454caf735af37eef72d4?cp=1",
       "imageUrl": "https://shop-phinf.pstatic.net/20250609_196/1749450936050WDmqz_PNG/81055360576438059_162975766.png?type=f80_80",
       "isSoldOut": false,
-      "isNew": true,
+      "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 1,
+      "checkedMinutesAgo": 2,
       "tastingNoteEvidence": [
         {
           "text": "초콜릿향",
@@ -13200,123 +13317,6 @@
       "groupedProductCount": 6
     },
     {
-      "id": "루비아커피-클래식이탈리안스타일피렌체",
-      "roasterName": "루비아 커피",
-      "productName": "클래식 이탈리안 스타일 피렌체",
-      "origin": "루비아 커피",
-      "process": "",
-      "roastLevel": "확인 필요",
-      "price": 13000,
-      "weight": 200,
-      "score": 86,
-      "tastingNotes": [
-        "초콜릿",
-        "캐러멜",
-        "견과류",
-        "아몬드",
-        "몰트"
-      ],
-      "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-      "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/f39ba6cbad2d4a4cb8ef45c7ce908285?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 2,
-      "tastingNoteEvidence": [
-        {
-          "text": "부드러운",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "아몬드",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "카라멜",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_73/1749451405544UoaN3_PNG/3624509092768586_1641930782.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "몰트",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "굿바디",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_201/1736295142862S7oKv_PNG/10778809829532972_1878700854.png?type=f750_750",
-          "method": "image-model"
-        }
-      ],
-      "priceOptions": [
-        {
-          "id": "200g-13000",
-          "price": 13000,
-          "originalPrice": 14000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6487190332",
-          "originalPriceLabel": "14,000원",
-          "discountRate": 0.07142857142857142,
-          "discountLabel": "7% 할인"
-        },
-        {
-          "id": "500g-25000",
-          "price": 25000,
-          "originalPrice": 26000,
-          "weight": 500,
-          "priceLabel": "25,000원",
-          "weightLabel": "500g",
-          "unitPriceLabel": "5,000원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11307018942",
-          "originalPriceLabel": "26,000원",
-          "discountRate": 0.038461538461538464,
-          "discountLabel": "3% 할인"
-        },
-        {
-          "id": "1kg-34000",
-          "price": 34000,
-          "originalPrice": 38000,
-          "weight": 1000,
-          "priceLabel": "34,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "3,400원/100g",
-          "productUrl": "https://smartstore.naver.com/rubiacoffee/products/6486417168",
-          "originalPriceLabel": "38,000원",
-          "discountRate": 0.10526315789473684,
-          "discountLabel": "10% 할인"
-        }
-      ],
-      "priceOptionsComplete": false,
-      "priceOptionsStatus": "partial",
-      "weightLabel": "200g / 500g / 1kg",
-      "priceLabel": "13,000원",
-      "unitPriceLabel": "",
-      "discountRate": 0.10526315789473684,
-      "acidityScore": -0.7636363636363637,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 6
-    },
-    {
       "id": "루비아커피-시에나",
       "roasterName": "루비아 커피",
       "productName": "시에나",
@@ -13340,6 +13340,11 @@
       "checkedMinutesAgo": 3,
       "tastingNoteEvidence": [
         {
+          "text": "깔끔한 커피의 맛과 부드러운 바디감",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
+          "method": "image-model"
+        },
+        {
           "text": "깔끔한",
           "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
           "method": "image-model"
@@ -13357,11 +13362,6 @@
         {
           "text": "초콜릿",
           "sourceUrl": "https://shop-phinf.pstatic.net/20250108_232/1736296692138iFgr5_PNG/11914753479068578_1906923095.png?type=f750_750",
-          "method": "image-model"
-        },
-        {
-          "text": "깔끔한 커피의 맛과 부드러운 바디감",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250609_4/1749451321260IE0sr_PNG/3989284593629463_2108137701.png?type=f750_750",
           "method": "image-model"
         }
       ],
@@ -13425,7 +13425,7 @@
       "roastLevel": "확인 필요",
       "price": 14000,
       "weight": 200,
-      "score": 84,
+      "score": 83,
       "tastingNotes": [
         "다크초콜릿",
         "캐러멜",
@@ -13439,7 +13439,7 @@
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
-      "checkedMinutesAgo": 4,
+      "checkedMinutesAgo": 5,
       "tastingNoteEvidence": [
         {
           "text": "초콜릿",
@@ -13484,20 +13484,20 @@
           "group": "Tasting Note"
         },
         {
-          "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+          "text": "초콜릿향",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261026_92/1792942957546Ad5R9_PNG/%EB%A3%A8%EB%B9%84%EC%95%84_%EC%BB%A4%ED%94%BC_%EC%84%B8%EC%9D%BC_%EC%BF%A0%ED%8F%B0_%EB%B0%B0%EB%84%88.png?type=w848",
           "method": "image-model",
           "group": "DARK BROWN"
         },
         {
-          "text": "견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+          "text": "다크초콜릿",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261026_92/1792942957546Ad5R9_PNG/%EB%A3%A8%EB%B9%84%EC%95%84_%EC%BB%A4%ED%94%BC_%EC%84%B8%EC%9D%BC_%EC%BF%A0%ED%8F%B0_%EB%B0%B0%EB%84%88.png?type=w848",
           "method": "image-model",
           "group": "DARK BROWN"
         },
         {
-          "text": "깊고 진한 풍미",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250108_199/17362966264194H1jg_PNG/70429493397818072_1456329903.png?type=f750_750",
+          "text": "부드러운 바디",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20261026_92/1792942957546Ad5R9_PNG/%EB%A3%A8%EB%B9%84%EC%95%84_%EC%BB%A4%ED%94%BC_%EC%84%B8%EC%9D%BC_%EC%BF%A0%ED%8F%B0_%EB%B0%B0%EB%84%88.png?type=w848",
           "method": "image-model",
           "group": "DARK BROWN"
         }
@@ -15082,7 +15082,7 @@
       ],
       "productUrl": "https://smartstore.naver.com/rubiacoffee/products/11382673190",
       "storeUrl": "https://smartstore.naver.com/rubiacoffee/category/5933bc678b094b20a8c9e4c743db59c3?cp=1",
-      "imageUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300",
+      "imageUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300_webp",
       "isSoldOut": false,
       "isNew": false,
       "lastCheckedAt": "방금",
@@ -15124,23 +15124,20 @@
       "tastingNoteEvidence": [
         {
           "text": "바닐라",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300_webp",
           "method": "image-model",
-          "group": "Las Almas Washed",
           "process": "Washed"
         },
         {
-          "text": "달콤한 견과류",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300",
+          "text": "상큼한 견과류",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300_webp",
           "method": "image-model",
-          "group": "Las Almas Washed",
           "process": "Washed"
         },
         {
           "text": "초콜릿",
-          "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300",
+          "sourceUrl": "https://shop-phinf.pstatic.net/20250121_137/1737439656088x34J9_PNG/9593793172262903_1125002821.png?type=f300_300_webp",
           "method": "image-model",
-          "group": "Las Almas Washed",
           "process": "Washed"
         }
       ],
@@ -18762,147 +18759,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "헬카페-밸런스블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "밸런스 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 13000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "13,000원",
-      "priceOptions": [
-        {
-          "id": "200g-13000",
-          "price": 13000,
-          "weight": 200,
-          "priceLabel": "13,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "6,500원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-48000",
-          "price": 48000,
-          "weight": 1000,
-          "priceLabel": "48,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "4,800원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "헬카페-강배전블렌드커피",
-      "roasterName": "헬카페",
-      "productName": "강배전 블렌드 커피",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "Dark",
-      "price": 14000,
-      "weight": 200,
-      "weightLabel": "200g / 1kg",
-      "priceLabel": "14,000원",
-      "priceOptions": [
-        {
-          "id": "200g-14000",
-          "price": 14000,
-          "weight": 200,
-          "priceLabel": "14,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "7,000원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1kg-52000",
-          "price": 52000,
-          "weight": 1000,
-          "priceLabel": "52,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "5,200원/100g",
-          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 83,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "priceOptionsStatus": "complete",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes",
-      "groupedProductCount": 3
-    },
-    {
-      "id": "hellcafe-60",
-      "roasterName": "헬카페",
-      "productName": "헬카페 클래식 커피 1kg",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 208000,
-      "weight": 1000,
-      "priceOptionsComplete": false,
-      "score": 86,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [],
-      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
-      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
-      "isSoldOut": true,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
       "id": "coffeelibre-901",
       "roasterName": "커피리브레",
       "productName": "[Roaster's Pick/골드문트] 온두라스 라 피후다 게이샤",
@@ -19731,6 +19587,147 @@
       "priceOptionsStatus": "partial",
       "acidityScore": -0.2,
       "acidityScoreSource": "tasteScale"
+    },
+    {
+      "id": "헬카페-밸런스블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "밸런스 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 13000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "13,000원",
+      "priceOptions": [
+        {
+          "id": "200g-13000",
+          "price": 13000,
+          "weight": 200,
+          "priceLabel": "13,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "6,500원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=30&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-48000",
+          "price": 48000,
+          "weight": 1000,
+          "priceLabel": "48,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "4,800원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=31&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/52fd2f889a9c7dc89ad6cb63ac4bcdab.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "헬카페-강배전블렌드커피",
+      "roasterName": "헬카페",
+      "productName": "강배전 블렌드 커피",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "Dark",
+      "price": 14000,
+      "weight": 200,
+      "weightLabel": "200g / 1kg",
+      "priceLabel": "14,000원",
+      "priceOptions": [
+        {
+          "id": "200g-14000",
+          "price": 14000,
+          "weight": 200,
+          "priceLabel": "14,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "7,000원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=32&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        },
+        {
+          "id": "1kg-52000",
+          "price": 52000,
+          "weight": 1000,
+          "priceLabel": "52,000원",
+          "weightLabel": "1kg",
+          "unitPriceLabel": "5,200원/100g",
+          "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 83,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=33&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202101/d2ae871ab9537a8ecdace949d36632c5.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "priceOptionsStatus": "complete",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes",
+      "groupedProductCount": 3
+    },
+    {
+      "id": "hellcafe-60",
+      "roasterName": "헬카페",
+      "productName": "헬카페 클래식 커피 1kg",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 208000,
+      "weight": 1000,
+      "priceOptionsComplete": false,
+      "score": 86,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [],
+      "productUrl": "https://hellcafe.co.kr/product/detail.html?product_no=60&cate_no=1&display_group=2",
+      "imageUrl": "https://hellcafe.co.kr/web/product/medium/202201/eab428a8b318e52f0fade8ae6711bb16.png",
+      "isSoldOut": true,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
     },
     {
       "id": "deepbluelake-605",
@@ -22885,6 +22882,787 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
+      "id": "fritz-1907",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] 크리스마스 블렌드 200g",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 22000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 83,
+      "tastingNotes": [
+        "베리",
+        "로즈힙",
+        "패션프루트",
+        "차",
+        "로즈"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "Berry",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Chocolate",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Passionfruit Jam",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Rose Hip Tea Notes Finish",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "베리",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Berry",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Chocolate",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "패션푸르츠 잼",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Passionfruit Jam",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "로즈 힙 티의 긴 여운",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Rose Hip Tea Notes Finish",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202611/aa325c35f9089589ca2d414d4db0afea.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0.8363636363636363,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-1986",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] 김창수 위스키 캐스크 커피 200g",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 25000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 87,
+      "tastingNotes": [
+        "감귤",
+        "캐러멜",
+        "바닐라",
+        "부드러움"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "Caramel",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Tangerine",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Smooth Mouthfeel",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Oaky",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "Vanilla",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "CARAMEL",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "탠저린",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "TANGERINE",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "촉감이 좋은 커피",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "SMOOTH MOUTHFEEL",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "오크향",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "OAKY",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "바닐라",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        },
+        {
+          "text": "VANILLA",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
+          "method": "image-model",
+          "process": "SEMI WASHED"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202601/b0a7859b366ed1dfb5ba17c1dd958f60.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.06666666666666665,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-91",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] 올드독 200g",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 88,
+      "tastingNotes": [
+        "다크초콜릿",
+        "브라운슈가",
+        "구운향",
+        "피칸"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "다크 초콜릿",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Dark Chocolate",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "흑당",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Black Sugar",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "로스티드 피칸",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Roasted Pecan",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=91&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/d4bc5f5d9e988274cdbcc20bb16cd58e.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.6444444444444444,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-92",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] 잘 되어 가시나 200g",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 84,
+      "tastingNotes": [
+        "건과일",
+        "캐러멜",
+        "당밀",
+        "시럽"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "건과일",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Dried Fruit",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "캐러멜",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Caramel",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "당밀",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Molasses",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "유자청",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Citron Syrup",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=92&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/1cb2eedf6cc1fe27c08dd17434760a17.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.35555555555555557,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-93",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] 서울 시네마 200g",
+      "origin": "Blend",
+      "process": "Blend",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 83,
+      "tastingNotes": [
+        "레몬",
+        "라즈베리",
+        "자두",
+        "홍차"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "자두",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Plum",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "라즈베리",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Raspberry",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "레몬 필",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Zest",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "아쌈 티",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Assam Tea",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "설탕",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Sugar",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=93&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/c6fe9acec0c525d0cb596e50647de9e0.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": 0.8222222222222223,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-982",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] 디카페인 Decaffeinated 200g",
+      "origin": "확인 필요",
+      "process": "확인 필요",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 200,
+      "priceOptionsComplete": false,
+      "score": 84,
+      "tastingNotes": [
+        "무화과",
+        "초콜릿",
+        "당밀",
+        "호두",
+        "긴 여운"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "건무화과",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "호두",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "당밀의 긴 여운",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "초콜릿",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Chocolate",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "건무화과",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Dried Fig",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "호두",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Walnut",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "당밀의 긴 여운",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        },
+        {
+          "text": "Molasses notes finish",
+          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
+          "method": "image-model"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/381c830dbf30e6575ab0c8e173393770.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "priceOptionsStatus": "partial",
+      "acidityScore": -0.36363636363636365,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-2195",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] Gedeb Chelbesa Washed",
+      "origin": "에티오피아 Ethiopia",
+      "process": "워시드 Washed",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "17,000원",
+      "priceOptions": [
+        {
+          "id": "200-17000",
+          "price": 17000,
+          "weight": 200,
+          "priceLabel": "17,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,500원/100g",
+          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 87,
+      "tastingNotes": [
+        "레몬",
+        "청사과",
+        "레몬그라스",
+        "시럽"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "레몬 그라스",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "청사과",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "레몬 제스트",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "시럽 같은 커피",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/8cdc2ef518b9302cad4a7b74633ad278.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "에티오피아 자생종 Heirloom",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.4888888888888888,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-2208",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] Corazon de Jesus Catuai Red Honey",
+      "origin": "코스타리카 Costa Rica지역 Region : 치리포 Chirripó농장 Farm : 코라손 데 헤수스 Corazon de Jesus생산자 Producer : 존 알바라도 John Alvarado품종 Variety : 카투아이 Catuai가공방식 Processing Method : 레드 허니 Red Honey",
+      "process": "Honey",
+      "roastLevel": "확인 필요",
+      "price": 17000,
+      "weight": 200,
+      "weightLabel": "200g",
+      "priceLabel": "17,000원",
+      "priceOptions": [
+        {
+          "id": "200-17000",
+          "price": 17000,
+          "weight": 200,
+          "priceLabel": "17,000원",
+          "weightLabel": "200g",
+          "unitPriceLabel": "8,500원/100g",
+          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2208&cate_no=48&display_group=1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 88,
+      "tastingNotes": [],
+      "tastingNoteEvidence": [
+        {
+          "text": "LAS CODORNICES CATURRA NATURAL",
+          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250715/EC8BB1EAB880EC98A4EBA6ACECA784_1-down.png",
+          "method": "image-model",
+          "process": "NATURAL"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2208&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202608/27a373c56bf03246d5be5812af3a622d.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": null,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-1746",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] San Isidro Labrador Typica Honey 100g",
+      "origin": "확인 필요",
+      "process": "Honey",
+      "roastLevel": "확인 필요",
+      "price": 12000,
+      "weight": 100,
+      "weightLabel": "100g",
+      "priceLabel": "12,000원",
+      "priceOptions": [
+        {
+          "id": "100-12000",
+          "price": 12000,
+          "weight": 100,
+          "priceLabel": "12,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "12,000원/100g",
+          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 84,
+      "tastingNotes": [
+        "자몽",
+        "복숭아"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "유자청",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "복숭아",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "자몽 티의 여운",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202606/17f5cffa1a7773ee53ca1c26afbbaeba.jpg",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.76,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
+      "id": "fritz-2086",
+      "roasterName": "프릳츠 커피 컴퍼니",
+      "productName": "[프릳츠] Herbazu San Roque Semi-Washed 100g",
+      "origin": "코스타리카 Costa Rica",
+      "process": "세미 워시드 Semi Washed",
+      "roastLevel": "확인 필요",
+      "price": 15000,
+      "weight": 100,
+      "weightLabel": "100g",
+      "priceLabel": "15,000원",
+      "priceOptions": [
+        {
+          "id": "100-15000",
+          "price": 15000,
+          "weight": 100,
+          "priceLabel": "15,000원",
+          "weightLabel": "100g",
+          "unitPriceLabel": "15,000원/100g",
+          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+          "originalPriceLabel": "",
+          "discountRate": 0,
+          "discountLabel": ""
+        }
+      ],
+      "priceOptionsComplete": true,
+      "score": 85,
+      "tastingNotes": [
+        "오렌지",
+        "레몬",
+        "천도복숭아",
+        "포도",
+        "당밀"
+      ],
+      "tastingNoteEvidence": [
+        {
+          "text": "오렌지",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "포도",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "천도 복숭아",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "당밀",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+          "method": "detail-text"
+        },
+        {
+          "text": "레몬 필의 여운",
+          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+          "method": "detail-text"
+        }
+      ],
+      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
+      "imageUrl": "https://fritz.co.kr/web/product/medium/202605/04aacd19ffbd4a2ce250c1609e4f68f1.png",
+      "isSoldOut": false,
+      "isNew": false,
+      "lastCheckedAt": "방금 전",
+      "checkedMinutesAgo": 0,
+      "variety": "산 로케 San Roque",
+      "farm": "",
+      "blendComposition": [],
+      "tasteScale": null,
+      "unitPriceLabel": "",
+      "acidityScore": 0.5818181818181818,
+      "acidityScoreSource": "tastingNotes"
+    },
+    {
       "id": "coffee502-184",
       "roasterName": "502커피로스터스",
       "productName": "에티오피아 예가체프 게뎁 초르소 워시드",
@@ -23869,787 +24647,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "fritz-1907",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] 크리스마스 블렌드 200g",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 22000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 83,
-      "tastingNotes": [
-        "베리",
-        "로즈힙",
-        "패션프루트",
-        "차",
-        "로즈"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "Berry",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Chocolate",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Passionfruit Jam",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Rose Hip Tea Notes Finish",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "베리",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Berry",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Chocolate",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "패션푸르츠 잼",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Passionfruit Jam",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "로즈 힙 티의 긴 여운",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Rose Hip Tea Notes Finish",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261120/christmas_blend_1_png.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1907&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202611/aa325c35f9089589ca2d414d4db0afea.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": 0.8363636363636363,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-1986",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] 김창수 위스키 캐스크 커피 200g",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 25000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 87,
-      "tastingNotes": [
-        "감귤",
-        "캐러멜",
-        "바닐라",
-        "부드러움"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "Caramel",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Tangerine",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Smooth Mouthfeel",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Oaky",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "Vanilla",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "CARAMEL",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "탠저린",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "TANGERINE",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "촉감이 좋은 커피",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "SMOOTH MOUTHFEEL",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "오크향",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "OAKY",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "바닐라",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        },
-        {
-          "text": "VANILLA",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20261013/EAB980ECB0BDEC8898-EC9C84EC8AA4ED82A4-EC8381EC84B8ED8E98EC9DB4ECA78028EC8898ECA095292028129.png",
-          "method": "image-model",
-          "process": "SEMI WASHED"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1986&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202601/b0a7859b366ed1dfb5ba17c1dd958f60.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.06666666666666665,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-91",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] 올드독 200g",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 88,
-      "tastingNotes": [
-        "다크초콜릿",
-        "브라운슈가",
-        "구운향",
-        "피칸"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "다크 초콜릿",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Dark Chocolate",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "흑당",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Black Sugar",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "로스티드 피칸",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Roasted Pecan",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/olddog_200g_cafe24.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=91&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/d4bc5f5d9e988274cdbcc20bb16cd58e.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.6444444444444444,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-92",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] 잘 되어 가시나 200g",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 84,
-      "tastingNotes": [
-        "건과일",
-        "캐러멜",
-        "당밀",
-        "시럽"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "건과일",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Dried Fruit",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "캐러멜",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Caramel",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "당밀",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Molasses",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "유자청",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Citron Syrup",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/everythinggood_200g_cafe24.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=92&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/1cb2eedf6cc1fe27c08dd17434760a17.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.35555555555555557,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-93",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] 서울 시네마 200g",
-      "origin": "Blend",
-      "process": "Blend",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 83,
-      "tastingNotes": [
-        "레몬",
-        "라즈베리",
-        "자두",
-        "홍차"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "자두",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Plum",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "라즈베리",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Raspberry",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "레몬 필",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Zest",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "아쌈 티",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Assam Tea",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "설탕",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Sugar",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250327/EC849CEC9AB8EC8B9CEB84A4EBA788-EB8F84EBA7A4.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=93&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/c6fe9acec0c525d0cb596e50647de9e0.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": 0.8222222222222223,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-982",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] 디카페인 Decaffeinated 200g",
-      "origin": "확인 필요",
-      "process": "확인 필요",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 200,
-      "priceOptionsComplete": false,
-      "score": 84,
-      "tastingNotes": [
-        "무화과",
-        "초콜릿",
-        "당밀",
-        "호두",
-        "긴 여운"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "건무화과",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "호두",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "당밀의 긴 여운",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "초콜릿",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Chocolate",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "건무화과",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Dried Fig",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "호두",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Walnut",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "당밀의 긴 여운",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        },
-        {
-          "text": "Molasses notes finish",
-          "sourceUrl": "https://fritz.co.kr/ec/coffee/bean/decaffeinated_200g_cafe24.png",
-          "method": "image-model"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=982&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/381c830dbf30e6575ab0c8e173393770.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "priceOptionsStatus": "partial",
-      "acidityScore": -0.36363636363636365,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-2195",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] Gedeb Chelbesa Washed",
-      "origin": "에티오피아 Ethiopia",
-      "process": "워시드 Washed",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "17,000원",
-      "priceOptions": [
-        {
-          "id": "200-17000",
-          "price": 17000,
-          "weight": 200,
-          "priceLabel": "17,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,500원/100g",
-          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 87,
-      "tastingNotes": [
-        "레몬",
-        "청사과",
-        "레몬그라스",
-        "시럽"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "레몬 그라스",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "청사과",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "레몬 제스트",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "시럽 같은 커피",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2195&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202607/8cdc2ef518b9302cad4a7b74633ad278.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "에티오피아 자생종 Heirloom",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.4888888888888888,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-2208",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] Corazon de Jesus Catuai Red Honey",
-      "origin": "코스타리카 Costa Rica지역 Region : 치리포 Chirripó농장 Farm : 코라손 데 헤수스 Corazon de Jesus생산자 Producer : 존 알바라도 John Alvarado품종 Variety : 카투아이 Catuai가공방식 Processing Method : 레드 허니 Red Honey",
-      "process": "Honey",
-      "roastLevel": "확인 필요",
-      "price": 17000,
-      "weight": 200,
-      "weightLabel": "200g",
-      "priceLabel": "17,000원",
-      "priceOptions": [
-        {
-          "id": "200-17000",
-          "price": 17000,
-          "weight": 200,
-          "priceLabel": "17,000원",
-          "weightLabel": "200g",
-          "unitPriceLabel": "8,500원/100g",
-          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2208&cate_no=48&display_group=1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 88,
-      "tastingNotes": [],
-      "tastingNoteEvidence": [
-        {
-          "text": "LAS CODORNICES CATURRA NATURAL",
-          "sourceUrl": "https://fritz.co.kr/web/upload/NNEditor/20250715/EC8BB1EAB880EC98A4EBA6ACECA784_1-down.png",
-          "method": "image-model",
-          "process": "NATURAL"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2208&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202608/27a373c56bf03246d5be5812af3a622d.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": null,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-1746",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] San Isidro Labrador Typica Honey 100g",
-      "origin": "확인 필요",
-      "process": "Honey",
-      "roastLevel": "확인 필요",
-      "price": 12000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "12,000원",
-      "priceOptions": [
-        {
-          "id": "100-12000",
-          "price": 12000,
-          "weight": 100,
-          "priceLabel": "12,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "12,000원/100g",
-          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 84,
-      "tastingNotes": [
-        "자몽",
-        "복숭아"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "유자청",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "복숭아",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "자몽 티의 여운",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=1746&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202606/17f5cffa1a7773ee53ca1c26afbbaeba.jpg",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.76,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
-      "id": "fritz-2086",
-      "roasterName": "프릳츠 커피 컴퍼니",
-      "productName": "[프릳츠] Herbazu San Roque Semi-Washed 100g",
-      "origin": "코스타리카 Costa Rica",
-      "process": "세미 워시드 Semi Washed",
-      "roastLevel": "확인 필요",
-      "price": 15000,
-      "weight": 100,
-      "weightLabel": "100g",
-      "priceLabel": "15,000원",
-      "priceOptions": [
-        {
-          "id": "100-15000",
-          "price": 15000,
-          "weight": 100,
-          "priceLabel": "15,000원",
-          "weightLabel": "100g",
-          "unitPriceLabel": "15,000원/100g",
-          "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 85,
-      "tastingNotes": [
-        "오렌지",
-        "레몬",
-        "천도복숭아",
-        "포도",
-        "당밀"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "포도",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "천도 복숭아",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "당밀",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-          "method": "detail-text"
-        },
-        {
-          "text": "레몬 필의 여운",
-          "sourceUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-          "method": "detail-text"
-        }
-      ],
-      "productUrl": "https://fritz.co.kr/product/detail.html?product_no=2086&cate_no=48&display_group=1",
-      "imageUrl": "https://fritz.co.kr/web/product/medium/202605/04aacd19ffbd4a2ce250c1609e4f68f1.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "산 로케 San Roque",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.5818181818181818,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
       "id": "werk-161",
       "roasterName": "베르크커피",
       "productName": "베르크 베이비 블렌드",
@@ -25189,86 +25186,6 @@
       "acidityScoreSource": "tastingNotes"
     },
     {
-      "id": "werk-581",
-      "roasterName": "베르크커피",
-      "productName": "베르크 에티오피아 예가체프 콩가 워시드",
-      "origin": "Ethiopia",
-      "process": "Washed",
-      "roastLevel": "확인 필요",
-      "price": 22500,
-      "weight": 250,
-      "weightLabel": "250g",
-      "priceLabel": "22,500원",
-      "priceOptions": [
-        {
-          "id": "250-22500",
-          "price": 22500,
-          "weight": 250,
-          "priceLabel": "22,500원",
-          "weightLabel": "250g",
-          "unitPriceLabel": "9,000원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        },
-        {
-          "id": "1000-61000",
-          "price": 61000,
-          "weight": 1000,
-          "priceLabel": "61,000원",
-          "weightLabel": "1kg",
-          "unitPriceLabel": "6,100원/100g",
-          "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
-          "originalPriceLabel": "",
-          "discountRate": 0,
-          "discountLabel": ""
-        }
-      ],
-      "priceOptionsComplete": true,
-      "score": 84,
-      "tastingNotes": [
-        "오렌지",
-        "레몬"
-      ],
-      "tastingNoteEvidence": [
-        {
-          "text": "레몬",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        },
-        {
-          "text": "오렌지",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        },
-        {
-          "text": "케인 슈가",
-          "sourceUrl": "https://werk.co.kr/web/upload/NNEditor/20261002/Ethiopia20Yirgacheffe20Konga20Washed.png",
-          "method": "image-model",
-          "group": "향미",
-          "process": "워시드 Washed"
-        }
-      ],
-      "productUrl": "https://werk.co.kr/product/베르크-에티오피아-예가체프-콩가-워시드/581/category/1/display/2/?icid=MAIN.product_listmain_1",
-      "imageUrl": "https://werk.co.kr/web/product/medium/202610/3750fcbe03d0ef7cc6334342cb5d61a3.png",
-      "isSoldOut": false,
-      "isNew": false,
-      "lastCheckedAt": "방금 전",
-      "checkedMinutesAgo": 0,
-      "variety": "",
-      "farm": "",
-      "blendComposition": [],
-      "tasteScale": null,
-      "unitPriceLabel": "",
-      "acidityScore": 0.72,
-      "acidityScoreSource": "tastingNotes"
-    },
-    {
       "id": "werk-577",
       "roasterName": "베르크커피",
       "productName": "코스타리카 임페리오 로호 카투아이 워시드",
@@ -25306,7 +25223,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 85,
+      "score": 84,
       "tastingNotes": [
         "자몽",
         "캐러멜",
@@ -25402,7 +25319,7 @@
         }
       ],
       "priceOptionsComplete": true,
-      "score": 86,
+      "score": 85,
       "tastingNotes": [
         "건포도",
         "말린자두",
@@ -29079,8 +28996,8 @@
     }
   ],
   "quality": {
-    "total": 497,
-    "cleanCount": 484,
+    "total": 496,
+    "cleanCount": 483,
     "excludedCount": 13,
     "flaggedCount": 3,
     "invalidOptionCount": 1,
@@ -29285,17 +29202,17 @@
     "staleProductCount": 0,
     "collectionRuns": [
       {
-        "sourceId": "hitte",
-        "roasterName": "히떼 로스터리",
-        "status": "complete",
-        "itemCount": 38,
-        "usedFallback": false
-      },
-      {
         "sourceId": "hocuspocus",
         "roasterName": "호커스포커스 로스터스",
         "status": "complete",
         "itemCount": 71,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "hitte",
+        "roasterName": "히떼 로스터리",
+        "status": "complete",
+        "itemCount": 38,
         "usedFallback": false
       },
       {
@@ -29369,17 +29286,17 @@
         "usedFallback": false
       },
       {
-        "sourceId": "hellcafe",
-        "roasterName": "헬카페",
-        "status": "complete",
-        "itemCount": 7,
-        "usedFallback": false
-      },
-      {
         "sourceId": "coffeelibre",
         "roasterName": "커피리브레",
         "status": "complete",
         "itemCount": 19,
+        "usedFallback": false
+      },
+      {
+        "sourceId": "hellcafe",
+        "roasterName": "헬카페",
+        "status": "complete",
+        "itemCount": 7,
         "usedFallback": false
       },
       {
@@ -29397,13 +29314,6 @@
         "usedFallback": false
       },
       {
-        "sourceId": "coffee502",
-        "roasterName": "502커피로스터스",
-        "status": "complete",
-        "itemCount": 13,
-        "usedFallback": false
-      },
-      {
         "sourceId": "fritz",
         "roasterName": "프릳츠 커피 컴퍼니",
         "status": "complete",
@@ -29411,10 +29321,17 @@
         "usedFallback": false
       },
       {
+        "sourceId": "coffee502",
+        "roasterName": "502커피로스터스",
+        "status": "complete",
+        "itemCount": 13,
+        "usedFallback": false
+      },
+      {
         "sourceId": "werk",
         "roasterName": "베르크커피",
         "status": "complete",
-        "itemCount": 9,
+        "itemCount": 8,
         "usedFallback": false
       },
       {
